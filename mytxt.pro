@@ -12,12 +12,17 @@ SOURCES += \
     http.cpp \
     main.cpp \
     mainwindow.cpp \
-    tab.cpp
+    tab.cpp \
+    tabletab.cpp \
+    texttab.cpp
 
 HEADERS += \
+    abstracttab.h \
     http.h \
     mainwindow.h \
-    tab.h
+    tab.h \
+    tabletab.h \
+    texttab.h
 
 FORMS += \
     http.ui \

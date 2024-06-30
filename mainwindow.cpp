@@ -1,48 +1,34 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "texttab.h"
+#include "tabletab.h"
 
-void MainWindow::initializeTabs(int numberOfTabs)
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    initializeTabs(2, []() { return new TextTab(); });
+    initializeTabs(2, []() { return new TableTab(); });
+}
+
+void MainWindow::initializeTabs(int numberOfTabs, std::function<AbstractTab*()> tabFactory)
 {
     for (int i = 0; i < numberOfTabs; i++) {
-        Tab* newTab = new Tab();
+        AbstractTab* newTab = tabFactory();
         tab_pool.push_back(newTab);
         freeTabs.push(i);
     }
 }
 
-void MainWindow::on_actionnew_triggered()
+void MainWindow::on_actiontxt_file_triggered()
 {
-    if (!freeTabs.isEmpty())
-    {
-        int tabIndex = freeTabs.pop();
-        if (tabIndex >= 0 && tabIndex < tab_pool.size()) {
-            Tab* tab = tab_pool[tabIndex];
-            ui->tabWidget->addTab(tab, "new Tab");
-        }
-        else
-            qDebug() << "Invalid tabIndex: " << tabIndex;
-    }
-    else
-        QMessageBox::warning(this, tr("No More Tabs"), tr("No more tabs available in the pool."));
+    createNewTab([]() { return new TextTab(); }, "New Text Tab");
 }
 
-void MainWindow::on_tabWidget_currentChanged(int index)
+void MainWindow::on_actionscv_file_triggered()
 {
-    currentIndex = index;
-    qDebug() << "当前处于 tab 索引：" << index;
+    createNewTab([]() { return new TableTab(); }, "New Table Tab");
 }
 
-void MainWindow::on_actionclose_triggered()
-{
-
-    if (currentIndex >= 0 && currentIndex < tab_pool.size())
-    {
-        ui->tabWidget->removeTab(currentIndex);
-        freeTabs.push(currentIndex);
-    }
-    else
-        qDebug() << "No tab to close.";
-}
 
 void MainWindow::on_actionopen_triggered()
 {
@@ -50,78 +36,122 @@ void MainWindow::on_actionopen_triggered()
     if (fileName.isEmpty())
         return;
 
-    QFile file(fileName);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QMessageBox::warning(this, tr("Error"), tr("Could not open file"));
-        return;
-    }
-
-    QTextStream in(&file);
-    QString content = in.readAll();
-    file.close();
-
-    if (!freeTabs.isEmpty())
-    {
+    if (!freeTabs.isEmpty()) {
         int tabIndex = freeTabs.pop();
-        if (tabIndex >= 0 && tabIndex < tab_pool.size())
-        {
-            Tab* tab = tab_pool[tabIndex];
-            tab->TabSetText(content);
+
+        if (tabIndex >= 0 && tabIndex < tab_pool.size()) {
+            AbstractTab* tab = tab_pool[tabIndex];
+            tab->loadFromFile(fileName);
 
             QFileInfo fileInfo(fileName);
             QString baseName = fileInfo.fileName();
             ui->tabWidget->addTab(tab, baseName);
+        } else {
+            QMessageBox::warning(this, tr("Error"), tr("Invalid tab index"));
         }
-        else
-            qDebug() << "Invalid tabIndex: " << tabIndex;
-    }
-    else
+    } else {
         QMessageBox::warning(this, tr("No More Tabs"), tr("No more tabs available in the pool."));
+    }
 }
+
 
 void MainWindow::on_actionsave_triggered()
 {
-
+    int currentIndex = ui->tabWidget->currentIndex();
     if (currentIndex < 0 || currentIndex >= tab_pool.size()) {
         QMessageBox::warning(this, tr("Error"), tr("No tab to save"));
         return;
     }
 
-    Tab* currentTab = qobject_cast<Tab*>(ui->tabWidget->widget(currentIndex));
-    if (!currentTab)
-    {
-        QMessageBox::warning(this, tr("Error"), tr("Invalid tab"));
+    AbstractTab* currentTab = qobject_cast<AbstractTab*>(ui->tabWidget->widget(currentIndex));
+    if (!currentTab) {
+        QMessageBox::warning(this, tr("Error"), tr("Current tab is not valid"));
         return;
     }
-    QString content = currentTab->TabGetText();
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "", tr("Text Files (*.txt);;All Files (*)"));
+
+    QString fileFilter;
+    if (dynamic_cast<TextTab*>(currentTab)) {
+        fileFilter = tr("Text Files (*.txt);;All Files (*)");
+    } else if (dynamic_cast<TableTab*>(currentTab)) {
+        fileFilter = tr("CSV Files (*.csv);;All Files (*)");
+    } else {
+        fileFilter = tr("All Files (*)");
+    }
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "", fileFilter);
     if (fileName.isEmpty())
         return;
 
-    QFile file(fileName);
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QMessageBox::warning(this, tr("Error"), tr("Could not save file"));
-        return;
-    }
-
-    QTextStream out(&file);
-    out << content;
-    file.close();
-
-    if (file.error() == QFile::NoError)
-        QMessageBox::information(this, tr("Success"), tr("File saved successfully"));
-    else
-        QMessageBox::warning(this, tr("Error"), tr("File could not be saved"));
+    currentTab->saveToFile(fileName);
 }
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
+
+void MainWindow::createNewTab(std::function<AbstractTab*()> tabFactory, const QString &tabName)
 {
-    ui->setupUi(this);
-    Tab* firstTab = new Tab();
-    firstTab->TabSetText("First Tab Content");
-    ui->tabWidget->addTab(firstTab, "First Tab");
-    initializeTabs(9);
+    if (!freeTabs.isEmpty()) {
+        int tabIndex = freeTabs.pop();
+        if (tabIndex >= 0 && tabIndex < tab_pool.size()) {
+            AbstractTab* tab = tabFactory();
+            tab_pool[tabIndex] = tab;
+            tab->setText(tabName + " Content");
+            ui->tabWidget->addTab(tab, tabName);
+        } else {
+            QMessageBox::warning(this, tr("Error"), tr("Invalid tab index"));
+        }
+    } else {
+        QMessageBox::warning(this, tr("No More Tabs"), tr("No more tabs available in the pool."));
+    }
 }
+
+
+
+void MainWindow::on_tabWidget_currentChanged(int index)
+{
+    qDebug() << "Current tab index: " << index;
+}
+
+void MainWindow::on_actionclose_triggered()
+{
+    int currentIndex = ui->tabWidget->currentIndex();
+
+    if (currentIndex >= 0 && currentIndex < tab_pool.size()) {
+        ui->tabWidget->removeTab(currentIndex);
+        freeTabs.push(currentIndex);
+    } else {
+        qDebug() << "No tab to close.";
+    }
+}
+
+void MainWindow::on_actiondownload_triggered()
+{
+    int currentIndex = ui->tabWidget->currentIndex();
+    AbstractTab* currentTab = qobject_cast<AbstractTab*>(ui->tabWidget->widget(currentIndex));
+    if (currentTab) {
+        Http* http = new Http();
+        connect(http, &Http::fileDownloaded, this, &MainWindow::handleFileDownload);
+        http->show();
+    } else {
+        qDebug() << "Failed to cast current tab to AbstractTab*";
+    }
+}
+
+void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &fileContent)
+{
+    if (!freeTabs.isEmpty()) {
+        int tabIndex = freeTabs.pop();
+
+        if (tabIndex >= 0 && tabIndex < tab_pool.size()) {
+            AbstractTab* tab = tab_pool[tabIndex];
+            tab->loadFromContent(fileContent);
+            ui->tabWidget->addTab(tab, fileName);
+        } else {
+            QMessageBox::warning(this, tr("Error"), tr("Invalid tab index"));
+        }
+    } else {
+        QMessageBox::warning(this, tr("No More Tabs"), tr("No more tabs available in the pool."));
+    }
+}
+
 
 MainWindow::~MainWindow()
 {
@@ -129,31 +159,27 @@ MainWindow::~MainWindow()
     qDeleteAll(tab_pool);
 }
 
-void MainWindow::on_actiondownload_triggered()
+void MainWindow::on_actionadd_triggered()
 {
-    Tab* currentTab = qobject_cast<Tab*>(ui->tabWidget->widget(currentIndex));
+    int currentIndex = ui->tabWidget->currentIndex();
+    TableTab* currentTab = dynamic_cast<TableTab*>(ui->tabWidget->widget(currentIndex));
     if (currentTab) {
-        Http* http = new Http();
-        connect(http, &Http::fileDownloaded, this, &MainWindow::handleFileDownload);
-        http->show();
+        currentTab->addRow();
+    } else {
+        QMessageBox::warning(this, tr("Error"), tr("Current tab is not a table."));
     }
-    else
-        qDebug() << "Failed to cast current tab to Tab*";
-
 }
 
-void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &fileContent)
+
+void MainWindow::on_actionsub_triggered()
 {
-    if (!freeTabs.isEmpty()) {
-        int tabIndex = freeTabs.pop();
-        if (tabIndex >= 0 && tabIndex < tab_pool.size()) {
-            Tab* tab = tab_pool[tabIndex];
-            tab->TabSetText(QString::fromUtf8(fileContent)); // Assuming fileContent is UTF-8 encoded
-            ui->tabWidget->addTab(tab, fileName);
-        }
-        else
-            QMessageBox::warning(this, tr("Error"), tr("Invalid tab index"));
+    int currentIndex = ui->tabWidget->currentIndex();
+    TableTab* currentTab = dynamic_cast<TableTab*>(ui->tabWidget->widget(currentIndex));
+    if (currentTab) {
+        currentTab->addColumn();
+    } else {
+        QMessageBox::warning(this, tr("Error"), tr("Current tab is not a table."));
     }
-    else
-        QMessageBox::warning(this, tr("No More Tabs"), tr("No more tabs available in the pool."));
+
 }
+

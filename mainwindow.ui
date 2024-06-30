@@ -41,7 +41,14 @@
     <property name="title">
      <string>file</string>
     </property>
-    <addaction name="actionnew"/>
+    <widget class="QMenu" name="menunew">
+     <property name="title">
+      <string>new</string>
+     </property>
+     <addaction name="actiontxt_file"/>
+     <addaction name="actionscv_file"/>
+    </widget>
+    <addaction name="menunew"/>
     <addaction name="actionopen"/>
     <addaction name="actionsave"/>
     <addaction name="actionclose"/>
@@ -58,11 +65,6 @@
    <addaction name="menuaction"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionnew">
-   <property name="text">
-    <string>new</string>
-   </property>
-  </action>
   <action name="actionopen">
    <property name="text">
     <string>open</string>
@@ -75,12 +77,12 @@
   </action>
   <action name="actionadd">
    <property name="text">
-    <string>add</string>
+    <string> add row</string>
    </property>
   </action>
   <action name="actionsub">
    <property name="text">
-    <string>sub</string>
+    <string>add col</string>
    </property>
   </action>
   <action name="actionclose">
@@ -91,6 +93,16 @@
   <action name="actiondownload">
    <property name="text">
     <string>download</string>
+   </property>
+  </action>
+  <action name="actiontxt_file">
+   <property name="text">
+    <string>txt file</string>
+   </property>
+  </action>
+  <action name="actionscv_file">
+   <property name="text">
+    <string>scv file</string>
    </property>
   </action>
  </widget>
