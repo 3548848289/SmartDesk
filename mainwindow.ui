@@ -60,6 +60,7 @@
     </property>
     <addaction name="actionadd"/>
     <addaction name="actionsub"/>
+    <addaction name="actionlink_server"/>
    </widget>
    <addaction name="menufile"/>
    <addaction name="menuaction"/>
@@ -103,6 +104,11 @@
   <action name="actionscv_file">
    <property name="text">
     <string>scv file</string>
+   </property>
+  </action>
+  <action name="actionlink_server">
+   <property name="text">
+    <string>link server</string>
    </property>
   </action>
  </widget>

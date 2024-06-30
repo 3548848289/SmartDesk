@@ -8,6 +8,7 @@
 #include <QMessageBox>
 #include "abstracttab.h"
 #include "Http.h"
+#include "epoll.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -35,6 +36,8 @@ private slots:
     void on_actionadd_triggered();
 
     void on_actionsub_triggered();
+
+    void on_actionlink_server_triggered();
 
 private:
     Ui::MainWindow *ui;
