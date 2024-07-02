@@ -1,16 +1,34 @@
-
 #include "tabletab.h"
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
 #include <QVBoxLayout>
 
-TableTab::TableTab(QWidget *parent)
-    : AbstractTab(parent), tableWidget(new QTableWidget(this))
+TableTab::TableTab(QWidget *parent): AbstractTab(parent), tableWidget(new QTableWidget(this))
 {
+
+    tableWidget->setColumnCount(3);
+    tableWidget->setRowCount(3);
+
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(tableWidget);
     setLayout(layout);
+
+    connect(tableWidget, &QAbstractItemView::clicked, [=](const QModelIndex &index){
+        QString newText = QString("Editing started at: 行%1，列%2").arg(index.row()).arg(index.column());
+        emit dataToSend(newText);
+    });
+
+    connect(tableWidget, &QTableWidget::itemChanged, [=](QTableWidgetItem *item){
+        QString newText = QString("内容改变：行%1，列%2，新内容：%3")
+                              .arg(item->row())
+                              .arg(item->column())
+                              .arg(item->text());
+        emit dataToSend(newText);
+
+    });
+
+
 }
 
 void TableTab::setText(const QString &text)

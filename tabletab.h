@@ -19,6 +19,11 @@ public:
 
     void addRow();
     void addColumn();
+
+
+signals:
+    void dataToSend(const QString &data); // Signal to send data
+
 private:
     QTableWidget *tableWidget;
     void parseCSV(const QString &csvText);

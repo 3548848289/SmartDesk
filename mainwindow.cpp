@@ -187,9 +187,9 @@ void MainWindow::on_actionsub_triggered()
 void MainWindow::on_actionlink_server_triggered()
 {
     int currentIndex = ui->tabWidget->currentIndex();
-    AbstractTab* currentTab = qobject_cast<AbstractTab*>(ui->tabWidget->widget(currentIndex));
+    TableTab* currentTab = qobject_cast<TableTab*>(ui->tabWidget->widget(currentIndex));
     if (currentTab) {
-        Epoll* epoll = new Epoll();
+        Epoll* epoll = new Epoll(nullptr, currentTab);
         epoll->show();
     } else {
         qDebug() << "Failed to cast current tab to AbstractTab*";

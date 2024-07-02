@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QTcpSocket>
 
+#include "tabletab.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class Epoll; }
 QT_END_NAMESPACE
@@ -13,8 +15,11 @@ class Epoll : public QMainWindow
     Q_OBJECT
 
 public:
-    Epoll(QWidget *parent = nullptr);
+    Epoll(QWidget *parent, TableTab* eTableTab);
     ~Epoll();
+
+public slots:
+    void sendDataToServer(const QString &data);
 
 private slots:
     void on_readyRead();
@@ -24,9 +29,12 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+
+
 private:
     Ui::Epoll *ui;
     QTcpSocket *tcpSocket;
+    TableTab *tableTab;
 };
 
 #endif // Epoll_H
