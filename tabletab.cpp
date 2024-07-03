@@ -8,10 +8,6 @@ TableTab::TableTab(QWidget *parent): AbstractTab(parent)
 {
 
     tableWidget = new QTableWidget(this);
-    tableWidget->setColumnCount(5);  // 设置列数
-    QStringList headers = {"Name", "ID", "Gender", "Age", "Address"};
-    tableWidget->setHorizontalHeaderLabels(headers);
-
     // 创建垂直布局并将表格添加到布局中
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(tableWidget);
@@ -29,8 +25,6 @@ TableTab::TableTab(QWidget *parent): AbstractTab(parent)
         emit dataToSend("edited" + newText);
 
     });
-
-
 }
 
 void TableTab::setText(const QString &text)
@@ -118,7 +112,10 @@ void TableTab::getEpolldata(QString data)
 {
     // Clear existing data
     tableWidget->clearContents();
-    tableWidget->setRowCount(0);
+    tableWidget->setRowCount(0);    
+    tableWidget->setColumnCount(5);  // 设置列数
+    QStringList headers = {"Name", "ID", "Gender", "Age", "Address"};
+    tableWidget->setHorizontalHeaderLabels(headers);
 
     // Each entry is separated by a newline
     QStringList entries = data.split("\n", Qt::SkipEmptyParts);
@@ -146,11 +143,8 @@ void TableTab::getEpolllight(QString data)
     if (row >= 0 && row < tableWidget->rowCount() && column >= 0 && column < tableWidget->columnCount())
     {
         QTableWidgetItem *item = tableWidget->item(row, column);
-
-        if (item) {
+        if (item)
             item->setBackground(Qt::yellow);
-        }
-
     }
     else
         qDebug() << "Invalid data: (" << row << ", " << column << ")";

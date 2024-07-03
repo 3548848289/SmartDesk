@@ -111,9 +111,9 @@ void MainWindow::on_actiondownload_triggered()
     int currentIndex = ui->tabWidget->currentIndex();
     AbstractTab* currentTab = qobject_cast<AbstractTab*>(ui->tabWidget->widget(currentIndex));
     if (currentTab) {
-        Http* http = new Http();
-        connect(http, &Http::fileDownloaded, this, &MainWindow::handleFileDownload);
-        http->show();
+        downLoad* downloadWidget = new downLoad();
+        connect(downloadWidget, &downLoad::fileDownloaded, this, &MainWindow::handleFileDownload);
+        downloadWidget->show();
     } else {
         qDebug() << "Failed to cast current tab to AbstractTab*";
     }

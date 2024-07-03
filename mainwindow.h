@@ -5,7 +5,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include "abstracttab.h"
-#include "Http.h"
+#include "downLoad.h"
 #include "epoll.h"
 
 QT_BEGIN_NAMESPACE

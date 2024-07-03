@@ -4,8 +4,9 @@
 #include <QMessageBox>
 #include <QVBoxLayout>
 
-TextTab::TextTab(QWidget *parent): AbstractTab(parent), textEdit(new QTextEdit(this))
+TextTab::TextTab(QWidget *parent): AbstractTab(parent)
 {
+    textEdit = new QTextEdit(this);
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(textEdit);
     setLayout(layout);
@@ -13,8 +14,13 @@ TextTab::TextTab(QWidget *parent): AbstractTab(parent), textEdit(new QTextEdit(t
 
 void TextTab::setText(const QString &text)
 {
+    Q_ASSERT(textEdit != nullptr); // Ensure textEdit is not null
+    qDebug() << "setText called with text:" << text;
+
     textEdit->setText(text);
 }
+
+
 
 QString TextTab::getText() const
 {
@@ -46,7 +52,11 @@ void TextTab::saveToFile(const QString &fileName)
     }
 }
 
+
 void TextTab::loadFromContent(const QByteArray &content)
 {
-    setText(QString::fromUtf8(content));
+    QString text = QString::fromUtf8(content);
+    qDebug() << "Converted text:" << text;
+    setText(text);
 }
+
