@@ -1,9 +1,7 @@
-// mainwindow.h
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QStack>
 #include <QFileDialog>
 #include <QMessageBox>
 #include "abstracttab.h"
@@ -29,24 +27,17 @@ private slots:
     void on_actionclose_triggered();
     void on_actiondownload_triggered();
     void handleFileDownload(const QString &fileName, const QByteArray &fileContent);
-
     void on_actionscv_file_triggered();
     void on_actiontxt_file_triggered();
-
     void on_actionadd_triggered();
-
     void on_actionsub_triggered();
-
     void on_actionlink_server_triggered();
 
 private:
     Ui::MainWindow *ui;
-    QStack<int> freeTabs;
-    QList<AbstractTab*> tab_pool;
 
     void createNewTab(std::function<AbstractTab*()> tabFactory, const QString &tabName);
-
-    void initializeTabs(int numberOfTabs, std::function<AbstractTab*()> tabFactory);
+    AbstractTab* createTabByFileName(const QString &fileName);
 };
 
 #endif // MAINWINDOW_H

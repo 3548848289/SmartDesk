@@ -17,8 +17,8 @@
    <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>130</y>
+      <x>30</x>
+      <y>140</y>
       <width>441</width>
       <height>161</height>
      </rect>
@@ -30,7 +30,7 @@
       <x>20</x>
       <y>10</y>
       <width>441</width>
-      <height>101</height>
+      <height>121</height>
      </rect>
     </property>
     <property name="title">
@@ -119,7 +119,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="linkserverBtn">
          <property name="text">
           <string>link server</string>
          </property>
@@ -130,12 +130,30 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLineEdit" name="msgEdit"/>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="sendmsgEdit">
          <property name="text">
-          <string>send</string>
+          <string>send message</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLineEdit" name="readfileEdit">
+         <property name="text">
+          <string>class1.csv</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="readfiieBtn">
+         <property name="text">
+          <string>read file</string>
          </property>
         </widget>
        </item>

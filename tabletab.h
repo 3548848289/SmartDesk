@@ -4,6 +4,7 @@
 
 #include "abstracttab.h"
 #include <QTableWidget>
+#include <QString>
 
 class TableTab : public AbstractTab
 {
@@ -20,6 +21,10 @@ public:
     void addRow();
     void addColumn();
 
+    void getEpolldata(QString data);
+    void getEpolllight(QString data);
+
+
 
 signals:
     void dataToSend(const QString &data); // Signal to send data
@@ -28,6 +33,8 @@ private:
     QTableWidget *tableWidget;
     void parseCSV(const QString &csvText);
     QString toCSV() const;
+
+
 
 };
 

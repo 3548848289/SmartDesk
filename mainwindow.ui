@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMenu { font-size: 12px; }</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
@@ -70,10 +73,16 @@
    <property name="text">
     <string>open</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
   </action>
   <action name="actionsave">
    <property name="text">
     <string>save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
   <action name="actionadd">
@@ -90,6 +99,9 @@
    <property name="text">
     <string>close</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
   </action>
   <action name="actiondownload">
    <property name="text">
@@ -100,10 +112,16 @@
    <property name="text">
     <string>txt file</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+N, Ctrl+T</string>
+   </property>
   </action>
   <action name="actionscv_file">
    <property name="text">
     <string>scv file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N, Ctrl+C</string>
    </property>
   </action>
   <action name="actionlink_server">

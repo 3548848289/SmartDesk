@@ -4,27 +4,29 @@
 #include <QMessageBox>
 #include <QVBoxLayout>
 
-TableTab::TableTab(QWidget *parent): AbstractTab(parent), tableWidget(new QTableWidget(this))
+TableTab::TableTab(QWidget *parent): AbstractTab(parent)
 {
 
-    tableWidget->setColumnCount(3);
-    tableWidget->setRowCount(3);
+    tableWidget = new QTableWidget(this);
+    tableWidget->setColumnCount(5);  // 设置列数
+    QStringList headers = {"Name", "ID", "Gender", "Age", "Address"};
+    tableWidget->setHorizontalHeaderLabels(headers);
 
+    // 创建垂直布局并将表格添加到布局中
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(tableWidget);
-    setLayout(layout);
 
+    // 设置布局
+    setLayout(layout);
     connect(tableWidget, &QAbstractItemView::clicked, [=](const QModelIndex &index){
-        QString newText = QString("Editing started at: 行%1，列%2").arg(index.row()).arg(index.column());
-        emit dataToSend(newText);
+        QString newText = QString("('%1','%2')").arg(index.row()).arg(index.column());
+        emit dataToSend("chick " + newText);
     });
 
     connect(tableWidget, &QTableWidget::itemChanged, [=](QTableWidgetItem *item){
         QString newText = QString("内容改变：行%1，列%2，新内容：%3")
-                              .arg(item->row())
-                              .arg(item->column())
-                              .arg(item->text());
-        emit dataToSend(newText);
+                          .arg(item->row()).arg(item->column()).arg(item->text());
+        emit dataToSend("edited" + newText);
 
     });
 
@@ -84,6 +86,7 @@ void TableTab::parseCSV(const QString &csvText)
     }
 }
 
+
 QString TableTab::toCSV() const
 {
     QString csvText;
@@ -109,4 +112,46 @@ void TableTab::addColumn()
 {
     int columnCount = tableWidget->columnCount();
     tableWidget->insertColumn(columnCount);
+}
+
+void TableTab::getEpolldata(QString data)
+{
+    // Clear existing data
+    tableWidget->clearContents();
+    tableWidget->setRowCount(0);
+
+    // Each entry is separated by a newline
+    QStringList entries = data.split("\n", Qt::SkipEmptyParts);
+
+    tableWidget->setRowCount(entries.size());
+    for (int row = 0; row < entries.size(); ++row) {
+        QString entry = entries[row].trimmed();
+        entry = entry.remove("('").remove("')");
+        QStringList fields = entry.split("', '");
+        if (fields.size() == 5) {
+            tableWidget->setItem(row, 0, new QTableWidgetItem(fields[0]));
+            tableWidget->setItem(row, 1, new QTableWidgetItem(fields[1]));
+            tableWidget->setItem(row, 2, new QTableWidgetItem(fields[2]));
+            tableWidget->setItem(row, 3, new QTableWidgetItem(fields[3]));
+            tableWidget->setItem(row, 4, new QTableWidgetItem(fields[4]));
+        }
+    }
+}
+
+void TableTab::getEpolllight(QString data)
+{
+    int row = 0, column = 0;
+    sscanf(data.toStdString().c_str(), "chick ('%d','%d')", &row, &column);
+
+    if (row >= 0 && row < tableWidget->rowCount() && column >= 0 && column < tableWidget->columnCount())
+    {
+        QTableWidgetItem *item = tableWidget->item(row, column);
+
+        if (item) {
+            item->setBackground(Qt::yellow);
+        }
+
+    }
+    else
+        qDebug() << "Invalid data: (" << row << ", " << column << ")";
 }
