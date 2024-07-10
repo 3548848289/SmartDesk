@@ -5,8 +5,6 @@
 #include <QMessageBox>
 #include <QDesktopServices>
 
-
-
 downLoad::downLoad(QWidget *parent) :QMainWindow(parent),
     ui(new Ui::downLoad),reply(nullptr),downloadedFile(nullptr){
 
