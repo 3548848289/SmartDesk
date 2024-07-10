@@ -17,7 +17,6 @@ Epoll::Epoll(QWidget *parent, TableTab* eTableTab): QMainWindow(parent), ui(new 
         qDebug() << "Disconnected from server.";
     });
     connect(tcpSocket, &QTcpSocket::readyRead, this, &Epoll::on_readyRead);
-    connect(tableTab, &TableTab::dataToSend, this, &Epoll::sendDataToServer);
 }
 
 Epoll::~Epoll()
@@ -29,7 +28,10 @@ Epoll::~Epoll()
 void Epoll::on_readyRead()
 {
     QString data = tcpSocket->readAll();
+    qDebug() << data;
+
     QStringList lines = data.split("\n");
+
     if (!lines.isEmpty()) {
         QString firstLine = lines.first();
         QString remainingData = data.mid(firstLine.length() + 1);
@@ -41,6 +43,10 @@ void Epoll::on_readyRead()
         if(firstLine == "chick")
         {
             tableTab->getEpolllight(remainingData);
+        }
+        if(firstLine == "clear")
+        {
+            tableTab->clearHighlight(remainingData);
         }
     }
 }
@@ -98,6 +104,9 @@ void Epoll::on_linkserverBtn_clicked()
         QMessageBox::warning(this, tr("Error"), tr("Failed to connect to server: %1").arg(errorString));
     }
     else
+    {
         QMessageBox::information(this, tr("Connected"), tr("Connected to server"));
+        connect(tableTab, &TableTab::dataToSend, this, &Epoll::sendDataToServer);
+    }
 }
 

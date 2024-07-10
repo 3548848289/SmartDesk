@@ -6,7 +6,7 @@
 
 TableTab::TableTab(QWidget *parent): AbstractTab(parent)
 {
-
+    highlightLabel = new QLabel(this);
     tableWidget = new QTableWidget(this);
     // 创建垂直布局并将表格添加到布局中
     QVBoxLayout *layout = new QVBoxLayout(this);
@@ -15,16 +15,30 @@ TableTab::TableTab(QWidget *parent): AbstractTab(parent)
     // 设置布局
     setLayout(layout);
     connect(tableWidget, &QAbstractItemView::clicked, [=](const QModelIndex &index){
-        QString newText = QString("('%1','%2')").arg(index.row()).arg(index.column());
-        emit dataToSend("chick " + newText);
+        foucsRow = index.row();
+        foucsCol = index.column();
+
+        QTableWidgetItem *item = tableWidget->item(foucsRow, foucsCol);
+        item->setBackground(Qt::yellow);
+
+        QString newText = QString("(%1,%2)").arg(foucsRow).arg(foucsRow);
+        if(link)
+            emit dataToSend("chick" + newText);
     });
 
     connect(tableWidget, &QTableWidget::itemChanged, [=](QTableWidgetItem *item){
-        QString newText = QString("内容改变：行%1，列%2，新内容：%3")
+        QString newText = QString("(%1,%2,%3)")
                           .arg(item->row()).arg(item->column()).arg(item->text());
-        emit dataToSend("edited" + newText);
+        if(link)
+            emit dataToSend("edited" + newText);
 
     });
+    connect(tableWidget, &QTableWidget::itemSelectionChanged, [=](){
+        QString newText = QString("(%1,%2)").arg(foucsRow).arg(foucsRow);
+        if(link)
+            emit dataToSend("clear" + newText);
+    });
+
 }
 
 void TableTab::setText(const QString &text)
@@ -135,17 +149,42 @@ void TableTab::getEpolldata(QString data)
     }
 }
 
+
+
 void TableTab::getEpolllight(QString data)
 {
     int row = 0, column = 0;
-    sscanf(data.toStdString().c_str(), "chick ('%d','%d')", &row, &column);
+    sscanf(data.toStdString().c_str(), "chick (%d,%d)", &row, &column);
+    qDebug() << "chick data: (" << row << ", " << column << ")";
 
     if (row >= 0 && row < tableWidget->rowCount() && column >= 0 && column < tableWidget->columnCount())
     {
         QTableWidgetItem *item = tableWidget->item(row, column);
-        if (item)
-            item->setBackground(Qt::yellow);
+        if (item) {
+            QColor originalColor = item->background().color();            // 保存原始颜色
+            originalColors[std::make_pair(row, column)] = originalColor;
+            item->setBackground(Qt::yellow);            // 设置高亮颜色
+            highlightLabel->setText(QString("高亮：行%1，列%2").arg(row).arg(column));            // 更新高亮标签
+
+        }
     }
     else
         qDebug() << "Invalid data: (" << row << ", " << column << ")";
 }
+
+void TableTab::clearHighlight(QString data)
+{
+    int row = 0, column = 0;
+    sscanf(data.toStdString().c_str(), "clear (%d,%d)", &row, &column);
+    qDebug() << "clear data: (" << row << ", " << column << ")";
+
+    if (row >= 0 && row < tableWidget->rowCount() && column >= 0 && column < tableWidget->columnCount())
+    {
+        QTableWidgetItem *item = tableWidget->item(row, column);
+        if (item) {
+            item->setBackground(QBrush()); // Set background to default (no brush)
+            originalColors.erase(std::make_pair(row, column));
+        }
+    }
+}
+

@@ -19,6 +19,8 @@ public:
     virtual void loadFromFile(const QString &fileName) = 0;
     virtual void saveToFile(const QString &fileName) = 0;
     virtual void loadFromContent(const QByteArray &content) = 0;
+
+
 };
 
 #endif // ABSTRACTTAB_H
