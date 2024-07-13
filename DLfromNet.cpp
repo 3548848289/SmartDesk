@@ -1,5 +1,5 @@
-#include "downLoad.h"
-#include "ui_downLoad.h"
+#include "DLfromNet.h"
+#include "ui_DLfromNet.h"
 
 #include <QDir>
 #include <QMessageBox>

@@ -1,14 +1,14 @@
 // tabletab.h
-#ifndef TABLETAB_H
-#define TABLETAB_H
+#ifndef TABHANDLECSV_H
+#define TABHANDLECSV_H
 
-#include "abstracttab.h"
+#include "TabAbstract.h"
 #include <QTableWidget>
 #include <QString>
 #include <QLabel>
 #include <map>
 
-class TableTab : public AbstractTab
+class TableTab : public TabAbstract
 {
     Q_OBJECT
 
@@ -52,4 +52,4 @@ private:
     void adjustItem(QTableWidgetItem *item);
 };
 
-#endif // TABLETAB_H
+#endif // TABHANDLECSV_H

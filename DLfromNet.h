@@ -1,5 +1,5 @@
-#ifndef DOWNLOAD_H
-#define DOWNLOAD_H
+#ifndef DLFROMNET_H
+#define DLFROMNET_H
 
 #include <QFile>
 #include <QNetworkAccessManager>
@@ -36,4 +36,4 @@ private:
     Ui::downLoad *ui;
 };
 
-#endif // DOWNLOAD_H
+#endif // DLFROMNET_H

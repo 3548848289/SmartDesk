@@ -1,18 +1,18 @@
-// abstracttab.h
-#ifndef ABSTRACTTAB_H
-#define ABSTRACTTAB_H
+// TabAbstract.h
+#ifndef TABABSTRACT_H
+#define TABABSTRACT_H
 
 #include <QWidget>
 #include <QString>
 #include <QByteArray>
 
-class AbstractTab : public QWidget
+class TabAbstract : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit AbstractTab(QWidget *parent = nullptr) : QWidget(parent) {}
-    virtual ~AbstractTab() {}
+    explicit TabAbstract(QWidget *parent = nullptr) : QWidget(parent) {}
+    virtual ~TabAbstract() {}
 
     virtual void setText(const QString &text) = 0;
     virtual QString getText() const = 0;
@@ -23,4 +23,4 @@ public:
 
 };
 
-#endif // ABSTRACTTAB_H
+#endif // TABABSTRACT_H

@@ -1,8 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "texttab.h"
-#include "tabletab.h"
-#include "epoll.h"
+#include "TabHandleTXT.h"
+#include "TabHandleCSV.h"
+#include "csvLinkServer.h"
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QDebug>
@@ -33,7 +33,7 @@ void MainWindow::on_actionopen_triggered()
     if (fileName.isEmpty())
         return;
 
-    AbstractTab* newTab = createTabByFileName(fileName);
+    TabAbstract* newTab = createTabByFileName(fileName);
     if (newTab) {
         newTab->loadFromFile(fileName);
         QFileInfo fileInfo(fileName);
@@ -52,7 +52,7 @@ void MainWindow::on_actionsave_triggered()
         return;
     }
 
-    AbstractTab* currentTab = qobject_cast<AbstractTab*>(ui->tabWidget->widget(currentIndex));
+    TabAbstract* currentTab = qobject_cast<TabAbstract*>(ui->tabWidget->widget(currentIndex));
     if (!currentTab) {
         QMessageBox::warning(this, tr("Error"), tr("Current tab is not valid"));
         return;
@@ -74,13 +74,13 @@ void MainWindow::on_actionsave_triggered()
     currentTab->saveToFile(fileName);
 }
 
-void MainWindow::createNewTab(std::function<AbstractTab*()> tabFactory, const QString &tabName)
+void MainWindow::createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName)
 {
-    AbstractTab* newTab = tabFactory();
+    TabAbstract* newTab = tabFactory();
     ui->tabWidget->addTab(newTab, tabName);
 }
 
-AbstractTab* MainWindow::createTabByFileName(const QString &fileName)
+TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
 {
     if (fileName.endsWith(".txt", Qt::CaseInsensitive)) {
         return new TextTab();
@@ -109,19 +109,19 @@ void MainWindow::on_actionclose_triggered()
 void MainWindow::on_actiondownload_triggered()
 {
     int currentIndex = ui->tabWidget->currentIndex();
-    AbstractTab* currentTab = qobject_cast<AbstractTab*>(ui->tabWidget->widget(currentIndex));
+    TabAbstract* currentTab = qobject_cast<TabAbstract*>(ui->tabWidget->widget(currentIndex));
     if (currentTab) {
         downLoad* downloadWidget = new downLoad();
         connect(downloadWidget, &downLoad::fileDownloaded, this, &MainWindow::handleFileDownload);
         downloadWidget->show();
     } else {
-        qDebug() << "Failed to cast current tab to AbstractTab*";
+        qDebug() << "Failed to cast current tab to TabAbstract*";
     }
 }
 
 void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &fileContent)
 {
-    AbstractTab* newTab = createTabByFileName(fileName);
+    TabAbstract* newTab = createTabByFileName(fileName);
     if (newTab) {
         newTab->loadFromContent(fileContent);
         ui->tabWidget->addTab(newTab, fileName);
@@ -161,6 +161,6 @@ void MainWindow::on_actionlink_server_triggered()
         Epoll* epoll = new Epoll(nullptr, currentTab);
         epoll->show();
     } else {
-        qDebug() << "Failed to cast current tab to AbstractTab*";
+        qDebug() << "Failed to cast current tab to TabAbstract*";
     }
 }

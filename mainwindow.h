@@ -4,9 +4,9 @@
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QMessageBox>
-#include "abstracttab.h"
-#include "downLoad.h"
-#include "epoll.h"
+#include "TabAbstract.h"
+#include "DLfromNet.h"
+#include "csvLinkServer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -36,8 +36,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    void createNewTab(std::function<AbstractTab*()> tabFactory, const QString &tabName);
-    AbstractTab* createTabByFileName(const QString &fileName);
+    void createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName);
+    TabAbstract* createTabByFileName(const QString &fileName);
 };
 
 #endif // MAINWINDOW_H

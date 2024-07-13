@@ -1,10 +1,10 @@
-#include "texttab.h"
+#include "TabHandleTXT.h"
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
 #include <QVBoxLayout>
 
-TextTab::TextTab(QWidget *parent): AbstractTab(parent)
+TextTab::TextTab(QWidget *parent): TabAbstract(parent)
 {
     textEdit = new QTextEdit(this);
     QVBoxLayout *layout = new QVBoxLayout(this);

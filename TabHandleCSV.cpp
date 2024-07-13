@@ -1,10 +1,10 @@
-#include "tabletab.h"
+#include "TabHandleCSV.h"
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
 #include <QVBoxLayout>
 #include <QTimer>
-TableTab::TableTab(QWidget *parent): AbstractTab(parent)
+TableTab::TableTab(QWidget *parent): TabAbstract(parent)
 {
 
     highlightLabel = new QLabel(this);

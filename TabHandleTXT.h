@@ -1,11 +1,11 @@
 // texttab.h
-#ifndef TEXTTAB_H
-#define TEXTTAB_H
+#ifndef TABHANDLETXT_H
+#define TABHANDLETXT_H
 
-#include "abstracttab.h"
+#include "TabAbstract.h"
 #include <QTextEdit>
 
-class TextTab : public AbstractTab
+class TextTab : public TabAbstract
 {
     Q_OBJECT
 
@@ -21,4 +21,4 @@ private:
     QTextEdit *textEdit;
 };
 
-#endif // TEXTTAB_H
+#endif // TABHANDLETXT_H
