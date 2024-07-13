@@ -1,23 +1,23 @@
-﻿
-// Http.cpp
-#include "Http.h"
-#include "ui_Http.h"
+#include "downLoad.h"
+#include "ui_downLoad.h"
+
 #include <QDir>
 #include <QMessageBox>
 #include <QDesktopServices>
 
-Http::Http(QWidget *parent) :QMainWindow(parent),ui(new Ui::Http),reply(nullptr),downloadedFile(nullptr)
-{
+downLoad::downLoad(QWidget *parent) :QMainWindow(parent),
+    ui(new Ui::downLoad),reply(nullptr),downloadedFile(nullptr){
+
     ui->setupUi(this);
     ui->editURL->setClearButtonEnabled(true);
 }
 
-Http::~Http()
+downLoad::~downLoad()
 {
     delete ui;
 }
 
-void Http::do_finished()
+void downLoad::do_finished()
 {
     QFileInfo fileInfo(downloadedFile->fileName());
 
@@ -30,36 +30,37 @@ void Http::do_finished()
     downloadedFile->close();
 
     // 发送信号，将文件名和内容传递出去
-    emit fileDownloaded(fileInfo.fileName(), fileContent);
 
     delete downloadedFile;
     downloadedFile = nullptr;
 
     if (ui->chkBoxOpen->isChecked())
-        QDesktopServices::openUrl(QUrl::fromLocalFile(fileInfo.absoluteFilePath()));
+    {
+        emit fileDownloaded(fileInfo.fileName(), fileContent);
 
+    }
     ui->btnDownload->setEnabled(true);
 }
 
-void Http::do_readyRead()
+void downLoad::do_readyRead()
 {
     downloadedFile->write(reply->readAll());
 }
 
-void Http::do_downloadProgress(qint64 bytesRead, qint64 totalBytes)
+void downLoad::do_downloadProgress(qint64 bytesRead, qint64 totalBytes)
 {
     ui->progressBar->setMaximum(totalBytes);
     ui->progressBar->setValue(bytesRead);
 }
 
-void Http::on_btnDefaultPath_clicked()
+void downLoad::on_btnDefaultPath_clicked()
 {
     QString curPath = QDir::currentPath();
     QDir dir(curPath);
     ui->editPath->setText(curPath + "/");
 }
 
-void Http::on_btnDownload_clicked()
+void downLoad::on_btnDownload_clicked()
 {
     QString urlSpec = ui->editURL->text().trimmed();
     if (urlSpec.isEmpty())
@@ -100,7 +101,7 @@ void Http::on_btnDownload_clicked()
 }
 
 
-void Http::on_editURL_textChanged(const QString &arg1)
+void downLoad::on_editURL_textChanged(const QString &arg1)
 {
     Q_UNUSED(arg1);
     ui->progressBar->setMaximum(100);

@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMenu { font-size: 12px; }</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
@@ -41,7 +44,14 @@
     <property name="title">
      <string>file</string>
     </property>
-    <addaction name="actionnew"/>
+    <widget class="QMenu" name="menunew">
+     <property name="title">
+      <string>new</string>
+     </property>
+     <addaction name="actiontxt_file"/>
+     <addaction name="actionscv_file"/>
+    </widget>
+    <addaction name="menunew"/>
     <addaction name="actionopen"/>
     <addaction name="actionsave"/>
     <addaction name="actionclose"/>
@@ -53,44 +63,70 @@
     </property>
     <addaction name="actionadd"/>
     <addaction name="actionsub"/>
+    <addaction name="actionlink_server"/>
    </widget>
    <addaction name="menufile"/>
    <addaction name="menuaction"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionnew">
-   <property name="text">
-    <string>new</string>
-   </property>
-  </action>
   <action name="actionopen">
    <property name="text">
     <string>open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
   <action name="actionsave">
    <property name="text">
     <string>save</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
   </action>
   <action name="actionadd">
    <property name="text">
-    <string>add</string>
+    <string> add row</string>
    </property>
   </action>
   <action name="actionsub">
    <property name="text">
-    <string>sub</string>
+    <string>add col</string>
    </property>
   </action>
   <action name="actionclose">
    <property name="text">
     <string>close</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
   </action>
   <action name="actiondownload">
    <property name="text">
     <string>download</string>
+   </property>
+  </action>
+  <action name="actiontxt_file">
+   <property name="text">
+    <string>txt file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N, Ctrl+T</string>
+   </property>
+  </action>
+  <action name="actionscv_file">
+   <property name="text">
+    <string>scv file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N, Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionlink_server">
+   <property name="text">
+    <string>link server</string>
    </property>
   </action>
  </widget>

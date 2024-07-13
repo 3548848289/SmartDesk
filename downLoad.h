@@ -1,5 +1,5 @@
-﻿#ifndef Http_H
-#define Http_H
+#ifndef DOWNLOAD_H
+#define DOWNLOAD_H
 
 #include <QFile>
 #include <QNetworkAccessManager>
@@ -7,16 +7,15 @@
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class Http; }
+namespace Ui {class downLoad;}
 QT_END_NAMESPACE
-
-class Http : public QMainWindow
+class downLoad : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit Http(QWidget *parent = nullptr);
-    ~Http();
+    explicit downLoad(QWidget *parent = nullptr);
+    ~downLoad();
 
 signals:
     void fileDownloaded(const QString &fileName, const QByteArray &fileContent);
@@ -31,10 +30,10 @@ private slots:
 
 
 private:
-    Ui::Http *ui;
     QNetworkAccessManager networkManager;
     QNetworkReply *reply;
     QFile *downloadedFile;
+    Ui::downLoad *ui;
 };
 
-#endif // HTTP_H
+#endif // DOWNLOAD_H

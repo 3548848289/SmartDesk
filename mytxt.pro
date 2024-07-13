@@ -9,18 +9,26 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    http.cpp \
+    downLoad.cpp \
+    epoll.cpp \
     main.cpp \
     mainwindow.cpp \
-    tab.cpp
+    tab.cpp \
+    tabletab.cpp \
+    texttab.cpp
 
 HEADERS += \
-    http.h \
+    abstracttab.h \
+    downLoad.h \
+    epoll.h \
     mainwindow.h \
-    tab.h
+    tab.h \
+    tabletab.h \
+    texttab.h
 
 FORMS += \
-    http.ui \
+    downLoad.ui \
+    epoll.ui \
     mainwindow.ui \
     tab.ui
 
