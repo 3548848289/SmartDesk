@@ -157,6 +157,7 @@ void MainWindow::on_actionlink_server_triggered()
     int currentIndex = ui->tabWidget->currentIndex();
     TableTab* currentTab = qobject_cast<TableTab*>(ui->tabWidget->widget(currentIndex));
     if (currentTab) {
+        currentTab->setLinkStatus(true);
         Epoll* epoll = new Epoll(nullptr, currentTab);
         epoll->show();
     } else {

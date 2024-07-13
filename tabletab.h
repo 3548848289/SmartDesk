@@ -17,6 +17,8 @@ public:
     explicit TableTab(QWidget *parent = nullptr);
     void setText(const QString &text) override;
     QString getText() const override;
+    void setLinkStatus(bool status);
+
     void loadFromFile(const QString &fileName) override;
     void saveToFile(const QString &fileName) override;
     void loadFromContent(const QByteArray &content) override;
@@ -27,6 +29,7 @@ public:
     void getEpolldata(QString data);
     void getEpolllight(QString data);
     void clearHighlight(QString data);
+    void editCsvdata(QString data);
 
 signals:
     void dataToSend(const QString &data);
@@ -45,6 +48,8 @@ private:
 
     void parseCSV(const QString &csvText);
     QString toCSV() const;
+
+    void adjustItem(QTableWidgetItem *item);
 };
 
 #endif // TABLETAB_H

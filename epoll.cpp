@@ -9,6 +9,7 @@ Epoll::Epoll(QWidget *parent, TableTab* eTableTab): QMainWindow(parent), ui(new 
     tcpSocket(new QTcpSocket(this)), tableTab(eTableTab)
 {
     ui->setupUi(this);
+    connect(tableTab, &TableTab::dataToSend, this, &Epoll::sendDataToServer);
 
     connect(tcpSocket, &QTcpSocket::connected, this, []() {
         qDebug() << "Connected to server.";
@@ -28,9 +29,8 @@ Epoll::~Epoll()
 void Epoll::on_readyRead()
 {
     QString data = tcpSocket->readAll();
-    qDebug() << data;
-
     QStringList lines = data.split("\n");
+    qDebug() << "这是读取的数据的首行内容" << lines.first();
 
     if (!lines.isEmpty()) {
         QString firstLine = lines.first();
@@ -47,6 +47,10 @@ void Epoll::on_readyRead()
         if(firstLine == "clear")
         {
             tableTab->clearHighlight(remainingData);
+        }
+        if(firstLine == "edited")
+        {
+            tableTab->editCsvdata(remainingData);
         }
     }
 }
@@ -95,8 +99,8 @@ void Epoll::on_linkserverBtn_clicked()
     QString serverIp = ui->comboServer->currentText();
     quint16 serverPort = ui->spinPort->value();
 
-    tcpSocket->abort();                          // 确保任何现有连接被中止
-    tcpSocket->setProxy(QNetworkProxy::NoProxy); // 确保没有代理
+    tcpSocket->abort();
+    tcpSocket->setProxy(QNetworkProxy::NoProxy);
     tcpSocket->connectToHost(serverIp, serverPort);
 
     if (!tcpSocket->waitForConnected(3000)) {
@@ -106,7 +110,6 @@ void Epoll::on_linkserverBtn_clicked()
     else
     {
         QMessageBox::information(this, tr("Connected"), tr("Connected to server"));
-        connect(tableTab, &TableTab::dataToSend, this, &Epoll::sendDataToServer);
     }
 }
 

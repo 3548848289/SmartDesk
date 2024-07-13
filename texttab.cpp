@@ -14,7 +14,7 @@ TextTab::TextTab(QWidget *parent): AbstractTab(parent)
 
 void TextTab::setText(const QString &text)
 {
-    Q_ASSERT(textEdit != nullptr); // Ensure textEdit is not null
+    Q_ASSERT(textEdit != nullptr);
     qDebug() << "setText called with text:" << text;
 
     textEdit->setText(text);
