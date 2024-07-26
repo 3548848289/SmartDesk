@@ -1,8 +1,4 @@
 #include "TabHandleTXT.h"
-#include <QFile>
-#include <QTextStream>
-#include <QMessageBox>
-#include <QVBoxLayout>
 
 TextTab::TextTab(QWidget *parent): TabAbstract(parent)
 {

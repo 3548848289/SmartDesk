@@ -1,9 +1,12 @@
-// texttab.h
 #ifndef TABHANDLETXT_H
 #define TABHANDLETXT_H
 
 #include "TabAbstract.h"
 #include <QTextEdit>
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
+#include <QVBoxLayout>
 
 class TextTab : public TabAbstract
 {
@@ -16,6 +19,10 @@ public:
     void loadFromFile(const QString &fileName) override;
     void saveToFile(const QString &fileName) override;
     void loadFromContent(const QByteArray &content) override;
+    void ReadfromServer(QString data) { }
+    void ChickfromServer(QString data) { }
+    void clearfromServer(QString data) { }
+    void editedfromServer(QString data) { }
 
 private:
     QTextEdit *textEdit;

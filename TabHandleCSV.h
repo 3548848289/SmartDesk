@@ -7,6 +7,13 @@
 #include <QString>
 #include <QLabel>
 #include <map>
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
+#include <QVBoxLayout>
+#include <QTimer>
+#include <regex>
+#include <string>
 
 class TableTab : public TabAbstract
 {
@@ -26,10 +33,10 @@ public:
     void addRow();
     void addColumn();
 
-    void getEpolldata(QString data);
-    void getEpolllight(QString data);
-    void clearHighlight(QString data);
-    void editCsvdata(QString data);
+    void ReadfromServer(QString data);
+    void ChickfromServer(QString data);
+    void clearfromServer(QString data);
+    void editedfromServer(QString data);
 
 signals:
     void dataToSend(const QString &data);
@@ -52,4 +59,9 @@ private:
     void adjustItem(QTableWidgetItem *item);
 };
 
+//    tableWidget->setStyleSheet(
+//        "QTableWidget::item:selected {"
+//        "   background-color: white; border: 2px solid blue; color: black; }"
+//        "QTableWidget::item { border: 1px solid black; }"
+//    );
 #endif // TABHANDLECSV_H

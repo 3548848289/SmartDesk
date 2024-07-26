@@ -2,9 +2,12 @@
 #define DLFROMNET_H
 
 #include <QFile>
-#include <QNetworkAccessManager>
+#include <QDir>
 #include <QNetworkReply>
 #include <QMainWindow>
+#include <QMessageBox>
+#include <QDesktopServices>
+#include <QNetworkAccessManager>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {class downLoad;}

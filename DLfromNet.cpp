@@ -1,10 +1,6 @@
 #include "DLfromNet.h"
 #include "ui_DLfromNet.h"
 
-#include <QDir>
-#include <QMessageBox>
-#include <QDesktopServices>
-
 downLoad::downLoad(QWidget *parent) :QMainWindow(parent),
     ui(new Ui::downLoad),reply(nullptr),downloadedFile(nullptr){
 

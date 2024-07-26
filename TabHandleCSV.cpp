@@ -1,9 +1,5 @@
 #include "TabHandleCSV.h"
-#include <QFile>
-#include <QTextStream>
-#include <QMessageBox>
-#include <QVBoxLayout>
-#include <QTimer>
+
 TableTab::TableTab(QWidget *parent): TabAbstract(parent)
 {
 
@@ -12,7 +8,6 @@ TableTab::TableTab(QWidget *parent): TabAbstract(parent)
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(tableWidget);
 
-    // 设置布局
     setLayout(layout);
     connect(tableWidget, &QAbstractItemView::clicked, [=](const QModelIndex &index){
         foucsRow = index.row();
@@ -22,18 +17,15 @@ TableTab::TableTab(QWidget *parent): TabAbstract(parent)
             emit dataToSend("chick" + newText);
     });
 
-    // 延迟启动连接的 Lambda 函数
-    QTimer::singleShot(10000, [=]() {
-        connect(tableWidget, &QTableWidget::itemChanged, [=](QTableWidgetItem *item){
+    connect(tableWidget, &QTableWidget::itemChanged, [=](QTableWidgetItem *item){
 
-            QString newText = QString("(%1,%2,%3")
-                                  .arg(item->row()).arg(item->column()).arg(item->text());
+        QString newText = QString("%1,%2,%3,%4")
+                              .arg(item->row()).arg(item->column()).arg(item->text().length()).arg(item->text());
 
-            qDebug() << "编辑函数启动了" << newText;
-            adjustItem(item);
-            if (link)
-                emit dataToSend("edited" + newText);
-        });
+        qDebug() << "编辑函数启动了" << newText;
+        adjustItem(item);
+        if (link)
+            emit dataToSend("edited," + newText);
     });
 
     connect(tableWidget, &QTableWidget::itemSelectionChanged, [=](){
@@ -122,7 +114,7 @@ QString TableTab::toCSV() const
 void TableTab::adjustItem(QTableWidgetItem *item)
 {
     tableWidget->blockSignals(true);
-    item->setBackground(QColor(0, 120, 215));
+//    item->setBackground(QColor(0, 120, 215));
     item->setData(Qt::UserRole, "127.0.0.1");
     tableWidget->blockSignals(false);
     QVariant userData = item->data(Qt::UserRole);
@@ -147,7 +139,7 @@ void TableTab::addColumn()
     tableWidget->insertColumn(columnCount);
 }
 
-void TableTab::getEpolldata(QString data)
+void TableTab::ReadfromServer(QString data)
 {
     // Clear existing data
     tableWidget->clearContents();
@@ -175,8 +167,7 @@ void TableTab::getEpolldata(QString data)
 }
 
 
-
-void TableTab::getEpolllight(QString data)
+void TableTab::ChickfromServer(QString data)
 {
     int row = 0, column = 0;
     sscanf(data.toStdString().c_str(), "chick (%d,%d)", &row, &column);
@@ -198,7 +189,7 @@ void TableTab::getEpolllight(QString data)
         qDebug() << "Invalid data: (" << row << ", " << column << ")";
 }
 
-void TableTab::clearHighlight(QString data)
+void TableTab::clearfromServer(QString data)
 {
     int row = 0, column = 0;
     sscanf(data.toStdString().c_str(), "clear (%d,%d)", &row, &column);
@@ -207,7 +198,7 @@ void TableTab::clearHighlight(QString data)
     if (row >= 0 && row < tableWidget->rowCount() && column >= 0 && column < tableWidget->columnCount())
     {
         QTableWidgetItem *item = tableWidget->item(row, column);
-       if (item) {
+        if (item) {
             tableWidget->blockSignals(true);
             item->setBackground(Qt::transparent);
             item->setData(Qt::UserRole, "127.0.0.1");
@@ -216,7 +207,7 @@ void TableTab::clearHighlight(QString data)
     }
 }
 
-void TableTab::editCsvdata(QString data)
+void TableTab::editedfromServer(QString data)
 {
 
     int row, col;

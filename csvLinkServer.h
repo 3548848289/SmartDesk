@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QTcpSocket>
+#include <QMessageBox>
+#include <QHostAddress>
+#include <QNetworkProxy>
 #include "TabHandleCSV.h"
 
 QT_BEGIN_NAMESPACE
@@ -34,6 +37,8 @@ private slots:
     void on_sendmsgEdit_clicked();
 
     void on_linkserverBtn_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::Epoll *ui;

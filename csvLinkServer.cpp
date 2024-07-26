@@ -1,9 +1,5 @@
 #include "csvLinkServer.h"
 #include "ui_csvLinkServer.h"
-#include <QMessageBox>
-#include <QHostAddress>
-#include <QNetworkProxy>
-
 
 Epoll::Epoll(QWidget *parent, TableTab* eTableTab): QMainWindow(parent), ui(new Ui::Epoll),
     tcpSocket(new QTcpSocket(this)), tableTab(eTableTab)
@@ -23,34 +19,40 @@ Epoll::Epoll(QWidget *parent, TableTab* eTableTab): QMainWindow(parent), ui(new 
 Epoll::~Epoll()
 {
     delete ui;
+    tcpSocket->disconnect();
+    tcpSocket->waitForDisconnected();
+    delete tcpSocket;
 }
 
 
 void Epoll::on_readyRead()
 {
     QString data = tcpSocket->readAll();
-    QStringList lines = data.split("\n");
-    qDebug() << "这是读取的数据的首行内容" << lines.first();
 
+    QStringList lines = data.split("\n");
     if (!lines.isEmpty()) {
         QString firstLine = lines.first();
-        QString remainingData = data.mid(firstLine.length() + 1);
-        ui->textBrowser->append("Server: " + firstLine);
         if(firstLine == "read")
         {
-            tableTab->getEpolldata(remainingData);
+            QString remainingData = data.mid(firstLine.length() + 1);
+            tableTab->ReadfromServer(remainingData);
+            return;
         }
+
+        QString secondLine = lines.value(1);
+        QString remainingData = data.mid(firstLine.length() + secondLine.length() + 2);
+        ui->textBrowser->append("消息提示: " + secondLine + "--" + remainingData);
         if(firstLine == "chick")
         {
-            tableTab->getEpolllight(remainingData);
+            tableTab->ChickfromServer(remainingData);
         }
         if(firstLine == "clear")
         {
-            tableTab->clearHighlight(remainingData);
+            tableTab->clearfromServer(remainingData);
         }
         if(firstLine == "edited")
         {
-            tableTab->editCsvdata(remainingData);
+            tableTab->editedfromServer(remainingData);
         }
     }
 }
@@ -110,6 +112,25 @@ void Epoll::on_linkserverBtn_clicked()
     else
     {
         QMessageBox::information(this, tr("Connected"), tr("Connected to server"));
+    }
+}
+
+
+void Epoll::on_pushButton_clicked()
+{
+    tableTab->setLinkStatus(false);
+    if (tcpSocket->state() == QAbstractSocket::ConnectedState) {
+        tcpSocket->disconnectFromHost();
+        if (tcpSocket->state() == QAbstractSocket::UnconnectedState || tcpSocket->waitForDisconnected(3000)) {
+            QMessageBox::information(this, tr("Disconnected"), tr("Disconnected from server"));
+            this->close();
+            delete this;
+
+        } else {
+            QMessageBox::warning(this, tr("Error"), tr("Failed to disconnect from server"));
+        }
+    } else {
+        qDebug() << "Socket is not connected.";
     }
 }
 

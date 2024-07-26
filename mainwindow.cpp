@@ -1,11 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "TabHandleTXT.h"
-#include "TabHandleCSV.h"
-#include "csvLinkServer.h"
-#include <QFileDialog>
-#include <QMessageBox>
-#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {

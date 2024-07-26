@@ -4,9 +4,15 @@
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QDebug>
+
 #include "TabAbstract.h"
 #include "DLfromNet.h"
 #include "csvLinkServer.h"
+#include "TabHandleTXT.h"
+#include "TabHandleCSV.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
