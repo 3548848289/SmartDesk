@@ -14,6 +14,7 @@
 #include <QTimer>
 #include <regex>
 #include <string>
+#include <QInputDialog>
 
 class TableTab : public TabAbstract
 {
@@ -31,7 +32,9 @@ public:
     void loadFromContent(const QByteArray &content) override;
 
     void addRow();
-    void addColumn();
+    void addColumn();   
+    void deleteRow();
+    void deleteColumn();
 
     void ReadfromServer(QString data);
     void ChickfromServer(QString data);
@@ -59,9 +62,4 @@ private:
     void adjustItem(QTableWidgetItem *item);
 };
 
-//    tableWidget->setStyleSheet(
-//        "QTableWidget::item:selected {"
-//        "   background-color: white; border: 2px solid blue; color: black; }"
-//        "QTableWidget::item { border: 1px solid black; }"
-//    );
 #endif // TABHANDLECSV_H

@@ -62,7 +62,9 @@
      <string>action</string>
     </property>
     <addaction name="actionadd"/>
+    <addaction name="actiondel_row"/>
     <addaction name="actionsub"/>
+    <addaction name="actiondel_col"/>
     <addaction name="actionlink_server"/>
    </widget>
    <addaction name="menufile"/>
@@ -127,6 +129,16 @@
   <action name="actionlink_server">
    <property name="text">
     <string>link server</string>
+   </property>
+  </action>
+  <action name="actiondel_row">
+   <property name="text">
+    <string>del row</string>
+   </property>
+  </action>
+  <action name="actiondel_col">
+   <property name="text">
+    <string>del col</string>
    </property>
   </action>
  </widget>

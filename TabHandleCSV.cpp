@@ -39,17 +39,27 @@ TableTab::TableTab(QWidget *parent): TabAbstract(parent)
 
 void TableTab::setText(const QString &text)
 {
-    parseCSV(text);
-}
+    tableWidget->clear();
+    QStringList rows = text.split('\n');
+    if (rows.isEmpty())
+        return;
 
-QString TableTab::getText() const
-{
-    return toCSV();
-}
+    QStringList headers = rows.first().split(',');    // 处理第一行作为表头
+    tableWidget->setColumnCount(headers.size());
+    tableWidget->setHorizontalHeaderLabels(headers);
+    tableWidget->setRowCount(rows.size() - 1);        // 减去表头行
 
-void TableTab::setLinkStatus(bool status)
-{
-    this->link = status;
+    int maxCols = 0;
+    for (int i = 1; i < rows.size(); ++i) {
+        QStringList cols = rows[i].split(',');
+        tableWidget->setColumnCount(qMax(tableWidget->columnCount(), cols.size()));
+        for (int j = 0; j < cols.size(); ++j) {
+            tableWidget->setItem(i - 1, j, new QTableWidgetItem(cols[j]));
+        }
+        maxCols = qMax(maxCols, cols.size());
+    }
+
+    tableWidget->setColumnCount(maxCols);
 }
 
 void TableTab::loadFromFile(const QString &fileName)
@@ -63,6 +73,18 @@ void TableTab::loadFromFile(const QString &fileName)
         QMessageBox::warning(this, tr("Error"), tr("Could not open file"));
     }
 }
+
+
+QString TableTab::getText() const
+{
+    return toCSV();
+}
+
+void TableTab::setLinkStatus(bool status)
+{
+    this->link = status;
+}
+
 
 void TableTab::saveToFile(const QString &fileName)
 {
@@ -80,21 +102,6 @@ void TableTab::loadFromContent(const QByteArray &content)
 {
     setText(QString::fromUtf8(content));
 }
-
-void TableTab::parseCSV(const QString &csvText)
-{
-    tableWidget->clear();
-    QStringList rows = csvText.split('\n');
-    tableWidget->setRowCount(rows.size());
-    for (int i = 0; i < rows.size(); ++i) {
-        QStringList cols = rows[i].split(',');
-        tableWidget->setColumnCount(qMax(tableWidget->columnCount(), cols.size()));
-        for (int j = 0; j < cols.size(); ++j) {
-            tableWidget->setItem(i, j, new QTableWidgetItem(cols[j]));
-        }
-    }
-}
-
 
 QString TableTab::toCSV() const
 {
@@ -114,7 +121,6 @@ QString TableTab::toCSV() const
 void TableTab::adjustItem(QTableWidgetItem *item)
 {
     tableWidget->blockSignals(true);
-//    item->setBackground(QColor(0, 120, 215));
     item->setData(Qt::UserRole, "127.0.0.1");
     tableWidget->blockSignals(false);
     QVariant userData = item->data(Qt::UserRole);
@@ -135,33 +141,67 @@ void TableTab::addRow()
 
 void TableTab::addColumn()
 {
-    int columnCount = tableWidget->columnCount();
-    tableWidget->insertColumn(columnCount);
+    bool ok;
+    QString columnName = QInputDialog::getText(this, tr("New Column"), tr("Enter column name:"), QLineEdit::Normal, "", &ok);
+
+    if (ok && !columnName.isEmpty()) {
+        int columnCount = tableWidget->columnCount();
+        tableWidget->insertColumn(columnCount);
+        tableWidget->setHorizontalHeaderItem(columnCount, new QTableWidgetItem(columnName));
+    }
+}
+
+
+void TableTab::deleteRow()
+{
+    int currentRow = tableWidget->currentRow();
+    if (currentRow != -1) {
+        tableWidget->removeRow(currentRow);
+    } else {
+        QMessageBox::warning(this, tr("Error"), tr("No row selected."));
+    }
+}
+
+void TableTab::deleteColumn()
+{
+    int currentColumn = tableWidget->currentColumn();
+    if (currentColumn != -1) {
+        tableWidget->removeColumn(currentColumn);
+    } else {
+        QMessageBox::warning(this, tr("Error"), tr("No column selected."));
+    }
 }
 
 void TableTab::ReadfromServer(QString data)
 {
-    // Clear existing data
-    tableWidget->clearContents();
-    tableWidget->setRowCount(0);    
-    tableWidget->setColumnCount(5);  // 设置列数
-    QStringList headers = {"Name", "ID", "Gender", "Age", "Address"};
+    tableWidget->clear();
+    QStringList lines = data.split("\n", Qt::SkipEmptyParts);
+
+    if (lines.isEmpty())
+        return;
+
+    QStringList headers = lines.first().trimmed().split(",", Qt::SkipEmptyParts);
+    int columnCount = headers.size();
+    tableWidget->setColumnCount(columnCount);
     tableWidget->setHorizontalHeaderLabels(headers);
 
-    // Each entry is separated by a newline
-    QStringList entries = data.split("\n", Qt::SkipEmptyParts);
+    // Exclude header line from data
+    QString csvText = lines.mid(1).join("\n");
 
-    tableWidget->setRowCount(entries.size());
-    for (int row = 0; row < entries.size(); ++row) {
-        QString entry = entries[row].trimmed();
-        entry = entry.remove("('").remove("')");
-        QStringList fields = entry.split("', '");
-        if (fields.size() == 5) {
-            tableWidget->setItem(row, 0, new QTableWidgetItem(fields[0]));
-            tableWidget->setItem(row, 1, new QTableWidgetItem(fields[1]));
-            tableWidget->setItem(row, 2, new QTableWidgetItem(fields[2]));
-            tableWidget->setItem(row, 3, new QTableWidgetItem(fields[3]));
-            tableWidget->setItem(row, 4, new QTableWidgetItem(fields[4]));
+    // Reuse parseCSV function to populate table
+    parseCSV(csvText);
+}
+
+void TableTab::parseCSV(const QString &csvText)
+{
+    tableWidget->clear();
+    QStringList rows = csvText.split('\n');
+    tableWidget->setRowCount(rows.size());
+    for (int i = 0; i < rows.size(); ++i) {
+        QStringList cols = rows[i].split(',');
+        tableWidget->setColumnCount(qMax(tableWidget->columnCount(), cols.size()));
+        for (int j = 0; j < cols.size(); ++j) {
+            tableWidget->setItem(i, j, new QTableWidgetItem(cols[j]));
         }
     }
 }

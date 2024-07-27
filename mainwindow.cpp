@@ -23,7 +23,8 @@ void MainWindow::on_actionscv_file_triggered()
 
 void MainWindow::on_actionopen_triggered()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "", tr("Text Files (*.txt);;All Files (*)"));
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "",
+                            tr("CSV Files (*.csv);;Text Files (*.txt);;All Files (*)"));
     if (fileName.isEmpty())
         return;
 
@@ -87,12 +88,12 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
 
 void MainWindow::on_tabWidget_currentChanged(int index)
 {
+    currentIndex = index;
     qDebug() << "Current tab index: " << index;
 }
 
 void MainWindow::on_actionclose_triggered()
 {
-    int currentIndex = ui->tabWidget->currentIndex();
     if (currentIndex >= 0) {
         ui->tabWidget->removeTab(currentIndex);
     } else {
@@ -102,7 +103,6 @@ void MainWindow::on_actionclose_triggered()
 
 void MainWindow::on_actiondownload_triggered()
 {
-    int currentIndex = ui->tabWidget->currentIndex();
     TabAbstract* currentTab = qobject_cast<TabAbstract*>(ui->tabWidget->widget(currentIndex));
     if (currentTab) {
         downLoad* downloadWidget = new downLoad();
@@ -126,7 +126,6 @@ void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &f
 
 void MainWindow::on_actionadd_triggered()
 {
-    int currentIndex = ui->tabWidget->currentIndex();
     TableTab* currentTab = dynamic_cast<TableTab*>(ui->tabWidget->widget(currentIndex));
     if (currentTab) {
         currentTab->addRow();
@@ -137,7 +136,6 @@ void MainWindow::on_actionadd_triggered()
 
 void MainWindow::on_actionsub_triggered()
 {
-    int currentIndex = ui->tabWidget->currentIndex();
     TableTab* currentTab = dynamic_cast<TableTab*>(ui->tabWidget->widget(currentIndex));
     if (currentTab) {
         currentTab->addColumn();
@@ -148,7 +146,6 @@ void MainWindow::on_actionsub_triggered()
 
 void MainWindow::on_actionlink_server_triggered()
 {
-    int currentIndex = ui->tabWidget->currentIndex();
     TableTab* currentTab = qobject_cast<TableTab*>(ui->tabWidget->widget(currentIndex));
     if (currentTab) {
         currentTab->setLinkStatus(true);
@@ -156,5 +153,29 @@ void MainWindow::on_actionlink_server_triggered()
         epoll->show();
     } else {
         qDebug() << "Failed to cast current tab to TabAbstract*";
+    }
+}
+
+
+void MainWindow::on_actiondel_row_triggered()
+{
+    QWidget* currentWidget = ui->tabWidget->widget(currentIndex);
+
+    TableTab* currentTab = qobject_cast<TableTab*>(currentWidget);
+    if (currentTab) {
+        currentTab->deleteRow();
+    } else {
+        QMessageBox::warning(this, tr("Error"), tr("Current tab is not a table."));
+    }
+}
+
+void MainWindow::on_actiondel_col_triggered()
+{
+    QWidget* currentWidget = ui->tabWidget->widget(currentIndex);
+    TableTab* currentTab = qobject_cast<TableTab*>(currentWidget);
+    if (currentTab) {
+        currentTab->deleteColumn();
+    } else {
+        QMessageBox::warning(this, tr("Error"), tr("Current tab is not a table."));
     }
 }

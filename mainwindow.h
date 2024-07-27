@@ -39,9 +39,13 @@ private slots:
     void on_actionsub_triggered();
     void on_actionlink_server_triggered();
 
+    void on_actiondel_row_triggered();
+
+    void on_actiondel_col_triggered();
+
 private:
     Ui::MainWindow *ui;
-
+    int currentIndex;
     void createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName);
     TabAbstract* createTabByFileName(const QString &fileName);
 };
