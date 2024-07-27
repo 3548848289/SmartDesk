@@ -1,4 +1,4 @@
-// tabletab.h
+// TabHandleCSV.h
 #ifndef TABHANDLECSV_H
 #define TABHANDLECSV_H
 
@@ -16,13 +16,13 @@
 #include <string>
 #include <QInputDialog>
 
-class TableTab : public TabAbstract
+class TabHandleCSV : public TabAbstract
 {
     Q_OBJECT
 
 public:
 
-    explicit TableTab(QWidget *parent = nullptr);
+    explicit TabHandleCSV(QWidget *parent = nullptr);
     void setText(const QString &text) override;
     QString getText() const override;
     void setLinkStatus(bool status);

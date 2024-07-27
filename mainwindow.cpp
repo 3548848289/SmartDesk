@@ -1,10 +1,20 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "DLfromNet.h"
+#include "TabHandleTXT.h"
+#include "TabHandleCSV.h"
+#include "QDockWidget"
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setWindowTitle("My Application");
+    setWindowIcon(QIcon(":/images.jpg"));
+
+    m_csvLinkServer = new csvLinkServer(this);
+    m_csvLinkServer->show();
+//    ui->dockRight->setWidget(m_csvLinkServer);
 }
+
 
 MainWindow::~MainWindow()
 {
@@ -18,13 +28,13 @@ void MainWindow::on_actiontxt_file_triggered()
 
 void MainWindow::on_actionscv_file_triggered()
 {
-    createNewTab([]() { return new TableTab(); }, "New Table Tab");
+    createNewTab([]() { return new TabHandleCSV(); }, "New Table Tab");
 }
 
 void MainWindow::on_actionopen_triggered()
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "",
-                            tr("CSV Files (*.csv);;Text Files (*.txt);;All Files (*)"));
+                                                    tr("CSV Files (*.csv);;Text Files (*.txt);;All Files (*)"));
     if (fileName.isEmpty())
         return;
 
@@ -41,22 +51,13 @@ void MainWindow::on_actionopen_triggered()
 
 void MainWindow::on_actionsave_triggered()
 {
-    int currentIndex = ui->tabWidget->currentIndex();
-    if (currentIndex < 0) {
-        QMessageBox::warning(this, tr("Error"), tr("No tab to save"));
-        return;
-    }
-
-    TabAbstract* currentTab = qobject_cast<TabAbstract*>(ui->tabWidget->widget(currentIndex));
-    if (!currentTab) {
-        QMessageBox::warning(this, tr("Error"), tr("Current tab is not valid"));
-        return;
-    }
+    auto currentTab = getCurrentTab<TabAbstract>();
+    if (!currentTab) return;
 
     QString fileFilter;
     if (dynamic_cast<TextTab*>(currentTab)) {
         fileFilter = tr("Text Files (*.txt);;All Files (*)");
-    } else if (dynamic_cast<TableTab*>(currentTab)) {
+    } else if (dynamic_cast<TabHandleCSV*>(currentTab)) {
         fileFilter = tr("CSV Files (*.csv);;All Files (*)");
     } else {
         fileFilter = tr("All Files (*)");
@@ -80,7 +81,7 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
     if (fileName.endsWith(".txt", Qt::CaseInsensitive)) {
         return new TextTab();
     } else if (fileName.endsWith(".csv", Qt::CaseInsensitive)) {
-        return new TableTab();
+        return new TabHandleCSV();
     } else {
         return nullptr;
     }
@@ -103,7 +104,7 @@ void MainWindow::on_actionclose_triggered()
 
 void MainWindow::on_actiondownload_triggered()
 {
-    TabAbstract* currentTab = qobject_cast<TabAbstract*>(ui->tabWidget->widget(currentIndex));
+    auto currentTab = getCurrentTab<TabAbstract>();
     if (currentTab) {
         downLoad* downloadWidget = new downLoad();
         connect(downloadWidget, &downLoad::fileDownloaded, this, &MainWindow::handleFileDownload);
@@ -126,56 +127,54 @@ void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &f
 
 void MainWindow::on_actionadd_triggered()
 {
-    TableTab* currentTab = dynamic_cast<TableTab*>(ui->tabWidget->widget(currentIndex));
-    if (currentTab) {
-        currentTab->addRow();
-    } else {
-        QMessageBox::warning(this, tr("Error"), tr("Current tab is not a table."));
-    }
+    handleTableTabAction(&TabHandleCSV::addRow, tr("Current tab is not a table."));
 }
 
 void MainWindow::on_actionsub_triggered()
 {
-    TableTab* currentTab = dynamic_cast<TableTab*>(ui->tabWidget->widget(currentIndex));
-    if (currentTab) {
-        currentTab->addColumn();
-    } else {
-        QMessageBox::warning(this, tr("Error"), tr("Current tab is not a table."));
-    }
+    handleTableTabAction(&TabHandleCSV::addColumn, tr("Current tab is not a table."));
 }
 
 void MainWindow::on_actionlink_server_triggered()
 {
-    TableTab* currentTab = qobject_cast<TableTab*>(ui->tabWidget->widget(currentIndex));
+    auto currentTab = getCurrentTab<TabHandleCSV>();
     if (currentTab) {
         currentTab->setLinkStatus(true);
-        Epoll* epoll = new Epoll(nullptr, currentTab);
-        epoll->show();
+        csvLinkServer* m_csvLinkServer = new csvLinkServer(nullptr, currentTab);
+        m_csvLinkServer->show();
     } else {
         qDebug() << "Failed to cast current tab to TabAbstract*";
     }
 }
 
-
 void MainWindow::on_actiondel_row_triggered()
 {
-    QWidget* currentWidget = ui->tabWidget->widget(currentIndex);
-
-    TableTab* currentTab = qobject_cast<TableTab*>(currentWidget);
-    if (currentTab) {
-        currentTab->deleteRow();
-    } else {
-        QMessageBox::warning(this, tr("Error"), tr("Current tab is not a table."));
-    }
+    handleTableTabAction(&TabHandleCSV::deleteRow, tr("Current tab is not a table."));
 }
 
 void MainWindow::on_actiondel_col_triggered()
 {
+    handleTableTabAction(&TabHandleCSV::deleteColumn, tr("Current tab is not a table."));
+}
+
+template<typename T>
+T* MainWindow::getCurrentTab()
+{
     QWidget* currentWidget = ui->tabWidget->widget(currentIndex);
-    TableTab* currentTab = qobject_cast<TableTab*>(currentWidget);
+    T* currentTab = qobject_cast<T*>(currentWidget);
+    if (!currentTab) {
+        QMessageBox::warning(this, tr("Error"), tr("Current tab is not valid"));
+    }
+    return currentTab;
+}
+
+template<typename Func>
+void MainWindow::handleTableTabAction(Func func, const QString &errorMessage)
+{
+    auto currentTab = getCurrentTab<TabHandleCSV>();
     if (currentTab) {
-        currentTab->deleteColumn();
+        (currentTab->*func)();
     } else {
-        QMessageBox::warning(this, tr("Error"), tr("Current tab is not a table."));
+        QMessageBox::warning(this, tr("Error"), errorMessage);
     }
 }

@@ -4,15 +4,10 @@
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QMessageBox>
-#include <QFileDialog>
-#include <QMessageBox>
 #include <QDebug>
-
+#include <functional>
 #include "TabAbstract.h"
-#include "DLfromNet.h"
 #include "csvLinkServer.h"
-#include "TabHandleTXT.h"
-#include "TabHandleCSV.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -38,16 +33,22 @@ private slots:
     void on_actionadd_triggered();
     void on_actionsub_triggered();
     void on_actionlink_server_triggered();
-
     void on_actiondel_row_triggered();
-
     void on_actiondel_col_triggered();
 
 private:
     Ui::MainWindow *ui;
     int currentIndex;
+
+    csvLinkServer* m_csvLinkServer;
     void createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName);
     TabAbstract* createTabByFileName(const QString &fileName);
+
+    template<typename T>
+    T* getCurrentTab();
+
+    template<typename Func>
+    void handleTableTabAction(Func func, const QString &errorMessage);
 };
 
 #endif // MAINWINDOW_H

@@ -1,5 +1,5 @@
-#ifndef Epoll_H
-#define Epoll_H
+#ifndef csvLinkServer_H
+#define csvLinkServer_H
 
 #include <QMainWindow>
 #include <QTcpSocket>
@@ -9,16 +9,22 @@
 #include "TabHandleCSV.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class Epoll; }
+namespace Ui { class csvLinkServer; }
 QT_END_NAMESPACE
 
-class Epoll : public QMainWindow
+class csvLinkServer : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    Epoll(QWidget *parent, TableTab* eTableTab);
-    ~Epoll();
+    csvLinkServer(QWidget *parent = nullptr) : QMainWindow(parent)
+    {
+
+    }
+
+
+    csvLinkServer(QWidget *parent, TabHandleCSV* eTableTab);
+    ~csvLinkServer();
 
 
 public slots:
@@ -41,10 +47,10 @@ private slots:
     void on_pushButton_clicked();
 
 private:
-    Ui::Epoll *ui;
+    Ui::csvLinkServer *ui;
     QTcpSocket *tcpSocket;
-    TableTab *tableTab;
+    TabHandleCSV *tableTab;
 };
 
-#endif // Epoll_H
+#endif // csvLinkServer_H
 

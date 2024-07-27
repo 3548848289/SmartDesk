@@ -1,6 +1,6 @@
 #include "TabHandleCSV.h"
 
-TableTab::TableTab(QWidget *parent): TabAbstract(parent)
+TabHandleCSV::TabHandleCSV(QWidget *parent): TabAbstract(parent)
 {
 
     highlightLabel = new QLabel(this);
@@ -37,7 +37,7 @@ TableTab::TableTab(QWidget *parent): TabAbstract(parent)
 
 }
 
-void TableTab::setText(const QString &text)
+void TabHandleCSV::setText(const QString &text)
 {
     tableWidget->clear();
     QStringList rows = text.split('\n');
@@ -62,7 +62,7 @@ void TableTab::setText(const QString &text)
     tableWidget->setColumnCount(maxCols);
 }
 
-void TableTab::loadFromFile(const QString &fileName)
+void TabHandleCSV::loadFromFile(const QString &fileName)
 {
     QFile file(fileName);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -75,18 +75,18 @@ void TableTab::loadFromFile(const QString &fileName)
 }
 
 
-QString TableTab::getText() const
+QString TabHandleCSV::getText() const
 {
     return toCSV();
 }
 
-void TableTab::setLinkStatus(bool status)
+void TabHandleCSV::setLinkStatus(bool status)
 {
     this->link = status;
 }
 
 
-void TableTab::saveToFile(const QString &fileName)
+void TabHandleCSV::saveToFile(const QString &fileName)
 {
     QFile file(fileName);
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -98,12 +98,12 @@ void TableTab::saveToFile(const QString &fileName)
     }
 }
 
-void TableTab::loadFromContent(const QByteArray &content)
+void TabHandleCSV::loadFromContent(const QByteArray &content)
 {
     setText(QString::fromUtf8(content));
 }
 
-QString TableTab::toCSV() const
+QString TabHandleCSV::toCSV() const
 {
     QString csvText;
     for (int i = 0; i < tableWidget->rowCount(); ++i) {
@@ -118,7 +118,7 @@ QString TableTab::toCSV() const
     return csvText;
 }
 
-void TableTab::adjustItem(QTableWidgetItem *item)
+void TabHandleCSV::adjustItem(QTableWidgetItem *item)
 {
     tableWidget->blockSignals(true);
     item->setData(Qt::UserRole, "127.0.0.1");
@@ -133,13 +133,13 @@ void TableTab::adjustItem(QTableWidgetItem *item)
     }
 }
 
-void TableTab::addRow()
+void TabHandleCSV::addRow()
 {
     int rowCount = tableWidget->rowCount();
     tableWidget->insertRow(rowCount);
 }
 
-void TableTab::addColumn()
+void TabHandleCSV::addColumn()
 {
     bool ok;
     QString columnName = QInputDialog::getText(this, tr("New Column"), tr("Enter column name:"), QLineEdit::Normal, "", &ok);
@@ -152,7 +152,7 @@ void TableTab::addColumn()
 }
 
 
-void TableTab::deleteRow()
+void TabHandleCSV::deleteRow()
 {
     int currentRow = tableWidget->currentRow();
     if (currentRow != -1) {
@@ -162,7 +162,7 @@ void TableTab::deleteRow()
     }
 }
 
-void TableTab::deleteColumn()
+void TabHandleCSV::deleteColumn()
 {
     int currentColumn = tableWidget->currentColumn();
     if (currentColumn != -1) {
@@ -172,7 +172,7 @@ void TableTab::deleteColumn()
     }
 }
 
-void TableTab::ReadfromServer(QString data)
+void TabHandleCSV::ReadfromServer(QString data)
 {
     tableWidget->clear();
     QStringList lines = data.split("\n", Qt::SkipEmptyParts);
@@ -192,7 +192,7 @@ void TableTab::ReadfromServer(QString data)
     parseCSV(csvText);
 }
 
-void TableTab::parseCSV(const QString &csvText)
+void TabHandleCSV::parseCSV(const QString &csvText)
 {
     tableWidget->clear();
     QStringList rows = csvText.split('\n');
@@ -207,7 +207,7 @@ void TableTab::parseCSV(const QString &csvText)
 }
 
 
-void TableTab::ChickfromServer(QString data)
+void TabHandleCSV::ChickfromServer(QString data)
 {
     int row = 0, column = 0;
     sscanf(data.toStdString().c_str(), "chick (%d,%d)", &row, &column);
@@ -229,7 +229,7 @@ void TableTab::ChickfromServer(QString data)
         qDebug() << "Invalid data: (" << row << ", " << column << ")";
 }
 
-void TableTab::clearfromServer(QString data)
+void TabHandleCSV::clearfromServer(QString data)
 {
     int row = 0, column = 0;
     sscanf(data.toStdString().c_str(), "clear (%d,%d)", &row, &column);
@@ -247,7 +247,7 @@ void TableTab::clearfromServer(QString data)
     }
 }
 
-void TableTab::editedfromServer(QString data)
+void TabHandleCSV::editedfromServer(QString data)
 {
 
     int row, col;

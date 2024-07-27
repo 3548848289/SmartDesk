@@ -1,11 +1,11 @@
 #include "csvLinkServer.h"
 #include "ui_csvLinkServer.h"
 
-Epoll::Epoll(QWidget *parent, TableTab* eTableTab): QMainWindow(parent), ui(new Ui::Epoll),
+csvLinkServer::csvLinkServer(QWidget *parent, TabHandleCSV* eTableTab): QMainWindow(parent), ui(new Ui::csvLinkServer),
     tcpSocket(new QTcpSocket(this)), tableTab(eTableTab)
 {
     ui->setupUi(this);
-    connect(tableTab, &TableTab::dataToSend, this, &Epoll::sendDataToServer);
+    connect(tableTab, &TabHandleCSV::dataToSend, this, &csvLinkServer::sendDataToServer);
 
     connect(tcpSocket, &QTcpSocket::connected, this, []() {
         qDebug() << "Connected to server.";
@@ -13,10 +13,10 @@ Epoll::Epoll(QWidget *parent, TableTab* eTableTab): QMainWindow(parent), ui(new 
     connect(tcpSocket, &QTcpSocket::disconnected, this, []() {
         qDebug() << "Disconnected from server.";
     });
-    connect(tcpSocket, &QTcpSocket::readyRead, this, &Epoll::on_readyRead);
+    connect(tcpSocket, &QTcpSocket::readyRead, this, &csvLinkServer::on_readyRead);
 }
 
-Epoll::~Epoll()
+csvLinkServer::~csvLinkServer()
 {
     delete ui;
     tcpSocket->disconnect();
@@ -25,7 +25,7 @@ Epoll::~Epoll()
 }
 
 
-void Epoll::on_readyRead()
+void csvLinkServer::on_readyRead()
 {
     QString data = tcpSocket->readAll();
 
@@ -59,13 +59,13 @@ void Epoll::on_readyRead()
 
 
 
-void Epoll::on_disconnected()
+void csvLinkServer::on_disconnected()
 {
     QMessageBox::information(this, tr("Disconnected"), tr("Disconnected from server"));
 }
 
 
-void Epoll::sendDataToServer(const QString &data)
+void csvLinkServer::sendDataToServer(const QString &data)
 {
     if (tcpSocket->isOpen())
     {
@@ -74,7 +74,7 @@ void Epoll::sendDataToServer(const QString &data)
     }
 }
 
-void Epoll::on_readfiieBtn_clicked()
+void csvLinkServer::on_readfiieBtn_clicked()
 {
     QString message = "read " + ui->readfileEdit->text();
     if (!message.isEmpty())
@@ -86,7 +86,7 @@ void Epoll::on_readfiieBtn_clicked()
 }
 
 
-void Epoll::on_sendmsgEdit_clicked()
+void csvLinkServer::on_sendmsgEdit_clicked()
 {
     QString message = ui->msgEdit->text();
     if (!message.isEmpty()) {
@@ -96,7 +96,7 @@ void Epoll::on_sendmsgEdit_clicked()
 }
 
 
-void Epoll::on_linkserverBtn_clicked()
+void csvLinkServer::on_linkserverBtn_clicked()
 {
     QString serverIp = ui->comboServer->currentText();
     quint16 serverPort = ui->spinPort->value();
@@ -116,7 +116,7 @@ void Epoll::on_linkserverBtn_clicked()
 }
 
 
-void Epoll::on_pushButton_clicked()
+void csvLinkServer::on_pushButton_clicked()
 {
     tableTab->setLinkStatus(false);
     if (tcpSocket->state() == QAbstractSocket::ConnectedState) {
