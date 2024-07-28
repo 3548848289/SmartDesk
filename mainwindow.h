@@ -7,8 +7,10 @@
 #include <QDebug>
 #include <functional>
 #include "TabAbstract.h"
-#include "csvLinkServer.h"
+#include "csvLinkServer2.h"
 
+#include "TabHandleTXT.h"
+#include "TabHandleCSV.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -38,8 +40,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    int currentIndex;
-
+    int currentIndex = 0;
+    QTabWidget *tabWidget;
     csvLinkServer* m_csvLinkServer;
     void createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName);
     TabAbstract* createTabByFileName(const QString &fileName);

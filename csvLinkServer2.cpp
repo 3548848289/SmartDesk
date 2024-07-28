@@ -1,19 +1,11 @@
-#include "csvLinkServer.h"
-#include "ui_csvLinkServer.h"
-
-csvLinkServer::csvLinkServer(QWidget *parent, TabHandleCSV* eTableTab): QMainWindow(parent), ui(new Ui::csvLinkServer),
-    tcpSocket(new QTcpSocket(this)), tableTab(eTableTab)
+#include "csvLinkServer2.h"
+#include "ui_csvLinkServer2.h"
+#include "EditedLog.h"
+csvLinkServer::csvLinkServer(QWidget *parent): QWidget(parent),
+        ui(new Ui::csvLinkServer2), tcpSocket(new QTcpSocket(this))
 {
     ui->setupUi(this);
-    connect(tableTab, &TabHandleCSV::dataToSend, this, &csvLinkServer::sendDataToServer);
 
-    connect(tcpSocket, &QTcpSocket::connected, this, []() {
-        qDebug() << "Connected to server.";
-    });
-    connect(tcpSocket, &QTcpSocket::disconnected, this, []() {
-        qDebug() << "Disconnected from server.";
-    });
-    connect(tcpSocket, &QTcpSocket::readyRead, this, &csvLinkServer::on_readyRead);
 }
 
 csvLinkServer::~csvLinkServer()
@@ -22,6 +14,21 @@ csvLinkServer::~csvLinkServer()
     tcpSocket->disconnect();
     tcpSocket->waitForDisconnected();
     delete tcpSocket;
+}
+
+void csvLinkServer::bindTab(TabHandleCSV *eTableTab)
+{
+    m_tableTab = eTableTab;
+
+    connect(m_tableTab, &TabHandleCSV::dataToSend, this, &csvLinkServer::sendDataToServer);
+
+    connect(tcpSocket, &QTcpSocket::connected, this, []() {
+        qDebug() << "Connected to server.";
+    });
+    connect(tcpSocket, &QTcpSocket::disconnected, this, []() {
+        qDebug() << "Disconnected from server.";
+    });
+    connect(tcpSocket, &QTcpSocket::readyRead, this, &csvLinkServer::on_readyRead);
 }
 
 
@@ -35,7 +42,7 @@ void csvLinkServer::on_readyRead()
         if(firstLine == "read")
         {
             QString remainingData = data.mid(firstLine.length() + 1);
-            tableTab->ReadfromServer(remainingData);
+            m_tableTab->ReadfromServer(remainingData);
             return;
         }
 
@@ -44,15 +51,17 @@ void csvLinkServer::on_readyRead()
         ui->textBrowser->append("消息提示: " + secondLine + "--" + remainingData);
         if(firstLine == "chick")
         {
-            tableTab->ChickfromServer(remainingData);
+            m_tableTab->ChickfromServer(remainingData);
         }
         if(firstLine == "clear")
         {
-            tableTab->clearfromServer(remainingData);
+            m_tableTab->clearfromServer(remainingData);
         }
         if(firstLine == "edited")
         {
-            tableTab->editedfromServer(remainingData);
+            QString logMessage = QString("Edited: %1").arg(remainingData);
+            EditedLog logger;
+            logger.writeLog(logMessage);
         }
     }
 }
@@ -98,6 +107,7 @@ void csvLinkServer::on_sendmsgEdit_clicked()
 
 void csvLinkServer::on_linkserverBtn_clicked()
 {
+
     QString serverIp = ui->comboServer->currentText();
     quint16 serverPort = ui->spinPort->value();
 
@@ -118,7 +128,7 @@ void csvLinkServer::on_linkserverBtn_clicked()
 
 void csvLinkServer::on_pushButton_clicked()
 {
-    tableTab->setLinkStatus(false);
+    m_tableTab->setLinkStatus(false);
     if (tcpSocket->state() == QAbstractSocket::ConnectedState) {
         tcpSocket->disconnectFromHost();
         if (tcpSocket->state() == QAbstractSocket::UnconnectedState || tcpSocket->waitForDisconnected(3000)) {

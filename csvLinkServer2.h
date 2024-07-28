@@ -1,7 +1,7 @@
 #ifndef csvLinkServer_H
 #define csvLinkServer_H
 
-#include <QMainWindow>
+#include <QWidget>
 #include <QTcpSocket>
 #include <QMessageBox>
 #include <QHostAddress>
@@ -9,22 +9,18 @@
 #include "TabHandleCSV.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class csvLinkServer; }
+namespace Ui { class csvLinkServer2; }
 QT_END_NAMESPACE
 
-class csvLinkServer : public QMainWindow
+class csvLinkServer : public QWidget
 {
     Q_OBJECT
 
 public:
-    csvLinkServer(QWidget *parent = nullptr) : QMainWindow(parent)
-    {
-
-    }
-
-
-    csvLinkServer(QWidget *parent, TabHandleCSV* eTableTab);
+    csvLinkServer(QWidget *parent = nullptr);
     ~csvLinkServer();
+
+    void bindTab(TabHandleCSV* tab);
 
 
 public slots:
@@ -36,20 +32,15 @@ signals:
 private slots:
     void on_readyRead();
     void on_disconnected();
-
-
     void on_readfiieBtn_clicked();
-
     void on_sendmsgEdit_clicked();
-
     void on_linkserverBtn_clicked();
-
     void on_pushButton_clicked();
 
 private:
-    Ui::csvLinkServer *ui;
+    Ui::csvLinkServer2 *ui;
     QTcpSocket *tcpSocket;
-    TabHandleCSV *tableTab;
+    TabHandleCSV *m_tableTab;
 };
 
 #endif // csvLinkServer_H

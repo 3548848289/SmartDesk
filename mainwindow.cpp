@@ -1,8 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "DLfromNet.h"
-#include "TabHandleTXT.h"
-#include "TabHandleCSV.h"
 #include "QDockWidget"
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -10,11 +8,27 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     setWindowTitle("My Application");
     setWindowIcon(QIcon(":/images.jpg"));
 
-    m_csvLinkServer = new csvLinkServer(this);
-    m_csvLinkServer->show();
-//    ui->dockRight->setWidget(m_csvLinkServer);
-}
+    QDockWidget *dockLeft = new QDockWidget(this);
+    dockLeft->setFeatures(QDockWidget::NoDockWidgetFeatures);
+    dockLeft->setAllowedAreas(Qt::LeftDockWidgetArea);
+    dockLeft->setWindowFlags(dockLeft->windowFlags() | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
+    dockLeft->setTitleBarWidget(new QWidget());
+    tabWidget = new QTabWidget(dockLeft);
+    dockLeft->setWidget(tabWidget);
+    addDockWidget(Qt::LeftDockWidgetArea, dockLeft);
 
+    QDockWidget *dockRight = new QDockWidget("工具界面", this);
+    dockRight->setFeatures(QDockWidget::NoDockWidgetFeatures);
+    dockRight->setAllowedAreas(Qt::RightDockWidgetArea);
+    addDockWidget(Qt::RightDockWidgetArea, dockRight);
+    m_csvLinkServer = new csvLinkServer(dockRight);
+    dockRight->setWidget(m_csvLinkServer);
+    addDockWidget(Qt::RightDockWidgetArea, dockRight);
+
+    splitDockWidget(dockLeft, dockRight, Qt::Horizontal);
+    resizeDocks({dockLeft, dockRight}, {650, 350}, Qt::Horizontal);
+
+}
 
 MainWindow::~MainWindow()
 {
@@ -43,7 +57,7 @@ void MainWindow::on_actionopen_triggered()
         newTab->loadFromFile(fileName);
         QFileInfo fileInfo(fileName);
         QString baseName = fileInfo.fileName();
-        ui->tabWidget->addTab(newTab, baseName);
+        tabWidget->addTab(newTab, baseName);
     } else {
         QMessageBox::warning(this, tr("Error"), tr("Unsupported file type"));
     }
@@ -73,7 +87,7 @@ void MainWindow::on_actionsave_triggered()
 void MainWindow::createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName)
 {
     TabAbstract* newTab = tabFactory();
-    ui->tabWidget->addTab(newTab, tabName);
+    tabWidget->addTab(newTab, tabName);
 }
 
 TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
@@ -96,7 +110,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
 void MainWindow::on_actionclose_triggered()
 {
     if (currentIndex >= 0) {
-        ui->tabWidget->removeTab(currentIndex);
+        tabWidget->removeTab(currentIndex);
     } else {
         qDebug() << "No tab to close.";
     }
@@ -119,7 +133,7 @@ void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &f
     TabAbstract* newTab = createTabByFileName(fileName);
     if (newTab) {
         newTab->loadFromContent(fileContent);
-        ui->tabWidget->addTab(newTab, fileName);
+        tabWidget->addTab(newTab, fileName);
     } else {
         QMessageBox::warning(this, tr("Error"), tr("Unsupported file type"));
     }
@@ -140,8 +154,7 @@ void MainWindow::on_actionlink_server_triggered()
     auto currentTab = getCurrentTab<TabHandleCSV>();
     if (currentTab) {
         currentTab->setLinkStatus(true);
-        csvLinkServer* m_csvLinkServer = new csvLinkServer(nullptr, currentTab);
-        m_csvLinkServer->show();
+        m_csvLinkServer->bindTab(currentTab);
     } else {
         qDebug() << "Failed to cast current tab to TabAbstract*";
     }
@@ -160,7 +173,7 @@ void MainWindow::on_actiondel_col_triggered()
 template<typename T>
 T* MainWindow::getCurrentTab()
 {
-    QWidget* currentWidget = ui->tabWidget->widget(currentIndex);
+    QWidget* currentWidget = tabWidget->widget(currentIndex);
     T* currentTab = qobject_cast<T*>(currentWidget);
     if (!currentTab) {
         QMessageBox::warning(this, tr("Error"), tr("Current tab is not valid"));

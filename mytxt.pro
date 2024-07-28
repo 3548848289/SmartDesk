@@ -10,23 +10,25 @@ CONFIG += c++17
 
 SOURCES += \
     DLfromNet.cpp \
+    EditedLog.cpp \
     TabHandleCSV.cpp \
     TabHandleTXT.cpp \
-    csvLinkServer.cpp \
+    csvLinkServer2.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     DLfromNet.h \
+    EditedLog.h \
     TabAbstract.h \
     TabHandleCSV.h \
     TabHandleTXT.h \
-    csvLinkServer.h \
+    csvLinkServer2.h \
     mainwindow.h
 
 FORMS += \
     DLfromNet.ui \
-    csvLinkServer.ui \
+    csvLinkServer2.ui \
     mainwindow.ui
 
 # Default rules for deployment.

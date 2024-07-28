@@ -48,6 +48,7 @@ signals:
 protected:
 
 private:
+    int row = 0, col = 0;
     int foucsRow = 0;
     int foucsCol = 0;
     bool link = false;

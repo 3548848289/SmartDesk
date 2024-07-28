@@ -82,7 +82,7 @@ QString TabHandleCSV::getText() const
 
 void TabHandleCSV::setLinkStatus(bool status)
 {
-    this->link = status;
+    link = status;
 }
 
 
@@ -151,7 +151,6 @@ void TabHandleCSV::addColumn()
     }
 }
 
-
 void TabHandleCSV::deleteRow()
 {
     int currentRow = tableWidget->currentRow();
@@ -176,7 +175,6 @@ void TabHandleCSV::ReadfromServer(QString data)
 {
     tableWidget->clear();
     QStringList lines = data.split("\n", Qt::SkipEmptyParts);
-
     if (lines.isEmpty())
         return;
 
@@ -185,10 +183,7 @@ void TabHandleCSV::ReadfromServer(QString data)
     tableWidget->setColumnCount(columnCount);
     tableWidget->setHorizontalHeaderLabels(headers);
 
-    // Exclude header line from data
     QString csvText = lines.mid(1).join("\n");
-
-    // Reuse parseCSV function to populate table
     parseCSV(csvText);
 }
 
@@ -197,25 +192,24 @@ void TabHandleCSV::parseCSV(const QString &csvText)
     tableWidget->clear();
     QStringList rows = csvText.split('\n');
     tableWidget->setRowCount(rows.size());
-    for (int i = 0; i < rows.size(); ++i) {
+    for (int i = 0; i < rows.size(); ++i)
+    {
         QStringList cols = rows[i].split(',');
         tableWidget->setColumnCount(qMax(tableWidget->columnCount(), cols.size()));
-        for (int j = 0; j < cols.size(); ++j) {
+        for (int j = 0; j < cols.size(); ++j)
             tableWidget->setItem(i, j, new QTableWidgetItem(cols[j]));
-        }
     }
 }
 
 
 void TabHandleCSV::ChickfromServer(QString data)
 {
-    int row = 0, column = 0;
-    sscanf(data.toStdString().c_str(), "chick (%d,%d)", &row, &column);
-    qDebug() << "chick data: (" << row << ", " << column << ")";
+    sscanf(data.toStdString().c_str(), "chick (%d,%d)", &this->row, &this->col);
+    qDebug() << "chick data: (" << row << ", " << col << ")";
 
-    if (row >= 0 && row < tableWidget->rowCount() && column >= 0 && column < tableWidget->columnCount())
+    if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount())
     {
-        QTableWidgetItem *item = tableWidget->item(row, column);
+        QTableWidgetItem *item = tableWidget->item(row, col);
 
         if (item)
         {
@@ -226,18 +220,17 @@ void TabHandleCSV::ChickfromServer(QString data)
         }
     }
     else
-        qDebug() << "Invalid data: (" << row << ", " << column << ")";
+        qDebug() << "Invalid data: (" << row << ", " << col << ")";
 }
 
 void TabHandleCSV::clearfromServer(QString data)
 {
-    int row = 0, column = 0;
-    sscanf(data.toStdString().c_str(), "clear (%d,%d)", &row, &column);
-    qDebug() << "clear data: (" << row << ", " << column << ")";
+    sscanf(data.toStdString().c_str(), "clear (%d,%d)", &this->row, &this->col);
+    qDebug() << "clear data: (" << row << ", " << col << ")";
 
-    if (row >= 0 && row < tableWidget->rowCount() && column >= 0 && column < tableWidget->columnCount())
+    if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount())
     {
-        QTableWidgetItem *item = tableWidget->item(row, column);
+        QTableWidgetItem *item = tableWidget->item(row, col);
         if (item) {
             tableWidget->blockSignals(true);
             item->setBackground(Qt::transparent);
@@ -249,22 +242,17 @@ void TabHandleCSV::clearfromServer(QString data)
 
 void TabHandleCSV::editedfromServer(QString data)
 {
-
-    int row, col;
     char newValue[256];
-    sscanf(data.toStdString().c_str(), "edited(%d,%d,%10s", &row, &col, newValue);
-
-    // 更新QTableWidget中的相应单元格内容
+    sscanf(data.toStdString().c_str(), "edited(%d,%d,%10s", &this->row, &this->col, newValue);
     if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount()) {
         QTableWidgetItem *item = tableWidget->item(row, col);
         if (!item) {
             item = new QTableWidgetItem();
-            qDebug() << "这里原因";
             tableWidget->setItem(row, col, item);
         }
         item->setText(newValue);
         adjustItem(item);
-    } else {
-        qDebug() << "Invalid row or column index";
     }
+    else
+        qDebug() << "Invalid row or column index";
 }
