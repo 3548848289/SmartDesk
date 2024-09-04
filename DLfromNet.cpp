@@ -1,8 +1,8 @@
 #include "DLfromNet.h"
 #include "ui_DLfromNet.h"
 
-downLoad::downLoad(QWidget *parent) :QMainWindow(parent),
-    ui(new Ui::downLoad),reply(nullptr),downloadedFile(nullptr){
+downLoad::downLoad(QWidget *parent) :QWidget(parent),
+    ui(new Ui::DLfromNet),reply(nullptr),downloadedFile(nullptr){
 
     ui->setupUi(this);
     ui->editURL->setClearButtonEnabled(true);

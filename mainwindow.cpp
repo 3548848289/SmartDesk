@@ -1,32 +1,32 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "DLfromNet.h"
-#include "QDockWidget"
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow),
+    recentFilesManager(new RecentFilesManager(this))
 {
+
     ui->setupUi(this);
     setWindowTitle("My Application");
-    setWindowIcon(QIcon(":/images.jpg"));
+    setWindowIcon(QIcon(":/image/package.svg"));
 
-    QDockWidget *dockLeft = new QDockWidget(this);
-    dockLeft->setFeatures(QDockWidget::NoDockWidgetFeatures);
-    dockLeft->setAllowedAreas(Qt::LeftDockWidgetArea);
-    dockLeft->setWindowFlags(dockLeft->windowFlags() | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
-    dockLeft->setTitleBarWidget(new QWidget());
-    tabWidget = new QTabWidget(dockLeft);
-    dockLeft->setWidget(tabWidget);
-    addDockWidget(Qt::LeftDockWidgetArea, dockLeft);
+    ui->dockLeft->setWindowFlags(ui->dockLeft->windowFlags() | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
+    ui->dockLeft->setTitleBarWidget(ui->dockLWid);
+    tabWidget = new QTabWidget(ui->dockLeft);
+    connect(tabWidget, &QTabWidget::currentChanged, this, &MainWindow::on_tabWidget_currentChanged);
 
-    QDockWidget *dockRight = new QDockWidget("工具界面", this);
-    dockRight->setFeatures(QDockWidget::NoDockWidgetFeatures);
-    dockRight->setAllowedAreas(Qt::RightDockWidgetArea);
-    addDockWidget(Qt::RightDockWidgetArea, dockRight);
-    m_csvLinkServer = new csvLinkServer(dockRight);
-    dockRight->setWidget(m_csvLinkServer);
-    addDockWidget(Qt::RightDockWidgetArea, dockRight);
+    ui->dockLeft->setWidget(tabWidget);
 
-    splitDockWidget(dockLeft, dockRight, Qt::Horizontal);
-    resizeDocks({dockLeft, dockRight}, {650, 350}, Qt::Horizontal);
+    widgetru = new WidgetRU(ui->dockRight);
+    ui->verticalLayout->addWidget(widgetru);
+
+    widgetrd = new WidgetRD(ui->dockRight);
+    ui->verticalLayout->addWidget(widgetrd);
+    connect(widgetrd->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
+
+    splitDockWidget(ui->dockLeft, ui->dockRight, Qt::Horizontal);
+    resizeDocks({ui->dockLeft, ui->dockRight}, {650, 350}, Qt::Horizontal);
+
+    recentFilesManager->populateRecentFilesMenu(ui->recentFile);
+    connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::on_actionopen_triggered);
 
 }
 
@@ -48,7 +48,7 @@ void MainWindow::on_actionscv_file_triggered()
 void MainWindow::on_actionopen_triggered()
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "",
-                                                    tr("CSV Files (*.csv);;Text Files (*.txt);;All Files (*)"));
+                                                    tr("All Files (*);;CSV Files (*.csv);;Text Files (*.txt)"));
     if (fileName.isEmpty())
         return;
 
@@ -58,6 +58,10 @@ void MainWindow::on_actionopen_triggered()
         QFileInfo fileInfo(fileName);
         QString baseName = fileInfo.fileName();
         tabWidget->addTab(newTab, baseName);
+
+        recentFilesManager->addFile(fileName);
+        recentFilesManager->populateRecentFilesMenu(ui->recentFile);
+
     } else {
         QMessageBox::warning(this, tr("Error"), tr("Unsupported file type"));
     }
@@ -149,16 +153,18 @@ void MainWindow::on_actionsub_triggered()
     handleTableTabAction(&TabHandleCSV::addColumn, tr("Current tab is not a table."));
 }
 
-void MainWindow::on_actionlink_server_triggered()
+
+void MainWindow::handleFilePathSent()
 {
-    auto currentTab = getCurrentTab<TabHandleCSV>();
-    if (currentTab) {
-        currentTab->setLinkStatus(true);
-        m_csvLinkServer->bindTab(currentTab);
-    } else {
-        qDebug() << "Failed to cast current tab to TabAbstract*";
-    }
+
+        on_actionscv_file_triggered();
+        auto currentTab = getCurrentTab<TabHandleCSV>();
+        qDebug() << "this";
+
+    currentTab->setLinkStatus(true);
+    widgetrd->m_csvLinkServer->bindTab(currentTab);
 }
+
 
 void MainWindow::on_actiondel_row_triggered()
 {
@@ -191,3 +197,4 @@ void MainWindow::handleTableTabAction(Func func, const QString &errorMessage)
         QMessageBox::warning(this, tr("Error"), errorMessage);
     }
 }
+

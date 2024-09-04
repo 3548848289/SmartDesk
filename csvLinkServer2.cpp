@@ -35,12 +35,12 @@ void csvLinkServer::bindTab(TabHandleCSV *eTableTab)
 void csvLinkServer::on_readyRead()
 {
     QString data = tcpSocket->readAll();
-
     QStringList lines = data.split("\n");
     if (!lines.isEmpty()) {
         QString firstLine = lines.first();
         if(firstLine == "read")
         {
+
             QString remainingData = data.mid(firstLine.length() + 1);
             m_tableTab->ReadfromServer(remainingData);
             return;
@@ -91,6 +91,8 @@ void csvLinkServer::on_readfiieBtn_clicked()
         qDebug() << "Sending file path to server: " << message;
         tcpSocket->write(message.toUtf8());
         ui->msgEdit->clear();
+        emit filePathSent();
+
     }
 }
 

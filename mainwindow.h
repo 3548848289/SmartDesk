@@ -6,11 +6,16 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <functional>
-#include "TabAbstract.h"
-#include "csvLinkServer2.h"
+#include <QWidget>
+#include <QDockWidget>
 
+#include "TabAbstract.h"
+#include "WidgetRD.h"
+#include "WidgetRU.h"
 #include "TabHandleTXT.h"
 #include "TabHandleCSV.h"
+#include "RecentFilesManager.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -34,15 +39,20 @@ private slots:
     void on_actiontxt_file_triggered();
     void on_actionadd_triggered();
     void on_actionsub_triggered();
-    void on_actionlink_server_triggered();
     void on_actiondel_row_triggered();
     void on_actiondel_col_triggered();
 
+    void handleFilePathSent();
+
+
 private:
+
+    RecentFilesManager *recentFilesManager;
     Ui::MainWindow *ui;
     int currentIndex = 0;
     QTabWidget *tabWidget;
-    csvLinkServer* m_csvLinkServer;
+    WidgetRU * widgetru;
+    WidgetRD* widgetrd;
     void createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName);
     TabAbstract* createTabByFileName(const QString &fileName);
 

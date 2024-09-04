@@ -1,0 +1,26 @@
+#ifndef WIDGETRD_H
+#define WIDGETRD_H
+
+#include <QWidget>
+#include "DLfromNet.h"
+#include "csvLinkServer2.h"
+
+namespace Ui {
+class WidgetRD;
+}
+
+class WidgetRD : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit WidgetRD(QWidget *parent = nullptr);
+    ~WidgetRD();
+    downLoad* downloadWidget;
+    csvLinkServer* m_csvLinkServer;
+
+private:
+    Ui::WidgetRD *ui;
+};
+
+#endif // WIDGETRD_H

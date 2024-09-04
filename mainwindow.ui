@@ -28,16 +28,22 @@
    </property>
    <widget class="QMenu" name="menufile">
     <property name="title">
-     <string>file</string>
+     <string>文件</string>
     </property>
     <widget class="QMenu" name="menunew">
      <property name="title">
-      <string>new</string>
+      <string>新建</string>
      </property>
      <addaction name="actiontxt_file"/>
      <addaction name="actionscv_file"/>
     </widget>
+    <widget class="QMenu" name="recentFile">
+     <property name="title">
+      <string>记录</string>
+     </property>
+    </widget>
     <addaction name="menunew"/>
+    <addaction name="recentFile"/>
     <addaction name="actionopen"/>
     <addaction name="actionsave"/>
     <addaction name="actionclose"/>
@@ -45,29 +51,91 @@
    </widget>
    <widget class="QMenu" name="menuaction">
     <property name="title">
-     <string>action</string>
+     <string>编辑</string>
     </property>
     <addaction name="actionadd"/>
     <addaction name="actiondel_row"/>
     <addaction name="actionsub"/>
     <addaction name="actiondel_col"/>
-    <addaction name="actionlink_server"/>
+   </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>新建</string>
+    </property>
    </widget>
    <addaction name="menufile"/>
    <addaction name="menuaction"/>
+   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QDockWidget" name="dockRight">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="features">
+    <set>QDockWidget::NoDockWidgetFeatures</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>工具界面</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockRWid">
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>351</width>
+       <height>591</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockLeft">
+   <property name="features">
+    <set>QDockWidget::NoDockWidgetFeatures</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string/>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockLWid"/>
+  </widget>
   <action name="actionopen">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/image/database_go.svg</normaloff>:/image/database_go.svg</iconset>
+   </property>
    <property name="text">
-    <string>open</string>
+    <string>打开</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
    </property>
   </action>
   <action name="actionsave">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/image/table_save.svg</normaloff>:/image/table_save.svg</iconset>
+   </property>
    <property name="text">
-    <string>save</string>
+    <string>保存</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
@@ -75,30 +143,41 @@
   </action>
   <action name="actionadd">
    <property name="text">
-    <string> add row</string>
+    <string>添加行</string>
    </property>
   </action>
   <action name="actionsub">
    <property name="text">
-    <string>add col</string>
+    <string>添加列</string>
    </property>
   </action>
   <action name="actionclose">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/image/cross.svg</normaloff>:/image/cross.svg</iconset>
+   </property>
    <property name="text">
-    <string>close</string>
+    <string>关闭</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+W</string>
    </property>
   </action>
   <action name="actiondownload">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/image/arrow_refresh_small.svg</normaloff>:/image/arrow_refresh_small.svg</iconset>
+   </property>
    <property name="text">
-    <string>download</string>
+    <string>下载</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
    </property>
   </action>
   <action name="actiontxt_file">
    <property name="text">
-    <string>txt file</string>
+    <string>txt文件</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+N, Ctrl+T</string>
@@ -106,28 +185,25 @@
   </action>
   <action name="actionscv_file">
    <property name="text">
-    <string>scv file</string>
+    <string>scv文件</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+N, Ctrl+C</string>
    </property>
   </action>
-  <action name="actionlink_server">
-   <property name="text">
-    <string>link server</string>
-   </property>
-  </action>
   <action name="actiondel_row">
    <property name="text">
-    <string>del row</string>
+    <string>删除行</string>
    </property>
   </action>
   <action name="actiondel_col">
    <property name="text">
-    <string>del col</string>
+    <string>删除列</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -4,15 +4,15 @@
 #include <QFile>
 #include <QDir>
 #include <QNetworkReply>
-#include <QMainWindow>
+#include <QWidget>
 #include <QMessageBox>
 #include <QDesktopServices>
 #include <QNetworkAccessManager>
 
 QT_BEGIN_NAMESPACE
-namespace Ui {class downLoad;}
+namespace Ui {class DLfromNet;}
 QT_END_NAMESPACE
-class downLoad : public QMainWindow
+class downLoad : public QWidget
 {
     Q_OBJECT
 
@@ -36,7 +36,7 @@ private:
     QNetworkAccessManager networkManager;
     QNetworkReply *reply;
     QFile *downloadedFile;
-    Ui::downLoad *ui;
+    Ui::DLfromNet *ui;
 };
 
 #endif // DLFROMNET_H

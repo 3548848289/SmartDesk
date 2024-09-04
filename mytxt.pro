@@ -11,8 +11,11 @@ CONFIG += c++17
 SOURCES += \
     DLfromNet.cpp \
     EditedLog.cpp \
+    RecentFilesManager.cpp \
     TabHandleCSV.cpp \
     TabHandleTXT.cpp \
+    WidgetRD.cpp \
+    WidgetRU.cpp \
     csvLinkServer2.cpp \
     main.cpp \
     mainwindow.cpp
@@ -20,14 +23,19 @@ SOURCES += \
 HEADERS += \
     DLfromNet.h \
     EditedLog.h \
+    RecentFilesManager.h \
     TabAbstract.h \
     TabHandleCSV.h \
     TabHandleTXT.h \
+    WidgetRD.h \
+    WidgetRU.h \
     csvLinkServer2.h \
     mainwindow.h
 
 FORMS += \
     DLfromNet.ui \
+    WidgetRD.ui \
+    WidgetRU.ui \
     csvLinkServer2.ui \
     mainwindow.ui
 
@@ -38,3 +46,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     res.qrc
+
+DISTFILES +=

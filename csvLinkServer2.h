@@ -28,6 +28,7 @@ public slots:
 
 signals:
     void dataReceived(const QString &data);
+    void filePathSent();
 
 private slots:
     void on_readyRead();
