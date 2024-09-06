@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>WidgetLU</class>
- <widget class="QWidget" name="WidgetLU">
+ <class>WidgetRU</class>
+ <widget class="QWidget" name="WidgetRU">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>365</width>
     <height>300</height>
    </rect>
   </property>
@@ -14,21 +14,36 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">border: 1px solid black;
-</string>
+   <string notr="true"/>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>30</y>
-     <width>321</width>
-     <height>221</height>
+     <y>0</y>
+     <width>331</width>
+     <height>291</height>
     </rect>
    </property>
-   <property name="text">
-    <string>欢迎</string>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLineEdit" name="pathLineEdit"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="goButton">
+        <property name="text">
+         <string> 跳转</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTreeView" name="treeView"/>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

@@ -5,7 +5,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
 
     ui->setupUi(this);
-    setWindowTitle("My Application");
+    setWindowTitle("QiHan在线文档");
     setWindowIcon(QIcon(":/image/package.svg"));
 
     ui->dockLeft->setWindowFlags(ui->dockLeft->windowFlags() | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
@@ -25,8 +25,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     splitDockWidget(ui->dockLeft, ui->dockRight, Qt::Horizontal);
     resizeDocks({ui->dockLeft, ui->dockRight}, {650, 350}, Qt::Horizontal);
 
+    connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
+    connect(widgetru, &WidgetRU::fileOpened, this, &MainWindow::openFile);
+
     recentFilesManager->populateRecentFilesMenu(ui->recentFile);
-    connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::on_actionopen_triggered);
 
 }
 
@@ -51,21 +53,29 @@ void MainWindow::on_actionopen_triggered()
                                                     tr("All Files (*);;CSV Files (*.csv);;Text Files (*.txt)"));
     if (fileName.isEmpty())
         return;
+    openFile(fileName);
+}
 
-    TabAbstract* newTab = createTabByFileName(fileName);
+
+void MainWindow::openFile(const QString &filePath)
+{
+    TabAbstract* newTab = createTabByFileName(filePath);
     if (newTab) {
-        newTab->loadFromFile(fileName);
-        QFileInfo fileInfo(fileName);
+        newTab->loadFromFile(filePath);
+        QFileInfo fileInfo(filePath);
         QString baseName = fileInfo.fileName();
-        tabWidget->addTab(newTab, baseName);
 
-        recentFilesManager->addFile(fileName);
+        int newIndex = tabWidget->addTab(newTab, baseName);
+        tabWidget->setCurrentIndex(newIndex);
+
+        recentFilesManager->addFile(filePath);
         recentFilesManager->populateRecentFilesMenu(ui->recentFile);
 
     } else {
         QMessageBox::warning(this, tr("Error"), tr("Unsupported file type"));
     }
 }
+
 
 void MainWindow::on_actionsave_triggered()
 {
@@ -96,7 +106,9 @@ void MainWindow::createNewTab(std::function<TabAbstract*()> tabFactory, const QS
 
 TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
 {
-    if (fileName.endsWith(".txt", Qt::CaseInsensitive)) {
+    if (fileName.endsWith(".txt", Qt::CaseInsensitive) ||
+        fileName.endsWith(".cpp", Qt::CaseInsensitive) ||
+        fileName.endsWith(".h", Qt::CaseInsensitive)) {
         return new TextTab();
     } else if (fileName.endsWith(".csv", Qt::CaseInsensitive)) {
         return new TabHandleCSV();
@@ -104,6 +116,7 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
         return nullptr;
     }
 }
+
 
 void MainWindow::on_tabWidget_currentChanged(int index)
 {
@@ -162,7 +175,7 @@ void MainWindow::handleFilePathSent()
         qDebug() << "this";
 
     currentTab->setLinkStatus(true);
-    widgetrd->m_csvLinkServer->bindTab(currentTab);
+        widgetrd->m_csvLinkServer->bindTab(currentTab);
 }
 
 

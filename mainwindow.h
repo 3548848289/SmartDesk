@@ -43,6 +43,7 @@ private slots:
     void on_actiondel_col_triggered();
 
     void handleFilePathSent();
+    void openFile(const QString &filePath);
 
 
 private:

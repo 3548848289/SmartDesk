@@ -4,10 +4,7 @@
 #include <QWidget>
 #include <QTreeView>
 #include <QFileSystemModel>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QDebug>
+
 namespace Ui {
 class WidgetRU;
 }
@@ -20,15 +17,10 @@ public:
     explicit WidgetRU(QWidget *parent = nullptr);
     ~WidgetRU();
 
-signals:
-    void fileOpened(const QString &filePath);
-
-private slots:
-    void onItemClicked(const QModelIndex &index);
-    void goButtonClicked();
-
 private:
     Ui::WidgetRU *ui;
+
+    QTreeView *treeView;
     QFileSystemModel *fileSystemModel;
 };
 
