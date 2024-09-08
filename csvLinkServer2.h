@@ -6,6 +6,9 @@
 #include <QMessageBox>
 #include <QHostAddress>
 #include <QNetworkProxy>
+#include <QJsonObject>
+#include <QJsonDocument>
+
 #include "TabHandleCSV.h"
 
 QT_BEGIN_NAMESPACE
@@ -39,6 +42,7 @@ private slots:
     void on_pushButton_clicked();
 
 private:
+    QString localIp;
     Ui::csvLinkServer2 *ui;
     QTcpSocket *tcpSocket;
     TabHandleCSV *m_tableTab;

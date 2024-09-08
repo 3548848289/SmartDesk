@@ -3,6 +3,8 @@
 #define TABHANDLECSV_H
 
 #include "TabAbstract.h"
+#include "myJson.h"
+
 #include <QTableWidget>
 #include <QString>
 #include <QLabel>
@@ -15,6 +17,8 @@
 #include <regex>
 #include <string>
 #include <QInputDialog>
+#include <QDebug>
+#include <QNetworkInterface>
 
 class TabHandleCSV : public TabAbstract
 {
@@ -36,10 +40,10 @@ public:
     void deleteRow();
     void deleteColumn();
 
-    void ReadfromServer(QString data);
-    void ChickfromServer(QString data);
-    void clearfromServer(QString data);
-    void editedfromServer(QString data);
+    void ReadfromServer(const QJsonObject& jsonObj);
+    void ChickfromServer(const QJsonObject& jsonObj);
+    void clearfromServer(const QJsonObject& jsonObj);
+    void editedfromServer(const QJsonObject& jsonObj);
 
 signals:
     void dataToSend(const QString &data);
@@ -52,6 +56,7 @@ private:
     int foucsRow = 0;
     int foucsCol = 0;
     bool link = false;
+    QString localIp;
 
     QTableWidget *tableWidget;
     QLabel *highlightLabel;
@@ -59,7 +64,7 @@ private:
 
     void parseCSV(const QString &csvText);
     QString toCSV() const;
-
+    QString constructJson(QString oper, int row, int col, QString obj);
     void adjustItem(QTableWidgetItem *item);
 };
 

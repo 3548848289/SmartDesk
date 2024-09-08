@@ -2,40 +2,37 @@
 
 TabHandleCSV::TabHandleCSV(QWidget *parent): TabAbstract(parent)
 {
-
     highlightLabel = new QLabel(this);
     tableWidget = new QTableWidget(this);
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(tableWidget);
-
     setLayout(layout);
+
     connect(tableWidget, &QAbstractItemView::clicked, [=](const QModelIndex &index){
+
         foucsRow = index.row();
         foucsCol = index.column();
-        QString newText = QString("(%1,%2)").arg(foucsRow).arg(foucsCol);
+        QString jsonString = myJson::constructJson(localIp, "chick",foucsRow, foucsCol, "");
+
         if (link)
-            emit dataToSend("chick" + newText);
+            emit dataToSend(jsonString);
     });
 
     connect(tableWidget, &QTableWidget::itemChanged, [=](QTableWidgetItem *item){
-
-        QString newText = QString("%1,%2,%3,%4")
-                              .arg(item->row()).arg(item->column()).arg(item->text().length()).arg(item->text());
-
-        qDebug() << "编辑函数启动了" << newText;
         adjustItem(item);
+        QString jsonString = myJson::constructJson(localIp, "edited",item->row(), item->column(), item->text());
         if (link)
-            emit dataToSend("edited," + newText);
+            emit dataToSend(jsonString);
     });
 
+    // 改变选中单元格时发送 clear 操作的 JSON 数据
     connect(tableWidget, &QTableWidget::itemSelectionChanged, [=](){
-        QString newText = QString("(%1,%2)").arg(foucsRow).arg(foucsCol);
+        QString jsonString = myJson::constructJson(localIp, "clear",foucsRow, foucsCol, "");
         if (link)
-            emit dataToSend("clear" + newText);
+            emit dataToSend(jsonString);
     });
-
-
 }
+
 
 void TabHandleCSV::setText(const QString &text)
 {
@@ -83,6 +80,17 @@ QString TabHandleCSV::getText() const
 void TabHandleCSV::setLinkStatus(bool status)
 {
     link = status;
+    QList<QNetworkInterface> interfaces = QNetworkInterface::allInterfaces();
+    foreach (const QNetworkInterface &interface, interfaces) {
+        QList<QNetworkAddressEntry> entries = interface.addressEntries();
+        foreach (const QNetworkAddressEntry &entry, entries) {
+            if (entry.ip().protocol() == QAbstractSocket::IPv4Protocol && !entry.ip().toString().startsWith("127.")) {
+                localIp = entry.ip().toString();
+                qDebug() << "IP Address:" << localIp;
+                return;
+            }
+        }
+    }
 }
 
 
@@ -127,7 +135,7 @@ void TabHandleCSV::adjustItem(QTableWidgetItem *item)
 
     if (userData.isValid()) {
         QString userString = userData.toString();
-        qDebug() << "成功获取到的用户数据：" << userString;
+//        qDebug() << "成功获取到的用户数据：" << userString;
     } else {
         qDebug() << "数据无效，可能是因为没有设置过或其他原因";
     }
@@ -171,18 +179,28 @@ void TabHandleCSV::deleteColumn()
     }
 }
 
-void TabHandleCSV::ReadfromServer(QString data)
+
+void TabHandleCSV::ReadfromServer(const QJsonObject& jsonObj)
 {
+    if (!jsonObj.contains("object") || !jsonObj["object"].isString()) {
+        qDebug() << "Invalid JSON format for read operation.";
+        return;
+    }
+
+    QString csvData = jsonObj["object"].toString();
     tableWidget->clear();
-    QStringList lines = data.split("\n", Qt::SkipEmptyParts);
+
+    QStringList lines = csvData.split("\n", Qt::SkipEmptyParts);
     if (lines.isEmpty())
         return;
 
+    // 设置表头
     QStringList headers = lines.first().trimmed().split(",", Qt::SkipEmptyParts);
     int columnCount = headers.size();
     tableWidget->setColumnCount(columnCount);
     tableWidget->setHorizontalHeaderLabels(headers);
 
+    // 解析CSV数据，忽略表头
     QString csvText = lines.mid(1).join("\n");
     parseCSV(csvText);
 }
@@ -202,48 +220,69 @@ void TabHandleCSV::parseCSV(const QString &csvText)
 }
 
 
-void TabHandleCSV::ChickfromServer(QString data)
+void TabHandleCSV::ChickfromServer(const QJsonObject& jsonObj)
 {
-    sscanf(data.toStdString().c_str(), "chick (%d,%d)", &this->row, &this->col);
+
+    if (!jsonObj.contains("row") || !jsonObj.contains("column")) {
+        qDebug() << "Invalid JSON format for chick operation.";
+        return;
+    }
+
+    int row = jsonObj["row"].toInt();
+    int col = jsonObj["column"].toInt();
     qDebug() << "chick data: (" << row << ", " << col << ")";
 
-    if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount())
-    {
+    if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount()) {
         QTableWidgetItem *item = tableWidget->item(row, col);
-
-        if (item)
-        {
+        if (item) {
             tableWidget->blockSignals(true);
             item->setBackground(QColor(0, 120, 215));
-            item->setData(Qt::UserRole, "127.0.0.1");
+            item->setData(Qt::UserRole, jsonObj["ip"].toString());  // 保存客户端 IP
             tableWidget->blockSignals(false);
         }
+    } else {
+        qDebug() << "Invalid row or column index: (" << row << ", " << col << ")";
     }
-    else
-        qDebug() << "Invalid data: (" << row << ", " << col << ")";
 }
 
-void TabHandleCSV::clearfromServer(QString data)
+
+void TabHandleCSV::clearfromServer(const QJsonObject& jsonObj)
 {
-    sscanf(data.toStdString().c_str(), "clear (%d,%d)", &this->row, &this->col);
+    if (!jsonObj.contains("row") || !jsonObj.contains("column")) {
+        qDebug() << "Invalid JSON format for clear operation.";
+        return;
+    }
+
+    int row = jsonObj["row"].toInt();
+    int col = jsonObj["column"].toInt();
     qDebug() << "clear data: (" << row << ", " << col << ")";
 
-    if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount())
-    {
+    if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount()) {
         QTableWidgetItem *item = tableWidget->item(row, col);
         if (item) {
             tableWidget->blockSignals(true);
             item->setBackground(Qt::transparent);
-            item->setData(Qt::UserRole, "127.0.0.1");
+            item->setData(Qt::UserRole, jsonObj["ip"].toString());  // 保存客户端 IP
             tableWidget->blockSignals(false);
-       }
+        }
+    } else {
+        qDebug() << "Invalid row or column index: (" << row << ", " << col << ")";
     }
 }
 
-void TabHandleCSV::editedfromServer(QString data)
+void TabHandleCSV::editedfromServer(const QJsonObject& jsonObj)
 {
-    char newValue[256];
-    sscanf(data.toStdString().c_str(), "edited(%d,%d,%10s", &this->row, &this->col, newValue);
+    if (!jsonObj.contains("row") || !jsonObj.contains("column") || !jsonObj.contains("object")) {
+        qDebug() << "Invalid JSON format for edited operation.";
+        return;
+    }
+
+    int row = jsonObj["row"].toInt();
+    int col = jsonObj["column"].toInt();
+    QString newValue = jsonObj["object"].toString();
+
+    qDebug() << "Edited cell (" << row << ", " << col << ") with new value: " << newValue;
+
     if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount()) {
         QTableWidgetItem *item = tableWidget->item(row, col);
         if (!item) {
@@ -252,7 +291,8 @@ void TabHandleCSV::editedfromServer(QString data)
         }
         item->setText(newValue);
         adjustItem(item);
+    } else {
+        qDebug() << "Invalid row or column index: (" << row << ", " << col << ")";
     }
-    else
-        qDebug() << "Invalid row or column index";
 }
+

@@ -12,28 +12,33 @@ SOURCES += \
     DLfromNet.cpp \
     EditedLog.cpp \
     RecentFilesManager.cpp \
+    Setting.cpp \
     TabHandleCSV.cpp \
     TabHandleTXT.cpp \
     WidgetRD.cpp \
     WidgetRU.cpp \
     csvLinkServer2.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    myJson.cpp
 
 HEADERS += \
     DLfromNet.h \
     EditedLog.h \
     RecentFilesManager.h \
+    Setting.h \
     TabAbstract.h \
     TabHandleCSV.h \
     TabHandleTXT.h \
     WidgetRD.h \
     WidgetRU.h \
     csvLinkServer2.h \
-    mainwindow.h
+    mainwindow.h \
+    myJson.h
 
 FORMS += \
     DLfromNet.ui \
+    Setting.ui \
     WidgetRD.ui \
     WidgetRU.ui \
     csvLinkServer2.ui \

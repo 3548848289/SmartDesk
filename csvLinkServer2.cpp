@@ -1,6 +1,8 @@
 #include "csvLinkServer2.h"
 #include "ui_csvLinkServer2.h"
 #include "EditedLog.h"
+#include "myJson.h"
+
 csvLinkServer::csvLinkServer(QWidget *parent): QWidget(parent),
         ui(new Ui::csvLinkServer2), tcpSocket(new QTcpSocket(this))
 {
@@ -34,45 +36,45 @@ void csvLinkServer::bindTab(TabHandleCSV *eTableTab)
 
 void csvLinkServer::on_readyRead()
 {
-    QString data = tcpSocket->readAll();
-    QStringList lines = data.split("\n");
-    if (!lines.isEmpty()) {
-        QString firstLine = lines.first();
-        if(firstLine == "read")
-        {
+    QByteArray data = tcpSocket->readAll();
+    QString fixedData = QString::fromUtf8(data).replace("\\\\u", "\\u");
+    QByteArray fixedDataBytes = fixedData.toUtf8();
 
-            QString remainingData = data.mid(firstLine.length() + 1);
-            m_tableTab->ReadfromServer(remainingData);
-            return;
-        }
+    QJsonParseError parseError;
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(fixedDataBytes, &parseError);
 
-        QString secondLine = lines.value(1);
-        QString remainingData = data.mid(firstLine.length() + secondLine.length() + 2);
-        ui->textBrowser->append("消息提示: " + secondLine + "--" + remainingData);
-        if(firstLine == "chick")
-        {
-            m_tableTab->ChickfromServer(remainingData);
-        }
-        if(firstLine == "clear")
-        {
-            m_tableTab->clearfromServer(remainingData);
-        }
-        if(firstLine == "edited")
-        {
-            QString logMessage = QString("Edited: %1").arg(remainingData);
-            EditedLog logger;
-            logger.writeLog(logMessage);
-        }
+    if (parseError.error != QJsonParseError::NoError) {
+        qDebug() << "JSON parsing error: " << parseError.errorString(); return;
+    }
+    if (!jsonDoc.isObject()) {
+        qDebug() << "Received data is not a valid JSON object"; return;
+    }
+
+    QJsonObject jsonObj = jsonDoc.object();
+    QString operation = jsonObj.value("operation").toString();
+    ui->textBrowser->append("消息提示: " + jsonObj.value("ip").toString() + " -- " + operation);
+
+    if (operation == "read") {
+        m_tableTab->ReadfromServer(jsonObj);
+    } else if (operation == "chick") {
+        qDebug() << "chick";
+        m_tableTab->ChickfromServer(jsonObj);
+    } else if (operation == "clear") {
+        m_tableTab->clearfromServer(jsonObj);
+    } else if (operation == "edited") {
+        QString logMessage = QString("Edited: row=%1, col=%2, text=%3")
+                             .arg(jsonObj.value("row").toInt())
+                             .arg(jsonObj.value("column").toInt())
+                             .arg(jsonObj.value("object").toString());
+        EditedLog logger;
+        logger.writeLog(logMessage);
     }
 }
-
-
 
 void csvLinkServer::on_disconnected()
 {
     QMessageBox::information(this, tr("Disconnected"), tr("Disconnected from server"));
 }
-
 
 void csvLinkServer::sendDataToServer(const QString &data)
 {
@@ -85,17 +87,18 @@ void csvLinkServer::sendDataToServer(const QString &data)
 
 void csvLinkServer::on_readfiieBtn_clicked()
 {
-    QString message = "read " + ui->readfileEdit->text();
-    if (!message.isEmpty())
+    QString filePath = ui->readfileEdit->text();
+    if (!filePath.isEmpty())
     {
-        qDebug() << "Sending file path to server: " << message;
-        tcpSocket->write(message.toUtf8());
+
+        QString jsonString = myJson::constructJson(localIp, "read",-1, -1, "");
+        qDebug() << "Sending JSON data to server: " << jsonString;
+        QByteArray data = jsonString.toUtf8();
+        tcpSocket->write(data);
         ui->msgEdit->clear();
         emit filePathSent();
-
     }
 }
-
 
 void csvLinkServer::on_sendmsgEdit_clicked()
 {
@@ -105,7 +108,6 @@ void csvLinkServer::on_sendmsgEdit_clicked()
         ui->msgEdit->clear();
     }
 }
-
 
 void csvLinkServer::on_linkserverBtn_clicked()
 {
@@ -124,9 +126,9 @@ void csvLinkServer::on_linkserverBtn_clicked()
     else
     {
         QMessageBox::information(this, tr("Connected"), tr("Connected to server"));
+        localIp = tcpSocket->localAddress().toString();
     }
 }
-
 
 void csvLinkServer::on_pushButton_clicked()
 {

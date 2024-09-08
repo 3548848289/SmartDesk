@@ -19,10 +19,10 @@ public:
     void loadFromFile(const QString &fileName) override;
     void saveToFile(const QString &fileName) override;
     void loadFromContent(const QByteArray &content) override;
-    void ReadfromServer(QString data) { }
-    void ChickfromServer(QString data) { }
-    void clearfromServer(QString data) { }
-    void editedfromServer(QString data) { }
+    void ReadfromServer(const QJsonObject& jsonObj) { }
+    void ChickfromServer(const QJsonObject& jsonObj) { }
+    void clearfromServer(const QJsonObject& jsonObj) { }
+    void editedfromServer(const QJsonObject& jsonObj) { }
 
 private:
     QTextEdit *textEdit;

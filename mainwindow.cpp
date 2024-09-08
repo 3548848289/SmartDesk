@@ -56,7 +56,6 @@ void MainWindow::on_actionopen_triggered()
     openFile(fileName);
 }
 
-
 void MainWindow::openFile(const QString &filePath)
 {
     TabAbstract* newTab = createTabByFileName(filePath);
@@ -75,7 +74,6 @@ void MainWindow::openFile(const QString &filePath)
         QMessageBox::warning(this, tr("Error"), tr("Unsupported file type"));
     }
 }
-
 
 void MainWindow::on_actionsave_triggered()
 {
@@ -116,7 +114,6 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
         return nullptr;
     }
 }
-
 
 void MainWindow::on_tabWidget_currentChanged(int index)
 {
@@ -166,18 +163,15 @@ void MainWindow::on_actionsub_triggered()
     handleTableTabAction(&TabHandleCSV::addColumn, tr("Current tab is not a table."));
 }
 
-
 void MainWindow::handleFilePathSent()
 {
 
-        on_actionscv_file_triggered();
-        auto currentTab = getCurrentTab<TabHandleCSV>();
-        qDebug() << "this";
+    on_actionscv_file_triggered();
+    auto currentTab = getCurrentTab<TabHandleCSV>();
 
     currentTab->setLinkStatus(true);
-        widgetrd->m_csvLinkServer->bindTab(currentTab);
+    widgetrd->m_csvLinkServer->bindTab(currentTab);
 }
-
 
 void MainWindow::on_actiondel_row_triggered()
 {

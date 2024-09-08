@@ -6,6 +6,8 @@
 #include <QString>
 #include <QByteArray>
 
+#include <QJsonObject>
+#include <QJsonDocument>
 class TabAbstract : public QWidget
 {
     Q_OBJECT
@@ -20,10 +22,10 @@ public:
     virtual void saveToFile(const QString &fileName) = 0;
     virtual void loadFromContent(const QByteArray &content) = 0;
 
-    virtual void ReadfromServer(QString data) = 0;
-    virtual void ChickfromServer(QString data) = 0;
-    virtual void clearfromServer(QString data) = 0;
-    virtual void editedfromServer(QString data) = 0;
+    virtual void ReadfromServer(const QJsonObject& jsonObj) = 0;
+    virtual void ChickfromServer(const QJsonObject& jsonObj) = 0;
+    virtual void clearfromServer(const QJsonObject& jsonObj) = 0;
+    virtual void editedfromServer(const QJsonObject& jsonObj) = 0;
 };
 
 #endif // TABABSTRACT_H
