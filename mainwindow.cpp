@@ -118,7 +118,7 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
 void MainWindow::on_tabWidget_currentChanged(int index)
 {
     currentIndex = index;
-    qDebug() << "Current tab index: " << index;
+//    qDebug() << "Current tab index: " << index;
 }
 
 void MainWindow::on_actionclose_triggered()
@@ -203,5 +203,12 @@ void MainWindow::handleTableTabAction(Func func, const QString &errorMessage)
     } else {
         QMessageBox::warning(this, tr("Error"), errorMessage);
     }
+}
+
+
+void MainWindow::on_actionshe_triggered()
+{
+    setiing = new Setting();
+    setiing->show();
 }
 

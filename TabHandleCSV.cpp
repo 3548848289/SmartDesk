@@ -9,7 +9,6 @@ TabHandleCSV::TabHandleCSV(QWidget *parent): TabAbstract(parent)
     setLayout(layout);
 
     connect(tableWidget, &QAbstractItemView::clicked, [=](const QModelIndex &index){
-
         foucsRow = index.row();
         foucsCol = index.column();
         QString jsonString = myJson::constructJson(localIp, "chick",foucsRow, foucsCol, "");
@@ -86,7 +85,6 @@ void TabHandleCSV::setLinkStatus(bool status)
         foreach (const QNetworkAddressEntry &entry, entries) {
             if (entry.ip().protocol() == QAbstractSocket::IPv4Protocol && !entry.ip().toString().startsWith("127.")) {
                 localIp = entry.ip().toString();
-                qDebug() << "IP Address:" << localIp;
                 return;
             }
         }
@@ -194,6 +192,8 @@ void TabHandleCSV::ReadfromServer(const QJsonObject& jsonObj)
     if (lines.isEmpty())
         return;
 
+    tableWidget->blockSignals(true);
+
     // 设置表头
     QStringList headers = lines.first().trimmed().split(",", Qt::SkipEmptyParts);
     int columnCount = headers.size();
@@ -203,6 +203,8 @@ void TabHandleCSV::ReadfromServer(const QJsonObject& jsonObj)
     // 解析CSV数据，忽略表头
     QString csvText = lines.mid(1).join("\n");
     parseCSV(csvText);
+    tableWidget->blockSignals(false);
+
 }
 
 void TabHandleCSV::parseCSV(const QString &csvText)

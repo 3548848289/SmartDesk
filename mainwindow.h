@@ -15,6 +15,7 @@
 #include "TabHandleTXT.h"
 #include "TabHandleCSV.h"
 #include "RecentFilesManager.h"
+#include "Setting.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -46,6 +47,8 @@ private slots:
     void openFile(const QString &filePath);
 
 
+    void on_actionshe_triggered();
+
 private:
 
     RecentFilesManager *recentFilesManager;
@@ -54,6 +57,7 @@ private:
     QTabWidget *tabWidget;
     WidgetRU * widgetru;
     WidgetRD* widgetrd;
+    Setting * setiing;
     void createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName);
     TabAbstract* createTabByFileName(const QString &fileName);
 

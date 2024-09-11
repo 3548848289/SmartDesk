@@ -7,6 +7,7 @@
 #include <QTextStream>
 #include <QMessageBox>
 #include <QVBoxLayout>
+#include <QSettings>
 
 class TextTab : public TabAbstract
 {
@@ -23,6 +24,12 @@ public:
     void ChickfromServer(const QJsonObject& jsonObj) { }
     void clearfromServer(const QJsonObject& jsonObj) { }
     void editedfromServer(const QJsonObject& jsonObj) { }
+
+private:
+    void setFontSize(int fontSize);
+    void loadSettings();
+    void updateFontSize(int size);
+
 
 private:
     QTextEdit *textEdit;

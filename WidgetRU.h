@@ -8,8 +8,10 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QDebug>
+
+
 namespace Ui {
-class WidgetRU;
+    class WidgetRU;
 }
 
 class WidgetRU : public QWidget

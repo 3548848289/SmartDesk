@@ -32,6 +32,7 @@ HEADERS += \
     TabHandleTXT.h \
     WidgetRD.h \
     WidgetRU.h \
+    config.h \
     csvLinkServer2.h \
     mainwindow.h \
     myJson.h

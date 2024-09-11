@@ -38,17 +38,18 @@ void csvLinkServer::on_readyRead()
 {
     QByteArray data = tcpSocket->readAll();
     QString fixedData = QString::fromUtf8(data).replace("\\\\u", "\\u");
+
+    int bracePos = fixedData.lastIndexOf('}');
+    int bracketPos = fixedData.lastIndexOf(']');
+    int pos = qMax(bracePos, bracketPos);
+    if (pos != -1) {
+        fixedData = fixedData.left(pos + 1);
+    }
+
     QByteArray fixedDataBytes = fixedData.toUtf8();
 
     QJsonParseError parseError;
     QJsonDocument jsonDoc = QJsonDocument::fromJson(fixedDataBytes, &parseError);
-
-    if (parseError.error != QJsonParseError::NoError) {
-        qDebug() << "JSON parsing error: " << parseError.errorString(); return;
-    }
-    if (!jsonDoc.isObject()) {
-        qDebug() << "Received data is not a valid JSON object"; return;
-    }
 
     QJsonObject jsonObj = jsonDoc.object();
     QString operation = jsonObj.value("operation").toString();
@@ -57,17 +58,14 @@ void csvLinkServer::on_readyRead()
     if (operation == "read") {
         m_tableTab->ReadfromServer(jsonObj);
     } else if (operation == "chick") {
-        qDebug() << "chick";
         m_tableTab->ChickfromServer(jsonObj);
     } else if (operation == "clear") {
         m_tableTab->clearfromServer(jsonObj);
     } else if (operation == "edited") {
-        QString logMessage = QString("Edited: row=%1, col=%2, text=%3")
-                             .arg(jsonObj.value("row").toInt())
-                             .arg(jsonObj.value("column").toInt())
-                             .arg(jsonObj.value("object").toString());
+
+        m_tableTab->editedfromServer(jsonObj);
         EditedLog logger;
-        logger.writeLog(logMessage);
+        logger.writeLog(jsonObj);
     }
 }
 
@@ -91,7 +89,7 @@ void csvLinkServer::on_readfiieBtn_clicked()
     if (!filePath.isEmpty())
     {
 
-        QString jsonString = myJson::constructJson(localIp, "read",-1, -1, "");
+        QString jsonString = myJson::constructJson(localIp, "read",-1, -1, filePath);
         qDebug() << "Sending JSON data to server: " << jsonString;
         QByteArray data = jsonString.toUtf8();
         tcpSocket->write(data);

@@ -6,12 +6,13 @@
 #include <QDateTime>
 #include <QFile>
 #include <QTextStream>
+#include "myJson.h"
 
 class EditedLog
 {
 public:
     EditedLog(const QString &fileName = "log.txt");
-    void writeLog(const QString &message);
+    void writeLog(const QJsonObject &message);
 
 private:
     QString m_fileName;

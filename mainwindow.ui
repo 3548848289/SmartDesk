@@ -60,8 +60,9 @@
    </widget>
    <widget class="QMenu" name="menu">
     <property name="title">
-     <string>新建</string>
+     <string>工具</string>
     </property>
+    <addaction name="actionshe"/>
    </widget>
    <addaction name="menufile"/>
    <addaction name="menuaction"/>
@@ -199,6 +200,11 @@
   <action name="actiondel_col">
    <property name="text">
     <string>删除列</string>
+   </property>
+  </action>
+  <action name="actionshe">
+   <property name="text">
+    <string>设置</string>
    </property>
   </action>
  </widget>
