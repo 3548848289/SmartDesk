@@ -2,13 +2,15 @@
 #include "ui_WidgetRU.h"
 
 
-WidgetRU::WidgetRU(QWidget *parent) : QWidget(parent), ui(new Ui::WidgetRU),
-    fileSystemModel(new QFileSystemModel(this))
+// 修改 WidgetRU 构造函数，确保内部控件的布局
+WidgetRU::WidgetRU(QWidget *parent) : QWidget(parent), ui(new Ui::WidgetRU), fileSystemModel(new QFileSystemModel(this))
 {
     ui->setupUi(this);
+
+    // 配置文件系统模型
     fileSystemModel->setRootPath("D:/QT6/Qt_pro/202406Train/mytxt");
     ui->treeView->setModel(fileSystemModel);
-    ui->treeView->setHeaderHidden(true); // 如果不需要列标题
+    ui->treeView->setHeaderHidden(true); // 隐藏列标题
     for (int i = 1; i < fileSystemModel->columnCount(); ++i) {
         ui->treeView->setColumnHidden(i, true);
     }
@@ -17,10 +19,16 @@ WidgetRU::WidgetRU(QWidget *parent) : QWidget(parent), ui(new Ui::WidgetRU),
     // 设置路径输入控件
     ui->pathLineEdit->setText("D:/QT6/Qt_pro/202406Train/mytxt");
 
+    // 连接信号与槽
     connect(ui->pathLineEdit, &QLineEdit::returnPressed, this, &WidgetRU::goButtonClicked);
     connect(ui->goButton, &QPushButton::clicked, this, &WidgetRU::goButtonClicked);
     connect(ui->treeView, &QTreeView::clicked, this, &WidgetRU::onItemClicked);
+
+
+    setLayout(ui->verticalLayout);
 }
+
+
 
 void WidgetRU::onItemClicked(const QModelIndex &index)
 {

@@ -1,13 +1,20 @@
 #include "WidgetRD.h"
 #include "ui_WidgetRD.h"
-WidgetRD::WidgetRD(QWidget *parent) :QWidget(parent),ui(new Ui::WidgetRD)
+
+// 修改 WidgetRD 构造函数，确保内部控件的布局
+WidgetRD::WidgetRD(QWidget *parent) : QWidget(parent), ui(new Ui::WidgetRD)
 {
     ui->setupUi(this);
+
+    // 初始化子部件
     downloadWidget = new downLoad();
     m_csvLinkServer = new csvLinkServer();
 
+    // 添加到 tabWidget 中
     ui->tabWidget->addTab(downloadWidget, "网络资源下载");
     ui->tabWidget->addTab(m_csvLinkServer, "连接服务器");
+
+    setLayout(ui->verticalLayout);
 }
 
 WidgetRD::~WidgetRD()
