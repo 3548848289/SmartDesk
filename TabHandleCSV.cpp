@@ -224,14 +224,8 @@ void TabHandleCSV::parseCSV(const QString &csvText)
 
 void TabHandleCSV::ChickfromServer(const QJsonObject& jsonObj)
 {
+    auto [ip, row, col, newValue] = myJson::extract_common_fields(jsonObj);
 
-    if (!jsonObj.contains("row") || !jsonObj.contains("column")) {
-        qDebug() << "Invalid JSON format for chick operation.";
-        return;
-    }
-
-    int row = jsonObj["row"].toInt();
-    int col = jsonObj["column"].toInt();
     qDebug() << "chick data: (" << row << ", " << col << ")";
 
     if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount()) {
@@ -239,7 +233,7 @@ void TabHandleCSV::ChickfromServer(const QJsonObject& jsonObj)
         if (item) {
             tableWidget->blockSignals(true);
             item->setBackground(QColor(0, 120, 215));
-            item->setData(Qt::UserRole, jsonObj["ip"].toString());  // 保存客户端 IP
+            item->setData(Qt::UserRole, ip.value_or("unknown"));  // Store client IP
             tableWidget->blockSignals(false);
         }
     } else {
@@ -247,16 +241,9 @@ void TabHandleCSV::ChickfromServer(const QJsonObject& jsonObj)
     }
 }
 
-
 void TabHandleCSV::clearfromServer(const QJsonObject& jsonObj)
 {
-    if (!jsonObj.contains("row") || !jsonObj.contains("column")) {
-        qDebug() << "Invalid JSON format for clear operation.";
-        return;
-    }
-
-    int row = jsonObj["row"].toInt();
-    int col = jsonObj["column"].toInt();
+    auto [ip, row, col, newValue] = myJson::extract_common_fields(jsonObj);
     qDebug() << "clear data: (" << row << ", " << col << ")";
 
     if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount()) {
@@ -264,7 +251,7 @@ void TabHandleCSV::clearfromServer(const QJsonObject& jsonObj)
         if (item) {
             tableWidget->blockSignals(true);
             item->setBackground(Qt::transparent);
-            item->setData(Qt::UserRole, jsonObj["ip"].toString());  // 保存客户端 IP
+            item->setData(Qt::UserRole, ip.value_or("unknown"));  // Store client IP
             tableWidget->blockSignals(false);
         }
     } else {
@@ -274,16 +261,8 @@ void TabHandleCSV::clearfromServer(const QJsonObject& jsonObj)
 
 void TabHandleCSV::editedfromServer(const QJsonObject& jsonObj)
 {
-    if (!jsonObj.contains("row") || !jsonObj.contains("column") || !jsonObj.contains("object")) {
-        qDebug() << "Invalid JSON format for edited operation.";
-        return;
-    }
-
-    int row = jsonObj["row"].toInt();
-    int col = jsonObj["column"].toInt();
-    QString newValue = jsonObj["object"].toString();
-
-    qDebug() << "Edited cell (" << row << ", " << col << ") with new value: " << newValue;
+    auto [ip, row, col, newValue] = myJson::extract_common_fields(jsonObj);
+    qDebug() << "Edited cell (" << row << ", " << col << ") with new value: " << newValue.value();
 
     if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount()) {
         QTableWidgetItem *item = tableWidget->item(row, col);
@@ -291,10 +270,9 @@ void TabHandleCSV::editedfromServer(const QJsonObject& jsonObj)
             item = new QTableWidgetItem();
             tableWidget->setItem(row, col, item);
         }
-        item->setText(newValue);
+        item->setText(newValue.value());
         adjustItem(item);
     } else {
         qDebug() << "Invalid row or column index: (" << row << ", " << col << ")";
     }
 }
-

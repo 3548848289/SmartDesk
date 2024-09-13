@@ -16,6 +16,7 @@
 #include "TabHandleCSV.h"
 #include "RecentFilesManager.h"
 #include "Setting.h"
+#include "WidgetFunctional.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -57,6 +58,8 @@ private:
     QTabWidget *tabWidget;
     WidgetRU * widgetru;
     WidgetRD* widgetrd;
+    WidgetFunctional* widgetfunc;
+
     Setting * setiing;
     void createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName);
     TabAbstract* createTabByFileName(const QString &fileName);

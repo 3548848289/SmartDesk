@@ -6,16 +6,23 @@ WidgetRD::WidgetRD(QWidget *parent) : QWidget(parent), ui(new Ui::WidgetRD)
 {
     ui->setupUi(this);
 
-    // 初始化子部件
     downloadWidget = new downLoad();
     m_csvLinkServer = new csvLinkServer();
 
-    // 添加到 tabWidget 中
-    ui->tabWidget->addTab(downloadWidget, "网络资源下载");
     ui->tabWidget->addTab(m_csvLinkServer, "连接服务器");
+    ui->tabWidget->addTab(downloadWidget, "网络资源下载");
 
     setLayout(ui->verticalLayout);
 }
+
+void WidgetRD::paintEvent(QPaintEvent *event)
+{
+    QWidget::paintEvent(event);
+    QPainter painter(this);
+    painter.setPen(QPen(Qt::black, 2)); // 黑色边框，宽度为2
+    painter.drawRect(rect()); // 绘制整个控件的边框
+}
+
 
 WidgetRD::~WidgetRD()
 {

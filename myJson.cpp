@@ -10,12 +10,8 @@ QString myJson::constructJson(const QString& localIp, const QString& oper,
     QJsonObject jsonObj;
     jsonObj["ip"] = localIp;
     jsonObj["operation"] = oper;
-    if (row != -1) {
-        jsonObj["row"] = row;
-    }
-    if (col != -1) {
-        jsonObj["column"] = col;
-    }
+    jsonObj["row"] = row;
+    jsonObj["column"] = col;
     if (!obj.isEmpty()) {
         jsonObj["object"] = obj;
     }
@@ -44,4 +40,31 @@ QString myJson::parseAndPrintJson(const QJsonObject& jsonObj) {
     output += "Object: " + obj;
 
     return output;
+}
+
+
+std::tuple<std::optional<QString>, int, int, std::optional<QString>>
+myJson::extract_common_fields(const QJsonObject& root) {
+    std::optional<QString> ip = std::nullopt;
+    int row = -1;
+    int column = -1;
+    std::optional<QString> object = std::nullopt;
+
+    if (root.contains("ip") && root["ip"].isString()) {
+        ip = root["ip"].toString();
+    }
+    if (root.contains("row") && root["row"].isDouble()) {
+        row = root["row"].toInt();
+    }
+    if (root.contains("column") && root["column"].isDouble()) {
+        column = root["column"].toInt();
+    }
+    if (root.contains("object") && root["object"].isString()) {
+        object = root["object"].toString();
+    }
+
+    if (!ip || row < 0 || column < 0 || !object) {
+        return {std::nullopt, -1, -1, std::nullopt};
+    }
+    return {ip, row, column, object};
 }

@@ -1,40 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QSplitter>
-/*
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow),
-    recentFilesManager(new RecentFilesManager(this))
-{
-
-    ui->setupUi(this);
-    setWindowTitle("QiHan在线文档");
-    setWindowIcon(QIcon(":/image/package.svg"));
-
-    ui->dockLeft->setWindowFlags(ui->dockLeft->windowFlags() | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
-    ui->dockLeft->setTitleBarWidget(ui->dockLWid);
-    tabWidget = new QTabWidget(ui->dockLeft);
-    connect(tabWidget, &QTabWidget::currentChanged, this, &MainWindow::on_tabWidget_currentChanged);
-
-    ui->dockLeft->setWidget(tabWidget);
-
-    widgetru = new WidgetRU(ui->dockRight);
-    ui->verticalLayout->addWidget(widgetru);
-
-    widgetrd = new WidgetRD(ui->dockRight);
-    ui->verticalLayout->addWidget(widgetrd);
-
-
-    connect(widgetrd->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
-
-    splitDockWidget(ui->dockLeft, ui->dockRight, Qt::Horizontal);
-    resizeDocks({ui->dockLeft, ui->dockRight}, {650, 350}, Qt::Horizontal);
-
-    connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
-    connect(widgetru, &WidgetRU::fileOpened, this, &MainWindow::openFile);
-
-    recentFilesManager->populateRecentFilesMenu(ui->recentFile);
-
-}*/
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow), recentFilesManager(new RecentFilesManager(this))
@@ -48,9 +14,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     widgetru = new WidgetRU(this);
     widgetrd = new WidgetRD(this);
+    widgetfunc = new WidgetFunctional(this);
 
     QWidget *offsetWidget = new QWidget(this);
     offsetWidget->setFixedHeight(20);
+
     QSplitter *verticalSplitter = new QSplitter(Qt::Vertical);
     verticalSplitter->addWidget(offsetWidget);
     verticalSplitter->addWidget(widgetru);
@@ -59,22 +27,24 @@ MainWindow::MainWindow(QWidget *parent)
     verticalSplitter->setHandleWidth(5);
 
     QList<int> verticalSizes;
-    verticalSizes << 20 << 300 << 300;
+    verticalSizes << 20 << 500 << 100;
     verticalSplitter->setSizes(verticalSizes);
 
     QSplitter *horizontalSplitter = new QSplitter(Qt::Horizontal);
     horizontalSplitter->addWidget(tabWidget);
     horizontalSplitter->addWidget(verticalSplitter);
+    horizontalSplitter->addWidget(widgetfunc);
+
     horizontalSplitter->setStretchFactor(0, 1);
     horizontalSplitter->setStretchFactor(1, 2);
+    horizontalSplitter->setStretchFactor(2, 0);
 
     setCentralWidget(horizontalSplitter);
 
     QList<int> sizes;
-    sizes << 530 << 270;
+    sizes << 510 << 250 << 40;
     horizontalSplitter->setSizes(sizes);
 
-    // 连接信号槽
     connect(widgetrd->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
     connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
     connect(widgetru, &WidgetRU::fileOpened, this, &MainWindow::openFile);

@@ -5,6 +5,8 @@
 #include <QJsonDocument>
 #include <QJsonValue>
 #include <QString>
+#include <tuple>
+#include <optional>
 
 class myJson {
 public:
@@ -14,6 +16,9 @@ public:
                                  int row = -1, int col = -1, const QString& obj = QString());
 
     static QString parseAndPrintJson(const QJsonObject& jsonObj);
+
+    static std::tuple<std::optional<QString>, int, int, std::optional<QString>>
+    extract_common_fields(const QJsonObject& root);
 };
 
 #endif

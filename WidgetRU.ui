@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>340</width>
-    <height>333</height>
+    <width>535</width>
+    <height>511</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,23 +19,45 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>40</y>
+     <x>30</x>
+     <y>20</y>
      <width>331</width>
      <height>291</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,6">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,9,1">
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout" stretch="5,1">
       <property name="spacing">
        <number>6</number>
       </property>
       <item>
-       <widget class="QLineEdit" name="pathLineEdit"/>
+       <widget class="QLineEdit" name="pathLineEdit">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>0</width>
+          <height>13</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="goButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="text">
          <string> 跳转</string>
         </property>
@@ -52,6 +74,23 @@
        </sizepolicy>
       </property>
      </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QPushButton" name="saveButton">
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="tagsLineEdit"/>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="annotationTextEdit"/>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>

@@ -2,6 +2,7 @@
 #define WIDGETRD_H
 
 #include <QWidget>
+#include <QPainter>
 #include "DLfromNet.h"
 #include "csvLinkServer2.h"
 
@@ -18,6 +19,9 @@ public:
     ~WidgetRD();
     downLoad* downloadWidget;
     csvLinkServer* m_csvLinkServer;
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
 
 private:
     Ui::WidgetRD *ui;

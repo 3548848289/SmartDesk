@@ -1,12 +1,9 @@
 #include "EditedLog.h"
 
-EditedLog::EditedLog(const QString &fileName)
-    : m_fileName(fileName)
+EditedLog::EditedLog(const QString &fileName): m_fileName(fileName)
 {
-    // Initialize EditedLog file
     QFile file(m_fileName);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
-        // Handle error opening file
         qDebug() << "Error: Cannot open EditedLog file " << m_fileName;
     }
     file.close();

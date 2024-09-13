@@ -1,6 +1,6 @@
 QT       += core gui network
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets sql
 
 CONFIG += c++17
 
@@ -15,6 +15,7 @@ SOURCES += \
     Setting.cpp \
     TabHandleCSV.cpp \
     TabHandleTXT.cpp \
+    WidgetFunctional.cpp \
     WidgetRD.cpp \
     WidgetRU.cpp \
     csvLinkServer2.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     TabAbstract.h \
     TabHandleCSV.h \
     TabHandleTXT.h \
+    WidgetFunctional.h \
     WidgetRD.h \
     WidgetRU.h \
     config.h \
@@ -40,6 +42,7 @@ HEADERS += \
 FORMS += \
     DLfromNet.ui \
     Setting.ui \
+    WidgetFunctional.ui \
     WidgetRD.ui \
     WidgetRU.ui \
     csvLinkServer2.ui \
