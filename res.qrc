@@ -104,5 +104,8 @@
         <file>image/textfield_delete.svg</file>
         <file>image/undo.svg</file>
         <file>image/wrench.svg</file>
+        <file>usedimage/go.svg</file>
+        <file>usedimage/list.svg</file>
+        <file>usedimage/user.svg</file>
     </qresource>
 </RCC>

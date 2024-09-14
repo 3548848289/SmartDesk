@@ -13,11 +13,8 @@ TextTab::TextTab(QWidget *parent): TabAbstract(parent)
 void TextTab::setText(const QString &text)
 {
     Q_ASSERT(textEdit != nullptr);
-    qDebug() << "setText called with text:" << text;
-
     textEdit->setText(text);
 }
-
 
 
 QString TextTab::getText() const

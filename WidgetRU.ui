@@ -80,7 +80,7 @@
       <item>
        <widget class="QPushButton" name="saveButton">
         <property name="text">
-         <string>PushButton</string>
+         <string>保存标签</string>
         </property>
        </widget>
       </item>

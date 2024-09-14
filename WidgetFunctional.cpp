@@ -12,3 +12,9 @@ WidgetFunctional::~WidgetFunctional()
 {
     delete ui;
 }
+
+void WidgetFunctional::on_pushButton_2_clicked()
+{
+
+}
+

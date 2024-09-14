@@ -15,6 +15,7 @@ SOURCES += \
     Setting.cpp \
     TabHandleCSV.cpp \
     TabHandleTXT.cpp \
+    TagItemDelegate.cpp \
     WidgetFunctional.cpp \
     WidgetRD.cpp \
     WidgetRU.cpp \
@@ -31,10 +32,10 @@ HEADERS += \
     TabAbstract.h \
     TabHandleCSV.h \
     TabHandleTXT.h \
+    TagItemDelegate.h \
     WidgetFunctional.h \
     WidgetRD.h \
     WidgetRU.h \
-    config.h \
     csvLinkServer2.h \
     mainwindow.h \
     myJson.h

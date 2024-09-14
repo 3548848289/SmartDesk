@@ -12,8 +12,9 @@ MainWindow::MainWindow(QWidget *parent)
     tabWidget = new QTabWidget(this);
     connect(tabWidget, &QTabWidget::currentChanged, this, &MainWindow::on_tabWidget_currentChanged);
 
-    widgetru = new WidgetRU(this);
-    widgetrd = new WidgetRD(this);
+     widgetr = new QWidget(this);
+//    widgetru = new WidgetRU(this);
+//    widgetrd = new WidgetRD(this);
     widgetfunc = new WidgetFunctional(this);
 
     QWidget *offsetWidget = new QWidget(this);
@@ -21,18 +22,20 @@ MainWindow::MainWindow(QWidget *parent)
 
     QSplitter *verticalSplitter = new QSplitter(Qt::Vertical);
     verticalSplitter->addWidget(offsetWidget);
-    verticalSplitter->addWidget(widgetru);
-    verticalSplitter->addWidget(widgetrd);
+    verticalSplitter->addWidget(widgetr);
+//    verticalSplitter->addWidget(widgetru);
+//    verticalSplitter->addWidget(widgetrd);
 
     verticalSplitter->setHandleWidth(5);
 
     QList<int> verticalSizes;
-    verticalSizes << 20 << 500 << 100;
+    //    verticalSizes << 20 << 500 << 100;
+    verticalSizes << 20 << 600;
     verticalSplitter->setSizes(verticalSizes);
 
     QSplitter *horizontalSplitter = new QSplitter(Qt::Horizontal);
     horizontalSplitter->addWidget(tabWidget);
-    horizontalSplitter->addWidget(verticalSplitter);
+    horizontalSplitter->addWidget(widgetr);
     horizontalSplitter->addWidget(widgetfunc);
 
     horizontalSplitter->setStretchFactor(0, 1);
@@ -42,12 +45,12 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(horizontalSplitter);
 
     QList<int> sizes;
-    sizes << 510 << 250 << 40;
+    sizes << 500 << 240 << 60;
     horizontalSplitter->setSizes(sizes);
 
-    connect(widgetrd->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
+//    connect(widgetrd->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
     connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
-    connect(widgetru, &WidgetRU::fileOpened, this, &MainWindow::openFile);
+//    connect(widgetru, &WidgetRU::fileOpened, this, &MainWindow::openFile);
 
     recentFilesManager->populateRecentFilesMenu(ui->recentFile);
 }
@@ -191,7 +194,7 @@ void MainWindow::handleFilePathSent()
     auto currentTab = getCurrentTab<TabHandleCSV>();
 
     currentTab->setLinkStatus(true);
-    widgetrd->m_csvLinkServer->bindTab(currentTab);
+//    widgetrd->m_csvLinkServer->bindTab(currentTab);
 }
 
 void MainWindow::on_actiondel_row_triggered()

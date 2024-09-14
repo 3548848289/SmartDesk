@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QWidget>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QDebug>
@@ -56,8 +57,9 @@ private:
     Ui::MainWindow *ui;
     int currentIndex = 0;
     QTabWidget *tabWidget;
-    WidgetRU * widgetru;
-    WidgetRD* widgetrd;
+    QWidget * widgetr;
+//    WidgetRU * widgetru;
+//    WidgetRD* widgetrd;
     WidgetFunctional* widgetfunc;
 
     Setting * setiing;

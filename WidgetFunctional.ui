@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>51</width>
+    <width>217</width>
     <height>524</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>51</width>
+     <width>141</width>
      <height>521</height>
     </rect>
    </property>
@@ -42,12 +42,17 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>40</width>
-        <height>40</height>
+        <width>60</width>
+        <height>60</height>
        </size>
       </property>
       <property name="text">
-       <string>功能1</string>
+       <string>文件
+标签</string>
+      </property>
+      <property name="icon">
+       <iconset resource="res.qrc">
+        <normaloff>:/usedimage/list.svg</normaloff>:/usedimage/list.svg</iconset>
       </property>
      </widget>
     </item>
@@ -61,12 +66,17 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>40</width>
-        <height>40</height>
+        <width>60</width>
+        <height>60</height>
        </size>
       </property>
       <property name="text">
-       <string>功能2</string>
+       <string>在线
+文档</string>
+      </property>
+      <property name="icon">
+       <iconset resource="res.qrc">
+        <normaloff>:/usedimage/user.svg</normaloff>:/usedimage/user.svg</iconset>
       </property>
      </widget>
     </item>
@@ -111,6 +121,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

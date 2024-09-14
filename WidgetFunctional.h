@@ -15,6 +15,9 @@ public:
     explicit WidgetFunctional(QWidget *parent = nullptr);
     ~WidgetFunctional();
 
+private slots:
+    void on_pushButton_2_clicked();
+
 private:
     Ui::WidgetFunctional *ui;
 };

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>usedimage/application_go.svg</file>
+    </qresource>
+</RCC>
