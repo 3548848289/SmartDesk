@@ -1,10 +1,11 @@
 #include "WidgetRU.h"
 #include "ui_WidgetRU.h"
-
+#include<QSplitter>
 
 WidgetRU::WidgetRU(QWidget *parent) : QWidget(parent), ui(new Ui::WidgetRU), fileSystemModel(new QFileSystemModel(this))
 {
     ui->setupUi(this);
+
     currentDir = QDir::currentPath();
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
@@ -40,33 +41,63 @@ WidgetRU::WidgetRU(QWidget *parent) : QWidget(parent), ui(new Ui::WidgetRU), fil
     connect(ui->treeView, &QTreeView::clicked, this, &WidgetRU::onItemClicked);
     connect(tagItemdelegate, &TagItemDelegate::buttonClicked, this, &WidgetRU::handleButtonClicked);
 
-    setLayout(ui->verticalLayout);
 }
 
 void WidgetRU::handleButtonClicked(const QModelIndex &index)
 {
-    // 处理按钮点击事件
     qDebug() << "Button clicked at index:" << index;
-}
-
-void WidgetRU::paintEvent(QPaintEvent *event)
-{
-    QWidget::paintEvent(event);
-    QPainter painter(this);
-    painter.setPen(QPen(Qt::black, 4));
-    QRect rect = this->rect().adjusted(0, 0, -1, -1);
-    painter.drawRect(rect);
 }
 
 void WidgetRU::onItemClicked(const QModelIndex &index)
 {
 
-    if (fileSystemModel->isDir(index)) {
+    if (fileSystemModel->isDir(index))
         return;
-    }
+
     curfilePath = fileSystemModel->filePath(index);
+
+    QStringList tags;
+    QString annotation;
+    getFileMetadata(curfilePath, tags, annotation);
+
+    ui->tagsLineEdit->setText(tags.join(", "));
+    ui->annotationTextEdit->setText(annotation);
+
     emit fileOpened(curfilePath);
 
+}
+void WidgetRU::getFileMetadata(const QString &filePath, QStringList &tags, QString &annotation)
+{
+    // 首先查询文件路径对应的 file_id
+    QSqlQuery query;
+    query.prepare("SELECT id FROM FilePaths WHERE file_path = :file_path");
+    query.bindValue(":file_path", filePath);
+
+    if (query.exec() && query.next()) {
+        int fileId = query.value(0).toInt();
+
+        // 查询文件对应的标签
+        QSqlQuery tagQuery;
+        tagQuery.prepare("SELECT tag_name FROM Tags WHERE file_id = :file_id");
+        tagQuery.bindValue(":file_id", fileId);
+
+        if (tagQuery.exec()) {
+            while (tagQuery.next()) {
+                tags.append(tagQuery.value(0).toString());
+            }
+        }
+
+        // 查询文件对应的批注
+        QSqlQuery annotationQuery;
+        annotationQuery.prepare("SELECT annotation FROM Annotations WHERE file_id = :file_id");
+        annotationQuery.bindValue(":file_id", fileId);
+
+        if (annotationQuery.exec() && annotationQuery.next()) {
+            annotation = annotationQuery.value(0).toString();
+        }
+    } else {
+        qDebug() << "Failed to fetch file ID for path:" << filePath;
+    }
 }
 
 
@@ -116,6 +147,7 @@ WidgetRU::~WidgetRU() {
     delete ui;
 }
 
+
 void WidgetRU::on_saveButton_clicked()
 {
     QString filePath = ui->treeView->currentIndex().data(QFileSystemModel::FilePathRole).toString();
@@ -130,4 +162,3 @@ void WidgetRU::on_newButton_clicked()
 {
 
 }
-

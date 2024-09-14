@@ -14,9 +14,14 @@ class WidgetFunctional : public QWidget
 public:
     explicit WidgetFunctional(QWidget *parent = nullptr);
     ~WidgetFunctional();
+signals:
+    void showRU();
+    void showRD();
 
 private slots:
     void on_pushButton_2_clicked();
+
+    void on_pushButton_1_clicked();
 
 private:
     Ui::WidgetFunctional *ui;

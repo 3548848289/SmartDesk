@@ -10,206 +10,197 @@
     <height>318</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <widget class="QTextBrowser" name="textBrowser">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>150</y>
-     <width>331</width>
-     <height>161</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QGroupBox" name="groupBox">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>331</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string/>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="spacing">
-     <number>3</number>
-    </property>
-    <property name="leftMargin">
-     <number>5</number>
-    </property>
-    <property name="topMargin">
-     <number>2</number>
-    </property>
-    <property name="rightMargin">
-     <number>5</number>
-    </property>
-    <property name="bottomMargin">
-     <number>2</number>
-    </property>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,3,1">
-      <property name="spacing">
-       <number>10</number>
-      </property>
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>地址：</string>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2" rowstretch="1,1,1,1,1">
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,3,1">
+        <property name="spacing">
+         <number>10</number>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboServer">
-        <property name="minimumSize">
-         <size>
-          <width>130</width>
-          <height>0</height>
-         </size>
+        <property name="leftMargin">
+         <number>0</number>
         </property>
-        <property name="editable">
-         <bool>true</bool>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
         </property>
         <item>
-         <property name="text">
-          <string>192.168.241.236</string>
-         </property>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>地址：</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>192.168.106.236</string>
-         </property>
+         <widget class="QComboBox" name="comboServer">
+          <property name="minimumSize">
+           <size>
+            <width>130</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="editable">
+           <bool>true</bool>
+          </property>
+          <item>
+           <property name="text">
+            <string>192.168.241.236</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>192.168.106.236</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>127.0.0.1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>localHost</string>
+           </property>
+          </item>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>127.0.0.1</string>
-         </property>
+         <widget class="QPushButton" name="linkserverBtn">
+          <property name="text">
+           <string>link</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,3,1">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>端口：</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>localHost</string>
-         </property>
+         <widget class="QSpinBox" name="spinPort">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>65535</number>
+          </property>
+          <property name="value">
+           <number>9200</number>
+          </property>
+         </widget>
         </item>
-       </widget>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>close</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
-      <item>
-       <widget class="QPushButton" name="linkserverBtn">
-        <property name="text">
-         <string>link</string>
+      <item row="2" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,3,1">
+        <property name="spacing">
+         <number>10</number>
         </property>
-       </widget>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>信息：</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="msgEdit"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="sendmsgEdit">
+          <property name="text">
+           <string>send</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,3,1">
-      <property name="spacing">
-       <number>10</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>端口：</string>
+      <item row="3" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="5,1">
+        <property name="spacing">
+         <number>7</number>
         </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        <property name="rightMargin">
+         <number>0</number>
         </property>
-       </widget>
+        <item>
+         <widget class="QLineEdit" name="readfileEdit">
+          <property name="text">
+           <string>class1.csv</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="readfiieBtn">
+          <property name="text">
+           <string>read file</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
-      <item>
-       <widget class="QSpinBox" name="spinPort">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="minimum">
-         <number>1</number>
-        </property>
-        <property name="maximum">
-         <number>65535</number>
-        </property>
-        <property name="value">
-         <number>9200</number>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>close</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,3,1">
-      <property name="spacing">
-       <number>10</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>信息：</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="msgEdit"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="sendmsgEdit">
-        <property name="text">
-         <string>send</string>
-        </property>
-       </widget>
+      <item row="4" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QTextEdit" name="textBrowser">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="5,1">
-      <property name="spacing">
-       <number>7</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="QLineEdit" name="readfileEdit">
-        <property name="text">
-         <string>class1.csv</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="readfiieBtn">
-        <property name="text">
-         <string>read file</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

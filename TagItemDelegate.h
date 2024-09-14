@@ -12,6 +12,8 @@
 #include <QMouseEvent>
 #include <QStyle>
 #include <QFileSystemModel>
+#include <QMenu>
+#include <QAction>
 
 class TagItemDelegate : public QStyledItemDelegate
 {
@@ -19,12 +21,16 @@ class TagItemDelegate : public QStyledItemDelegate
 
 signals:
     void buttonClicked(const QModelIndex &index);
+    void openFileRequested(const QString &filePath);
+    void deleteFileRequested(const QString &filePath);
 
 public:
     explicit TagItemDelegate(QObject *parent = nullptr, QSqlDatabase db = QSqlDatabase());
+    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index);
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+
+    void showContextMenu(const QPoint &pos, const QModelIndex &index, QAbstractItemModel *model);
 
 private:
     QSqlDatabase m_db;

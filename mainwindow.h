@@ -31,6 +31,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+public slots:
+    void showRU();
+    void showRD();
+
 private slots:
     void on_actionopen_triggered();
     void on_actionsave_triggered();
@@ -58,8 +63,9 @@ private:
     int currentIndex = 0;
     QTabWidget *tabWidget;
     QWidget * widgetr;
-//    WidgetRU * widgetru;
-//    WidgetRD* widgetrd;
+
+    WidgetRU * widgetru;
+    WidgetRD* widgetrd;
     WidgetFunctional* widgetfunc;
 
     Setting * setiing;

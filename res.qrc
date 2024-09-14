@@ -107,5 +107,9 @@
         <file>usedimage/go.svg</file>
         <file>usedimage/list.svg</file>
         <file>usedimage/user.svg</file>
+        <file>usedimage/addtag.svg</file>
+        <file>usedimage/edittag.svg</file>
+        <file>usedimage/picture.svg</file>
+        <file>usedimage/tag.svg</file>
     </qresource>
 </RCC>

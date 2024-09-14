@@ -13,6 +13,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QModelIndex>
 
 #include "TagItemDelegate.h"
 
@@ -31,7 +32,6 @@ public:
     ~WidgetRU();
 
 protected:
-    void paintEvent(QPaintEvent *event) override;
 
 signals:
     void fileOpened(const QString &filePath);
@@ -39,6 +39,7 @@ signals:
 private slots:
     void onItemClicked(const QModelIndex &index);
     void saveMetadata(const QString &filePath, const QStringList &tags, const QString &annotation);
+    void getFileMetadata(const QString &filePath, QStringList &tags, QString &annotation);
 
     void goButtonClicked();
 
@@ -46,13 +47,16 @@ private slots:
 
     void on_newButton_clicked();
 
+
 private:
+
     QString curfilePath;
     QString currentDir;
 
     Ui::WidgetRU *ui;
     QFileSystemModel *fileSystemModel;
     TagItemDelegate * tagItemdelegate;
+
 };
 
 #endif // WIDGETRU_H

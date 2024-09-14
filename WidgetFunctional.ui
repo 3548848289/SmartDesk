@@ -90,12 +90,17 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>40</width>
-        <height>40</height>
+        <width>60</width>
+        <height>60</height>
        </size>
       </property>
       <property name="text">
-       <string>功能3</string>
+       <string>手写
+绘图</string>
+      </property>
+      <property name="icon">
+       <iconset resource="res.qrc">
+        <normaloff>:/usedimage/picture.svg</normaloff>:/usedimage/picture.svg</iconset>
       </property>
      </widget>
     </item>
@@ -109,12 +114,17 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>40</width>
-        <height>40</height>
+        <width>60</width>
+        <height>60</height>
        </size>
       </property>
       <property name="text">
-       <string>功能4</string>
+       <string>更多
+功能</string>
+      </property>
+      <property name="icon">
+       <iconset resource="res.qrc">
+        <normaloff>:/usedimage/go.svg</normaloff>:/usedimage/go.svg</iconset>
       </property>
      </widget>
     </item>

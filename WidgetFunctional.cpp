@@ -13,8 +13,11 @@ WidgetFunctional::~WidgetFunctional()
     delete ui;
 }
 
-void WidgetFunctional::on_pushButton_2_clicked()
-{
 
+void WidgetFunctional::on_pushButton_1_clicked() {
+    emit showRU();
 }
 
+void WidgetFunctional::on_pushButton_2_clicked() {
+    emit showRD();
+}

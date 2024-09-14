@@ -12,10 +12,23 @@ MainWindow::MainWindow(QWidget *parent)
     tabWidget = new QTabWidget(this);
     connect(tabWidget, &QTabWidget::currentChanged, this, &MainWindow::on_tabWidget_currentChanged);
 
-     widgetr = new QWidget(this);
-//    widgetru = new WidgetRU(this);
-//    widgetrd = new WidgetRD(this);
+    widgetr = new QWidget(this);
+    widgetr->setObjectName("pWidget");
+    widgetr->setStyleSheet("QWidget#pWidget{border: 2px solid black;}");
+
+    widgetru = new WidgetRU(this);
+    widgetrd = new WidgetRD(this);
     widgetfunc = new WidgetFunctional(this);
+
+    QVBoxLayout *layout = new QVBoxLayout(widgetr);
+    layout->addWidget(widgetru);
+    layout->addWidget(widgetrd);
+    widgetr->setLayout(layout);
+
+    widgetru->hide();
+    widgetrd->hide();
+    connect(widgetfunc, &WidgetFunctional::showRU, this, &MainWindow::showRU);
+    connect(widgetfunc, &WidgetFunctional::showRD, this, &MainWindow::showRD);
 
     QWidget *offsetWidget = new QWidget(this);
     offsetWidget->setFixedHeight(20);
@@ -23,13 +36,10 @@ MainWindow::MainWindow(QWidget *parent)
     QSplitter *verticalSplitter = new QSplitter(Qt::Vertical);
     verticalSplitter->addWidget(offsetWidget);
     verticalSplitter->addWidget(widgetr);
-//    verticalSplitter->addWidget(widgetru);
-//    verticalSplitter->addWidget(widgetrd);
 
     verticalSplitter->setHandleWidth(5);
 
     QList<int> verticalSizes;
-    //    verticalSizes << 20 << 500 << 100;
     verticalSizes << 20 << 600;
     verticalSplitter->setSizes(verticalSizes);
 
@@ -48,11 +58,23 @@ MainWindow::MainWindow(QWidget *parent)
     sizes << 500 << 240 << 60;
     horizontalSplitter->setSizes(sizes);
 
-//    connect(widgetrd->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
+    connect(widgetrd->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
     connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
-//    connect(widgetru, &WidgetRU::fileOpened, this, &MainWindow::openFile);
+    connect(widgetru, &WidgetRU::fileOpened, this, &MainWindow::openFile);
 
     recentFilesManager->populateRecentFilesMenu(ui->recentFile);
+}
+
+
+void MainWindow::showRU() {
+    widgetrd->hide();
+    widgetru->show();
+
+}
+
+void MainWindow::showRD() {
+    widgetru->hide();
+    widgetrd->show();
 }
 
 

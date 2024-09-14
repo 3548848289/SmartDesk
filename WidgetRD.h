@@ -20,8 +20,6 @@ public:
     downLoad* downloadWidget;
     csvLinkServer* m_csvLinkServer;
 
-protected:
-    void paintEvent(QPaintEvent *event) override;
 
 private:
     Ui::WidgetRD *ui;

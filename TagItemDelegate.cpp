@@ -6,6 +6,7 @@ TagItemDelegate::TagItemDelegate(QObject *parent, QSqlDatabase db)
 {
 }
 
+
 void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QStyledItemDelegate::paint(painter, option, index);
@@ -15,39 +16,32 @@ void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
 
     if (hasTags(filePath)) {
         // 绘制图标
-        QRect iconRect(option.rect.right() - 16, option.rect.top() + 5, 16, 16);
-        QIcon tagIcon(":/image/application_go.svg");
+        QRect iconRect(option.rect.right() - 30, option.rect.top() + 5, 20, 20);
+        QIcon tagIcon(":/usedimage/edittag.svg");
         tagIcon.paint(painter, iconRect, Qt::AlignCenter);
 
-        // 绘制按钮
-        QRect buttonRect(option.rect.right() - 90, option.rect.top() + 5, 60, option.rect.height() - 10);
-        QStyleOptionButton buttonOption;
-        buttonOption.rect = buttonRect;
-        buttonOption.text = "增加标签";
-        buttonOption.state = QStyle::State_Raised;
-
-        QStyle *style = option.widget ? option.widget->style() : QApplication::style();
-        style->drawControl(QStyle::CE_PushButton, &buttonOption, painter);
     }
 }
 
 
-bool TagItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
-{
+bool TagItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) {
     if (event->type() == QEvent::MouseButtonPress) {
         QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
-        QRect buttonRect(option.rect.right() - 70, option.rect.top() + 5, 60, option.rect.height() - 10);
+        if (mouseEvent->button() == Qt::LeftButton) {
 
-        if (buttonRect.contains(mouseEvent->pos())) {
-            // 确保按钮点击不会触发其他点击事件
-            emit buttonClicked(index);
-            return true; // 返回 true，表示事件已处理
+        }
+        if (mouseEvent->button() == Qt::RightButton) {
+            if (option.rect.contains(mouseEvent->pos())) {
+                showContextMenu(mouseEvent->globalPos(), index, model);
+                return true;
+            }
         }
     }
-
-    // 处理其他区域的点击事件
     return QStyledItemDelegate::editorEvent(event, model, option, index);
 }
+
+
+
 bool TagItemDelegate::hasTags(const QString &filePath) const
 {
     QSqlQuery query(m_db);
@@ -64,4 +58,33 @@ bool TagItemDelegate::hasTags(const QString &filePath) const
     }
 
     return false;
+}
+
+
+void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &index, QAbstractItemModel *model) {
+    QMenu contextMenu;
+    QAction *openAction = new QAction("Open", &contextMenu);
+    QAction *deleteAction = new QAction("Delete", &contextMenu);
+    QAction *newtag = new QAction("Newtag", &contextMenu);
+
+
+    connect(newtag, &QAction::triggered, [this, index, model]() {
+
+    });
+    connect(openAction, &QAction::triggered, [this, index, model]() {
+        QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
+        emit openFileRequested(filePath);
+    });
+
+    connect(deleteAction, &QAction::triggered, [this, index, model]() {
+        QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
+        emit deleteFileRequested(filePath);
+    });
+
+    contextMenu.addAction(openAction);
+    contextMenu.addAction(deleteAction);
+    contextMenu.addAction(newtag);
+
+    // 在指定位置显示菜单
+    contextMenu.exec(pos);
 }
