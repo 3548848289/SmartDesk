@@ -1,5 +1,5 @@
 #include "WOnlineDoc.h"
-#include "ui_WidgetRD.h"
+#include "ui_WOnlineDoc.h"
 
 // 修改 WidgetRD 构造函数，确保内部控件的布局
 WidgetRD::WidgetRD(QWidget *parent) : QWidget(parent), ui(new Ui::WidgetRD)
