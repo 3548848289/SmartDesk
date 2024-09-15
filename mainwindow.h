@@ -11,8 +11,8 @@
 #include <QDockWidget>
 
 #include "TabAbstract.h"
-#include "WidgetRD.h"
-#include "WidgetRU.h"
+#include "WOnlineDoc.h"
+#include "WFileTag.h"
 #include "TabHandleTXT.h"
 #include "TabHandleCSV.h"
 #include "RecentFilesManager.h"

@@ -51,6 +51,16 @@
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    color: #7598db;  /* 设置字体颜色为橙色 */
+    background-color: #e0e0e0;  /* 背景颜色为灰色（可选） */
+    border: 1px solid #ccc;  /* 边框颜色为浅灰色（可选） */
+    border-radius: 5px;  /* 设置圆角（可选） */
+    padding: 5px 10px;  /* 设置内边距（可选） */
+}
+</string>
+         </property>
          <property name="text">
           <string> 跳转</string>
          </property>
@@ -69,13 +79,13 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,8,2">
+      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,8,1">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,4">
          <item>
           <widget class="QLabel" name="label_1">
            <property name="text">
-            <string>标签:</string>
+            <string/>
            </property>
            <property name="pixmap">
             <pixmap resource="res.qrc">:/usedimage/tag.svg</pixmap>
@@ -88,7 +98,7 @@
          <item>
           <widget class="QLabel" name="label_2">
            <property name="text">
-            <string>标注:</string>
+            <string/>
            </property>
            <property name="pixmap">
             <pixmap resource="res.qrc">:/usedimage/edittag.svg</pixmap>
@@ -124,6 +134,16 @@
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    color: #7598db;  /* Darker blue for text color */
+    background-color: #e0e0e0;  /* Background color as gray (optional) */
+    border: 1px solid #ccc;  /* Border color as light gray (optional) */
+    border-radius: 5px;  /* Rounded corners (optional) */
+    padding: 5px 10px;  /* Padding (optional) */
+}
+</string>
          </property>
          <property name="text">
           <string>保存</string>

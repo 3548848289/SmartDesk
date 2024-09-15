@@ -10,11 +10,27 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowIcon(QIcon(":/image/package.svg"));
 
     tabWidget = new QTabWidget(this);
+    tabWidget->setStyleSheet(
+        "QTabBar::tab {"
+        "    background: #f0f0f0;"
+        "    color: #000000;"
+        "    padding: 5px;"
+        "    border: 1px solid #cccccc;"
+        "    border-bottom: none;"
+        "}"
+        "QTabBar::tab:selected {"
+        "    background: #ffffff;"
+        "    color: #3598db;"
+        "    border-bottom: none;"
+        "}"
+
+    );
+
     connect(tabWidget, &QTabWidget::currentChanged, this, &MainWindow::on_tabWidget_currentChanged);
 
     widgetr = new QWidget(this);
     widgetr->setObjectName("pWidget");
-    widgetr->setStyleSheet("QWidget#pWidget{border: 2px solid black;}");
+    widgetr->setStyleSheet("QWidget#pWidget { border: 1px solid rgba(0, 0, 0, 0.5); }");
 
     widgetru = new WidgetRU(this);
     widgetrd = new WidgetRD(this);
@@ -44,18 +60,18 @@ MainWindow::MainWindow(QWidget *parent)
     verticalSplitter->setSizes(verticalSizes);
 
     QSplitter *horizontalSplitter = new QSplitter(Qt::Horizontal);
+    horizontalSplitter->addWidget(widgetfunc);
     horizontalSplitter->addWidget(tabWidget);
     horizontalSplitter->addWidget(widgetr);
-    horizontalSplitter->addWidget(widgetfunc);
 
-    horizontalSplitter->setStretchFactor(0, 1);
-    horizontalSplitter->setStretchFactor(1, 2);
-    horizontalSplitter->setStretchFactor(2, 0);
+    horizontalSplitter->setStretchFactor(0, 0);
+    horizontalSplitter->setStretchFactor(1, 1);
+    horizontalSplitter->setStretchFactor(2, 2);
 
     setCentralWidget(horizontalSplitter);
 
     QList<int> sizes;
-    sizes << 500 << 240 << 60;
+    sizes <<  60 << 500 << 240;
     horizontalSplitter->setSizes(sizes);
 
     connect(widgetrd->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);

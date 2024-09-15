@@ -1,4 +1,4 @@
-#include "WidgetRD.h"
+#include "WOnlineDoc.h"
 #include "ui_WidgetRD.h"
 
 // 修改 WidgetRD 构造函数，确保内部控件的布局

@@ -3,6 +3,18 @@
 TextTab::TextTab(QWidget *parent): TabAbstract(parent)
 {
     textEdit = new QTextEdit(this);
+    textEdit->setStyleSheet(
+        "QScrollBar:vertical {"
+        "    background: #f0f0f0;"
+        "    width: 10px;"
+        "}"
+        "QScrollBar::handle:vertical {"
+        "    background: #6ab6d2;"
+        "}"
+
+
+
+    );
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(textEdit);
     setLayout(layout);

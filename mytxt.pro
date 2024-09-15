@@ -10,15 +10,16 @@ CONFIG += c++17
 
 SOURCES += \
     DLfromNet.cpp \
+    DatabaseManager.cpp \
     EditedLog.cpp \
     RecentFilesManager.cpp \
     Setting.cpp \
     TabHandleCSV.cpp \
     TabHandleTXT.cpp \
     TagItemDelegate.cpp \
+    WFileTag.cpp \
+    WOnlineDoc.cpp \
     WidgetFunctional.cpp \
-    WidgetRD.cpp \
-    WidgetRU.cpp \
     csvLinkServer2.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
 
 HEADERS += \
     DLfromNet.h \
+    DatabaseManager.h \
     EditedLog.h \
     RecentFilesManager.h \
     Setting.h \
@@ -33,9 +35,9 @@ HEADERS += \
     TabHandleCSV.h \
     TabHandleTXT.h \
     TagItemDelegate.h \
+    WFileTag.h \
+    WOnlineDoc.h \
     WidgetFunctional.h \
-    WidgetRD.h \
-    WidgetRU.h \
     csvLinkServer2.h \
     mainwindow.h \
     myJson.h
@@ -43,9 +45,9 @@ HEADERS += \
 FORMS += \
     DLfromNet.ui \
     Setting.ui \
+    WFileTag.ui \
+    WOnlineDoc.ui \
     WidgetFunctional.ui \
-    WidgetRD.ui \
-    WidgetRU.ui \
     csvLinkServer2.ui \
     mainwindow.ui
 

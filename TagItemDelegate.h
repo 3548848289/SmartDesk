@@ -2,10 +2,6 @@
 #define TAGITEMDELEGATE_H
 
 #include <QStyledItemDelegate>
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
-#include <QDebug>
 #include <QPainter>
 #include <QApplication>
 #include <QStyleOptionButton>
@@ -14,6 +10,7 @@
 #include <QFileSystemModel>
 #include <QMenu>
 #include <QAction>
+#include "DatabaseManager.h"  // 引入DatabaseManager类
 
 class TagItemDelegate : public QStyledItemDelegate
 {
@@ -25,16 +22,15 @@ signals:
     void deleteFileRequested(const QString &filePath);
 
 public:
-    explicit TagItemDelegate(QObject *parent = nullptr, QSqlDatabase db = QSqlDatabase());
+    explicit TagItemDelegate(QObject *parent = nullptr, DatabaseManager *dbManager = nullptr);  // 使用DatabaseManager替代QSqlDatabase
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index);
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-
 
     void showContextMenu(const QPoint &pos, const QModelIndex &index, QAbstractItemModel *model);
 
 private:
-    QSqlDatabase m_db;
-    bool hasTags(const QString &filePath) const;
+    DatabaseManager *m_dbManager;  // 用于数据库操作的DatabaseManager实例
+    bool hasTags(const QString &filePath) const;  // 检查文件是否有标签
 };
 
 #endif // TAGITEMDELEGATE_H

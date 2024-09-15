@@ -1,5 +1,5 @@
-#ifndef WIDGETRD_H
-#define WIDGETRD_H
+#ifndef WONLINEDOC_H
+#define WONLINEDOC_H
 
 #include <QWidget>
 #include <QPainter>
@@ -25,4 +25,4 @@ private:
     Ui::WidgetRD *ui;
 };
 
-#endif // WIDGETRD_H
+#endif // WONLINEDOC_H
