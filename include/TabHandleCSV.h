@@ -3,7 +3,7 @@
 #define TABHANDLECSV_H
 
 #include "TabAbstract.h"
-#include "myJson.h"
+#include "../manager/myJson.h"
 
 #include <QTableWidget>
 #include <QString>

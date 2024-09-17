@@ -75,7 +75,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionopen">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset>
      <normaloff>:/image/database_go.svg</normaloff>:/image/database_go.svg</iconset>
    </property>
    <property name="text">
@@ -87,7 +87,7 @@
   </action>
   <action name="actionsave">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset>
      <normaloff>:/image/table_save.svg</normaloff>:/image/table_save.svg</iconset>
    </property>
    <property name="text">
@@ -109,7 +109,7 @@
   </action>
   <action name="actionclose">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset>
      <normaloff>:/image/cross.svg</normaloff>:/image/cross.svg</iconset>
    </property>
    <property name="text">
@@ -121,7 +121,7 @@
   </action>
   <action name="actiondownload">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset>
      <normaloff>:/image/arrow_refresh_small.svg</normaloff>:/image/arrow_refresh_small.svg</iconset>
    </property>
    <property name="text">
@@ -163,8 +163,6 @@
    </property>
   </action>
  </widget>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

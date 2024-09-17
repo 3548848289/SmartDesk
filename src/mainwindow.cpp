@@ -1,13 +1,19 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "../ui/ui_mainwindow.h"
 #include <QSplitter>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow), recentFilesManager(new RecentFilesManager(this))
 {
+
     ui->setupUi(this);
     setWindowTitle("QiHan在线文档");
-    setWindowIcon(QIcon(":/image/package.svg"));
+    setWindowIcon(QIcon(":/usedimage/package.svg"));
+
+    QLabel *circleLabel = new QLabel(ui->menubar);
+    circleLabel->setFixedSize(30, 30);
+    circleLabel->setStyleSheet("background-color: #05FFC5; border-radius: 15px;");
+    ui->menubar->setCornerWidget(circleLabel, Qt::TopRightCorner);
 
     tabWidget = new QTabWidget(this);
     tabWidget->setStyleSheet(
@@ -30,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     widgetr = new QWidget(this);
     widgetr->setObjectName("pWidget");
-    widgetr->setStyleSheet("QWidget#pWidget { border: 1px solid rgba(0, 0, 0, 0.5); }");
+    widgetr->setStyleSheet("QWidget#pWidget { border: 1px solid rgb(28, 251, 255); }");
 
     widgetru = new WidgetRU(this);
     widgetrd = new WidgetRD(this);
@@ -131,10 +137,8 @@ void MainWindow::openFile(const QString &filePath)
 
         recentFilesManager->addFile(filePath);
         recentFilesManager->populateRecentFilesMenu(ui->recentFile);
-
-    } else {
+    } else
         QMessageBox::warning(this, tr("Error"), tr("Unsupported file type"));
-    }
 }
 
 void MainWindow::on_actionsave_triggered()
@@ -143,13 +147,12 @@ void MainWindow::on_actionsave_triggered()
     if (!currentTab) return;
 
     QString fileFilter;
-    if (dynamic_cast<TextTab*>(currentTab)) {
+    if (dynamic_cast<TextTab*>(currentTab))
         fileFilter = tr("Text Files (*.txt);;All Files (*)");
-    } else if (dynamic_cast<TabHandleCSV*>(currentTab)) {
+    else if (dynamic_cast<TabHandleCSV*>(currentTab))
         fileFilter = tr("CSV Files (*.csv);;All Files (*)");
-    } else {
+    else
         fileFilter = tr("All Files (*)");
-    }
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "", fileFilter);
     if (fileName.isEmpty())
@@ -168,13 +171,12 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
 {
     if (fileName.endsWith(".txt", Qt::CaseInsensitive) ||
         fileName.endsWith(".cpp", Qt::CaseInsensitive) ||
-        fileName.endsWith(".h", Qt::CaseInsensitive)) {
+        fileName.endsWith(".h", Qt::CaseInsensitive))
         return new TextTab();
-    } else if (fileName.endsWith(".csv", Qt::CaseInsensitive)) {
+    else if (fileName.endsWith(".csv", Qt::CaseInsensitive))
         return new TabHandleCSV();
-    } else {
+    else
         return nullptr;
-    }
 }
 
 void MainWindow::on_tabWidget_currentChanged(int index)
@@ -185,11 +187,10 @@ void MainWindow::on_tabWidget_currentChanged(int index)
 
 void MainWindow::on_actionclose_triggered()
 {
-    if (currentIndex >= 0) {
+    if (currentIndex >= 0)
         tabWidget->removeTab(currentIndex);
-    } else {
+    else
         qDebug() << "No tab to close.";
-    }
 }
 
 void MainWindow::on_actiondownload_triggered()
@@ -199,9 +200,8 @@ void MainWindow::on_actiondownload_triggered()
         downLoad* downloadWidget = new downLoad();
         connect(downloadWidget, &downLoad::fileDownloaded, this, &MainWindow::handleFileDownload);
         downloadWidget->show();
-    } else {
+    } else
         qDebug() << "Failed to cast current tab to TabAbstract*";
-    }
 }
 
 void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &fileContent)
@@ -210,9 +210,9 @@ void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &f
     if (newTab) {
         newTab->loadFromContent(fileContent);
         tabWidget->addTab(newTab, fileName);
-    } else {
+    } else
         QMessageBox::warning(this, tr("Error"), tr("Unsupported file type"));
-    }
+
 }
 
 void MainWindow::on_actionadd_triggered()
@@ -232,7 +232,7 @@ void MainWindow::handleFilePathSent()
     auto currentTab = getCurrentTab<TabHandleCSV>();
 
     currentTab->setLinkStatus(true);
-//    widgetrd->m_csvLinkServer->bindTab(currentTab);
+    widgetrd->m_csvLinkServer->bindTab(currentTab);
 }
 
 void MainWindow::on_actiondel_row_triggered()

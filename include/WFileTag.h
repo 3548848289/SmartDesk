@@ -5,7 +5,7 @@
 #include <QFileSystemModel>
 #include <QModelIndex>
 #include "TagItemDelegate.h"
-#include "DatabaseManager.h"  // 引入DatabaseManager类
+#include "../manager/DatabaseManager.h"
 
 namespace Ui {
 class WidgetRU;

@@ -8,7 +8,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QButtonGroup>
-
+#include "DLogin.h"
 namespace Ui {
 class WidgetFunctional;
 }
@@ -29,11 +29,13 @@ private slots:
     void on_pushButton_1_clicked();
     void on_pushButton_2_clicked();
 
+    void on_pushButton_5_clicked();
+
 private:
     QButtonGroup* btnGroup;
     QHBoxLayout* btnLayout;
     QVBoxLayout* mainLayout;
-
+    DLogin * dlogin;
     Ui::WidgetFunctional *ui;
 };
 

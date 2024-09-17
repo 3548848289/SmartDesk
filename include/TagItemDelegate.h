@@ -10,7 +10,7 @@
 #include <QFileSystemModel>
 #include <QMenu>
 #include <QAction>
-#include "DatabaseManager.h"  // 引入DatabaseManager类
+#include "../manager/DatabaseManager.h"
 
 class TagItemDelegate : public QStyledItemDelegate
 {

@@ -15,7 +15,7 @@
 #include "WFileTag.h"
 #include "TabHandleTXT.h"
 #include "TabHandleCSV.h"
-#include "RecentFilesManager.h"
+#include "../manager/RecentFilesManager.h"
 #include "Setting.h"
 #include "WidgetFunctional.h"
 
@@ -52,23 +52,21 @@ private slots:
 
     void handleFilePathSent();
     void openFile(const QString &filePath);
-
-
     void on_actionshe_triggered();
 
 private:
 
-    RecentFilesManager *recentFilesManager;
-    Ui::MainWindow *ui;
     int currentIndex = 0;
     QTabWidget *tabWidget;
+    Ui::MainWindow *ui;
     QWidget * widgetr;
 
+    RecentFilesManager *recentFilesManager;
     WidgetRU * widgetru;
     WidgetRD* widgetrd;
     WidgetFunctional* widgetfunc;
-
     Setting * setiing;
+
     void createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName);
     TabAbstract* createTabByFileName(const QString &fileName);
 

@@ -6,7 +6,7 @@
 #include <QDateTime>
 #include <QFile>
 #include <QTextStream>
-#include "myJson.h"
+#include "../manager/myJson.h"
 
 class EditedLog
 {

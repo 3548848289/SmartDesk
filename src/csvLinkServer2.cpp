@@ -1,7 +1,7 @@
 #include "csvLinkServer2.h"
-#include "ui_csvLinkServer2.h"
+#include "../ui/ui_csvLinkServer2.h"
+#include "../manager/myJson.h"
 #include "EditedLog.h"
-#include "myJson.h"
 
 csvLinkServer::csvLinkServer(QWidget *parent): QWidget(parent),
         ui(new Ui::csvLinkServer2), tcpSocket(new QTcpSocket(this))

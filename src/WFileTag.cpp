@@ -1,5 +1,5 @@
 #include "WFileTag.h"
-#include "ui_WFileTag.h"
+#include "../ui/ui_WFileTag.h"
 
 WidgetRU::WidgetRU(QWidget *parent)
     : QWidget(parent), ui(new Ui::WidgetRU), fileSystemModel(new QFileSystemModel(this)), dbManager(new DatabaseManager()) {

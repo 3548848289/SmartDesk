@@ -6,7 +6,7 @@ TextTab::TextTab(QWidget *parent): TabAbstract(parent)
     textEdit->setStyleSheet(
         "QScrollBar:vertical {"
         "    background: #f0f0f0;"
-        "    width: 10px;"
+        "    width: 6px;"
         "}"
         "QScrollBar::handle:vertical {"
         "    background: #6ab6d2;"

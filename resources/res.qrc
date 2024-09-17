@@ -7,5 +7,11 @@
         <file>usedimage/edittag.svg</file>
         <file>usedimage/picture.svg</file>
         <file>usedimage/tag.svg</file>
+        <file>usedimage/editdoc.svg</file>
+        <file>usedimage/close-black.svg</file>
+        <file>usedimage/close-white.svg</file>
+        <file>usedimage/proxy-black.svg</file>
+        <file>usedimage/QQ.svg</file>
+        <file>usedimage/package.svg</file>
     </qresource>
 </RCC>
