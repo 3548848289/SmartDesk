@@ -10,7 +10,6 @@ void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     QStyledItemDelegate::paint(painter, option, index);
 
     QString filePath = index.data(QFileSystemModel::FilePathRole).toString();
-    qDebug() << filePath;
 
     if (hasTags(filePath)) {
         // 绘制图标
@@ -38,9 +37,15 @@ bool TagItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
 
 bool TagItemDelegate::hasTags(const QString &filePath) const
 {
-    // 使用DatabaseManager来检查是否有标签
-    return m_dbManager->hasTagsForFile(filePath);
+    auto it = m_tagsCache.find(filePath);
+    if (it != m_tagsCache.end())
+        return it.value();
+
+    bool hasTags = m_dbManager && m_dbManager->hasTagsForFile(filePath);
+    const_cast<TagItemDelegate*>(this)->m_tagsCache[filePath] = hasTags;
+    return hasTags;
 }
+
 
 void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &index, QAbstractItemModel *model) {
     QMenu contextMenu;
@@ -49,7 +54,7 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     QAction *newtag = new QAction("Newtag", &contextMenu);
 
     connect(newtag, &QAction::triggered, [this, index, model]() {
-        // 处理新标签事件
+
     });
     connect(openAction, &QAction::triggered, [this, index, model]() {
         QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();

@@ -10,6 +10,7 @@
 #include <QFileSystemModel>
 #include <QMenu>
 #include <QAction>
+#include <QMap>
 #include "../manager/DatabaseManager.h"
 
 class TagItemDelegate : public QStyledItemDelegate
@@ -29,7 +30,9 @@ public:
     void showContextMenu(const QPoint &pos, const QModelIndex &index, QAbstractItemModel *model);
 
 private:
-    DatabaseManager *m_dbManager;  // 用于数据库操作的DatabaseManager实例
+    DatabaseManager *m_dbManager;
+    mutable QMap<QString, bool> m_tagsCache;  // 标签缓存
+
     bool hasTags(const QString &filePath) const;  // 检查文件是否有标签
 };
 

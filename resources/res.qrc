@@ -13,5 +13,10 @@
         <file>usedimage/proxy-black.svg</file>
         <file>usedimage/QQ.svg</file>
         <file>usedimage/package.svg</file>
+        <file>usedimage/schedule.svg</file>
+        <file>image/arrow_refresh_small.svg</file>
+        <file>image/cross.svg</file>
+        <file>image/database_go.svg</file>
+        <file>image/table_save.svg</file>
     </qresource>
 </RCC>

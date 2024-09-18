@@ -16,7 +16,7 @@ class WidgetRU : public QWidget
     Q_OBJECT
 
 public:
-    explicit WidgetRU(QWidget *parent = nullptr);
+    explicit WidgetRU(DatabaseManager *dbManager, QWidget *parent = nullptr);
     ~WidgetRU();
 
 private slots:
@@ -24,13 +24,15 @@ private slots:
     void goButtonClicked();
     void on_saveButton_clicked();
     void handleButtonClicked(const QModelIndex &index);
-    void on_newButton_clicked();
+
+    void on_setReminderButton_clicked();
 
 signals:
     void fileOpened(const QString &filePath);
 
 private:
     void loadFileMetadata(const QString &filePath);
+    void saveExpirationDate(const QString &filePath, const QDate &expirationDate);
 
     Ui::WidgetRU *ui;
     QFileSystemModel *fileSystemModel;

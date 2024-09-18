@@ -7,6 +7,7 @@
 #include <QSqlError>
 #include <QStringList>
 #include <QDebug>
+#include <QDate>
 
 class DatabaseManager {
 public:
@@ -25,6 +26,14 @@ public:
     bool saveTags(int fileId, const QStringList &tags);
     bool saveAnnotation(int fileId, const QString &annotation);
     bool hasTagsForFile(const QString &filePath) const;
+
+    QStringList searchFiles(const QString &keyword);
+    QStringList getAllTags();
+    QStringList getFilePathsByTag(const QString &tag);
+
+    QStringList getAllFilePaths();
+    QVector<QPair<QString, QDate>> getFilesSortedByExpiration();
+
 
 private:
     QSqlDatabase db;

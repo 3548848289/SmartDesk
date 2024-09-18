@@ -2,8 +2,55 @@
 #include "../ui/ui_mainwindow.h"
 #include <QSplitter>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow), recentFilesManager(new RecentFilesManager(this))
+
+void MainWindow::initFunc()
+{
+    widgetr = new QWidget(ui->combinedWidget);
+    widgetru = new WidgetRU(dbManager, this);
+    widgetrd = new WidgetRD(this);
+    schedule = new WSchedule(dbManager, this);
+    widgetfunc = new WidgetFunctional(this);
+
+    ui->stackedWidget->setObjectName("pWidget");
+    ui->stackedWidget->setStyleSheet("QWidget#pWidget { border: 1px solid rgb(28, 251, 255); }");
+    ui->stackedWidget->addWidget(widgetru);
+    ui->stackedWidget->addWidget(widgetrd);
+    ui->stackedWidget->addWidget(schedule);
+    ui->stackedWidget->setCurrentWidget(widgetru);
+
+    connect(widgetfunc, &WidgetFunctional::showRU, this, [=] {
+        ui->stackedWidget->setCurrentWidget(widgetru); });
+
+    connect(widgetfunc, &WidgetFunctional::showRD, this, [=] {
+        ui->stackedWidget->setCurrentWidget(widgetrd); });
+
+    connect(widgetfunc, &WidgetFunctional::showWSchedule, this, [=] {
+        ui->stackedWidget->setCurrentWidget(schedule); });
+
+}
+
+void MainWindow::initSpli()
+{
+
+    QSplitter *horizontalSplitter = new QSplitter(Qt::Horizontal);
+    horizontalSplitter->addWidget(widgetfunc);
+    horizontalSplitter->addWidget(tabWidget);
+    horizontalSplitter->addWidget(ui->combinedWidget);
+
+    horizontalSplitter->setStretchFactor(0, 0);
+    horizontalSplitter->setStretchFactor(1, 1);
+    horizontalSplitter->setStretchFactor(2, 2);
+
+    setCentralWidget(horizontalSplitter);
+
+    QList<int> sizes;
+    sizes <<  60 << 500 << 240;
+    horizontalSplitter->setSizes(sizes);
+}
+
+
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow),
+    recentFilesManager(new RecentFilesManager(this)), dbManager(new DatabaseManager())
 {
 
     ui->setupUi(this);
@@ -18,85 +65,21 @@ MainWindow::MainWindow(QWidget *parent)
     tabWidget = new QTabWidget(this);
     tabWidget->setStyleSheet(
         "QTabBar::tab {"
-        "    background: #f0f0f0;"
-        "    color: #000000;"
-        "    padding: 5px;"
-        "    border: 1px solid #cccccc;"
-        "    border-bottom: none;"
-        "}"
+        "    background: #f0f0f0; color: #000000; padding: 5px;"
+        "border: 1px solid #cccccc; border-bottom: none; }"
         "QTabBar::tab:selected {"
-        "    background: #ffffff;"
-        "    color: #3598db;"
-        "    border-bottom: none;"
-        "}"
-
+        "    background: #ffffff; color: #3598db; border-bottom: none; }"
     );
+    initFunc();
+    initSpli();
 
-    connect(tabWidget, &QTabWidget::currentChanged, this, &MainWindow::on_tabWidget_currentChanged);
-
-    widgetr = new QWidget(this);
-    widgetr->setObjectName("pWidget");
-    widgetr->setStyleSheet("QWidget#pWidget { border: 1px solid rgb(28, 251, 255); }");
-
-    widgetru = new WidgetRU(this);
-    widgetrd = new WidgetRD(this);
-    widgetfunc = new WidgetFunctional(this);
-
-    QVBoxLayout *layout = new QVBoxLayout(widgetr);
-    layout->addWidget(widgetru);
-    layout->addWidget(widgetrd);
-    widgetr->setLayout(layout);
-
-    widgetru->hide();
-    widgetrd->hide();
-    connect(widgetfunc, &WidgetFunctional::showRU, this, &MainWindow::showRU);
-    connect(widgetfunc, &WidgetFunctional::showRD, this, &MainWindow::showRD);
-
-    QWidget *offsetWidget = new QWidget(this);
-    offsetWidget->setFixedHeight(20);
-
-    QSplitter *verticalSplitter = new QSplitter(Qt::Vertical);
-    verticalSplitter->addWidget(offsetWidget);
-    verticalSplitter->addWidget(widgetr);
-
-    verticalSplitter->setHandleWidth(5);
-
-    QList<int> verticalSizes;
-    verticalSizes << 20 << 600;
-    verticalSplitter->setSizes(verticalSizes);
-
-    QSplitter *horizontalSplitter = new QSplitter(Qt::Horizontal);
-    horizontalSplitter->addWidget(widgetfunc);
-    horizontalSplitter->addWidget(tabWidget);
-    horizontalSplitter->addWidget(widgetr);
-
-    horizontalSplitter->setStretchFactor(0, 0);
-    horizontalSplitter->setStretchFactor(1, 1);
-    horizontalSplitter->setStretchFactor(2, 2);
-
-    setCentralWidget(horizontalSplitter);
-
-    QList<int> sizes;
-    sizes <<  60 << 500 << 240;
-    horizontalSplitter->setSizes(sizes);
-
+    connect(tabWidget, &QTabWidget::currentChanged, this, [this](int index) {currentIndex = index;});
     connect(widgetrd->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
     connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
     connect(widgetru, &WidgetRU::fileOpened, this, &MainWindow::openFile);
+    connect(schedule, &WSchedule::fileClicked, this, &MainWindow::openFile);
 
     recentFilesManager->populateRecentFilesMenu(ui->recentFile);
-}
-
-
-void MainWindow::showRU() {
-    widgetrd->hide();
-    widgetru->show();
-
-}
-
-void MainWindow::showRD() {
-    widgetru->hide();
-    widgetrd->show();
 }
 
 
@@ -177,12 +160,6 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
         return new TabHandleCSV();
     else
         return nullptr;
-}
-
-void MainWindow::on_tabWidget_currentChanged(int index)
-{
-    currentIndex = index;
-//    qDebug() << "Current tab index: " << index;
 }
 
 void MainWindow::on_actionclose_triggered()
@@ -273,4 +250,3 @@ void MainWindow::on_actionshe_triggered()
     setiing = new Setting();
     setiing->show();
 }
-

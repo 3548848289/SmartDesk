@@ -38,6 +38,7 @@ set(PROJECT_SOURCES
     ${SRC_DIR}/WidgetFunctional.cpp
     ${SRC_DIR}/WOnlineDoc.cpp
     ${SRC_DIR}/DLogin.cpp
+    ${SRC_DIR}/WSchedule.cpp
 
 )
 
@@ -56,6 +57,7 @@ set(PROJECT_HEADERS
     ${INCLUDE_DIR}/WidgetFunctional.h
     ${INCLUDE_DIR}/WOnlineDoc.h
     ${INCLUDE_DIR}/DLogin.h
+    ${INCLUDE_DIR}/WSchedule.h
 )
 
 # UI 文件列表
@@ -68,6 +70,7 @@ set(PROJECT_UIS
     ${UI_DIR}/WidgetFunctional.ui
     ${UI_DIR}/WOnlineDoc.ui
     ${UI_DIR}/DLogin.ui
+    ${UI_DIR}/WSchedule.ui
 )
 
 # 资源文件列表

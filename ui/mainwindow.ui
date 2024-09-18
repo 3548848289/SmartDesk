@@ -20,6 +20,35 @@
    <property name="styleSheet">
     <string notr="true"/>
    </property>
+   <widget class="QWidget" name="combinedWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>70</y>
+      <width>271</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>当前界面</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QStackedWidget" name="stackedWidget"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -75,7 +104,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionopen">
    <property name="icon">
-    <iconset>
+    <iconset resource="../resources/res.qrc">
      <normaloff>:/image/database_go.svg</normaloff>:/image/database_go.svg</iconset>
    </property>
    <property name="text">
@@ -87,7 +116,7 @@
   </action>
   <action name="actionsave">
    <property name="icon">
-    <iconset>
+    <iconset resource="../resources/res.qrc">
      <normaloff>:/image/table_save.svg</normaloff>:/image/table_save.svg</iconset>
    </property>
    <property name="text">
@@ -109,7 +138,7 @@
   </action>
   <action name="actionclose">
    <property name="icon">
-    <iconset>
+    <iconset resource="../resources/res.qrc">
      <normaloff>:/image/cross.svg</normaloff>:/image/cross.svg</iconset>
    </property>
    <property name="text">
@@ -121,7 +150,7 @@
   </action>
   <action name="actiondownload">
    <property name="icon">
-    <iconset>
+    <iconset resource="../resources/res.qrc">
      <normaloff>:/image/arrow_refresh_small.svg</normaloff>:/image/arrow_refresh_small.svg</iconset>
    </property>
    <property name="text">
@@ -163,6 +192,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources/res.qrc"/>
+ </resources>
  <connections/>
 </ui>

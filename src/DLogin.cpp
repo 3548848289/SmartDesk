@@ -7,13 +7,16 @@
 
 bool DLogin::loginUser(const QString &username, const QString &password, QString &statusMessage) {
     QSqlQuery query;
-    query.prepare("SELECT password FROM users WHERE username = :username");
+    query.prepare("SELECT password, avatar FROM users WHERE username = :username");
     query.bindValue(":username", username);
 
     if (query.exec()) {
         if (query.next()) {
             QString dbPassword = query.value(0).toString();
+            QByteArray avatarData = query.value(1).toByteArray(); // 获取头像的字节数组
+
             if (dbPassword == password) {
+                avatarImage.loadFromData(avatarData);
                 statusMessage = "登录成功";
                 return true;
             } else {
@@ -89,6 +92,9 @@ void DLogin::on_login_pushButton_clicked() {
     if (loginUser(username, password, statusMessage)) {
         QMessageBox::information(this, "登录成功", statusMessage);
         ui->loginwidget->hide();
+        ui->avatar_pushButton->setIcon(QIcon(avatarImage));
+        ui->avatar_pushButton->setIconSize(ui->avatar_pushButton->size());
+
         ui->statusLabel->setText("登录成功");
     } else {
         QMessageBox::warning(this, "登录失败", statusMessage);
@@ -118,16 +124,11 @@ void DLogin::registerUser(const QString &username, const QString &password) {
 }
 
 void DLogin::on_exit_toolButton_clicked() {
-//    QMessageBox::StandardButton reply;
-//    reply = QMessageBox::question(this, "退出", "你确定要退出登录吗?", QMessageBox::Yes | QMessageBox::No);
-//    if (reply == QMessageBox::Yes)
-    {
-        ui->username->clear();
-        ui->password->clear();
-        ui->avatar_pushButton->setIcon(QIcon());
-        ui->statusLabel->clear();
-        close();
-    }
+    ui->username->clear();
+    ui->password->clear();
+    ui->avatar_pushButton->setIcon(QIcon());
+    ui->statusLabel->clear();
+    close();
 }
 
 void DLogin::on_avatar_pushButton_clicked() {
@@ -136,10 +137,6 @@ void DLogin::on_avatar_pushButton_clicked() {
         QPixmap avatar(fileName);
         avatarImage = avatar;
         if (!avatar.isNull()) {
-            QSize buttonSize = ui->avatar_pushButton->size();
-            QSize scaledSize = buttonSize * 0.6;
-            QPixmap scaledPixmap = avatar.scaled(scaledSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-
             ui->avatar_pushButton->setIcon(QIcon(avatar));
             ui->avatar_pushButton->setIconSize(ui->avatar_pushButton->size());
         } else {

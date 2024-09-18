@@ -57,7 +57,7 @@
 标签</string>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset resource="../resources/res.qrc">
         <normaloff>:/usedimage/list.svg</normaloff>:/usedimage/list.svg</iconset>
       </property>
      </widget>
@@ -83,12 +83,12 @@
        </size>
       </property>
       <property name="text">
-       <string>在线
-文档</string>
+       <string>备忘
+日程</string>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
-        <normaloff>:/usedimage/editdoc.svg</normaloff>:/usedimage/editdoc.svg</iconset>
+       <iconset resource="../resources/res.qrc">
+        <normaloff>:/usedimage/schedule.svg</normaloff>:/usedimage/schedule.svg</iconset>
       </property>
      </widget>
     </item>
@@ -100,6 +100,12 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>60</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
         <width>60</width>
@@ -107,12 +113,12 @@
        </size>
       </property>
       <property name="text">
-       <string>手写
-绘图</string>
+       <string>在线
+文档</string>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
-        <normaloff>:/usedimage/picture.svg</normaloff>:/usedimage/picture.svg</iconset>
+       <iconset resource="../resources/res.qrc">
+        <normaloff>:/usedimage/editdoc.svg</normaloff>:/usedimage/editdoc.svg</iconset>
       </property>
      </widget>
     </item>
@@ -131,12 +137,12 @@
        </size>
       </property>
       <property name="text">
-       <string>更多
-功能</string>
+       <string>手写
+绘图</string>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
-        <normaloff>:/usedimage/go.svg</normaloff>:/usedimage/go.svg</iconset>
+       <iconset resource="../resources/res.qrc">
+        <normaloff>:/usedimage/picture.svg</normaloff>:/usedimage/picture.svg</iconset>
       </property>
      </widget>
     </item>
@@ -155,11 +161,35 @@
        </size>
       </property>
       <property name="text">
+       <string>更多
+功能</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources/res.qrc">
+        <normaloff>:/usedimage/go.svg</normaloff>:/usedimage/go.svg</iconset>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>60</width>
+        <height>60</height>
+       </size>
+      </property>
+      <property name="text">
        <string>用户
 登录</string>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
+       <iconset resource="../resources/res.qrc">
         <normaloff>:/usedimage/user.svg</normaloff>:/usedimage/user.svg</iconset>
       </property>
      </widget>
@@ -168,7 +198,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="res.qrc"/>
+  <include location="../resources/res.qrc"/>
  </resources>
  <connections/>
 </ui>

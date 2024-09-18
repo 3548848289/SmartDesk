@@ -1,15 +1,16 @@
 #include "WFileTag.h"
 #include "../ui/ui_WFileTag.h"
 
-WidgetRU::WidgetRU(QWidget *parent)
-    : QWidget(parent), ui(new Ui::WidgetRU), fileSystemModel(new QFileSystemModel(this)), dbManager(new DatabaseManager()) {
+WidgetRU::WidgetRU(DatabaseManager * dbManager, QWidget *parent) : QWidget(parent), ui(new Ui::WidgetRU),
+    fileSystemModel(new QFileSystemModel(this)), dbManager(dbManager)
+{
     ui->setupUi(this);
 
-    currentDir = QDir::currentPath();
+    // currentDir = QDir::currentPath();
+    currentDir = "D:/QT6/Qt_pro/project/mytxt";
     if (!dbManager->open()) {
         qDebug() << "数据库连接失败";
     }
-
     fileSystemModel->setRootPath(currentDir);
     ui->treeView->setStyleSheet("QTreeView::item { height: 30px; }");
     ui->treeView->setModel(fileSystemModel);
@@ -79,10 +80,23 @@ void WidgetRU::on_saveButton_clicked() {
     dbManager->saveAnnotation(fileId, annotation);
 }
 
-void WidgetRU::on_newButton_clicked()
-{
+void WidgetRU::on_setReminderButton_clicked() {
+    if (curfilePath.isEmpty()) {
+        return;
+    }
 
+    QDate expirationDate = ui->dateEdit->date();
+    saveExpirationDate(curfilePath, expirationDate);
 }
+
+void WidgetRU::saveExpirationDate(const QString &filePath, const QDate &expirationDate) {
+    QSqlQuery query;
+    query.prepare("UPDATE FilePaths SET expiration_date = :expiration_date WHERE file_path = :file_path");
+    query.bindValue(":expiration_date", expirationDate);
+    query.bindValue(":file_path", filePath);
+    query.exec();
+}
+
 
 WidgetRU::~WidgetRU() {
     delete ui;

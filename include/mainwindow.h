@@ -9,6 +9,7 @@
 #include <functional>
 #include <QWidget>
 #include <QDockWidget>
+#include <QStackedWidget>
 
 #include "TabAbstract.h"
 #include "WOnlineDoc.h"
@@ -16,8 +17,11 @@
 #include "TabHandleTXT.h"
 #include "TabHandleCSV.h"
 #include "../manager/RecentFilesManager.h"
+#include "../manager/DatabaseManager.h"
 #include "Setting.h"
 #include "WidgetFunctional.h"
+#include "WSchedule.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,15 +35,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-
-public slots:
-    void showRU();
-    void showRD();
-
 private slots:
     void on_actionopen_triggered();
     void on_actionsave_triggered();
-    void on_tabWidget_currentChanged(int index);
     void on_actionclose_triggered();
     void on_actiondownload_triggered();
     void handleFileDownload(const QString &fileName, const QByteArray &fileContent);
@@ -58,6 +56,8 @@ private:
 
     int currentIndex = 0;
     QTabWidget *tabWidget;
+
+    DatabaseManager *dbManager;
     Ui::MainWindow *ui;
     QWidget * widgetr;
 
@@ -66,6 +66,11 @@ private:
     WidgetRD* widgetrd;
     WidgetFunctional* widgetfunc;
     Setting * setiing;
+    WSchedule * schedule;
+
+    void initFunc();
+    void initSpli();
+
 
     void createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName);
     TabAbstract* createTabByFileName(const QString &fileName);
