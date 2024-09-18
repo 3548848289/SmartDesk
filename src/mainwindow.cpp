@@ -6,23 +6,23 @@
 void MainWindow::initFunc()
 {
     widgetr = new QWidget(ui->combinedWidget);
-    widgetru = new WidgetRU(dbManager, this);
-    widgetrd = new WidgetRD(this);
+    wfiletag = new WFileTag(dbManager, this);
+    wonlinedoc = new WOnlineDoc(this);
     schedule = new WSchedule(dbManager, this);
     widgetfunc = new WidgetFunctional(this);
 
     ui->stackedWidget->setObjectName("pWidget");
     ui->stackedWidget->setStyleSheet("QWidget#pWidget { border: 1px solid rgb(28, 251, 255); }");
-    ui->stackedWidget->addWidget(widgetru);
-    ui->stackedWidget->addWidget(widgetrd);
+    ui->stackedWidget->addWidget(wfiletag);
+    ui->stackedWidget->addWidget(wonlinedoc);
     ui->stackedWidget->addWidget(schedule);
-    ui->stackedWidget->setCurrentWidget(widgetru);
+    ui->stackedWidget->setCurrentWidget(wfiletag);
 
     connect(widgetfunc, &WidgetFunctional::showRU, this, [=] {
-        ui->stackedWidget->setCurrentWidget(widgetru); });
+        ui->stackedWidget->setCurrentWidget(wfiletag); });
 
     connect(widgetfunc, &WidgetFunctional::showRD, this, [=] {
-        ui->stackedWidget->setCurrentWidget(widgetrd); });
+        ui->stackedWidget->setCurrentWidget(wonlinedoc); });
 
     connect(widgetfunc, &WidgetFunctional::showWSchedule, this, [=] {
         ui->stackedWidget->setCurrentWidget(schedule); });
@@ -74,9 +74,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     initSpli();
 
     connect(tabWidget, &QTabWidget::currentChanged, this, [this](int index) {currentIndex = index;});
-    connect(widgetrd->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
+    connect(wonlinedoc->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
     connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
-    connect(widgetru, &WidgetRU::fileOpened, this, &MainWindow::openFile);
+    connect(wfiletag, &WFileTag::fileOpened, this, &MainWindow::openFile);
     connect(schedule, &WSchedule::fileClicked, this, &MainWindow::openFile);
 
     recentFilesManager->populateRecentFilesMenu(ui->recentFile);
@@ -209,7 +209,7 @@ void MainWindow::handleFilePathSent()
     auto currentTab = getCurrentTab<TabHandleCSV>();
 
     currentTab->setLinkStatus(true);
-    widgetrd->m_csvLinkServer->bindTab(currentTab);
+    wonlinedoc->m_csvLinkServer->bindTab(currentTab);
 }
 
 void MainWindow::on_actiondel_row_triggered()

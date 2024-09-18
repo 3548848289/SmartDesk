@@ -1,8 +1,8 @@
 #include "WOnlineDoc.h"
 #include "../ui/ui_WOnlineDoc.h"
 
-// 修改 WidgetRD 构造函数，确保内部控件的布局
-WidgetRD::WidgetRD(QWidget *parent) : QWidget(parent), ui(new Ui::WidgetRD)
+// 修改 WOnlineDoc 构造函数，确保内部控件的布局
+WOnlineDoc::WOnlineDoc(QWidget *parent) : QWidget(parent), ui(new Ui::WOnlineDoc)
 {
     ui->setupUi(this);
 
@@ -15,7 +15,7 @@ WidgetRD::WidgetRD(QWidget *parent) : QWidget(parent), ui(new Ui::WidgetRD)
 }
 
 
-WidgetRD::~WidgetRD()
+WOnlineDoc::~WOnlineDoc()
 {
     delete ui;
 }

@@ -8,16 +8,16 @@
 #include "../manager/DatabaseManager.h"
 
 namespace Ui {
-class WidgetRU;
+class WFileTag;
 }
 
-class WidgetRU : public QWidget
+class WFileTag : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit WidgetRU(DatabaseManager *dbManager, QWidget *parent = nullptr);
-    ~WidgetRU();
+    explicit WFileTag(DatabaseManager *dbManager, QWidget *parent = nullptr);
+    ~WFileTag();
 
 private slots:
     void onItemClicked(const QModelIndex &index);
@@ -34,7 +34,7 @@ private:
     void loadFileMetadata(const QString &filePath);
     void saveExpirationDate(const QString &filePath, const QDate &expirationDate);
 
-    Ui::WidgetRU *ui;
+    Ui::WFileTag *ui;
     QFileSystemModel *fileSystemModel;
     TagItemDelegate *tagItemdelegate;
     DatabaseManager *dbManager;

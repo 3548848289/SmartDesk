@@ -7,22 +7,22 @@
 #include "csvLinkServer2.h"
 
 namespace Ui {
-class WidgetRD;
+class WOnlineDoc;
 }
 
-class WidgetRD : public QWidget
+class WOnlineDoc : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit WidgetRD(QWidget *parent = nullptr);
-    ~WidgetRD();
+    explicit WOnlineDoc(QWidget *parent = nullptr);
+    ~WOnlineDoc();
     downLoad* downloadWidget;
     csvLinkServer* m_csvLinkServer;
 
 
 private:
-    Ui::WidgetRD *ui;
+    Ui::WOnlineDoc *ui;
 };
 
 #endif // WONLINEDOC_H

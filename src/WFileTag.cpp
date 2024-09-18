@@ -1,7 +1,7 @@
 #include "WFileTag.h"
 #include "../ui/ui_WFileTag.h"
 
-WidgetRU::WidgetRU(DatabaseManager * dbManager, QWidget *parent) : QWidget(parent), ui(new Ui::WidgetRU),
+WFileTag::WFileTag(DatabaseManager * dbManager, QWidget *parent) : QWidget(parent), ui(new Ui::WFileTag),
     fileSystemModel(new QFileSystemModel(this)), dbManager(dbManager)
 {
     ui->setupUi(this);
@@ -26,18 +26,18 @@ WidgetRU::WidgetRU(DatabaseManager * dbManager, QWidget *parent) : QWidget(paren
     ui->treeView->setItemDelegate(tagItemdelegate);
 
 
-    connect(ui->pathLineEdit, &QLineEdit::returnPressed, this, &WidgetRU::goButtonClicked);
-    connect(ui->goButton, &QPushButton::clicked, this, &WidgetRU::goButtonClicked);
-    connect(ui->treeView, &QTreeView::clicked, this, &WidgetRU::onItemClicked);
-    connect(tagItemdelegate, &TagItemDelegate::buttonClicked, this, &WidgetRU::handleButtonClicked);
+    connect(ui->pathLineEdit, &QLineEdit::returnPressed, this, &WFileTag::goButtonClicked);
+    connect(ui->goButton, &QPushButton::clicked, this, &WFileTag::goButtonClicked);
+    connect(ui->treeView, &QTreeView::clicked, this, &WFileTag::onItemClicked);
+    connect(tagItemdelegate, &TagItemDelegate::buttonClicked, this, &WFileTag::handleButtonClicked);
 
 }
 
-void WidgetRU::handleButtonClicked(const QModelIndex &index)
+void WFileTag::handleButtonClicked(const QModelIndex &index)
 {
     qDebug() << "Button clicked at index:" << index;
 }
-void WidgetRU::onItemClicked(const QModelIndex &index) {
+void WFileTag::onItemClicked(const QModelIndex &index) {
     if (fileSystemModel->isDir(index))
         return;
 
@@ -57,7 +57,7 @@ void WidgetRU::onItemClicked(const QModelIndex &index) {
     emit fileOpened(curfilePath);
 }
 
-void WidgetRU::goButtonClicked() {
+void WFileTag::goButtonClicked() {
     currentDir = ui->pathLineEdit->text();
     QFileInfo fileInfo(currentDir);
     if (fileInfo.exists() && fileInfo.isDir()) {
@@ -67,7 +67,7 @@ void WidgetRU::goButtonClicked() {
     }
 }
 
-void WidgetRU::on_saveButton_clicked() {
+void WFileTag::on_saveButton_clicked() {
     QString filePath = ui->treeView->currentIndex().data(QFileSystemModel::FilePathRole).toString();
     QStringList tags = ui->tagsLineEdit->text().split(", ");
     QString annotation = ui->annotationTextEdit->toPlainText();
@@ -80,7 +80,7 @@ void WidgetRU::on_saveButton_clicked() {
     dbManager->saveAnnotation(fileId, annotation);
 }
 
-void WidgetRU::on_setReminderButton_clicked() {
+void WFileTag::on_setReminderButton_clicked() {
     if (curfilePath.isEmpty()) {
         return;
     }
@@ -89,7 +89,7 @@ void WidgetRU::on_setReminderButton_clicked() {
     saveExpirationDate(curfilePath, expirationDate);
 }
 
-void WidgetRU::saveExpirationDate(const QString &filePath, const QDate &expirationDate) {
+void WFileTag::saveExpirationDate(const QString &filePath, const QDate &expirationDate) {
     QSqlQuery query;
     query.prepare("UPDATE FilePaths SET expiration_date = :expiration_date WHERE file_path = :file_path");
     query.bindValue(":expiration_date", expirationDate);
@@ -98,7 +98,7 @@ void WidgetRU::saveExpirationDate(const QString &filePath, const QDate &expirati
 }
 
 
-WidgetRU::~WidgetRU() {
+WFileTag::~WFileTag() {
     delete ui;
     delete dbManager;
 }

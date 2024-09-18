@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>WidgetRU</class>
- <widget class="QWidget" name="WidgetRU">
+ <class>WFileTag</class>
+ <widget class="QWidget" name="WFileTag">
   <property name="geometry">
    <rect>
     <x>0</x>

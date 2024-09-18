@@ -62,8 +62,8 @@ private:
     QWidget * widgetr;
 
     RecentFilesManager *recentFilesManager;
-    WidgetRU * widgetru;
-    WidgetRD* widgetrd;
+    WFileTag * wfiletag;
+    WOnlineDoc* wonlinedoc;
     WidgetFunctional* widgetfunc;
     Setting * setiing;
     WSchedule * schedule;
