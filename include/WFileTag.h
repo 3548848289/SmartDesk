@@ -25,7 +25,6 @@ private slots:
     void on_saveButton_clicked();
     void handleButtonClicked(const QModelIndex &index);
 
-    void on_setReminderButton_clicked();
 
 signals:
     void fileOpened(const QString &filePath);

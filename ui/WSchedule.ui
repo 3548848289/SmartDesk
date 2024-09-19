@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>254</width>
-    <height>300</height>
+    <width>256</width>
+    <height>368</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,23 +15,58 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QComboBox" name="comboBox"/>
-   </item>
-   <item row="1" column="0" colspan="3">
-    <widget class="QListView" name="listView"/>
-   </item>
-   <item row="0" column="1" colspan="2">
-    <widget class="QLineEdit" name="searchLineEdit"/>
-   </item>
-   <item row="2" column="2">
-    <widget class="QDateTimeEdit" name="dateTimeEdit"/>
-   </item>
-   <item row="2" column="0">
-    <widget class="QPushButton" name="sortButton">
-     <property name="text">
-      <string>PushButton</string>
-     </property>
-    </widget>
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,12">
+     <item>
+      <widget class="QLineEdit" name="searchLineEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>搜索文件</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,4,4">
+       <property name="spacing">
+        <number>12</number>
+       </property>
+       <item>
+        <widget class="QComboBox" name="comboBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>文件名</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>修改时间</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QListWidget" name="listWidget"/>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

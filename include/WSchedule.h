@@ -2,7 +2,7 @@
 #define WSCHEDULE_H
 
 #include <QWidget>
-#include <QStandardItemModel>
+#include <QListWidget>
 #include "../manager/DatabaseManager.h"
 
 class DatabaseManager;
@@ -16,27 +16,31 @@ class WSchedule : public QWidget
     Q_OBJECT
 
 public:
-    explicit WSchedule(DatabaseManager *dbManager, QWidget *parent = nullptr);
+    explicit WSchedule(DatabaseManager *db, QWidget *parent = nullptr);
     ~WSchedule();
 
 signals:
-    void fileClicked(const QString &filePath);
+    void fileClicked(const QString &path);
 
 private slots:
-    void onFileClicked(const QModelIndex &index);  // 文件点击事件处理
-    void onTagSelected(const QString &tag);  // 标签筛选事件处理
-    void onSearchTextChanged(const QString &keyword);  // 关键词搜索事件处理
-    void sortByExpirationDate(); // 新增排序功能
+    void onItemClicked(QListWidgetItem *item);  // 文件点击事件
+    void onTagChanged(const QString &tag);  // 标签筛选事件
+    void onSearch(const QString &keyword);  // 关键词搜索事件
+    void sortByExpDate(); // 新增排序功能
+
+    void onSortClicked();
+
+    void on_pushButton_clicked();
 
 private:
-    void loadFilesFromDatabase();  // 从数据库加载文件
-    void loadTagsIntoComboBox();  // 从数据库加载标签到ComboBox
-    void filterFilesByTag(const QString &tag);  // 基于标签筛选文件
-    void filterFilesByKeyword(const QString &keyword);  // 基于关键词筛选文件
+    QString getExpInfo(const QString &path, const QDateTime &dateTime);
+    void loadFiles();  // 从数据库加载文件
+    void loadTags();  // 从数据库加载标签到ComboBox
+    void filterByTag(const QString &tag);  // 基于标签筛选文件
+    void filterByKeyword(const QString &keyword);  // 基于关键词筛选文件
 
     Ui::WSchedule *ui;
-    DatabaseManager *dbManager;
-    QStandardItemModel *model;  // 用于 listView 的模型
+    DatabaseManager *db;
 };
 
 #endif // WSCHEDULE_H

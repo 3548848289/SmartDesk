@@ -49,9 +49,10 @@ bool TagItemDelegate::hasTags(const QString &filePath) const
 
 void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &index, QAbstractItemModel *model) {
     QMenu contextMenu;
-    QAction *openAction = new QAction("Open", &contextMenu);
-    QAction *deleteAction = new QAction("Delete", &contextMenu);
-    QAction *newtag = new QAction("Newtag", &contextMenu);
+    QAction *openAction = new QAction("打开文件", &contextMenu);
+    QAction *deleteAction = new QAction("删除文件", &contextMenu);
+    QAction *newtag = new QAction("新建标签", &contextMenu);
+    QAction *history = new QAction("提交历史", &contextMenu);
 
     connect(newtag, &QAction::triggered, [this, index, model]() {
 
@@ -65,7 +66,9 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
         QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
         emit deleteFileRequested(filePath);
     });
+    connect(history, &QAction::triggered, [this, index, model]() {
 
+    });
     contextMenu.addAction(openAction);
     contextMenu.addAction(deleteAction);
     contextMenu.addAction(newtag);

@@ -33,7 +33,6 @@ void DatabaseManager::close() {
 }
 
 void DatabaseManager::initializeDatabase() {
-    qDebug() << "创建表";
     QSqlQuery query;
     query.exec("CREATE TABLE IF NOT EXISTS FilePaths "
                "(id INTEGER PRIMARY KEY, file_path TEXT UNIQUE, expiration_date DATE)");
@@ -163,18 +162,40 @@ QStringList DatabaseManager::getAllTags() {
     return tags;
 }
 
-QStringList DatabaseManager::getFilePathsByTag(const QString &tag) {
-    QStringList filePaths;
+
+void DatabaseManager::saveExpirationDate(int fileId, const QDateTime &expirationDateTime) {
     QSqlQuery query;
-    query.prepare("SELECT file_path FROM FilePaths fp JOIN Tags t ON fp.id = t.file_id WHERE t.tag_name = :tag");
-    query.bindValue(":tag", tag);
+    query.prepare("UPDATE FilePaths SET expiration_date = :expiration_date WHERE id = :file_id");
+    query.bindValue(":expiration_date", expirationDateTime);
+    query.bindValue(":file_id", fileId);
+    query.exec();
+}
+
+QList<FilePathInfo> DatabaseManager::getFilePathsByTag(const QString &tag) {
+    QList<FilePathInfo> filePathsWithTags;
+    QSqlQuery query;
+
+    if (tag == "标签") {
+        query.prepare("SELECT fp.file_path, t.tag_name, fp.expiration_date FROM FilePaths fp JOIN Tags t ON fp.id = t.file_id");
+    } else {
+        query.prepare("SELECT fp.file_path, t.tag_name, fp.expiration_date FROM FilePaths fp JOIN Tags t ON fp.id = t.file_id WHERE t.tag_name = :tag");
+        query.bindValue(":tag", tag);
+    }
+
     query.exec();
 
     while (query.next()) {
-        filePaths << query.value(0).toString();
+        FilePathInfo info;
+        info.filePath = query.value(0).toString();
+        info.tagName = query.value(1).toString();
+        info.expirationDate = query.value(2).toDateTime();
+
+        filePathsWithTags.append(info);
     }
-    return filePaths;
+
+    return filePathsWithTags;
 }
+
 
 QStringList DatabaseManager::searchFiles(const QString &keyword) {
     QStringList filePaths;
@@ -191,8 +212,9 @@ QStringList DatabaseManager::searchFiles(const QString &keyword) {
     return filePaths;
 }
 
-QVector<QPair<QString, QDate>> DatabaseManager::getFilesSortedByExpiration() {
-    QVector<QPair<QString, QDate>> fileList;
+
+QVector<QPair<QString, QDateTime>> DatabaseManager::getSortByExp() {
+    QVector<QPair<QString, QDateTime>> fileList;
     QSqlQuery query;
 
     // 执行查询，按到期时间排序
@@ -201,8 +223,8 @@ QVector<QPair<QString, QDate>> DatabaseManager::getFilesSortedByExpiration() {
 
     while (query.next()) {
         QString filePath = query.value(0).toString();
-        QDate expirationDate = query.value(1).toDate();
-        fileList.append(qMakePair(filePath, expirationDate));
+        QDateTime expirationDateTime = query.value(1).toDateTime();
+        fileList.append(qMakePair(filePath, expirationDateTime));
     }
 
     return fileList;

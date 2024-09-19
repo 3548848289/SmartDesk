@@ -1,16 +1,12 @@
 #include "WFileTag.h"
 #include "../ui/ui_WFileTag.h"
 
-WFileTag::WFileTag(DatabaseManager * dbManager, QWidget *parent) : QWidget(parent), ui(new Ui::WFileTag),
+WFileTag::WFileTag(DatabaseManager * dbManager, QWidget *parent)
+    : QWidget(parent), ui(new Ui::WFileTag),
     fileSystemModel(new QFileSystemModel(this)), dbManager(dbManager)
 {
     ui->setupUi(this);
-
-    // currentDir = QDir::currentPath();
     currentDir = "D:/QT6/Qt_pro/project/mytxt";
-    if (!dbManager->open()) {
-        qDebug() << "数据库连接失败";
-    }
     fileSystemModel->setRootPath(currentDir);
     ui->treeView->setStyleSheet("QTreeView::item { height: 30px; }");
     ui->treeView->setModel(fileSystemModel);
@@ -25,18 +21,17 @@ WFileTag::WFileTag(DatabaseManager * dbManager, QWidget *parent) : QWidget(paren
     tagItemdelegate = new TagItemDelegate(this, dbManager);
     ui->treeView->setItemDelegate(tagItemdelegate);
 
-
     connect(ui->pathLineEdit, &QLineEdit::returnPressed, this, &WFileTag::goButtonClicked);
     connect(ui->goButton, &QPushButton::clicked, this, &WFileTag::goButtonClicked);
     connect(ui->treeView, &QTreeView::clicked, this, &WFileTag::onItemClicked);
     connect(tagItemdelegate, &TagItemDelegate::buttonClicked, this, &WFileTag::handleButtonClicked);
-
 }
 
 void WFileTag::handleButtonClicked(const QModelIndex &index)
 {
     qDebug() << "Button clicked at index:" << index;
 }
+
 void WFileTag::onItemClicked(const QModelIndex &index) {
     if (fileSystemModel->isDir(index))
         return;
@@ -76,27 +71,14 @@ void WFileTag::on_saveButton_clicked() {
     if (!dbManager->getFileId(filePath, fileId)) {
         dbManager->addFilePath(filePath, fileId);
     }
+
     dbManager->saveTags(fileId, tags);
     dbManager->saveAnnotation(fileId, annotation);
+
+    // 保存到期提醒
+    QDateTime expirationDateTime = ui->dateTimeEdit->dateTime();
+    dbManager->saveExpirationDate(fileId, expirationDateTime);
 }
-
-void WFileTag::on_setReminderButton_clicked() {
-    if (curfilePath.isEmpty()) {
-        return;
-    }
-
-    QDate expirationDate = ui->dateEdit->date();
-    saveExpirationDate(curfilePath, expirationDate);
-}
-
-void WFileTag::saveExpirationDate(const QString &filePath, const QDate &expirationDate) {
-    QSqlQuery query;
-    query.prepare("UPDATE FilePaths SET expiration_date = :expiration_date WHERE file_path = :file_path");
-    query.bindValue(":expiration_date", expirationDate);
-    query.bindValue(":file_path", filePath);
-    query.exec();
-}
-
 
 WFileTag::~WFileTag() {
     delete ui;

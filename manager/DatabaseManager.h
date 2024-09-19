@@ -7,7 +7,13 @@
 #include <QSqlError>
 #include <QStringList>
 #include <QDebug>
-#include <QDate>
+#include <QDateTime>
+
+struct FilePathInfo {
+    QString filePath;
+    QString tagName;
+    QDateTime expirationDate;
+};
 
 class DatabaseManager {
 public:
@@ -29,10 +35,10 @@ public:
 
     QStringList searchFiles(const QString &keyword);
     QStringList getAllTags();
-    QStringList getFilePathsByTag(const QString &tag);
-
+    QList<FilePathInfo> getFilePathsByTag(const QString &tag);
+    void saveExpirationDate(int fileId, const QDateTime &expirationDateTime);
     QStringList getAllFilePaths();
-    QVector<QPair<QString, QDate>> getFilesSortedByExpiration();
+    QVector<QPair<QString, QDateTime>> getSortByExp();
 
 
 private:

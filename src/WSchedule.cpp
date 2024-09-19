@@ -1,117 +1,142 @@
 #include "WSchedule.h"
 #include "../ui/ui_WSchedule.h"
-#include <QStandardItemModel>
 #include <QDesktopServices>
 #include <QUrl>
+#include <QListWidgetItem>
+#include "./FileItemWidget.h"
 
-WSchedule::WSchedule(DatabaseManager * dbManager, QWidget *parent) : QWidget(parent), ui(new Ui::WSchedule),
-    dbManager(dbManager), model(new QStandardItemModel(this))
+WSchedule::WSchedule(DatabaseManager *db, QWidget *parent) :
+    QWidget(parent), ui(new Ui::WSchedule), db(db)
 {
     ui->setupUi(this);
 
-    ui->listView->setModel(model);
+    filterByTag("标签");
+    loadTags();
 
-    loadFilesFromDatabase();
-    loadTagsIntoComboBox();
-
-    // 连接信号槽
-    connect(ui->listView, &QListView::clicked, this, &WSchedule::onFileClicked);
-    connect(ui->comboBox, &QComboBox::currentTextChanged, this, &WSchedule::onTagSelected);
-    connect(ui->searchLineEdit, &QLineEdit::textChanged, this, &WSchedule::onSearchTextChanged);
-    connect(ui->sortButton, &QPushButton::clicked, this, &WSchedule::sortByExpirationDate);
-
+    connect(ui->listWidget, &QListWidget::itemClicked, this, &WSchedule::onItemClicked);
+    connect(ui->comboBox, &QComboBox::currentTextChanged, this, &WSchedule::onTagChanged);
+    connect(ui->searchLineEdit, &QLineEdit::textChanged, this, &WSchedule::onSearch);
 }
-
-
-void WSchedule::sortByExpirationDate() {
-    model->clear(); // 清空模型
-    QDate currentDate = QDate::currentDate(); // 获取当前日期
-
-    // 从 dbManager 获取按到期时间排序的文件列表
-    QVector<QPair<QString, QDate>> files = dbManager->getFilesSortedByExpiration();
-
-    for (const auto &file : files) {
-        QString filePath = file.first;
-        QDate expirationDate = file.second;
-
-        // 计算剩余天数
-        int daysRemaining = currentDate.daysTo(expirationDate);
-
-        // 构建显示的字符串
-        QString displayText = filePath + " - Expiration: " + expirationDate.toString("yyyy-MM-dd");
-
-        if (daysRemaining >= 0) {
-            displayText += " (" + QString::number(daysRemaining) + " days remaining)";
-        } else {
-            displayText += " (Expired " + QString::number(-daysRemaining) + " days ago)";
-        }
-
-        // 创建列表项
-        QStandardItem *item = new QStandardItem(displayText);
-        model->appendRow(item);
-    }
-
-    ui->listView->setModel(model); // 更新 listView 显示
-}
-
 
 WSchedule::~WSchedule()
 {
     delete ui;
-    delete dbManager;
+    delete db;
 }
 
-void WSchedule::loadFilesFromDatabase() {
-    QStringList filePaths = dbManager->getAllFilePaths();
-    for (const QString &filePath : filePaths) {
-        QStandardItem *item = new QStandardItem(filePath);
-        model->appendRow(item);
+void WSchedule::onItemClicked(QListWidgetItem *item) {
+    FileItemWidget *widget = qobject_cast<FileItemWidget *>(ui->listWidget->itemWidget(item));
+    if (widget) {
+        QString path = widget->getFilePath();
+        emit fileClicked(path);
     }
 }
 
-void WSchedule::onFileClicked(const QModelIndex &index) {
-    QString filePath = model->itemFromIndex(index)->text();
-    emit fileClicked(filePath);
-
-}
-void WSchedule::loadTagsIntoComboBox() {
+void WSchedule::loadTags() {
     ui->comboBox->clear();
-    ui->comboBox->addItem("All Tags");
+    ui->comboBox->addItem("标签");
 
-    QStringList tags = dbManager->getAllTags();
+    QStringList tags = db->getAllTags();
     for (const QString &tag : tags) {
         ui->comboBox->addItem(tag);
     }
 }
 
-void WSchedule::onTagSelected(const QString &tag) {
-    if (tag == "All Tags") {
-        loadFilesFromDatabase();
+void WSchedule::filterByTag(const QString &tag) {
+    ui->listWidget->clear();
+
+    QList<FilePathInfo> files = db->getFilePathsByTag(tag);
+
+    for (const auto &info : files) {
+        QString path = info.filePath;
+        QString tag = info.tagName;
+        QDateTime expDate = info.expirationDate;
+
+        FileItemWidget *widget = new FileItemWidget();
+        qDebug() << tag;
+        widget->setTag(tag);
+
+        QString expInfo = getExpInfo(path, expDate);
+        widget->setFileInfo(path, expInfo);
+
+        QListWidgetItem *listItem = new QListWidgetItem(ui->listWidget);
+        listItem->setSizeHint(widget->sizeHint());
+        ui->listWidget->addItem(listItem);
+        ui->listWidget->setItemWidget(listItem, widget);
+    }
+}
+
+QString WSchedule::getExpInfo(const QString &path, const QDateTime &expDate) {
+    QDateTime now = QDateTime::currentDateTime();
+    QString expInfo;
+
+    if (expDate.isValid()) {
+        qint64 mnow = now.secsTo(expDate);
+        if (mnow >= 0) {
+            int s = mnow/3600, m = mnow % 3600 / 60, fin = mnow % 60;
+            expInfo = QString("%1:%2:%3") .arg(s, 2, 10, QChar('0'))
+                                          .arg(m, 2, 10, QChar('0')).arg(fin, 2, 10, QChar('0'));
+        } else {
+            int oh = -mnow / 3600, om = (-mnow % 3600) / 60, os = -mnow % 60;
+            expInfo = QString("%1:%2:%3").arg(oh, 2, 10, QChar('0'))
+                                         .arg(om, 2, 10, QChar('0')).arg(os, 2, 10, QChar('0'));
+        }
     } else {
-        filterFilesByTag(tag);
+        expInfo = "No expiration date";
+    }
+
+    return expDate.isValid()
+               ? expDate.toString("yyyy-MM-dd hh:mm:ss\n") + " (" + expInfo + ")" : expInfo;
+}
+
+void WSchedule::sortByExpDate() {
+    ui->listWidget->clear();
+    QVector<QPair<QString, QDateTime>> files = db->getSortByExp();
+
+    for (const auto &file : files) {
+        QString path = file.first;
+        QDateTime expDate = file.second;
+
+        FileItemWidget *widget = new FileItemWidget();
+        widget->setFileInfo(path, getExpInfo(path, expDate));
+
+        QListWidgetItem *listItem = new QListWidgetItem(ui->listWidget);
+        listItem->setSizeHint(widget->sizeHint());
+        ui->listWidget->addItem(listItem);
+        ui->listWidget->setItemWidget(listItem, widget);
     }
 }
 
-void WSchedule::filterFilesByTag(const QString &tag) {
-    model->clear();
-    QStringList filePaths = dbManager->getFilePathsByTag(tag);
-    for (const QString &filePath : filePaths) {
-        QStandardItem *item = new QStandardItem(filePath);
-        model->appendRow(item);
+void WSchedule::onTagChanged(const QString &tag) {
+    filterByTag(tag);
+}
+
+void WSchedule::onSearch(const QString &keyword) {
+    filterByKeyword(keyword);
+}
+
+void WSchedule::filterByKeyword(const QString &keyword) {
+    ui->listWidget->clear();
+    QStringList paths = db->searchFiles(keyword);
+
+    for (const QString &path : paths) {
+        FileItemWidget *widget = new FileItemWidget();
+        widget->setFileInfo(path, "No expiration date");
+
+        QListWidgetItem *listItem = new QListWidgetItem(ui->listWidget);
+        listItem->setSizeHint(widget->sizeHint());
+        ui->listWidget->addItem(listItem);
+        ui->listWidget->setItemWidget(listItem, widget);
     }
 }
-void WSchedule::onSearchTextChanged(const QString &keyword) {
-    filterFilesByKeyword(keyword);
+
+void WSchedule::onSortClicked()
+{
+    sortByExpDate();
 }
 
-void WSchedule::filterFilesByKeyword(const QString &keyword) {
-    model->clear();
-    QStringList filePaths = dbManager->searchFiles(keyword);
-    for (const QString &filePath : filePaths) {
-        QStandardItem *item = new QStandardItem(filePath);
-        model->appendRow(item);
-    }
+void WSchedule::on_pushButton_clicked()
+{
+    sortByExpDate();
 }
-
-
 
