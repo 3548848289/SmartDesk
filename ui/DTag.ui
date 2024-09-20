@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DTag</class>
+ <widget class="QDialog" name="DTag">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>359</width>
+    <height>276</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>10</y>
+     <width>344</width>
+     <height>255</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,8,1">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,1,3">
+      <item>
+       <widget class="QLabel" name="label_1">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="../resources/res.qrc">:/usedimage/tag.svg</pixmap>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>提醒</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="../resources/res.qrc">:/usedimage/edittag.svg</pixmap>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,1,3">
+      <item>
+       <widget class="QLineEdit" name="tagsLineEdit"/>
+      </item>
+      <item>
+       <widget class="QDateTimeEdit" name="dateTimeEdit"/>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="annotationTextEdit">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="saveButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    color: #7598db;  /* Darker blue for text color */
+    background-color: #e0e0e0;  /* Background color as gray (optional) */
+    border: 1px solid #ccc;  /* Border color as light gray (optional) */
+    border-radius: 5px;  /* Rounded corners (optional) */
+    padding: 5px 10px;  /* Padding (optional) */
+}
+</string>
+      </property>
+      <property name="text">
+       <string>保存</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../resources/res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

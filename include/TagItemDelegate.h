@@ -12,7 +12,7 @@
 #include <QAction>
 #include <QMap>
 #include "../manager/DatabaseManager.h"
-
+#include "DTag.h"
 class TagItemDelegate : public QStyledItemDelegate
 {
     Q_OBJECT

@@ -52,11 +52,28 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     QAction *openAction = new QAction("打开文件", &contextMenu);
     QAction *deleteAction = new QAction("删除文件", &contextMenu);
     QAction *newtag = new QAction("新建标签", &contextMenu);
+    QAction *commit = new QAction("提交远程", &contextMenu);
     QAction *history = new QAction("提交历史", &contextMenu);
 
     connect(newtag, &QAction::triggered, [this, index, model]() {
+       DTag tagDialog;
+        if (tagDialog.exec() == QDialog::Accepted) {
+            QStringList tagName = tagDialog.getTagName();
+            QString annotation = tagDialog.getAnnotation();
+            QDateTime expirationDate = tagDialog.getExpirationDate();
 
+            QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
+
+            int fileId;
+            if (!m_dbManager->getFileId(filePath, fileId)) {
+                m_dbManager->addFilePath(filePath, fileId);
+            }
+            m_dbManager->saveTags(fileId, tagName);
+            m_dbManager->saveAnnotation(fileId, annotation);
+            m_dbManager->saveExpirationDate(fileId, expirationDate);
+        }
     });
+
     connect(openAction, &QAction::triggered, [this, index, model]() {
         QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
         emit openFileRequested(filePath);
@@ -66,12 +83,17 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
         QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
         emit deleteFileRequested(filePath);
     });
+    connect(commit, &QAction::triggered, [this, index, model]() {
+
+    });
     connect(history, &QAction::triggered, [this, index, model]() {
 
     });
     contextMenu.addAction(openAction);
     contextMenu.addAction(deleteAction);
     contextMenu.addAction(newtag);
+    contextMenu.addAction(commit);
+    contextMenu.addAction(history);
 
     // 在指定位置显示菜单
     contextMenu.exec(pos);

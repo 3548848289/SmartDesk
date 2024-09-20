@@ -25,6 +25,7 @@ WFileTag::WFileTag(DatabaseManager * dbManager, QWidget *parent)
     connect(ui->goButton, &QPushButton::clicked, this, &WFileTag::goButtonClicked);
     connect(ui->treeView, &QTreeView::clicked, this, &WFileTag::onItemClicked);
     connect(tagItemdelegate, &TagItemDelegate::buttonClicked, this, &WFileTag::handleButtonClicked);
+//    connect(tagItemdelegate, &TagItemDelegate::openFileRequested, this, &WFileTag::onopen);
 }
 
 void WFileTag::handleButtonClicked(const QModelIndex &index)
@@ -32,22 +33,27 @@ void WFileTag::handleButtonClicked(const QModelIndex &index)
     qDebug() << "Button clicked at index:" << index;
 }
 
+//void WFileTag::onopen(const QString &filePath)
+//{
+//    emit fileOpened(curfilePath);
+//}
+
 void WFileTag::onItemClicked(const QModelIndex &index) {
     if (fileSystemModel->isDir(index))
         return;
 
     curfilePath = fileSystemModel->filePath(index);
-    QStringList tags;
-    QString annotation;
+//    QStringList tags;
+//    QString annotation;
 
-    int fileId;
-    if (dbManager->getFileId(curfilePath, fileId)) {
-        dbManager->getTags(fileId, tags);
-        dbManager->getAnnotation(fileId, annotation);
-    }
+//    int fileId;
+//    if (dbManager->getFileId(curfilePath, fileId)) {
+//        dbManager->getTags(fileId, tags);
+//        dbManager->getAnnotation(fileId, annotation);
+//    }
 
-    ui->tagsLineEdit->setText(tags.join(", "));
-    ui->annotationTextEdit->setText(annotation);
+//    ui->tagsLineEdit->setText(tags.join(", "));
+//    ui->annotationTextEdit->setText(annotation);
 
     emit fileOpened(curfilePath);
 }
@@ -62,23 +68,7 @@ void WFileTag::goButtonClicked() {
     }
 }
 
-void WFileTag::on_saveButton_clicked() {
-    QString filePath = ui->treeView->currentIndex().data(QFileSystemModel::FilePathRole).toString();
-    QStringList tags = ui->tagsLineEdit->text().split(", ");
-    QString annotation = ui->annotationTextEdit->toPlainText();
 
-    int fileId;
-    if (!dbManager->getFileId(filePath, fileId)) {
-        dbManager->addFilePath(filePath, fileId);
-    }
-
-    dbManager->saveTags(fileId, tags);
-    dbManager->saveAnnotation(fileId, annotation);
-
-    // 保存到期提醒
-    QDateTime expirationDateTime = ui->dateTimeEdit->dateTime();
-    dbManager->saveExpirationDate(fileId, expirationDateTime);
-}
 
 WFileTag::~WFileTag() {
     delete ui;

@@ -6,7 +6,7 @@
 #include <QModelIndex>
 #include "TagItemDelegate.h"
 #include "../manager/DatabaseManager.h"
-
+#include "csvLinkServer2.h"
 namespace Ui {
 class WFileTag;
 }
@@ -22,8 +22,8 @@ public:
 private slots:
     void onItemClicked(const QModelIndex &index);
     void goButtonClicked();
-    void on_saveButton_clicked();
     void handleButtonClicked(const QModelIndex &index);
+//    void onopen(const QString &filePath);
 
 
 signals:

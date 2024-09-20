@@ -40,6 +40,7 @@ set(PROJECT_SOURCES
     ${SRC_DIR}/DLogin.cpp
     ${SRC_DIR}/WSchedule.cpp
     ${SRC_DIR}/FileItemWidget.cpp
+    ${SRC_DIR}/DTag.cpp
 
 )
 
@@ -60,6 +61,7 @@ set(PROJECT_HEADERS
     ${INCLUDE_DIR}/DLogin.h
     ${INCLUDE_DIR}/WSchedule.h
     ${INCLUDE_DIR}/FileItemWidget.h
+    ${INCLUDE_DIR}/DTag.h
 )
 
 # UI 文件列表
@@ -74,6 +76,7 @@ set(PROJECT_UIS
     ${UI_DIR}/DLogin.ui
     ${UI_DIR}/WSchedule.ui
     ${UI_DIR}/FileItemWidget.ui
+    ${UI_DIR}/DTag.ui
 )
 
 # 资源文件列表
@@ -99,7 +102,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_UIS}
         ${PROJECT_RESOURCES}
         ${MANAGER_RESOURCES}
-
     )
 else()
     # 如果是 Android 平台
