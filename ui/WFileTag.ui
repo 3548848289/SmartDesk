@@ -18,7 +18,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,13,4">
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,13,5">
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout" stretch="7,1">
        <property name="spacing">
@@ -80,6 +80,13 @@
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>文件提交历史</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QListWidget" name="listWidget"/>
        </item>

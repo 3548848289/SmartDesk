@@ -18,14 +18,24 @@ WFileTag::WFileTag(DatabaseManager * dbManager, QWidget *parent)
 
     ui->pathLineEdit->setText(currentDir);
 
-    tagItemdelegate = new TagItemDelegate(this, dbManager);
+    serverManager = new ServerManager(); // 初始化 ServerManager
+    tagItemdelegate = new TagItemDelegate(this, dbManager, serverManager);
     ui->treeView->setItemDelegate(tagItemdelegate);
 
     connect(ui->pathLineEdit, &QLineEdit::returnPressed, this, &WFileTag::goButtonClicked);
     connect(ui->goButton, &QPushButton::clicked, this, &WFileTag::goButtonClicked);
     connect(ui->treeView, &QTreeView::clicked, this, &WFileTag::onItemClicked);
     connect(tagItemdelegate, &TagItemDelegate::buttonClicked, this, &WFileTag::handleButtonClicked);
-//    connect(tagItemdelegate, &TagItemDelegate::openFileRequested, this, &WFileTag::onopen);
+
+    connect(serverManager, &ServerManager::onFilesListUpdated, this, &WFileTag::updateFileList);
+    connect(ui->listWidget, &QListWidget::itemClicked, this, &WFileTag::listItemClicked);
+
+}
+
+void WFileTag::listItemClicked(QListWidgetItem* item) {
+    QString fileName = item->text();
+    qDebug() << "Downloading file:" << fileName;
+    serverManager->downloadFile(fileName);
 }
 
 void WFileTag::handleButtonClicked(const QModelIndex &index)
@@ -33,30 +43,31 @@ void WFileTag::handleButtonClicked(const QModelIndex &index)
     qDebug() << "Button clicked at index:" << index;
 }
 
-//void WFileTag::onopen(const QString &filePath)
-//{
-//    emit fileOpened(curfilePath);
-//}
+void WFileTag::updateFileList(const QStringList& files) {
+    qDebug() << "WFileTag:";
+    for (const QString& file : files) {
+        ui->listWidget->addItem(file);
+        qDebug() << "File in WFileTag:" << file;
+    }
+
+}
 
 void WFileTag::onItemClicked(const QModelIndex &index) {
     if (fileSystemModel->isDir(index))
         return;
 
-    curfilePath = fileSystemModel->filePath(index);
-//    QStringList tags;
-//    QString annotation;
+    QString curfilePath = fileSystemModel->filePath(index);
+    QString directoryPath = QFileInfo(curfilePath).absolutePath();
 
-//    int fileId;
-//    if (dbManager->getFileId(curfilePath, fileId)) {
-//        dbManager->getTags(fileId, tags);
-//        dbManager->getAnnotation(fileId, annotation);
-//    }
+    qDebug() << "----WFileTag File Path:" << curfilePath;
+    qDebug() << "----WFileTag Directory Path:" << directoryPath;
 
-//    ui->tagsLineEdit->setText(tags.join(", "));
-//    ui->annotationTextEdit->setText(annotation);
+    currentDir = directoryPath;
+    serverManager->setCurdir(currentDir);
 
     emit fileOpened(curfilePath);
 }
+
 
 void WFileTag::goButtonClicked() {
     currentDir = ui->pathLineEdit->text();

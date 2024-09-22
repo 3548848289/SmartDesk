@@ -40,6 +40,8 @@ void DatabaseManager::initializeDatabase() {
                "(id INTEGER PRIMARY KEY, file_id INTEGER, tag_name TEXT, FOREIGN KEY(file_id) REFERENCES FilePaths(id))");
     query.exec("CREATE TABLE IF NOT EXISTS Annotations "
                "(id INTEGER PRIMARY KEY, file_id INTEGER, annotation TEXT, FOREIGN KEY(file_id) REFERENCES FilePaths(id))");
+    query.exec("CREATE TABLE IF NOT EXISTS Submissions "
+               "(id INTEGER PRIMARY KEY AUTOINCREMENT, file_path TEXT NOT NULL, submit_time DATETIME DEFAULT CURRENT_TIMESTAMP)");
 }
 
 
@@ -210,6 +212,35 @@ QStringList DatabaseManager::searchFiles(const QString &keyword) {
         filePaths << query.value(0).toString();
     }
     return filePaths;
+}
+
+void DatabaseManager::recordSubmission(const QString &filePath) {
+    QSqlQuery query;
+    query.prepare("INSERT INTO Submissions (file_path) VALUES (:filePath)");
+    query.bindValue(":filePath", filePath);
+
+    if (!query.exec()) {
+        qDebug() << "Insert failed:" << query.lastError();
+    } else {
+        qDebug() << "Submission recorded for:" << filePath;
+    }
+}
+
+bool DatabaseManager::hasSubmissions(const QString& filePath) const {
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(*) FROM Submissions WHERE file_path = :filePath");
+    query.bindValue(":filePath", filePath);
+
+    if (!query.exec()) {
+        qDebug() << "Query failed:" << query.lastError();
+        return false; // 或根据需要处理错误
+    }
+
+    if (query.next()) {
+        return query.value(0).toInt() > 0; // 返回是否有记录
+    }
+
+    return false; // 默认返回false
 }
 
 

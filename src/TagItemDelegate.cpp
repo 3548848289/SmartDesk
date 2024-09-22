@@ -1,9 +1,11 @@
 #include "TagItemDelegate.h"
 
-TagItemDelegate::TagItemDelegate(QObject *parent, DatabaseManager *dbManager)
-    : QStyledItemDelegate(parent), m_dbManager(dbManager)  // 使用DatabaseManager初始化
-{
+TagItemDelegate::TagItemDelegate(QObject *parent, DatabaseManager *dbManager, ServerManager *serverManager)
+    : QStyledItemDelegate(parent), m_dbManager(dbManager), serverManager(serverManager) {
+
+
 }
+
 
 void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
@@ -12,10 +14,14 @@ void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     QString filePath = index.data(QFileSystemModel::FilePathRole).toString();
 
     if (hasTags(filePath)) {
-        // 绘制图标
         QRect iconRect(option.rect.right() - 30, option.rect.top() + 5, 20, 20);
         QIcon tagIcon(":/usedimage/edittag.svg");
         tagIcon.paint(painter, iconRect, Qt::AlignCenter);
+    }
+    if (m_dbManager.hasSubmissions(filePath)) {
+        QRect submissionIconRect(option.rect.right() - 60, option.rect.top() + 5, 20, 20);
+        QIcon submissionIcon(":/usedimage/submission.svg");
+        submissionIcon.paint(painter, submissionIconRect, Qt::AlignCenter);
     }
 }
 
@@ -23,7 +29,7 @@ bool TagItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
     if (event->type() == QEvent::MouseButtonPress) {
         QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
         if (mouseEvent->button() == Qt::LeftButton) {
-            // 左键点击事件处理
+
         }
         if (mouseEvent->button() == Qt::RightButton) {
             if (option.rect.contains(mouseEvent->pos())) {
@@ -83,12 +89,18 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
         QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
         emit deleteFileRequested(filePath);
     });
+
     connect(commit, &QAction::triggered, [this, index, model]() {
-
+        serverManager->commitToServer(index, model);
+        QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();;
+        m_dbManager->recordSubmission(filePath);
     });
+
     connect(history, &QAction::triggered, [this, index, model]() {
+        this->serverManager->getFilesInDirectory(index, model);
 
     });
+
     contextMenu.addAction(openAction);
     contextMenu.addAction(deleteAction);
     contextMenu.addAction(newtag);
@@ -98,3 +110,4 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     // 在指定位置显示菜单
     contextMenu.exec(pos);
 }
+

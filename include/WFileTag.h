@@ -4,9 +4,10 @@
 #include <QWidget>
 #include <QFileSystemModel>
 #include <QModelIndex>
+#include <QListWidgetItem>
 #include "TagItemDelegate.h"
 #include "../manager/DatabaseManager.h"
-#include "csvLinkServer2.h"
+
 namespace Ui {
 class WFileTag;
 }
@@ -17,13 +18,17 @@ class WFileTag : public QWidget
 
 public:
     explicit WFileTag(DatabaseManager *dbManager, QWidget *parent = nullptr);
+
     ~WFileTag();
 
 private slots:
     void onItemClicked(const QModelIndex &index);
     void goButtonClicked();
     void handleButtonClicked(const QModelIndex &index);
-//    void onopen(const QString &filePath);
+
+    void updateFileList(const QStringList& files);
+
+    void listItemClicked(QListWidgetItem* item);
 
 
 signals:
@@ -32,6 +37,8 @@ signals:
 private:
     void loadFileMetadata(const QString &filePath);
     void saveExpirationDate(const QString &filePath, const QDate &expirationDate);
+
+    ServerManager* serverManager;
 
     Ui::WFileTag *ui;
     QFileSystemModel *fileSystemModel;

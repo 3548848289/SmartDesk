@@ -90,6 +90,8 @@ set (MANAGER_RESOURCES
     ${MANAGER_DIR}/myJson.cpp
     ${MANAGER_DIR}/RecentFilesManager.h
     ${MANAGER_DIR}/RecentFilesManager.cpp
+    ${MANAGER_DIR}/ServerManager.h
+    ${MANAGER_DIR}/ServerManager.cpp
 
 )
 
