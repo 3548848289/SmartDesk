@@ -19,10 +19,10 @@
      <item>
       <widget class="QLabel" name="tagLabel">
        <property name="text">
-        <string>标签</string>
+        <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="../resources/res.qrc">:/usedimage/tag.svg</pixmap>
+        <pixmap>:/usedimage/tag.svg</pixmap>
        </property>
       </widget>
      </item>
@@ -72,8 +72,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../resources/res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

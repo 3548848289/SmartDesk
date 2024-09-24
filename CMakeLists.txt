@@ -41,6 +41,7 @@ set(PROJECT_SOURCES
     ${SRC_DIR}/WSchedule.cpp
     ${SRC_DIR}/FileItemWidget.cpp
     ${SRC_DIR}/DTag.cpp
+    ${SRC_DIR}/DInfo.cpp
 
 )
 
@@ -62,6 +63,7 @@ set(PROJECT_HEADERS
     ${INCLUDE_DIR}/WSchedule.h
     ${INCLUDE_DIR}/FileItemWidget.h
     ${INCLUDE_DIR}/DTag.h
+    ${INCLUDE_DIR}/DInfo.h
 )
 
 # UI 文件列表
@@ -77,6 +79,7 @@ set(PROJECT_UIS
     ${UI_DIR}/WSchedule.ui
     ${UI_DIR}/FileItemWidget.ui
     ${UI_DIR}/DTag.ui
+    ${UI_DIR}/DInfo.ui
 )
 
 # 资源文件列表
@@ -84,8 +87,8 @@ set(PROJECT_RESOURCES
     ${RESOURCES_DIR}/res.qrc
 )
 set (MANAGER_RESOURCES
-    ${MANAGER_DIR}/DatabaseManager.h
-    ${MANAGER_DIR}/DatabaseManager.cpp
+    ${MANAGER_DIR}/DBSQLite.h
+    ${MANAGER_DIR}/DBSQLite.cpp
     ${MANAGER_DIR}/myJson.h
     ${MANAGER_DIR}/myJson.cpp
     ${MANAGER_DIR}/RecentFilesManager.h
@@ -104,6 +107,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_UIS}
         ${PROJECT_RESOURCES}
         ${MANAGER_RESOURCES}
+        manager/ipaddress.cpp manager/ipaddress.h
+        manager/DBMySQL.h manager/DBMySQL.cpp
+        manager/DBManagerFac.h
+
+
     )
 else()
     # 如果是 Android 平台

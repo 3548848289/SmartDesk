@@ -6,7 +6,7 @@
 #include <QModelIndex>
 #include <QListWidgetItem>
 #include "TagItemDelegate.h"
-#include "../manager/DatabaseManager.h"
+#include "../manager/DBSQlite.h"
 
 namespace Ui {
 class WFileTag;
@@ -17,14 +17,13 @@ class WFileTag : public QWidget
     Q_OBJECT
 
 public:
-    explicit WFileTag(DatabaseManager *dbManager, QWidget *parent = nullptr);
+    explicit WFileTag(DBSQlite *dbManager, QWidget *parent = nullptr);
 
     ~WFileTag();
 
 private slots:
     void onItemClicked(const QModelIndex &index);
     void goButtonClicked();
-    void handleButtonClicked(const QModelIndex &index);
 
     void updateFileList(const QStringList& files);
 
@@ -43,7 +42,7 @@ private:
     Ui::WFileTag *ui;
     QFileSystemModel *fileSystemModel;
     TagItemDelegate *tagItemdelegate;
-    DatabaseManager *dbManager;
+    DBSQlite *dbManager;
     QString curfilePath;
     QString currentDir;
 };

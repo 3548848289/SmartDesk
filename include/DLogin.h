@@ -8,6 +8,8 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
+#include <QMessageBox>
+#include "../manager/DBMySQL.h"
 namespace Ui {
 class DLogin;
 }
@@ -17,8 +19,11 @@ class DLogin : public QDialog
     Q_OBJECT
 
 public:
-    explicit DLogin(QWidget *parent = nullptr);
+    explicit DLogin(DBMySQL *dbInstance, QWidget *parent = nullptr);
     ~DLogin();
+
+signals:
+    void loginSuccessful(const QString& username);
 
 private slots:
     void on_radioButton_clicked();
@@ -30,12 +35,6 @@ private:
     Ui::DLogin *ui;
 
     QPixmap avatarImage;
-    QSqlDatabase db;
-    void registerUser(const QString &username, const QString &password);
-
-    bool loginUser(const QString &username, const QString &password, QString &statusMessage);
-
-    bool dbregisterUser(const QString &username, const QString &password, const QByteArray &avatarData, QString &statusMessage);
 
 protected:
     void mousePressEvent(QMouseEvent *event) override {
@@ -58,6 +57,11 @@ protected:
     }
 
 private:
+    void registerUser(const QString &username, const QString &password);
+    void onLogin();
+    bool success = false;
+
+    DBMySQL * db;
     bool mousePressed;
     QPoint startPos;
 };

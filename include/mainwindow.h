@@ -16,12 +16,14 @@
 #include "WFileTag.h"
 #include "TabHandleTXT.h"
 #include "TabHandleCSV.h"
+
 #include "../manager/RecentFilesManager.h"
-#include "../manager/DatabaseManager.h"
+#include "../manager/DBSQlite.h"
+#include "../manager/DBMySQL.h"
+
 #include "Setting.h"
 #include "WidgetFunctional.h"
 #include "WSchedule.h"
-
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -34,6 +36,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+signals:
+    void showUserInfo();
 
 private slots:
     void on_actionopen_triggered();
@@ -51,13 +56,16 @@ private slots:
     void handleFilePathSent();
     void openFile(const QString &filePath);
     void on_actionshe_triggered();
+    void showUserInfoDialog();
 
 private:
 
     int currentIndex = 0;
     QTabWidget *tabWidget;
 
-    DatabaseManager *dbManager;
+    DBSQlite *dbSqlite;
+    DBMySQL *dbMysql;
+
     Ui::MainWindow *ui;
     QWidget * widgetr;
 

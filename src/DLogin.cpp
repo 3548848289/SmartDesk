@@ -5,66 +5,13 @@
 #include <QPixmap>
 #include <QBuffer>
 
-bool DLogin::loginUser(const QString &username, const QString &password, QString &statusMessage) {
-    QSqlQuery query;
-    query.prepare("SELECT password, avatar FROM users WHERE username = :username");
-    query.bindValue(":username", username);
-
-    if (query.exec()) {
-        if (query.next()) {
-            QString dbPassword = query.value(0).toString();
-            QByteArray avatarData = query.value(1).toByteArray(); // 获取头像的字节数组
-
-            if (dbPassword == password) {
-                avatarImage.loadFromData(avatarData);
-                statusMessage = "登录成功";
-                return true;
-            } else {
-                statusMessage = "密码错误";
-                return false;
-            }
-        } else {
-            statusMessage = "用户不存在";
-            return false;
-        }
-    } else {
-        statusMessage = "数据库查询失败: " + query.lastError().text();
-                                                    return false;
-    }
-}
-
-bool DLogin::dbregisterUser(const QString &username, const QString &password, const QByteArray &avatarData, QString &statusMessage) {
-    QSqlQuery query;
-    query.prepare("INSERT INTO users (username, password, avatar) VALUES (:username, :password, :avatar)");
-    query.bindValue(":username", username);
-    query.bindValue(":password", password);
-    query.bindValue(":avatar", avatarData);
-
-    if (query.exec()) {
-        statusMessage = "注册成功";
-        return true;
-    } else {
-        statusMessage = "注册失败: " + query.lastError().text();
-                                           return false;
-    }
-}
-
-
-DLogin::DLogin(QWidget *parent) : QDialog(parent), ui(new Ui::DLogin) {
+DLogin::DLogin(DBMySQL *dbInstance, QWidget *parent)
+    : QDialog(parent), ui(new Ui::DLogin), db(dbInstance) {
     ui->setupUi(this);
     this->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
     ui->login_pushButton->setEnabled(false);
-    db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("localhost");
-    db.setDatabaseName("qtdb");
-    db.setUserName("root");
-    db.setPassword("Mysql20039248");
-    if (!db.open()) {
-        QMessageBox::critical(this, "数据库错误", "无法连接到数据库: " + db.lastError().text());
-        return;
-    }
-        \
 }
+
 DLogin::~DLogin() {
     delete ui;
 }
@@ -88,18 +35,24 @@ void DLogin::on_login_pushButton_clicked() {
         return;
     }
 
+    QByteArray avatarData;
     QString statusMessage;
-    if (loginUser(username, password, statusMessage)) {
+    if (db->loginUser(username, password, avatarData, statusMessage)) {
+        avatarImage.loadFromData(avatarData);
         QMessageBox::information(this, "登录成功", statusMessage);
         ui->loginwidget->hide();
         ui->avatar_pushButton->setIcon(QIcon(avatarImage));
         ui->avatar_pushButton->setIconSize(ui->avatar_pushButton->size());
-
         ui->statusLabel->setText("登录成功");
+        emit loginSuccessful(username);
+        close();
     } else {
-        QMessageBox::warning(this, "登录失败", statusMessage);
+        registerUser(username, password);
+//        QMessageBox::warning(this, "登录失败", statusMessage);
     }
 }
+
+
 
 void DLogin::registerUser(const QString &username, const QString &password) {
     if (avatarImage.isNull()) {
@@ -112,12 +65,14 @@ void DLogin::registerUser(const QString &username, const QString &password) {
     avatarImage.save(&buffer, "PNG");
 
     QString statusMessage;
-    if (dbregisterUser(username, password, avatarData, statusMessage)) {
+    if (db->registerUser(username, password, avatarData, statusMessage)) {
         QMessageBox::information(this, "注册成功", statusMessage);
         ui->loginwidget->hide();
         ui->statusLabel->clear();
         ui->avatar_pushButton->setIcon(QIcon(avatarImage));
         ui->statusLabel->setText("登录成功");
+        emit loginSuccessful(username);
+
     } else {
         QMessageBox::critical(this, "注册失败", statusMessage);
     }

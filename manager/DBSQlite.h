@@ -1,6 +1,6 @@
-// DatabaseManager.h
-#ifndef DATABASEMANAGER_H
-#define DATABASEMANAGER_H
+// DBSQlite.h
+#ifndef DBSQLITE_H
+#define DBSQLITE_H
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -15,10 +15,10 @@ struct FilePathInfo {
     QDateTime expirationDate;
 };
 
-class DatabaseManager {
+class DBSQlite {
 public:
-    DatabaseManager(const QString &dbName = "file_metadata.db");
-    ~DatabaseManager();
+    DBSQlite(const QString &dbName = "file_metadata.db");
+    ~DBSQlite();
 
     bool open();
     void close();
@@ -56,4 +56,4 @@ private:
     void initializeDatabase();
 };
 
-#endif // DATABASEMANAGER_H
+#endif // DBSQLITE_H

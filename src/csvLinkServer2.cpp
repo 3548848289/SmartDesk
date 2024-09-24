@@ -8,6 +8,7 @@ csvLinkServer::csvLinkServer(QWidget *parent): QWidget(parent),
 {
     ui->setupUi(this);
 
+
 }
 
 csvLinkServer::~csvLinkServer()

@@ -5,7 +5,7 @@
 #include <QListWidgetItem>
 #include "./FileItemWidget.h"
 
-WSchedule::WSchedule(DatabaseManager *db, QWidget *parent) :
+WSchedule::WSchedule(DBSQlite *db, QWidget *parent) :
     QWidget(parent), ui(new Ui::WSchedule), db(db)
 {
     ui->setupUi(this);

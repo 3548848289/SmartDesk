@@ -1,10 +1,13 @@
 #include "WidgetFunctional.h"
 #include "../ui/ui_WidgetFunctional.h"
 
-WidgetFunctional::WidgetFunctional(QWidget *parent) :QWidget(parent),ui(new Ui::WidgetFunctional)
+WidgetFunctional::WidgetFunctional(DBMySQL *dbInstance, QWidget *parent)
+    : QWidget(parent), ui(new Ui::WidgetFunctional), dbMysql(dbInstance)
 {
     ui->setupUi(this);
     btnGroup=new QButtonGroup;
+
+
 
     for (int i = 1; i <= 6; ++i) {
         QPushButton *button = findChild<QPushButton*>(QString("pushButton_%1").arg(i));
@@ -42,6 +45,9 @@ WidgetFunctional::~WidgetFunctional()
     delete ui;
 }
 
+DInfo* WidgetFunctional::getDInfo() {
+    return dinfo;
+}
 
 void WidgetFunctional::on_pushButton_1_clicked() {
     emit showRU();
@@ -60,9 +66,15 @@ void WidgetFunctional::on_pushButton_3_clicked() {
 
 void WidgetFunctional::on_pushButton_6_clicked()
 {
-    dlogin = new DLogin();
+    dlogin = new DLogin(dbMysql);
+    connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
     dlogin->exec();
 
 }
 
+
+void WidgetFunctional::handleLoginSuccess(const QString& username) {
+    qDebug() << "WidgetFunctional::handleLoginSuccess";
+    dinfo = new DInfo(username, dbMysql, this);
+}
 

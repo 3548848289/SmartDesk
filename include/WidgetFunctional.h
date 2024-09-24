@@ -9,6 +9,8 @@
 #include <QVBoxLayout>
 #include <QButtonGroup>
 #include "DLogin.h"
+#include "../manager/DBMySQL.h"
+#include "DInfo.h"
 
 namespace Ui {
 class WidgetFunctional;
@@ -19,8 +21,9 @@ class WidgetFunctional : public QWidget
     Q_OBJECT
 
 public:
-    explicit WidgetFunctional(QWidget *parent = nullptr);
+    explicit WidgetFunctional(DBMySQL *dbInstance, QWidget *parent = nullptr);
     ~WidgetFunctional();
+    DInfo* getDInfo();
 
 signals:
     void showRU();
@@ -33,13 +36,16 @@ private slots:
     void on_pushButton_6_clicked();
 
     void on_pushButton_2_clicked();
+    void handleLoginSuccess(const QString& username);
+
 
 private:
     QButtonGroup* btnGroup;
     QHBoxLayout* btnLayout;
     QVBoxLayout* mainLayout;
     DLogin * dlogin;
-
+    DInfo *dinfo;
+    DBMySQL *dbMysql;
     Ui::WidgetFunctional *ui;
 };
 

@@ -6,10 +6,10 @@
 void MainWindow::initFunc()
 {
     widgetr = new QWidget(ui->combinedWidget);
-    wfiletag = new WFileTag(dbManager, this);
+    wfiletag = new WFileTag(dbSqlite, this);
     wonlinedoc = new WOnlineDoc(this);
-    schedule = new WSchedule(dbManager, this);
-    widgetfunc = new WidgetFunctional(this);
+    schedule = new WSchedule(dbSqlite, this);
+    widgetfunc = new WidgetFunctional(dbMysql, this);
 
     ui->stackedWidget->setObjectName("pWidget");
     ui->stackedWidget->setStyleSheet("QWidget#pWidget { border: 1px solid rgb(28, 251, 255); }");
@@ -50,19 +50,25 @@ void MainWindow::initSpli()
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow),
-    recentFilesManager(new RecentFilesManager(this)), dbManager(new DatabaseManager())
+    recentFilesManager(new RecentFilesManager(this)), dbSqlite(new DBSQlite()), dbMysql(new DBMySQL())
 {
 
     ui->setupUi(this);
     setWindowTitle("QiHan在线文档");
     setWindowIcon(QIcon(":/usedimage/package.svg"));
 
-    QLabel *circleLabel = new QLabel(ui->menubar);
-    circleLabel->setFixedSize(30, 30);
-    circleLabel->setStyleSheet("background-color: #05FFC5; border-radius: 15px;");
-    ui->menubar->setCornerWidget(circleLabel, Qt::TopRightCorner);
+    QPushButton *loginButton = new QPushButton("Login", ui->menubar);
+    loginButton->setFixedSize(80, 30);
+    ui->menubar->setCornerWidget(loginButton, Qt::TopRightCorner);
+    connect(loginButton, &QPushButton::clicked, this, &MainWindow::showUserInfoDialog);
+
+
 
     tabWidget = new QTabWidget(this);
+    tabWidget->setTabsClosable(true);
+    connect(tabWidget, &QTabWidget::tabCloseRequested, this, [this](int index) {
+        tabWidget->removeTab(index);
+    });
     tabWidget->setStyleSheet(
         "QTabBar::tab {"
         "    background: #f0f0f0; color: #000000; padding: 5px;"
@@ -83,9 +89,17 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 }
 
 
+
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+// 槽函数实现
+void MainWindow::showUserInfoDialog() {
+
+    DInfo *dinfo = widgetfunc->getDInfo();
+    dinfo->exec();
 }
 
 void MainWindow::on_actiontxt_file_triggered()

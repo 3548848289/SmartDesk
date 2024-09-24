@@ -10,7 +10,6 @@
 #include <QJsonDocument>
 
 #include "TabHandleCSV.h"
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class csvLinkServer2; }
 QT_END_NAMESPACE

@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QListWidget>
-#include "../manager/DatabaseManager.h"
+#include "../manager/DBSQlite.h"
 
 class DatabaseManager;
 
@@ -16,7 +16,7 @@ class WSchedule : public QWidget
     Q_OBJECT
 
 public:
-    explicit WSchedule(DatabaseManager *db, QWidget *parent = nullptr);
+    explicit WSchedule(DBSQlite *db, QWidget *parent = nullptr);
     ~WSchedule();
 
 signals:
@@ -40,7 +40,7 @@ private:
     void filterByKeyword(const QString &keyword);  // 基于关键词筛选文件
 
     Ui::WSchedule *ui;
-    DatabaseManager *db;
+    DBSQlite *db;
 };
 
 #endif // WSCHEDULE_H

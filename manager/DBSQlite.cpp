@@ -1,7 +1,7 @@
-// DatabaseManager.cpp
-#include "DatabaseManager.h"
+// DBSQlite.cpp
+#include "DBSQlite.h"
 
-DatabaseManager::DatabaseManager(const QString &dbName) {
+DBSQlite::DBSQlite(const QString &dbName) {
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(dbName);
 
@@ -10,11 +10,11 @@ DatabaseManager::DatabaseManager(const QString &dbName) {
     }
 }
 
-DatabaseManager::~DatabaseManager() {
+DBSQlite::~DBSQlite() {
     close();
 }
 
-bool DatabaseManager::open() {
+bool DBSQlite::open() {
     if (db.isOpen())
         return true;
     if (!db.open()) {
@@ -25,14 +25,14 @@ bool DatabaseManager::open() {
     return true;
 }
 
-void DatabaseManager::close() {
+void DBSQlite::close() {
     if (db.isOpen()) {
         db.close();
     }
     QSqlDatabase::removeDatabase(db.connectionName());
 }
 
-void DatabaseManager::initializeDatabase() {
+void DBSQlite::initializeDatabase() {
     QSqlQuery query;
     query.exec("CREATE TABLE IF NOT EXISTS FilePaths "
                "(id INTEGER PRIMARY KEY, file_path TEXT UNIQUE, expiration_date DATE)");
@@ -46,7 +46,7 @@ void DatabaseManager::initializeDatabase() {
 
 
 
-bool DatabaseManager::addFilePath(const QString &filePath, int &fileId) {
+bool DBSQlite::addFilePath(const QString &filePath, int &fileId) {
     QSqlQuery query;
     query.prepare("INSERT INTO FilePaths (file_path) VALUES (:filePath)");
     query.bindValue(":filePath", filePath);
@@ -59,7 +59,7 @@ bool DatabaseManager::addFilePath(const QString &filePath, int &fileId) {
     return true;
 }
 
-bool DatabaseManager::getFileId(const QString &filePath, int &fileId) {
+bool DBSQlite::getFileId(const QString &filePath, int &fileId) {
     QSqlQuery query;
     query.prepare("SELECT id FROM FilePaths WHERE file_path = :filePath");
     query.bindValue(":filePath", filePath);
@@ -71,7 +71,7 @@ bool DatabaseManager::getFileId(const QString &filePath, int &fileId) {
     return false;
 }
 
-bool DatabaseManager::getTags(int fileId, QStringList &tags) {
+bool DBSQlite::getTags(int fileId, QStringList &tags) {
     QSqlQuery query;
     query.prepare("SELECT tag_name FROM Tags WHERE file_id = :fileId");
     query.bindValue(":fileId", fileId);
@@ -85,7 +85,7 @@ bool DatabaseManager::getTags(int fileId, QStringList &tags) {
     return false;
 }
 
-bool DatabaseManager::getAnnotation(int fileId, QString &annotation) {
+bool DBSQlite::getAnnotation(int fileId, QString &annotation) {
     QSqlQuery query;
     query.prepare("SELECT annotation FROM Annotations WHERE file_id = :fileId");
     query.bindValue(":fileId", fileId);
@@ -97,7 +97,7 @@ bool DatabaseManager::getAnnotation(int fileId, QString &annotation) {
     return false;
 }
 
-bool DatabaseManager::saveTags(int fileId, const QStringList &tags) {
+bool DBSQlite::saveTags(int fileId, const QStringList &tags) {
     QSqlQuery query;
     query.prepare("DELETE FROM Tags WHERE file_id = :fileId");
     query.bindValue(":fileId", fileId);
@@ -112,7 +112,7 @@ bool DatabaseManager::saveTags(int fileId, const QStringList &tags) {
     return true;
 }
 
-bool DatabaseManager::saveAnnotation(int fileId, const QString &annotation) {
+bool DBSQlite::saveAnnotation(int fileId, const QString &annotation) {
     QSqlQuery query;
     query.prepare("INSERT OR REPLACE INTO Annotations (file_id, annotation) VALUES (:fileId, :annotation)");
     query.bindValue(":fileId", fileId);
@@ -120,14 +120,14 @@ bool DatabaseManager::saveAnnotation(int fileId, const QString &annotation) {
     return query.exec();
 }
 
-bool DatabaseManager::hasTagsForFile(const QString &filePath) const
+bool DBSQlite::hasTagsForFile(const QString &filePath) const
 {
     QSqlQuery query(db);
     query.prepare("SELECT COUNT(*) FROM FilePaths WHERE file_path = :filePath");
     query.bindValue(":filePath", filePath);
 
     if (!query.exec()) {
-        qDebug() << "Database query error:" << query.lastError().text();
+        //        qDebug() << "Database query error:" << query.lastError().text();
         return false;
     }
 
@@ -138,7 +138,7 @@ bool DatabaseManager::hasTagsForFile(const QString &filePath) const
     return false;
 }
 
-QStringList DatabaseManager::getAllFilePaths() {
+QStringList DBSQlite::getAllFilePaths() {
     QStringList filePaths;
     if (!open()) {
         qDebug() << "数据库连接初始化失败";
@@ -155,7 +155,7 @@ QStringList DatabaseManager::getAllFilePaths() {
     return filePaths;
 }
 
-QStringList DatabaseManager::getAllTags() {
+QStringList DBSQlite::getAllTags() {
     QStringList tags;
     QSqlQuery query("SELECT DISTINCT tag_name FROM Tags");
     while (query.next()) {
@@ -165,7 +165,7 @@ QStringList DatabaseManager::getAllTags() {
 }
 
 
-void DatabaseManager::saveExpirationDate(int fileId, const QDateTime &expirationDateTime) {
+void DBSQlite::saveExpirationDate(int fileId, const QDateTime &expirationDateTime) {
     QSqlQuery query;
     query.prepare("UPDATE FilePaths SET expiration_date = :expiration_date WHERE id = :file_id");
     query.bindValue(":expiration_date", expirationDateTime);
@@ -173,7 +173,7 @@ void DatabaseManager::saveExpirationDate(int fileId, const QDateTime &expiration
     query.exec();
 }
 
-QList<FilePathInfo> DatabaseManager::getFilePathsByTag(const QString &tag) {
+QList<FilePathInfo> DBSQlite::getFilePathsByTag(const QString &tag) {
     QList<FilePathInfo> filePathsWithTags;
     QSqlQuery query;
 
@@ -199,7 +199,7 @@ QList<FilePathInfo> DatabaseManager::getFilePathsByTag(const QString &tag) {
 }
 
 
-QStringList DatabaseManager::searchFiles(const QString &keyword) {
+QStringList DBSQlite::searchFiles(const QString &keyword) {
     QStringList filePaths;
     QSqlQuery query;
     query.prepare("SELECT DISTINCT file_path FROM FilePaths fp "
@@ -214,7 +214,7 @@ QStringList DatabaseManager::searchFiles(const QString &keyword) {
     return filePaths;
 }
 
-void DatabaseManager::recordSubmission(const QString &filePath) {
+void DBSQlite::recordSubmission(const QString &filePath) {
     QSqlQuery query;
     query.prepare("INSERT INTO Submissions (file_path) VALUES (:filePath)");
     query.bindValue(":filePath", filePath);
@@ -226,25 +226,25 @@ void DatabaseManager::recordSubmission(const QString &filePath) {
     }
 }
 
-bool DatabaseManager::hasSubmissions(const QString& filePath) const {
+bool DBSQlite::hasSubmissions(const QString& filePath) const {
     QSqlQuery query;
     query.prepare("SELECT COUNT(*) FROM Submissions WHERE file_path = :filePath");
     query.bindValue(":filePath", filePath);
 
     if (!query.exec()) {
-        qDebug() << "Query failed:" << query.lastError();
-        return false; // 或根据需要处理错误
+        qDebug() << "DBSQlite::hasSubmissions Query failed:" << query.lastError();
+        return false;
     }
 
     if (query.next()) {
-        return query.value(0).toInt() > 0; // 返回是否有记录
+        return query.value(0).toInt() > 0;
     }
 
-    return false; // 默认返回false
+    return false;
 }
 
 
-QVector<QPair<QString, QDateTime>> DatabaseManager::getSortByExp() {
+QVector<QPair<QString, QDateTime>> DBSQlite::getSortByExp() {
     QVector<QPair<QString, QDateTime>> fileList;
     QSqlQuery query;
 

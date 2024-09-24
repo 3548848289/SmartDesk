@@ -1,6 +1,6 @@
 #include "TagItemDelegate.h"
 
-TagItemDelegate::TagItemDelegate(QObject *parent, DatabaseManager *dbManager, ServerManager *serverManager)
+TagItemDelegate::TagItemDelegate(QObject *parent, DBSQlite *dbManager, ServerManager *serverManager)
     : QStyledItemDelegate(parent), m_dbManager(dbManager), serverManager(serverManager) {
 
 
@@ -18,28 +18,46 @@ void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         QIcon tagIcon(":/usedimage/edittag.svg");
         tagIcon.paint(painter, iconRect, Qt::AlignCenter);
     }
-    if (m_dbManager.hasSubmissions(filePath)) {
-        QRect submissionIconRect(option.rect.right() - 60, option.rect.top() + 5, 20, 20);
-        QIcon submissionIcon(":/usedimage/submission.svg");
-        submissionIcon.paint(painter, submissionIconRect, Qt::AlignCenter);
-    }
+//    if (m_dbManager->hasSubmissions(filePath)) {
+//        QRect submissionIconRect(option.rect.right() - 60, option.rect.top() + 5, 20, 20);
+//        QIcon submissionIcon(":/usedimage/history.svg");
+//        submissionIcon.paint(painter, submissionIconRect, Qt::AlignCenter);
+//    }
 }
 
 bool TagItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) {
-    if (event->type() == QEvent::MouseButtonPress) {
-        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
-        if (mouseEvent->button() == Qt::LeftButton) {
+    if (event->type() == QEvent::MouseButtonRelease) {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
 
+        QRect tagIconRect(option.rect.right() - 30, option.rect.top() + 5, 20, 20);
+        if (tagIconRect.contains(mouseEvent->pos())) {
+            DTag tagDialog;
+            addTag(model, index, tagDialog);
+            isButtonClicked = true;
+            emit tagbutClicked(index);
+            return true;
         }
-        if (mouseEvent->button() == Qt::RightButton) {
-            if (option.rect.contains(mouseEvent->pos())) {
-                showContextMenu(mouseEvent->globalPos(), index, model);
-                return true;
-            }
+
+        QRect submissionButtonRect(option.rect.right() - 60, option.rect.top() + 5, 20, 20);
+        if (submissionButtonRect.contains(mouseEvent->pos())) {
+            isButtonClicked = true;
+            this->serverManager->getFilesInDirectory(index, model);
+            emit subbutClicked(index);
+            return true;
         }
     }
+
+    if (event->type() == QEvent::MouseButtonRelease) {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent->button() == Qt::RightButton && option.rect.contains(mouseEvent->pos())) {
+            showContextMenu(mouseEvent->globalPos(), index, model);
+            return true;
+        }
+    }
+
     return QStyledItemDelegate::editorEvent(event, model, option, index);
 }
+
 
 bool TagItemDelegate::hasTags(const QString &filePath) const
 {
@@ -62,22 +80,9 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     QAction *history = new QAction("提交历史", &contextMenu);
 
     connect(newtag, &QAction::triggered, [this, index, model]() {
-       DTag tagDialog;
-        if (tagDialog.exec() == QDialog::Accepted) {
-            QStringList tagName = tagDialog.getTagName();
-            QString annotation = tagDialog.getAnnotation();
-            QDateTime expirationDate = tagDialog.getExpirationDate();
+        DTag tagDialog;
+        addTag(model, index, tagDialog);
 
-            QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
-
-            int fileId;
-            if (!m_dbManager->getFileId(filePath, fileId)) {
-                m_dbManager->addFilePath(filePath, fileId);
-            }
-            m_dbManager->saveTags(fileId, tagName);
-            m_dbManager->saveAnnotation(fileId, annotation);
-            m_dbManager->saveExpirationDate(fileId, expirationDate);
-        }
     });
 
     connect(openAction, &QAction::triggered, [this, index, model]() {
@@ -87,6 +92,13 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
 
     connect(deleteAction, &QAction::triggered, [this, index, model]() {
         QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
+        QFile file(filePath);
+        if (file.remove()) {
+            qDebug() << "文件已删除:" << filePath;
+            model->removeRow(index.row());
+        } else {
+            qWarning() << "删除文件失败:" << filePath << "错误:" << file.errorString();
+        }
         emit deleteFileRequested(filePath);
     });
 
@@ -111,3 +123,20 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     contextMenu.exec(pos);
 }
 
+void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex &index, DTag &tagDialog) {
+    if (tagDialog.exec() == QDialog::Accepted) {
+        QStringList tagName = tagDialog.getTagName();
+        QString annotation = tagDialog.getAnnotation();
+        QDateTime expirationDate = tagDialog.getExpirationDate();
+
+        QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
+
+        int fileId;
+        if (!m_dbManager->getFileId(filePath, fileId)) {
+            m_dbManager->addFilePath(filePath, fileId);
+        }
+        m_dbManager->saveTags(fileId, tagName);
+        m_dbManager->saveAnnotation(fileId, annotation);
+        m_dbManager->saveExpirationDate(fileId, expirationDate);
+    }
+}

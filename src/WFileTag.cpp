@@ -1,7 +1,7 @@
 #include "WFileTag.h"
 #include "../ui/ui_WFileTag.h"
 
-WFileTag::WFileTag(DatabaseManager * dbManager, QWidget *parent)
+WFileTag::WFileTag(DBSQlite * dbManager, QWidget *parent)
     : QWidget(parent), ui(new Ui::WFileTag),
     fileSystemModel(new QFileSystemModel(this)), dbManager(dbManager)
 {
@@ -25,10 +25,17 @@ WFileTag::WFileTag(DatabaseManager * dbManager, QWidget *parent)
     connect(ui->pathLineEdit, &QLineEdit::returnPressed, this, &WFileTag::goButtonClicked);
     connect(ui->goButton, &QPushButton::clicked, this, &WFileTag::goButtonClicked);
     connect(ui->treeView, &QTreeView::clicked, this, &WFileTag::onItemClicked);
-    connect(tagItemdelegate, &TagItemDelegate::buttonClicked, this, &WFileTag::handleButtonClicked);
 
     connect(serverManager, &ServerManager::onFilesListUpdated, this, &WFileTag::updateFileList);
     connect(ui->listWidget, &QListWidget::itemClicked, this, &WFileTag::listItemClicked);
+
+    connect(tagItemdelegate, &TagItemDelegate::tagbutClicked, this, [this](const QModelIndex &index) {
+        qDebug() << "点击了添加标签按钮";
+    });
+    connect(tagItemdelegate, &TagItemDelegate::subbutClicked, this, [this](const QModelIndex &index) {
+        qDebug() << "点击了提交记录按钮";
+
+    });
 
 }
 
@@ -38,13 +45,8 @@ void WFileTag::listItemClicked(QListWidgetItem* item) {
     serverManager->downloadFile(fileName);
 }
 
-void WFileTag::handleButtonClicked(const QModelIndex &index)
-{
-    qDebug() << "Button clicked at index:" << index;
-}
 
 void WFileTag::updateFileList(const QStringList& files) {
-    qDebug() << "WFileTag:";
     for (const QString& file : files) {
         ui->listWidget->addItem(file);
         qDebug() << "File in WFileTag:" << file;
@@ -53,8 +55,10 @@ void WFileTag::updateFileList(const QStringList& files) {
 }
 
 void WFileTag::onItemClicked(const QModelIndex &index) {
-    if (fileSystemModel->isDir(index))
+    if (fileSystemModel->isDir(index) || tagItemdelegate->isButtonClicked) {
+        tagItemdelegate->isButtonClicked = false;
         return;
+    }
 
     QString curfilePath = fileSystemModel->filePath(index);
     QString directoryPath = QFileInfo(curfilePath).absolutePath();
