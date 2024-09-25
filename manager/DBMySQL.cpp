@@ -118,19 +118,28 @@ QString DBMySQL::lastError() const {
 QMap<QString, QVariant> DBMySQL::getUserInfo(const QString& username) {
     QMap<QString, QVariant> userInfo;
     QSqlQuery query;
-    query.prepare("SELECT * FROM user_info WHERE username = :username");
+
+    // 使用JOIN查询用户信息和头像
+    query.prepare(R"(
+        SELECT u.username, u.avatar, ui.name, ui.motto, ui.gender, ui.birthday, ui.location, ui.company
+        FROM users u
+        JOIN user_info ui ON u.username = ui.username
+        WHERE u.username = :username
+    )");
     query.bindValue(":username", username);
 
     qDebug() << "Fetching user info for username:" << username;
 
     if (query.exec()) {
         if (query.next()) {
-            userInfo["name"] = query.value("name").toString();
-            userInfo["motto"] = query.value("motto").toString();
-            userInfo["gender"] = query.value("gender").toString();
-            userInfo["birthday"] = query.value("birthday").toDate();
-            userInfo["location"] = query.value("location").toString();
-            userInfo["company"] = query.value("company").toString();
+        userInfo["username"] = query.value("username").toString();
+        userInfo["avatar"] = query.value("avatar").toByteArray();
+        userInfo["name"] = query.value("name").toString();
+        userInfo["motto"] = query.value("motto").toString();
+        userInfo["gender"] = query.value("gender").toString();
+        userInfo["birthday"] = query.value("birthday").toDate();
+        userInfo["location"] = query.value("location").toString();
+        userInfo["company"] = query.value("company").toString();
         } else {
             qDebug() << "DBMySQL::getUserInfo No user found with username:" << username;
         }
@@ -140,6 +149,7 @@ QMap<QString, QVariant> DBMySQL::getUserInfo(const QString& username) {
 
     return userInfo;
 }
+
 
 
 bool DBMySQL::insertUserInfo(const QString& username, const QMap<QString, QVariant>& userInfo) {
@@ -156,8 +166,8 @@ bool DBMySQL::insertUserInfo(const QString& username, const QMap<QString, QVaria
     query.bindValue(":company", userInfo["company"]);
 
     if (!query.exec()) {
-                                           qDebug() << "DBMySQL::insertUserInfo Failed to insert user info:" << query.lastError().text();
-                                           return false;
+        qDebug() << "DBMySQL::insertUserInfo Failed to insert user info:" << query.lastError().text();
+        return false;
     }
     qDebug() << "User info inserted successfully for username:" << username;
     return true;
@@ -179,8 +189,8 @@ bool DBMySQL::updateUserInfo(const QString& username, const QMap<QString, QVaria
     query.bindValue(":username", username);
 
     if (!query.exec()) {
-                                           qDebug() << "DBMySQL::updateUserInfo Failed to update user info:" << query.lastError().text();
-                                           return false;
+        qDebug() << "DBMySQL::updateUserInfo Failed to update user info:" << query.lastError().text();
+        return false;
     }
     qDebug() << "DBMySQL::updateUserInfo User info updated successfully for username:" << username;
     return true;

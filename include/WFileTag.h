@@ -17,7 +17,7 @@ class WFileTag : public QWidget
     Q_OBJECT
 
 public:
-    explicit WFileTag(DBSQlite *dbManager, QWidget *parent = nullptr);
+    explicit WFileTag(DBSQlite *dbsqlite, QWidget *parent = nullptr);
 
     ~WFileTag();
 
@@ -42,7 +42,7 @@ private:
     Ui::WFileTag *ui;
     QFileSystemModel *fileSystemModel;
     TagItemDelegate *tagItemdelegate;
-    DBSQlite *dbManager;
+    DBSQlite *dbsqlite;
     QString curfilePath;
     QString currentDir;
 };

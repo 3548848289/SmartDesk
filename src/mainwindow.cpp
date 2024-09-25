@@ -50,7 +50,7 @@ void MainWindow::initSpli()
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow),
-    recentFilesManager(new RecentFilesManager(this)), dbSqlite(new DBSQlite()), dbMysql(new DBMySQL())
+    recentFilesManager(new RecentFilesManager(this)), dbSqlite(new DBSQlite("file_metadata.db")), dbMysql(new DBMySQL())
 {
 
     ui->setupUi(this);
@@ -97,9 +97,12 @@ MainWindow::~MainWindow()
 
 // 槽函数实现
 void MainWindow::showUserInfoDialog() {
-
     DInfo *dinfo = widgetfunc->getDInfo();
-    dinfo->exec();
+    if (dinfo) {
+        dinfo->exec();
+    } else {
+        QMessageBox::warning(this, "警告", "未登录");
+    }
 }
 
 void MainWindow::on_actiontxt_file_triggered()

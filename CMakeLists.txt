@@ -107,6 +107,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_UIS}
         ${PROJECT_RESOURCES}
         ${MANAGER_RESOURCES}
+        includeEla/ElaWidgetTools.qrc
+
         manager/ipaddress.cpp manager/ipaddress.h
         manager/DBMySQL.h manager/DBMySQL.cpp
         manager/DBManagerFac.h
@@ -131,16 +133,25 @@ else()
         )
     endif()
 endif()
-
+include_directories(
+    includeela
+)
 # 链接 Qt 库
 target_link_libraries(mytxt_cmake PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Sql
     Qt${QT_VERSION_MAJOR}::Network
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib/libelawidgettools.a
 )
 
 # 包含头文件的目录
 target_include_directories(mytxt_cmake PRIVATE ${INCLUDE_DIR})
+
+
+
+target_link_libraries(mytxt_cmake PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib/libelawidgettools.a
+)
 
 # 如果是 macOS 或 iOS，设置应用程序的包信息
 if(${QT_VERSION} VERSION_LESS 6.1.0)
@@ -162,6 +173,7 @@ install(TARGETS mytxt_cmake
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+
 
 # 如果使用 Qt6，则需要调用 qt_finalize_executable
 if(QT_VERSION_MAJOR EQUAL 6)

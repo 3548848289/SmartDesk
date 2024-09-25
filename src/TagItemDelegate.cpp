@@ -1,7 +1,7 @@
 #include "TagItemDelegate.h"
 
 TagItemDelegate::TagItemDelegate(QObject *parent, DBSQlite *dbManager, ServerManager *serverManager)
-    : QStyledItemDelegate(parent), m_dbManager(dbManager), serverManager(serverManager) {
+    : QStyledItemDelegate(parent), dbsqlite(dbManager), serverManager(serverManager) {
 
 
 }
@@ -18,7 +18,7 @@ void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         QIcon tagIcon(":/usedimage/edittag.svg");
         tagIcon.paint(painter, iconRect, Qt::AlignCenter);
     }
-//    if (m_dbManager->hasSubmissions(filePath)) {
+//    if (dbsqlite->hasSubmissions(filePath)) {
 //        QRect submissionIconRect(option.rect.right() - 60, option.rect.top() + 5, 20, 20);
 //        QIcon submissionIcon(":/usedimage/history.svg");
 //        submissionIcon.paint(painter, submissionIconRect, Qt::AlignCenter);
@@ -65,7 +65,7 @@ bool TagItemDelegate::hasTags(const QString &filePath) const
     if (it != m_tagsCache.end())
         return it.value();
 
-    bool hasTags = m_dbManager && m_dbManager->hasTagsForFile(filePath);
+    bool hasTags = dbsqlite && dbsqlite->hasTagsForFile(filePath);
     const_cast<TagItemDelegate*>(this)->m_tagsCache[filePath] = hasTags;
     return hasTags;
 }
@@ -105,7 +105,7 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     connect(commit, &QAction::triggered, [this, index, model]() {
         serverManager->commitToServer(index, model);
         QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();;
-        m_dbManager->recordSubmission(filePath);
+        dbsqlite->recordSubmission(filePath);
     });
 
     connect(history, &QAction::triggered, [this, index, model]() {
@@ -132,11 +132,11 @@ void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex 
         QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
 
         int fileId;
-        if (!m_dbManager->getFileId(filePath, fileId)) {
-            m_dbManager->addFilePath(filePath, fileId);
+        if (!dbsqlite->getFileId(filePath, fileId)) {
+            dbsqlite->addFilePath(filePath, fileId);
         }
-        m_dbManager->saveTags(fileId, tagName);
-        m_dbManager->saveAnnotation(fileId, annotation);
-        m_dbManager->saveExpirationDate(fileId, expirationDate);
+        dbsqlite->saveTags(fileId, tagName);
+        dbsqlite->saveAnnotation(fileId, annotation);
+        dbsqlite->saveExpirationDate(fileId, expirationDate);
     }
 }

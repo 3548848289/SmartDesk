@@ -17,7 +17,7 @@ struct FilePathInfo {
 
 class DBSQlite {
 public:
-    DBSQlite(const QString &dbName = "file_metadata.db");
+    DBSQlite(const QString &dbName);
     ~DBSQlite();
 
     bool open();
@@ -52,7 +52,7 @@ public:
 
 
 private:
-    QSqlDatabase db;
+    QSqlDatabase dbsqlite;
     void initializeDatabase();
 };
 

@@ -19,6 +19,7 @@
 #include <QInputDialog>
 #include <QDebug>
 #include <QNetworkInterface>
+#include "ElaTabWidget.h"
 
 class TabHandleCSV : public TabAbstract
 {

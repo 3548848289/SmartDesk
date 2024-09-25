@@ -2,12 +2,13 @@
 #include "DBSQlite.h"
 
 DBSQlite::DBSQlite(const QString &dbName) {
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(dbName);
+    dbsqlite = QSqlDatabase::addDatabase("QSQLITE");
+    dbsqlite.setDatabaseName(dbName);
 
     if (!open()) {
         qDebug() << "数据库连接初始化失败";
     }
+
 }
 
 DBSQlite::~DBSQlite() {
@@ -15,10 +16,8 @@ DBSQlite::~DBSQlite() {
 }
 
 bool DBSQlite::open() {
-    if (db.isOpen())
-        return true;
-    if (!db.open()) {
-        qDebug() << "数据库连接失败：" << db.lastError().text();
+    if (!dbsqlite.open()) {
+        qDebug() << "数据库连接失败：" << dbsqlite.lastError().text();
         return false;
     }
     initializeDatabase();
@@ -26,10 +25,10 @@ bool DBSQlite::open() {
 }
 
 void DBSQlite::close() {
-    if (db.isOpen()) {
-        db.close();
+    if (dbsqlite.isOpen()) {
+        dbsqlite.close();
     }
-    QSqlDatabase::removeDatabase(db.connectionName());
+    QSqlDatabase::removeDatabase(dbsqlite.connectionName());
 }
 
 void DBSQlite::initializeDatabase() {
@@ -47,13 +46,19 @@ void DBSQlite::initializeDatabase() {
 
 
 bool DBSQlite::addFilePath(const QString &filePath, int &fileId) {
+    dbsqlite = QSqlDatabase::addDatabase("QSQLITE");
+    dbsqlite.setDatabaseName("file_metadata.db");
+
+    if (!open()) {
+        qDebug() << "数据库连接初始化失败";
+    }
     QSqlQuery query;
     query.prepare("INSERT INTO FilePaths (file_path) VALUES (:filePath)");
     query.bindValue(":filePath", filePath);
 
     if (!query.exec()) {
         qDebug() << "插入文件路径失败：" << query.lastError().text();
-                                            return false;
+        return false;
     }
     fileId = query.lastInsertId().toInt();
     return true;
@@ -122,7 +127,7 @@ bool DBSQlite::saveAnnotation(int fileId, const QString &annotation) {
 
 bool DBSQlite::hasTagsForFile(const QString &filePath) const
 {
-    QSqlQuery query(db);
+    QSqlQuery query(dbsqlite);
     query.prepare("SELECT COUNT(*) FROM FilePaths WHERE file_path = :filePath");
     query.bindValue(":filePath", filePath);
 
@@ -143,7 +148,7 @@ QStringList DBSQlite::getAllFilePaths() {
     if (!open()) {
         qDebug() << "数据库连接初始化失败";
     }
-    QSqlQuery query(db);  // 使用数据库连接执行查询
+    QSqlQuery query(dbsqlite);  // 使用数据库连接执行查询
     if (!query.exec("SELECT file_path FROM FilePaths")) {
         qDebug() << "查询失败：" << query.lastError().text();
                                          return filePaths;

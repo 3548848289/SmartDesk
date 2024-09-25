@@ -1,9 +1,9 @@
 #include "WFileTag.h"
 #include "../ui/ui_WFileTag.h"
 
-WFileTag::WFileTag(DBSQlite * dbManager, QWidget *parent)
+WFileTag::WFileTag(DBSQlite * dbsqlite, QWidget *parent)
     : QWidget(parent), ui(new Ui::WFileTag),
-    fileSystemModel(new QFileSystemModel(this)), dbManager(dbManager)
+    fileSystemModel(new QFileSystemModel(this)), dbsqlite(dbsqlite)
 {
     ui->setupUi(this);
     currentDir = "D:/QT6/Qt_pro/project/mytxt";
@@ -19,7 +19,7 @@ WFileTag::WFileTag(DBSQlite * dbManager, QWidget *parent)
     ui->pathLineEdit->setText(currentDir);
 
     serverManager = new ServerManager(); // 初始化 ServerManager
-    tagItemdelegate = new TagItemDelegate(this, dbManager, serverManager);
+    tagItemdelegate = new TagItemDelegate(this, dbsqlite, serverManager);
     ui->treeView->setItemDelegate(tagItemdelegate);
 
     connect(ui->pathLineEdit, &QLineEdit::returnPressed, this, &WFileTag::goButtonClicked);
@@ -87,5 +87,5 @@ void WFileTag::goButtonClicked() {
 
 WFileTag::~WFileTag() {
     delete ui;
-    delete dbManager;
+    delete dbsqlite;
 }
