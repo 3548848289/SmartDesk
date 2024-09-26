@@ -1,0 +1,218 @@
+[33mcommit 676003c936efdf16d71f3502502ef9d0b473df0b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mcmake[m[33m, [m[1;31morigin/cmake[m[33m)[m
+Author: QiHan <3548848289@qq.com>
+Date:   Wed Sep 25 21:31:19 2024 +0800
+
+    动态库太大，新的提交
+
+[33mcommit c6f7156f6d2a5f7a306a63f808520305453f934d[m
+Author: QiHan <3548848289@qq.com>
+Date:   Wed Sep 25 21:12:39 2024 +0800
+
+    准备新建分支，重构使用elawidget
+
+[33mcommit afc9469a7c854a2cc74318fee13002a4d37313f1[m[33m ([m[1;32mwfiletag[m[33m, [m[1;32mela[m[33m)[m
+Author: QiHan <3548848289@qq.com>
+Date:   Tue Sep 24 21:35:20 2024 +0800
+
+    完善注册与信息展示页面，还需要美化
+
+[33mcommit 010c58c1f1ee9038c36d706c2970eb1de14a59ec[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sun Sep 22 12:08:58 2024 +0800
+
+    完成历史文件的提交与读取，准备优化WFileTag的按钮点击事件
+
+[33mcommit 94b0859eaa9acc9b8320764a8412928bcf1286bb[m
+Author: QiHan <3548848289@qq.com>
+Date:   Fri Sep 20 11:21:38 2024 +0800
+
+    优化csvlinkserver类
+
+[33mcommit 92481d451449bd6cc47dca350414c79cc53df489[m
+Author: QiHan <3548848289@qq.com>
+Date:   Thu Sep 19 23:45:42 2024 +0800
+
+    文件备忘日程功能完善，准备开发文件历史提交功能
+
+[33mcommit 2f7ab17646eef243fa96fd9332cd1bd81e4900e3[m
+Author: QiHan <3548848289@qq.com>
+Date:   Wed Sep 18 21:02:49 2024 +0800
+
+    重构文件名完成
+
+[33mcommit d606dc95ccf5f94755e8a2ee461415a28edc9d48[m
+Author: QiHan <3548848289@qq.com>
+Date:   Wed Sep 18 20:52:15 2024 +0800
+
+    备忘日程新增标签到期提醒功能，准备重构文件名
+
+[33mcommit 251b6b3c0a72f0385db5b0bc9489ed191a893783[m
+Author: QiHan <3548848289@qq.com>
+Date:   Tue Sep 17 12:18:49 2024 +0800
+
+    更新项目架构
+
+[33mcommit 82e7de753007cdfe279cb26bff56a980c3364dd7[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sun Sep 15 15:27:35 2024 +0800
+
+    新增CMake项目，远程仓库新增cmake分支
+
+[33mcommit 23927f0c3976ba6217f45db404c4d1d9a0b3f37e[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sun Sep 15 15:13:20 2024 +0800
+
+    完成优化
+
+[33mcommit e0d77cf4e0933bb2fe2cd0dd207797f17d28bfe2[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sat Sep 14 23:55:16 2024 +0800
+
+    优化完成，还需要规范化变量名
+
+[33mcommit 30377867db4d78968243fad7d22b53857992fc3a[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sat Sep 14 16:09:35 2024 +0800
+
+    准备分离功能选项卡
+
+[33mcommit 6be4056fff4f01bd2f14ed28c16da5fd0b69addd[m
+Author: QiHan <3548848289@qq.com>
+Date:   Fri Sep 13 20:56:18 2024 +0800
+
+    完成文本标签功能，准备优化界面
+
+[33mcommit 36a8b2ee7e6024d0c7cb5d495828edae88109306[m
+Author: QiHan <3548848289@qq.com>
+Date:   Wed Sep 11 20:44:57 2024 +0800
+
+    完成设计，准备合并回master分支
+
+[33mcommit bb05f842ed75b5aa1873420d8bd1d0d362d94858[m
+Author: QiHan <3548848289@qq.com>
+Date:   Wed Sep 11 16:46:55 2024 +0800
+
+    优化mainwindow界面
+
+[33mcommit 34b743f744574442fa9d2d14eee579ddb48aaf2e[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sun Sep 8 20:31:43 2024 +0800
+
+    完成json重构，新增Setting类用于设置
+
+[33mcommit 0b0308dbe2ff6bd9ae4f4f96323ac09f24339222[m
+Author: QiHan <3548848289@qq.com>
+Date:   Fri Sep 6 12:06:23 2024 +0800
+
+    准备json重构
+
+[33mcommit dc566d6772bd2dc4a7f34b8036b8672540a3c98b[m
+Author: QiHan <3548848289@qq.com>
+Date:   Wed Sep 4 23:38:00 2024 +0800
+
+    优化界面，新建打开文件的历史记录功能
+
+[33mcommit b5c69b906860ae29eab937968f009933f3021b37[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sun Jul 28 20:44:48 2024 +0800
+
+    优化界面，开始增加日志功能
+
+[33mcommit 7c734a482926bec922750184acae1b338df8c15d[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sat Jul 27 23:14:54 2024 +0800
+
+    将csvLinkServer从继承QMainWindow修改为继承QWidget
+
+[33mcommit 3caab72dee52b71825168e6066b60c3e6942e10a[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sat Jul 27 12:16:37 2024 +0800
+
+    完成对TabHandleCSV.cpp少量优化操作，准备重构MainWindow
+
+[33mcommit 82c3f34d1d04450ae23f4aae76211ffbe0b8ec28[m
+Author: QiHan <3548848289@qq.com>
+Date:   Fri Jul 26 12:27:27 2024 +0800
+
+    完善csvLinkServer窗口的消息控制
+
+[33mcommit 15b492deb85b525f95f6b05787a73130d822aecd[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sat Jul 13 13:38:15 2024 +0800
+
+    重构文件名
+
+[33mcommit 0037e45814ddcb9de448329df67a675cb5b1a4b0[m
+Merge: 94792e0 b40a89b
+Author: QiHan <3548848289@qq.com>
+Date:   Sat Jul 13 13:11:07 2024 +0800
+
+    Merge branch 'refactor-branch'
+    
+    完成对'refactor-branch'的合并
+
+[33mcommit b40a89bc220b53c1c2ae5500087ef2f08fcf74e7[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sat Jul 13 13:09:47 2024 +0800
+
+    完成对服务器csv的读写改高亮
+
+[33mcommit 97f93c0c17227037c22d24d3f503cea1f13d19b5[m
+Author: QiHan <3548848289@qq.com>
+Date:   Wed Jul 10 22:10:48 2024 +0800
+
+    准备完善单机状态下操作tableTab的信号传递bug
+
+[33mcommit 1dde290a1cf5516d20dc1cae93ff77758af3f7ed[m
+Author: QiHan <3548848289@qq.com>
+Date:   Wed Jul 10 22:07:56 2024 +0800
+
+    完成用户对操作tableTab的高亮显示
+
+[33mcommit 94792e08079345a1324c6eeecb7e91f25eea72bb[m
+Author: QiHan <3548848289@qq.com>
+Date:   Wed Jul 3 12:01:20 2024 +0800
+
+    master分支测试
+
+[33mcommit f9d361b1f145e92aa7fe4feb71ee3cb3c8bf7b40[m
+Author: QiHan <3548848289@qq.com>
+Date:   Wed Jul 3 11:43:42 2024 +0800
+
+    在tableTabIncludeEpoll完成优化，准备合并
+
+[33mcommit 412bc1d5d5855926f895b52ad5d4f81e18533d2d[m
+Author: QiHan <3548848289@qq.com>
+Date:   Wed Jul 3 10:40:36 2024 +0800
+
+    完成csv远程通信，需要优化tabletab类
+
+[33mcommit d107f04964c60ae81ec3288435578b930cb86614[m
+Author: QiHan <3548848289@qq.com>
+Date:   Tue Jul 2 10:40:56 2024 +0800
+
+    scv操作下，客户端操作能发送给服务器
+
+[33mcommit 04380055a14226a044ae6e8f31c867dbdffb8b7c[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sun Jun 30 21:31:57 2024 +0800
+
+    初步利用epoll进行TCP通信
+
+[33mcommit 83ea53367fd1a94e4dbd94e654d767b921151e07[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sun Jun 30 16:45:04 2024 +0800
+
+    利用多态，使程序能操纵txt，scv文件
+
+[33mcommit e1eb2123c167372f4b1b9279ad22719963ac06e4[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sun Jun 30 11:04:16 2024 +0800
+
+    准备利用多态重构
+
+[33mcommit 6a69e9efaefff276f0f1443cdae5509efb9443e9[m
+Author: QiHan <3548848289@qq.com>
+Date:   Sun Jun 30 11:00:17 2024 +0800
+
+    当前只能对txt文本进行新建，打开，保存，下载，关闭操作
