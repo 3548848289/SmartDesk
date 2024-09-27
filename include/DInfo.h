@@ -12,9 +12,6 @@
 #include <QDate>
 #include <QMessageBox>
 
-//#include "ElaCalendarPicker.h"
-#include "ElaComboBox.h"
-#include "ElaLineEdit.h"
 #include "../manager/DBMySQL.h"
 namespace Ui {
 class DInfo;
@@ -33,23 +30,6 @@ public:
 private:
     QString username;
     DBMySQL* dmMysql;
-
-    QLabel* avatarLabel;
-    QLabel* nameLabel;
-    QLabel* mottoLabel;
-    QLabel* genderLabel;
-    QLabel* birthdayLabel;
-    QLabel* locationLabel;
-    QLabel* companyLabel;
-    QLabel* accountLabel;
-    ElaLineEdit* nameEdit;
-    ElaLineEdit* accountEdit;
-    ElaLineEdit* mottoEdit;
-    ElaComboBox* genderCombo;
-    QDateEdit* birthdayEdit;
-    ElaLineEdit* locationEdit;
-    ElaLineEdit* companyEdit;
-    QPushButton* saveButton;
 
 
     void setupUi();

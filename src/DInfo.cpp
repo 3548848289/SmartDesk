@@ -27,7 +27,7 @@ void DInfo::loadUserInfo() {
     if (!avatarData.isEmpty()) {
         QImage image;
         if (image.loadFromData(avatarData)) {
-            avatarLabel->setPixmap(QPixmap::fromImage(image));
+            ui->avatarLabel->setPixmap(QPixmap::fromImage(image));
         } else {
             qDebug() << "Failed to load image from data.";
         }
