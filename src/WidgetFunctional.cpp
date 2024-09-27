@@ -74,7 +74,8 @@ void WidgetFunctional::on_pushButton_6_clicked()
 
 
 void WidgetFunctional::handleLoginSuccess(const QString& username) {
-    qDebug() << "WidgetFunctional::handleLoginSuccess";
+    qDebug() << "Username in handleLoginSuccess:" << username;
+
     dinfo = new DInfo(username, dbMysql, this);
 }
 

@@ -4,24 +4,15 @@
 #include <QDialog>
 #include <QImage>
 #include <QPixmap>
-#include <QLabel>
 #include <QMouseEvent>
 #include <QSqlDatabase>
 #include <QSqlQuery>
-#include <QToolButton>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QRadioButton>
-#include <QVBoxLayout>
 #include <QSqlError>
 #include <QMessageBox>
-#include <QHBoxLayout>
-#include <QFrame>
 #include "../manager/DBMySQL.h"
-
-#include "ElaPushButton.h"
-#include "ElaLineEdit.h"
-#include "ElaRadioButton.h"
+namespace Ui {
+class DLogin;
+}
 
 class DLogin : public QDialog
 {
@@ -41,6 +32,7 @@ private slots:
     void on_avatar_pushButton_clicked();
 
 private:
+    Ui::DLogin *ui;
 
     QPixmap avatarImage;
 
@@ -72,18 +64,6 @@ private:
     DBMySQL * db;
     bool mousePressed;
     QPoint startPos;
-
-private:
-    QVBoxLayout *verticalLayout, *horizontalLayout_3;
-    QHBoxLayout *horizontalLayout_1, *horizontalLayout_2, *horizontalLayout_4;
-    QLabel *statusLabel;
-    QToolButton *exit_toolButton;
-    ElaPushButton *avatar_pushButton, *login_pushButton, *resiger_pushButton, *forget_pushButton;
-    QWidget *loginwidget;
-    ElaLineEdit *username, *password;
-    ElaRadioButton *radioButton;
-    QFrame *line;
-
 };
 
 #endif // DLOGIN_H

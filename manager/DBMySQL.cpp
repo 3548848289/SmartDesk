@@ -115,6 +115,7 @@ QString DBMySQL::lastError() const {
     return db.lastError().text();
 }
 
+
 QMap<QString, QVariant> DBMySQL::getUserInfo(const QString& username) {
     QMap<QString, QVariant> userInfo;
     QSqlQuery query;
@@ -131,24 +132,26 @@ QMap<QString, QVariant> DBMySQL::getUserInfo(const QString& username) {
     qDebug() << "Fetching user info for username:" << username;
 
     if (query.exec()) {
-        if (query.next()) {
-        userInfo["username"] = query.value("username").toString();
-        userInfo["avatar"] = query.value("avatar").toByteArray();
-        userInfo["name"] = query.value("name").toString();
-        userInfo["motto"] = query.value("motto").toString();
-        userInfo["gender"] = query.value("gender").toString();
-        userInfo["birthday"] = query.value("birthday").toDate();
-        userInfo["location"] = query.value("location").toString();
-        userInfo["company"] = query.value("company").toString();
-        } else {
-            qDebug() << "DBMySQL::getUserInfo No user found with username:" << username;
-        }
+                                           if (query.next()) {
+            qDebug() << "User found:" << query.value("username").toString();
+            userInfo["username"] = query.value("username").toString();
+            userInfo["avatar"] = query.value("avatar").toByteArray();
+            userInfo["name"] = query.value("name").toString();
+            userInfo["motto"] = query.value("motto").toString();
+            userInfo["gender"] = query.value("gender").toString();
+            userInfo["birthday"] = query.value("birthday").toDate();
+            userInfo["location"] = query.value("location").toString();
+            userInfo["company"] = query.value("company").toString();
+                                           } else {
+            qDebug() << "No user found for username:" << username;
+                                           }
     } else {
-        qDebug() << "DBMySQL::getUserInfo Failed to execute query:" << query.lastError().text();
+                                           qDebug() << "Query execution failed:" << query.lastError().text();
     }
 
     return userInfo;
 }
+
 
 
 

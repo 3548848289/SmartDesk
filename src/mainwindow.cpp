@@ -75,7 +75,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         "border: 1px solid #cccccc; border-bottom: none; }"
         "QTabBar::tab:selected {"
         "    background: #ffffff; color: #3598db; border-bottom: none; }"
-    );
+        );
     initFunc();
     initSpli();
 

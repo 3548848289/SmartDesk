@@ -29,6 +29,7 @@ public:
 
     ~DInfo();
 
+
 private:
     QString username;
     DBMySQL* dmMysql;
