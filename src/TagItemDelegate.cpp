@@ -18,11 +18,11 @@ void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         QIcon tagIcon(":/usedimage/edittag.svg");
         tagIcon.paint(painter, iconRect, Qt::AlignCenter);
     }
-//    if (dbsqlite->hasSubmissions(filePath)) {
-//        QRect submissionIconRect(option.rect.right() - 60, option.rect.top() + 5, 20, 20);
-//        QIcon submissionIcon(":/usedimage/history.svg");
-//        submissionIcon.paint(painter, submissionIconRect, Qt::AlignCenter);
-//    }
+    if (dbsqlite->hasSubmissions(filePath)) {
+        QRect submissionIconRect(option.rect.right() - 60, option.rect.top() + 5, 20, 20);
+        QIcon submissionIcon(":/usedimage/history.svg");
+        submissionIcon.paint(painter, submissionIconRect, Qt::AlignCenter);
+    }
 }
 
 bool TagItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) {
@@ -133,6 +133,7 @@ void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex 
         QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
 
         int fileId;
+
         if (!dbsqlite->getFileId(filePath, fileId)) {
             dbsqlite->addFilePath(filePath, fileId);
         }

@@ -8,10 +8,8 @@ DBMySQL::DBMySQL() {
     dbmysql.setPassword("Mysql20039248");
     if (!dbmysql.open()) {
         qDebug() << "无法连接到数据库:" << dbmysql.lastError().text();
-                                           return;
+        return;
     }
-
-
     if (!createTable()) {
         qDebug() << "创建表失败: " << lastError();
     }
@@ -19,13 +17,16 @@ DBMySQL::DBMySQL() {
 }
 
 DBMySQL::~DBMySQL() {
-    dbmysql.close();
-    QSqlDatabase::removeDatabase(dbmysql.connectionName());  // 清理连接
+    if (dbmysql.isOpen()) {
+        QSqlQuery().finish();
+        dbmysql.close();
+    }
+    QSqlDatabase::removeDatabase(dbmysql.connectionName());
 
 }
 
 bool DBMySQL::createTable() {
-    QSqlQuery query;
+    QSqlQuery query(dbmysql);
 
     QString createUsersTableQuery = R"(
         CREATE TABLE IF NOT EXISTS users (
@@ -58,8 +59,6 @@ bool DBMySQL::createTable() {
         qDebug() << "Failed to create 'user_info' table: " << query.lastError().text();
         return false;
     }
-
-    qDebug() << "Table 'user_info' created successfully!";
     return true;
 }
 
@@ -69,7 +68,8 @@ bool DBMySQL::open() {
 }
 
 bool DBMySQL::loginUser(const QString &username, const QString &password, QByteArray &avatarData, QString &statusMessage) {
-    QSqlQuery query;
+        QSqlQuery query(dbmysql);
+
     query.prepare("SELECT password, avatar FROM users WHERE username = :username");
     query.bindValue(":username", username);
 
@@ -96,7 +96,8 @@ bool DBMySQL::loginUser(const QString &username, const QString &password, QByteA
 }
 
 bool DBMySQL::registerUser(const QString &username, const QString &password, const QByteArray &avatarData, QString &statusMessage) {
-    QSqlQuery query;
+        QSqlQuery query(dbmysql);
+
     query.prepare("INSERT INTO users (username, password, avatar) VALUES (:username, :password, :avatar)");
     query.bindValue(":username", username);
     query.bindValue(":password", password);
@@ -119,7 +120,8 @@ QString DBMySQL::lastError() const {
 
 QMap<QString, QVariant> DBMySQL::getUserInfo(const QString& username) {
     QMap<QString, QVariant> userInfo;
-    QSqlQuery query;
+        QSqlQuery query(dbmysql);
+
 
     // 使用JOIN查询用户信息和头像
     query.prepare(R"(
@@ -157,7 +159,8 @@ QMap<QString, QVariant> DBMySQL::getUserInfo(const QString& username) {
 
 
 bool DBMySQL::insertUserInfo(const QString& username, const QMap<QString, QVariant>& userInfo) {
-    QSqlQuery query;
+        QSqlQuery query(dbmysql);
+
     query.prepare("INSERT INTO user_info (username, name, motto, gender, birthday, location, company) "
                   "VALUES (:username, :name, :motto, :gender, :birthday, :location, :company)");
 
@@ -179,7 +182,8 @@ bool DBMySQL::insertUserInfo(const QString& username, const QMap<QString, QVaria
 
 
 bool DBMySQL::updateUserInfo(const QString& username, const QMap<QString, QVariant>& userInfo) {
-    QSqlQuery query;
+        QSqlQuery query(dbmysql);
+
     query.prepare("UPDATE user_info SET name = :name, motto = :motto, gender = :gender, "
                   "birthday = :birthday, location = :location, company = :company "
                   "WHERE username = :username");

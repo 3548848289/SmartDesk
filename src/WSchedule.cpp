@@ -21,7 +21,7 @@ WSchedule::WSchedule(DBSQlite *db, QWidget *parent) :
 WSchedule::~WSchedule()
 {
     delete ui;
-    delete db;
+//    delete db;
 }
 
 void WSchedule::onItemClicked(QListWidgetItem *item) {

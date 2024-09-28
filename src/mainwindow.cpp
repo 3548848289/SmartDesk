@@ -59,7 +59,7 @@ void MainWindow::initSpli()
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow),
     recentFilesManager(new RecentFilesManager(this)),
-    dbSqlite(new DBSQlite("file_metadata.db")), dbMysql(new DBMySQL())
+    dbSqlite(&DBSQlite::instance()), dbMysql(&DBMySQL::instance())
 {
     dbSqlite->open();
     ui->setupUi(this);

@@ -87,5 +87,5 @@ void WFileTag::goButtonClicked() {
 
 WFileTag::~WFileTag() {
     delete ui;
-    delete dbsqlite;
+//    delete dbsqlite;
 }

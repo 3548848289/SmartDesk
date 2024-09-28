@@ -1,4 +1,3 @@
-// DBSQlite.h
 #ifndef DBSQLITE_H
 #define DBSQLITE_H
 
@@ -6,8 +5,10 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QStringList>
-#include <QDebug>
 #include <QDateTime>
+#include <QDebug>
+#include <QVector>
+#include <QPair>
 
 struct FilePathInfo {
     QString filePath;
@@ -17,8 +18,10 @@ struct FilePathInfo {
 
 class DBSQlite {
 public:
-    DBSQlite(const QString &dbName);
-    ~DBSQlite();
+    static DBSQlite& instance(const QString &dbName = "file_metadata.db") {
+        static DBSQlite instance(dbName); // 懒汉式单例
+        return instance;
+    }
 
     bool open();
     void close();
@@ -27,11 +30,14 @@ public:
     bool addFilePath(const QString &filePath, int &fileId);
     bool getFileId(const QString &filePath, int &fileId);
     QStringList getAllFilePaths();
+    QStringList searchFiles(const QString &keyword);
+    void recordSubmission(const QString &filePath);
+    bool hasSubmissions(const QString& filePath) const;
 
     // 标签管理
     bool getTags(int fileId, QStringList &tags);
-    bool saveTags(int fileId, const QStringList &tags);
     QStringList getAllTags();
+    bool saveTags(int fileId, const QStringList &tags);
     bool hasTagsForFile(const QString &filePath) const;
     QList<FilePathInfo> getFilePathsByTag(const QString &tag);
 
@@ -43,16 +49,14 @@ public:
     void saveExpirationDate(int fileId, const QDateTime &expirationDateTime);
     QVector<QPair<QString, QDateTime>> getSortByExp();
 
-    // 文件搜索
-    QStringList searchFiles(const QString &keyword);
-
-
-    void recordSubmission(const QString &filePath);
-    bool hasSubmissions(const QString& filePath) const;
-
     QString lastError() const;
 
 private:
+    DBSQlite(const QString &dbName);
+    ~DBSQlite();
+    DBSQlite(const DBSQlite&) = delete; // 禁用复制构造函数
+    DBSQlite& operator=(const DBSQlite&) = delete; // 禁用赋值运算符
+
     QSqlDatabase dbsqlite;
     void initializeDatabase();
 };

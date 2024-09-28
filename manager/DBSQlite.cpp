@@ -1,37 +1,39 @@
-// DBSQlite.cpp
 #include "DBSQlite.h"
 #include <QUuid>
-DBSQlite::DBSQlite(const QString &dbName) {
 
-    QString connectionName = "sqlite_" + QUuid::createUuid().toString();  // 生成唯一连接名
+DBSQlite::DBSQlite(const QString &dbName) {
+    QString connectionName = "sqlite_" + QUuid::createUuid().toString();
     dbsqlite = QSqlDatabase::addDatabase("QSQLITE", connectionName);
-    dbsqlite.setDatabaseName("file_metadata.db");
+    dbsqlite.setDatabaseName(dbName);
 
     if (!dbsqlite.open()) {
         qDebug() << "数据库连接初始化失败:" << dbsqlite.lastError().text();
     }
 }
 
-
 DBSQlite::~DBSQlite() {
     close();
 }
 
 bool DBSQlite::open() {
-    if (!dbsqlite.open()) {
-        qDebug() << "数据库连接失败：" << dbsqlite.lastError().text();
-        return false;
+    if (!dbsqlite.isOpen()) {
+        if (!dbsqlite.open()) {
+            qDebug() << "数据库连接失败：" << dbsqlite.lastError().text();
+                                                      return false;
+        }
+        initializeDatabase();
     }
-    initializeDatabase();
     return true;
 }
 
 void DBSQlite::close() {
     if (dbsqlite.isOpen()) {
+        QSqlQuery().finish();
         dbsqlite.close();
     }
-    QSqlDatabase::removeDatabase(dbsqlite.connectionName());  // 使用动态连接名
+    QSqlDatabase::removeDatabase(dbsqlite.connectionName());
 }
+
 
 QString DBSQlite::lastError() const {
     return dbsqlite.lastError().text();
@@ -39,7 +41,8 @@ QString DBSQlite::lastError() const {
 
 
 void DBSQlite::initializeDatabase() {
-    QSqlQuery query;
+        QSqlQuery query(dbsqlite);
+
     query.exec("CREATE TABLE IF NOT EXISTS FilePaths "
                "(id INTEGER PRIMARY KEY, file_path TEXT UNIQUE, expiration_date DATE)");
     query.exec("CREATE TABLE IF NOT EXISTS Tags "
@@ -57,9 +60,7 @@ bool DBSQlite::addFilePath(const QString &filePath, int &fileId) {
         return false;
     }
 
-    qDebug() << "当前数据库驱动：" << dbsqlite.driverName() << dbsqlite.connectionName();
-
-    QSqlQuery query;
+    QSqlQuery query(dbsqlite);
     query.prepare("INSERT INTO FilePaths (file_path) VALUES (:filePath)");
     query.bindValue(":filePath", filePath);
 
@@ -72,7 +73,8 @@ bool DBSQlite::addFilePath(const QString &filePath, int &fileId) {
 }
 
 bool DBSQlite::getFileId(const QString &filePath, int &fileId) {
-    QSqlQuery query;
+        QSqlQuery query(dbsqlite);
+
     query.prepare("SELECT id FROM FilePaths WHERE file_path = :filePath");
     query.bindValue(":filePath", filePath);
 
@@ -84,7 +86,8 @@ bool DBSQlite::getFileId(const QString &filePath, int &fileId) {
 }
 
 bool DBSQlite::getTags(int fileId, QStringList &tags) {
-    QSqlQuery query;
+        QSqlQuery query(dbsqlite);
+
     query.prepare("SELECT tag_name FROM Tags WHERE file_id = :fileId");
     query.bindValue(":fileId", fileId);
 
@@ -98,7 +101,8 @@ bool DBSQlite::getTags(int fileId, QStringList &tags) {
 }
 
 bool DBSQlite::getAnnotation(int fileId, QString &annotation) {
-    QSqlQuery query;
+        QSqlQuery query(dbsqlite);
+
     query.prepare("SELECT annotation FROM Annotations WHERE file_id = :fileId");
     query.bindValue(":fileId", fileId);
 
@@ -110,7 +114,8 @@ bool DBSQlite::getAnnotation(int fileId, QString &annotation) {
 }
 
 bool DBSQlite::saveTags(int fileId, const QStringList &tags) {
-    QSqlQuery query;
+        QSqlQuery query(dbsqlite);
+
     query.prepare("DELETE FROM Tags WHERE file_id = :fileId");
     query.bindValue(":fileId", fileId);
     query.exec();
@@ -125,7 +130,8 @@ bool DBSQlite::saveTags(int fileId, const QStringList &tags) {
 }
 
 bool DBSQlite::saveAnnotation(int fileId, const QString &annotation) {
-    QSqlQuery query;
+        QSqlQuery query(dbsqlite);
+
     query.prepare("INSERT OR REPLACE INTO Annotations (file_id, annotation) VALUES (:fileId, :annotation)");
     query.bindValue(":fileId", fileId);
     query.bindValue(":annotation", annotation);
@@ -139,7 +145,7 @@ bool DBSQlite::hasTagsForFile(const QString &filePath) const
     query.bindValue(":filePath", filePath);
 
     if (!query.exec()) {
-        //        qDebug() << "Database query error:" << query.lastError().text();
+        qDebug() << "Database query error:" << query.lastError().text();
         return false;
     }
 
@@ -178,7 +184,8 @@ QStringList DBSQlite::getAllTags() {
 
 
 void DBSQlite::saveExpirationDate(int fileId, const QDateTime &expirationDateTime) {
-    QSqlQuery query;
+        QSqlQuery query(dbsqlite);
+
     query.prepare("UPDATE FilePaths SET expiration_date = :expiration_date WHERE id = :file_id");
     query.bindValue(":expiration_date", expirationDateTime);
     query.bindValue(":file_id", fileId);
@@ -187,7 +194,8 @@ void DBSQlite::saveExpirationDate(int fileId, const QDateTime &expirationDateTim
 
 QList<FilePathInfo> DBSQlite::getFilePathsByTag(const QString &tag) {
     QList<FilePathInfo> filePathsWithTags;
-    QSqlQuery query;
+        QSqlQuery query(dbsqlite);
+
 
     if (tag == "标签") {
         query.prepare("SELECT fp.file_path, t.tag_name, fp.expiration_date FROM FilePaths fp JOIN Tags t ON fp.id = t.file_id");
@@ -213,7 +221,8 @@ QList<FilePathInfo> DBSQlite::getFilePathsByTag(const QString &tag) {
 
 QStringList DBSQlite::searchFiles(const QString &keyword) {
     QStringList filePaths;
-    QSqlQuery query;
+        QSqlQuery query(dbsqlite);
+
     query.prepare("SELECT DISTINCT file_path FROM FilePaths fp "
                   "LEFT JOIN Tags t ON fp.id = t.file_id "
                   "WHERE file_path LIKE :keyword OR t.tag_name LIKE :keyword");
@@ -227,7 +236,8 @@ QStringList DBSQlite::searchFiles(const QString &keyword) {
 }
 
 void DBSQlite::recordSubmission(const QString &filePath) {
-    QSqlQuery query;
+        QSqlQuery query(dbsqlite);
+
     query.prepare("INSERT INTO Submissions (file_path) VALUES (:filePath)");
     query.bindValue(":filePath", filePath);
 
@@ -239,7 +249,8 @@ void DBSQlite::recordSubmission(const QString &filePath) {
 }
 
 bool DBSQlite::hasSubmissions(const QString& filePath) const {
-    QSqlQuery query;
+        QSqlQuery query(dbsqlite);
+
     query.prepare("SELECT COUNT(*) FROM Submissions WHERE file_path = :filePath");
     query.bindValue(":filePath", filePath);
 
@@ -258,7 +269,8 @@ bool DBSQlite::hasSubmissions(const QString& filePath) const {
 
 QVector<QPair<QString, QDateTime>> DBSQlite::getSortByExp() {
     QVector<QPair<QString, QDateTime>> fileList;
-    QSqlQuery query;
+        QSqlQuery query(dbsqlite);
+
 
     // 执行查询，按到期时间排序
     query.prepare("SELECT file_path, expiration_date FROM FilePaths ORDER BY expiration_date ASC");
