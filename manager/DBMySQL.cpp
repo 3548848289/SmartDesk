@@ -1,26 +1,27 @@
 #include "DBMySQL.h"
 
-
-
-DBMySQL::DBMySQL()
-{
-    db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("localhost");
-    db.setDatabaseName("mytxt");
-    db.setUserName("root");
-    db.setPassword("Mysql20039248");
-    if (!db.open()) {
-        qDebug() << "无法连接到数据库";
-        return;
+DBMySQL::DBMySQL() {
+    dbmysql = QSqlDatabase::addDatabase("QMYSQL");
+    dbmysql.setHostName("localhost");
+    dbmysql.setDatabaseName("mytxt");
+    dbmysql.setUserName("root");
+    dbmysql.setPassword("Mysql20039248");
+    if (!dbmysql.open()) {
+        qDebug() << "无法连接到数据库:" << dbmysql.lastError().text();
+                                           return;
     }
+
 
     if (!createTable()) {
         qDebug() << "创建表失败: " << lastError();
     }
+
 }
 
 DBMySQL::~DBMySQL() {
-    db.close();
+    dbmysql.close();
+    QSqlDatabase::removeDatabase(dbmysql.connectionName());  // 清理连接
+
 }
 
 bool DBMySQL::createTable() {
@@ -64,7 +65,7 @@ bool DBMySQL::createTable() {
 
 
 bool DBMySQL::open() {
-    return db.open();
+    return dbmysql.open();
 }
 
 bool DBMySQL::loginUser(const QString &username, const QString &password, QByteArray &avatarData, QString &statusMessage) {
@@ -112,7 +113,7 @@ bool DBMySQL::registerUser(const QString &username, const QString &password, con
 }
 
 QString DBMySQL::lastError() const {
-    return db.lastError().text();
+    return dbmysql.lastError().text();
 }
 
 

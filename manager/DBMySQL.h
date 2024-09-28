@@ -31,7 +31,7 @@ public:
     bool updateUserInfo(const QString& username, const QMap<QString, QVariant>& userInfo);
 
 private:
-    QSqlDatabase db;
+    QSqlDatabase dbmysql;
 };
 
 #endif // DBMYSQL_H

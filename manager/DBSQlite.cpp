@@ -1,15 +1,17 @@
 // DBSQlite.cpp
 #include "DBSQlite.h"
-
+#include <QUuid>
 DBSQlite::DBSQlite(const QString &dbName) {
-    dbsqlite = QSqlDatabase::addDatabase("QSQLITE");
-    dbsqlite.setDatabaseName(dbName);
 
-    if (!open()) {
-        qDebug() << "数据库连接初始化失败";
+    QString connectionName = "sqlite_" + QUuid::createUuid().toString();  // 生成唯一连接名
+    dbsqlite = QSqlDatabase::addDatabase("QSQLITE", connectionName);
+    dbsqlite.setDatabaseName("file_metadata.db");
+
+    if (!dbsqlite.open()) {
+        qDebug() << "数据库连接初始化失败:" << dbsqlite.lastError().text();
     }
-
 }
+
 
 DBSQlite::~DBSQlite() {
     close();
@@ -28,8 +30,13 @@ void DBSQlite::close() {
     if (dbsqlite.isOpen()) {
         dbsqlite.close();
     }
-    QSqlDatabase::removeDatabase(dbsqlite.connectionName());
+    QSqlDatabase::removeDatabase(dbsqlite.connectionName());  // 使用动态连接名
 }
+
+QString DBSQlite::lastError() const {
+    return dbsqlite.lastError().text();
+}
+
 
 void DBSQlite::initializeDatabase() {
     QSqlQuery query;
@@ -44,21 +51,21 @@ void DBSQlite::initializeDatabase() {
 }
 
 
-
 bool DBSQlite::addFilePath(const QString &filePath, int &fileId) {
-    dbsqlite = QSqlDatabase::addDatabase("QSQLITE");
-    dbsqlite.setDatabaseName("file_metadata.db");
-
-    if (!open()) {
-        qDebug() << "数据库连接初始化失败";
+    if (!dbsqlite.isOpen()) {
+        qDebug() << "数据库未打开";
+        return false;
     }
+
+    qDebug() << "当前数据库驱动：" << dbsqlite.driverName() << dbsqlite.connectionName();
+
     QSqlQuery query;
     query.prepare("INSERT INTO FilePaths (file_path) VALUES (:filePath)");
     query.bindValue(":filePath", filePath);
 
     if (!query.exec()) {
         qDebug() << "插入文件路径失败：" << query.lastError().text();
-        return false;
+                                            return false;
     }
     fileId = query.lastInsertId().toInt();
     return true;

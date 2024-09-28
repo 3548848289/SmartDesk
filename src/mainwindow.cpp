@@ -5,6 +5,14 @@
 
 void MainWindow::initFunc()
 {
+    if (!dbSqlite->open()) {
+        QMessageBox::critical(this, "数据库错误", dbSqlite->lastError());
+    }
+
+    if (!dbMysql->open()) {
+        QMessageBox::critical(this, "数据库错误", dbMysql->lastError());
+    }
+
     widgetr = new QWidget(ui->combinedWidget);
     wfiletag = new WFileTag(dbSqlite, this);
     wonlinedoc = new WOnlineDoc(this);
@@ -50,9 +58,10 @@ void MainWindow::initSpli()
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow),
-    recentFilesManager(new RecentFilesManager(this)), dbSqlite(new DBSQlite("file_metadata.db")), dbMysql(new DBMySQL())
+    recentFilesManager(new RecentFilesManager(this)),
+    dbSqlite(new DBSQlite("file_metadata.db")), dbMysql(new DBMySQL())
 {
-
+    dbSqlite->open();
     ui->setupUi(this);
     setWindowTitle("QiHan在线文档");
     setWindowIcon(QIcon(":/usedimage/package.svg"));

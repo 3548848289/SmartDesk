@@ -24,6 +24,7 @@
 #include "Setting.h"
 #include "WidgetFunctional.h"
 #include "WSchedule.h"
+#include <QSqlError>
 
 
 

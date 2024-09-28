@@ -1,7 +1,7 @@
 #include "TagItemDelegate.h"
 
-TagItemDelegate::TagItemDelegate(QObject *parent, DBSQlite *dbManager, ServerManager *serverManager)
-    : QStyledItemDelegate(parent), dbsqlite(dbManager), serverManager(serverManager) {
+TagItemDelegate::TagItemDelegate(QObject *parent, DBSQlite *dbsqlite, ServerManager *serverManager)
+    : QStyledItemDelegate(parent), dbsqlite(dbsqlite), serverManager(serverManager) {
 
 
 }
@@ -68,6 +68,7 @@ bool TagItemDelegate::hasTags(const QString &filePath) const
     bool hasTags = dbsqlite && dbsqlite->hasTagsForFile(filePath);
     const_cast<TagItemDelegate*>(this)->m_tagsCache[filePath] = hasTags;
     return hasTags;
+
 }
 
 

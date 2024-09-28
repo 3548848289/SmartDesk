@@ -27,7 +27,7 @@ signals:
 
 public:
     mutable bool isButtonClicked = false;
-    explicit TagItemDelegate(QObject *parent = nullptr, DBSQlite *dbManager = nullptr, ServerManager *serverManager = nullptr);
+    explicit TagItemDelegate(QObject *parent = nullptr, DBSQlite *dbsqlite = nullptr, ServerManager *serverManager = nullptr);
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index);
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 

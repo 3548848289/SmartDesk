@@ -50,6 +50,7 @@ public:
     void recordSubmission(const QString &filePath);
     bool hasSubmissions(const QString& filePath) const;
 
+    QString lastError() const;
 
 private:
     QSqlDatabase dbsqlite;
