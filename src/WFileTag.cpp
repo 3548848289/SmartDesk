@@ -42,6 +42,7 @@ WFileTag::WFileTag(DBSQlite * dbsqlite, QWidget *parent)
 void WFileTag::listItemClicked(QListWidgetItem* item) {
     QString fileName = item->text();
     qDebug() << "Downloading file:" << fileName;
+
     serverManager->downloadFile(fileName);
 }
 

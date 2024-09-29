@@ -10,12 +10,10 @@ ServerManager::ServerManager(QObject *parent) : QObject(parent) {
 #include <QDebug>
 
 void ServerManager::commitToServer(const QModelIndex& index, QAbstractItemModel* model) {
+
     QString filePath = m_curdir + '/' + model->data(index).toString();
-
-    QString folderPath = QDir::currentPath() + "/uploads";
-    QDir().mkpath(folderPath);
-
-    QString targetPath = folderPath + '/' + QFileInfo(filePath).fileName();
+    QString targetPath = QDir(QDir::currentPath()).filePath("uploads/" + QFileInfo(filePath).fileName());
+    QDir().mkpath(QFileInfo(targetPath).absolutePath());
 
     if (QFile::exists(targetPath)) {
         QFile::remove(targetPath);
@@ -28,7 +26,7 @@ void ServerManager::commitToServer(const QModelIndex& index, QAbstractItemModel*
         return;
     }
 
-    QString httpUrl = "http://192.168.5.75:5000/upload/" + QFileInfo(targetPath).fileName();
+    QString httpUrl = "http://192.168.187.236:5000/upload/" + QFileInfo(targetPath).fileName();
     qDebug() << httpUrl;
 
     QNetworkRequest request{QUrl(httpUrl)};
@@ -43,7 +41,7 @@ void ServerManager::commitToServer(const QModelIndex& index, QAbstractItemModel*
     }
 
     QNetworkReply *reply = networkManager.put(request, file);
-    file->setParent(reply); // 将 file 的生命周期交给 reply
+    file->setParent(reply);
 
     connect(reply, &QNetworkReply::finished, this, [this, reply]() {
         onUploadFinished(reply);
@@ -65,7 +63,7 @@ void ServerManager::downloadFile(const QString& fileName) {
     dir.replace('.', '_');
     dir.remove(QRegularExpression("_[1-9]"));
 
-    QString url = QString("http://192.168.5.75:5000/download/%1/%2").arg(dir).arg(fileName);
+    QString url = QString("http://192.168.187.236:5000/download/%1/%2").arg(dir).arg(fileName);
     QNetworkRequest request{QUrl(url)};
     QNetworkReply* reply = networkManager.get(request);
 
@@ -79,7 +77,7 @@ void ServerManager::downloadFile(const QString& fileName) {
 
 void ServerManager::getCommitHistory(const QModelIndex& index, QAbstractItemModel* model) {
     // 使用 HTTP(S) 替代 FTP
-    QString httpUrl = "http://192.168.5.75:5000/download/";  // 需要替换成实际的 HTTP 服务器地址
+    QString httpUrl = "http://192.168.187.236:5000/download/";  // 需要替换成实际的 HTTP 服务器地址
     QNetworkRequest request{QUrl(httpUrl)};
 
     QNetworkReply *reply = networkManager.get(request);
@@ -116,7 +114,7 @@ void ServerManager::onDownloadFinished(QNetworkReply* reply, const QString& file
 
 
 void ServerManager::getFilesInDirectory(const QModelIndex& index, QAbstractItemModel* model) {
-    QString baseHttpUrl = "http://192.168.5.75:5000/list/";
+    QString baseHttpUrl = "http://192.168.187.236:5000/list/";
 
     QString dirname = model->data(index.sibling(index.row(), 0)).toString();
     dirname.replace('.', '_');

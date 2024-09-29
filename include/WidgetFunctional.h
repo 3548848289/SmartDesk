@@ -12,6 +12,9 @@
 #include "../manager/DBMySQL.h"
 #include "DInfo.h"
 
+#include <memory>
+#include <QDebug>
+
 namespace Ui {
 class WidgetFunctional;
 }
@@ -38,6 +41,8 @@ private slots:
     void on_pushButton_2_clicked();
     void handleLoginSuccess(const QString& username);
 
+
+    void on_pushButton_5_clicked();
 
 private:
     QButtonGroup* btnGroup;

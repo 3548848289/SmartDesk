@@ -42,8 +42,13 @@ set(PROJECT_SOURCES
     ${SRC_DIR}/FileItemWidget.cpp
     ${SRC_DIR}/DTag.cpp
     ${SRC_DIR}/DInfo.cpp
+    ${SRC_DIR}/DCommit.cpp
+    ${SRC_DIR}/DPull.cpp
+    ${SRC_DIR}/WFileHis.cpp
 
 )
+
+
 
 # 头文件列表
 set(PROJECT_HEADERS
@@ -64,6 +69,9 @@ set(PROJECT_HEADERS
     ${INCLUDE_DIR}/FileItemWidget.h
     ${INCLUDE_DIR}/DTag.h
     ${INCLUDE_DIR}/DInfo.h
+    ${INCLUDE_DIR}/DCommit.h
+    ${INCLUDE_DIR}/DPull.h
+    ${INCLUDE_DIR}/WFileHis.h
 )
 
 # UI 文件列表
@@ -80,6 +88,9 @@ set(PROJECT_UIS
     ${UI_DIR}/FileItemWidget.ui
     ${UI_DIR}/DTag.ui
     ${UI_DIR}/DInfo.ui
+    ${UI_DIR}/DCommit.ui
+    ${UI_DIR}/DPull.ui
+    ${UI_DIR}/WFileHis.ui
 )
 
 # 资源文件列表
@@ -95,6 +106,8 @@ set (MANAGER_RESOURCES
     ${MANAGER_DIR}/RecentFilesManager.cpp
     ${MANAGER_DIR}/ServerManager.h
     ${MANAGER_DIR}/ServerManager.cpp
+    ${MANAGER_DIR}/DBMySQL.h
+    ${MANAGER_DIR}/DBMySQL.cpp
 
 )
 
@@ -108,9 +121,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_RESOURCES}
         ${MANAGER_RESOURCES}
         manager/ipaddress.cpp manager/ipaddress.h
-        manager/DBMySQL.h manager/DBMySQL.cpp
-        manager/DBManagerFac.h
-
 
     )
 else()
@@ -131,15 +141,19 @@ else()
         )
     endif()
 endif()
-include_directories(
-    includeela
-)
+
 # 链接 Qt 库
 target_link_libraries(mytxt_cmake PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Sql
     Qt${QT_VERSION_MAJOR}::Network
 )
+
+
+# 链接 Qt Widgets 和 SimpleMail 库
+target_link_libraries(mytxt_cmake PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+z)
 
 # 包含头文件的目录
 target_include_directories(mytxt_cmake PRIVATE ${INCLUDE_DIR})
