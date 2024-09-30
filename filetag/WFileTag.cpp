@@ -2,7 +2,7 @@
 #include "ui_WFileTag.h"
 
 WFileTag::WFileTag(DBSQlite * dbsqlite, QWidget *parent)
-    : QWidget(parent), ui(new Ui::WFileTag),
+    : QWidget(parent), ui(new Ui::WFileTag), serverManager(ServerManager::instance()),
     fileSystemModel(new QFileSystemModel(this)), dbsqlite(dbsqlite)
 {
     ui->setupUi(this);
@@ -18,16 +18,12 @@ WFileTag::WFileTag(DBSQlite * dbsqlite, QWidget *parent)
 
     ui->pathLineEdit->setText(currentDir);
 
-    serverManager = new ServerManager(); // 初始化 ServerManager
     tagItemdelegate = new TagItemDelegate(this, dbsqlite, serverManager);
     ui->treeView->setItemDelegate(tagItemdelegate);
 
     connect(ui->pathLineEdit, &QLineEdit::returnPressed, this, &WFileTag::goButtonClicked);
     connect(ui->goButton, &QPushButton::clicked, this, &WFileTag::goButtonClicked);
     connect(ui->treeView, &QTreeView::clicked, this, &WFileTag::onItemClicked);
-
-    connect(serverManager, &ServerManager::onFilesListUpdated, this, &WFileTag::updateFileList);
-    connect(ui->listWidget, &QListWidget::itemClicked, this, &WFileTag::listItemClicked);
 
     connect(tagItemdelegate, &TagItemDelegate::tagbutClicked, this, [this](const QModelIndex &index) {
         qDebug() << "点击了添加标签按钮";
@@ -39,21 +35,7 @@ WFileTag::WFileTag(DBSQlite * dbsqlite, QWidget *parent)
 
 }
 
-void WFileTag::listItemClicked(QListWidgetItem* item) {
-    QString fileName = item->text();
-    qDebug() << "Downloading file:" << fileName;
 
-    serverManager->downloadFile(fileName);
-}
-
-
-void WFileTag::updateFileList(const QStringList& files) {
-    for (const QString& file : files) {
-        ui->listWidget->addItem(file);
-        qDebug() << "File in WFileTag:" << file;
-    }
-
-}
 
 void WFileTag::onItemClicked(const QModelIndex &index) {
     if (fileSystemModel->isDir(index) || tagItemdelegate->isButtonClicked) {
@@ -88,5 +70,4 @@ void WFileTag::goButtonClicked() {
 
 WFileTag::~WFileTag() {
     delete ui;
-//    delete dbsqlite;
 }

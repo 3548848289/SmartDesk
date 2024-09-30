@@ -10,21 +10,23 @@
 #include <QWidget>
 #include <QDockWidget>
 #include <QStackedWidget>
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlError"
 
 #include "TabAbstract.h"
-#include "../onlinedoc/WOnlineDoc.h"
-#include "../filetag/WFileTag.h"
+#include "RecentFilesManager.h"
 #include "TabHandleTXT.h"
 #include "TabHandleCSV.h"
+#include "WidgetFunctional.h"
 
-#include "RecentFilesManager.h"
+#include "../onlinedoc/WOnlineDoc.h"
+#include "../setting/Setting.h"
+#include "../schedule/WSchedule.h"
+#include "../filetag/WFileTag.h"
+#include "../filehis/WFileHis.h"
+
 #include "../manager/DBSQlite.h"
 #include "../manager/DBMySQL.h"
 
-#include "../setting/Setting.h"
-#include "WidgetFunctional.h"
-#include "../schedule/WSchedule.h"
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlError"
 
 
 
@@ -65,15 +67,16 @@ private:
 
     int currentIndex = 0;
     QTabWidget *tabWidget;
+    Ui::MainWindow *ui;
+    RecentFilesManager *recentFilesManager;
+    QWidget * widgetr;
 
     DBSQlite *dbSqlite;
     DBMySQL *dbMysql;
 
-    Ui::MainWindow *ui;
-    QWidget * widgetr;
-
-    RecentFilesManager *recentFilesManager;
     WFileTag * wfiletag;
+    WFileHis * wfilehis;
+
     WOnlineDoc* wonlinedoc;
     WidgetFunctional* widgetfunc;
     Setting * setiing;

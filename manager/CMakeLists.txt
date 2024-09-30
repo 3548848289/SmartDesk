@@ -7,6 +7,9 @@ set(MANAGER_SOURCES
     DBSQlite.h
     myJson.cpp
     myJson.h
+    ServerManager.cpp
+    ServerManager.h
+
 )
 
 # 查找 Qt 库

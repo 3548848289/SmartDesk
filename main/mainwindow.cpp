@@ -12,22 +12,30 @@ void MainWindow::initFunc()
     if (!dbMysql->open()) {
         QMessageBox::critical(this, "数据库错误", dbMysql->lastError());
     }
+    
+    widgetr = new QWidget(this);
+    QGridLayout *gridLayout = new QGridLayout(widgetr);
+    wfiletag = new WFileTag(dbSqlite, widgetr);
+    wfilehis = new WFileHis(widgetr);
+    QSplitter *splitter = new QSplitter(Qt::Vertical, widgetr);
+    splitter->addWidget(wfiletag);
+    splitter->addWidget(wfilehis);
+    splitter->setSizes(QList<int>() << 500 << 200);
+    gridLayout->addWidget(splitter, 0, 0);
+    widgetr->setLayout(gridLayout);
 
-    widgetr = new QWidget(ui->combinedWidget);
-    wfiletag = new WFileTag(dbSqlite, this);
     wonlinedoc = new WOnlineDoc(this);
     schedule = new WSchedule(dbSqlite, this);
     widgetfunc = new WidgetFunctional(dbMysql, this);
-
     ui->stackedWidget->setObjectName("pWidget");
     ui->stackedWidget->setStyleSheet("QWidget#pWidget { border: 1px solid rgb(28, 251, 255); }");
-    ui->stackedWidget->addWidget(wfiletag);
+    ui->stackedWidget->addWidget(widgetr);
     ui->stackedWidget->addWidget(wonlinedoc);
     ui->stackedWidget->addWidget(schedule);
-    ui->stackedWidget->setCurrentWidget(wfiletag);
+    ui->stackedWidget->setCurrentWidget(widgetr);
 
     connect(widgetfunc, &WidgetFunctional::showRU, this, [=] {
-        ui->stackedWidget->setCurrentWidget(wfiletag); });
+        ui->stackedWidget->setCurrentWidget(widgetr); });
 
     connect(widgetfunc, &WidgetFunctional::showRD, this, [=] {
         ui->stackedWidget->setCurrentWidget(wonlinedoc); });

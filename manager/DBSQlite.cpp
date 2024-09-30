@@ -52,6 +52,11 @@ void DBSQlite::initializeDatabase() {
                "(id INTEGER PRIMARY KEY, file_id INTEGER, annotation TEXT, FOREIGN KEY(file_id) REFERENCES FilePaths(id))");
     query.exec("CREATE TABLE IF NOT EXISTS Submissions "
                "(id INTEGER PRIMARY KEY AUTOINCREMENT, file_path TEXT NOT NULL, submit_time DATETIME DEFAULT CURRENT_TIMESTAMP)");
+    query.exec("CREATE TABLE IF NOT EXISTS SubmissionRecords "
+               "(id INTEGER PRIMARY KEY AUTOINCREMENT, submission_id INTEGER, "
+               "submit_time DATETIME DEFAULT CURRENT_TIMESTAMP, "
+               "FOREIGN KEY (submission_id) REFERENCES Submissions(id) ON DELETE CASCADE)");
+
 }
 
 
@@ -113,6 +118,9 @@ bool DBSQlite::getAnnotation(int fileId, QString &annotation) {
     }
     return false;
 }
+
+
+
 
 bool DBSQlite::saveTags(int fileId, const QStringList &tags) {
         QSqlQuery query(dbsqlite);
@@ -236,22 +244,81 @@ QStringList DBSQlite::searchFiles(const QString &keyword) {
     return filePaths;
 }
 
+//void DBSQlite::recordSubmission(const QString &filePath) {
+//    QSqlQuery query(dbsqlite);
+
+//    query.prepare("INSERT INTO Submissions (file_path) VALUES (:filePath)");
+//    query.bindValue(":filePath", filePath);
+
+//    if (!query.exec()) {
+//        qDebug() << "Insert failed:" << query.lastError();
+//    } else {
+//        qDebug() << "Submission recorded for:" << filePath;
+//    }
+//}
+
+//bool DBSQlite::hasSubmissions(const QString& filePath) const {
+//        QSqlQuery query(dbsqlite);
+
+//    query.prepare("SELECT COUNT(*) FROM Submissions WHERE file_path = :filePath");
+//    query.bindValue(":filePath", filePath);
+
+//    if (!query.exec()) {
+//        qDebug() << "DBSQlite::hasSubmissions Query failed:" << query.lastError();
+//        return false;
+//    }
+
+//    if (query.next()) {
+//        return query.value(0).toInt() > 0;
+//    }
+
+//    return false;
+//}
+
+
 void DBSQlite::recordSubmission(const QString &filePath) {
     QSqlQuery query(dbsqlite);
-
-    query.prepare("INSERT INTO Submissions (file_path) VALUES (:filePath)");
+    query.prepare("SELECT id FROM Submissions WHERE file_path = :filePath");
     query.bindValue(":filePath", filePath);
 
     if (!query.exec()) {
-        qDebug() << "Insert failed:" << query.lastError();
+        qDebug() << "Query failed:" << query.lastError();
+        return;
+    }
+
+    int submissionId;
+    if (query.next()) {
+        submissionId = query.value(0).toInt();
+        qDebug() << "Existing submission found with ID:" << submissionId;
     } else {
-        qDebug() << "Submission recorded for:" << filePath;
+        // 如果没有记录，则插入新记录
+        query.prepare("INSERT INTO Submissions (file_path) VALUES (:filePath)");
+        query.bindValue(":filePath", filePath);
+
+        if (!query.exec()) {
+            qDebug() << "Insert failed:" << query.lastError();
+            return;
+        }
+
+        submissionId = query.lastInsertId().toInt();
+        qDebug() << "New submission recorded with ID:" << submissionId;
+    }
+
+    QSqlQuery recordQuery(dbsqlite);
+    recordQuery.prepare("INSERT INTO SubmissionRecords (submission_id) VALUES (:submissionId)");
+    recordQuery.bindValue(":submissionId", submissionId);
+
+    if (!recordQuery.exec()) {
+        qDebug() << "Insert into SubmissionRecords failed:" << recordQuery.lastError();
+    } else {
+        qDebug() << "Record added for submission ID:" << submissionId;
     }
 }
 
-bool DBSQlite::hasSubmissions(const QString& filePath) const {
-        QSqlQuery query(dbsqlite);
 
+
+bool DBSQlite::hasSubmissions(const QString& filePath) const {
+    QSqlQuery query(dbsqlite);
     query.prepare("SELECT COUNT(*) FROM Submissions WHERE file_path = :filePath");
     query.bindValue(":filePath", filePath);
 
@@ -266,6 +333,7 @@ bool DBSQlite::hasSubmissions(const QString& filePath) const {
 
     return false;
 }
+
 
 
 QVector<QPair<QString, QDateTime>> DBSQlite::getSortByExp() {

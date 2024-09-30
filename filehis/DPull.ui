@@ -36,7 +36,7 @@
     <string>设置下载的文件名</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="dlBtn">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -62,7 +62,7 @@
     <string>上传时间</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="fastDlBtn">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -73,6 +73,29 @@
    </property>
    <property name="text">
     <string>快速下载</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_2">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>160</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>160</y>
+     <width>71</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>保存路径</string>
    </property>
   </widget>
  </widget>

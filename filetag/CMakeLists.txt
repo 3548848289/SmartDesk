@@ -3,7 +3,6 @@ set(FILETAG_SOURCES
     DCommit.cpp
     WFileTag.cpp
     TagItemDelegate.cpp
-    ServerManager.cpp
 )
 
 set(FILETAG_HEADERS
@@ -11,7 +10,7 @@ set(FILETAG_HEADERS
     DCommit.h
     WFileTag.h
     TagItemDelegate.h
-    ServerManager.h
+
 
 )
 

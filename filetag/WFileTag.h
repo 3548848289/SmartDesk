@@ -7,7 +7,7 @@
 #include <QListWidgetItem>
 #include "TagItemDelegate.h"
 #include "../manager/DBSQlite.h"
-#include "ServerManager.h"
+#include "../manager/ServerManager.h"
 
 namespace Ui {
 class WFileTag;
@@ -25,10 +25,6 @@ public:
 private slots:
     void onItemClicked(const QModelIndex &index);
     void goButtonClicked();
-
-    void updateFileList(const QStringList& files);
-
-    void listItemClicked(QListWidgetItem* item);
 
 
 signals:
