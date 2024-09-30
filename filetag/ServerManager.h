@@ -3,8 +3,13 @@
 #define SERVERMANAGER_H
 
 #include <QObject>
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
+
+
+#include "D:/QT6/6.6.0/mingw_64/include/QtNetwork/QNetworkAccessManager"
+#include "D:/QT6/6.6.0/mingw_64/include/QtNetwork/QNetworkReply"
+#include "D:/QT6/6.6.0/mingw_64/include/QtNetwork/QHttpMultiPart"
+#include "D:/QT6/6.6.0/mingw_64/include/QtNetwork/QNetworkRequest"
+
 #include <QModelIndex>
 #include <QAbstractItemModel>
 #include <QFile>
@@ -13,7 +18,6 @@
 #include <QFileInfo>
 #include <QString>
 #include <QDir>
-#include <QHttpMultiPart>
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonValue>

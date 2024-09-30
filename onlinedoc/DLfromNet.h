@@ -3,11 +3,12 @@
 
 #include <QFile>
 #include <QDir>
-#include <QNetworkReply>
 #include <QWidget>
 #include <QMessageBox>
 #include <QDesktopServices>
-#include <QNetworkAccessManager>
+
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QNetworkReply"
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QNetworkAccessManager"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {class DLfromNet;}

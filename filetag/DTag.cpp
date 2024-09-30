@@ -1,5 +1,5 @@
 #include "DTag.h"
-#include "../ui/ui_DTag.h"
+#include "ui_DTag.h"
 
 DTag::DTag(QWidget *parent) :
     QDialog(parent),

@@ -1,9 +1,9 @@
 #ifndef DBSQLITE_H
 #define DBSQLITE_H
 
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlDatabase"
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlQuery"
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlError"
 #include <QStringList>
 #include <QDateTime>
 #include <QDebug>
@@ -18,8 +18,9 @@ struct FilePathInfo {
 
 class DBSQlite {
 public:
-    static DBSQlite& instance(const QString &dbName = "file_metadata.db") {
-        static DBSQlite instance(dbName); // 懒汉式单例
+    static DBSQlite& instance(const QString &dbName = "D:/dbList/DataGrip 2023.2/myDgPro/mytxt/file_metadata.db") {
+        static DBSQlite instance(dbName);
+        instance.initializeDatabase();
         return instance;
     }
 

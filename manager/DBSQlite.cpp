@@ -41,7 +41,8 @@ QString DBSQlite::lastError() const {
 
 
 void DBSQlite::initializeDatabase() {
-        QSqlQuery query(dbsqlite);
+    qDebug() << "做表";
+    QSqlQuery query(dbsqlite);
 
     query.exec("CREATE TABLE IF NOT EXISTS FilePaths "
                "(id INTEGER PRIMARY KEY, file_path TEXT UNIQUE, expiration_date DATE)");
@@ -236,7 +237,7 @@ QStringList DBSQlite::searchFiles(const QString &keyword) {
 }
 
 void DBSQlite::recordSubmission(const QString &filePath) {
-        QSqlQuery query(dbsqlite);
+    QSqlQuery query(dbsqlite);
 
     query.prepare("INSERT INTO Submissions (file_path) VALUES (:filePath)");
     query.bindValue(":filePath", filePath);

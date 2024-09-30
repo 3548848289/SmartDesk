@@ -18,7 +18,7 @@
 #include <string>
 #include <QInputDialog>
 #include <QDebug>
-#include <QNetworkInterface>
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QNetworkInterface"
 
 class TabHandleCSV : public TabAbstract
 {

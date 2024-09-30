@@ -1,5 +1,5 @@
 #include "FileItemWidget.h"
-#include "../ui/ui_FileItemWidget.h"
+#include "ui_FileItemWidget.h"
 
 FileItemWidget::FileItemWidget(QWidget *parent) :
     QWidget(parent), ui(new Ui::FileItemWidget)

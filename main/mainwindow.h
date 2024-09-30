@@ -12,19 +12,19 @@
 #include <QStackedWidget>
 
 #include "TabAbstract.h"
-#include "WOnlineDoc.h"
-#include "WFileTag.h"
+#include "../onlinedoc/WOnlineDoc.h"
+#include "../filetag/WFileTag.h"
 #include "TabHandleTXT.h"
 #include "TabHandleCSV.h"
 
-#include "../manager/RecentFilesManager.h"
+#include "RecentFilesManager.h"
 #include "../manager/DBSQlite.h"
 #include "../manager/DBMySQL.h"
 
-#include "Setting.h"
+#include "../setting/Setting.h"
 #include "WidgetFunctional.h"
-#include "WSchedule.h"
-#include <QSqlError>
+#include "../schedule/WSchedule.h"
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlError"
 
 
 

@@ -1,13 +1,11 @@
 #include "ServerManager.h"
+#include <QDir>
+#include <QFile>
+#include <QDebug>
 
 ServerManager::ServerManager(QObject *parent) : QObject(parent) {
 
 }
-#include <QDir>
-#include <QFile>
-#include <QNetworkRequest>
-#include <QNetworkReply>
-#include <QDebug>
 
 void ServerManager::commitToServer(const QModelIndex& index, QAbstractItemModel* model) {
 

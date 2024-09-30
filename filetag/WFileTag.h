@@ -7,7 +7,8 @@
 #include <QListWidgetItem>
 #include "TagItemDelegate.h"
 #include "../manager/DBSQlite.h"
-#include "DPull.h"
+#include "ServerManager.h"
+
 namespace Ui {
 class WFileTag;
 }
@@ -46,7 +47,6 @@ private:
     QString curfilePath;
     QString currentDir;
 
-    DPull * dpull;
 };
 
 #endif // WFILETAG_H

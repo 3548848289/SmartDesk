@@ -1,5 +1,5 @@
 #include "WFileHis.h"
-#include "../ui/ui_WFileHis.h"
+#include "ui_WFileHis.h"
 
 WFileHis::WFileHis(QWidget *parent) :
     QWidget(parent),

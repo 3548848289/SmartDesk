@@ -1,13 +1,14 @@
 #ifndef DLOGIN_H
 #define DLOGIN_H
-
 #include <QDialog>
 #include <QImage>
 #include <QPixmap>
 #include <QMouseEvent>
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
+
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlDatabase"
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlQuery"
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlError"
+
 #include <QMessageBox>
 #include "../manager/DBMySQL.h"
 namespace Ui {

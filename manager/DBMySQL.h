@@ -1,9 +1,11 @@
 #ifndef DBMYSQL_H
 #define DBMYSQL_H
 
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
+
+
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlDatabase"
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlQuery"
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlError"
 #include <QString>
 #include <QVariant>
 #include <QDate>

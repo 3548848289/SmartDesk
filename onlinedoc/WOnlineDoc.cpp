@@ -1,5 +1,5 @@
 #include "WOnlineDoc.h"
-#include "../ui/ui_WOnlineDoc.h"
+#include "ui_WOnlineDoc.h"
 
 // 修改 WOnlineDoc 构造函数，确保内部控件的布局
 WOnlineDoc::WOnlineDoc(QWidget *parent) : QWidget(parent), ui(new Ui::WOnlineDoc)

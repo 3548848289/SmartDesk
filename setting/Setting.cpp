@@ -1,5 +1,5 @@
 #include "Setting.h"
-#include "../ui/ui_Setting.h"
+#include "ui_Setting.h"
 
 Setting::Setting(QWidget *parent) :QWidget(parent),ui(new Ui::Setting)
 {

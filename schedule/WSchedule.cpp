@@ -1,5 +1,5 @@
 #include "WSchedule.h"
-#include "../ui/ui_WSchedule.h"
+#include "ui_WSchedule.h"
 #include <QDesktopServices>
 #include <QUrl>
 #include <QListWidgetItem>

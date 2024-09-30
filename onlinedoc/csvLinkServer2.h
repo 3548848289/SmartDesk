@@ -1,15 +1,16 @@
 #ifndef csvLinkServer_H
 #define csvLinkServer_H
 
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QTcpSocket"
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QHostAddress"
+#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QNetworkProxy"
 #include <QWidget>
-#include <QTcpSocket>
 #include <QMessageBox>
-#include <QHostAddress>
-#include <QNetworkProxy>
+
 #include <QJsonObject>
 #include <QJsonDocument>
 
-#include "TabHandleCSV.h"
+#include "../main/TabHandleCSV.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class csvLinkServer2; }
 QT_END_NAMESPACE

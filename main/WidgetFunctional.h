@@ -8,9 +8,9 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QButtonGroup>
-#include "DLogin.h"
+#include "../userinfo/DLogin.h"
 #include "../manager/DBMySQL.h"
-#include "DInfo.h"
+#include "../userinfo/DInfo.h"
 
 #include <memory>
 #include <QDebug>

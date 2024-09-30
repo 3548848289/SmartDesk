@@ -12,7 +12,7 @@
 #include <QAction>
 #include <QMap>
 #include "../manager/DBSQlite.h"
-#include "../manager/ServerManager.h"
+#include "ServerManager.h"
 
 #include "DTag.h"
 class TagItemDelegate : public QStyledItemDelegate

@@ -1,5 +1,5 @@
 #include "csvLinkServer2.h"
-#include "../ui/ui_csvLinkServer2.h"
+#include "ui_csvLinkServer2.h"
 #include "../manager/myJson.h"
 #include "EditedLog.h"
 

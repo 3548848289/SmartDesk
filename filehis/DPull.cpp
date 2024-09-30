@@ -1,5 +1,5 @@
 #include "DPull.h"
-#include "../ui/ui_DPull.h"
+#include "ui_DPull.h"
 
 DPull::DPull(QWidget *parent) :
     QDialog(parent),

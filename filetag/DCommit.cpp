@@ -1,5 +1,5 @@
 #include "DCommit.h"
-#include "../ui/ui_DCommit.h"
+#include "ui_DCommit.h"
 
 DCommit::DCommit(QWidget *parent) :
     QDialog(parent),
