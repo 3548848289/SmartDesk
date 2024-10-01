@@ -18,7 +18,6 @@
 #define SENDEMAIL_H
 
 #include "SimpleMail"
-
 #include <QSettings>
 #include <QWidget>
 

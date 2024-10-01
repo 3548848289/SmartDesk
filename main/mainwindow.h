@@ -10,7 +10,6 @@
 #include <QWidget>
 #include <QDockWidget>
 #include <QStackedWidget>
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlError"
 
 #include "TabAbstract.h"
 #include "RecentFilesManager.h"
@@ -26,9 +25,7 @@
 
 #include "../manager/DBSQlite.h"
 #include "../manager/DBMySQL.h"
-#include "sendemail.h"
-
-
+#include "../email/sendemail.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -62,6 +59,8 @@ private slots:
     void openFile(const QString &filePath);
     void on_actionshe_triggered();
     void showUserInfoDialog();
+    void receiveSendEmailForm(SendEmail *form);
+
 
 private:
 

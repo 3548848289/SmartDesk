@@ -15,10 +15,10 @@
 */
 
 #include "sendemail.h"
+#include "D:\QT6\Qt_pro\project\build-mytxt-Desktop_Qt_6_6_0_MinGW_64_bit-Debug\email\ui_sendemail.h"
 
 #include "server.h"
 #include "serverreply.h"
-#include "ui_sendemail.h"
 
 #include <QDebug>
 #include <QErrorMessage>
@@ -33,25 +33,34 @@ SendEmail::SendEmail(QWidget *parent)
     , ui(new Ui::SendEmail)
 {
 
-//    server->setHost("smtp.qq.com");
-//    server->setPort(465);
-//    server->setConnectionType(SimpleMail::Server::SslConnection);
-//    server->setUsername("3548848289@qq.com"); // 替换为您的邮箱
-//    server->setPassword("kxwkjvtmkggqchgg"); // 替换为您的密码
-
-//    SimpleMail::MimeMessage message;
-//    message.setSender(SimpleMail::EmailAddress("3548848289@qq.com", "李先生")); // 替换为您的姓名
 
 
     ui->setupUi(this);
 
-    ui->host->setText(
-        m_settings.value(QStringLiteral("host"), QStringLiteral("localhost")).toString());
-    ui->port->setValue(m_settings.value(QStringLiteral("port"), 25).toInt());
-    ui->username->setText(m_settings.value(QStringLiteral("username")).toString());
-    ui->password->setText(m_settings.value(QStringLiteral("password")).toString());
-    ui->security->setCurrentIndex(m_settings.value(QStringLiteral("ssl")).toInt());
-    ui->sender->setText(m_settings.value(QStringLiteral("sender")).toString());
+//    ui->host->setText(
+//        m_settings.value(QStringLiteral("host"), QStringLiteral("localhost")).toString());
+//    ui->port->setValue(m_settings.value(QStringLiteral("port"), 25).toInt());
+//    ui->username->setText(m_settings.value(QStringLiteral("username")).toString());
+//    ui->password->setText(m_settings.value(QStringLiteral("password")).toString());
+//    ui->security->setCurrentIndex(m_settings.value(QStringLiteral("ssl")).toInt());
+//    ui->sender->setText(m_settings.value(QStringLiteral("sender")).toString());
+
+
+    ui->host->setText("smtp.qq.com");
+    ui->port->setValue(465);
+    ui->username->setText("3548848289@qq.com");
+    ui->password->setText("kxwkjvtmkggqchgg");
+    ui->security->setCurrentIndex(1);
+    ui->sender->setText("李阳坚<3548848289@qq.com>");
+    ui->recipients->setText("Outlook <M3548848289@outlook.com>");
+    for (int i = 0; i < ui->gridLayout->count(); ++i) {
+        QLayoutItem *item = ui->gridLayout->itemAt(i);
+        if (item) {
+            QWidget *widget = item->widget();
+            if (widget)
+                widget->hide();
+        }
+    }
 }
 
 SendEmail::~SendEmail()
@@ -89,12 +98,12 @@ void SendEmail::on_sendEmail_clicked()
             std::make_shared<QFile>(ui->attachments->item(i)->text())));
     }
 
-    m_settings.setValue(QStringLiteral("host"), ui->host->text());
-    m_settings.setValue(QStringLiteral("port"), ui->port->value());
-    m_settings.setValue(QStringLiteral("username"), ui->username->text());
-    m_settings.setValue(QStringLiteral("password"), ui->password->text());
-    m_settings.setValue(QStringLiteral("ssl"), ui->security->currentIndex());
-    m_settings.setValue(QStringLiteral("sender"), ui->sender->text());
+//    m_settings.setValue(QStringLiteral("host"), ui->host->text());
+//    m_settings.setValue(QStringLiteral("port"), ui->port->value());
+//    m_settings.setValue(QStringLiteral("username"), ui->username->text());
+//    m_settings.setValue(QStringLiteral("password"), ui->password->text());
+//    m_settings.setValue(QStringLiteral("ssl"), ui->security->currentIndex());
+//    m_settings.setValue(QStringLiteral("sender"), ui->sender->text());
 
     sendMailAsync(message);
 }

@@ -21,7 +21,7 @@ add_subdirectory(schedule)
 add_subdirectory(setting)
 add_subdirectory(userinfo)
 add_subdirectory(main)
-#add_subdirectory(simple-mail)
+add_subdirectory(email)
 
 
 

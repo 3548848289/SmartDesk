@@ -42,6 +42,8 @@ void MainWindow::initFunc()
 
     connect(widgetfunc, &WidgetFunctional::showWSchedule, this, [=] {
         ui->stackedWidget->setCurrentWidget(schedule); });
+    connect(widgetfunc, &WidgetFunctional::sendEmailForm, this, &MainWindow::receiveSendEmailForm);
+
 
 }
 
@@ -87,15 +89,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         tabWidget->removeTab(index);
     });
 
-//    SendEmail *form = new SendEmail();  // 使用指针分配
 
-//    form->setWindowTitle(QLatin1String("SimpleMailQt - Demo 2"));
-
-//    form->show();
-
-//    qDebug() << "邮件发送完成";
-
-//    tabWidget->addTab(form, QLatin1String("邮件发送"));
 
 
     tabWidget->setStyleSheet(
@@ -132,6 +126,13 @@ void MainWindow::showUserInfoDialog() {
     } else {
         QMessageBox::warning(this, "警告", "未登录");
     }
+}
+
+void MainWindow::receiveSendEmailForm(SendEmail *form)
+{
+
+    tabWidget->addTab(form, QLatin1String("Email"));
+    form->show();
 }
 
 void MainWindow::on_actiontxt_file_triggered()

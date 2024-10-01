@@ -14,8 +14,7 @@
 
 #include <memory>
 #include <QDebug>
-
-#include "sendemail.h"
+#include "../email/sendemail.h"
 
 
 namespace Ui {
@@ -35,6 +34,8 @@ signals:
     void showRU();
     void showRD();
     void showWSchedule();
+    void sendEmailForm(SendEmail *form);
+
 private slots:
     void on_pushButton_1_clicked();
     void on_pushButton_3_clicked();
@@ -46,6 +47,8 @@ private slots:
 
 
     void on_pushButton_5_clicked();
+
+    void on_pushButton_7_clicked();
 
 private:
     QButtonGroup* btnGroup;

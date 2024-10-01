@@ -67,7 +67,7 @@ void WidgetFunctional::on_pushButton_3_clicked() {
     emit showRD();
 }
 
-void WidgetFunctional::on_pushButton_6_clicked()
+void WidgetFunctional::on_pushButton_7_clicked()
 {
     dlogin = new DLogin(dbMysql);
     connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
@@ -84,6 +84,25 @@ void WidgetFunctional::handleLoginSuccess(const QString& username) {
 
 
 void WidgetFunctional::on_pushButton_5_clicked()
+{
+    // 创建 SendEmail 窗口
+    SendEmail *form = new SendEmail();  // 使用指针分配
+
+    // 发送信号，将 form 传递给 MainWindow
+    emit sendEmailForm(form);
+
+
+}
+
+//    form->setWindowTitle(QLatin1String("SimpleMailQt - Demo 2"));
+
+//    form->show();
+
+//    qDebug() << "邮件发送完成";
+
+//    tabWidget->addTab(form, QLatin1String("邮件发送"));
+
+void WidgetFunctional::on_pushButton_6_clicked()
 {
 
 }

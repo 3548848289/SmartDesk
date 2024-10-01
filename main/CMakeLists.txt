@@ -21,16 +21,14 @@ qt_add_executable(mytxt_executable
     TabAbstract.h
     ../resources/res.qrc
 
-    sendemail.h
-    sendemail.cpp
-    sendemail.ui
+
 )
 
 target_include_directories(mytxt_executable PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-add_subdirectory(../simple-mail ${CMAKE_CURRENT_BINARY_DIR}/simple-mail)
+add_subdirectory(../email/simple-mail ${CMAKE_CURRENT_BINARY_DIR}/email/simple-mail)
 
 # 链接所有库
 target_link_libraries(mytxt_executable PRIVATE
@@ -42,6 +40,7 @@ target_link_libraries(mytxt_executable PRIVATE
     mytxt_schedule
     mytxt_setting
     mytxt_userinfo
+    email_lib
     SimpleMail::Core
 
 )
