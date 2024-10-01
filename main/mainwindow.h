@@ -26,7 +26,7 @@
 
 #include "../manager/DBSQlite.h"
 #include "../manager/DBMySQL.h"
-
+#include "sendemail.h"
 
 
 

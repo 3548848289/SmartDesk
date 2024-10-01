@@ -1,6 +1,6 @@
 #include "WidgetFunctional.h"
 #include "../ui/ui_WidgetFunctional.h"
-
+#include "SimpleMail"
 WidgetFunctional::WidgetFunctional(DBMySQL *dbInstance, QWidget *parent)
     : QWidget(parent), ui(new Ui::WidgetFunctional), dbMysql(dbInstance)
 {
@@ -85,38 +85,6 @@ void WidgetFunctional::handleLoginSuccess(const QString& username) {
 
 void WidgetFunctional::on_pushButton_5_clicked()
 {
-//    auto server = new SimpleMail::Server;
-
-//    // 使用 Gmail 的 SMTP 服务器（smtp.gmail.com，端口 465，SSL 连接）
-//    server->setHost("smtp.qq.com");
-//    server->setPort(465);
-//    server->setConnectionType(SimpleMail::Server::SslConnection);
-
-//    // 设置用户名（你的电子邮件地址）和 SMTP 认证密码
-//    server->setUsername("3548848289@qq.com");
-//    server->setPassword("gbwmwgxdepfvcjab");
-
-//    // 创建一个 MimeMessage 对象，即邮件本身
-//    SimpleMail::MimeMessage message;
-//    message.setSender(SimpleMail::EmailAddress("M3548848289@outlook.com", "李阳坚QQ"));
-//    message.addTo(SimpleMail::EmailAddress("李阳坚outlook"));
-//    message.setSubject("测试主题");
-
-//    // 创建一个 MimeText 对象
-//    auto text = std::make_shared<SimpleMail::MimeText>();
-
-//    // 向邮件中添加一些文本
-//    text->setText("你好,\n这是一封简单的邮件。\n");
-
-//    // 将其添加到邮件中
-//    message.addPart(text);
-
-//    // 发送邮件
-//    SimpleMail::ServerReply *reply = server->sendMail(message);
-//    QObject::connect(reply, &SimpleMail::ServerReply::finished, [reply] {
-//        qDebug() << "ServerReply 完成" << reply->error() << reply->responseText();
-//        reply->deleteLater();
-//    });
 
 }
 

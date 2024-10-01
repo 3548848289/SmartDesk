@@ -19,12 +19,18 @@ qt_add_executable(mytxt_executable
     TabHandleTXT.h
     WidgetFunctional.h
     TabAbstract.h
-    ../resources/res.qrc  # 确保路径正确
+    ../resources/res.qrc
+
+    sendemail.h
+    sendemail.cpp
+    sendemail.ui
 )
 
 target_include_directories(mytxt_executable PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
+
+add_subdirectory(../simple-mail ${CMAKE_CURRENT_BINARY_DIR}/simple-mail)
 
 # 链接所有库
 target_link_libraries(mytxt_executable PRIVATE
@@ -36,6 +42,8 @@ target_link_libraries(mytxt_executable PRIVATE
     mytxt_schedule
     mytxt_setting
     mytxt_userinfo
+    SimpleMail::Core
+
 )
 
 # 设置可执行文件的属性

@@ -86,6 +86,18 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(tabWidget, &QTabWidget::tabCloseRequested, this, [this](int index) {
         tabWidget->removeTab(index);
     });
+
+//    SendEmail *form = new SendEmail();  // 使用指针分配
+
+//    form->setWindowTitle(QLatin1String("SimpleMailQt - Demo 2"));
+
+//    form->show();
+
+//    qDebug() << "邮件发送完成";
+
+//    tabWidget->addTab(form, QLatin1String("邮件发送"));
+
+
     tabWidget->setStyleSheet(
         "QTabBar::tab {"
         "    background: #f0f0f0; color: #000000; padding: 5px;"

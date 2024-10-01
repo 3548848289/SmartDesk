@@ -15,6 +15,9 @@
 #include <memory>
 #include <QDebug>
 
+#include "sendemail.h"
+
+
 namespace Ui {
 class WidgetFunctional;
 }
