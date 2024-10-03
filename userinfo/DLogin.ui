@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog {
-    border: 2px solid #A7ECFF; 
+    border: 1px solid #D6D4D4; 
 	border-radius: 15px;
 }
 
@@ -91,6 +91,10 @@ QPushButton#login_pushButton{
         <property name="text">
          <string>退出登录</string>
         </property>
+        <property name="icon">
+         <iconset resource="../resources/res.qrc">
+          <normaloff>:/image/cross.svg</normaloff>:/image/cross.svg</iconset>
+        </property>
         <property name="iconSize">
          <size>
           <width>24</width>
@@ -121,7 +125,7 @@ QPushButton#login_pushButton{
         <property name="styleSheet">
          <string notr="true">QPushButton {
     color: #003366;
-    background-color: #00FEFF;  
+    background-color: #B5FFFA;  
     border: 1px solid #003366; 
     border-radius: 25px; 
     padding: 10px;  
@@ -181,7 +185,7 @@ QPushButton#login_pushButton{
             </property>
             <property name="font">
              <font>
-              <pointsize>13</pointsize>
+              <pointsize>11</pointsize>
              </font>
             </property>
             <property name="placeholderText">
@@ -199,7 +203,7 @@ QPushButton#login_pushButton{
             </property>
             <property name="font">
              <font>
-              <pointsize>13</pointsize>
+              <pointsize>11</pointsize>
              </font>
             </property>
             <property name="placeholderText">
@@ -267,6 +271,8 @@ QPushButton#login_pushButton{
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources/res.qrc"/>
+ </resources>
  <connections/>
 </ui>

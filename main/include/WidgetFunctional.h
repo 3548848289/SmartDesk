@@ -9,13 +9,13 @@
 #include <QVBoxLayout>
 #include <QButtonGroup>
 #include "../userinfo/DLogin.h"
-#include "../manager/DBMySQL.h"
+#include "../manager/include/DBMySQL.h"
 #include "../userinfo/DInfo.h"
 
 #include <memory>
 #include <QDebug>
-#include "../email/sendemail.h"
-
+#include "../../email/sendemail.h"
+//#include "../draw/mainwidget.h"
 
 namespace Ui {
 class WidgetFunctional;
@@ -31,10 +31,11 @@ public:
     DInfo* getDInfo();
 
 signals:
-    void showRU();
-    void showRD();
+    void showFiletag();
+    void showwOnlinedoc();
     void showWSchedule();
     void sendEmailForm(SendEmail *form);
+    void showDraw();
 
 private slots:
     void on_pushButton_1_clicked();
@@ -49,6 +50,8 @@ private slots:
     void on_pushButton_5_clicked();
 
     void on_pushButton_7_clicked();
+
+    void on_pushButton_4_clicked();
 
 private:
     QButtonGroup* btnGroup;

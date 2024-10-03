@@ -10,7 +10,7 @@
 #include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlError"
 
 #include <QMessageBox>
-#include "../manager/DBMySQL.h"
+#include "../manager/include/DBMySQL.h"
 namespace Ui {
 class DLogin;
 }

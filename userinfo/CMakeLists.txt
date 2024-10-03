@@ -13,10 +13,13 @@ set(USERINFO_UIS
     DLogin.ui
 )
 
+set(RESOURCE_FILES ../resources/res.qrc)
+
 qt_add_library(mytxt_userinfo STATIC
     ${USERINFO_SOURCES}
     ${USERINFO_HEADERS}
     ${USERINFO_UIS}
+    ${RESOURCE_FILES}
 )
 
 target_link_libraries(mytxt_userinfo PRIVATE

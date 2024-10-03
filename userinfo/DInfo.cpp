@@ -18,16 +18,14 @@ DInfo::DInfo(const QString& username, DBMySQL* dmMysql, QWidget* parent) :
 void DInfo::loadUserInfo() {
 
     QMap<QString, QVariant> userInfo = dmMysql->getUserInfo(username);
-
-    userInfo["avatar"] = QByteArray();
-
-    qDebug() << userInfo;
     ui->accountEdit->setText(userInfo["username"].toString());
+
     QByteArray avatarData = userInfo["avatar"].toByteArray();
     if (!avatarData.isEmpty()) {
         QImage image;
         if (image.loadFromData(avatarData)) {
-            ui->avatarLabel->setPixmap(QPixmap::fromImage(image));
+            storedAvatar = QPixmap::fromImage(image);
+            ui->avatarLabel->setPixmap(storedAvatar);
         } else {
             qDebug() << "Failed to load image from data.";
         }
@@ -35,8 +33,7 @@ void DInfo::loadUserInfo() {
         qDebug() << "Avatar data is empty.";
     }
 
-    QPixmap pixmap("D:\\文档\\image\\SunFlower.png");
-    ui->avatarLabel->setPixmap(pixmap);
+    ui->avatarLabel->setPixmap(storedAvatar);
     ui->avatarLabel->setScaledContents(true);
     ui->nameEdit->setText(userInfo["name"].toString());
     ui->mottoEdit->setText(userInfo["motto"].toString());
@@ -65,5 +62,10 @@ void DInfo::saveUserInfo() {
 DInfo::~DInfo()
 {
     delete ui;
+}
+
+QPixmap DInfo::getStoredAvatar() const
+{
+    return storedAvatar;
 }
 

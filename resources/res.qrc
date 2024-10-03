@@ -19,5 +19,6 @@
         <file>image/database_go.svg</file>
         <file>image/table_save.svg</file>
         <file>usedimage/history.svg</file>
+	<file>image/login.png</file>
     </qresource>
 </RCC>

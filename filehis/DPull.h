@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include <QString>
-#include "../manager/ServerManager.h"
+#include "../manager/include/ServerManager.h"
 
 namespace Ui {
 class DPull;

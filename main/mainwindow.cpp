@@ -1,18 +1,10 @@
-#include "mainwindow.h"
-#include "../ui/ui_mainwindow.h"
-#include <QSplitter>
+#include "./include/mainwindow.h"
+#include "ui/ui_mainwindow.h"
 
 
 void MainWindow::initFunc()
 {
-    if (!dbSqlite->open()) {
-        QMessageBox::critical(this, "数据库错误", dbSqlite->lastError());
-    }
 
-    if (!dbMysql->open()) {
-        QMessageBox::critical(this, "数据库错误", dbMysql->lastError());
-    }
-    
     widgetr = new QWidget(this);
     QGridLayout *gridLayout = new QGridLayout(widgetr);
     wfiletag = new WFileTag(dbSqlite, widgetr);
@@ -27,23 +19,36 @@ void MainWindow::initFunc()
     wonlinedoc = new WOnlineDoc(this);
     schedule = new WSchedule(dbSqlite, this);
     widgetfunc = new WidgetFunctional(dbMysql, this);
+    controlFrame = new ControlFrame(this);
+
     ui->stackedWidget->setObjectName("pWidget");
     ui->stackedWidget->setStyleSheet("QWidget#pWidget { border: 1px solid rgb(28, 251, 255); }");
     ui->stackedWidget->addWidget(widgetr);
     ui->stackedWidget->addWidget(wonlinedoc);
     ui->stackedWidget->addWidget(schedule);
+    ui->stackedWidget->addWidget(controlFrame);
     ui->stackedWidget->setCurrentWidget(widgetr);
 
-    connect(widgetfunc, &WidgetFunctional::showRU, this, [=] {
+    connect(widgetfunc, &WidgetFunctional::showFiletag, this, [=] {
         ui->stackedWidget->setCurrentWidget(widgetr); });
 
-    connect(widgetfunc, &WidgetFunctional::showRD, this, [=] {
+    connect(widgetfunc, &WidgetFunctional::showwOnlinedoc, this, [=] {
         ui->stackedWidget->setCurrentWidget(wonlinedoc); });
 
     connect(widgetfunc, &WidgetFunctional::showWSchedule, this, [=] {
         ui->stackedWidget->setCurrentWidget(schedule); });
     connect(widgetfunc, &WidgetFunctional::sendEmailForm, this, &MainWindow::receiveSendEmailForm);
 
+    connect(widgetfunc, &WidgetFunctional::showDraw, this, [=] {
+        ui->stackedWidget->setCurrentWidget(controlFrame);
+        QWidget *currentWidget = tabWidget->currentWidget();
+        TabHandleIMG *tabHandleImg = qobject_cast<TabHandleIMG*>(currentWidget);
+        if (tabHandleImg) {
+            tabHandleImg->showControlFrame(controlFrame);
+        } else {
+            qWarning() << "Current widget is not a TabHandleIMG instance!";
+        }
+    });
 
 }
 
@@ -66,18 +71,16 @@ void MainWindow::initSpli()
     horizontalSplitter->setSizes(sizes);
 }
 
-
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow),
-    recentFilesManager(new RecentFilesManager(this)),
-    dbSqlite(&DBSQlite::instance()), dbMysql(&DBMySQL::instance())
+void MainWindow::initSmal()
 {
-    dbSqlite->open();
-    ui->setupUi(this);
-    setWindowTitle("QiHan在线文档");
-    setWindowIcon(QIcon(":/usedimage/package.svg"));
+    loginButton = new QPushButton(this);
 
-    QPushButton *loginButton = new QPushButton("Login", ui->menubar);
-    loginButton->setFixedSize(80, 30);
+    loginButton->setFixedSize(30,30);
+    loginButton->setStyleSheet("border: 2px solid #C7FFEE; border-radius: 15px;");
+
+    loginButton->setIcon(QIcon(":/image/login.png"));
+    loginButton->setIconSize(QSize(30,30));
+
     ui->menubar->setCornerWidget(loginButton, Qt::TopRightCorner);
     connect(loginButton, &QPushButton::clicked, this, &MainWindow::showUserInfoDialog);
 
@@ -89,9 +92,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         tabWidget->removeTab(index);
     });
 
-
-
-
     tabWidget->setStyleSheet(
         "QTabBar::tab {"
         "    background: #f0f0f0; color: #000000; padding: 5px;"
@@ -99,10 +99,29 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         "QTabBar::tab:selected {"
         "    background: #ffffff; color: #3598db; border-bottom: none; }"
         );
+}
+
+
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow),
+    recentFilesManager(new RecentFilesManager(this)),
+    dbSqlite(&DBSQlite::instance()), dbMysql(&DBMySQL::instance())
+{
+    dbSqlite->open();
+    ui->setupUi(this);
+    setWindowTitle("QiHan在线文档");
+    setWindowIcon(QIcon(":/usedimage/package.svg"));
+    ui->menubar->setStyleSheet(
+        "QMenuBar::item {"
+        "    text-align: center;"
+        "}"
+    );
+
+    initSmal();
     initFunc();
     initSpli();
 
-    connect(tabWidget, &QTabWidget::currentChanged, this, [this](int index) {currentIndex = index;});
+    connect(tabWidget, &QTabWidget::currentChanged, this, &MainWindow::onTabChanged);
+
     connect(wonlinedoc->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
     connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
     connect(wfiletag, &WFileTag::fileOpened, this, &MainWindow::openFile);
@@ -111,17 +130,25 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     recentFilesManager->populateRecentFilesMenu(ui->recentFile);
 }
 
-
+void MainWindow::onTabChanged(int index) {
+    qDebug() << "MainWindow::MainWindow" << index;
+    currentIndex = index;
+}
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-// 槽函数实现
 void MainWindow::showUserInfoDialog() {
     DInfo *dinfo = widgetfunc->getDInfo();
+
     if (dinfo) {
+        QPixmap avatar = dinfo->getStoredAvatar();
+        if (!avatar.isNull()) {
+            loginButton->setIcon(QIcon(avatar.scaled(30, 30, Qt::KeepAspectRatio, Qt::SmoothTransformation)));
+            loginButton->setIconSize(QSize(15, 15));
+        }
         dinfo->exec();
     } else {
         QMessageBox::warning(this, "警告", "未登录");
@@ -130,9 +157,10 @@ void MainWindow::showUserInfoDialog() {
 
 void MainWindow::receiveSendEmailForm(SendEmail *form)
 {
-
-    tabWidget->addTab(form, QLatin1String("Email"));
+    int newIndex = tabWidget->addTab(form, QLatin1String("Email"));
     form->show();
+    tabWidget->setCurrentIndex(newIndex);
+    ui->stackedWidget->setCurrentWidget(widgetr);
 }
 
 void MainWindow::on_actiontxt_file_triggered()
@@ -202,20 +230,44 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
     if (fileName.endsWith(".txt", Qt::CaseInsensitive) ||
         fileName.endsWith(".cpp", Qt::CaseInsensitive) ||
         fileName.endsWith(".h", Qt::CaseInsensitive))
+    {
         return new TextTab();
+    }
     else if (fileName.endsWith(".csv", Qt::CaseInsensitive))
+    {
         return new TabHandleCSV();
+    }
+    else if (fileName.endsWith(".png", Qt::CaseInsensitive) ||
+             fileName.endsWith(".jpg", Qt::CaseInsensitive) ||
+             fileName.endsWith(".jpeg", Qt::CaseInsensitive) ||
+             fileName.endsWith(".bmp", Qt::CaseInsensitive))
+    {
+        return new TabHandleIMG();
+    }
     else
+    {
+        qDebug() << "Unsupported file type:" << fileName;
         return nullptr;
+    }
 }
 
 void MainWindow::on_actionclose_triggered()
 {
-    if (currentIndex >= 0)
-        tabWidget->removeTab(currentIndex);
-    else
+    if (currentIndex >= 0) {
+        QWidget *widget = tabWidget->widget(currentIndex);
+        if (widget) {
+            if (qobject_cast<SendEmail*>(widget)) {
+                delete widget;
+                qDebug() << "MainWindow::MainWindow:析构 SendEmail*";
+            }
+            else
+                tabWidget->removeTab(currentIndex);
+        }
+    } else {
         qDebug() << "No tab to close.";
+    }
 }
+
 
 void MainWindow::on_actiondownload_triggered()
 {
@@ -239,15 +291,6 @@ void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &f
 
 }
 
-void MainWindow::on_actionadd_triggered()
-{
-    handleTableTabAction(&TabHandleCSV::addRow, tr("Current tab is not a table."));
-}
-
-void MainWindow::on_actionsub_triggered()
-{
-    handleTableTabAction(&TabHandleCSV::addColumn, tr("Current tab is not a table."));
-}
 
 void MainWindow::handleFilePathSent()
 {
@@ -259,15 +302,6 @@ void MainWindow::handleFilePathSent()
     wonlinedoc->m_csvLinkServer->bindTab(currentTab);
 }
 
-void MainWindow::on_actiondel_row_triggered()
-{
-    handleTableTabAction(&TabHandleCSV::deleteRow, tr("Current tab is not a table."));
-}
-
-void MainWindow::on_actiondel_col_triggered()
-{
-    handleTableTabAction(&TabHandleCSV::deleteColumn, tr("Current tab is not a table."));
-}
 
 template<typename T>
 T* MainWindow::getCurrentTab()
@@ -297,3 +331,26 @@ void MainWindow::on_actionshe_triggered()
     setiing = new Setting();
     setiing->show();
 }
+
+
+
+void MainWindow::on_actionadd_triggered()
+{
+    handleTableTabAction(&TabHandleCSV::addRow, tr("Current tab is not a table."));
+}
+
+void MainWindow::on_actionsub_triggered()
+{
+    handleTableTabAction(&TabHandleCSV::addColumn, tr("Current tab is not a table."));
+}
+
+void MainWindow::on_actiondel_row_triggered()
+{
+    handleTableTabAction(&TabHandleCSV::deleteRow, tr("Current tab is not a table."));
+}
+
+void MainWindow::on_actiondel_col_triggered()
+{
+    handleTableTabAction(&TabHandleCSV::deleteColumn, tr("Current tab is not a table."));
+}
+

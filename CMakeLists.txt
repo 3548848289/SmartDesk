@@ -22,6 +22,7 @@ add_subdirectory(setting)
 add_subdirectory(userinfo)
 add_subdirectory(main)
 add_subdirectory(email)
+add_subdirectory(draw)
 
 
 

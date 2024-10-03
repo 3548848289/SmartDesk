@@ -5,7 +5,7 @@
 #include <QListWidgetItem>
 
 #include "DPull.h"
-#include "../manager/ServerManager.h"
+#include "../manager/include/ServerManager.h"
 
 namespace Ui {
 class WFileHis;

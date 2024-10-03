@@ -1,6 +1,64 @@
-#include "WidgetFunctional.h"
-#include "../ui/ui_WidgetFunctional.h"
+#include "./include/WidgetFunctional.h"
+#include "ui/ui_WidgetFunctional.h"
 #include "SimpleMail"
+
+WidgetFunctional::~WidgetFunctional()
+{
+    delete ui;
+}
+
+DInfo* WidgetFunctional::getDInfo() {
+    return dinfo;
+}
+
+void WidgetFunctional::on_pushButton_1_clicked() {
+    emit showFiletag();
+}
+
+void WidgetFunctional::on_pushButton_2_clicked()
+{
+    emit showWSchedule();
+
+}
+
+
+void WidgetFunctional::on_pushButton_3_clicked() {
+    emit showwOnlinedoc();
+}
+
+
+void WidgetFunctional::on_pushButton_4_clicked()
+{
+    emit showDraw();
+}
+
+void WidgetFunctional::on_pushButton_5_clicked()
+{
+    SendEmail *form = new SendEmail();
+    emit sendEmailForm(form);
+}
+
+void WidgetFunctional::on_pushButton_6_clicked()
+{
+
+}
+
+void WidgetFunctional::on_pushButton_7_clicked()
+{
+    dlogin = new DLogin(dbMysql);
+    connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
+    dlogin->exec();
+
+}
+
+void WidgetFunctional::handleLoginSuccess(const QString& username) {
+    qDebug() << "Username in handleLoginSuccess:" << username;
+    dinfo = new DInfo(username, dbMysql, this);
+}
+
+
+
+
 WidgetFunctional::WidgetFunctional(DBMySQL *dbInstance, QWidget *parent)
     : QWidget(parent), ui(new Ui::WidgetFunctional), dbMysql(dbInstance)
 {
@@ -42,68 +100,3 @@ WidgetFunctional::WidgetFunctional(DBMySQL *dbInstance, QWidget *parent)
                         "{background:transparent;border:none;   border-bottom:3px solid #7598db;color:#7598db;}");
 
 }
-
-WidgetFunctional::~WidgetFunctional()
-{
-    delete ui;
-}
-
-DInfo* WidgetFunctional::getDInfo() {
-    return dinfo;
-}
-
-void WidgetFunctional::on_pushButton_1_clicked() {
-    emit showRU();
-}
-
-void WidgetFunctional::on_pushButton_2_clicked()
-{
-    emit showWSchedule();
-
-}
-
-
-void WidgetFunctional::on_pushButton_3_clicked() {
-    emit showRD();
-}
-
-void WidgetFunctional::on_pushButton_7_clicked()
-{
-    dlogin = new DLogin(dbMysql);
-    connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
-    dlogin->exec();
-
-}
-
-
-void WidgetFunctional::handleLoginSuccess(const QString& username) {
-    qDebug() << "Username in handleLoginSuccess:" << username;
-
-    dinfo = new DInfo(username, dbMysql, this);
-}
-
-
-void WidgetFunctional::on_pushButton_5_clicked()
-{
-    // 创建 SendEmail 窗口
-    SendEmail *form = new SendEmail();  // 使用指针分配
-
-    // 发送信号，将 form 传递给 MainWindow
-    emit sendEmailForm(form);
-
-
-}
-
-//    form->setWindowTitle(QLatin1String("SimpleMailQt - Demo 2"));
-
-//    form->show();
-
-//    qDebug() << "邮件发送完成";
-
-//    tabWidget->addTab(form, QLatin1String("邮件发送"));
-
-void WidgetFunctional::on_pushButton_6_clicked()
-{
-
-}
-

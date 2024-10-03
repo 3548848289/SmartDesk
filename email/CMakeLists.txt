@@ -20,27 +20,27 @@ set(HEADERS
 qt6_wrap_ui(UI_SOURCES sendemail.ui)
 
 # 添加库文件（静态或共享库）
-qt_add_library(email_lib
+qt_add_library(mytxt_email
     ${SOURCES}
     ${HEADERS}
     ${UI_SOURCES}  # 包含处理后的 UI 源代码
 )
 
 # 包含目录
-target_include_directories(email_lib PRIVATE
+target_include_directories(mytxt_email PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 # 链接 Qt 库
-target_link_libraries(email_lib PRIVATE
+target_link_libraries(mytxt_email PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
 )
 
 # 设置库的属性
-set_target_properties(email_lib PROPERTIES
+set_target_properties(mytxt_email PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
 )
 
 # 链接 SimpleMail 库
-target_link_libraries(email_lib PRIVATE SimpleMail::Core)
+target_link_libraries(mytxt_email PRIVATE SimpleMail::Core)

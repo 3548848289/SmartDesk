@@ -30,4 +30,7 @@ target_link_libraries(mytxt_onlinedoc PRIVATE
 
 )
 
-target_include_directories(mytxt_onlinedoc PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(mytxt_onlinedoc PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+
+)

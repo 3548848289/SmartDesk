@@ -9,8 +9,9 @@
 
 #include <QJsonObject>
 #include <QJsonDocument>
+#include "../manager/include/myJson.h"
 
-#include "../main/TabHandleCSV.h"
+#include "../main/include/TabHandleCSV.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class csvLinkServer2; }
 QT_END_NAMESPACE

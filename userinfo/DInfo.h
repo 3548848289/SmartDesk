@@ -12,7 +12,7 @@
 #include <QDate>
 #include <QMessageBox>
 
-#include "../manager/DBMySQL.h"
+#include "../manager/include/DBMySQL.h"
 namespace Ui {
 class DInfo;
 }
@@ -25,13 +25,13 @@ public:
     explicit DInfo(const QString& username, DBMySQL* dmMysql, QWidget* parent);
 
     ~DInfo();
+    QPixmap getStoredAvatar() const;
 
 
 private:
     QString username;
     DBMySQL* dmMysql;
-
-
+    QPixmap storedAvatar;
     void setupUi();
 
     void loadUserInfo();

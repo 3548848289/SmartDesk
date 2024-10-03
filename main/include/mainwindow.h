@@ -10,23 +10,25 @@
 #include <QWidget>
 #include <QDockWidget>
 #include <QStackedWidget>
+#include <QSplitter>
 
 #include "TabAbstract.h"
 #include "RecentFilesManager.h"
 #include "TabHandleTXT.h"
 #include "TabHandleCSV.h"
+#include "../../draw/TabHandleIMG.h"
 #include "WidgetFunctional.h"
 
-#include "../onlinedoc/WOnlineDoc.h"
-#include "../setting/Setting.h"
-#include "../schedule/WSchedule.h"
-#include "../filetag/WFileTag.h"
-#include "../filehis/WFileHis.h"
+#include "../../onlinedoc/WOnlineDoc.h"
+#include "../../setting/Setting.h"
+#include "../../schedule/WSchedule.h"
+#include "../../filetag/WFileTag.h"
+#include "../../filehis/WFileHis.h"
 
-#include "../manager/DBSQlite.h"
-#include "../manager/DBMySQL.h"
-#include "../email/sendemail.h"
-
+#include "../manager/include/DBSQlite.h"
+#include "../manager/include/DBMySQL.h"
+#include "../../email/sendemail.h"
+#include "../../draw/ControlFrame.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -41,6 +43,9 @@ public:
 
 signals:
     void showUserInfo();
+
+public slots:
+    void onTabChanged(int index);
 
 private slots:
     void on_actionopen_triggered();
@@ -61,10 +66,10 @@ private slots:
     void showUserInfoDialog();
     void receiveSendEmailForm(SendEmail *form);
 
-
 private:
 
     int currentIndex = 0;
+    QPushButton *loginButton;
     QTabWidget *tabWidget;
     Ui::MainWindow *ui;
     RecentFilesManager *recentFilesManager;
@@ -80,9 +85,12 @@ private:
     WidgetFunctional* widgetfunc;
     Setting * setiing;
     WSchedule * schedule;
+    ControlFrame *controlFrame;
+
 
     void initFunc();
     void initSpli();
+    void initSmal();
 
 
     void createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName);

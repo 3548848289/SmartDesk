@@ -2,13 +2,14 @@
 
 set(MANAGER_SOURCES
     DBMySQL.cpp
-    DBMySQL.h
     DBSQlite.cpp
-    DBSQlite.h
     myJson.cpp
-    myJson.h
     ServerManager.cpp
-    ServerManager.h
+
+    include/myJson.h
+    include/DBMySQL.h
+    include/DBSQlite.h
+    include/ServerManager.h
 
 )
 
@@ -29,4 +30,8 @@ target_link_libraries(mytxt_manager PRIVATE
 )
 
 # 包含头文件目录
-target_include_directories(mytxt_manager PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(mytxt_manager PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}
+
+)

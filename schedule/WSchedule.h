@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QListWidget>
-#include "../manager/DBSQlite.h"
+#include "../manager/include/DBSQlite.h"
 
 class DatabaseManager;
 
