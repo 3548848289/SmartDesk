@@ -3,9 +3,12 @@
 #include <QFile>
 #include <QDebug>
 
-void ServerManager::commitToServer(const QModelIndex& index, QAbstractItemModel* model) {
-
-    QString filePath = m_curdir + '/' + model->data(index).toString();
+void ServerManager::commitToServer(const QString& fileName, const QString& tag) {
+    QString filePath = m_curdir + '/' + fileName;
+    if(tag == "online/")
+    {
+        filePath = filePath.mid(1);
+    }
     QString targetPath = QDir(QDir::currentPath()).filePath("uploads/" + QFileInfo(filePath).fileName());
     QDir().mkpath(QFileInfo(targetPath).absolutePath());
 
@@ -15,12 +18,12 @@ void ServerManager::commitToServer(const QModelIndex& index, QAbstractItemModel*
     if (QFile::copy(filePath, targetPath)) {
         qDebug() << "File copied successfully to:" << targetPath;
     } else {
-        qDebug() << "Failed to copy file:" << filePath;
+        qDebug() << "Source file path, Failed to copy file:" << filePath;
         emit commitFailed();
         return;
     }
 
-    QString httpUrl = "http://192.168.113.236:5000/upload/" + QFileInfo(targetPath).fileName();
+    QString httpUrl = "http://192.168.240.236:5000/" + tag + QFileInfo(targetPath).fileName();
     qDebug() << httpUrl;
 
     QNetworkRequest request{QUrl(httpUrl)};
@@ -57,7 +60,7 @@ void ServerManager::downloadFile(const QString& fileName) {
     dir.replace('.', '_');
     dir.remove(QRegularExpression("_[1-9]"));
 
-    QString url = QString("http://192.168.113.236:5000/download/%1/%2").arg(dir).arg(fileName);
+    QString url = QString("http://192.168.240.236:5000/download/%1/%2").arg(dir).arg(fileName);
     QNetworkRequest request{QUrl(url)};
     QNetworkReply* reply = networkManager.get(request);
 
@@ -71,7 +74,7 @@ void ServerManager::downloadFile(const QString& fileName) {
 
 void ServerManager::getCommitHistory(const QModelIndex& index, QAbstractItemModel* model) {
     // 使用 HTTP(S) 替代 FTP
-    QString httpUrl = "http://192.168.113.236:5000/download/";  // 需要替换成实际的 HTTP 服务器地址
+    QString httpUrl = "http://192.168.240.236:5000/download/";  // 需要替换成实际的 HTTP 服务器地址
     QNetworkRequest request{QUrl(httpUrl)};
 
     QNetworkReply *reply = networkManager.get(request);
@@ -108,7 +111,7 @@ void ServerManager::onDownloadFinished(QNetworkReply* reply, const QString& file
 
 
 void ServerManager::getFilesInDirectory(const QModelIndex& index, QAbstractItemModel* model) {
-    QString baseHttpUrl = "http://192.168.113.236:5000/list/";
+    QString baseHttpUrl = "http://192.168.240.236:5000/list/";
 
     QString dirname = model->data(index.sibling(index.row(), 0)).toString();
     dirname.replace('.', '_');

@@ -1,4 +1,4 @@
-#include "TagItemDelegate.h"
+#include "./include/TagItemDelegate.h"
 
 TagItemDelegate::TagItemDelegate(QObject *parent, DBSQlite *dbsqlite, ServerManager *serverManager)
     : QStyledItemDelegate(parent), dbsqlite(dbsqlite), serverManager(serverManager) {
@@ -104,8 +104,9 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     });
 
     connect(commit, &QAction::triggered, [this, index, model]() {
-        serverManager->commitToServer(index, model);
-        QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();;
+        QString fileName = model->data(index).toString();
+        serverManager->commitToServer(fileName, "upload/");
+        QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
         dbsqlite->recordSubmission(filePath);
     });
 

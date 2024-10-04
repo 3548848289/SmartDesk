@@ -18,7 +18,6 @@ qt_add_executable(mytxt_executable
     TabHandleCSV.cpp
     TabHandleTXT.cpp
     WidgetFunctional.cpp
-#    TabHandleIMG.cpp
 
     include/mainwindow.h
     include/RecentFilesManager.h
@@ -26,8 +25,6 @@ qt_add_executable(mytxt_executable
     include/TabHandleTXT.h
     include/WidgetFunctional.h
     include/TabAbstract.h
-#    include/TabHandleIMG.h
-
     ${UI_FILES}
     ../resources/res.qrc
 

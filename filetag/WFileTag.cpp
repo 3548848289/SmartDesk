@@ -1,5 +1,5 @@
-#include "WFileTag.h"
-#include "ui_WFileTag.h"
+#include "./include/WFileTag.h"
+#include "ui/ui_WFileTag.h"
 
 WFileTag::WFileTag(DBSQlite * dbsqlite, QWidget *parent)
     : QWidget(parent), ui(new Ui::WFileTag), serverManager(ServerManager::instance()),

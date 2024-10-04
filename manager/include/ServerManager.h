@@ -38,7 +38,7 @@ public:
     ServerManager(const ServerManager&) = delete;
     ServerManager& operator=(const ServerManager&) = delete;
 
-    void commitToServer(const QModelIndex& index, QAbstractItemModel* model);
+    void commitToServer(const QString& fileName, const QString& tag);
     void getCommitHistory(const QModelIndex& index, QAbstractItemModel* model);
     void setCurdir(const QString& curdir);
     void downloadFile(const QString& fileName);

@@ -229,6 +229,7 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
 {
     if (fileName.endsWith(".txt", Qt::CaseInsensitive) ||
         fileName.endsWith(".cpp", Qt::CaseInsensitive) ||
+        fileName.endsWith(".qrc", Qt::CaseInsensitive) ||
         fileName.endsWith(".h", Qt::CaseInsensitive))
     {
         return new TextTab();

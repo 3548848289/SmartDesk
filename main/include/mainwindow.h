@@ -19,10 +19,10 @@
 #include "../../draw/TabHandleIMG.h"
 #include "WidgetFunctional.h"
 
-#include "../../onlinedoc/WOnlineDoc.h"
+#include "../../onlinedoc/include/WOnlineDoc.h"
 #include "../../setting/Setting.h"
 #include "../../schedule/WSchedule.h"
-#include "../../filetag/WFileTag.h"
+#include "../../filetag/include/WFileTag.h"
 #include "../../filehis/WFileHis.h"
 
 #include "../manager/include/DBSQlite.h"

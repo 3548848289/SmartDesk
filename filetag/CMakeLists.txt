@@ -6,18 +6,18 @@ set(FILETAG_SOURCES
 )
 
 set(FILETAG_HEADERS
-    DTag.h
-    DCommit.h
-    WFileTag.h
-    TagItemDelegate.h
+    include/DTag.h
+    include/DCommit.h
+    include/WFileTag.h
+    include/TagItemDelegate.h
 
 
 )
 
 set(FILETAG_UIS
-    WFileTag.ui
-    DCommit.ui
-    DTag.ui
+    ui/WFileTag.ui
+    ui/DCommit.ui
+    ui/DTag.ui
 
 )
 
@@ -32,4 +32,7 @@ target_link_libraries(mytxt_filetag PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
 )
 
-target_include_directories(mytxt_filetag PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(mytxt_filetag PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)

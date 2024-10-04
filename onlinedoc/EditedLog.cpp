@@ -1,4 +1,4 @@
-#include "EditedLog.h"
+#include "./include/EditedLog.h"
 
 EditedLog::EditedLog(const QString &fileName): m_fileName(fileName)
 {

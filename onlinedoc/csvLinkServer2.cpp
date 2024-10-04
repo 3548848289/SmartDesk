@@ -1,12 +1,12 @@
-#include "csvLinkServer2.h"
-#include "ui_csvLinkServer2.h"
+#include "./include/csvLinkServer2.h"
+#include "ui/ui_csvLinkServer2.h"
 #include "EditedLog.h"
 
-csvLinkServer::csvLinkServer(QWidget *parent): QWidget(parent),
-        ui(new Ui::csvLinkServer2), tcpSocket(new QTcpSocket(this))
+csvLinkServer::csvLinkServer(QWidget *parent): QWidget(parent),ui(new Ui::csvLinkServer2),
+    tcpSocket(new QTcpSocket(this)),serverManager(ServerManager::instance()), dbmysql(DBMySQL::instance())
 {
     ui->setupUi(this);
-
+//    on_linkserverBtn_clicked();
 
 }
 
@@ -32,7 +32,6 @@ void csvLinkServer::bindTab(TabHandleCSV *eTableTab)
     });
     connect(tcpSocket, &QTcpSocket::readyRead, this, &csvLinkServer::on_readyRead);
 }
-
 
 void csvLinkServer::on_readyRead()
 {
@@ -83,18 +82,32 @@ void csvLinkServer::sendDataToServer(const QString &data)
     }
 }
 
-void csvLinkServer::on_readfiieBtn_clicked()
-{
-    QString filePath = ui->readfileEdit->text();
-    if (!filePath.isEmpty())
-    {
+void csvLinkServer::on_readfiieBtn_clicked() {
+    QString shareToken = ui->passwdEdit->text();
+    qDebug() << shareToken;
+    if (shareToken.isEmpty()) {
+        QMessageBox::warning(this, tr("警告"), tr("请输入共享口令！"));
+        return;
+    }
 
-        QString jsonString = myJson::constructJson(localIp, "read",-1, -1, filePath);
-        qDebug() << "Sending JSON data to server: " << jsonString;
-        QByteArray data = jsonString.toUtf8();
-        tcpSocket->write(data);
-        ui->msgEdit->clear();
-        emit filePathSent();
+    QStringList files = dbmysql.getSharedFilesByShareToken(shareToken);
+
+    if (!files.isEmpty()) {
+        ui->tableWidget->clear();
+        ui->tableWidget->setRowCount(files.size());
+        ui->tableWidget->setColumnCount(2);
+        ui->tableWidget->setHorizontalHeaderLabels(QStringList() << tr("远程文件名") << tr("本地文件路径"));
+
+        for (int i = 0; i < files.size(); ++i) {
+            QStringList fileInfo = files[i].split(" ");
+            if (fileInfo.size() >= 2) {
+                ui->tableWidget->setItem(i, 0, new QTableWidgetItem(fileInfo[0]));  // 远程文件名
+                ui->tableWidget->setItem(i, 1, new QTableWidgetItem(fileInfo[1]));  // 本地路径
+            }
+        }
+        ui->tableWidget->resizeColumnsToContents();
+    } else {
+        QMessageBox::warning(this, tr("警告"), tr("未找到对应的共享文件！"));
     }
 }
 
@@ -110,8 +123,10 @@ void csvLinkServer::on_sendmsgEdit_clicked()
 void csvLinkServer::on_linkserverBtn_clicked()
 {
 
-    QString serverIp = ui->comboServer->currentText();
-    quint16 serverPort = ui->spinPort->value();
+    QString serverIp = "192.168.240.236";
+    QString portString = "9200";
+    bool ok;
+    quint16 serverPort = portString.toUShort(&ok);
 
     tcpSocket->abort();
     tcpSocket->setProxy(QNetworkProxy::NoProxy);
@@ -123,12 +138,12 @@ void csvLinkServer::on_linkserverBtn_clicked()
     }
     else
     {
-        QMessageBox::information(this, tr("Connected"), tr("Connected to server"));
+        //QMessageBox::information(this, tr("Connected"), tr("Connected to server"));
         localIp = tcpSocket->localAddress().toString();
     }
 }
 
-void csvLinkServer::on_pushButton_clicked()
+void csvLinkServer::on_closeserverBtn_clicked()
 {
     m_tableTab->setLinkStatus(false);
     if (tcpSocket->state() == QAbstractSocket::ConnectedState) {
@@ -146,3 +161,57 @@ void csvLinkServer::on_pushButton_clicked()
     }
 }
 
+void csvLinkServer::on_pushButton_2_clicked() {
+    QString filePath = QFileDialog::getOpenFileName(this, tr("选择文件"), "", tr("CSV Files (*.csv);;All Files (*)"));
+
+    if (filePath.isEmpty()) {
+        QMessageBox::warning(this, tr("警告"), tr("未选择任何文件！"));
+        return;
+    }
+
+    QString fileName = QFileInfo(filePath).fileName();
+    ui->readfileEdit_2->setText(filePath);
+
+    //
+    //
+    //
+    //
+    //
+    //从用户界面输入框获取用户输入的口令,本来从数据库获取的，未完善
+    //
+    //
+    //
+    //
+    QString shareToken = ui->passwdEdit->text();
+
+    if (shareToken.isEmpty()) {
+        QMessageBox::warning(this, tr("警告"), tr("请输入共享口令！"));
+        return;
+    }
+    serverManager->commitToServer(filePath, "online/");
+    if (dbmysql.insertSharedFile(filePath, fileName, shareToken)) {
+        QMessageBox::information(this, tr("成功"), tr("文件上传成功，口令为：%1").arg(shareToken));
+    } else {
+        QMessageBox::warning(this, tr("警告"), tr("文件上传失败！"));
+    }
+}
+
+
+void csvLinkServer::on_tableWidget_itemClicked(QTableWidgetItem *item)
+{
+    int row = item->row();
+    QTableWidgetItem *firstColumnItem = ui->tableWidget->item(row, 0);
+    QString filePath;
+    if (firstColumnItem)
+    {
+        filePath = firstColumnItem->text();
+        qDebug() << "First column text: " << filePath;
+    }
+
+    QString jsonString = myJson::constructJson(localIp, "read", -1, -1, filePath);
+    qDebug() << "Sending JSON data to server: " << jsonString;
+    QByteArray data = jsonString.toUtf8();
+    tcpSocket->write(data);
+    ui->msgEdit->clear();
+    emit filePathSent();
+}

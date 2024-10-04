@@ -6,16 +6,16 @@ set(ONLINEDOC_SOURCES
 )
 
 set(ONLINEDOC_HEADERS
-    csvLinkServer2.h
-    DLfromNet.h
-    EditedLog.h
-    WOnlineDoc.h
+    include/csvLinkServer2.h
+    include/DLfromNet.h
+    include/EditedLog.h
+    include/WOnlineDoc.h
 )
 
 set(ONLINEDOC_UIS
-    csvLinkServer2.ui
-    DLfromNet.ui
-    WOnlineDoc.ui
+    ui/csvLinkServer2.ui
+    ui/DLfromNet.ui
+    ui/WOnlineDoc.ui
 )
 
 qt_add_library(mytxt_onlinedoc STATIC
@@ -31,6 +31,7 @@ target_link_libraries(mytxt_onlinedoc PRIVATE
 )
 
 target_include_directories(mytxt_onlinedoc PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}
 
 )

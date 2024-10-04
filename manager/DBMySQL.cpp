@@ -2,7 +2,8 @@
 
 DBMySQL::DBMySQL() {
     dbmysql = QSqlDatabase::addDatabase("QMYSQL");
-    dbmysql.setHostName("localhost");
+    //    dbmysql.setHostName("192.168.240.236");
+    dbmysql.setHostName("127.0.0.1");
     dbmysql.setDatabaseName("mytxt");
     dbmysql.setUserName("root");
     dbmysql.setPassword("Mysql20039248");
@@ -28,12 +29,14 @@ DBMySQL::~DBMySQL() {
 bool DBMySQL::createTable() {
     QSqlQuery query(dbmysql);
 
+    // 创建 users 表，包含用户登录密码和共享口令字段
     QString createUsersTableQuery = R"(
         CREATE TABLE IF NOT EXISTS users (
             username VARCHAR(10) PRIMARY KEY,
-            password VARCHAR(15) NOT NULL,
+            password VARCHAR(255) NOT NULL,
+            share_token VARCHAR(255) NOT NULL UNIQUE,
             avatar BLOB
-            );
+        );
     )";
 
     if (!query.exec(createUsersTableQuery)) {
@@ -41,6 +44,7 @@ bool DBMySQL::createTable() {
         return false;
     }
 
+    // 创建 user_info 表，用于存储用户的其他个人信息
     QString createUserInfoTableQuery = R"(
         CREATE TABLE IF NOT EXISTS user_info (
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -59,8 +63,87 @@ bool DBMySQL::createTable() {
         qDebug() << "Failed to create 'user_info' table: " << query.lastError().text();
         return false;
     }
+
+    // 创建 SharedFiles 表，通过 share_token 关联到用户
+    QString createSharedFilesTableSQL = R"(
+        CREATE TABLE IF NOT EXISTS SharedFiles (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            local_file_path VARCHAR(255) NOT NULL,
+            remote_file_name VARCHAR(255) NOT NULL,
+            share_token VARCHAR(255) NOT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (share_token) REFERENCES users(share_token) ON DELETE CASCADE
+        );
+    )";
+
+    if (!query.exec(createSharedFilesTableSQL)) {
+        qDebug() << "Error creating tables:" << query.lastError();
+        return false;
+    }
+
     return true;
 }
+
+bool DBMySQL::insertSharedFile(const QString &filePath, const QString &fileName, const QString &shareToken) {
+    QSqlQuery query(dbmysql);
+
+    // 准备 INSERT 语句，并包含 share_token
+    query.prepare("INSERT INTO SharedFiles (local_file_path, remote_file_name, share_token) "
+                  "VALUES (:local_file_path, :remote_file_name, :share_token)");
+    query.bindValue(":local_file_path", filePath);
+    query.bindValue(":remote_file_name", fileName);
+    query.bindValue(":share_token", shareToken);  // 确保绑定了 share_token 的值
+
+    if (query.exec()) {
+        return true;
+    } else {
+        qDebug() << "插入共享文件失败: " << query.lastError().text();
+                                                    return false;
+    }
+}
+
+
+
+int DBMySQL::getPasswordIdByPassword(const QString &password) {
+    QSqlQuery query(dbmysql);
+
+    query.prepare("SELECT id FROM users WHERE password = :password");
+    query.bindValue(":password", password);  // 绑定用户提供的口令
+
+    if (query.exec() && query.next()) {
+        return query.value(0).toInt();  // 返回匹配的 passwordId
+    } else {
+        qDebug() << "Failed to retrieve password ID: " << query.lastError().text();
+        return -1;  // 如果查询失败，返回 -1
+    }
+}
+
+QStringList DBMySQL::getSharedFilesByShareToken(const QString &shareToken) {
+    QSqlQuery query(dbmysql);
+
+    query.prepare(R"(
+        SELECT remote_file_name, local_file_path
+        FROM SharedFiles
+        WHERE share_token = :share_token
+    )");
+    query.bindValue(":share_token", shareToken);
+    qDebug() << shareToken;
+
+    QStringList fileList;
+
+    if (query.exec()) {
+        while (query.next()) {
+            QString remoteFileName = query.value(0).toString();  // 远程文件名
+            QString localFilePath = query.value(1).toString();   // 本地文件路径
+            fileList.append(remoteFileName + " " + localFilePath);  // 用空格分隔文件名和路径
+        }
+    } else {
+        qDebug() << "Failed to retrieve shared files: " << query.lastError().text();
+    }
+
+    return fileList;
+}
+
 
 
 bool DBMySQL::open() {
@@ -95,28 +178,45 @@ bool DBMySQL::loginUser(const QString &username, const QString &password, QByteA
     }
 }
 
+
+QString generateShareToken(const QString &password) {
+
+    QByteArray hash = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
+
+    QString hexHash = hash.toHex();
+
+    QString shareToken = hexHash.left(6);
+    return shareToken;
+}
+
 bool DBMySQL::registerUser(const QString &username, const QString &password, const QByteArray &avatarData, QString &statusMessage) {
-        QSqlQuery query(dbmysql);
+    QSqlQuery query(dbmysql);
 
-    query.prepare("INSERT INTO users (username, password, avatar) VALUES (:username, :password, :avatar)");
+    // 直接存储用户输入的原始密码
+    QString shareToken = generateShareToken(password);  // 根据密码生成共享口令
+
+    // 准备插入语句
+    query.prepare("INSERT INTO users (username, password, avatar, share_token) VALUES (:username, :password, :avatar, :share_token)");
     query.bindValue(":username", username);
-    query.bindValue(":password", password);
+    query.bindValue(":password", password);  // 直接存储原始密码
     query.bindValue(":avatar", avatarData);
+    query.bindValue(":share_token", shareToken);  // 插入生成的共享口令
 
+    // 执行插入操作
     if (query.exec()) {
-        statusMessage = "注册成功";
-        return true;
+                                                    statusMessage = "注册成功";
+                                                    return true;
     } else {
-        qDebug() << query.lastError().text();
-        statusMessage = "注册失败: " + query.lastError().text();
-                                           return false;
+                                                    qDebug() << "注册失败: " << query.lastError().text();
+                                                                                    statusMessage = "注册失败: " + query.lastError().text();
+                                                                             return false;
     }
 }
+
 
 QString DBMySQL::lastError() const {
     return dbmysql.lastError().text();
 }
-
 
 QMap<QString, QVariant> DBMySQL::getUserInfo(const QString& username) {
     QMap<QString, QVariant> userInfo;
@@ -152,11 +252,8 @@ QMap<QString, QVariant> DBMySQL::getUserInfo(const QString& username) {
                                            qDebug() << "Query execution failed:" << query.lastError().text();
     }
 
-    return userInfo;
+    return userInfo;    
 }
-
-
-
 
 bool DBMySQL::insertUserInfo(const QString& username, const QMap<QString, QVariant>& userInfo) {
         QSqlQuery query(dbmysql);

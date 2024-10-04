@@ -34,11 +34,9 @@ void DBSQlite::close() {
     QSqlDatabase::removeDatabase(dbsqlite.connectionName());
 }
 
-
 QString DBSQlite::lastError() const {
     return dbsqlite.lastError().text();
 }
-
 
 void DBSQlite::initializeDatabase() {
     qDebug() << "做表";
@@ -58,7 +56,6 @@ void DBSQlite::initializeDatabase() {
                "FOREIGN KEY (submission_id) REFERENCES Submissions(id) ON DELETE CASCADE)");
 
 }
-
 
 bool DBSQlite::addFilePath(const QString &filePath, int &fileId) {
     if (!dbsqlite.isOpen()) {
@@ -118,9 +115,6 @@ bool DBSQlite::getAnnotation(int fileId, QString &annotation) {
     }
     return false;
 }
-
-
-
 
 bool DBSQlite::saveTags(int fileId, const QStringList &tags) {
         QSqlQuery query(dbsqlite);

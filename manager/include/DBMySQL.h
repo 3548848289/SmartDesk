@@ -12,6 +12,8 @@
 #include <QMap>
 #include <QDebug>
 #include <QMessageBox>
+#include <QStringList>
+#include <QCryptographicHash>
 
 class DBMySQL {
 public:
@@ -33,6 +35,12 @@ public:
 
     bool insertUserInfo(const QString& username, const QMap<QString, QVariant>& userInfo);
     bool updateUserInfo(const QString& username, const QMap<QString, QVariant>& userInfo);
+
+
+    bool insertSharedFile(const QString &filePath, const QString &fileName, const QString &shareToken);
+    QStringList getSharedFilesByShareToken(const QString &shareToken);
+    int getPasswordIdByPassword(const QString &password);
+
 
 private:
     DBMySQL(); // 构造函数私有

@@ -24,6 +24,7 @@ private slots:
     void on_listWidget_itemClicked(QListWidgetItem *item);
 
 private:
+
     ServerManager* serverManager;
     DPull * dpull;
     Ui::WFileHis *ui;

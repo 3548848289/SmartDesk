@@ -1,5 +1,5 @@
-#include "DLfromNet.h"
-#include "ui_DLfromNet.h"
+#include "./include/DLfromNet.h"
+#include "ui/ui_DLfromNet.h"
 
 downLoad::downLoad(QWidget *parent) :QWidget(parent),
     ui(new Ui::DLfromNet),reply(nullptr),downloadedFile(nullptr){
