@@ -13,7 +13,8 @@ class TabHandleIMG : public TabAbstract
     Q_OBJECT
 
 public:
-    explicit TabHandleIMG(QWidget *parent = nullptr);
+    explicit TabHandleIMG(const QString& filePath, QWidget *parent = nullptr);
+
     void setText(const QString &text) override {}
     QString getText() const override {}
     void loadFromFile(const QString &fileName) override {}

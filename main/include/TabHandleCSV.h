@@ -26,7 +26,10 @@ class TabHandleCSV : public TabAbstract
 
 public:
 
-    explicit TabHandleCSV(QWidget *parent = nullptr);
+    explicit TabHandleCSV(const QString& filePath, QWidget *parent = nullptr);
+
+
+
     void setText(const QString &text) override;
     QString getText() const override;
     void setLinkStatus(bool status);

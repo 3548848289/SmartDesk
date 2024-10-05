@@ -1,6 +1,6 @@
 #include "TabHandleCSV.h"
 
-TabHandleCSV::TabHandleCSV(QWidget *parent): TabAbstract(parent)
+TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstract(filePath, parent)
 {
     highlightLabel = new QLabel(this);
     tableWidget = new QTableWidget(this);

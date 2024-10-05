@@ -14,7 +14,10 @@ class TextTab : public TabAbstract
     Q_OBJECT
 
 public:
-    explicit TextTab(QWidget *parent = nullptr);
+    explicit TextTab(const QString& filePath, QWidget *parent = nullptr);
+
+
+
     void setText(const QString &text) override;
     QString getText() const override;
     void loadFromFile(const QString &fileName) override;

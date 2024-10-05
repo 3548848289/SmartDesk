@@ -89,16 +89,26 @@ void MainWindow::initSmal()
     tabWidget = new QTabWidget(this);
     tabWidget->setTabsClosable(true);
     connect(tabWidget, &QTabWidget::tabCloseRequested, this, [this](int index) {
-        tabWidget->removeTab(index);
+        on_actionclose_triggered();
     });
 
     tabWidget->setStyleSheet(
         "QTabBar::tab {"
         "    background: #f0f0f0; color: #000000; padding: 5px;"
-        "border: 1px solid #cccccc; border-bottom: none; }"
+        "    border: 1px solid #cccccc; border-bottom: none; }"
         "QTabBar::tab:selected {"
         "    background: #ffffff; color: #3598db; border-bottom: none; }"
-        );
+        "QTabBar::tab:hover {"
+        "    background: #dfefff; }"
+        "QTabBar::close-button {"
+        "    image: url(:/usedimage/close-black.svg);"
+        "    subcontrol-position: right; padding: 5px; }"
+        "QTabBar::close-button:hover {"
+        "    image: url(:/image/cross.svg);}"
+        "QTabBar::close-button:pressed {"
+        "    image: url(:/image/cross.svg); }"
+    );
+
 }
 
 
@@ -165,12 +175,12 @@ void MainWindow::receiveSendEmailForm(SendEmail *form)
 
 void MainWindow::on_actiontxt_file_triggered()
 {
-    createNewTab([]() { return new TextTab(); }, "New Text Tab");
+    createNewTab([]() { return new TextTab(""); }, "New Text Tab");
 }
 
 void MainWindow::on_actionscv_file_triggered()
 {
-    createNewTab([]() { return new TabHandleCSV(); }, "New Table Tab");
+    createNewTab([]() { return new TabHandleCSV(""); }, "New Table Tab");
 }
 
 void MainWindow::on_actionopen_triggered()
@@ -191,6 +201,16 @@ void MainWindow::openFile(const QString &filePath)
         QString baseName = fileInfo.fileName();
 
         int newIndex = tabWidget->addTab(newTab, baseName);
+        connect(newTab, &TabAbstract::contentModified, this, [this, newIndex, baseName]() {
+            if (!tabWidget->tabText(newIndex).endsWith("*")) {
+                tabWidget->setTabText(newIndex, baseName + "*");
+            }
+        });
+
+        connect(newTab, &TabAbstract::contentSaved, this, [this, newIndex, baseName]() {
+            qDebug() << baseName;
+            tabWidget->setTabText(newIndex, QFileInfo(baseName).fileName());
+        });
         tabWidget->setCurrentIndex(newIndex);
 
         recentFilesManager->addFile(filePath);
@@ -204,46 +224,64 @@ void MainWindow::on_actionsave_triggered()
     auto currentTab = getCurrentTab<TabAbstract>();
     if (!currentTab) return;
 
-    QString fileFilter;
-    if (dynamic_cast<TextTab*>(currentTab))
-        fileFilter = tr("Text Files (*.txt);;All Files (*)");
-    else if (dynamic_cast<TabHandleCSV*>(currentTab))
-        fileFilter = tr("CSV Files (*.csv);;All Files (*)");
-    else
-        fileFilter = tr("All Files (*)");
+    // 获取当前的文件路径
+    QString currentFilePath = currentTab->getCurrentFilePath();
 
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "", fileFilter);
-    if (fileName.isEmpty())
-        return;
+    // 如果文件路径为空，说明这是第一次保存，弹出保存对话框
+    if (currentFilePath.isEmpty()) {
+        QString fileFilter;
+        if (dynamic_cast<TextTab*>(currentTab))
+            fileFilter = tr("Text Files (*.txt);;All Files (*)");
+        else if (dynamic_cast<TabHandleCSV*>(currentTab))
+            fileFilter = tr("CSV Files (*.csv);;All Files (*)");
+        else
+            fileFilter = tr("All Files (*)");
 
-    currentTab->saveToFile(fileName);
+        currentFilePath = QFileDialog::getSaveFileName(this, tr("Save File"), "", fileFilter);
+        if (currentFilePath.isEmpty())
+            return;  // 如果用户取消保存
+    }
+    currentTab->save();
+    currentTab->setCurrentFilePath(currentFilePath);
 }
+
 
 void MainWindow::createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName)
 {
     TabAbstract* newTab = tabFactory();
-    tabWidget->addTab(newTab, tabName);
+    int index = tabWidget->addTab(newTab, tabName);
+
+    connect(newTab, &TabAbstract::contentModified, this, [this, index, tabName]() {
+        if (!tabWidget->tabText(index).endsWith("*")) {
+            tabWidget->setTabText(index, tabName + "*");
+        }
+    });
+
+    connect(newTab, &TabAbstract::contentSaved, this, [this, index, tabName]() {
+        tabWidget->setTabText(index, QFileInfo(tabName).fileName());
+    });
 }
 
 TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
 {
+    qDebug() << "MainWindow::createTabByFileName" << fileName;
     if (fileName.endsWith(".txt", Qt::CaseInsensitive) ||
         fileName.endsWith(".cpp", Qt::CaseInsensitive) ||
         fileName.endsWith(".qrc", Qt::CaseInsensitive) ||
         fileName.endsWith(".h", Qt::CaseInsensitive))
     {
-        return new TextTab();
+        return new TextTab(fileName);  // 使用带路径的构造函数
     }
     else if (fileName.endsWith(".csv", Qt::CaseInsensitive))
     {
-        return new TabHandleCSV();
+        return new TabHandleCSV(fileName);  // 使用带路径的构造函数
     }
     else if (fileName.endsWith(".png", Qt::CaseInsensitive) ||
              fileName.endsWith(".jpg", Qt::CaseInsensitive) ||
              fileName.endsWith(".jpeg", Qt::CaseInsensitive) ||
              fileName.endsWith(".bmp", Qt::CaseInsensitive))
     {
-        return new TabHandleIMG();
+        return new TabHandleIMG(fileName);  // 使用带路径的构造函数
     }
     else
     {
@@ -252,17 +290,25 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
     }
 }
 
+
 void MainWindow::on_actionclose_triggered()
 {
+    int currentIndex = tabWidget->currentIndex();  // 获取当前选中的标签页索引
     if (currentIndex >= 0) {
         QWidget *widget = tabWidget->widget(currentIndex);
-        if (widget) {
-            if (qobject_cast<SendEmail*>(widget)) {
-                delete widget;
-                qDebug() << "MainWindow::MainWindow:析构 SendEmail*";
-            }
-            else
+
+        if (!widget) {
+            qDebug() << "No widget found at current index.";
+            return;
+        }
+
+        TabAbstract *tab = qobject_cast<TabAbstract*>(widget);
+        if (tab) {
+            if (tab->confirmClose()) {
                 tabWidget->removeTab(currentIndex);
+            } else {
+                qDebug() << "Tab close canceled by user.";
+            }
         }
     } else {
         qDebug() << "No tab to close.";

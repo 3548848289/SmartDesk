@@ -1,8 +1,8 @@
 #include "TabHandleIMG.h"
 #include <QHBoxLayout>
 
-TabHandleIMG::TabHandleIMG(QWidget *parent)
-    : TabAbstract(parent), angle(0), scaleValue(5), shearValue(5), translateValue(50)
+TabHandleIMG::TabHandleIMG(const QString& filePath, QWidget *parent)
+    : TabAbstract(filePath, parent), angle(0), scaleValue(5), shearValue(5), translateValue(50)
 {
     scene = new QGraphicsScene;
     scene->setSceneRect(-200, -200, 400, 400);

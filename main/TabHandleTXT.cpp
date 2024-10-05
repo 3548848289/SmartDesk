@@ -1,6 +1,6 @@
 #include "TabHandleTXT.h"
 
-TextTab::TextTab(QWidget *parent): TabAbstract(parent)
+TextTab::TextTab(const QString &filePath, QWidget *parent)  : TabAbstract(filePath, parent)
 {
     textEdit = new QTextEdit(this);
     textEdit->setStyleSheet(
@@ -14,12 +14,15 @@ TextTab::TextTab(QWidget *parent): TabAbstract(parent)
 
 
 
-    );
+        );
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(textEdit);
     setLayout(layout);
     loadSettings();
 
+    connect(textEdit, &QTextEdit::textChanged, this, [this]() {
+        setContentModified(true);  // 内容修改时设置为已修改
+    });
 }
 
 void TextTab::setText(const QString &text)
@@ -44,6 +47,7 @@ void TextTab::loadFromFile(const QString &fileName)
     } else {
         QMessageBox::warning(this, tr("Error"), tr("Could not open file"));
     }
+    setContentModified(false);
 }
 
 void TextTab::saveToFile(const QString &fileName)
@@ -57,6 +61,7 @@ void TextTab::saveToFile(const QString &fileName)
     {
         QMessageBox::warning(this, tr("Error"), tr("Could not save file"));
     }
+    setContentModified(false);
 }
 
 
