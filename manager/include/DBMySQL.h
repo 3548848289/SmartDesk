@@ -14,6 +14,7 @@
 #include <QMessageBox>
 #include <QStringList>
 #include <QCryptographicHash>
+#include <QFileInfo>
 
 class DBMySQL {
 public:
@@ -35,6 +36,10 @@ public:
 
     bool insertUserInfo(const QString& username, const QMap<QString, QVariant>& userInfo);
     bool updateUserInfo(const QString& username, const QMap<QString, QVariant>& userInfo);
+
+
+    void recordSubmission(const QString &filePath);
+    bool hasSubmissions(const QString& filePath) const;
 
 
     bool insertSharedFile(const QString &filePath, const QString &fileName, const QString &shareToken);

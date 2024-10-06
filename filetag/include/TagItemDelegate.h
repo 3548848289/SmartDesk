@@ -12,6 +12,7 @@
 #include <QAction>
 #include <QMap>
 #include "../manager/include/DBSQlite.h"
+#include "../manager/include/DBMySQL.h"
 #include "../manager/include/ServerManager.h"
 
 #include "DTag.h"
@@ -27,7 +28,7 @@ signals:
 
 public:
     mutable bool isButtonClicked = false;
-    explicit TagItemDelegate(QObject *parent = nullptr, DBSQlite *dbsqlite = nullptr, ServerManager *serverManager = nullptr);
+    explicit TagItemDelegate(QObject *parent = nullptr, ServerManager *serverManager = nullptr);
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index);
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
@@ -35,7 +36,8 @@ public:
 
 private:
     QStringList fileList;
-    DBSQlite *dbsqlite;
+    DBSQlite& dbsqlite;
+    DBMySQL& dbmysql;
     ServerManager *serverManager;
     mutable QMap<QString, bool> m_tagsCache;  // 标签缓存
 

@@ -10,7 +10,7 @@ WSchedule::WSchedule(DBSQlite *db, QWidget *parent) :
 {
     ui->setupUi(this);
 
-    filterByTag("标签");
+    filterByTag("刷新");
     loadTags();
 
     connect(ui->listWidget, &QListWidget::itemClicked, this, &WSchedule::onItemClicked);
@@ -21,7 +21,6 @@ WSchedule::WSchedule(DBSQlite *db, QWidget *parent) :
 WSchedule::~WSchedule()
 {
     delete ui;
-//    delete db;
 }
 
 void WSchedule::onItemClicked(QListWidgetItem *item) {
@@ -34,11 +33,14 @@ void WSchedule::onItemClicked(QListWidgetItem *item) {
 
 void WSchedule::loadTags() {
     ui->comboBox->clear();
-    ui->comboBox->addItem("标签");
+    ui->comboBox->addItem("刷新");
 
     QStringList tags = db->getAllTags();
+    qDebug() << tags;
     for (const QString &tag : tags) {
         ui->comboBox->addItem(tag);
+
+
     }
 }
 
@@ -53,7 +55,6 @@ void WSchedule::filterByTag(const QString &tag) {
         QDateTime expDate = info.expirationDate;
 
         FileItemWidget *widget = new FileItemWidget();
-        qDebug() << tag;
         widget->setTag(tag);
 
         QString expInfo = getExpInfo(path, expDate);

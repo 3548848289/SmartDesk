@@ -3,28 +3,31 @@
 #include <QFile>
 #include <QDebug>
 
-void ServerManager::commitToServer(const QString& fileName, const QString& tag) {
-    QString filePath = m_curdir + '/' + fileName;
-    if(tag == "online/")
-    {
-        filePath = filePath.mid(1);
+bool ServerManager::commitToServer(const QString& fileName, const QString& tag) {
+    QString filePath = m_curdir + '/' + fileName; // 当前目录和文件名组合成完整路径
+    if(tag == "online/") {
+        filePath = filePath.mid(1); // 处理tag为 "online/" 的情况
     }
+
     QString targetPath = QDir(QDir::currentPath()).filePath("uploads/" + QFileInfo(filePath).fileName());
-    QDir().mkpath(QFileInfo(targetPath).absolutePath());
+    QDir().mkpath(QFileInfo(targetPath).absolutePath()); // 创建目录（如果不存在）
 
     if (QFile::exists(targetPath)) {
-        QFile::remove(targetPath);
+        QFile::remove(targetPath); // 删除已存在的文件
     }
+
     if (QFile::copy(filePath, targetPath)) {
-        qDebug() << "File copied successfully to:" << targetPath;
+        qDebug() << "File copied successfully to:" << targetPath; // 复制成功
     } else {
         qDebug() << "Source file path, Failed to copy file:" << filePath;
         emit commitFailed();
-        return;
+        return false;
     }
 
-    QString httpUrl = "http://192.168.240.236:5000/" + tag + QFileInfo(targetPath).fileName();
-    qDebug() << httpUrl;
+    QString httpUrl = "http://192.168.45.236:5000/" + tag + QFileInfo(targetPath).fileName();
+    QString trimmedDir = m_curdir.mid(3);
+    httpUrl += "?path=" + QUrl::toPercentEncoding(trimmedDir);
+    qDebug() << "Upload URL:" << httpUrl;
 
     QNetworkRequest request{QUrl(httpUrl)};
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/octet-stream");
@@ -34,7 +37,7 @@ void ServerManager::commitToServer(const QString& fileName, const QString& tag) 
         qWarning() << "Failed to open file for upload:" << file->errorString();
         emit commitFailed();
         delete file;
-        return;
+        return false;
     }
 
     QNetworkReply *reply = networkManager.put(request, file);
@@ -42,8 +45,10 @@ void ServerManager::commitToServer(const QString& fileName, const QString& tag) 
 
     connect(reply, &QNetworkReply::finished, this, [this, reply]() {
         onUploadFinished(reply);
+        return true;
     });
 }
+
 
 void ServerManager::onUploadFinished(QNetworkReply* reply) {
     if (reply->error() == QNetworkReply::NoError) {
@@ -60,7 +65,7 @@ void ServerManager::downloadFile(const QString& fileName) {
     dir.replace('.', '_');
     dir.remove(QRegularExpression("_[1-9]"));
 
-    QString url = QString("http://192.168.240.236:5000/download/%1/%2").arg(dir).arg(fileName);
+    QString url = QString("http://192.168.45.236:5000/download/%1/%2").arg(dir).arg(fileName);
     QNetworkRequest request{QUrl(url)};
     QNetworkReply* reply = networkManager.get(request);
 
@@ -74,7 +79,7 @@ void ServerManager::downloadFile(const QString& fileName) {
 
 void ServerManager::getCommitHistory(const QModelIndex& index, QAbstractItemModel* model) {
     // 使用 HTTP(S) 替代 FTP
-    QString httpUrl = "http://192.168.240.236:5000/download/";  // 需要替换成实际的 HTTP 服务器地址
+    QString httpUrl = "http://192.168.45.236:5000/download/";  // 需要替换成实际的 HTTP 服务器地址
     QNetworkRequest request{QUrl(httpUrl)};
 
     QNetworkReply *reply = networkManager.get(request);
@@ -111,7 +116,7 @@ void ServerManager::onDownloadFinished(QNetworkReply* reply, const QString& file
 
 
 void ServerManager::getFilesInDirectory(const QModelIndex& index, QAbstractItemModel* model) {
-    QString baseHttpUrl = "http://192.168.240.236:5000/list/";
+    QString baseHttpUrl = "http://192.168.45.236:5000/list/";
 
     QString dirname = model->data(index.sibling(index.row(), 0)).toString();
     dirname.replace('.', '_');

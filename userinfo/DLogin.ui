@@ -93,7 +93,7 @@ QPushButton#login_pushButton{
         </property>
         <property name="icon">
          <iconset resource="../resources/res.qrc">
-          <normaloff>:/image/cross.svg</normaloff>:/image/cross.svg</iconset>
+          <normaloff>:/usedimage/close-black.svg</normaloff>:/usedimage/close-black.svg</iconset>
         </property>
         <property name="iconSize">
          <size>

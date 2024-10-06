@@ -2,8 +2,7 @@
 
 DBMySQL::DBMySQL() {
     dbmysql = QSqlDatabase::addDatabase("QMYSQL");
-    //    dbmysql.setHostName("192.168.240.236");
-    dbmysql.setHostName("127.0.0.1");
+    dbmysql.setHostName("192.168.45.236");
     dbmysql.setDatabaseName("mytxt");
     dbmysql.setUserName("root");
     dbmysql.setPassword("Mysql20039248");
@@ -29,8 +28,43 @@ DBMySQL::~DBMySQL() {
 bool DBMySQL::createTable() {
     QSqlQuery query(dbmysql);
 
-    // 创建 users 表，包含用户登录密码和共享口令字段
-    QString createUsersTableQuery = R"(
+    // 启动事务
+    if (!dbmysql.transaction()) {
+        qDebug() << "Failed to start transaction: " << dbmysql.lastError().text();
+        return false;
+    }
+
+    // 创建 Submissions 表
+    QString createSubmissionsTableSQL = R"(
+        CREATE TABLE IF NOT EXISTS Submissions (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            file_path TEXT NOT NULL,
+            submit_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+    )";
+    if (!query.exec(createSubmissionsTableSQL)) {
+        qDebug() << "Failed to create 'Submissions' table: " << query.lastError().text();
+        dbmysql.rollback();  // 回滚事务
+        return false;
+    }
+
+    // 创建 SubmissionRecords 表
+    QString createSubmissionRecordsTableSQL = R"(
+        CREATE TABLE IF NOT EXISTS SubmissionRecords (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            submission_id INT,
+            submit_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (submission_id) REFERENCES Submissions(id) ON DELETE CASCADE
+        );
+    )";
+    if (!query.exec(createSubmissionRecordsTableSQL)) {
+        qDebug() << "Failed to create 'SubmissionRecords' table: " << query.lastError().text();
+        dbmysql.rollback();  // 回滚事务
+        return false;
+    }
+
+    // 创建 users 表
+    QString createUsersTableSQL = R"(
         CREATE TABLE IF NOT EXISTS users (
             username VARCHAR(10) PRIMARY KEY,
             password VARCHAR(255) NOT NULL,
@@ -38,16 +72,16 @@ bool DBMySQL::createTable() {
             avatar BLOB
         );
     )";
-
-    if (!query.exec(createUsersTableQuery)) {
+    if (!query.exec(createUsersTableSQL)) {
         qDebug() << "Failed to create 'users' table: " << query.lastError().text();
+        dbmysql.rollback();  // 回滚事务
         return false;
     }
 
-    // 创建 user_info 表，用于存储用户的其他个人信息
-    QString createUserInfoTableQuery = R"(
+    // 创建 user_info 表
+    QString createUserInfoTableSQL = R"(
         CREATE TABLE IF NOT EXISTS user_info (
-            id INT AUTO_INCREMENT PRIMARY KEY,
+            id INT PRIMARY KEY AUTO_INCREMENT,
             username VARCHAR(10),
             name VARCHAR(20),
             motto VARCHAR(50),
@@ -58,31 +92,125 @@ bool DBMySQL::createTable() {
             FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
         );
     )";
-
-    if (!query.exec(createUserInfoTableQuery)) {
+    if (!query.exec(createUserInfoTableSQL)) {
         qDebug() << "Failed to create 'user_info' table: " << query.lastError().text();
+        dbmysql.rollback();  // 回滚事务
         return false;
     }
 
-    // 创建 SharedFiles 表，通过 share_token 关联到用户
+    // 创建 SharedFiles 表
     QString createSharedFilesTableSQL = R"(
         CREATE TABLE IF NOT EXISTS SharedFiles (
-            id INT AUTO_INCREMENT PRIMARY KEY,
+            id INT PRIMARY KEY AUTO_INCREMENT,
             local_file_path VARCHAR(255) NOT NULL,
             remote_file_name VARCHAR(255) NOT NULL,
             share_token VARCHAR(255) NOT NULL,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (share_token) REFERENCES users(share_token) ON DELETE CASCADE
         );
     )";
-
     if (!query.exec(createSharedFilesTableSQL)) {
-        qDebug() << "Error creating tables:" << query.lastError();
+        qDebug() << "Failed to create 'SharedFiles' table: " << query.lastError().text();
+        dbmysql.rollback();  // 回滚事务
         return false;
     }
 
+    // 提交事务
+    if (!dbmysql.commit()) {
+        qDebug() << "Failed to commit transaction: " << dbmysql.lastError().text();
+        dbmysql.rollback();  // 回滚事务
+        return false;
+    }
+
+    qDebug() << "All tables created successfully.";
     return true;
 }
+
+void DBMySQL::recordSubmission(const QString &filePath) {
+    QSqlQuery query(dbmysql);
+    query.prepare("SELECT id FROM Submissions WHERE file_path = :filePath");
+    query.bindValue(":filePath", filePath);
+
+    if (!query.exec()) {
+        qDebug() << "Query failed:" << query.lastError();
+        return;
+    }
+
+    int submissionId;
+    if (query.next()) {
+        submissionId = query.value(0).toInt();
+        qDebug() << "Existing submission found with ID:" << submissionId;
+    } else {
+        // 如果没有记录，则插入新记录到 Submissions 表
+        query.prepare("INSERT INTO Submissions (file_path) VALUES (:filePath)");
+        query.bindValue(":filePath", filePath);
+
+        if (!query.exec()) {
+            qDebug() << "Insert into Submissions failed:" << query.lastError();
+            return;
+        }
+
+        submissionId = query.lastInsertId().toInt();
+        qDebug() << "New submission recorded with ID:" << submissionId;
+    }
+
+    // 获取原始文件名（例如：DCommit.cpp）
+    QString baseFileName = QFileInfo(filePath).baseName();  // 例如 "DCommit"
+    QString fileExtension = QFileInfo(filePath).completeSuffix();  // 例如 "cpp"
+
+    // 查询已有的提交记录数
+    QSqlQuery countQuery(dbmysql);
+    countQuery.prepare("SELECT COUNT(*) FROM SubmissionRecords WHERE submission_id = :submissionId");
+    countQuery.bindValue(":submissionId", submissionId);
+
+    if (!countQuery.exec()) {
+        qDebug() << "Count query failed:" << countQuery.lastError();
+        return;
+    }
+
+    int submissionCount = 0;
+    if (countQuery.next()) {
+        submissionCount = countQuery.value(0).toInt();
+    }
+
+    // 基于提交次数生成新的文件名
+    int newSubmissionNumber = submissionCount + 1;
+    QString remoteFileName = QString("%1%2.%3").arg(baseFileName).arg(newSubmissionNumber).arg(fileExtension);
+
+    qDebug() << "New remote file name:" << remoteFileName;
+
+    // 插入新的记录到 SubmissionRecords 表
+    QSqlQuery recordQuery(dbmysql);
+    recordQuery.prepare("INSERT INTO SubmissionRecords (submission_id, remote_file_name) VALUES (:submissionId, :remoteFileName)");
+    recordQuery.bindValue(":submissionId", submissionId);
+    recordQuery.bindValue(":remoteFileName", remoteFileName);
+
+    if (!recordQuery.exec()) {
+        qDebug() << "Insert into SubmissionRecords failed:" << recordQuery.lastError();
+    } else {
+        qDebug() << "Record added for submission ID:" << submissionId << " with remote file name:" << remoteFileName;
+    }
+}
+
+
+bool DBMySQL::hasSubmissions(const QString& filePath) const {
+    QSqlQuery query(dbmysql);
+    query.prepare("SELECT COUNT(*) FROM Submissions WHERE file_path = :filePath");
+    query.bindValue(":filePath", filePath);
+
+    if (!query.exec()) {
+        qDebug() << "DBMySQL::hasSubmissions Query failed:" << query.lastError();
+        return false;
+    }
+
+    if (query.next()) {
+        return query.value(0).toInt() > 0;
+    }
+
+    return false;
+}
+
+
 
 bool DBMySQL::insertSharedFile(const QString &filePath, const QString &fileName, const QString &shareToken) {
     QSqlQuery query(dbmysql);

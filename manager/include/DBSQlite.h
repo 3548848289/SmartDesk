@@ -33,8 +33,6 @@ public:
     bool getFileId(const QString &filePath, int &fileId);
     QStringList getAllFilePaths();
     QStringList searchFiles(const QString &keyword);
-    void recordSubmission(const QString &filePath);
-    bool hasSubmissions(const QString& filePath) const;
 
     // 标签管理
     bool getTags(int fileId, QStringList &tags);

@@ -18,7 +18,7 @@ WFileTag::WFileTag(DBSQlite * dbsqlite, QWidget *parent)
 
     ui->pathLineEdit->setText(currentDir);
 
-    tagItemdelegate = new TagItemDelegate(this, dbsqlite, serverManager);
+    tagItemdelegate = new TagItemDelegate(this, serverManager);
     ui->treeView->setItemDelegate(tagItemdelegate);
 
     connect(ui->pathLineEdit, &QLineEdit::returnPressed, this, &WFileTag::goButtonClicked);

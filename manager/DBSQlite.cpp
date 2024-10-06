@@ -39,7 +39,6 @@ QString DBSQlite::lastError() const {
 }
 
 void DBSQlite::initializeDatabase() {
-    qDebug() << "做表";
     QSqlQuery query(dbsqlite);
 
     query.exec("CREATE TABLE IF NOT EXISTS FilePaths "
@@ -48,12 +47,7 @@ void DBSQlite::initializeDatabase() {
                "(id INTEGER PRIMARY KEY, file_id INTEGER, tag_name TEXT, FOREIGN KEY(file_id) REFERENCES FilePaths(id))");
     query.exec("CREATE TABLE IF NOT EXISTS Annotations "
                "(id INTEGER PRIMARY KEY, file_id INTEGER, annotation TEXT, FOREIGN KEY(file_id) REFERENCES FilePaths(id))");
-    query.exec("CREATE TABLE IF NOT EXISTS Submissions "
-               "(id INTEGER PRIMARY KEY AUTOINCREMENT, file_path TEXT NOT NULL, submit_time DATETIME DEFAULT CURRENT_TIMESTAMP)");
-    query.exec("CREATE TABLE IF NOT EXISTS SubmissionRecords "
-               "(id INTEGER PRIMARY KEY AUTOINCREMENT, submission_id INTEGER, "
-               "submit_time DATETIME DEFAULT CURRENT_TIMESTAMP, "
-               "FOREIGN KEY (submission_id) REFERENCES Submissions(id) ON DELETE CASCADE)");
+
 
 }
 
@@ -178,16 +172,20 @@ QStringList DBSQlite::getAllFilePaths() {
 
 QStringList DBSQlite::getAllTags() {
     QStringList tags;
-    QSqlQuery query("SELECT DISTINCT tag_name FROM Tags");
-    while (query.next()) {
-        tags << query.value(0).toString();
+    QSqlQuery query(dbsqlite);
+
+    if (query.exec("SELECT DISTINCT tag_name FROM Tags")) {
+        while (query.next()) {
+            tags << query.value(0).toString();
+        }
     }
     return tags;
+
 }
 
 
 void DBSQlite::saveExpirationDate(int fileId, const QDateTime &expirationDateTime) {
-        QSqlQuery query(dbsqlite);
+    QSqlQuery query(dbsqlite);
 
     query.prepare("UPDATE FilePaths SET expiration_date = :expiration_date WHERE id = :file_id");
     query.bindValue(":expiration_date", expirationDateTime);
@@ -200,7 +198,7 @@ QList<FilePathInfo> DBSQlite::getFilePathsByTag(const QString &tag) {
         QSqlQuery query(dbsqlite);
 
 
-    if (tag == "标签") {
+    if (tag == "刷新") {
         query.prepare("SELECT fp.file_path, t.tag_name, fp.expiration_date FROM FilePaths fp JOIN Tags t ON fp.id = t.file_id");
     } else {
         query.prepare("SELECT fp.file_path, t.tag_name, fp.expiration_date FROM FilePaths fp JOIN Tags t ON fp.id = t.file_id WHERE t.tag_name = :tag");
@@ -268,65 +266,6 @@ QStringList DBSQlite::searchFiles(const QString &keyword) {
 
 //    return false;
 //}
-
-
-void DBSQlite::recordSubmission(const QString &filePath) {
-    QSqlQuery query(dbsqlite);
-    query.prepare("SELECT id FROM Submissions WHERE file_path = :filePath");
-    query.bindValue(":filePath", filePath);
-
-    if (!query.exec()) {
-        qDebug() << "Query failed:" << query.lastError();
-        return;
-    }
-
-    int submissionId;
-    if (query.next()) {
-        submissionId = query.value(0).toInt();
-        qDebug() << "Existing submission found with ID:" << submissionId;
-    } else {
-        // 如果没有记录，则插入新记录
-        query.prepare("INSERT INTO Submissions (file_path) VALUES (:filePath)");
-        query.bindValue(":filePath", filePath);
-
-        if (!query.exec()) {
-            qDebug() << "Insert failed:" << query.lastError();
-            return;
-        }
-
-        submissionId = query.lastInsertId().toInt();
-        qDebug() << "New submission recorded with ID:" << submissionId;
-    }
-
-    QSqlQuery recordQuery(dbsqlite);
-    recordQuery.prepare("INSERT INTO SubmissionRecords (submission_id) VALUES (:submissionId)");
-    recordQuery.bindValue(":submissionId", submissionId);
-
-    if (!recordQuery.exec()) {
-        qDebug() << "Insert into SubmissionRecords failed:" << recordQuery.lastError();
-    } else {
-        qDebug() << "Record added for submission ID:" << submissionId;
-    }
-}
-
-
-
-bool DBSQlite::hasSubmissions(const QString& filePath) const {
-    QSqlQuery query(dbsqlite);
-    query.prepare("SELECT COUNT(*) FROM Submissions WHERE file_path = :filePath");
-    query.bindValue(":filePath", filePath);
-
-    if (!query.exec()) {
-        qDebug() << "DBSQlite::hasSubmissions Query failed:" << query.lastError();
-        return false;
-    }
-
-    if (query.next()) {
-        return query.value(0).toInt() > 0;
-    }
-
-    return false;
-}
 
 
 

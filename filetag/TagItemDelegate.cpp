@@ -1,10 +1,12 @@
 #include "./include/TagItemDelegate.h"
 
-TagItemDelegate::TagItemDelegate(QObject *parent, DBSQlite *dbsqlite, ServerManager *serverManager)
-    : QStyledItemDelegate(parent), dbsqlite(dbsqlite), serverManager(serverManager) {
+// TagItemDelegate.cpp
+TagItemDelegate::TagItemDelegate(QObject *parent, ServerManager *serverManager)
+    : QStyledItemDelegate(parent),
+    dbsqlite(DBSQlite::instance()),  // 单例模式获取 DBSQlite 引用
+    dbmysql(DBMySQL::instance()),    // 单例模式获取 DBMysql 引用
+    serverManager(serverManager) {}
 
-
-}
 
 
 void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -18,7 +20,7 @@ void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         QIcon tagIcon(":/usedimage/edittag.svg");
         tagIcon.paint(painter, iconRect, Qt::AlignCenter);
     }
-    if (dbsqlite->hasSubmissions(filePath)) {
+    if (dbmysql.hasSubmissions(filePath)) {
         QRect submissionIconRect(option.rect.right() - 60, option.rect.top() + 5, 20, 20);
         QIcon submissionIcon(":/usedimage/history.svg");
         submissionIcon.paint(painter, submissionIconRect, Qt::AlignCenter);
@@ -65,7 +67,7 @@ bool TagItemDelegate::hasTags(const QString &filePath) const
     if (it != m_tagsCache.end())
         return it.value();
 
-    bool hasTags = dbsqlite && dbsqlite->hasTagsForFile(filePath);
+    bool hasTags = dbsqlite.hasTagsForFile(filePath);
     const_cast<TagItemDelegate*>(this)->m_tagsCache[filePath] = hasTags;
     return hasTags;
 
@@ -105,9 +107,9 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
 
     connect(commit, &QAction::triggered, [this, index, model]() {
         QString fileName = model->data(index).toString();
-        serverManager->commitToServer(fileName, "upload/");
         QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
-        dbsqlite->recordSubmission(filePath);
+        if(serverManager->commitToServer(fileName, "upload/"))
+            dbmysql.recordSubmission(filePath);
     });
 
     connect(history, &QAction::triggered, [this, index, model]() {
@@ -121,7 +123,6 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     contextMenu.addAction(commit);
     contextMenu.addAction(history);
 
-    // 在指定位置显示菜单
     contextMenu.exec(pos);
 }
 
@@ -135,11 +136,11 @@ void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex 
 
         int fileId;
 
-        if (!dbsqlite->getFileId(filePath, fileId)) {
-            dbsqlite->addFilePath(filePath, fileId);
+        if (!dbsqlite.getFileId(filePath, fileId)) {
+            dbsqlite.addFilePath(filePath, fileId);
         }
-        dbsqlite->saveTags(fileId, tagName);
-        dbsqlite->saveAnnotation(fileId, annotation);
-        dbsqlite->saveExpirationDate(fileId, expirationDate);
+        dbsqlite.saveTags(fileId, tagName);
+        dbsqlite.saveAnnotation(fileId, annotation);
+        dbsqlite.saveExpirationDate(fileId, expirationDate);
     }
 }
