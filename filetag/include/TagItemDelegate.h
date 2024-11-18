@@ -11,9 +11,9 @@
 #include <QMenu>
 #include <QAction>
 #include <QMap>
-#include "../manager/include/DBSQlite.h"
-#include "../manager/include/DBMySQL.h"
-#include "../manager/include/ServerManager.h"
+#include "../../manager/include/DBSQlite.h"
+#include "../../manager/include/DBMySQL.h"
+#include "../../manager/include/ServerManager.h"
 
 #include "DTag.h"
 class TagItemDelegate : public QStyledItemDelegate

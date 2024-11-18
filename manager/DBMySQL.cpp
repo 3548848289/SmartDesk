@@ -2,7 +2,7 @@
 
 DBMySQL::DBMySQL() {
     dbmysql = QSqlDatabase::addDatabase("QMYSQL");
-    dbmysql.setHostName("192.168.45.236");
+    dbmysql.setHostName("127.0.0.1");
     dbmysql.setDatabaseName("mytxt");
     dbmysql.setUserName("root");
     dbmysql.setPassword("Mysql20039248");
@@ -199,7 +199,7 @@ bool DBMySQL::hasSubmissions(const QString& filePath) const {
     query.bindValue(":filePath", filePath);
 
     if (!query.exec()) {
-        qDebug() << "DBMySQL::hasSubmissions Query failed:" << query.lastError();
+//        qDebug() << "DBMySQL::hasSubmissions Query failed:" << query.lastError();
         return false;
     }
 

@@ -26,6 +26,7 @@ qt_add_library(mytxt_filetag
     ${FILETAG_SOURCES}
     ${FILETAG_HEADERS}
     ${FILETAG_UIS}
+
 )
 
 target_link_libraries(mytxt_filetag PRIVATE

@@ -57,7 +57,7 @@
 标签</string>
       </property>
       <property name="icon">
-       <iconset resource="../resources/res.qrc">
+       <iconset resource="../../resources/res.qrc">
         <normaloff>:/usedimage/list.svg</normaloff>:/usedimage/list.svg</iconset>
       </property>
      </widget>
@@ -87,7 +87,7 @@
 日程</string>
       </property>
       <property name="icon">
-       <iconset resource="../resources/res.qrc">
+       <iconset resource="../../resources/res.qrc">
         <normaloff>:/usedimage/schedule.svg</normaloff>:/usedimage/schedule.svg</iconset>
       </property>
      </widget>
@@ -117,7 +117,7 @@
 文档</string>
       </property>
       <property name="icon">
-       <iconset resource="../resources/res.qrc">
+       <iconset resource="../../resources/res.qrc">
         <normaloff>:/usedimage/editdoc.svg</normaloff>:/usedimage/editdoc.svg</iconset>
       </property>
      </widget>
@@ -141,7 +141,7 @@
 绘图</string>
       </property>
       <property name="icon">
-       <iconset resource="../resources/res.qrc">
+       <iconset resource="../../resources/res.qrc">
         <normaloff>:/usedimage/picture.svg</normaloff>:/usedimage/picture.svg</iconset>
       </property>
      </widget>
@@ -165,7 +165,7 @@
 服务</string>
       </property>
       <property name="icon">
-       <iconset resource="../resources/res.qrc">
+       <iconset resource="../../resources/res.qrc">
         <normaloff>:/usedimage/QQ.svg</normaloff>:/usedimage/QQ.svg</iconset>
       </property>
      </widget>
@@ -189,7 +189,7 @@
 功能</string>
       </property>
       <property name="icon">
-       <iconset resource="../resources/res.qrc">
+       <iconset resource="../../resources/res.qrc">
         <normaloff>:/usedimage/go.svg</normaloff>:/usedimage/go.svg</iconset>
       </property>
      </widget>
@@ -213,7 +213,7 @@
 登录</string>
       </property>
       <property name="icon">
-       <iconset resource="../resources/res.qrc">
+       <iconset resource="../../resources/res.qrc">
         <normaloff>:/usedimage/user.svg</normaloff>:/usedimage/user.svg</iconset>
       </property>
      </widget>
@@ -222,7 +222,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="../resources/res.qrc"/>
+  <include location="../../resources/res.qrc"/>
  </resources>
  <connections/>
 </ui>

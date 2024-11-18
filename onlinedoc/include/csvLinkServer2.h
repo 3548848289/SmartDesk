@@ -12,12 +12,12 @@
 #include <QMessageBox>
 #include <QJsonObject>
 #include <QJsonDocument>
-#include "../manager/include/myJson.h"
+#include "../../manager/include/myJson.h"
 
-#include "../main/include/TabHandleCSV.h"
+#include "../../main/include/TabHandleCSV.h"
 
-#include "../manager/include/ServerManager.h"
-#include "../manager/include/DBMySQL.h"
+#include "../../manager/include/ServerManager.h"
+#include "../../manager/include/DBMySQL.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class csvLinkServer2; }

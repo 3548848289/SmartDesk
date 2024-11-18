@@ -31,10 +31,10 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="../resources/res.qrc">:/usedimage/tag.svg</pixmap>
+         <pixmap resource="../../resources/res.qrc">:/usedimage/tag.svg</pixmap>
         </property>
         <property name="alignment">
-         <set>Qt::AlignCenter</set>
+         <set>Qt::AlignmentFlag::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -44,7 +44,7 @@
          <string>提醒</string>
         </property>
         <property name="alignment">
-         <set>Qt::AlignCenter</set>
+         <set>Qt::AlignmentFlag::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -54,10 +54,10 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="../resources/res.qrc">:/usedimage/edittag.svg</pixmap>
+         <pixmap resource="../../resources/res.qrc">:/usedimage/edittag.svg</pixmap>
         </property>
         <property name="alignment">
-         <set>Qt::AlignCenter</set>
+         <set>Qt::AlignmentFlag::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -92,13 +92,16 @@
        </sizepolicy>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton {
-    color: #7598db;  /* Darker blue for text color */
-    background-color: #e0e0e0;  /* Background color as gray (optional) */
-    border: 1px solid #ccc;  /* Border color as light gray (optional) */
-    border-radius: 5px;  /* Rounded corners (optional) */
-    padding: 5px 10px;  /* Padding (optional) */
+       <string notr="true"> /*
+
+QPushButton {
+    color: #7598db;  
+    background-color: #e0e0e0;  
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    padding: 5px 10px;
 }
+*/
 </string>
       </property>
       <property name="text">
@@ -110,7 +113,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="../resources/res.qrc"/>
+  <include location="../../resources/res.qrc"/>
  </resources>
  <connections/>
 </ui>

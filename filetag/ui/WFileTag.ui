@@ -52,14 +52,15 @@
           </sizepolicy>
          </property>
          <property name="styleSheet">
-          <string notr="true">QPushButton {
-    color: #7598db;  /* 设置字体颜色为橙色 */
-    background-color: #e0e0e0;  /* 背景颜色为灰色（可选） */
-    border: 1px solid #ccc;  /* 边框颜色为浅灰色（可选） */
-    border-radius: 5px;  /* 设置圆角（可选） */
-    padding: 5px 10px;  /* 设置内边距（可选） */
+          <string notr="true">/* 
+QPushButton {
+    color: #7598db;  
+    background-color: #e0e0e0;  
+    border: 1px solid #ccc; 
+    border-radius: 5px;  
+    padding: 5px 10px;  
 }
-</string>
+*/</string>
          </property>
          <property name="text">
           <string> 跳转</string>

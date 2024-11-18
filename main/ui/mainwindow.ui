@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>700</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -55,8 +55,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1000</width>
-     <height>21</height>
+     <width>800</width>
+     <height>16</height>
     </rect>
    </property>
    <widget class="QMenu" name="menufile">
@@ -104,8 +104,8 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionopen">
    <property name="icon">
-    <iconset resource="../../resources/res.qrc">
-     <normaloff>:/image/database_go.svg</normaloff>:/image/database_go.svg</iconset>
+    <iconset>
+     <normaloff>../../resources/image/database_go.svg</normaloff>../../resources/image/database_go.svg</iconset>
    </property>
    <property name="text">
     <string>打开</string>
@@ -197,7 +197,6 @@
   </action>
  </widget>
  <resources>
-  <include location="../../resources/res.qrc"/>
   <include location="../../resources/res.qrc"/>
  </resources>
  <connections/>

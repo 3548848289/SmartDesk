@@ -25,8 +25,8 @@
 #include "../../filetag/include/WFileTag.h"
 #include "../../filehis/WFileHis.h"
 
-#include "../manager/include/DBSQlite.h"
-#include "../manager/include/DBMySQL.h"
+#include "../../manager/include/DBSQlite.h"
+#include "../../manager/include/DBMySQL.h"
 #include "../../email/sendemail.h"
 #include "../../draw/ControlFrame.h"
 QT_BEGIN_NAMESPACE

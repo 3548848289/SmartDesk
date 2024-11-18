@@ -6,8 +6,8 @@
 #include <QModelIndex>
 #include <QListWidgetItem>
 #include "TagItemDelegate.h"
-#include "../manager/include/DBSQlite.h"
-#include "../manager/include/ServerManager.h"
+#include "../../manager/include/DBSQlite.h"
+#include "../../manager/include/ServerManager.h"
 
 namespace Ui {
 class WFileTag;

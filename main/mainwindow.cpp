@@ -74,16 +74,14 @@ void MainWindow::initSpli()
 void MainWindow::initSmal()
 {
     loginButton = new QPushButton(this);
-
-    loginButton->setFixedSize(30,30);
-    loginButton->setStyleSheet("border: 2px solid #C7FFEE; border-radius: 15px;");
-
+    loginButton->setFixedSize(30, 30);
+    loginButton->setStyleSheet("border: none; border-radius: 15px;");
     loginButton->setIcon(QIcon(":/image/login.png"));
-    loginButton->setIconSize(QSize(30,30));
+    loginButton->setIconSize(loginButton->size());
+
 
     ui->menubar->setCornerWidget(loginButton, Qt::TopRightCorner);
     connect(loginButton, &QPushButton::clicked, this, &MainWindow::showUserInfoDialog);
-
 
 
     tabWidget = new QTabWidget(this);
@@ -92,22 +90,22 @@ void MainWindow::initSmal()
         on_actionclose_triggered();
     });
 
-    tabWidget->setStyleSheet(
-        "QTabBar::tab {"
-        "    background: #f0f0f0; color: #000000; padding: 5px;"
-        "    border: 1px solid #cccccc; border-bottom: none; }"
-        "QTabBar::tab:selected {"
-        "    background: #ffffff; color: #3598db; border-bottom: none; }"
-        "QTabBar::tab:hover {"
-        "    background: #dfefff; }"
-        "QTabBar::close-button {"
-        "    image: url(:/usedimage/close-black.svg);"
-        "    subcontrol-position: right; padding: 5px; }"
-        "QTabBar::close-button:hover {"
-        "    image: url(:/image/cross.svg);}"
-        "QTabBar::close-button:pressed {"
-        "    image: url(:/image/cross.svg); }"
-    );
+//    tabWidget->setStyleSheet(
+//        "QTabBar::tab {"
+//        "    background: #f0f0f0; color: #000000; padding: 5px;"
+//        "    border: 1px solid #cccccc; border-bottom: none; }"
+//        "QTabBar::tab:selected {"
+//        "    background: #ffffff; color: #3598db; border-bottom: none; }"
+//        "QTabBar::tab:hover {"
+//        "    background: #dfefff; }"
+//        "QTabBar::close-button {"
+//        "    image: url(:/usedimage/close-black.svg);"
+//        "    subcontrol-position: right; padding: 5px; }"
+//        "QTabBar::close-button:hover {"
+//        "    image: url(:/image/cross.svg);}"
+//        "QTabBar::close-button:pressed {"
+//        "    image: url(:/image/cross.svg); }"
+//    );
 
 }
 
@@ -120,11 +118,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
     setWindowTitle("QiHan在线文档");
     setWindowIcon(QIcon(":/usedimage/package.svg"));
-    ui->menubar->setStyleSheet(
-        "QMenuBar::item {"
-        "    text-align: center;"
-        "}"
-    );
+//    ui->menubar->setStyleSheet(
+//        "QMenuBar::item {"
+//        "    text-align: center;"
+//        "}"
+//    );
 
     initSmal();
     initFunc();

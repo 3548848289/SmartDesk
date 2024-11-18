@@ -1,20 +1,33 @@
+cmake_minimum_required(VERSION 3.16)
+
+# 设置项目名称
+project(UserInfo)
+
+# 查找 Qt 库
+find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets Network)
+
+# 查找 Qt6 库
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Network)
+
+# 设置源文件和头文件
 set(USERINFO_SOURCES
     DInfo.cpp
     DLogin.cpp
+    FlaskInfo.cpp
 )
 
 set(USERINFO_HEADERS
-    DInfo.h
-    DLogin.h
+    include/DInfo.h
+    include/DLogin.h
+    include/FlaskInfo.h
 )
 
 set(USERINFO_UIS
-    DInfo.ui
-    DLogin.ui
+    ui/DInfo.ui
+    ui/DLogin.ui
 )
 
-set(RESOURCE_FILES ../resources/res.qrc)
-
+# 添加 Qt 库
 qt_add_library(mytxt_userinfo STATIC
     ${USERINFO_SOURCES}
     ${USERINFO_HEADERS}
@@ -22,8 +35,11 @@ qt_add_library(mytxt_userinfo STATIC
     ${RESOURCE_FILES}
 )
 
+# 链接 Qt 库
 target_link_libraries(mytxt_userinfo PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Network  # 链接 Qt Network 库
 )
 
+# 添加头文件路径
 target_include_directories(mytxt_userinfo PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

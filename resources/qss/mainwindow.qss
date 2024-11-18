@@ -1,0 +1,48 @@
+/* 栈控件样式 
+QWidget#pWidget {
+    border: 1px solid rgb(28, 251, 255);
+}*/
+
+/* 登录按钮样式 */
+QPushButton#loginButton {
+    border: 2px solid #C7FFEE;
+    border-radius: 15px;
+}
+
+/* 针对 tabWidget 的标签页样式 */
+QTabWidget#tabWidget QTabBar::tab {
+    background: #f0f0f0;
+    color: #000000;
+    padding: 5px;
+    border: 1px solid #cccccc;
+    border-bottom: none;
+}
+
+QTabWidget#tabWidget QTabBar::tab:selected {
+    background: #ffffff;
+    color: #3598db;
+    border-bottom: none;
+}
+
+QTabWidget#tabWidget QTabBar::tab:hover {
+    background: #dfefff;
+}
+
+QTabWidget#tabWidget QTabBar::close-button {
+    image: url(:/usedimage/close-black.svg);
+    subcontrol-position: right;
+    padding: 5px;
+}
+
+QTabWidget#tabWidget QTabBar::close-button:hover {
+    image: url(:/image/cross.svg);
+}
+
+QTabWidget#tabWidget QTabBar::close-button:pressed {
+    image: url(:/image/cross.svg);
+}
+
+/* 菜单栏样式 */
+QMenuBar::item {
+    text-align: center;
+}

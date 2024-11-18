@@ -1,5 +1,5 @@
-#include "DInfo.h"
-#include "../ui/ui_DInfo.h"
+#include "include/DInfo.h"
+#include "ui/ui_DInfo.h"
 
 
 DInfo::DInfo(const QString& username, DBMySQL* dmMysql, QWidget* parent) :
