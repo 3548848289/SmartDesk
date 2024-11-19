@@ -112,7 +112,8 @@ void MainWindow::initSmal()
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow),
     recentFilesManager(new RecentFilesManager(this)),
-    dbSqlite(&DBSQlite::instance()), dbMysql(&DBMySQL::instance())
+    dbSqlite(&DBSQlite::instance())
+    , dbMysql(&DBMySQL::instance())
 {
     dbSqlite->open();
     ui->setupUi(this);

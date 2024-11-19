@@ -11,6 +11,7 @@
 #include <QPixmap>
 #include <QDate>
 #include <QMessageBox>
+#include "FlaskInfo.h"
 
 #include "../../manager/include/DBMySQL.h"
 namespace Ui {
@@ -33,11 +34,11 @@ private:
     DBMySQL* dmMysql;
     QPixmap storedAvatar;
     void setupUi();
-
-    void loadUserInfo();
-
+    FlaskInfo* flaskinfo;
+    void loadUserInfo(const QJsonObject &userInfo);
     void saveUserInfo();
-
+    void onUserInfoUpdated(const QJsonObject &response);
+    void onErrorOccurred(const QString &error);
 
 private:
     Ui::DInfo *ui;

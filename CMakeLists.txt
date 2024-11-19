@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 # 设置项目名称和版本
 project(mytxt_cmake VERSION 0.1 LANGUAGES CXX)
 
+
 # 查找 Qt 库 (仅在主目录调用一次)
 find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets Sql Network Svg)
 find_package(Qt6 REQUIRED COMPONENTS Widgets Sql Network Svg)

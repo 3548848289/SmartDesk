@@ -1,4 +1,4 @@
-#include "DBMySQL.h"
+#include "include/DBMySQL.h"
 
 DBMySQL::DBMySQL() {
     dbmysql = QSqlDatabase::addDatabase("QMYSQL");

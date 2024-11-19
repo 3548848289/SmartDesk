@@ -23,8 +23,8 @@ set(MAIN_SOURCES
 )
 
 # 查找 Qt 库
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Svg)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Svg)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Svg Network)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Svg Network)
 
 # 创建静态库
 qt_add_library(mytxt_main STATIC
@@ -40,11 +40,13 @@ qt_add_resources(TARGET mytxt_main
 # 包含头文件目录
 target_include_directories(mytxt_main PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
+
 )
 
 # 链接 Qt 库
 target_link_libraries(mytxt_main PRIVATE
     Qt${QT_VERSION_MAJOR}::Core   # 确保链接了 QtCore
     Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Network
     Qt${QT_VERSION_MAJOR}::Svg
 )

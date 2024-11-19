@@ -1,22 +1,23 @@
-
 #ifndef DLOGIN_H
 #define DLOGIN_H
+
 #include <QDialog>
 #include <QImage>
 #include <QPixmap>
 #include <QMouseEvent>
-
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlDatabase"
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlQuery"
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtSql\\QSqlError"
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QNetworkAccessManager"
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QNetworkRequest"
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QNetworkReply"
 #include <QJsonObject>
 #include <QJsonDocument>
+#include "D:\\QT6\\6.8.0\\mingw_64\include\\QtNetwork\\QNetworkAccessManager"
+#include "D:\\QT6\\6.8.0\\mingw_64\include\\QtNetwork\\QNetworkRequest"
+#include "D:\\QT6\\6.8.0\\mingw_64\include\\QtNetwork\\QNetworkReply"
 
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QBuffer>
+
 #include "../../manager/include/DBMySQL.h"
+#include "FlaskInfo.h"
+
 namespace Ui {
 class DLogin;
 }
@@ -30,22 +31,31 @@ public:
     ~DLogin();
 
 signals:
-    void loginSuccessful(const QString& username);
+    void loginSuccessful(const QString &username);
 
 private slots:
     void on_radioButton_clicked();
     void on_exit_toolButton_clicked();
     void on_avatar_pushButton_clicked();
-
     void on_registerBtn_clicked();
-
     void on_loginBtn_clicked();
 
-private:
-    Ui::DLogin *ui;
-    QNetworkAccessManager *networkManager;
+    void onLoginResponse(const QJsonObject &response);
+    void onRegisterResponse(const QJsonObject &response);
+    void onNetworkError(const QString &error);
 
-    QPixmap avatarImage;
+private:
+    Ui::DLogin *ui;                           // UI pointer
+    FlaskInfo *flaskinfo;            // NetworkManager for handling requests
+    QPixmap avatarImage;                      // Store avatar image
+    DBMySQL *dbmysql;                         // Database object for interacting with MySQL
+    bool mousePressed;                        // Flag for dragging the window
+    QPoint startPos;                          // Start position for moving window
+
+    // Private member functions for handling UI and network
+    void handleLoginSuccess(const QJsonObject &jsonObject);
+    void showMessage(const QString &title, const QString &message);
+    QByteArray encodeAvatarImage();
 
 protected:
     void mousePressEvent(QMouseEvent *event) override {
@@ -66,18 +76,6 @@ protected:
             mousePressed = false;
         }
     }
-
-private:
-    void onRegisterResponse();
-    void onLoginResponse();
-
-    void registerUser(const QString &username, const QString &password);
-    void onLogin();
-    bool success = false;
-
-    DBMySQL * dbmysql;
-    bool mousePressed;
-    QPoint startPos;
 };
 
 #endif // DLOGIN_H

@@ -2,9 +2,6 @@
 #ifndef TABHANDLECSV_H
 #define TABHANDLECSV_H
 
-#include "TabAbstract.h"
-#include "../../manager/include/myJson.h"
-
 #include <QTableWidget>
 #include <QString>
 #include <QLabel>
@@ -18,7 +15,11 @@
 #include <string>
 #include <QInputDialog>
 #include <QDebug>
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QNetworkInterface"
+#include <QNetworkInterface>
+
+#include "TabAbstract.h"
+#include "../../manager/include/myJson.h"
+
 
 class TabHandleCSV : public TabAbstract
 {
