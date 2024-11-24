@@ -45,19 +45,14 @@ void WidgetFunctional::on_pushButton_6_clicked()
 void WidgetFunctional::on_pushButton_7_clicked()
 {
     dlogin = new DLogin(dbMysql);
-    bool connected = connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
-    qDebug() << "Signal-slot connection success:" << connected;
+    connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
     dlogin->exec();
-
 }
 
 void WidgetFunctional::handleLoginSuccess(const QString& username) {
     qDebug() << "Username in handleLoginSuccess:" << username;
     dinfo = new DInfo(username, dbMysql, this);
 }
-
-
-
 
 WidgetFunctional::WidgetFunctional(DBMySQL *dbInstance, QWidget *parent)
     : QWidget(parent), ui(new Ui::WidgetFunctional), dbMysql(dbInstance)

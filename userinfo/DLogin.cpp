@@ -13,9 +13,8 @@ DLogin::DLogin(DBMySQL *dbmysql, QWidget *parent)
 
     flaskinfo = new FlaskInfo(this);
 
-    // Connect flaskinfo signals to the corresponding slots
-    connect(flaskinfo, &FlaskInfo::loginResponseReceived, this, &DLogin::onLoginResponse);
-    connect(flaskinfo, &FlaskInfo::registerResponseReceived, this, &DLogin::onRegisterResponse);
+    connect(flaskinfo, &FlaskInfo::s_loginRec, this, &DLogin::onLoginResponse);
+    connect(flaskinfo, &FlaskInfo::s_registerRec, this, &DLogin::onRegisterResponse);
     connect(flaskinfo, &FlaskInfo::errorOccurred, this, &DLogin::onNetworkError);
     connect(flaskinfo, &FlaskInfo::avatarDownloaded, this, &DLogin::onAvatarDownloaded);
 
@@ -89,7 +88,7 @@ void DLogin::on_loginBtn_clicked()
         return;
     }
 
-    flaskinfo->loginUser(usernameText, passwordText);
+    flaskinfo->route_loginUser(usernameText, passwordText);
 }
 
 void DLogin::on_registerBtn_clicked()
@@ -106,7 +105,7 @@ void DLogin::on_registerBtn_clicked()
     QBuffer buffer(&avatarData);
     avatarImage.save(&buffer, "PNG");
 
-    flaskinfo->registerUser(usernameText, passwordText, avatarData);
+    flaskinfo->route_registerUser(usernameText, passwordText, avatarData);
 }
 
 void DLogin::onLoginResponse(const QJsonObject &response)
@@ -114,17 +113,16 @@ void DLogin::onLoginResponse(const QJsonObject &response)
 
     QString message = response["message"].toString();
     if (message == "Login successful") {
-        if (!m_avatarImage.isNull()) {
+        if (!m_avatarImage.isNull())
             ui->avatar_pushButton->setIcon(QIcon(QPixmap::fromImage(m_avatarImage)));  // 直接使用保存的头像
-        } else {
+        else
             qDebug() << "Avatar image not available.";
-        }
 
         emit loginSuccessful(response["username"].toString());
         QMessageBox::information(this, "登录成功", message);
-    } else {
-        QMessageBox::warning(this, "登录失败", message);
     }
+    else
+        QMessageBox::warning(this, "登录失败", message);
 }
 
 void DLogin::onRegisterResponse(const QJsonObject &response)

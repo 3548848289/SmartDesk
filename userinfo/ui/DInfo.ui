@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel {
+    <string notr="true">/*QLabel {
 
     border: 1px solid #003366; 
     border-radius: 25px; 
@@ -32,7 +32,7 @@
     height: 50px;
     text-align: center; 
 }
-</string>
+*/</string>
    </property>
    <property name="text">
     <string>头像</string>
@@ -89,17 +89,17 @@
    </property>
    <item>
     <property name="text">
-     <string>男</string>
+     <string>Male</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>女</string>
+     <string>Female</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>保密</string>
+     <string>Other</string>
     </property>
    </item>
   </widget>
@@ -215,6 +215,9 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">

@@ -17,32 +17,34 @@ class FlaskInfo : public QObject
 
 public:
     explicit FlaskInfo(QObject *parent = nullptr);
-    void loginUser(const QString &username, const QString &password);
-    void registerUser(const QString &username, const QString &password, const QByteArray &avatarData);
-    void updateUserInfo(const QString &username, const QMap<QString, QVariant> &userInfo);
-    void loadUserInfo(const QString &username);
+    void route_loginUser(const QString &username, const QString &password);
+    void route_registerUser(const QString &username, const QString &password, const QByteArray &avatarData);
+    void route_updateUserInfo(const QString &username, const QMap<QString, QVariant> &userInfo);
+    void route_loadUserInfo(const QString &username);
 
 signals:
-    void loginResponseReceived(const QJsonObject &response);
-    void registerResponseReceived(const QJsonObject &response);
-    void updateResponseReceived(const QJsonObject &response);
-    void userInfoLoaded(const QJsonObject &userInfo);
+    void s_loginRec(const QJsonObject &response);
+    void s_registerRec(const QJsonObject &response);
+    void s_updateRec(const QJsonObject &response);
+    void s_loadRec(const QJsonObject &response);
 
     void errorOccurred(const QString &error);
     void avatarDownloaded(const QByteArray &data, const QString &action);
 
 private slots:
-    void onLoginResponse(QNetworkReply *reply);
-    void fetchAvatarImage(const QString &avatarUrl, const QString &action);
 
-    void onRegisterResponse(QNetworkReply *reply);
-    void onUpdateResponse(QNetworkReply *reply);
-    void onLoadUserInfoResponse(QNetworkReply *reply);
+    void H_LoginAct(const QJsonObject &jsonRes);
+    void H_RegisterAct(const QJsonObject &jsonRes);
+    void H_UpdateAct(const QJsonObject &jsonRes);
+    void H_LoadAct(const QJsonObject &jsonRes);
+    void fetchAvatarImage(const QString &url, const QString &action);
 
 private:
     QNetworkAccessManager *networkManager;
 
     void sendRequest(const QUrl &url, const QJsonObject &json, const QString &action);
+    void handleResponse(QNetworkReply *reply, const QString &action);
+
 };
 
 #endif // FLASKINFO_H

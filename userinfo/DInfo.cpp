@@ -6,19 +6,17 @@ DInfo::DInfo(const QString& username, DBMySQL* dmMysql, QWidget* parent) :
     QDialog(parent), username(username), dmMysql(dmMysql), ui(new Ui::DInfo)
 {
     ui->setupUi(this);
+    flaskinfo = new FlaskInfo(this);
+    qDebug() << username;    
+    flaskinfo->route_loadUserInfo(username);
 
-    // 创建 FlaskInfo 对象
-    flaskinfo = new FlaskInfo(this);  // 这里实例化 flaskinfo
-    qDebug() << username;
-    flaskinfo->loadUserInfo(username);
-    // 连接信号和槽
-    connect(flaskinfo, &FlaskInfo::userInfoLoaded, this, &DInfo::loadUserInfo);  // 使用 flaskinfo 对象
+    connect(flaskinfo, &FlaskInfo::s_loadRec, this, &DInfo::loadUserInfo);  // 使用 flaskinfo 对象
 }
 
 DInfo::~DInfo()
 {
     delete ui;
-    delete flaskinfo;  // 记得在析构函数中删除 flaskinfo 对象
+    delete flaskinfo;
 }
 
 QPixmap DInfo::getStoredAvatar() const
@@ -52,7 +50,7 @@ void DInfo::loadUserInfo(const QJsonObject &userInfo) {
     ui->companyEdit->setText(userInfo["company"].toString());
 
     // 处理头像
-    QString avatarBase64 = userInfo["avatar"].toString();  // 获取 Base64 字符串
+    QString avatarBase64 = userInfo["avator_base64"].toString();  // 获取 Base64 字符串
     QByteArray avatarData = QByteArray::fromBase64(avatarBase64.toUtf8());  // 将 Base64 字符串转换为字节数组
     if (!avatarData.isEmpty()) {
         QImage image;
@@ -102,10 +100,10 @@ void DInfo::on_saveButton_clicked()
 
     // 创建 FlaskInfo 对象并连接信号槽
     FlaskInfo *flaskInfo = new FlaskInfo(this);
-    connect(flaskInfo, &FlaskInfo::updateResponseReceived, this, &DInfo::onUserInfoUpdated);
+    connect(flaskInfo, &FlaskInfo::s_updateRec, this, &DInfo::onUserInfoUpdated);
     connect(flaskInfo, &FlaskInfo::errorOccurred, this, &DInfo::onErrorOccurred);
 
     // 发送更新请求
-    flaskInfo->updateUserInfo(username, userInfo);
+    flaskInfo->route_updateUserInfo(username, userInfo);
 }
 

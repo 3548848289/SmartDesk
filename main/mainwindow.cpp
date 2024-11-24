@@ -79,7 +79,6 @@ void MainWindow::initSmal()
     loginButton->setIcon(QIcon(":/image/login.png"));
     loginButton->setIconSize(loginButton->size());
 
-
     ui->menubar->setCornerWidget(loginButton, Qt::TopRightCorner);
     connect(loginButton, &QPushButton::clicked, this, &MainWindow::showUserInfoDialog);
 
@@ -89,24 +88,6 @@ void MainWindow::initSmal()
     connect(tabWidget, &QTabWidget::tabCloseRequested, this, [this](int index) {
         on_actionclose_triggered();
     });
-
-//    tabWidget->setStyleSheet(
-//        "QTabBar::tab {"
-//        "    background: #f0f0f0; color: #000000; padding: 5px;"
-//        "    border: 1px solid #cccccc; border-bottom: none; }"
-//        "QTabBar::tab:selected {"
-//        "    background: #ffffff; color: #3598db; border-bottom: none; }"
-//        "QTabBar::tab:hover {"
-//        "    background: #dfefff; }"
-//        "QTabBar::close-button {"
-//        "    image: url(:/usedimage/close-black.svg);"
-//        "    subcontrol-position: right; padding: 5px; }"
-//        "QTabBar::close-button:hover {"
-//        "    image: url(:/image/cross.svg);}"
-//        "QTabBar::close-button:pressed {"
-//        "    image: url(:/image/cross.svg); }"
-//    );
-
 }
 
 
@@ -117,13 +98,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     dbSqlite->open();
     ui->setupUi(this);
-    setWindowTitle("QiHan在线文档");
-    setWindowIcon(QIcon(":/usedimage/package.svg"));
-//    ui->menubar->setStyleSheet(
-//        "QMenuBar::item {"
-//        "    text-align: center;"
-//        "}"
-//    );
 
     initSmal();
     initFunc();
@@ -151,7 +125,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::showUserInfoDialog() {
     DInfo *dinfo = widgetfunc->getDInfo();
-
     if (dinfo) {
         QPixmap avatar = dinfo->getStoredAvatar();
         if (!avatar.isNull()) {
