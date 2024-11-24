@@ -6,14 +6,12 @@ DInfo::DInfo(const QString& username, DBMySQL* dmMysql, QWidget* parent) :
     QDialog(parent), username(username), dmMysql(dmMysql), ui(new Ui::DInfo)
 {
     ui->setupUi(this);
-    ui->genderCombo->addItems({"Male", "Female", "Other"});
 
     // 创建 FlaskInfo 对象
     flaskinfo = new FlaskInfo(this);  // 这里实例化 flaskinfo
     qDebug() << username;
     flaskinfo->loadUserInfo(username);
     // 连接信号和槽
-    connect(ui->saveButton, &QPushButton::clicked, this, &DInfo::saveUserInfo);
     connect(flaskinfo, &FlaskInfo::userInfoLoaded, this, &DInfo::loadUserInfo);  // 使用 flaskinfo 对象
 }
 
@@ -60,6 +58,7 @@ void DInfo::loadUserInfo(const QJsonObject &userInfo) {
         QImage image;
         if (image.loadFromData(avatarData)) {
             storedAvatar = QPixmap::fromImage(image);
+            qDebug() << "成功缓存图片";
             ui->avatarLabel->setPixmap(storedAvatar);
         } else {
             qWarning() << "Failed to load image from data.";
@@ -73,23 +72,6 @@ void DInfo::loadUserInfo(const QJsonObject &userInfo) {
     ui->avatarLabel->setScaledContents(true);
 }
 
-void DInfo::saveUserInfo() {
-    QMap<QString, QVariant> userInfo;
-    userInfo["name"] = ui->nameEdit->text();
-    userInfo["motto"] = ui->mottoEdit->text();
-    userInfo["gender"] = ui->genderCombo->currentText();
-    userInfo["birthday"] = ui->birthdayEdit->date();
-    userInfo["location"] = ui->locationEdit->text();
-    userInfo["company"] = ui->companyEdit->text();
-
-    // 创建 FlaskInfo 对象并连接信号槽
-    FlaskInfo *flaskInfo = new FlaskInfo(this);
-    connect(flaskInfo, &FlaskInfo::updateResponseReceived, this, &DInfo::onUserInfoUpdated);
-    connect(flaskInfo, &FlaskInfo::errorOccurred, this, &DInfo::onErrorOccurred);
-
-    // 发送更新请求
-    flaskInfo->updateUserInfo(username, userInfo);
-}
 
 void DInfo::onUserInfoUpdated(const QJsonObject &response) {
     if (response.isEmpty()) {
@@ -107,3 +89,23 @@ void DInfo::onErrorOccurred(const QString &error) {
     // 错误处理：弹出警告框
     QMessageBox::warning(this, "Error", error);
 }
+
+void DInfo::on_saveButton_clicked()
+{
+    QMap<QString, QVariant> userInfo;
+    userInfo["name"] = ui->nameEdit->text();
+    userInfo["motto"] = ui->mottoEdit->text();
+    userInfo["gender"] = ui->genderCombo->currentText();
+    userInfo["birthday"] = ui->birthdayEdit->date();
+    userInfo["location"] = ui->locationEdit->text();
+    userInfo["company"] = ui->companyEdit->text();
+
+    // 创建 FlaskInfo 对象并连接信号槽
+    FlaskInfo *flaskInfo = new FlaskInfo(this);
+    connect(flaskInfo, &FlaskInfo::updateResponseReceived, this, &DInfo::onUserInfoUpdated);
+    connect(flaskInfo, &FlaskInfo::errorOccurred, this, &DInfo::onErrorOccurred);
+
+    // 发送更新请求
+    flaskInfo->updateUserInfo(username, userInfo);
+}
+

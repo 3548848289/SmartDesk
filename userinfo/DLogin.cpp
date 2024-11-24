@@ -17,7 +17,27 @@ DLogin::DLogin(DBMySQL *dbmysql, QWidget *parent)
     connect(flaskinfo, &FlaskInfo::loginResponseReceived, this, &DLogin::onLoginResponse);
     connect(flaskinfo, &FlaskInfo::registerResponseReceived, this, &DLogin::onRegisterResponse);
     connect(flaskinfo, &FlaskInfo::errorOccurred, this, &DLogin::onNetworkError);
+    connect(flaskinfo, &FlaskInfo::avatarDownloaded, this, &DLogin::onAvatarDownloaded);
+
+
 }
+
+
+void DLogin::onAvatarDownloaded(const QByteArray &data, const QString &action)
+{
+    QImage image;
+    if (image.loadFromData(data)) {
+        m_avatarImage = image; // 保存图片到成员变量
+        if (action == "login_avatar") {
+            ui->avatar_pushButton->setIcon(QIcon(QPixmap::fromImage(m_avatarImage)));  // 使用成员变量
+        } else if (action == "load_user_avatar") {
+            qDebug() << "User avatar loaded for action:" << action;
+        }
+    } else {
+        QMessageBox::warning(this, "错误", "头像加载失败");
+    }
+}
+
 
 void DLogin::on_radioButton_clicked() {
     if (ui->radioButton->isChecked()) {
@@ -91,18 +111,16 @@ void DLogin::on_registerBtn_clicked()
 
 void DLogin::onLoginResponse(const QJsonObject &response)
 {
+
     QString message = response["message"].toString();
     if (message == "Login successful") {
-        // Handle login success logic
-        QString avatarBase64 = response["avatar"].toString();
-        if (!avatarBase64.isEmpty()) {
-            QByteArray avatarData = QByteArray::fromBase64(avatarBase64.toUtf8());
-            QImage avatarImage;
-            avatarImage.loadFromData(avatarData);
-            ui->avatar_pushButton->setIcon(QIcon(QPixmap::fromImage(avatarImage)));
-            emit loginSuccessful(response["username"].toString());
-
+        if (!m_avatarImage.isNull()) {
+            ui->avatar_pushButton->setIcon(QIcon(QPixmap::fromImage(m_avatarImage)));  // 直接使用保存的头像
+        } else {
+            qDebug() << "Avatar image not available.";
         }
+
+        emit loginSuccessful(response["username"].toString());
         QMessageBox::information(this, "登录成功", message);
     } else {
         QMessageBox::warning(this, "登录失败", message);

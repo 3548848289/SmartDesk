@@ -29,9 +29,12 @@ signals:
     void userInfoLoaded(const QJsonObject &userInfo);
 
     void errorOccurred(const QString &error);
+    void avatarDownloaded(const QByteArray &data, const QString &action);
 
 private slots:
     void onLoginResponse(QNetworkReply *reply);
+    void fetchAvatarImage(const QString &avatarUrl, const QString &action);
+
     void onRegisterResponse(QNetworkReply *reply);
     void onUpdateResponse(QNetworkReply *reply);
     void onLoadUserInfoResponse(QNetworkReply *reply);

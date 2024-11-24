@@ -43,11 +43,16 @@ private slots:
     void onLoginResponse(const QJsonObject &response);
     void onRegisterResponse(const QJsonObject &response);
     void onNetworkError(const QString &error);
+    void onAvatarDownloaded(const QByteArray &data, const QString &action);
 
 private:
     Ui::DLogin *ui;                           // UI pointer
     FlaskInfo *flaskinfo;            // NetworkManager for handling requests
+
     QPixmap avatarImage;                      // Store avatar image
+    QImage m_avatarImage;  // 用于保存头像图片
+
+
     DBMySQL *dbmysql;                         // Database object for interacting with MySQL
     bool mousePressed;                        // Flag for dragging the window
     QPoint startPos;                          // Start position for moving window

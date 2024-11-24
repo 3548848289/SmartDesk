@@ -24,15 +24,13 @@ void FlaskInfo::registerUser(const QString &username, const QString &password, c
     sendRequest(QUrl("http://127.0.0.1:5000/register"), json, "register");
 }
 
-
 void FlaskInfo::loadUserInfo(const QString &username)
 {
     QJsonObject json;
-    json["username"] = username;  // 传递用户名作为查询参数
+    json["username"] = username; // 传递用户名作为查询参数
 
     sendRequest(QUrl("http://127.0.0.1:5000/get_user_info"), json, "load_user_info");
 }
-
 
 void FlaskInfo::updateUserInfo(const QString &username, const QMap<QString, QVariant> &userInfo)
 {
@@ -64,15 +62,15 @@ void FlaskInfo::sendRequest(const QUrl &url, const QJsonObject &json, const QStr
             onRegisterResponse(reply);
         } else if (action == "update_user_info") {
             onUpdateResponse(reply);
-        }else if (action == "load_user_info") {
+        } else if (action == "load_user_info") {
             onLoadUserInfoResponse(reply);
         }
-
     });
 }
 
 void FlaskInfo::onLoginResponse(QNetworkReply *reply)
 {
+
     if (reply->error() != QNetworkReply::NoError) {
         emit errorOccurred(reply->errorString());
         reply->deleteLater();
@@ -81,10 +79,41 @@ void FlaskInfo::onLoginResponse(QNetworkReply *reply)
 
     QByteArray responseData = reply->readAll();
     QJsonDocument jsonDoc = QJsonDocument::fromJson(responseData);
-    emit loginResponseReceived(jsonDoc.object());
+    QJsonObject jsonResponse = jsonDoc.object();
 
+    qDebug() << "Response JSON:" << jsonResponse;
+    if (jsonResponse.contains("avatar_url") && !jsonResponse["avatar_url"].toString().isEmpty()) {
+
+        QString baseUrl = "http://127.0.0.1:5000";  // 假设服务器地址
+        QString avatarUrl = baseUrl + jsonResponse["avatar_url"].toString();  // 拼接完整的 URL
+        qDebug() << "Full Avatar URL:" << avatarUrl;
+        fetchAvatarImage(avatarUrl, "login_avatar");
+
+    } else {
+        qDebug() << "avatar_url not found or is empty!";
+    }
+
+    emit loginResponseReceived(jsonResponse);
     reply->deleteLater();
 }
+
+void FlaskInfo::fetchAvatarImage(const QString &url, const QString &action)
+{
+    QNetworkRequest request(url);
+    QNetworkReply *reply = networkManager->get(request);
+
+    connect(reply, &QNetworkReply::finished, this, [this, reply, action]() {
+        if (reply->error() != QNetworkReply::NoError) {
+            qDebug() << "Failed to download avatar:" << reply->errorString();
+            emit avatarDownloaded(QByteArray(), action);  // 失败时传递空数据
+        } else {
+            QByteArray imageData = reply->readAll();
+            emit avatarDownloaded(imageData, action);  // 成功时传递图像数据
+        }
+        reply->deleteLater();
+    });
+}
+
 
 void FlaskInfo::onRegisterResponse(QNetworkReply *reply)
 {
@@ -117,10 +146,6 @@ void FlaskInfo::onUpdateResponse(QNetworkReply *reply)
     if (jsonResponse.contains("success") && jsonResponse["success"].toBool()) {
         emit updateResponseReceived(jsonResponse);
     }
-    // else {
-    //     emit updateFailure(jsonResponse);
-    // }
-
     reply->deleteLater();
 }
 
@@ -141,20 +166,12 @@ void FlaskInfo::onLoadUserInfoResponse(QNetworkReply *reply)
     }
 
     QJsonObject userInfo = jsonDoc.object();
-    qDebug() << "FlaskInfo::onLoadUserInfoResponse";
 
-    // 检查是否包含用户信息（通过检查 id 字段）
-    if (userInfo.contains("id")) {
-        // 成功获取用户信息
-        emit userInfoLoaded(userInfo);
-    } else if (userInfo.contains("error")) {
-        // 如果返回的是错误信息（如 "error": "User not found"）
-        emit errorOccurred("Failed to load user information: " + userInfo["error"].toString());
-    } else {
-        // 未知的返回格式
-        emit errorOccurred("Unexpected response format.");
+    if (userInfo.contains("avatar_url") && !userInfo["avatar_url"].toString().isEmpty()) {
+        QString avatarUrl = userInfo["avatar_url"].toString();
+        fetchAvatarImage(avatarUrl, "load_user_avatar");
     }
 
-
+    emit userInfoLoaded(userInfo);
     reply->deleteLater();
 }

@@ -29,6 +29,9 @@ public:
     QPixmap getStoredAvatar() const;
 
 
+private slots:
+    void on_saveButton_clicked();
+
 private:
     QString username;
     DBMySQL* dmMysql;
@@ -36,7 +39,6 @@ private:
     void setupUi();
     FlaskInfo* flaskinfo;
     void loadUserInfo(const QJsonObject &userInfo);
-    void saveUserInfo();
     void onUserInfoUpdated(const QJsonObject &response);
     void onErrorOccurred(const QString &error);
 

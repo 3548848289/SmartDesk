@@ -87,6 +87,21 @@
      <height>24</height>
     </rect>
    </property>
+   <item>
+    <property name="text">
+     <string>男</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>女</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>保密</string>
+    </property>
+   </item>
   </widget>
   <widget class="QPushButton" name="saveButton">
    <property name="geometry">

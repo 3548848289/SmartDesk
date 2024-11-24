@@ -45,7 +45,8 @@ void WidgetFunctional::on_pushButton_6_clicked()
 void WidgetFunctional::on_pushButton_7_clicked()
 {
     dlogin = new DLogin(dbMysql);
-    connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
+    bool connected = connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
+    qDebug() << "Signal-slot connection success:" << connected;
     dlogin->exec();
 
 }
