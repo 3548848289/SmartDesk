@@ -50,6 +50,7 @@ public:
 
     void onListFilesFinished(QNetworkReply* reply);
 
+    void sendfilepaths(QList<QString> filepaths);
 signals:
     void commitSuccess();
     void commitFailed();

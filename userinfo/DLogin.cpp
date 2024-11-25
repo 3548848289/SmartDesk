@@ -76,6 +76,7 @@ void DLogin::on_avatar_pushButton_clicked() {
 
 DLogin::~DLogin() {
     delete ui;
+    delete flaskinfo;
 }
 
 void DLogin::on_loginBtn_clicked()

@@ -27,18 +27,12 @@ public:
     void close();
     bool createTable();
 
-    bool loginUser(const QString &username, const QString &password, QByteArray &avatarData, QString &statusMessage);
-    bool registerUser(const QString &username, const QString &password, const QByteArray &avatarData, QString &statusMessage);
 
     QString lastError() const;
 
-    QMap<QString, QVariant> getUserInfo(const QString& username);
+    void recordSubmission(const QString &filePath, const QString &backupFilePath);
+    QList<QString> getRecordSub(const QString& filePath);
 
-    bool insertUserInfo(const QString& username, const QMap<QString, QVariant>& userInfo);
-    bool updateUserInfo(const QString& username, const QMap<QString, QVariant>& userInfo);
-
-
-    void recordSubmission(const QString &filePath);
     bool hasSubmissions(const QString& filePath) const;
 
 

@@ -16,7 +16,7 @@
   <widget class="QDateTimeEdit" name="dateTimeEdit">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>100</x>
      <y>90</y>
      <width>141</width>
      <height>41</height>
@@ -28,7 +28,7 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>141</width>
+     <width>361</width>
      <height>41</height>
     </rect>
    </property>
@@ -78,7 +78,7 @@
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>100</x>
      <y>160</y>
      <width>121</width>
      <height>41</height>
@@ -96,6 +96,19 @@
    </property>
    <property name="text">
     <string>保存路径</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dlBtn_2">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>160</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>openBtn</string>
    </property>
   </widget>
  </widget>

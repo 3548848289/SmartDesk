@@ -155,3 +155,10 @@ void ServerManager::onListFilesFinished(QNetworkReply* reply) {
     reply->deleteLater();
 }
 
+void ServerManager::sendfilepaths(QList<QString> filepaths)
+{
+    emit onFilesListUpdated(filepaths);
+}
+
+
+

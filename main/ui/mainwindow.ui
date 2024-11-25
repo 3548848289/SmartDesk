@@ -27,8 +27,8 @@
    <widget class="QWidget" name="combinedWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>90</y>
+      <x>50</x>
+      <y>20</y>
       <width>271</width>
       <height>441</height>
      </rect>
@@ -108,8 +108,8 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionopen">
    <property name="icon">
-    <iconset>
-     <normaloff>../../resources/image/database_go.svg</normaloff>../../resources/image/database_go.svg</iconset>
+    <iconset resource="../../resources/res.qrc">
+     <normaloff>:/image/database_go.svg</normaloff>:/image/database_go.svg</iconset>
    </property>
    <property name="text">
     <string>打开</string>

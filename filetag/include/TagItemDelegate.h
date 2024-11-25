@@ -14,7 +14,7 @@
 #include "../../manager/include/DBSQlite.h"
 #include "../../manager/include/DBMySQL.h"
 #include "../../manager/include/ServerManager.h"
-
+#include "DCommit.h"
 #include "DTag.h"
 class TagItemDelegate : public QStyledItemDelegate
 {
@@ -25,6 +25,7 @@ signals:
     void subbutClicked(const QModelIndex &index);
     void openFileRequested(const QString &filePath);
     void deleteFileRequested(const QString &filePath);
+    void onFilesListUpdated(const QStringList& files);
 
 public:
     mutable bool isButtonClicked = false;

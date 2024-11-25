@@ -45,6 +45,7 @@ bool TagItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
             isButtonClicked = true;
             this->serverManager->getFilesInDirectory(index, model);
             emit subbutClicked(index);
+
             return true;
         }
     }
@@ -108,13 +109,22 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     connect(commit, &QAction::triggered, [this, index, model]() {
         QString fileName = model->data(index).toString();
         QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
-        if(serverManager->commitToServer(fileName, "upload/"))
-            dbmysql.recordSubmission(filePath);
+
+        DCommit *commitDialog = new DCommit(filePath, nullptr);
+        if (commitDialog->exec() == QDialog::Accepted) {
+            QString backupFilePath = commitDialog->getBackupFilePath();
+            dbmysql.recordSubmission(filePath, backupFilePath);
+        }
+        commitDialog->deleteLater();
+        // if(serverManager->commitToServer(fileName, "upload/"))
+        //     dbmysql.recordSubmission(filePath);
     });
 
-    connect(history, &QAction::triggered, [this, index, model]() {
-        this->serverManager->getFilesInDirectory(index, model);
-
+    connect(history, &QAction::triggered, [this, index, model]()
+    {
+        QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
+        QList<QString> filepaths = dbmysql.getRecordSub(filePath);
+        this->serverManager->sendfilepaths(filepaths);
     });
 
     contextMenu.addAction(openAction);

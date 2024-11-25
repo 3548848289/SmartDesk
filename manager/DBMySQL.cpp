@@ -121,92 +121,88 @@ bool DBMySQL::createTable() {
         dbmysql.rollback();  // 回滚事务
         return false;
     }
-
-    qDebug() << "All tables created successfully.";
     return true;
 }
 
-void DBMySQL::recordSubmission(const QString &filePath) {
+void DBMySQL::recordSubmission(const QString &filePath, const QString &backupFilePath) {
     QSqlQuery query(dbmysql);
-    query.prepare("SELECT id FROM Submissions WHERE file_path = :filePath");
+    QString currentTime = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
+    query.prepare("SELECT id FROM submission WHERE file_path = :filePath");
     query.bindValue(":filePath", filePath);
-
     if (!query.exec()) {
         qDebug() << "Query failed:" << query.lastError();
         return;
     }
 
-    int submissionId;
+    int submissionId = -1;
     if (query.next()) {
-        submissionId = query.value(0).toInt();
-        qDebug() << "Existing submission found with ID:" << submissionId;
+        submissionId = query.value(0).toInt();     // 如果已有记录，获取ID
     } else {
-        // 如果没有记录，则插入新记录到 Submissions 表
-        query.prepare("INSERT INTO Submissions (file_path) VALUES (:filePath)");
+        // 没有记录，插入新记录并获取 ID
+        query.prepare("INSERT INTO submission (file_path, submit_time) VALUES (:filePath, :submitTime)");
         query.bindValue(":filePath", filePath);
+        query.bindValue(":submitTime", currentTime);
 
         if (!query.exec()) {
-            qDebug() << "Insert into Submissions failed:" << query.lastError();
+            qDebug() << "Insert into submission failed:" << query.lastError();
             return;
         }
-
         submissionId = query.lastInsertId().toInt();
-        qDebug() << "New submission recorded with ID:" << submissionId;
     }
 
-    // 获取原始文件名（例如：DCommit.cpp）
-    QString baseFileName = QFileInfo(filePath).baseName();  // 例如 "DCommit"
-    QString fileExtension = QFileInfo(filePath).completeSuffix();  // 例如 "cpp"
+    // 插入记录到 submissionrecord 表
+    query.prepare("INSERT INTO submissionrecord (submission_id, remote_file_name, submit_time) "
+                  "VALUES (:submissionId, :backupFilePath, :submitTime)");
+    query.bindValue(":submissionId", submissionId);
+    query.bindValue(":backupFilePath", backupFilePath);
+    query.bindValue(":submitTime", currentTime);
 
-    // 查询已有的提交记录数
-    QSqlQuery countQuery(dbmysql);
-    countQuery.prepare("SELECT COUNT(*) FROM SubmissionRecords WHERE submission_id = :submissionId");
-    countQuery.bindValue(":submissionId", submissionId);
-
-    if (!countQuery.exec()) {
-        qDebug() << "Count query failed:" << countQuery.lastError();
-        return;
-    }
-
-    int submissionCount = 0;
-    if (countQuery.next()) {
-        submissionCount = countQuery.value(0).toInt();
-    }
-
-    // 基于提交次数生成新的文件名
-    int newSubmissionNumber = submissionCount + 1;
-    QString remoteFileName = QString("%1%2.%3").arg(baseFileName).arg(newSubmissionNumber).arg(fileExtension);
-
-    qDebug() << "New remote file name:" << remoteFileName;
-
-    // 插入新的记录到 SubmissionRecords 表
-    QSqlQuery recordQuery(dbmysql);
-    recordQuery.prepare("INSERT INTO SubmissionRecords (submission_id, remote_file_name) VALUES (:submissionId, :remoteFileName)");
-    recordQuery.bindValue(":submissionId", submissionId);
-    recordQuery.bindValue(":remoteFileName", remoteFileName);
-
-    if (!recordQuery.exec()) {
-        qDebug() << "Insert into SubmissionRecords failed:" << recordQuery.lastError();
+    if (!query.exec()) {
+        qDebug() << "Insert into submissionrecord failed:" << query.lastError();
     } else {
-        qDebug() << "Record added for submission ID:" << submissionId << " with remote file name:" << remoteFileName;
+        qDebug() << "Record added for submission ID:" << submissionId << " with remote file name:" << backupFilePath;
     }
 }
 
 
+
+QList<QString> DBMySQL::getRecordSub(const QString& filePath) {
+    QSqlQuery query(dbmysql);
+
+    query.prepare("SELECT sr.remote_file_name "
+                  "FROM submissionrecord sr "
+                  "JOIN submission s ON sr.submission_id = s.id "
+                  "WHERE s.file_path = :filePath");
+
+    query.bindValue(":filePath", filePath);
+
+    QList<QString> filePaths;
+    if (query.exec()) {
+        while (query.next()) {
+            QString remoteFilePath = query.value(0).toString();
+            filePaths.append(remoteFilePath);
+        }
+        for (const QString &path : filePaths) {
+            qDebug() << "File Path: " << path;
+        }
+    } else {
+        qDebug() << "Query failed: " << query.lastError().text();
+    }
+    return filePaths;
+}
+
 bool DBMySQL::hasSubmissions(const QString& filePath) const {
     QSqlQuery query(dbmysql);
-    query.prepare("SELECT COUNT(*) FROM Submissions WHERE file_path = :filePath");
+    query.prepare("SELECT COUNT(*) FROM submission WHERE file_path = :filePath");
     query.bindValue(":filePath", filePath);
 
     if (!query.exec()) {
-//        qDebug() << "DBMySQL::hasSubmissions Query failed:" << query.lastError();
+        qDebug() << "DBMySQL::hasSubmissions Query failed:" << query.lastError();
         return false;
     }
-
     if (query.next()) {
         return query.value(0).toInt() > 0;
     }
-
     return false;
 }
 
@@ -278,153 +274,7 @@ bool DBMySQL::open() {
     return dbmysql.open();
 }
 
-bool DBMySQL::loginUser(const QString &username, const QString &password, QByteArray &avatarData, QString &statusMessage) {
-        QSqlQuery query(dbmysql);
-
-    query.prepare("SELECT password, avatar FROM users WHERE username = :username");
-    query.bindValue(":username", username);
-
-    if (query.exec()) {
-        if (query.next()) {
-            QString dbPassword = query.value(0).toString();
-            avatarData = query.value(1).toByteArray();
-
-            if (dbPassword == password) {
-                statusMessage = "登录成功";
-                return true;
-            } else {
-                statusMessage = "密码错误";
-                return false;
-            }
-        } else {
-            statusMessage = "用户不存在";
-            return false;
-        }
-    } else {
-        statusMessage = "数据库查询失败: " + query.lastError().text();
-                                                    return false;
-    }
-}
-
-
-QString generateShareToken(const QString &password) {
-
-    QByteArray hash = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
-
-    QString hexHash = hash.toHex();
-
-    QString shareToken = hexHash.left(6);
-    return shareToken;
-}
-
-bool DBMySQL::registerUser(const QString &username, const QString &password, const QByteArray &avatarData, QString &statusMessage) {
-    QSqlQuery query(dbmysql);
-
-    // 直接存储用户输入的原始密码
-    QString shareToken = generateShareToken(password);  // 根据密码生成共享口令
-
-    // 准备插入语句
-    query.prepare("INSERT INTO users (username, password, avatar, share_token) VALUES (:username, :password, :avatar, :share_token)");
-    query.bindValue(":username", username);
-    query.bindValue(":password", password);  // 直接存储原始密码
-    query.bindValue(":avatar", avatarData);
-    query.bindValue(":share_token", shareToken);  // 插入生成的共享口令
-
-    // 执行插入操作
-    if (query.exec()) {
-                                                    statusMessage = "注册成功";
-                                                    return true;
-    } else {
-                                                    qDebug() << "注册失败: " << query.lastError().text();
-                                                                                    statusMessage = "注册失败: " + query.lastError().text();
-                                                                             return false;
-    }
-}
-
 
 QString DBMySQL::lastError() const {
     return dbmysql.lastError().text();
-}
-
-QMap<QString, QVariant> DBMySQL::getUserInfo(const QString& username) {
-    QMap<QString, QVariant> userInfo;
-        QSqlQuery query(dbmysql);
-
-
-    // 使用JOIN查询用户信息和头像
-    query.prepare(R"(
-        SELECT u.username, u.avatar, ui.name, ui.motto, ui.gender, ui.birthday, ui.location, ui.company
-        FROM users u
-        JOIN user_info ui ON u.username = ui.username
-        WHERE u.username = :username
-    )");
-    query.bindValue(":username", username);
-
-    qDebug() << "Fetching user info for username:" << username;
-
-    if (query.exec()) {
-                                           if (query.next()) {
-            qDebug() << "User found:" << query.value("username").toString();
-            userInfo["username"] = query.value("username").toString();
-            userInfo["avatar"] = query.value("avatar").toByteArray();
-            userInfo["name"] = query.value("name").toString();
-            userInfo["motto"] = query.value("motto").toString();
-            userInfo["gender"] = query.value("gender").toString();
-            userInfo["birthday"] = query.value("birthday").toDate();
-            userInfo["location"] = query.value("location").toString();
-            userInfo["company"] = query.value("company").toString();
-                                           } else {
-            qDebug() << "No user found for username:" << username;
-                                           }
-    } else {
-                                           qDebug() << "Query execution failed:" << query.lastError().text();
-    }
-
-    return userInfo;    
-}
-
-bool DBMySQL::insertUserInfo(const QString& username, const QMap<QString, QVariant>& userInfo) {
-        QSqlQuery query(dbmysql);
-
-    query.prepare("INSERT INTO user_info (username, name, motto, gender, birthday, location, company) "
-                  "VALUES (:username, :name, :motto, :gender, :birthday, :location, :company)");
-
-    query.bindValue(":username", username);
-    query.bindValue(":name", userInfo["name"]);
-    query.bindValue(":motto", userInfo["motto"]);
-    query.bindValue(":gender", userInfo["gender"]);
-    query.bindValue(":birthday", userInfo["birthday"]);
-    query.bindValue(":location", userInfo["location"]);
-    query.bindValue(":company", userInfo["company"]);
-
-    if (!query.exec()) {
-        qDebug() << "DBMySQL::insertUserInfo Failed to insert user info:" << query.lastError().text();
-        return false;
-    }
-    qDebug() << "User info inserted successfully for username:" << username;
-    return true;
-}
-
-
-bool DBMySQL::updateUserInfo(const QString& username, const QMap<QString, QVariant>& userInfo) {
-        QSqlQuery query(dbmysql);
-
-    query.prepare("UPDATE user_info SET name = :name, motto = :motto, gender = :gender, "
-                  "birthday = :birthday, location = :location, company = :company "
-                  "WHERE username = :username");
-
-    query.bindValue(":name", userInfo["name"]);
-    query.bindValue(":motto", userInfo["motto"]);
-    query.bindValue(":gender", userInfo["gender"]);
-    query.bindValue(":birthday", userInfo["birthday"]);
-    query.bindValue(":location", userInfo["location"]);
-    query.bindValue(":company", userInfo["company"]);
-    query.bindValue(":username", username);
-
-    if (!query.exec()) {
-        qDebug() << "DBMySQL::updateUserInfo Failed to update user info:" << query.lastError().text();
-        return false;
-    }
-    qDebug() << "DBMySQL::updateUserInfo User info updated successfully for username:" << username;
-    return true;
 }

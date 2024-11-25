@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QString>
+#include <QFileInfo>
+#include <QFileDialog>
 #include "../manager/include/ServerManager.h"
 
 namespace Ui {
@@ -21,6 +23,8 @@ private slots:
     void on_fastDlBtn_clicked();
 
     void on_dlBtn_clicked();
+
+    void on_dlBtn_2_clicked();
 
 private:
     Ui::DPull *ui;

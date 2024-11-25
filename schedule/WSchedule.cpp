@@ -36,7 +36,6 @@ void WSchedule::loadTags() {
     ui->comboBox->addItem("刷新");
 
     QStringList tags = db->getAllTags();
-    qDebug() << tags;
     for (const QString &tag : tags) {
         ui->comboBox->addItem(tag);
 

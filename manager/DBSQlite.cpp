@@ -19,7 +19,7 @@ bool DBSQlite::open() {
     if (!dbsqlite.isOpen()) {
         if (!dbsqlite.open()) {
             qDebug() << "数据库连接失败：" << dbsqlite.lastError().text();
-                                                      return false;
+            return false;
         }
         initializeDatabase();
     }
@@ -52,18 +52,13 @@ void DBSQlite::initializeDatabase() {
 }
 
 bool DBSQlite::addFilePath(const QString &filePath, int &fileId) {
-    if (!dbsqlite.isOpen()) {
-        qDebug() << "数据库未打开";
-        return false;
-    }
-
     QSqlQuery query(dbsqlite);
     query.prepare("INSERT INTO FilePaths (file_path) VALUES (:filePath)");
     query.bindValue(":filePath", filePath);
 
     if (!query.exec()) {
         qDebug() << "插入文件路径失败：" << query.lastError().text();
-                                            return false;
+        return false;
     }
     fileId = query.lastInsertId().toInt();
     return true;
@@ -89,16 +84,15 @@ bool DBSQlite::getTags(int fileId, QStringList &tags) {
     query.bindValue(":fileId", fileId);
 
     if (query.exec()) {
-        while (query.next()) {
+        while (query.next())
             tags.append(query.value(0).toString());
-        }
         return true;
     }
     return false;
 }
 
 bool DBSQlite::getAnnotation(int fileId, QString &annotation) {
-        QSqlQuery query(dbsqlite);
+     QSqlQuery query(dbsqlite);
 
     query.prepare("SELECT annotation FROM Annotations WHERE file_id = :fileId");
     query.bindValue(":fileId", fileId);
@@ -146,27 +140,23 @@ bool DBSQlite::hasTagsForFile(const QString &filePath) const
         return false;
     }
 
-    if (query.next()) {
+    if (query.next())
         return query.value(0).toInt() > 0;
-    }
-
     return false;
 }
 
 QStringList DBSQlite::getAllFilePaths() {
     QStringList filePaths;
-    if (!open()) {
+    if (!open())
         qDebug() << "数据库连接初始化失败";
-    }
     QSqlQuery query(dbsqlite);  // 使用数据库连接执行查询
     if (!query.exec("SELECT file_path FROM FilePaths")) {
         qDebug() << "查询失败：" << query.lastError().text();
-                                         return filePaths;
+        return filePaths;
     }
 
-    while (query.next()) {
+    while (query.next())
         filePaths.append(query.value(0).toString());
-    }
     return filePaths;
 }
 
@@ -182,7 +172,6 @@ QStringList DBSQlite::getAllTags() {
     return tags;
 
 }
-
 
 void DBSQlite::saveExpirationDate(int fileId, const QDateTime &expirationDateTime) {
     QSqlQuery query(dbsqlite);
@@ -236,38 +225,6 @@ QStringList DBSQlite::searchFiles(const QString &keyword) {
     return filePaths;
 }
 
-//void DBSQlite::recordSubmission(const QString &filePath) {
-//    QSqlQuery query(dbsqlite);
-
-//    query.prepare("INSERT INTO Submissions (file_path) VALUES (:filePath)");
-//    query.bindValue(":filePath", filePath);
-
-//    if (!query.exec()) {
-//        qDebug() << "Insert failed:" << query.lastError();
-//    } else {
-//        qDebug() << "Submission recorded for:" << filePath;
-//    }
-//}
-
-//bool DBSQlite::hasSubmissions(const QString& filePath) const {
-//        QSqlQuery query(dbsqlite);
-
-//    query.prepare("SELECT COUNT(*) FROM Submissions WHERE file_path = :filePath");
-//    query.bindValue(":filePath", filePath);
-
-//    if (!query.exec()) {
-//        qDebug() << "DBSQlite::hasSubmissions Query failed:" << query.lastError();
-//        return false;
-//    }
-
-//    if (query.next()) {
-//        return query.value(0).toInt() > 0;
-//    }
-
-//    return false;
-//}
-
-
 
 QVector<QPair<QString, QDateTime>> DBSQlite::getSortByExp() {
     QVector<QPair<QString, QDateTime>> fileList;
@@ -283,6 +240,5 @@ QVector<QPair<QString, QDateTime>> DBSQlite::getSortByExp() {
         QDateTime expirationDateTime = query.value(1).toDateTime();
         fileList.append(qMakePair(filePath, expirationDateTime));
     }
-
     return fileList;
 }

@@ -23,6 +23,9 @@ private slots:
 
     void on_listWidget_itemClicked(QListWidgetItem *item);
 
+signals:
+    void s_fileopen(const QString& filepath);
+
 private:
 
     ServerManager* serverManager;

@@ -104,12 +104,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     initSpli();
 
     connect(tabWidget, &QTabWidget::currentChanged, this, &MainWindow::onTabChanged);
-
     connect(wonlinedoc->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
     connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
     connect(wfiletag, &WFileTag::fileOpened, this, &MainWindow::openFile);
     connect(schedule, &WSchedule::fileClicked, this, &MainWindow::openFile);
-
+    connect(wfilehis, &WFileHis::s_fileopen, this, &MainWindow::openFile);
     recentFilesManager->populateRecentFilesMenu(ui->recentFile);
 }
 
@@ -158,7 +157,7 @@ void MainWindow::on_actionscv_file_triggered()
 void MainWindow::on_actionopen_triggered()
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "",
-                                                    tr("All Files (*);;CSV Files (*.csv);;Text Files (*.txt)"));
+        tr("All Files (*);;CSV Files (*.csv);;Text Files (*.txt)"));
     if (fileName.isEmpty())
         return;
     openFile(fileName);
