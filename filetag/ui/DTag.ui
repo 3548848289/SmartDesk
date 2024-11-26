@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>新增备忘文件</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../../resources/res.qrc">
+    <normaloff>:/usedimage/tag.svg</normaloff>:/usedimage/tag.svg</iconset>
   </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">

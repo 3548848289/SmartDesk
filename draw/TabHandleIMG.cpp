@@ -2,12 +2,12 @@
 #include <QHBoxLayout>
 
 TabHandleIMG::TabHandleIMG(const QString& filePath, QWidget *parent)
-    : TabAbstract(filePath, parent), angle(0), scaleValue(5), shearValue(5), translateValue(50)
+    : TabAbstract(filePath, parent), angle(0), scaleValue(1), shearValue(0), translateValue(0)
 {
     scene = new QGraphicsScene;
     scene->setSceneRect(-200, -200, 400, 400);
 
-    QPixmap *pixmap = new QPixmap("D:/QT6/Qt_pro/project/mytxt/resources/image/login.png");
+    QPixmap *pixmap = new QPixmap(filePath);
     pixItem = new PixItem(pixmap);
     scene->addItem(pixItem);
     pixItem->setPos(0, 0);

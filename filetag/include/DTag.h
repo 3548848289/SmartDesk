@@ -2,7 +2,7 @@
 #define DTAG_H
 
 #include <QDialog>
-
+#include <QDateTime>
 namespace Ui {
 class DTag;
 }

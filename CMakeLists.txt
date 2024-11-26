@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 # 设置项目名称和版本
-project(mytxt_cmake VERSION 0.1 LANGUAGES CXX)
+project(SmartDesk VERSION 0.1 LANGUAGES CXX)
 
 
 # 查找 Qt 库 (仅在主目录调用一次)
@@ -34,10 +34,10 @@ qt_add_resources(RESOURCES
 )
 
 #定义最终的可执行文件
-qt_add_executable(mytxt_executable ${RESOURCES})
+qt_add_executable(SmartDesk ${RESOURCES})
 
 # 链接所有库，包括 mytxt_email（从 email 子目录构建的库）
-target_link_libraries(mytxt_executable PRIVATE
+target_link_libraries(SmartDesk PRIVATE
     mytxt_main           # main 子目录生成的静态库
     mytxt_filehis
     mytxt_filetag
@@ -54,7 +54,7 @@ target_link_libraries(mytxt_executable PRIVATE
 
 # 安装规则
 include(GNUInstallDirs)
-install(TARGETS mytxt_executable
+install(TARGETS SmartDesk
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
@@ -62,5 +62,5 @@ install(TARGETS mytxt_executable
 
 # 如果使用 Qt6，则需要调用 qt_finalize_executable
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(mytxt_executable)
+    qt_finalize_executable(SmartDesk)
 endif()

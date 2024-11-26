@@ -1,0 +1,32 @@
+{
+    "classes": [
+        {
+            "className": "TabHandleIMG",
+            "lineNumber": 11,
+            "object": true,
+            "qualifiedClassName": "TabHandleIMG",
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "controlFrame",
+                            "type": "ControlFrame*"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "showControlFrame",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "TabAbstract"
+                }
+            ]
+        }
+    ],
+    "inputFile": "TabHandleIMG.h",
+    "outputRevision": 68
+}

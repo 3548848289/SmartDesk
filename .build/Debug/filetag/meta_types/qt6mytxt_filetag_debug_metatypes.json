@@ -1,0 +1,186 @@
+[
+    {
+        "classes": [
+            {
+                "className": "DCommit",
+                "lineNumber": 12,
+                "object": true,
+                "qualifiedClassName": "DCommit",
+                "slots": [
+                    {
+                        "access": "private",
+                        "index": 0,
+                        "name": "on_save_clicked",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QDialog"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "DCommit.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "DTag",
+                "lineNumber": 10,
+                "object": true,
+                "qualifiedClassName": "DTag",
+                "slots": [
+                    {
+                        "access": "private",
+                        "index": 0,
+                        "name": "on_saveButton_clicked",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QDialog"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "DTag.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "TagItemDelegate",
+                "lineNumber": 19,
+                "object": true,
+                "qualifiedClassName": "TagItemDelegate",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "tagbutClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "subbutClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "filePath",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "openFileRequested",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "filePath",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "deleteFileRequested",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "files",
+                                "type": "QStringList"
+                            }
+                        ],
+                        "index": 4,
+                        "name": "onFilesListUpdated",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QStyledItemDelegate"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "TagItemDelegate.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "WFileTag",
+                "lineNumber": 16,
+                "object": true,
+                "qualifiedClassName": "WFileTag",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "filePath",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "fileOpened",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "onItemClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 2,
+                        "name": "goButtonClicked",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "WFileTag.h",
+        "outputRevision": 68
+    }
+]

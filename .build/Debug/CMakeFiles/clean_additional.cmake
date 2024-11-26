@@ -1,0 +1,43 @@
+# Additional clean files
+cmake_minimum_required(VERSION 3.16)
+
+if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "Debug")
+  file(REMOVE_RECURSE
+  "CMakeFiles\\SmartDesk_autogen.dir\\AutogenUsed.txt"
+  "CMakeFiles\\SmartDesk_autogen.dir\\ParseCache.txt"
+  "SmartDesk_autogen"
+  "draw\\CMakeFiles\\mytxt_draw_autogen.dir\\AutogenUsed.txt"
+  "draw\\CMakeFiles\\mytxt_draw_autogen.dir\\ParseCache.txt"
+  "draw\\mytxt_draw_autogen"
+  "email\\CMakeFiles\\mytxt_email_autogen.dir\\AutogenUsed.txt"
+  "email\\CMakeFiles\\mytxt_email_autogen.dir\\ParseCache.txt"
+  "email\\mytxt_email_autogen"
+  "email\\simple-mail\\src\\CMakeFiles\\SimpleMail3Qt6_autogen.dir\\AutogenUsed.txt"
+  "email\\simple-mail\\src\\CMakeFiles\\SimpleMail3Qt6_autogen.dir\\ParseCache.txt"
+  "email\\simple-mail\\src\\SimpleMail3Qt6_autogen"
+  "filehis\\CMakeFiles\\mytxt_filehis_autogen.dir\\AutogenUsed.txt"
+  "filehis\\CMakeFiles\\mytxt_filehis_autogen.dir\\ParseCache.txt"
+  "filehis\\mytxt_filehis_autogen"
+  "filetag\\CMakeFiles\\mytxt_filetag_autogen.dir\\AutogenUsed.txt"
+  "filetag\\CMakeFiles\\mytxt_filetag_autogen.dir\\ParseCache.txt"
+  "filetag\\mytxt_filetag_autogen"
+  "main\\CMakeFiles\\mytxt_main_autogen.dir\\AutogenUsed.txt"
+  "main\\CMakeFiles\\mytxt_main_autogen.dir\\ParseCache.txt"
+  "main\\mytxt_main_autogen"
+  "manager\\CMakeFiles\\mytxt_manager_autogen.dir\\AutogenUsed.txt"
+  "manager\\CMakeFiles\\mytxt_manager_autogen.dir\\ParseCache.txt"
+  "manager\\mytxt_manager_autogen"
+  "onlinedoc\\CMakeFiles\\mytxt_onlinedoc_autogen.dir\\AutogenUsed.txt"
+  "onlinedoc\\CMakeFiles\\mytxt_onlinedoc_autogen.dir\\ParseCache.txt"
+  "onlinedoc\\mytxt_onlinedoc_autogen"
+  "schedule\\CMakeFiles\\mytxt_schedule_autogen.dir\\AutogenUsed.txt"
+  "schedule\\CMakeFiles\\mytxt_schedule_autogen.dir\\ParseCache.txt"
+  "schedule\\mytxt_schedule_autogen"
+  "setting\\CMakeFiles\\mytxt_setting_autogen.dir\\AutogenUsed.txt"
+  "setting\\CMakeFiles\\mytxt_setting_autogen.dir\\ParseCache.txt"
+  "setting\\mytxt_setting_autogen"
+  "userinfo\\CMakeFiles\\mytxt_userinfo_autogen.dir\\AutogenUsed.txt"
+  "userinfo\\CMakeFiles\\mytxt_userinfo_autogen.dir\\ParseCache.txt"
+  "userinfo\\mytxt_userinfo_autogen"
+  )
+endif()

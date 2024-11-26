@@ -1,0 +1,94 @@
+{
+    "classes": [
+        {
+            "className": "csvLinkServer",
+            "lineNumber": 26,
+            "object": true,
+            "qualifiedClassName": "csvLinkServer",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "data",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "dataReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "filePathSent",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "data",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "sendDataToServer",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 3,
+                    "name": "on_readyRead",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 4,
+                    "name": "on_disconnected",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 5,
+                    "name": "on_readfiieBtn_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 6,
+                    "name": "on_sendmsgEdit_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 7,
+                    "name": "on_pushButton_2_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "item",
+                            "type": "QTableWidgetItem*"
+                        }
+                    ],
+                    "index": 8,
+                    "name": "on_tableWidget_itemClicked",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QWidget"
+                }
+            ]
+        }
+    ],
+    "inputFile": "csvLinkServer2.h",
+    "outputRevision": 68
+}

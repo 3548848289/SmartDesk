@@ -1,0 +1,68 @@
+{
+    "classes": [
+        {
+            "className": "ControlFrame",
+            "lineNumber": 10,
+            "object": true,
+            "qualifiedClassName": "ControlFrame",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "value",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "rotateChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "value",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "scaleChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "value",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "shearChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "value",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "translateChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QFrame"
+                }
+            ]
+        }
+    ],
+    "inputFile": "ControlFrame.h",
+    "outputRevision": 68
+}

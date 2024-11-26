@@ -1,0 +1,46 @@
+[
+    {
+        "classes": [
+            {
+                "className": "SendEmail",
+                "lineNumber": 34,
+                "object": true,
+                "qualifiedClassName": "SendEmail",
+                "slots": [
+                    {
+                        "access": "private",
+                        "index": 0,
+                        "name": "on_addAttachment_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 1,
+                        "name": "on_sendEmail_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "msg",
+                                "type": "MimeMessage"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "sendMailAsync",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "sendemail.h",
+        "outputRevision": 68
+    }
+]

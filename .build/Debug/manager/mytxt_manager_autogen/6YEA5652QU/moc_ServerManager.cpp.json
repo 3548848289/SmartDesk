@@ -1,0 +1,86 @@
+{
+    "classes": [
+        {
+            "className": "ServerManager",
+            "lineNumber": 31,
+            "object": true,
+            "qualifiedClassName": "ServerManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "commitSuccess",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "commitFailed",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "history",
+                            "type": "QStringList"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "historyReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "files",
+                            "type": "QStringList"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "onFilesListUpdated",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "reply",
+                            "type": "QNetworkReply*"
+                        },
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 4,
+                    "name": "onDownloadFinished",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "reply",
+                            "type": "QNetworkReply*"
+                        }
+                    ],
+                    "index": 5,
+                    "name": "onUploadFinished",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "ServerManager.h",
+    "outputRevision": 68
+}

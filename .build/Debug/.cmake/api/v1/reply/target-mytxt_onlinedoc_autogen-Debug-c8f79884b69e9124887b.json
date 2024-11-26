@@ -1,0 +1,71 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"onlinedoc/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "mytxt_onlinedoc_autogen_timestamp_deps::@7149736b0edd5551e3a2"
+		}
+	],
+	"id" : "mytxt_onlinedoc_autogen::@7149736b0edd5551e3a2",
+	"isGeneratorProvided" : true,
+	"name" : "mytxt_onlinedoc_autogen",
+	"paths" : 
+	{
+		"build" : "onlinedoc",
+		"source" : "onlinedoc"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : ".build/Debug/onlinedoc/CMakeFiles/mytxt_onlinedoc_autogen",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : ".build/Debug/onlinedoc/CMakeFiles/mytxt_onlinedoc_autogen.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : ".build/Debug/onlinedoc/mytxt_onlinedoc_autogen/timestamp.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

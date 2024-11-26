@@ -1,0 +1,18 @@
+{
+    "classes": [
+        {
+            "className": "WOnlineDoc",
+            "lineNumber": 13,
+            "object": true,
+            "qualifiedClassName": "WOnlineDoc",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QWidget"
+                }
+            ]
+        }
+    ],
+    "inputFile": "WOnlineDoc.h",
+    "outputRevision": 68
+}

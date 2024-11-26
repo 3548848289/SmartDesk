@@ -1,0 +1,94 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "mytxt_manager::@97418e93d514bfe7a5e1"
+		},
+		{
+			"id" : "mytxt_filehis::@b1a02ab4c4f7c6b19840"
+		},
+		{
+			"id" : "mytxt_onlinedoc::@7149736b0edd5551e3a2"
+		},
+		{
+			"id" : "mytxt_filetag::@45fe5781c95c17cffa70"
+		},
+		{
+			"id" : "mytxt_schedule::@9e36be1de487767cdad7"
+		},
+		{
+			"id" : "mytxt_userinfo::@d674bccc37d551b1d410"
+		},
+		{
+			"id" : "mytxt_email::@ab3f1ad037796e8bb7c1"
+		},
+		{
+			"id" : "mytxt_setting::@99ddcd2d224c7a01b08e"
+		},
+		{
+			"id" : "mytxt_main::@15c4a824ab2728a3f5e7"
+		},
+		{
+			"id" : "mytxt_draw::@f99138a17b78bc09f6a1"
+		},
+		{
+			"id" : "SimpleMail3Qt6::@bfedbfe0dfa1ee136e7a"
+		}
+	],
+	"id" : "mytxt_executable_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+	"isGeneratorProvided" : true,
+	"name" : "mytxt_executable_autogen_timestamp_deps",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : ".build/Release/CMakeFiles/mytxt_executable_autogen_timestamp_deps",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : ".build/Release/CMakeFiles/mytxt_executable_autogen_timestamp_deps.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

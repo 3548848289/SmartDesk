@@ -1,0 +1,116 @@
+{
+    "classes": [
+        {
+            "className": "DLogin",
+            "lineNumber": 25,
+            "object": true,
+            "qualifiedClassName": "DLogin",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "username",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "loginSuccessful",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "index": 1,
+                    "name": "on_radioButton_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 2,
+                    "name": "on_exit_toolButton_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 3,
+                    "name": "on_avatar_pushButton_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 4,
+                    "name": "on_registerBtn_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 5,
+                    "name": "on_loginBtn_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "response",
+                            "type": "QJsonObject"
+                        }
+                    ],
+                    "index": 6,
+                    "name": "onLoginResponse",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "response",
+                            "type": "QJsonObject"
+                        }
+                    ],
+                    "index": 7,
+                    "name": "onRegisterResponse",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "error",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 8,
+                    "name": "onNetworkError",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "data",
+                            "type": "QByteArray"
+                        },
+                        {
+                            "name": "action",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 9,
+                    "name": "onAvatarDownloaded",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QDialog"
+                }
+            ]
+        }
+    ],
+    "inputFile": "DLogin.h",
+    "outputRevision": 68
+}

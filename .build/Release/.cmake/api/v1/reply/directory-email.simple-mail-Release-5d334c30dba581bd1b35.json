@@ -1,0 +1,68 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"email/simple-mail/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 67,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 72,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/SimpleMail3Qt6",
+			"paths" : 
+			[
+				".build/Release/email/simple-mail/SimpleMail3Qt6Config.cmake",
+				".build/Release/email/simple-mail/SimpleMail3Qt6ConfigVersion.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Devel",
+			"destination" : "lib/cmake/SimpleMail3Qt6",
+			"exportName" : "SimpleMailTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "SimpleMail3Qt6::@bfedbfe0dfa1ee136e7a",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"email/simple-mail/CMakeFiles/Export/356f8d4e89d949eed3792a8f2288a122/SimpleMail3Qt6Targets.cmake"
+			],
+			"type" : "export"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "email/simple-mail",
+		"source" : "email/simple-mail"
+	}
+}

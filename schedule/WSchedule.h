@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QListWidget>
+#include <QTimer>
 #include "../manager/include/DBSQlite.h"
 
 class DatabaseManager;
@@ -39,6 +40,10 @@ private:
     void filterByTag(const QString &tag);  // 基于标签筛选文件
     void filterByKeyword(const QString &keyword);  // 基于关键词筛选文件
 
+    void startExpirationCheck();
+    void checkExpiration();
+
+    QTimer *expirationTimer;
     Ui::WSchedule *ui;
     DBSQlite *db;
 };

@@ -16,7 +16,7 @@ public:
     explicit TabHandleIMG(const QString& filePath, QWidget *parent = nullptr);
 
     void setText(const QString &text) override {}
-    QString getText() const override {}
+    QString getText() const override {  return " "; }
     void loadFromFile(const QString &fileName) override {}
     void saveToFile(const QString &fileName) {}
     void loadFromContent(const QByteArray &content) override {}

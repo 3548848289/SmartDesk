@@ -6,7 +6,8 @@ DTag::DTag(QWidget *parent) :
     ui(new Ui::DTag)
 {
     ui->setupUi(this);
-
+    QDateTime newDateTime = QDateTime::currentDateTime().addDays(1);
+    ui->dateTimeEdit->setDateTime(newDateTime);
 }
 
 DTag::~DTag()

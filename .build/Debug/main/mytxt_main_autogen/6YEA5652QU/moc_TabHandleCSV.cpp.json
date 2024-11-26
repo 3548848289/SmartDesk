@@ -1,0 +1,32 @@
+{
+    "classes": [
+        {
+            "className": "TabHandleCSV",
+            "lineNumber": 24,
+            "object": true,
+            "qualifiedClassName": "TabHandleCSV",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "data",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "dataToSend",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "TabAbstract"
+                }
+            ]
+        }
+    ],
+    "inputFile": "TabHandleCSV.h",
+    "outputRevision": 68
+}

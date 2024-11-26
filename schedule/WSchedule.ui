@@ -11,11 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,12">
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,14">
      <item>
       <widget class="QLineEdit" name="searchLineEdit">
        <property name="sizePolicy">
@@ -35,7 +35,10 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,4,4">
        <property name="spacing">
-        <number>12</number>
+        <number>6</number>
+       </property>
+       <property name="leftMargin">
+        <number>6</number>
        </property>
        <item>
         <widget class="QComboBox" name="comboBox">
@@ -50,14 +53,14 @@
        <item>
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>文件名</string>
+          <string>文件位置</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pushButton">
          <property name="text">
-          <string>修改时间</string>
+          <string>到期时间排序</string>
          </property>
         </widget>
        </item>

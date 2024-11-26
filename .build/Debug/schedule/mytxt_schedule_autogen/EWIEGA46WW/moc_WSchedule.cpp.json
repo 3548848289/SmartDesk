@@ -1,0 +1,88 @@
+{
+    "classes": [
+        {
+            "className": "WSchedule",
+            "lineNumber": 15,
+            "object": true,
+            "qualifiedClassName": "WSchedule",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "path",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "fileClicked",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "item",
+                            "type": "QListWidgetItem*"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "onItemClicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "tag",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "onTagChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "keyword",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "onSearch",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 4,
+                    "name": "sortByExpDate",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 5,
+                    "name": "onSortClicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 6,
+                    "name": "on_pushButton_clicked",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QWidget"
+                }
+            ]
+        }
+    ],
+    "inputFile": "WSchedule.h",
+    "outputRevision": 68
+}

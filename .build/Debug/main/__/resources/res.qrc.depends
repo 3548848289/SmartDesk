@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/">
+        <file>usedimage/go.svg</file>
+        <file>usedimage/list.svg</file>
+        <file>usedimage/user.svg</file>
+        <file>usedimage/addtag.svg</file>
+        <file>usedimage/edittag.svg</file>
+        <file>usedimage/picture.svg</file>
+        <file>usedimage/tag.svg</file>
+        <file>usedimage/editdoc.svg</file>
+        <file>usedimage/close-black.svg</file>
+        <file>usedimage/close-white.svg</file>
+        <file>usedimage/proxy-black.svg</file>
+        <file>usedimage/QQ.svg</file>
+        <file>usedimage/package.svg</file>
+        <file>usedimage/schedule.svg</file>
+        <file>image/arrow_refresh_small.svg</file>
+        <file>image/cross.svg</file>
+        <file>image/database_go.svg</file>
+        <file>image/table_save.svg</file>
+        <file>usedimage/history.svg</file>
+        <file>image/login.png</file>
+        <file>png/Settings.png</file>
+    </qresource>
+</RCC>

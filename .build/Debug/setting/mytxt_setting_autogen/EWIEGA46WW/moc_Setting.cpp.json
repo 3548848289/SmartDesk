@@ -1,0 +1,52 @@
+{
+    "classes": [
+        {
+            "className": "Setting",
+            "lineNumber": 13,
+            "object": true,
+            "qualifiedClassName": "Setting",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "size",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "fontSizeChanged",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "value",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "onFontSizeChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 2,
+                    "name": "onLineEditEditingFinished",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QWidget"
+                }
+            ]
+        }
+    ],
+    "inputFile": "Setting.h",
+    "outputRevision": 68
+}

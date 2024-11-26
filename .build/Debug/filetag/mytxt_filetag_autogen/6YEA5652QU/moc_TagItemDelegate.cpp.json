@@ -1,0 +1,80 @@
+{
+    "classes": [
+        {
+            "className": "TagItemDelegate",
+            "lineNumber": 19,
+            "object": true,
+            "qualifiedClassName": "TagItemDelegate",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "QModelIndex"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "tagbutClicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "QModelIndex"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "subbutClicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "filePath",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "openFileRequested",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "filePath",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "deleteFileRequested",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "files",
+                            "type": "QStringList"
+                        }
+                    ],
+                    "index": 4,
+                    "name": "onFilesListUpdated",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QStyledItemDelegate"
+                }
+            ]
+        }
+    ],
+    "inputFile": "TagItemDelegate.h",
+    "outputRevision": 68
+}

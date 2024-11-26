@@ -14,6 +14,7 @@ FileItemWidget::~FileItemWidget()
 
 void FileItemWidget::setFileInfo(const QString &filePath, const QString &expirationInfo)
 {
+    qDebug() << expirationInfo;
     this->filePath = filePath;
 
     QFileInfo fileInfo(filePath);
