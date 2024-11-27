@@ -2,16 +2,15 @@ filetag/mytxt_filetag_autogen/timestamp: \
   filetag/mytxt_filetag_autogen/moc_predefs.h \
   D:/CxxProgram/SmartDesk/filetag/CMakeLists.txt \
   D:/CxxProgram/SmartDesk/filetag/DCommit.cpp \
-  D:/CxxProgram/SmartDesk/filetag/DTag.cpp \
   D:/CxxProgram/SmartDesk/filetag/TagItemDelegate.cpp \
   D:/CxxProgram/SmartDesk/filetag/WFileTag.cpp \
   D:/CxxProgram/SmartDesk/filetag/include/DCommit.h \
-  D:/CxxProgram/SmartDesk/filetag/include/DTag.h \
   D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h \
   D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h \
   D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h \
   D:/CxxProgram/SmartDesk/manager/include/DBSQlite.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
+  D:/CxxProgram/SmartDesk/schedule/include/DTag.h \
   D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlDatabase \
   D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlError \
   D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlQuery \
@@ -544,6 +543,5 @@ filetag/mytxt_filetag_autogen/timestamp: \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
   D:/CxxProgram/SmartDesk/filetag/ui/DCommit.ui \
-  D:/CxxProgram/SmartDesk/filetag/ui/DTag.ui \
   D:/CxxProgram/SmartDesk/filetag/ui/WFileTag.ui \
   D:/QT6/Tools/CMake_64/bin/cmake.exe

@@ -21,7 +21,7 @@
 
 #include "../../onlinedoc/include/WOnlineDoc.h"
 #include "../../setting/Setting.h"
-#include "../../schedule/WSchedule.h"
+#include "../../schedule/include/WSchedule.h"
 #include "../../filetag/include/WFileTag.h"
 #include "../../filehis/WFileHis.h"
 

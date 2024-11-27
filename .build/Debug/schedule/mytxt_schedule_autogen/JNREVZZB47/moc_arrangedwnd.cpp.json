@@ -1,0 +1,44 @@
+{
+    "classes": [
+        {
+            "className": "ArrangedWnd",
+            "lineNumber": 10,
+            "object": true,
+            "qualifiedClassName": "ArrangedWnd",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "rclicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "visible",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "visibleChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QWidget"
+                }
+            ]
+        }
+    ],
+    "inputFile": "arrangedwnd.h",
+    "outputRevision": 68
+}

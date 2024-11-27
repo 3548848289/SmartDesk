@@ -1,7 +1,7 @@
 prefix=/SimpleMail3Qt6
 exec_prefix=${prefix}
-libdir=C:/Program Files (x86)/SmartDesk/lib
-includedir=C:/Program Files (x86)/SmartDesk/include/simplemail3-qt6
+libdir=/SimpleMail3Qt6/lib
+includedir=/SimpleMail3Qt6/include/simplemail3-qt6
 
 Name: simplemail3-qt6
 Description: SimpleMail library for Qt6

@@ -1,12 +1,10 @@
 set(FILETAG_SOURCES
-    DTag.cpp
     DCommit.cpp
     WFileTag.cpp
     TagItemDelegate.cpp
 )
 
 set(FILETAG_HEADERS
-    include/DTag.h
     include/DCommit.h
     include/WFileTag.h
     include/TagItemDelegate.h
@@ -17,7 +15,6 @@ set(FILETAG_HEADERS
 set(FILETAG_UIS
     ui/WFileTag.ui
     ui/DCommit.ui
-    ui/DTag.ui
 
 )
 

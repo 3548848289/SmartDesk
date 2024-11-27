@@ -28,32 +28,6 @@
     {
         "classes": [
             {
-                "className": "DTag",
-                "lineNumber": 10,
-                "object": true,
-                "qualifiedClassName": "DTag",
-                "slots": [
-                    {
-                        "access": "private",
-                        "index": 0,
-                        "name": "on_saveButton_clicked",
-                        "returnType": "void"
-                    }
-                ],
-                "superClasses": [
-                    {
-                        "access": "public",
-                        "name": "QDialog"
-                    }
-                ]
-            }
-        ],
-        "inputFile": "DTag.h",
-        "outputRevision": 68
-    },
-    {
-        "classes": [
-            {
                 "className": "TagItemDelegate",
                 "lineNumber": 19,
                 "object": true,

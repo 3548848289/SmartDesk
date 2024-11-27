@@ -1,10 +1,10 @@
 D:/CxxProgram/SmartDesk/.build/Debug/filetag/mytxt_filetag_autogen/6YEA5652QU/moc_TagItemDelegate.cpp: D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h \
   D:/CxxProgram/SmartDesk/.build/Debug/filetag/mytxt_filetag_autogen/moc_predefs.h \
   D:/CxxProgram/SmartDesk/filetag/include/DCommit.h \
-  D:/CxxProgram/SmartDesk/filetag/include/DTag.h \
   D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h \
   D:/CxxProgram/SmartDesk/manager/include/DBSQlite.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
+  D:/CxxProgram/SmartDesk/schedule/include/DTag.h \
   D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlDatabase \
   D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlError \
   D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlQuery \

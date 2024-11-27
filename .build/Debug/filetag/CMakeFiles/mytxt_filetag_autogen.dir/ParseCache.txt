@@ -361,6 +361,7 @@ D:/CxxProgram/SmartDesk/filetag/include/DCommit.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
+D:/CxxProgram/SmartDesk/filetag/TagItemDelegate.cpp
 D:/CxxProgram/SmartDesk/filetag/include/DTag.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/filetag/include/DTag.h
@@ -727,16 +728,15 @@ D:/CxxProgram/SmartDesk/filetag/include/DTag.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
-D:/CxxProgram/SmartDesk/filetag/TagItemDelegate.cpp
 D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
  mdp:D:/CxxProgram/SmartDesk/.build/Debug/filetag/mytxt_filetag_autogen/moc_predefs.h
  mdp:D:/CxxProgram/SmartDesk/filetag/include/DCommit.h
- mdp:D:/CxxProgram/SmartDesk/filetag/include/DTag.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/DBSQlite.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/ServerManager.h
+ mdp:D:/CxxProgram/SmartDesk/schedule/include/DTag.h
  mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlDatabase
  mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlError
  mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlQuery
@@ -1261,16 +1261,20 @@ D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
+D:/CxxProgram/SmartDesk/filetag/WFileTag.cpp
+ uic:ui/ui_WFileTag.h
+D:/CxxProgram/SmartDesk/filetag/DCommit.cpp
+ uic:ui/ui_DCommit.h
 D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h
  mdp:D:/CxxProgram/SmartDesk/.build/Debug/filetag/mytxt_filetag_autogen/moc_predefs.h
  mdp:D:/CxxProgram/SmartDesk/filetag/include/DCommit.h
- mdp:D:/CxxProgram/SmartDesk/filetag/include/DTag.h
  mdp:D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/DBSQlite.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/ServerManager.h
+ mdp:D:/CxxProgram/SmartDesk/schedule/include/DTag.h
  mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlDatabase
  mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlError
  mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlQuery
@@ -1802,9 +1806,5 @@ D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
-D:/CxxProgram/SmartDesk/filetag/DCommit.cpp
- uic:ui/ui_DCommit.h
-D:/CxxProgram/SmartDesk/filetag/WFileTag.cpp
- uic:ui/ui_WFileTag.h
 D:/CxxProgram/SmartDesk/filetag/DTag.cpp
  uic:ui/ui_DTag.h

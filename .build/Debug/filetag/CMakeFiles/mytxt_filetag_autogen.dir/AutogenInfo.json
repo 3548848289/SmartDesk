@@ -17,12 +17,6 @@
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/filetag/include/DTag.h",
-			"MU",
-			"6YEA5652QU/moc_DTag.cpp",
-			null
-		],
-		[
 			"D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h",
 			"MU",
 			"6YEA5652QU/moc_TagItemDelegate.cpp",
@@ -107,7 +101,6 @@
 	"SOURCES" : 
 	[
 		[ "D:/CxxProgram/SmartDesk/filetag/DCommit.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/filetag/DTag.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/filetag/TagItemDelegate.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/filetag/WFileTag.cpp", "MU", null ]
 	],

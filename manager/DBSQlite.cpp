@@ -65,7 +65,7 @@ bool DBSQlite::addFilePath(const QString &filePath, int &fileId) {
 }
 
 bool DBSQlite::getFileId(const QString &filePath, int &fileId) {
-        QSqlQuery query(dbsqlite);
+    QSqlQuery query(dbsqlite);
 
     query.prepare("SELECT id FROM FilePaths WHERE file_path = :filePath");
     query.bindValue(":filePath", filePath);

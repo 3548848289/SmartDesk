@@ -949,7 +949,6 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/CxxProgram/SmartDesk/filehis/DPull.h
  mdp:D:/CxxProgram/SmartDesk/filehis/WFileHis.h
  mdp:D:/CxxProgram/SmartDesk/filetag/include/DCommit.h
- mdp:D:/CxxProgram/SmartDesk/filetag/include/DTag.h
  mdp:D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
  mdp:D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h
  mdp:D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h
@@ -964,7 +963,8 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/CxxProgram/SmartDesk/onlinedoc/include/DLfromNet.h
  mdp:D:/CxxProgram/SmartDesk/onlinedoc/include/WOnlineDoc.h
  mdp:D:/CxxProgram/SmartDesk/onlinedoc/include/csvLinkServer2.h
- mdp:D:/CxxProgram/SmartDesk/schedule/WSchedule.h
+ mdp:D:/CxxProgram/SmartDesk/schedule/include/DTag.h
+ mdp:D:/CxxProgram/SmartDesk/schedule/include/WSchedule.h
  mdp:D:/CxxProgram/SmartDesk/setting/Setting.h
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h

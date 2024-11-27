@@ -1,14 +1,8 @@
-#include "WSchedule.h"
-#include "ui_WSchedule.h"
-#include <QDesktopServices>
-#include <QUrl>
-#include <QListWidgetItem>
-#include "./FileItemWidget.h"
-#include <QTimer>
-#include <QMessageBox>
+#include "./include/WSchedule.h"
+#include "ui/ui_WSchedule.h"
 
-WSchedule::WSchedule(DBSQlite *db, QWidget *parent) :
-    QWidget(parent), ui(new Ui::WSchedule), db(db)
+WSchedule::WSchedule(DBSQlite *dbsqlite, QWidget *parent) :
+    QWidget(parent), ui(new Ui::WSchedule), dbsqlite(dbsqlite)
 {
     ui->setupUi(this);
     filterByTag("刷新");
@@ -20,6 +14,24 @@ WSchedule::WSchedule(DBSQlite *db, QWidget *parent) :
 
     // 启动定时器检查到期文件
     startExpirationCheck();
+
+    manager = new NotifyManager(this);
+    manager->setMaxCount(5);
+    manager->setDisplayTime(5000);
+    manager->setNotifyWndSize(300, 80);
+    connect(manager, &NotifyManager::notifyDetail, [](const QVariantMap &data){
+        QMessageBox msgbox(QMessageBox::Information, QStringLiteral("新消息"), data.value("title").toString());
+
+
+        QStringList tagList = data.value("tag").toStringList();
+        QString allDetails = data.value("body").toString() + "\n\n" + "Tags: " + tagList.join(", ") + "\n" +
+                             "Annotation: " + data.value("annotation").toString();
+
+        msgbox.setInformativeText(allDetails);
+        msgbox.findChild<QDialogButtonBox*>()->setMinimumWidth(500);
+        msgbox.exec();
+    });
+
 }
 
 WSchedule::~WSchedule()
@@ -39,7 +51,7 @@ void WSchedule::loadTags() {
     ui->comboBox->clear();
     ui->comboBox->addItem("刷新");
 
-    QStringList tags = db->getAllTags();
+    QStringList tags = dbsqlite->getAllTags();
     for (const QString &tag : tags) {
         ui->comboBox->addItem(tag);
     }
@@ -48,7 +60,7 @@ void WSchedule::loadTags() {
 void WSchedule::filterByTag(const QString &tag) {
     ui->listWidget->clear();
 
-    QList<FilePathInfo> files = db->getFilePathsByTag(tag);
+    QList<FilePathInfo> files = dbsqlite->getFilePathsByTag(tag);
 
     for (const auto &info : files) {
         QString path = info.filePath;
@@ -93,7 +105,7 @@ QString WSchedule::getExpInfo(const QString &path, const QDateTime &expDate) {
 
 void WSchedule::sortByExpDate() {
     ui->listWidget->clear();
-    QVector<QPair<QString, QDateTime>> files = db->getSortByExp();
+    QVector<QPair<QString, QDateTime>> files = dbsqlite->getSortByExp();
 
     for (const auto &file : files) {
         QString path = file.first;
@@ -119,7 +131,7 @@ void WSchedule::onSearch(const QString &keyword) {
 
 void WSchedule::filterByKeyword(const QString &keyword) {
     ui->listWidget->clear();
-    QStringList paths = db->searchFiles(keyword);
+    QStringList paths = dbsqlite->searchFiles(keyword);
 
     for (const QString &path : paths) {
         FileItemWidget *widget = new FileItemWidget();
@@ -145,11 +157,11 @@ void WSchedule::on_pushButton_clicked()
 void WSchedule::startExpirationCheck() {
     expirationTimer = new QTimer(this);
     connect(expirationTimer, &QTimer::timeout, this, &WSchedule::checkExpiration);
-    expirationTimer->start(1800000);  // 每30分钟（30 * 60 * 1000毫秒）
+    expirationTimer->start(5000);  // 每30分钟（30 * 60 * 1000毫秒）
 }
 
 void WSchedule::checkExpiration() {
-    QList<FilePathInfo> files = db->getFilePathsByTag("刷新");
+    QList<FilePathInfo> files = dbsqlite->getFilePathsByTag("刷新");
 
     for (const auto &file : files) {
         QString path = file.filePath;
@@ -157,8 +169,20 @@ void WSchedule::checkExpiration() {
 
         // 如果文件即将到期，弹出提醒
         if (expDate.isValid() && QDateTime::currentDateTime().secsTo(expDate) <= 2 * 3600) {  // 2小时内到期
-            QMessageBox::information(this, "Expiration Reminder",
-                                     "File is expiring soon: " + path);
+            int fileid = 0;
+            QStringList tag;
+            QString annotation;
+            QVariantMap data;
+
+            dbsqlite->getFileId(path, fileid);
+            dbsqlite->getTags(fileid, tag);
+            dbsqlite->getAnnotation(fileid,annotation);
+
+            data["tag"] = tag;
+            data["annotation"] = annotation;
+            manager->notify("到期提醒", path, data);  // 传递title, body和data
+
         }
     }
 }
+
