@@ -201,80 +201,23 @@ SmartDesk_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersionImpl.cmake \
   D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateTargets.cmake \
   D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateVersionlessAliasTargets.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCXXCompiler.cmake.in \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCompilerIdDetection.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCXXCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCompileFeatures.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCompilerABI.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCompilerId.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineRCCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineSystem.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindBinUtils.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindDependencyMacro.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeNinjaFindMake.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeParseImplicitIncludeInfo.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeParseImplicitLinkInfo.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeParseLibraryArchitecture.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeRCCompiler.cmake.in \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeRCInformation.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystem.cmake.in \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeTestCXXCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeTestRCCompiler.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCXXCompilerFlag.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCXXSourceCompiles.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckIncludeFileCXX.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckLibraryExists.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/ADSP-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Borland-DetermineCompiler.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Cray-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GHS-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-FindBinUtils.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IAR-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Intel-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/MSVC-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/PGI-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/PathScale-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/SCO-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/TI-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Watcom-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageMessage.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindThreads.cmake \
@@ -283,8 +226,6 @@ SmartDesk_autogen/timestamp: \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckCompilerFlag.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckFlagCommonConfig.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/FeatureTesting.cmake \
-  D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-Determine-CXX.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake \
   D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake \

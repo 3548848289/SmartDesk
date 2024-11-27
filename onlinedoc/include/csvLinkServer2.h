@@ -1,9 +1,10 @@
 #ifndef csvLinkServer_H
 #define csvLinkServer_H
 
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QTcpSocket"
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QHostAddress"
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QNetworkProxy"
+#include <QtNetwork/QTcpSocket>
+#include <QtNetwork/QHostAddress>
+#include <QtNetwork/QNetworkProxy>
+
 #include <QWidget>
 #include <QMessageBox>
 #include <QRandomGenerator>

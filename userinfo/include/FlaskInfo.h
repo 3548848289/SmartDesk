@@ -2,9 +2,9 @@
 #define FLASKINFO_H
 
 #include <QObject>
-#include "D:\\QT6\\6.8.0\\mingw_64\include\\QtNetwork\\QNetworkAccessManager"
-#include "D:\\QT6\\6.8.0\\mingw_64\include\\QtNetwork\\QNetworkRequest"
-#include "D:\\QT6\\6.8.0\\mingw_64\include\\QtNetwork\\QNetworkReply"
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkReply>
+#include <QtNetwork/QNetworkRequest>
 
 #include <QJsonObject>
 #include <QJsonDocument>

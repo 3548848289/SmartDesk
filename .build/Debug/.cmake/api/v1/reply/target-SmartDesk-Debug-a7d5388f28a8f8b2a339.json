@@ -30,19 +30,19 @@
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
 			"CMakeLists.txt",
 			"main/CMakeLists.txt",
-			"manager/CMakeLists.txt",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
 			"D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindDependencyMacro.cmake",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake"
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake",
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake",
+			"manager/CMakeLists.txt",
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake"
 		],
 		"nodes" : 
 		[
@@ -95,64 +95,67 @@
 				"parent" : 7
 			},
 			{
-				"file" : 3
-			},
-			{
-				"command" : 5,
-				"file" : 3,
-				"line" : 30,
-				"parent" : 9
-			},
-			{
 				"command" : 8,
 				"file" : 1,
 				"line" : 9,
 				"parent" : 0
 			},
 			{
-				"file" : 6,
+				"file" : 5,
+				"parent" : 9
+			},
+			{
+				"command" : 8,
+				"file" : 5,
+				"line" : 181,
+				"parent" : 10
+			},
+			{
+				"file" : 4,
 				"parent" : 11
 			},
 			{
-				"command" : 8,
-				"file" : 6,
-				"line" : 181,
+				"command" : 7,
+				"file" : 4,
+				"line" : 55,
 				"parent" : 12
 			},
 			{
-				"file" : 5,
+				"file" : 3,
 				"parent" : 13
 			},
 			{
-				"command" : 7,
-				"file" : 5,
-				"line" : 55,
+				"command" : 6,
+				"file" : 3,
+				"line" : 61,
 				"parent" : 14
 			},
 			{
+				"command" : 7,
 				"file" : 4,
-				"parent" : 15
-			},
-			{
-				"command" : 6,
-				"file" : 4,
-				"line" : 61,
-				"parent" : 16
-			},
-			{
-				"command" : 8,
-				"file" : 6,
-				"line" : 181,
+				"line" : 43,
 				"parent" : 12
 			},
 			{
-				"file" : 8,
+				"file" : 10,
+				"parent" : 16
+			},
+			{
+				"command" : 10,
+				"file" : 10,
+				"line" : 43,
+				"parent" : 17
+			},
+			{
+				"command" : 9,
+				"file" : 9,
+				"line" : 143,
 				"parent" : 18
 			},
 			{
-				"command" : 7,
+				"command" : 8,
 				"file" : 8,
-				"line" : 55,
+				"line" : 47,
 				"parent" : 19
 			},
 			{
@@ -160,10 +163,55 @@
 				"parent" : 20
 			},
 			{
-				"command" : 6,
+				"command" : 7,
 				"file" : 7,
-				"line" : 61,
+				"line" : 55,
 				"parent" : 21
+			},
+			{
+				"file" : 6,
+				"parent" : 22
+			},
+			{
+				"command" : 6,
+				"file" : 6,
+				"line" : 61,
+				"parent" : 23
+			},
+			{
+				"command" : 8,
+				"file" : 5,
+				"line" : 181,
+				"parent" : 10
+			},
+			{
+				"file" : 12,
+				"parent" : 25
+			},
+			{
+				"command" : 7,
+				"file" : 12,
+				"line" : 55,
+				"parent" : 26
+			},
+			{
+				"file" : 11,
+				"parent" : 27
+			},
+			{
+				"command" : 6,
+				"file" : 11,
+				"line" : 61,
+				"parent" : 28
+			},
+			{
+				"file" : 13
+			},
+			{
+				"command" : 5,
+				"file" : 13,
+				"line" : 27,
+				"parent" : 30
 			},
 			{
 				"command" : 5,
@@ -172,62 +220,14 @@
 				"parent" : 2
 			},
 			{
-				"command" : 7,
+				"command" : 9,
+				"file" : 9,
+				"line" : 143,
+				"parent" : 18
+			},
+			{
+				"command" : 8,
 				"file" : 8,
-				"line" : 43,
-				"parent" : 19
-			},
-			{
-				"file" : 13,
-				"parent" : 24
-			},
-			{
-				"command" : 10,
-				"file" : 13,
-				"line" : 43,
-				"parent" : 25
-			},
-			{
-				"command" : 9,
-				"file" : 12,
-				"line" : 143,
-				"parent" : 26
-			},
-			{
-				"command" : 8,
-				"file" : 11,
-				"line" : 47,
-				"parent" : 27
-			},
-			{
-				"file" : 10,
-				"parent" : 28
-			},
-			{
-				"command" : 7,
-				"file" : 10,
-				"line" : 57,
-				"parent" : 29
-			},
-			{
-				"file" : 9,
-				"parent" : 30
-			},
-			{
-				"command" : 6,
-				"file" : 9,
-				"line" : 61,
-				"parent" : 31
-			},
-			{
-				"command" : 9,
-				"file" : 12,
-				"line" : 143,
-				"parent" : 26
-			},
-			{
-				"command" : 8,
-				"file" : 11,
 				"line" : 47,
 				"parent" : 33
 			},
@@ -238,7 +238,7 @@
 			{
 				"command" : 7,
 				"file" : 15,
-				"line" : 55,
+				"line" : 57,
 				"parent" : 35
 			},
 			{
@@ -265,11 +265,11 @@
 			"defines" : 
 			[
 				{
-					"backtrace" : 23,
+					"backtrace" : 32,
 					"define" : "MINGW_HAS_SECURE_API=1"
 				},
 				{
-					"backtrace" : 23,
+					"backtrace" : 32,
 					"define" : "QT_CORE_LIB"
 				},
 				{
@@ -285,27 +285,27 @@
 					"define" : "QT_WIDGETS_LIB"
 				},
 				{
-					"backtrace" : 23,
+					"backtrace" : 32,
 					"define" : "UNICODE"
 				},
 				{
-					"backtrace" : 23,
+					"backtrace" : 32,
 					"define" : "WIN32"
 				},
 				{
-					"backtrace" : 23,
+					"backtrace" : 32,
 					"define" : "WIN64"
 				},
 				{
-					"backtrace" : 23,
+					"backtrace" : 32,
 					"define" : "_ENABLE_EXTENDED_ALIGNED_STORAGE"
 				},
 				{
-					"backtrace" : 23,
+					"backtrace" : 32,
 					"define" : "_UNICODE"
 				},
 				{
-					"backtrace" : 23,
+					"backtrace" : 32,
 					"define" : "_WIN64"
 				}
 			],
@@ -320,17 +320,17 @@
 					"path" : "D:/CxxProgram/SmartDesk/email/simple-mail/src"
 				},
 				{
-					"backtrace" : 23,
+					"backtrace" : 32,
 					"isSystem" : true,
 					"path" : "D:/QT6/6.8.0/mingw_64/include/QtCore"
 				},
 				{
-					"backtrace" : 23,
+					"backtrace" : 32,
 					"isSystem" : true,
 					"path" : "D:/QT6/6.8.0/mingw_64/include"
 				},
 				{
-					"backtrace" : 23,
+					"backtrace" : 32,
 					"isSystem" : true,
 					"path" : "D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++"
 				},
@@ -362,10 +362,6 @@
 	[
 		{
 			"backtrace" : 6,
-			"id" : "mytxt_filetag::@45fe5781c95c17cffa70"
-		},
-		{
-			"backtrace" : 6,
 			"id" : "mytxt_filehis::@b1a02ab4c4f7c6b19840"
 		},
 		{
@@ -374,11 +370,15 @@
 		},
 		{
 			"backtrace" : 6,
-			"id" : "mytxt_setting::@99ddcd2d224c7a01b08e"
+			"id" : "mytxt_onlinedoc::@7149736b0edd5551e3a2"
 		},
 		{
 			"backtrace" : 6,
-			"id" : "mytxt_onlinedoc::@7149736b0edd5551e3a2"
+			"id" : "mytxt_filetag::@45fe5781c95c17cffa70"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "mytxt_setting::@99ddcd2d224c7a01b08e"
 		},
 		{
 			"backtrace" : 6,
@@ -390,7 +390,7 @@
 		},
 		{
 			"backtrace" : 6,
-			"id" : "mytxt_email::@ab3f1ad037796e8bb7c1"
+			"id" : "mytxt_draw::@f99138a17b78bc09f6a1"
 		},
 		{
 			"backtrace" : 6,
@@ -398,7 +398,7 @@
 		},
 		{
 			"backtrace" : 6,
-			"id" : "mytxt_draw::@f99138a17b78bc09f6a1"
+			"id" : "mytxt_email::@ab3f1ad037796e8bb7c1"
 		},
 		{
 			"id" : "SmartDesk_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
@@ -456,11 +456,6 @@
 			},
 			{
 				"backtrace" : 6,
-				"fragment" : "manager\\libmytxt_manager.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 6,
 				"fragment" : "onlinedoc\\libmytxt_onlinedoc.a",
 				"role" : "libraries"
 			},
@@ -491,6 +486,11 @@
 			},
 			{
 				"backtrace" : 6,
+				"fragment" : "manager\\libmytxt_manager.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
 				"fragment" : "email\\simple-mail\\src\\libSimpleMail3Qt6.dll.a",
 				"role" : "libraries"
 			},
@@ -505,8 +505,28 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 10,
-				"fragment" : "D:\\QT6\\6.8.0\\mingw_64\\lib\\libQt6Sql.a",
+				"backtrace" : 15,
+				"fragment" : "D:\\QT6\\6.8.0\\mingw_64\\lib\\libQt6Gui.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 24,
+				"fragment" : "-ld3d11",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 24,
+				"fragment" : "-ldxgi",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 24,
+				"fragment" : "-ldxguid",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 24,
+				"fragment" : "-ld3d12",
 				"role" : "libraries"
 			},
 			{
@@ -515,48 +535,28 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 17,
+				"backtrace" : 29,
 				"fragment" : "-lws2_32",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 22,
-				"fragment" : "D:\\QT6\\6.8.0\\mingw_64\\lib\\libQt6Gui.a",
+				"backtrace" : 31,
+				"fragment" : "D:\\QT6\\6.8.0\\mingw_64\\lib\\libQt6Sql.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 23,
+				"backtrace" : 32,
 				"fragment" : "D:\\QT6\\6.8.0\\mingw_64\\lib\\libQt6Core.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 32,
+				"backtrace" : 38,
 				"fragment" : "-lmpr",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 32,
+				"backtrace" : 38,
 				"fragment" : "-luserenv",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 38,
-				"fragment" : "-ld3d11",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 38,
-				"fragment" : "-ldxgi",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 38,
-				"fragment" : "-ldxguid",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 38,
-				"fragment" : "-ld3d12",
 				"role" : "libraries"
 			},
 			{

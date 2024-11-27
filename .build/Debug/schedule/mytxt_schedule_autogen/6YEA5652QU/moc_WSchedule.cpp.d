@@ -3,12 +3,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/schedule/mytxt_schedule_autogen/6YEA5652QU/
   D:/CxxProgram/SmartDesk/manager/include/DBSQlite.h \
   D:/CxxProgram/SmartDesk/schedule/LmsgNotify/notifymanager.h \
   D:/CxxProgram/SmartDesk/schedule/include/FileItemWidget.h \
-  D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlDatabase \
-  D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlError \
-  D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlQuery \
-  D:/QT6/6.6.0/mingw_64/include/QtSql/qsqldatabase.h \
-  D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlerror.h \
-  D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlquery.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDeadlineTimer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
@@ -319,7 +313,12 @@ D:/CxxProgram/SmartDesk/.build/Debug/schedule/mytxt_schedule_autogen/6YEA5652QU/
   D:/QT6/6.8.0/mingw_64/include/QtGui/qvalidator.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlDatabase \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlError \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlQuery \
   D:/QT6/6.8.0/mingw_64/include/QtSql/qsqldatabase.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlerror.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlquery.h \
   D:/QT6/6.8.0/mingw_64/include/QtSql/qtsql-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h \

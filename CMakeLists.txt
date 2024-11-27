@@ -41,13 +41,13 @@ target_link_libraries(SmartDesk PRIVATE
     mytxt_main           # main 子目录生成的静态库
     mytxt_filehis
     mytxt_filetag
-    mytxt_manager
     mytxt_onlinedoc
     mytxt_schedule
     mytxt_setting
     mytxt_userinfo
-    mytxt_email          # 确保链接到 mytxt_email
+    mytxt_email
     mytxt_draw
+    mytxt_manager
     SimpleMail::Core     # 链接 SimpleMail 核心库
     Qt${QT_VERSION_MAJOR}::Widgets
 )

@@ -5,14 +5,10 @@
 #include <QObject>
 
 
-#include "D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkAccessManager"
-#include "D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkReply"
-#include "D:/QT6/6.8.0/mingw_64/include/QtNetwork/QHttpMultiPart"
-#include "D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkRequest"
-// #include <QNetworkAccessManager>
-// #include <QNetworkReply>
-// #include <QHttpMultiPart>
-// #include <QNetworkRequest>
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkReply>
+#include <QtNetwork/QHttpMultiPart>
+#include <QtNetwork/QNetworkRequest>
 
 #include <QModelIndex>
 #include <QAbstractItemModel>

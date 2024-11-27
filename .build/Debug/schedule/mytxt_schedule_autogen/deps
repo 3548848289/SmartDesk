@@ -14,12 +14,6 @@ mytxt_schedule_autogen/timestamp: \
 	D:/CxxProgram/SmartDesk/schedule/include/DTag.h \
 	D:/CxxProgram/SmartDesk/schedule/include/FileItemWidget.h \
 	D:/CxxProgram/SmartDesk/schedule/include/WSchedule.h \
-	D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlDatabase \
-	D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlError \
-	D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlQuery \
-	D:/QT6/6.6.0/mingw_64/include/QtSql/qsqldatabase.h \
-	D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlerror.h \
-	D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlquery.h \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QDeadlineTimer \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
@@ -349,7 +343,12 @@ mytxt_schedule_autogen/timestamp: \
 	D:/QT6/6.8.0/mingw_64/include/QtGui/qvectornd.h \
 	D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
 	D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+	D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlDatabase \
+	D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlError \
+	D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlQuery \
 	D:/QT6/6.8.0/mingw_64/include/QtSql/qsqldatabase.h \
+	D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlerror.h \
+	D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlquery.h \
 	D:/QT6/6.8.0/mingw_64/include/QtSql/qtsql-config.h \
 	D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlexports.h \
 	D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h \

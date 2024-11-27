@@ -1,6 +1,3 @@
-# 设置 Qt 的 CMake 配置路径（根据你的 Qt 安装位置）
-set(CMAKE_PREFIX_PATH "D:/Qt/6.8.0/mingw_64/lib/cmake/Qt6")
-
 # 启用当前目录的包含路径
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -39,7 +36,3 @@ target_include_directories(mytxt_manager PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${Qt6Network_INCLUDE_DIRS}  # 从 Qt6Network 获取的头文件路径
 )
-
-# 打印调试信息，确认 Qt 网络模块是否被正确找到
-message(STATUS "Qt Network found: ${Qt6Network_FOUND}")
-message(STATUS "Qt Network include dir: ${Qt6Network_INCLUDE_DIRS}")

@@ -14,22 +14,10 @@ onlinedoc/mytxt_onlinedoc_autogen/timestamp: \
   D:/CxxProgram/SmartDesk/onlinedoc/include/EditedLog.h \
   D:/CxxProgram/SmartDesk/onlinedoc/include/WOnlineDoc.h \
   D:/CxxProgram/SmartDesk/onlinedoc/include/csvLinkServer2.h \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/QHostAddress \
   D:/QT6/6.6.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/QNetworkProxy \
   D:/QT6/6.6.0/mingw_64/include/QtNetwork/QNetworkReply \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/QTcpSocket \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/qhostaddress.h \
   D:/QT6/6.6.0/mingw_64/include/QtNetwork/qnetworkaccessmanager.h \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/qnetworkproxy.h \
   D:/QT6/6.6.0/mingw_64/include/QtNetwork/qnetworkreply.h \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/qtcpsocket.h \
-  D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlDatabase \
-  D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlError \
-  D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlQuery \
-  D:/QT6/6.6.0/mingw_64/include/QtSql/qsqldatabase.h \
-  D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlerror.h \
-  D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlquery.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash \
@@ -135,6 +123,7 @@ onlinedoc/mytxt_onlinedoc_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmargins.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmath.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmetacontainer.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qmetaobject.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmetatype.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qminmax.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qnamespace.h \
@@ -240,19 +229,23 @@ onlinedoc/mytxt_onlinedoc_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qvalidator.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+  D:/QT6/6.8.0/mingw_64/include/QtNetwork/QHostAddress \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QHttpMultiPart \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkInterface \
+  D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkProxy \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkReply \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkRequest \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QSslConfiguration \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+  D:/QT6/6.8.0/mingw_64/include/QtNetwork/QTcpSocket \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qabstractsocket.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qhostaddress.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qhttpheaders.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qhttpmultipart.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkaccessmanager.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkinterface.h \
+  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkproxy.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkreply.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkrequest.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qssl.h \
@@ -265,7 +258,12 @@ onlinedoc/mytxt_onlinedoc_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlDatabase \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlError \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlQuery \
   D:/QT6/6.8.0/mingw_64/include/QtSql/qsqldatabase.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlerror.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlquery.h \
   D:/QT6/6.8.0/mingw_64/include/QtSql/qtsql-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h \

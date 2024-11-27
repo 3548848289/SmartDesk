@@ -5,12 +5,6 @@ D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h
  mdp:D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/moc_predefs.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlDatabase
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlError
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlQuery
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/qsqldatabase.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlerror.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlquery.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDate
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug
@@ -100,6 +94,7 @@ D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmargins.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmath.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetacontainer.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetaobject.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetatype.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qminmax.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qnamespace.h
@@ -221,7 +216,12 @@ D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlDatabase
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlError
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlQuery
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qsqldatabase.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlerror.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlquery.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qtsql-config.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h
@@ -497,19 +497,12 @@ D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
-D:/CxxProgram/SmartDesk/userinfo/FlaskInfo.cpp
 D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h
  mdp:D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/moc_predefs.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlDatabase
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlError
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlQuery
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/qsqldatabase.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlerror.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlquery.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QBuffer
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDate
@@ -611,6 +604,7 @@ D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmargins.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmath.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetacontainer.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetaobject.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetatype.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qminmax.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qnamespace.h
@@ -740,7 +734,12 @@ D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlDatabase
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlError
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlQuery
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qsqldatabase.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlerror.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlquery.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qtsql-config.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h
@@ -992,6 +991,7 @@ D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
+D:/CxxProgram/SmartDesk/userinfo/FlaskInfo.cpp
 D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h

@@ -396,6 +396,12 @@ Qt6Gui_DIR:PATH=D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui
 //The directory containing a CMake configuration file for Qt6Network.
 Qt6Network_DIR:PATH=D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network
 
+//The directory containing a CMake configuration file for Qt6Qt6::SqlSql.
+"Qt6Qt6::SqlSql_DIR":PATH=Qt6Qt6::SqlSql_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for Qt6Qt6::Sql.
+"Qt6Qt6::Sql_DIR":PATH=Qt6Qt6::Sql_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for Qt6Sql.
 Qt6Sql_DIR:PATH=D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql
 

@@ -343,7 +343,7 @@
 				{
 					"directoryIndex" : 12,
 					"id" : "SimpleMail3Qt6::@bfedbfe0dfa1ee136e7a",
-					"jsonFile" : "target-SimpleMail3Qt6-Debug-3335e609cf612834384c.json",
+					"jsonFile" : "target-SimpleMail3Qt6-Debug-639f29d6d79677562ae5.json",
 					"name" : "SimpleMail3Qt6",
 					"projectIndex" : 3
 				},
@@ -364,7 +364,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SmartDesk::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SmartDesk-Debug-fd7c8762ce8ec43b1b0f.json",
+					"jsonFile" : "target-SmartDesk-Debug-a7d5388f28a8f8b2a339.json",
 					"name" : "SmartDesk",
 					"projectIndex" : 0
 				},
@@ -378,14 +378,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SmartDesk_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SmartDesk_autogen_timestamp_deps-Debug-fa8e749269df16c1bf0f.json",
+					"jsonFile" : "target-SmartDesk_autogen_timestamp_deps-Debug-c28749a56188d2dffa9d.json",
 					"name" : "SmartDesk_autogen_timestamp_deps",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 9,
 					"id" : "mytxt_draw::@f99138a17b78bc09f6a1",
-					"jsonFile" : "target-mytxt_draw-Debug-91a0c96d169993bfd956.json",
+					"jsonFile" : "target-mytxt_draw-Debug-ae5b343460dc28b44667.json",
 					"name" : "mytxt_draw",
 					"projectIndex" : 0
 				},
@@ -490,7 +490,7 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "mytxt_manager::@97418e93d514bfe7a5e1",
-					"jsonFile" : "target-mytxt_manager-Debug-5bc29b399c506ef5afb8.json",
+					"jsonFile" : "target-mytxt_manager-Debug-3a9be6897ae1575e360d.json",
 					"name" : "mytxt_manager",
 					"projectIndex" : 0
 				},

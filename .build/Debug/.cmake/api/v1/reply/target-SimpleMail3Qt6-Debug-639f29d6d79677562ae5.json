@@ -330,11 +330,11 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "SimpleMail3Qt6_autogen_timestamp_deps::@bfedbfe0dfa1ee136e7a"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "SimpleMail3Qt6_autogen::@bfedbfe0dfa1ee136e7a"
+		},
+		{
+			"id" : "SimpleMail3Qt6_autogen_timestamp_deps::@bfedbfe0dfa1ee136e7a"
 		}
 	],
 	"id" : "SimpleMail3Qt6::@bfedbfe0dfa1ee136e7a",

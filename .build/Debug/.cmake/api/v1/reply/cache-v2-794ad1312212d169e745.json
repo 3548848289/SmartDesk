@@ -6898,6 +6898,30 @@
 			"value" : "D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network"
 		},
 		{
+			"name" : "Qt6Qt6::SqlSql_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for Qt6Qt6::SqlSql."
+				}
+			],
+			"type" : "PATH",
+			"value" : "Qt6Qt6::SqlSql_DIR-NOTFOUND"
+		},
+		{
+			"name" : "Qt6Qt6::Sql_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for Qt6Qt6::Sql."
+				}
+			],
+			"type" : "PATH",
+			"value" : "Qt6Qt6::Sql_DIR-NOTFOUND"
+		},
+		{
 			"name" : "Qt6Sql_DIR",
 			"properties" : 
 			[
