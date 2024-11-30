@@ -52,8 +52,7 @@ public:
         pushButton_1->setSizePolicy(sizePolicy);
         pushButton_1->setMinimumSize(QSize(60, 60));
         pushButton_1->setMaximumSize(QSize(60, 60));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/usedimage/list.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        QIcon icon(QIcon::fromTheme(QIcon::ThemeIcon::FolderOpen));
         pushButton_1->setIcon(icon);
 
         verticalLayout->addWidget(pushButton_1);
@@ -64,8 +63,7 @@ public:
         pushButton_2->setSizePolicy(sizePolicy);
         pushButton_2->setMinimumSize(QSize(60, 60));
         pushButton_2->setMaximumSize(QSize(60, 60));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/usedimage/schedule.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        QIcon icon1(QIcon::fromTheme(QIcon::ThemeIcon::DocumentOpenRecent));
         pushButton_2->setIcon(icon1);
 
         verticalLayout->addWidget(pushButton_2);
@@ -76,8 +74,7 @@ public:
         pushButton_3->setSizePolicy(sizePolicy);
         pushButton_3->setMinimumSize(QSize(60, 60));
         pushButton_3->setMaximumSize(QSize(60, 60));
-        QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/usedimage/editdoc.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        QIcon icon2(QIcon::fromTheme(QIcon::ThemeIcon::EditCopy));
         pushButton_3->setIcon(icon2);
 
         verticalLayout->addWidget(pushButton_3);
@@ -87,8 +84,7 @@ public:
         sizePolicy.setHeightForWidth(pushButton_4->sizePolicy().hasHeightForWidth());
         pushButton_4->setSizePolicy(sizePolicy);
         pushButton_4->setMaximumSize(QSize(60, 60));
-        QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/usedimage/picture.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        QIcon icon3(QIcon::fromTheme(QIcon::ThemeIcon::MailMessageNew));
         pushButton_4->setIcon(icon3);
 
         verticalLayout->addWidget(pushButton_4);
@@ -98,8 +94,7 @@ public:
         sizePolicy.setHeightForWidth(pushButton_5->sizePolicy().hasHeightForWidth());
         pushButton_5->setSizePolicy(sizePolicy);
         pushButton_5->setMaximumSize(QSize(60, 60));
-        QIcon icon4;
-        icon4.addFile(QString::fromUtf8(":/usedimage/QQ.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        QIcon icon4(QIcon::fromTheme(QIcon::ThemeIcon::MailMarkRead));
         pushButton_5->setIcon(icon4);
 
         verticalLayout->addWidget(pushButton_5);
@@ -109,8 +104,7 @@ public:
         sizePolicy.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
         pushButton_6->setSizePolicy(sizePolicy);
         pushButton_6->setMaximumSize(QSize(60, 60));
-        QIcon icon5;
-        icon5.addFile(QString::fromUtf8(":/usedimage/go.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        QIcon icon5(QIcon::fromTheme(QIcon::ThemeIcon::SystemSearch));
         pushButton_6->setIcon(icon5);
 
         verticalLayout->addWidget(pushButton_6);
@@ -120,8 +114,7 @@ public:
         sizePolicy.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
         pushButton_7->setSizePolicy(sizePolicy);
         pushButton_7->setMaximumSize(QSize(60, 60));
-        QIcon icon6;
-        icon6.addFile(QString::fromUtf8(":/usedimage/user.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        QIcon icon6(QIcon::fromTheme(QIcon::ThemeIcon::ContactNew));
         pushButton_7->setIcon(icon6);
 
         verticalLayout->addWidget(pushButton_7);

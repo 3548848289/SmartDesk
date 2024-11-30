@@ -10,6 +10,7 @@
 #define UI_SENDEMAIL_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QFormLayout>
@@ -19,6 +20,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
@@ -54,13 +56,17 @@ public:
     QLabel *label_3;
     QPushButton *addAttachment;
     QListWidget *attachments;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer;
     QPushButton *sendEmail;
+    QPushButton *pushButton;
+    QSpacerItem *horizontalSpacer_2;
 
     void setupUi(QWidget *SendEmail)
     {
         if (SendEmail->objectName().isEmpty())
             SendEmail->setObjectName("SendEmail");
-        SendEmail->resize(574, 576);
+        SendEmail->resize(370, 353);
         gridLayout_2 = new QGridLayout(SendEmail);
         gridLayout_2->setObjectName("gridLayout_2");
         verticalLayout = new QVBoxLayout();
@@ -111,7 +117,7 @@ public:
 
         password = new QLineEdit(SendEmail);
         password->setObjectName("password");
-        password->setEchoMode(QLineEdit::Password);
+        password->setEchoMode(QLineEdit::EchoMode::Password);
 
         gridLayout->addWidget(password, 1, 3, 1, 3);
 
@@ -136,8 +142,8 @@ public:
 
         formLayout = new QFormLayout();
         formLayout->setObjectName("formLayout");
-        formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
-        formLayout->setRowWrapPolicy(QFormLayout::DontWrapRows);
+        formLayout->setFieldGrowthPolicy(QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow);
+        formLayout->setRowWrapPolicy(QFormLayout::RowWrapPolicy::DontWrapRows);
         formLayout->setHorizontalSpacing(0);
         formLayout->setVerticalSpacing(8);
         formLayout->setContentsMargins(0, 10, -1, 0);
@@ -191,7 +197,7 @@ public:
 
         texteditor = new QTextEdit(SendEmail);
         texteditor->setObjectName("texteditor");
-        texteditor->setTextInteractionFlags(Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextEditable|Qt::TextEditorInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
+        texteditor->setTextInteractionFlags(Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextEditable|Qt::TextInteractionFlag::TextEditorInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse);
 
         verticalLayout->addWidget(texteditor);
 
@@ -218,17 +224,45 @@ public:
 
         verticalLayout->addWidget(attachments);
 
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer);
+
         sendEmail = new QPushButton(SendEmail);
         sendEmail->setObjectName("sendEmail");
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(sendEmail->sizePolicy().hasHeightForWidth());
+        sendEmail->setSizePolicy(sizePolicy1);
+        sendEmail->setMinimumSize(QSize(29, 0));
+        QIcon icon(QIcon::fromTheme(QIcon::ThemeIcon::DocumentSend));
+        sendEmail->setIcon(icon);
 
-        verticalLayout->addWidget(sendEmail);
+        horizontalLayout_2->addWidget(sendEmail);
 
-        verticalLayout->setStretch(1, 1);
+        pushButton = new QPushButton(SendEmail);
+        pushButton->setObjectName("pushButton");
+
+        horizontalLayout_2->addWidget(pushButton);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_2);
+
+        horizontalLayout_2->setStretch(0, 1);
+        horizontalLayout_2->setStretch(1, 1);
+        horizontalLayout_2->setStretch(3, 1);
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
         verticalLayout->setStretch(2, 5);
         verticalLayout->setStretch(3, 10);
         verticalLayout->setStretch(4, 1);
         verticalLayout->setStretch(5, 2);
-        verticalLayout->setStretch(6, 1);
+        verticalLayout->setStretch(6, 2);
 
         gridLayout_2->addLayout(verticalLayout, 0, 0, 1, 1);
 
@@ -257,6 +291,7 @@ public:
         label_3->setText(QCoreApplication::translate("SendEmail", "\351\231\204\344\273\266\357\274\232", nullptr));
         addAttachment->setText(QCoreApplication::translate("SendEmail", "\346\267\273\345\212\240\346\226\207\344\273\266", nullptr));
         sendEmail->setText(QCoreApplication::translate("SendEmail", "\345\217\221\351\200\201\351\202\256\344\273\266", nullptr));
+        pushButton->setText(QCoreApplication::translate("SendEmail", "PushButton", nullptr));
     } // retranslateUi
 
 };

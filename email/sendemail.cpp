@@ -15,8 +15,7 @@
 */
 
 #include "sendemail.h"
-
-#include "D:\QT6\Qt_pro\project\build-mytxt-Desktop_Qt_6_8_0_MinGW_64_bit-Debug\email\ui_sendemail.h"
+#include "ui_sendemail.h"
 
 #include "server.h"
 #include "serverreply.h"
@@ -29,13 +28,8 @@
 
 using namespace SimpleMail;
 
-SendEmail::SendEmail(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::SendEmail)
+SendEmail::SendEmail(QWidget *parent): QWidget(parent), ui(new Ui::SendEmail)
 {
-
-
-
     ui->setupUi(this);
 
 //    ui->host->setText(
@@ -75,7 +69,13 @@ void SendEmail::on_addAttachment_clicked()
     dialog.setFileMode(QFileDialog::ExistingFiles);
 
     if (dialog.exec()) {
-        ui->attachments->addItems(dialog.selectedFiles());
+        QStringList selectedFiles = dialog.selectedFiles();
+
+        for (const QString &filePath : selectedFiles) {
+            QFileInfo fileInfo(filePath);
+            QString fileName = fileInfo.fileName();
+            ui->attachments->addItem(fileName);
+        }
     }
 }
 
@@ -112,7 +112,6 @@ void SendEmail::on_sendEmail_clicked()
 void SendEmail::sendMailAsync(const MimeMessage &msg)
 {
     qDebug() << "sendMailAsync";
-
     const QString host = ui->host->text();
     const quint16 port(ui->port->value());
     const Server::ConnectionType ct = ui->security->currentIndex() == 0   ? Server::TcpConnection

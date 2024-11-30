@@ -163,7 +163,7 @@
 	],
 	"MOC_PREDEFS_FILE" : "D:/CxxProgram/SmartDesk/.build/Debug/email/mytxt_email_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
-	"MOC_SKIP" : [ "D:/CxxProgram/SmartDesk/.build/Debug/email/ui_sendemail.h" ],
+	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 6,
 	"PARSE_CACHE_FILE" : "D:/CxxProgram/SmartDesk/.build/Debug/email/CMakeFiles/mytxt_email_autogen.dir/ParseCache.txt",
@@ -178,11 +178,7 @@
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
-	"UIC_SKIP" : 
-	[
-		"D:/CxxProgram/SmartDesk/.build/Debug/email/ui_sendemail.h",
-		"D:/CxxProgram/SmartDesk/email/sendemail.ui"
-	],
+	"UIC_SKIP" : [],
 	"UIC_UI_FILES" : [],
 	"VERBOSITY" : 0
 }

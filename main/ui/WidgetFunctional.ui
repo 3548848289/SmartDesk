@@ -57,8 +57,7 @@
 标签</string>
       </property>
       <property name="icon">
-       <iconset resource="../../resources/res.qrc">
-        <normaloff>:/usedimage/list.svg</normaloff>:/usedimage/list.svg</iconset>
+       <iconset theme="QIcon::ThemeIcon::FolderOpen"/>
       </property>
      </widget>
     </item>
@@ -87,8 +86,7 @@
 日程</string>
       </property>
       <property name="icon">
-       <iconset resource="../../resources/res.qrc">
-        <normaloff>:/usedimage/schedule.svg</normaloff>:/usedimage/schedule.svg</iconset>
+       <iconset theme="QIcon::ThemeIcon::DocumentOpenRecent"/>
       </property>
      </widget>
     </item>
@@ -117,8 +115,7 @@
 文档</string>
       </property>
       <property name="icon">
-       <iconset resource="../../resources/res.qrc">
-        <normaloff>:/usedimage/editdoc.svg</normaloff>:/usedimage/editdoc.svg</iconset>
+       <iconset theme="QIcon::ThemeIcon::EditCopy"/>
       </property>
      </widget>
     </item>
@@ -141,8 +138,7 @@
 绘图</string>
       </property>
       <property name="icon">
-       <iconset resource="../../resources/res.qrc">
-        <normaloff>:/usedimage/picture.svg</normaloff>:/usedimage/picture.svg</iconset>
+       <iconset theme="QIcon::ThemeIcon::MailMessageNew"/>
       </property>
      </widget>
     </item>
@@ -165,8 +161,7 @@
 服务</string>
       </property>
       <property name="icon">
-       <iconset resource="../../resources/res.qrc">
-        <normaloff>:/usedimage/QQ.svg</normaloff>:/usedimage/QQ.svg</iconset>
+       <iconset theme="QIcon::ThemeIcon::MailMarkRead"/>
       </property>
      </widget>
     </item>
@@ -189,8 +184,7 @@
 功能</string>
       </property>
       <property name="icon">
-       <iconset resource="../../resources/res.qrc">
-        <normaloff>:/usedimage/go.svg</normaloff>:/usedimage/go.svg</iconset>
+       <iconset theme="QIcon::ThemeIcon::SystemSearch"/>
       </property>
      </widget>
     </item>
@@ -213,16 +207,13 @@
 登录</string>
       </property>
       <property name="icon">
-       <iconset resource="../../resources/res.qrc">
-        <normaloff>:/usedimage/user.svg</normaloff>:/usedimage/user.svg</iconset>
+       <iconset theme="QIcon::ThemeIcon::ContactNew"/>
       </property>
      </widget>
     </item>
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="../../resources/res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

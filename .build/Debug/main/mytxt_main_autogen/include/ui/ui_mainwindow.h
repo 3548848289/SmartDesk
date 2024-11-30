@@ -38,6 +38,7 @@ public:
     QAction *actiondel_row;
     QAction *actiondel_col;
     QAction *actionshe;
+    QAction *actiontest;
     QWidget *centralwidget;
     QWidget *combinedWidget;
     QGridLayout *gridLayout_2;
@@ -64,12 +65,20 @@ public:
         actionopen = new QAction(MainWindow);
         actionopen->setObjectName("actionopen");
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/image/database_go.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        if (QIcon::hasThemeIcon(QIcon::ThemeIcon::DocumentOpen)) {
+            icon1 = QIcon::fromTheme(QIcon::ThemeIcon::DocumentOpen);
+        } else {
+            icon1.addFile(QString::fromUtf8(":/image/database_go.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        }
         actionopen->setIcon(icon1);
         actionsave = new QAction(MainWindow);
         actionsave->setObjectName("actionsave");
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/image/table_save.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        if (QIcon::hasThemeIcon(QIcon::ThemeIcon::DocumentSave)) {
+            icon2 = QIcon::fromTheme(QIcon::ThemeIcon::DocumentSave);
+        } else {
+            icon2.addFile(QString::fromUtf8(":/image/table_save.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        }
         actionsave->setIcon(icon2);
         actionadd = new QAction(MainWindow);
         actionadd->setObjectName("actionadd");
@@ -77,27 +86,38 @@ public:
         actionsub->setObjectName("actionsub");
         actionclose = new QAction(MainWindow);
         actionclose->setObjectName("actionclose");
-        QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/image/cross.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        QIcon icon3(QIcon::fromTheme(QIcon::ThemeIcon::EditClear));
         actionclose->setIcon(icon3);
         actiondownload = new QAction(MainWindow);
         actiondownload->setObjectName("actiondownload");
         QIcon icon4;
-        icon4.addFile(QString::fromUtf8(":/image/arrow_refresh_small.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        QString iconThemeName = QString::fromUtf8("emblem-downloads");
+        if (QIcon::hasThemeIcon(iconThemeName)) {
+            icon4 = QIcon::fromTheme(iconThemeName);
+        } else {
+            icon4.addFile(QString::fromUtf8(":/image/arrow_refresh_small.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        }
         actiondownload->setIcon(icon4);
         actiontxt_file = new QAction(MainWindow);
         actiontxt_file->setObjectName("actiontxt_file");
+        QIcon icon5(QIcon::fromTheme(QIcon::ThemeIcon::DocumentNew));
+        actiontxt_file->setIcon(icon5);
         actionscv_file = new QAction(MainWindow);
         actionscv_file->setObjectName("actionscv_file");
+        actionscv_file->setIcon(icon5);
         actiondel_row = new QAction(MainWindow);
         actiondel_row->setObjectName("actiondel_row");
         actiondel_col = new QAction(MainWindow);
         actiondel_col->setObjectName("actiondel_col");
         actionshe = new QAction(MainWindow);
         actionshe->setObjectName("actionshe");
-        QIcon icon5;
-        icon5.addFile(QString::fromUtf8(":/png/Settings.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
-        actionshe->setIcon(icon5);
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/png/Settings.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        actionshe->setIcon(icon6);
+        actiontest = new QAction(MainWindow);
+        actiontest->setObjectName("actiontest");
+        QIcon icon7(QIcon::fromTheme(QIcon::ThemeIcon::UserAvailable));
+        actiontest->setIcon(icon7);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setStyleSheet(QString::fromUtf8(""));
@@ -157,6 +177,7 @@ public:
         menuaction->addAction(actionsub);
         menuaction->addAction(actiondel_col);
         menu->addAction(actionshe);
+        menu->addAction(actiontest);
 
         retranslateUi(MainWindow);
 
@@ -195,6 +216,7 @@ public:
         actiondel_row->setText(QCoreApplication::translate("MainWindow", "\345\210\240\351\231\244\350\241\214", nullptr));
         actiondel_col->setText(QCoreApplication::translate("MainWindow", "\345\210\240\351\231\244\345\210\227", nullptr));
         actionshe->setText(QCoreApplication::translate("MainWindow", "\350\256\276\347\275\256", nullptr));
+        actiontest->setText(QCoreApplication::translate("MainWindow", "\346\265\213\350\257\225", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "\345\275\223\345\211\215\347\225\214\351\235\242", nullptr));
         menufile->setTitle(QCoreApplication::translate("MainWindow", "\346\226\207\344\273\266", nullptr));
         menunew->setTitle(QCoreApplication::translate("MainWindow", "\346\226\260\345\273\272", nullptr));

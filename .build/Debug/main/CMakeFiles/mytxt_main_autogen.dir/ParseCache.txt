@@ -21,12 +21,6 @@ D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlDatabase
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlError
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlQuery
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/qsqldatabase.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlerror.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlquery.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QBuffer
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash
@@ -136,6 +130,7 @@ D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmargins.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmath.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetacontainer.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetaobject.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetatype.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qminmax.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qnamespace.h
@@ -275,7 +270,12 @@ D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlDatabase
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlError
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlQuery
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qsqldatabase.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlerror.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlquery.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qtsql-config.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h
@@ -963,39 +963,27 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/CxxProgram/SmartDesk/onlinedoc/include/DLfromNet.h
  mdp:D:/CxxProgram/SmartDesk/onlinedoc/include/WOnlineDoc.h
  mdp:D:/CxxProgram/SmartDesk/onlinedoc/include/csvLinkServer2.h
+ mdp:D:/CxxProgram/SmartDesk/schedule/LmsgNotify/notifymanager.h
  mdp:D:/CxxProgram/SmartDesk/schedule/include/DTag.h
+ mdp:D:/CxxProgram/SmartDesk/schedule/include/FileItemWidget.h
  mdp:D:/CxxProgram/SmartDesk/schedule/include/WSchedule.h
  mdp:D:/CxxProgram/SmartDesk/setting/Setting.h
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtNetwork/QHostAddress
- mdp:D:/QT6/6.6.0/mingw_64/include/QtNetwork/QNetworkAccessManager
- mdp:D:/QT6/6.6.0/mingw_64/include/QtNetwork/QNetworkProxy
- mdp:D:/QT6/6.6.0/mingw_64/include/QtNetwork/QNetworkReply
- mdp:D:/QT6/6.6.0/mingw_64/include/QtNetwork/QTcpSocket
- mdp:D:/QT6/6.6.0/mingw_64/include/QtNetwork/qhostaddress.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtNetwork/qnetworkaccessmanager.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtNetwork/qnetworkproxy.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtNetwork/qnetworkreply.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtNetwork/qtcpsocket.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlDatabase
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlError
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/QSqlQuery
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/qsqldatabase.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlerror.h
- mdp:D:/QT6/6.6.0/mingw_64/include/QtSql/qsqlquery.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QBuffer
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDate
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDeadlineTimer
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDir
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QFile
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QFileInfo
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QFlags
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QHash
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QIODevice
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonArray
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonDocument
@@ -1005,6 +993,7 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QMap
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QMetaType
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QModelIndex
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QMutex
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QObject
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QPair
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QPropertyAnimation
@@ -1017,44 +1006,72 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QSizeF
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QString
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QStringLiteral
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QTextStream
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QTimer
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QUrl
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QVariant
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QVector
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QtCore
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QtCoreDepends
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QtGlobal
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20algorithm.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20chrono.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20map.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20memory.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20type_traits.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20vector.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q23functional.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q23utility.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q26numeric.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qabstractanimation.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qabstracteventdispatcher.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qabstractitemmodel.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qabstractnativeeventfilter.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qabstractproxymodel.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qalgorithms.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qanimationgroup.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qanystringview.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qapplicationstatic.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qarraydata.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qarraydataops.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qarraydatapointer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qassert.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qassociativeiterable.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qatomic.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qatomic_cxx11.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qatomicscopedvaluerollback.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qbasicatomic.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qbasictimer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qbindingstorage.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qbitarray.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qbuffer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qbytearray.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qbytearrayalgorithms.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qbytearraylist.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qbytearraymatcher.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qbytearrayview.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcache.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcalendar.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcborarray.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcborcommon.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcbormap.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcborstream.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcborstreamreader.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcborstreamwriter.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcborvalue.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qchar.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qchronotimer.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcollator.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcommandlineoption.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcommandlineparser.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcompare.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcompare_impl.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcomparehelpers.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcompilerdetection.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qconcatenatetablesproxymodel.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qconfig.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qconstructormacros.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcontainerfwd.h
@@ -1071,25 +1088,36 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qdeadlinetimer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qdebug.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qdir.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qdiriterator.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qdirlisting.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qeasingcurve.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qelapsedtimer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qendian.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qeventloop.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qexception.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qexceptionhandling.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfactoryinterface.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfile.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfiledevice.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfileinfo.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfileselector.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfilesystemwatcher.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qflags.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfloat16.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qforeach.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfunctionaltools_impl.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfunctionpointer.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfuture.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfuture_impl.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfutureinterface.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfuturesynchronizer.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfuturewatcher.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qgenericatomic.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qglobal.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qglobalstatic.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qhash.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qhashfunctions.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qidentityproxymodel.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qiodevice.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qiodevicebase.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qitemselectionmodel.h
@@ -1099,44 +1127,86 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qjsondocument.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qjsonobject.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qjsonvalue.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlatin1stringmatcher.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlatin1stringview.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlibrary.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlibraryinfo.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qline.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlist.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlocale.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlockfile.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlogging.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qloggingcategory.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmalloc.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmap.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmargins.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmath.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmessageauthenticationcode.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetacontainer.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetaobject.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetatype.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmimedata.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmimedatabase.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmimetype.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qminmax.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmutex.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qnamespace.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qnativeinterface.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qnumeric.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qobject.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qobject_impl.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qobjectcleanuphandler.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qobjectdefs.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qobjectdefs_impl.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qoperatingsystemversion.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qoverload.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qpair.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qparallelanimationgroup.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qpauseanimation.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qpermissions.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qplugin.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qpluginloader.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qpoint.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qpointer.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qprocess.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qprocessordetection.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qpromise.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qproperty.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qpropertyanimation.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qpropertyprivate.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qqueue.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qrandom.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qreadwritelock.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qrect.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qrefcount.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qregularexpression.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qresource.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qresultstore.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qrunnable.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsavefile.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qscopedpointer.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qscopedvaluerollback.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qscopeguard.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsemaphore.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsequentialanimationgroup.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsequentialiterable.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qset.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsettings.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata_impl.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedmemory.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer_impl.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsignalmapper.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsimd.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsize.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsocketnotifier.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsortfilterproxymodel.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qspan.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstack.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstandardpaths.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstaticlatin1stringmatcher.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstorageinfo.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstring.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringalgorithms.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringbuilder.h
@@ -1144,6 +1214,7 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringconverter_base.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringfwd.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringlist.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringlistmodel.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringliteral.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringmatcher.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringtokenizer.h
@@ -1151,36 +1222,60 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qswap.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsysinfo.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsystemdetection.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsystemsemaphore.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtaggedpointer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtclasshelpermacros.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtconfiginclude.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtconfigmacros.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtcore-config.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtcoreexports.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtcoreversion.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtdeprecationdefinitions.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtdeprecationmarkers.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtemporarydir.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtemporaryfile.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtenvironmentvariables.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtextboundaryfinder.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtextstream.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qthread.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qthreadpool.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qthreadstorage.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtimeline.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtimer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtimezone.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtipccommon.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtmetamacros.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtnoop.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtpreprocessorsupport.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtranslator.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtransposeproxymodel.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtresource.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtsan_impl.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtsymbolmacros.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qttranslation.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qttypetraits.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtversion.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtversionchecks.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtypeinfo.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtyperevision.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qtypes.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qurl.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qurlquery.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qutf8stringview.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/quuid.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qvariant.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qvariantanimation.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qvarianthash.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qvariantlist.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qvariantmap.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qvarlengtharray.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qvector.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qversionnumber.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qversiontagging.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qwaitcondition.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qwineventnotifier.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qxmlstream.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qxpfunctional.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qxptype_traits.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qyieldcpu.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/QAction
@@ -1238,19 +1333,23 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qvectornd.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/QHostAddress
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/QHttpMultiPart
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkAccessManager
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkInterface
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkProxy
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkReply
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkRequest
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/QSslConfiguration
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/QSslPreSharedKeyAuthenticator
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/QTcpSocket
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qabstractsocket.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qhostaddress.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qhttpheaders.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qhttpmultipart.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkaccessmanager.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkinterface.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkproxy.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkreply.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkrequest.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qssl.h
@@ -1263,7 +1362,12 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlDatabase
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlError
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlQuery
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qsqldatabase.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlerror.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlquery.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qtsql-config.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h
@@ -1349,6 +1453,48 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qwidget.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/adxintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxbf16intrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxcomplexintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxfp16intrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxint8intrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxtileintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx2intrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx5124fmapsintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx5124vnniwintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bf16intrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bf16vlintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bitalgintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bwintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512cdintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512dqintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512erintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fp16intrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fp16vlintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512ifmaintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512ifmavlintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512pfintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmi2intrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmi2vlintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmiintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmivlintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vlbwintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vldqintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vlintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vnniintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vnnivlintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vp2intersectintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vp2intersectvlintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vpopcntdqintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vpopcntdqvlintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxifmaintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxneconvertintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxvnniint8intrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxvnniintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/bmi2intrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/bmiintrin.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic
@@ -1361,6 +1507,7 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocated_ptr.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocator.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_base.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_futex.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_lockfree_defines.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc
@@ -1438,6 +1585,8 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_mutex.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algo.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algobase.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h
@@ -1466,6 +1615,7 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/string_view.tcc
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stringfwd.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uniform_int_dist.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_lock.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_map.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator.h
@@ -1482,6 +1632,7 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/condition_variable
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdint
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdio
@@ -1503,6 +1654,7 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/type_traits.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/future
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/initializer_list
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios
@@ -1514,6 +1666,7 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/mutex
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numeric
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/optional
@@ -1566,18 +1719,64 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/opt_random.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cetintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cldemoteintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/clflushoptintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/clwbintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/clzerointrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cmpccxaddintrin.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/emmintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/enqcmdintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/f16cintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fmaintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fxsrintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/gfniintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/hresetintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/ia32intrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/immintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/keylockerintrin.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/lwpintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/lzcntintrin.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mmintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/movdirintrin.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mwaitintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mwaitxintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pconfigintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pkuintrin.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pmmintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/popcntintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/prfchiintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/prfchwintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/raointintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/rdseedintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/rtmintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/serializeintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/sgxintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/shaintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/smmintrin.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdarg.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdbool.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/tbmintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/tmmintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/tsxldtrkintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/uintrintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/vaesintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/vpclmulqdqintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/waitpkgintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/wbnoinvdintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/wmmintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/x86gprintrin.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xmmintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsavecintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsaveintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsaveoptintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsavesintrin.h
+ mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xtestintrin.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw_mac.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw_off_t.h

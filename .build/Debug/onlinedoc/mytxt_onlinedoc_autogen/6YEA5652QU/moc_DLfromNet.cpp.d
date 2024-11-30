@@ -1,9 +1,5 @@
 D:/CxxProgram/SmartDesk/.build/Debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652QU/moc_DLfromNet.cpp: D:/CxxProgram/SmartDesk/onlinedoc/include/DLfromNet.h \
   D:/CxxProgram/SmartDesk/.build/Debug/onlinedoc/mytxt_onlinedoc_autogen/moc_predefs.h \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/QNetworkReply \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/qnetworkaccessmanager.h \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/qnetworkreply.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDir \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFile \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFlags \
@@ -176,6 +172,7 @@ D:/CxxProgram/SmartDesk/.build/Debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652Q
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
+  D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkReply \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkRequest \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QSslConfiguration \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
@@ -183,6 +180,7 @@ D:/CxxProgram/SmartDesk/.build/Debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652Q
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qhostaddress.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qhttpheaders.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkaccessmanager.h \
+  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkreply.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkrequest.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qssl.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qsslcertificate.h \

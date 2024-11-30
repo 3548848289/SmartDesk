@@ -14,12 +14,12 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDateTimeEdit>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextEdit>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -29,14 +29,13 @@ class Ui_DTag
 public:
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_2;
-    QVBoxLayout *verticalLayout_5;
+    QGridLayout *gridLayout;
     QLabel *label_1;
-    QLabel *label_2;
     QLabel *label_3;
-    QVBoxLayout *verticalLayout_4;
-    QLineEdit *tagsLineEdit;
     QDateTimeEdit *dateTimeEdit;
     QTextEdit *annotationTextEdit;
+    QLabel *label_2;
+    QLineEdit *tagsLineEdit;
     QPushButton *saveButton;
 
     void setupUi(QDialog *DTag)
@@ -49,49 +48,29 @@ public:
         DTag->setWindowIcon(icon);
         layoutWidget = new QWidget(DTag);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(0, 10, 344, 255));
+        layoutWidget->setGeometry(QRect(10, 10, 344, 255));
         horizontalLayout_2 = new QHBoxLayout(layoutWidget);
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setObjectName("verticalLayout_5");
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName("gridLayout");
         label_1 = new QLabel(layoutWidget);
         label_1->setObjectName("label_1");
-        label_1->setPixmap(QPixmap(QString::fromUtf8(":/usedimage/tag.svg")));
         label_1->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        verticalLayout_5->addWidget(label_1);
-
-        label_2 = new QLabel(layoutWidget);
-        label_2->setObjectName("label_2");
-        label_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        verticalLayout_5->addWidget(label_2);
+        gridLayout->addWidget(label_1, 0, 0, 1, 1);
 
         label_3 = new QLabel(layoutWidget);
         label_3->setObjectName("label_3");
         label_3->setPixmap(QPixmap(QString::fromUtf8(":/usedimage/edittag.svg")));
         label_3->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        verticalLayout_5->addWidget(label_3);
-
-        verticalLayout_5->setStretch(0, 1);
-        verticalLayout_5->setStretch(1, 1);
-        verticalLayout_5->setStretch(2, 3);
-
-        horizontalLayout_2->addLayout(verticalLayout_5);
-
-        verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setObjectName("verticalLayout_4");
-        tagsLineEdit = new QLineEdit(layoutWidget);
-        tagsLineEdit->setObjectName("tagsLineEdit");
-
-        verticalLayout_4->addWidget(tagsLineEdit);
+        gridLayout->addWidget(label_3, 2, 0, 1, 1);
 
         dateTimeEdit = new QDateTimeEdit(layoutWidget);
         dateTimeEdit->setObjectName("dateTimeEdit");
 
-        verticalLayout_4->addWidget(dateTimeEdit);
+        gridLayout->addWidget(dateTimeEdit, 1, 1, 1, 1);
 
         annotationTextEdit = new QTextEdit(layoutWidget);
         annotationTextEdit->setObjectName("annotationTextEdit");
@@ -101,13 +80,21 @@ public:
         sizePolicy.setHeightForWidth(annotationTextEdit->sizePolicy().hasHeightForWidth());
         annotationTextEdit->setSizePolicy(sizePolicy);
 
-        verticalLayout_4->addWidget(annotationTextEdit);
+        gridLayout->addWidget(annotationTextEdit, 2, 1, 1, 1);
 
-        verticalLayout_4->setStretch(0, 1);
-        verticalLayout_4->setStretch(1, 1);
-        verticalLayout_4->setStretch(2, 3);
+        label_2 = new QLabel(layoutWidget);
+        label_2->setObjectName("label_2");
+        label_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        horizontalLayout_2->addLayout(verticalLayout_4);
+        gridLayout->addWidget(label_2, 1, 0, 1, 1);
+
+        tagsLineEdit = new QLineEdit(layoutWidget);
+        tagsLineEdit->setObjectName("tagsLineEdit");
+
+        gridLayout->addWidget(tagsLineEdit, 0, 1, 1, 1);
+
+
+        horizontalLayout_2->addLayout(gridLayout);
 
         saveButton = new QPushButton(layoutWidget);
         saveButton->setObjectName("saveButton");
@@ -130,9 +117,6 @@ public:
 
         horizontalLayout_2->addWidget(saveButton);
 
-        horizontalLayout_2->setStretch(0, 1);
-        horizontalLayout_2->setStretch(1, 8);
-        horizontalLayout_2->setStretch(2, 1);
 
         retranslateUi(DTag);
 
@@ -142,9 +126,9 @@ public:
     void retranslateUi(QDialog *DTag)
     {
         DTag->setWindowTitle(QCoreApplication::translate("DTag", "\346\226\260\345\242\236\345\244\207\345\277\230\346\226\207\344\273\266", nullptr));
-        label_1->setText(QString());
-        label_2->setText(QCoreApplication::translate("DTag", "\346\217\220\351\206\222", nullptr));
-        label_3->setText(QString());
+        label_1->setText(QCoreApplication::translate("DTag", "\346\226\207\344\273\266", nullptr));
+        label_3->setText(QCoreApplication::translate("DTag", "\345\244\207\346\263\250", nullptr));
+        label_2->setText(QCoreApplication::translate("DTag", "\346\227\245\346\234\237", nullptr));
         saveButton->setText(QCoreApplication::translate("DTag", "\344\277\235\345\255\230", nullptr));
     } // retranslateUi
 

@@ -459,4 +459,5 @@ email/mytxt_email_autogen/timestamp: \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+  D:/CxxProgram/SmartDesk/email/sendemail.ui \
   D:/QT6/Tools/CMake_64/bin/cmake.exe

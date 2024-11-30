@@ -100,6 +100,7 @@
      <string>工具</string>
     </property>
     <addaction name="actionshe"/>
+    <addaction name="actiontest"/>
    </widget>
    <addaction name="menufile"/>
    <addaction name="menuaction"/>
@@ -108,7 +109,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionopen">
    <property name="icon">
-    <iconset resource="../../resources/res.qrc">
+    <iconset theme="QIcon::ThemeIcon::DocumentOpen" resource="../../resources/res.qrc">
      <normaloff>:/image/database_go.svg</normaloff>:/image/database_go.svg</iconset>
    </property>
    <property name="text">
@@ -120,7 +121,7 @@
   </action>
   <action name="actionsave">
    <property name="icon">
-    <iconset resource="../../resources/res.qrc">
+    <iconset theme="QIcon::ThemeIcon::DocumentSave" resource="../../resources/res.qrc">
      <normaloff>:/image/table_save.svg</normaloff>:/image/table_save.svg</iconset>
    </property>
    <property name="text">
@@ -142,8 +143,7 @@
   </action>
   <action name="actionclose">
    <property name="icon">
-    <iconset resource="../../resources/res.qrc">
-     <normaloff>:/image/cross.svg</normaloff>:/image/cross.svg</iconset>
+    <iconset theme="QIcon::ThemeIcon::EditClear"/>
    </property>
    <property name="text">
     <string>关闭</string>
@@ -154,7 +154,7 @@
   </action>
   <action name="actiondownload">
    <property name="icon">
-    <iconset resource="../../resources/res.qrc">
+    <iconset theme="emblem-downloads" resource="../../resources/res.qrc">
      <normaloff>:/image/arrow_refresh_small.svg</normaloff>:/image/arrow_refresh_small.svg</iconset>
    </property>
    <property name="text">
@@ -165,6 +165,9 @@
    </property>
   </action>
   <action name="actiontxt_file">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentNew"/>
+   </property>
    <property name="text">
     <string>txt文件</string>
    </property>
@@ -173,6 +176,9 @@
    </property>
   </action>
   <action name="actionscv_file">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentNew"/>
+   </property>
    <property name="text">
     <string>scv文件</string>
    </property>
@@ -197,6 +203,14 @@
    </property>
    <property name="text">
     <string>设置</string>
+   </property>
+  </action>
+  <action name="actiontest">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::UserAvailable"/>
+   </property>
+   <property name="text">
+    <string>测试</string>
    </property>
   </action>
  </widget>

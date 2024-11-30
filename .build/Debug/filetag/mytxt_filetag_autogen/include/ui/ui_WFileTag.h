@@ -10,6 +10,7 @@
 #define UI_WFILETAG_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
@@ -73,6 +74,9 @@ public:
 "    padding: 5px 10px;  \n"
 "}\n"
 "*/"));
+        QIcon icon(QIcon::fromTheme(QIcon::ThemeIcon::GoUp));
+        goButton->setIcon(icon);
+        goButton->setIconSize(QSize(10, 10));
 
         horizontalLayout->addWidget(goButton);
 

@@ -6,8 +6,19 @@ WFileTag::WFileTag(DBSQlite * dbsqlite, QWidget *parent)
     fileSystemModel(new QFileSystemModel(this)), dbsqlite(dbsqlite)
 {
     ui->setupUi(this);
-    currentDir = "D:/QT6/Qt_pro/project/mytxt";
+
+    QString appDir = QCoreApplication::applicationDirPath();
+    QDir dir(appDir);
+    dir.cdUp();
+    dir.cdUp();
+    currentDir = dir.absolutePath();
+
     fileSystemModel->setRootPath(currentDir);
+
+
+    QFont font = ui->treeView->font();
+    font.setPointSize(12);
+    ui->treeView->setFont(font);
     ui->treeView->setStyleSheet("QTreeView::item { height: 30px; }");
     ui->treeView->setModel(fileSystemModel);
     ui->treeView->setHeaderHidden(true);

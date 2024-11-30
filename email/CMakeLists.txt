@@ -16,8 +16,9 @@ set(HEADERS
     sendemail.h
 )
 
-# 处理 UI 文件
-qt6_wrap_ui(UI_SOURCES sendemail.ui)
+set(UI_SOURCES
+   sendemail.ui
+)
 
 # 添加库文件（静态或共享库）
 qt_add_library(mytxt_email
@@ -44,3 +45,4 @@ set_target_properties(mytxt_email PROPERTIES
 
 # 链接 SimpleMail 库
 target_link_libraries(mytxt_email PRIVATE SimpleMail::Core)
+

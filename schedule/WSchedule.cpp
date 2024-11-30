@@ -157,7 +157,7 @@ void WSchedule::on_pushButton_clicked()
 void WSchedule::startExpirationCheck() {
     expirationTimer = new QTimer(this);
     connect(expirationTimer, &QTimer::timeout, this, &WSchedule::checkExpiration);
-    expirationTimer->start(5000);  // 每30分钟（30 * 60 * 1000毫秒）
+    expirationTimer->start(180000);  // 每30分钟（30 * 60 * 1000毫秒）
 }
 
 void WSchedule::checkExpiration() {

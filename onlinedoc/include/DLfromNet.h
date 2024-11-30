@@ -7,8 +7,8 @@
 #include <QMessageBox>
 #include <QDesktopServices>
 
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QNetworkReply"
-#include "D:\\QT6\\6.6.0\\mingw_64\include\\QtNetwork\\QNetworkAccessManager"
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkReply>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {class DLfromNet;}

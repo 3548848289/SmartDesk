@@ -7,10 +7,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652Q
   D:/CxxProgram/SmartDesk/manager/include/myJson.h \
   D:/CxxProgram/SmartDesk/onlinedoc/include/DLfromNet.h \
   D:/CxxProgram/SmartDesk/onlinedoc/include/csvLinkServer2.h \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/QNetworkReply \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/qnetworkaccessmanager.h \
-  D:/QT6/6.6.0/mingw_64/include/QtNetwork/qnetworkreply.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash \

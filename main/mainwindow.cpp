@@ -22,7 +22,7 @@ void MainWindow::initFunc()
     controlFrame = new ControlFrame(this);
 
     ui->stackedWidget->setObjectName("pWidget");
-    ui->stackedWidget->setStyleSheet("QWidget#pWidget { border: 1px solid rgb(28, 251, 255); }");
+    ui->stackedWidget->setStyleSheet("QWidget#pWidget { border: 1px solid #808080; }");
     ui->stackedWidget->addWidget(widgetr);
     ui->stackedWidget->addWidget(wonlinedoc);
     ui->stackedWidget->addWidget(schedule);
@@ -76,7 +76,7 @@ void MainWindow::initSmal()
     loginButton = new QPushButton(this);
     loginButton->setFixedSize(30, 30);
     loginButton->setStyleSheet("border: none; border-radius: 15px;");
-    loginButton->setIcon(QIcon(":/image/login.png"));
+    loginButton->setIcon(QIcon("://image/user.svg"));
     loginButton->setIconSize(loginButton->size());
 
     ui->menubar->setCornerWidget(loginButton, Qt::TopRightCorner);
