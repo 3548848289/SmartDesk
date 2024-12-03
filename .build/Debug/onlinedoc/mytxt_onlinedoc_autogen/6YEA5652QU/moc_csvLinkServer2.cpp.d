@@ -2,13 +2,15 @@ D:/CxxProgram/SmartDesk/.build/Debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652Q
   D:/CxxProgram/SmartDesk/.build/Debug/onlinedoc/mytxt_onlinedoc_autogen/moc_predefs.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
   D:/CxxProgram/SmartDesk/main/include/TabHandleCSV.h \
-  D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/CxxProgram/SmartDesk/manager/include/myJson.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QDate \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDir \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFile \
@@ -20,7 +22,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652Q
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonObject \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonValue \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QList \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QMap \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QMetaType \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QModelIndex \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
@@ -32,6 +33,7 @@ D:/CxxProgram/SmartDesk/.build/Debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652Q
   D:/QT6/6.8.0/mingw_64/include/QtCore/QTextStream \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QTimer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QUrl \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QUuid \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QVariant \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h \

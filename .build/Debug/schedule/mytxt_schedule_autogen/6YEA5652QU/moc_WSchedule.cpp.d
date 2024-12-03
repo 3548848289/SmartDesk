@@ -1,25 +1,26 @@
 D:/CxxProgram/SmartDesk/.build/Debug/schedule/mytxt_schedule_autogen/6YEA5652QU/moc_WSchedule.cpp: D:/CxxProgram/SmartDesk/schedule/include/WSchedule.h \
   D:/CxxProgram/SmartDesk/.build/Debug/schedule/mytxt_schedule_autogen/moc_predefs.h \
-  D:/CxxProgram/SmartDesk/manager/include/DBSQlite.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/CxxProgram/SmartDesk/schedule/LmsgNotify/notifymanager.h \
   D:/CxxProgram/SmartDesk/schedule/include/FileItemWidget.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDeadlineTimer \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFileInfo \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QHash \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QList \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QMap \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QMutex \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QPair \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QStringLiteral \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QTimer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QUrl \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QUuid \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QVariant \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QVector \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QtCore \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QtCoreDepends \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20algorithm.h \

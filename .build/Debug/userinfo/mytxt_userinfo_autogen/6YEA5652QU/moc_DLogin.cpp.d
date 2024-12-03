@@ -1,18 +1,12 @@
 D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/moc_DLogin.cpp: D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h \
   D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/moc_predefs.h \
-  D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h \
   D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QBuffer \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QDate \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QFileInfo \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFlags \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QIODevice \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonDocument \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonObject \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QList \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QMap \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QMetaType \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRect \
@@ -20,7 +14,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSize \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSizeF \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QUrl \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QVariant \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h \
@@ -103,7 +96,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmargins.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmath.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmetacontainer.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qmetaobject.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmetatype.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qminmax.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qnamespace.h \
@@ -233,15 +225,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
-  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlDatabase \
-  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlError \
-  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlQuery \
-  D:/QT6/6.8.0/mingw_64/include/QtSql/qsqldatabase.h \
-  D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlerror.h \
-  D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlquery.h \
-  D:/QT6/6.8.0/mingw_64/include/QtSql/qtsql-config.h \
-  D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlexports.h \
-  D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \

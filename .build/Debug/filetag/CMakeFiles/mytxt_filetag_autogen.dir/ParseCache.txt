@@ -366,14 +366,14 @@ D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
  mdp:D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
  mdp:D:/CxxProgram/SmartDesk/.build/Debug/filetag/mytxt_filetag_autogen/moc_predefs.h
  mdp:D:/CxxProgram/SmartDesk/filetag/include/DCommit.h
- mdp:D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h
- mdp:D:/CxxProgram/SmartDesk/manager/include/DBSQlite.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/ServerManager.h
+ mdp:D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h
+ mdp:D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h
+ mdp:D:/CxxProgram/SmartDesk/manager/include/dbManager.h
+ mdp:D:/CxxProgram/SmartDesk/manager/include/dbService.h
  mdp:D:/CxxProgram/SmartDesk/schedule/include/DTag.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray
- mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash
- mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDate
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDir
@@ -390,7 +390,6 @@ D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QMetaType
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QModelIndex
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QObject
- mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QPair
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QRect
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QRegularExpression
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QSharedDataPointer
@@ -399,8 +398,8 @@ D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QString
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QUrl
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QUuid
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QVariant
- mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QVector
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20memory.h
@@ -548,7 +547,6 @@ D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/quuid.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qvariant.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qvarlengtharray.h
- mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qvector.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qversiontagging.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qxptype_traits.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qyieldcpu.h
@@ -633,7 +631,6 @@ D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QApplication
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QDialog
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMenu
- mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QStyle
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QStyleOptionButton
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QStyledItemDelegate
@@ -642,10 +639,8 @@ D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractspinbox.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qapplication.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialog.h
- mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmenu.h
- mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qrubberband.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qslider.h
@@ -894,24 +889,20 @@ D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
-D:/CxxProgram/SmartDesk/filetag/WFileTag.cpp
- uic:ui/ui_WFileTag.h
-D:/CxxProgram/SmartDesk/filetag/DCommit.cpp
- uic:ui/ui_DCommit.h
 D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h
  mdp:D:/CxxProgram/SmartDesk/.build/Debug/filetag/mytxt_filetag_autogen/moc_predefs.h
  mdp:D:/CxxProgram/SmartDesk/filetag/include/DCommit.h
  mdp:D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
- mdp:D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h
- mdp:D:/CxxProgram/SmartDesk/manager/include/DBSQlite.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/ServerManager.h
+ mdp:D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h
+ mdp:D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h
+ mdp:D:/CxxProgram/SmartDesk/manager/include/dbManager.h
+ mdp:D:/CxxProgram/SmartDesk/manager/include/dbService.h
  mdp:D:/CxxProgram/SmartDesk/schedule/include/DTag.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray
- mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash
- mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDate
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDir
@@ -928,7 +919,6 @@ D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QMetaType
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QModelIndex
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QObject
- mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QPair
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QRect
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QRegularExpression
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QSharedDataPointer
@@ -937,8 +927,8 @@ D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QString
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QUrl
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QUuid
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QVariant
- mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QVector
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20memory.h
@@ -1087,7 +1077,6 @@ D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/quuid.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qvariant.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qvarlengtharray.h
- mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qvector.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qversiontagging.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qxptype_traits.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qyieldcpu.h
@@ -1173,7 +1162,6 @@ D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QDialog
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QListWidgetItem
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMenu
- mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QStyle
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QStyleOptionButton
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QStyledItemDelegate
@@ -1185,12 +1173,10 @@ D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractspinbox.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qapplication.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialog.h
- mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistview.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistwidget.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmenu.h
- mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qrubberband.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qslider.h
@@ -1439,4 +1425,8 @@ D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
+D:/CxxProgram/SmartDesk/filetag/DCommit.cpp
+ uic:ui/ui_DCommit.h
+D:/CxxProgram/SmartDesk/filetag/WFileTag.cpp
+ uic:ui/ui_WFileTag.h
 D:/CxxProgram/SmartDesk/filetag/TagItemDelegate.cpp

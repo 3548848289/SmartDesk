@@ -3,7 +3,8 @@
 #include "EditedLog.h"
 
 csvLinkServer::csvLinkServer(QWidget *parent): QWidget(parent),ui(new Ui::csvLinkServer2),
-    tcpSocket(new QTcpSocket(this)),serverManager(ServerManager::instance()), dbmysql(DBMySQL::instance())
+    tcpSocket(new QTcpSocket(this)),serverManager(ServerManager::instance()),
+    dbservice(dbService::instance("../SmartDesk.db"))
 {
     ui->setupUi(this);
 //    on_linkserverBtn_clicked();
@@ -90,7 +91,7 @@ void csvLinkServer::on_readfiieBtn_clicked() {
         return;
     }
 
-    QStringList files = dbmysql.getSharedFilesByShareToken(shareToken);
+    QStringList files = dbservice.dbBackup().getSharedFilesByShareToken(shareToken);
 
     if (!files.isEmpty()) {
         ui->tableWidget->clear();
@@ -189,7 +190,7 @@ void csvLinkServer::on_pushButton_2_clicked() {
         return;
     }
     serverManager->commitToServer(filePath, "online/");
-    if (dbmysql.insertSharedFile(filePath, fileName, shareToken)) {
+    if (dbservice.dbBackup().insertSharedFile(filePath, fileName, shareToken)) {
         QMessageBox::information(this, tr("成功"), tr("文件上传成功，口令为：%1").arg(shareToken));
     } else {
         QMessageBox::warning(this, tr("警告"), tr("文件上传失败！"));

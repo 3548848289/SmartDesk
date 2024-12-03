@@ -1,4 +1,4 @@
-#include "./include/mainwindow.h"
+#include "include/mainwindow.h"
 #include "ui/ui_mainwindow.h"
 #include "../manager/include/dbService.h"
 
@@ -8,7 +8,7 @@ void MainWindow::initFunc()
 
     widgetr = new QWidget(this);
     QGridLayout *gridLayout = new QGridLayout(widgetr);
-    wfiletag = new WFileTag(dbSqlite, widgetr);
+    wfiletag = new WFileTag(widgetr);
     wfilehis = new WFileHis(widgetr);
     QSplitter *splitter = new QSplitter(Qt::Vertical, widgetr);
     splitter->addWidget(wfiletag);
@@ -18,8 +18,8 @@ void MainWindow::initFunc()
     widgetr->setLayout(gridLayout);
 
     wonlinedoc = new WOnlineDoc(this);
-    schedule = new WSchedule(dbSqlite, this);
-    widgetfunc = new WidgetFunctional(dbMysql, this);
+    schedule = new WSchedule(this);
+    widgetfunc = new WidgetFunctional(this);
     controlFrame = new ControlFrame(this);
 
     ui->stackedWidget->setObjectName("pWidget");
@@ -95,11 +95,8 @@ void MainWindow::initSmal()
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow),
-    recentFilesManager(new RecentFilesManager(this)),
-    dbSqlite(&DBSQlite::instance())
-    , dbMysql(&DBMySQL::instance())
+    recentFilesManager(new RecentFilesManager(this))
 {
-    dbSqlite->open();
     ui->setupUi(this);
 
     initSmal();
@@ -114,12 +111,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(wfilehis, &WFileHis::s_fileopen, this, &MainWindow::openFile);
     recentFilesManager->populateRecentFilesMenu(ui->recentFile);
 
-
-    dbService dbservice("D:/dbList/DataGrip 2023.2/myDgPro/mytxt/file_metadata.db");
-    // 文件路径操作
-    int fileid = 0;
-    // dbservice.filePathManager().addFilePath("C:/appverifUI.dll", fileid);
-    dbservice.backupRecordManager().recordSubmission("C:/appverifUI.dll", "appverifUI2.dll");
 }
 
 void MainWindow::onTabChanged(int index) {

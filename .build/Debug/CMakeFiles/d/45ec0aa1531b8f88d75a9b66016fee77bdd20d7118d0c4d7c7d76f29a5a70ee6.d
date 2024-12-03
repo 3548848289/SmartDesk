@@ -1,14 +1,10 @@
 manager/mytxt_manager_autogen/timestamp: \
   manager/mytxt_manager_autogen/moc_predefs.h \
   D:/CxxProgram/SmartDesk/manager/CMakeLists.txt \
-  D:/CxxProgram/SmartDesk/manager/DBMySQL.cpp \
-  D:/CxxProgram/SmartDesk/manager/DBSQlite.cpp \
   D:/CxxProgram/SmartDesk/manager/ServerManager.cpp \
   D:/CxxProgram/SmartDesk/manager/dbBackupRecord.cpp \
   D:/CxxProgram/SmartDesk/manager/dbFilepath.cpp \
   D:/CxxProgram/SmartDesk/manager/dbManager.cpp \
-  D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h \
-  D:/CxxProgram/SmartDesk/manager/include/DBSQlite.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \

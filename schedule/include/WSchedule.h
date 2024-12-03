@@ -14,7 +14,8 @@
 #include <QMessageBox>
 
 #include "FileItemWidget.h"
-#include "../../manager/include/DBSQlite.h"
+
+#include "../../manager/include/dbService.h"
 #include "../LmsgNotify/notifymanager.h"
 // #include "Notify.h"
 
@@ -30,7 +31,7 @@ class WSchedule : public QWidget
     Q_OBJECT
 
 public:
-    explicit WSchedule(DBSQlite *dbsqlite, QWidget *parent = nullptr);
+    explicit WSchedule(QWidget *parent = nullptr);
     ~WSchedule();
 
 signals:
@@ -58,8 +59,9 @@ private:
 
     QTimer *expirationTimer;
     Ui::WSchedule *ui;
-    DBSQlite *dbsqlite;
+    // DBSQlite *dbsqlite;
     NotifyManager *manager;
+    dbService& dbservice;
 
 };
 

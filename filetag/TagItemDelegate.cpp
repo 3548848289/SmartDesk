@@ -1,11 +1,9 @@
 #include "./include/TagItemDelegate.h"
 
-// TagItemDelegate.cpp
 TagItemDelegate::TagItemDelegate(QObject *parent, ServerManager *serverManager)
-    : QStyledItemDelegate(parent),
-    dbsqlite(DBSQlite::instance()),  // 单例模式获取 DBSQlite 引用
-    dbmysql(DBMySQL::instance()),    // 单例模式获取 DBMysql 引用
-    serverManager(serverManager) {}
+    : QStyledItemDelegate(parent), serverManager(serverManager),
+    dbservice(dbService::instance("../SmartDesk.db"))
+{}
 
 
 
@@ -20,7 +18,7 @@ void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         QIcon tagIcon(":/usedimage/edittag.svg");
         tagIcon.paint(painter, iconRect, Qt::AlignCenter);
     }
-    if (dbmysql.hasSubmissions(filePath)) {
+    if (dbservice.dbBackup().hasSubmissions(filePath)) {
         QRect submissionIconRect(option.rect.right() - 60, option.rect.top() + 5, 20, 20);
         QIcon submissionIcon(":/usedimage/history.svg");
         submissionIcon.paint(painter, submissionIconRect, Qt::AlignCenter);
@@ -68,7 +66,7 @@ bool TagItemDelegate::hasTags(const QString &filePath) const
     if (it != m_tagsCache.end())
         return it.value();
 
-    bool hasTags = dbsqlite.hasTagsForFile(filePath);
+    bool hasTags = dbservice.dbTags().hasTagsForFile(filePath);
     const_cast<TagItemDelegate*>(this)->m_tagsCache[filePath] = hasTags;
     return hasTags;
 
@@ -113,7 +111,7 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
         DCommit *commitDialog = new DCommit(filePath, nullptr);
         if (commitDialog->exec() == QDialog::Accepted) {
             QString backupFilePath = commitDialog->getBackupFilePath();
-            dbmysql.recordSubmission(filePath, backupFilePath);
+            dbservice.dbBackup().recordSubmission(filePath, backupFilePath);
         }
         commitDialog->deleteLater();
         // if(serverManager->commitToServer(fileName, "upload/"))
@@ -123,7 +121,7 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     connect(history, &QAction::triggered, [this, index, model]()
     {
         QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
-        QList<QString> filepaths = dbmysql.getRecordSub(filePath);
+        QList<QString> filepaths = dbservice.dbBackup().getRecordSub(filePath);
         this->serverManager->sendfilepaths(filepaths);
     });
 
@@ -146,11 +144,11 @@ void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex 
 
         int fileId;
 
-        if (!dbsqlite.getFileId(filePath, fileId)) {
-            dbsqlite.addFilePath(filePath, fileId);
+        if (!dbservice.dbTags().getFileId(filePath, fileId)) {
+            dbservice.dbTags().addFilePath(filePath, fileId);
         }
-        dbsqlite.saveTags(fileId, tagName);
-        dbsqlite.saveAnnotation(fileId, annotation);
-        dbsqlite.saveExpirationDate(fileId, expirationDate);
+        dbservice.dbTags().saveTags(fileId, tagName);
+        dbservice.dbTags().saveAnnotation(fileId, annotation);
+        dbservice.dbTags().saveExpirationDate(fileId, expirationDate);
     }
 }

@@ -1,8 +1,8 @@
 #include "./include/WSchedule.h"
 #include "ui/ui_WSchedule.h"
 
-WSchedule::WSchedule(DBSQlite *dbsqlite, QWidget *parent) :
-    QWidget(parent), ui(new Ui::WSchedule), dbsqlite(dbsqlite)
+WSchedule::WSchedule(QWidget *parent) : QWidget(parent), ui(new Ui::WSchedule),
+    dbservice(dbService::instance("../SmartDesk.db"))
 {
     ui->setupUi(this);
     filterByTag("刷新");
@@ -51,7 +51,7 @@ void WSchedule::loadTags() {
     ui->comboBox->clear();
     ui->comboBox->addItem("刷新");
 
-    QStringList tags = dbsqlite->getAllTags();
+    QStringList tags = dbservice.dbTags().getAllTags();
     for (const QString &tag : tags) {
         ui->comboBox->addItem(tag);
     }
@@ -60,7 +60,7 @@ void WSchedule::loadTags() {
 void WSchedule::filterByTag(const QString &tag) {
     ui->listWidget->clear();
 
-    QList<FilePathInfo> files = dbsqlite->getFilePathsByTag(tag);
+    QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag(tag);
 
     for (const auto &info : files) {
         QString path = info.filePath;
@@ -105,7 +105,7 @@ QString WSchedule::getExpInfo(const QString &path, const QDateTime &expDate) {
 
 void WSchedule::sortByExpDate() {
     ui->listWidget->clear();
-    QVector<QPair<QString, QDateTime>> files = dbsqlite->getSortByExp();
+    QVector<QPair<QString, QDateTime>> files = dbservice.dbTags().getSortByExp();
 
     for (const auto &file : files) {
         QString path = file.first;
@@ -131,7 +131,7 @@ void WSchedule::onSearch(const QString &keyword) {
 
 void WSchedule::filterByKeyword(const QString &keyword) {
     ui->listWidget->clear();
-    QStringList paths = dbsqlite->searchFiles(keyword);
+    QStringList paths = dbservice.dbTags().searchFiles(keyword);
 
     for (const QString &path : paths) {
         FileItemWidget *widget = new FileItemWidget();
@@ -161,7 +161,7 @@ void WSchedule::startExpirationCheck() {
 }
 
 void WSchedule::checkExpiration() {
-    QList<FilePathInfo> files = dbsqlite->getFilePathsByTag("刷新");
+    QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag("刷新");
 
     for (const auto &file : files) {
         QString path = file.filePath;
@@ -174,9 +174,9 @@ void WSchedule::checkExpiration() {
             QString annotation;
             QVariantMap data;
 
-            dbsqlite->getFileId(path, fileid);
-            dbsqlite->getTags(fileid, tag);
-            dbsqlite->getAnnotation(fileid,annotation);
+            dbservice.dbTags().getFileId(path, fileid);
+            dbservice.dbTags().getTags(fileid, tag);
+            dbservice.dbTags().getAnnotation(fileid,annotation);
 
             data["tag"] = tag;
             data["annotation"] = annotation;

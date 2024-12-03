@@ -14,11 +14,9 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include "../../manager/include/myJson.h"
-
 #include "../../main/include/TabHandleCSV.h"
-
 #include "../../manager/include/ServerManager.h"
-#include "../../manager/include/DBMySQL.h"
+#include "../../manager/include/dbService.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class csvLinkServer2; }
@@ -58,7 +56,8 @@ private:
     QTcpSocket *tcpSocket;
     TabHandleCSV *m_tableTab;
     ServerManager* serverManager;
-    DBMySQL& dbmysql;
+    dbService& dbservice;
+
 };
 
 #endif // csvLinkServer_H

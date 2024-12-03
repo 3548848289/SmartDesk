@@ -1,23 +1,24 @@
 D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/moc_DInfo.cpp: D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h \
   D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/moc_predefs.h \
-  D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDate \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QFileInfo \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFlags \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QIODevice \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonDocument \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonObject \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QList \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QMap \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QMetaType \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSharedDataPointer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QUrl \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QUuid \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QVariant \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h \
@@ -61,9 +62,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/6.8.0/mingw_64/include/QtCore/qdebug.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qendian.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qexceptionhandling.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qfile.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qfiledevice.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qfileinfo.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qflags.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qfloat16.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qforeach.h \
@@ -271,14 +269,11 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocator.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_base.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_lockfree_defines.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.tcc \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/char_traits.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/charconv.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/concept_check.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cpp_type_traits.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_forced.h \
@@ -288,10 +283,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_defines.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_ptr.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functexcept.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functional_hash.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hash_bytes.h \
@@ -299,15 +290,9 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hashtable_policy.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/invoke.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ios_base.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/list.tcc \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.tcc \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/localefwd.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memory_resource.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memoryfwd.h \
@@ -315,13 +300,11 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/nested_exception.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/new_allocator.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/node_handle.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream_insert.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/parse_numbers.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/postypes.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/predefined_ops.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ptr_traits.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/range_access.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/refwrap.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
@@ -329,7 +312,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_base.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/specfun.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algo.h \
@@ -371,7 +353,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdint \
@@ -380,7 +361,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstring \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/debug.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/exception \
@@ -391,29 +371,22 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/numeric_traits.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/string_conversions.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/type_traits.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/initializer_list \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iosfwd \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/limits \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/list \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numeric \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/optional \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/execution_defs.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_numeric_defs.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdexcept \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/streambuf \
@@ -444,14 +417,10 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
-  D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdarg.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdbool.h \
@@ -492,5 +461,4 @@ D:/CxxProgram/SmartDesk/.build/Debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/sys/types.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
-  D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-  D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
+  D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h

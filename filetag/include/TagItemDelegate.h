@@ -11,8 +11,7 @@
 #include <QMenu>
 #include <QAction>
 #include <QMap>
-#include "../../manager/include/DBSQlite.h"
-#include "../../manager/include/DBMySQL.h"
+#include "../../manager/include/dbService.h"
 #include "../../manager/include/ServerManager.h"
 #include "DCommit.h"
 #include "../../schedule/include/DTag.h"
@@ -37,15 +36,14 @@ public:
 
 private:
     QStringList fileList;
-    DBSQlite& dbsqlite;
 
-    DBMySQL& dbmysql;
     ServerManager *serverManager;
     mutable QMap<QString, bool> m_tagsCache;  // 标签缓存
 
     bool hasTags(const QString &filePath) const;  // 检查文件是否有标签
     void addTag(const QAbstractItemModel *model, const QModelIndex &index, DTag &tagDialog);
 
+    dbService& dbservice;
 };
 
 #endif // TAGITEMDELEGATE_H

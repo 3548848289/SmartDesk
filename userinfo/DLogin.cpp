@@ -3,8 +3,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 
-DLogin::DLogin(DBMySQL *dbmysql, QWidget *parent)
-    : QDialog(parent), ui(new Ui::DLogin), dbmysql(dbmysql)
+DLogin::DLogin(QWidget *parent): QDialog(parent), ui(new Ui::DLogin)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);

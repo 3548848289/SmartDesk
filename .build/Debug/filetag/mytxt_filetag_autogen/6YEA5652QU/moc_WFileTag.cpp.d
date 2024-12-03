@@ -2,14 +2,14 @@ D:/CxxProgram/SmartDesk/.build/Debug/filetag/mytxt_filetag_autogen/6YEA5652QU/mo
   D:/CxxProgram/SmartDesk/.build/Debug/filetag/mytxt_filetag_autogen/moc_predefs.h \
   D:/CxxProgram/SmartDesk/filetag/include/DCommit.h \
   D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h \
-  D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h \
-  D:/CxxProgram/SmartDesk/manager/include/DBSQlite.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/CxxProgram/SmartDesk/schedule/include/DTag.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QDate \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDir \
@@ -26,7 +26,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/filetag/mytxt_filetag_autogen/6YEA5652QU/mo
   D:/QT6/6.8.0/mingw_64/include/QtCore/QMetaType \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QModelIndex \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QPair \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRect \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRegularExpression \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSharedDataPointer \
@@ -35,8 +34,8 @@ D:/CxxProgram/SmartDesk/.build/Debug/filetag/mytxt_filetag_autogen/6YEA5652QU/mo
   D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QUrl \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QUuid \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QVariant \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QVector \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20memory.h \
@@ -185,7 +184,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/filetag/mytxt_filetag_autogen/6YEA5652QU/mo
   D:/QT6/6.8.0/mingw_64/include/QtCore/quuid.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qvariant.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qvarlengtharray.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qvector.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qversiontagging.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qxptype_traits.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qyieldcpu.h \
@@ -271,7 +269,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/filetag/mytxt_filetag_autogen/6YEA5652QU/mo
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QListWidgetItem \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMenu \
-  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QStyle \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QStyleOptionButton \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QStyledItemDelegate \
@@ -283,12 +280,10 @@ D:/CxxProgram/SmartDesk/.build/Debug/filetag/mytxt_filetag_autogen/6YEA5652QU/mo
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qapplication.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialog.h \
-  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistview.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistwidget.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmenu.h \
-  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qrubberband.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qslider.h \

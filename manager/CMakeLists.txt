@@ -3,8 +3,6 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 # 设置源文件和头文件
 set(MANAGER_SOURCES
-    DBMySQL.cpp
-    DBSQlite.cpp
     myJson.cpp
     ServerManager.cpp
     dbManager.cpp
@@ -13,8 +11,6 @@ set(MANAGER_SOURCES
 
     include/dbBackupRecord.h
     include/myJson.h
-    include/DBMySQL.h
-    include/DBSQlite.h
     include/ServerManager.h
     include/dbManager.h
     include/dbFilepath.h

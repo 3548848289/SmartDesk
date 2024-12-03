@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "WidgetFunctional",
-            "lineNumber": 24,
+            "lineNumber": 25,
             "object": true,
             "qualifiedClassName": "WidgetFunctional",
             "signals": [

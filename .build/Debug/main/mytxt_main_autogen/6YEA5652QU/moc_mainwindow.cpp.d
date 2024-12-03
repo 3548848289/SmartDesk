@@ -27,9 +27,11 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/CxxProgram/SmartDesk/main/include/TabHandleCSV.h \
   D:/CxxProgram/SmartDesk/main/include/TabHandleTXT.h \
   D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h \
-  D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h \
-  D:/CxxProgram/SmartDesk/manager/include/DBSQlite.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/CxxProgram/SmartDesk/manager/include/myJson.h \
   D:/CxxProgram/SmartDesk/onlinedoc/include/DLfromNet.h \
   D:/CxxProgram/SmartDesk/onlinedoc/include/WOnlineDoc.h \
@@ -45,7 +47,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QBuffer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDate \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDeadlineTimer \
@@ -66,7 +67,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtCore/QModelIndex \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QMutex \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QPair \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QPropertyAnimation \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRandomGenerator \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRect \
@@ -81,8 +81,8 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtCore/QTextStream \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QTimer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QUrl \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QUuid \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QVariant \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QVector \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QtCore \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QtCoreDepends \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QtGlobal \

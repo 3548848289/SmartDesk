@@ -2,8 +2,8 @@
 #include "include/DInfo.h"
 #include <QMessageBox>
 
-DInfo::DInfo(const QString& username, DBMySQL* dmMysql, QWidget* parent) :
-    QDialog(parent), username(username), dmMysql(dmMysql), ui(new Ui::DInfo)
+DInfo::DInfo(const QString& username, QWidget* parent) :
+    QDialog(parent), username(username), ui(new Ui::DInfo)
 {
     ui->setupUi(this);
     flaskinfo = new FlaskInfo(this);

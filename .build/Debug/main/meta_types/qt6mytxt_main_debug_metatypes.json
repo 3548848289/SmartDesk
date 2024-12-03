@@ -123,7 +123,7 @@
         "classes": [
             {
                 "className": "WidgetFunctional",
-                "lineNumber": 24,
+                "lineNumber": 25,
                 "object": true,
                 "qualifiedClassName": "WidgetFunctional",
                 "signals": [
@@ -235,7 +235,7 @@
         "classes": [
             {
                 "className": "MainWindow",
-                "lineNumber": 36,
+                "lineNumber": 38,
                 "object": true,
                 "qualifiedClassName": "MainWindow",
                 "signals": [

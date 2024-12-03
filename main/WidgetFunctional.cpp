@@ -44,18 +44,18 @@ void WidgetFunctional::on_pushButton_6_clicked()
 
 void WidgetFunctional::on_pushButton_7_clicked()
 {
-    dlogin = new DLogin(dbMysql);
+    dlogin = new DLogin();
     connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
     dlogin->exec();
 }
 
 void WidgetFunctional::handleLoginSuccess(const QString& username) {
     qDebug() << "Username in handleLoginSuccess:" << username;
-    dinfo = new DInfo(username, dbMysql, this);
+    dinfo = new DInfo(username, this);
 }
 
-WidgetFunctional::WidgetFunctional(DBMySQL *dbInstance, QWidget *parent)
-    : QWidget(parent), ui(new Ui::WidgetFunctional), dbMysql(dbInstance)
+WidgetFunctional::WidgetFunctional(QWidget *parent)
+    : QWidget(parent), ui(new Ui::WidgetFunctional)
 {
     ui->setupUi(this);
     btnGroup=new QButtonGroup;

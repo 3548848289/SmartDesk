@@ -6,7 +6,7 @@
 #include <QModelIndex>
 #include <QListWidgetItem>
 #include "TagItemDelegate.h"
-#include "../../manager/include/DBSQlite.h"
+#include "../../manager/include/dbService.h"
 #include "../../manager/include/ServerManager.h"
 
 namespace Ui {
@@ -18,7 +18,7 @@ class WFileTag : public QWidget
     Q_OBJECT
 
 public:
-    explicit WFileTag(DBSQlite *dbsqlite, QWidget *parent = nullptr);
+    explicit WFileTag(QWidget *parent = nullptr);
 
     ~WFileTag();
 
@@ -39,7 +39,6 @@ private:
     Ui::WFileTag *ui;
     QFileSystemModel *fileSystemModel;
     TagItemDelegate *tagItemdelegate;
-    DBSQlite *dbsqlite;
     QString curfilePath;
     QString currentDir;
 

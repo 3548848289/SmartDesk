@@ -14,23 +14,24 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_Widg
   D:/CxxProgram/SmartDesk/email/simple-mail/src/server.h \
   D:/CxxProgram/SmartDesk/email/simple-mail/src/serverreply.h \
   D:/CxxProgram/SmartDesk/email/simple-mail/src/smtpexports.h \
-  D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h \
   D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h \
   D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QBuffer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QCryptographicHash \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDate \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFile \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QFileInfo \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFlags \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QIODevice \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonDocument \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonObject \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QList \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QMap \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QMetaType \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QPropertyAnimation \
@@ -42,6 +43,7 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_Widg
   D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QUrl \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QUuid \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QVariant \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QtGlobal \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h \

@@ -8,14 +8,15 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QButtonGroup>
-#include "../../userinfo/include/DLogin.h"
-#include "../../manager/include/DBMySQL.h"
-#include "../../userinfo/include/DInfo.h"
-
 #include <memory>
 #include <QDebug>
+
+#include "../../userinfo/include/DLogin.h"
+#include "../../manager/include/dbService.h"
+#include "../../userinfo/include/DInfo.h"
 #include "../../email/sendemail.h"
 //#include "../draw/mainwidget.h"
+
 
 namespace Ui {
 class WidgetFunctional;
@@ -26,7 +27,7 @@ class WidgetFunctional : public QWidget
     Q_OBJECT
 
 public:
-    explicit WidgetFunctional(DBMySQL *dbInstance, QWidget *parent = nullptr);
+    explicit WidgetFunctional(QWidget *parent = nullptr);
     ~WidgetFunctional();
     DInfo* getDInfo();
 
@@ -59,7 +60,6 @@ private:
     QVBoxLayout* mainLayout;
     DLogin * dlogin;
     DInfo *dinfo;
-    DBMySQL *dbMysql;
     Ui::WidgetFunctional *ui;
 };
 

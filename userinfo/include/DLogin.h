@@ -7,15 +7,15 @@
 #include <QMouseEvent>
 #include <QJsonObject>
 #include <QJsonDocument>
-#include "D:\\QT6\\6.8.0\\mingw_64\include\\QtNetwork\\QNetworkAccessManager"
-#include "D:\\QT6\\6.8.0\\mingw_64\include\\QtNetwork\\QNetworkRequest"
-#include "D:\\QT6\\6.8.0\\mingw_64\include\\QtNetwork\\QNetworkReply"
+
+
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkReply>
+#include <QtNetwork/QNetworkRequest>
 
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QBuffer>
-
-#include "../../manager/include/DBMySQL.h"
 #include "FlaskInfo.h"
 
 namespace Ui {
@@ -27,7 +27,7 @@ class DLogin : public QDialog
     Q_OBJECT
 
 public:
-    explicit DLogin(DBMySQL *dbmysql, QWidget *parent = nullptr);
+    explicit DLogin(QWidget *parent = nullptr);
     ~DLogin();
 
 signals:
@@ -52,8 +52,6 @@ private:
     QPixmap avatarImage;                      // Store avatar image
     QImage m_avatarImage;  // 用于保存头像图片
 
-
-    DBMySQL *dbmysql;                         // Database object for interacting with MySQL
     bool mousePressed;                        // Flag for dragging the window
     QPoint startPos;                          // Start position for moving window
 

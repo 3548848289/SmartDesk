@@ -3,6 +3,7 @@
 #include <QString>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlError>
+#include <QtSql/QSqlQuery>
 #include <QUuid>
 class dbManager {
 public:
@@ -13,8 +14,8 @@ public:
     void close();
     QString lastError() const;
     bool createTables();
-
 protected:
+    bool initializeTables();
     QSqlDatabase dbsqlite;
 };
 

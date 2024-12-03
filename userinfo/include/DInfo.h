@@ -13,7 +13,7 @@
 #include <QMessageBox>
 #include "FlaskInfo.h"
 
-#include "../../manager/include/DBMySQL.h"
+#include "../../manager/include/dbService.h"
 namespace Ui {
 class DInfo;
 }
@@ -23,7 +23,7 @@ class DInfo : public QDialog
     Q_OBJECT
 
 public:
-    explicit DInfo(const QString& username, DBMySQL* dmMysql, QWidget* parent);
+    explicit DInfo(const QString& username, QWidget* parent);
 
     ~DInfo();
     QPixmap getStoredAvatar() const;
@@ -34,7 +34,7 @@ private slots:
 
 private:
     QString username;
-    DBMySQL* dmMysql;
+    // DBMySQL* dmMysql;
     QPixmap storedAvatar;
     void setupUi();
     FlaskInfo* flaskinfo;

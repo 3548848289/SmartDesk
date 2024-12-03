@@ -1,9 +1,9 @@
 #include "./include/WFileTag.h"
 #include "ui/ui_WFileTag.h"
 
-WFileTag::WFileTag(DBSQlite * dbsqlite, QWidget *parent)
+WFileTag::WFileTag(QWidget *parent)
     : QWidget(parent), ui(new Ui::WFileTag), serverManager(ServerManager::instance()),
-    fileSystemModel(new QFileSystemModel(this)), dbsqlite(dbsqlite)
+    fileSystemModel(new QFileSystemModel(this))
 {
     ui->setupUi(this);
 
