@@ -1,0 +1,18 @@
+{
+    "classes": [
+        {
+            "className": "DB_filepath",
+            "lineNumber": 11,
+            "object": true,
+            "qualifiedClassName": "DB_filepath",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "DatabaseManager"
+                }
+            ]
+        }
+    ],
+    "inputFile": "DB_filepath.h",
+    "outputRevision": 68
+}

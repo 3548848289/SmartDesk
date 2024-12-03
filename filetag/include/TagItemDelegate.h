@@ -38,6 +38,7 @@ public:
 private:
     QStringList fileList;
     DBSQlite& dbsqlite;
+
     DBMySQL& dbmysql;
     ServerManager *serverManager;
     mutable QMap<QString, bool> m_tagsCache;  // 标签缓存

@@ -108,15 +108,15 @@ bool DBSQlite::saveTags(int fileId, const QStringList &tags) {
         QSqlQuery query(dbsqlite);
 
     query.prepare("DELETE FROM Tags WHERE file_id = :fileId");
+        for (const QString &tag : tags) {
+            query.prepare("INSERT INTO Tags (file_id, tag_name) VALUES (:fileId, :tagName)");
+            query.bindValue(":fileId", fileId);
+            query.bindValue(":tagName", tag);
+            query.exec();
+        }
     query.bindValue(":fileId", fileId);
     query.exec();
 
-    for (const QString &tag : tags) {
-        query.prepare("INSERT INTO Tags (file_id, tag_name) VALUES (:fileId, :tagName)");
-        query.bindValue(":fileId", fileId);
-        query.bindValue(":tagName", tag);
-        query.exec();
-    }
     return true;
 }
 

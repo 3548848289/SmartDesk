@@ -102,6 +102,30 @@
 			null
 		],
 		[
+			"D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h",
+			"MU",
+			"6YEA5652QU/moc_dbBackupRecord.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h",
+			"MU",
+			"6YEA5652QU/moc_dbFilepath.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/manager/include/dbManager.h",
+			"MU",
+			"6YEA5652QU/moc_dbManager.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/manager/include/dbService.h",
+			"MU",
+			"6YEA5652QU/moc_dbService.cpp",
+			null
+		],
+		[
 			"D:/CxxProgram/SmartDesk/manager/include/myJson.h",
 			"MU",
 			"6YEA5652QU/moc_myJson.cpp",
@@ -187,6 +211,9 @@
 		[ "D:/CxxProgram/SmartDesk/manager/DBMySQL.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/manager/DBSQlite.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/manager/ServerManager.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/manager/dbBackupRecord.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/manager/dbFilepath.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/manager/dbManager.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/manager/myJson.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],

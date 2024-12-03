@@ -321,74 +321,20 @@ mytxt_userinfo_autogen/timestamp: \
 	D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicTestHelpers.cmake \
 	D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicToolHelpers.cmake \
 	D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCCompiler.cmake.in \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCCompilerABI.c \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCInformation.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCompilerIdDetection.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCompileFeatures.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCompilerABI.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCompilerId.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindBinUtils.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindDependencyMacro.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeParseImplicitIncludeInfo.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeParseImplicitLinkInfo.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeParseLibraryArchitecture.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeTestCCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCSourceCompiles.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCXXCompilerFlag.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckIncludeFile.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckLibraryExists.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/ADSP-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Borland-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Bruce-C-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Compaq-C-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Cray-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GHS-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-C-DetermineCompiler.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-FindBinUtils.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/HP-C-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IAR-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Intel-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/LCC-C-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/MSVC-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/PGI-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/PathScale-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/SCO-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/SDCC-C-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/SunPro-C-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/TI-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Watcom-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/XL-C-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/XLClang-C-DetermineCompiler.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/zOS-C-DetermineCompiler.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageMessage.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindThreads.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake \
-	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/FeatureTesting.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-C-ABI.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-C.cmake \
 	D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake \

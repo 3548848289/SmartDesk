@@ -7,11 +7,18 @@ set(MANAGER_SOURCES
     DBSQlite.cpp
     myJson.cpp
     ServerManager.cpp
+    dbManager.cpp
+    dbFilepath.cpp
+    dbBackupRecord.cpp
 
+    include/dbBackupRecord.h
     include/myJson.h
     include/DBMySQL.h
     include/DBSQlite.h
     include/ServerManager.h
+    include/dbManager.h
+    include/dbFilepath.h
+    include/dbService.h
 )
 
 # 查找 Qt 库
@@ -21,6 +28,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Sql Widgets Network)
 # 添加静态库
 qt_add_library(mytxt_manager STATIC
     ${MANAGER_SOURCES}
+
 )
 
 # 链接 Qt 库（包括 Network, Sql 和 Widgets）

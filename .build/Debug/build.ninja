@@ -208,7 +208,7 @@ build SmartDesk_autogen/timestamp SmartDesk_autogen/mocs_compilation.cpp | ${cma
 #############################################
 # Phony custom command for CMakeFiles\SmartDesk_autogen_timestamp_deps
 
-build CMakeFiles/SmartDesk_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/SmartDesk_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a schedule/libmytxt_schedule.a setting/libmytxt_setting.a onlinedoc/libmytxt_onlinedoc.a manager/libmytxt_manager.a filetag/libmytxt_filetag.a filehis/libmytxt_filehis.a userinfo/libmytxt_userinfo.a email/simple-mail/src/libSimpleMail3Qt6.dll draw/libmytxt_draw.a main/libmytxt_main.a email/mytxt_email.dll || draw/libmytxt_draw.a draw/mytxt_draw_autogen draw/mytxt_draw_autogen_timestamp_deps email/mytxt_email.dll email/mytxt_email_autogen email/mytxt_email_autogen_timestamp_deps email/simple-mail/src/SimpleMail3Qt6_autogen email/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps email/simple-mail/src/libSimpleMail3Qt6.dll filehis/libmytxt_filehis.a filehis/mytxt_filehis_autogen filehis/mytxt_filehis_autogen_timestamp_deps filetag/libmytxt_filetag.a filetag/mytxt_filetag_autogen filetag/mytxt_filetag_autogen_timestamp_deps main/libmytxt_main.a main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps manager/libmytxt_manager.a manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps onlinedoc/libmytxt_onlinedoc.a onlinedoc/mytxt_onlinedoc_autogen onlinedoc/mytxt_onlinedoc_autogen_timestamp_deps schedule/libmytxt_schedule.a schedule/mytxt_schedule_autogen schedule/mytxt_schedule_autogen_timestamp_deps setting/libmytxt_setting.a setting/mytxt_setting_autogen setting/mytxt_setting_autogen_timestamp_deps userinfo/libmytxt_userinfo.a userinfo/mytxt_userinfo_autogen userinfo/mytxt_userinfo_autogen_timestamp_deps
+build CMakeFiles/SmartDesk_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/SmartDesk_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a filetag/libmytxt_filetag.a manager/libmytxt_manager.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a setting/libmytxt_setting.a schedule/libmytxt_schedule.a onlinedoc/libmytxt_onlinedoc.a filehis/libmytxt_filehis.a email/mytxt_email.dll main/libmytxt_main.a email/simple-mail/src/libSimpleMail3Qt6.dll draw/libmytxt_draw.a userinfo/libmytxt_userinfo.a || draw/libmytxt_draw.a draw/mytxt_draw_autogen draw/mytxt_draw_autogen_timestamp_deps email/mytxt_email.dll email/mytxt_email_autogen email/mytxt_email_autogen_timestamp_deps email/simple-mail/src/SimpleMail3Qt6_autogen email/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps email/simple-mail/src/libSimpleMail3Qt6.dll filehis/libmytxt_filehis.a filehis/mytxt_filehis_autogen filehis/mytxt_filehis_autogen_timestamp_deps filetag/libmytxt_filetag.a filetag/mytxt_filetag_autogen filetag/mytxt_filetag_autogen_timestamp_deps main/libmytxt_main.a main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps manager/libmytxt_manager.a manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps onlinedoc/libmytxt_onlinedoc.a onlinedoc/mytxt_onlinedoc_autogen onlinedoc/mytxt_onlinedoc_autogen_timestamp_deps schedule/libmytxt_schedule.a schedule/mytxt_schedule_autogen schedule/mytxt_schedule_autogen_timestamp_deps setting/libmytxt_setting.a setting/mytxt_setting_autogen setting/mytxt_setting_autogen_timestamp_deps userinfo/libmytxt_userinfo.a userinfo/mytxt_userinfo_autogen userinfo/mytxt_userinfo_autogen_timestamp_deps
 
 
 #############################################
@@ -270,6 +270,30 @@ build manager/CMakeFiles/mytxt_manager.dir/ServerManager.cpp.obj: CXX_COMPILER__
   OBJECT_DIR = manager\CMakeFiles\mytxt_manager.dir
   OBJECT_FILE_DIR = manager\CMakeFiles\mytxt_manager.dir
 
+build manager/CMakeFiles/mytxt_manager.dir/dbManager.cpp.obj: CXX_COMPILER__mytxt_manager_Debug D$:/CxxProgram/SmartDesk/manager/dbManager.cpp || cmake_object_order_depends_target_mytxt_manager
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = manager\CMakeFiles\mytxt_manager.dir\dbManager.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/Debug/manager -ID:/CxxProgram/SmartDesk/manager -ID:/CxxProgram/SmartDesk/.build/Debug/manager/mytxt_manager_autogen/include -ID:/CxxProgram/SmartDesk/manager/include -isystem D:/QT6/6.8.0/mingw_64/include/QtNetwork -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui -isystem D:/QT6/6.8.0/mingw_64/include/QtSql
+  OBJECT_DIR = manager\CMakeFiles\mytxt_manager.dir
+  OBJECT_FILE_DIR = manager\CMakeFiles\mytxt_manager.dir
+
+build manager/CMakeFiles/mytxt_manager.dir/dbFilepath.cpp.obj: CXX_COMPILER__mytxt_manager_Debug D$:/CxxProgram/SmartDesk/manager/dbFilepath.cpp || cmake_object_order_depends_target_mytxt_manager
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = manager\CMakeFiles\mytxt_manager.dir\dbFilepath.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/Debug/manager -ID:/CxxProgram/SmartDesk/manager -ID:/CxxProgram/SmartDesk/.build/Debug/manager/mytxt_manager_autogen/include -ID:/CxxProgram/SmartDesk/manager/include -isystem D:/QT6/6.8.0/mingw_64/include/QtNetwork -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui -isystem D:/QT6/6.8.0/mingw_64/include/QtSql
+  OBJECT_DIR = manager\CMakeFiles\mytxt_manager.dir
+  OBJECT_FILE_DIR = manager\CMakeFiles\mytxt_manager.dir
+
+build manager/CMakeFiles/mytxt_manager.dir/dbBackupRecord.cpp.obj: CXX_COMPILER__mytxt_manager_Debug D$:/CxxProgram/SmartDesk/manager/dbBackupRecord.cpp || cmake_object_order_depends_target_mytxt_manager
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = manager\CMakeFiles\mytxt_manager.dir\dbBackupRecord.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/Debug/manager -ID:/CxxProgram/SmartDesk/manager -ID:/CxxProgram/SmartDesk/.build/Debug/manager/mytxt_manager_autogen/include -ID:/CxxProgram/SmartDesk/manager/include -isystem D:/QT6/6.8.0/mingw_64/include/QtNetwork -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui -isystem D:/QT6/6.8.0/mingw_64/include/QtSql
+  OBJECT_DIR = manager\CMakeFiles\mytxt_manager.dir
+  OBJECT_FILE_DIR = manager\CMakeFiles\mytxt_manager.dir
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target mytxt_manager
@@ -278,7 +302,7 @@ build manager/CMakeFiles/mytxt_manager.dir/ServerManager.cpp.obj: CXX_COMPILER__
 #############################################
 # Link the static library manager\libmytxt_manager.a
 
-build manager/libmytxt_manager.a: CXX_STATIC_LIBRARY_LINKER__mytxt_manager_Debug manager/CMakeFiles/mytxt_manager.dir/mytxt_manager_autogen/mocs_compilation.cpp.obj manager/CMakeFiles/mytxt_manager.dir/DBMySQL.cpp.obj manager/CMakeFiles/mytxt_manager.dir/DBSQlite.cpp.obj manager/CMakeFiles/mytxt_manager.dir/myJson.cpp.obj manager/CMakeFiles/mytxt_manager.dir/ServerManager.cpp.obj || manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps
+build manager/libmytxt_manager.a: CXX_STATIC_LIBRARY_LINKER__mytxt_manager_Debug manager/CMakeFiles/mytxt_manager.dir/mytxt_manager_autogen/mocs_compilation.cpp.obj manager/CMakeFiles/mytxt_manager.dir/DBMySQL.cpp.obj manager/CMakeFiles/mytxt_manager.dir/DBSQlite.cpp.obj manager/CMakeFiles/mytxt_manager.dir/myJson.cpp.obj manager/CMakeFiles/mytxt_manager.dir/ServerManager.cpp.obj manager/CMakeFiles/mytxt_manager.dir/dbManager.cpp.obj manager/CMakeFiles/mytxt_manager.dir/dbFilepath.cpp.obj manager/CMakeFiles/mytxt_manager.dir/dbBackupRecord.cpp.obj || manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = manager\CMakeFiles\mytxt_manager.dir
   POST_BUILD = cd .
@@ -420,7 +444,7 @@ build manager/meta_types/mytxt_manager_json_file_list.txt manager/meta_types/myt
 #############################################
 # Phony custom command for manager\CMakeFiles\mytxt_manager_autogen_timestamp_deps
 
-build manager/CMakeFiles/mytxt_manager_autogen_timestamp_deps | ${cmake_ninja_workdir}manager/CMakeFiles/mytxt_manager_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Sql.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
+build manager/CMakeFiles/mytxt_manager_autogen_timestamp_deps | ${cmake_ninja_workdir}manager/CMakeFiles/mytxt_manager_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Sql.a
 
 
 #############################################
@@ -2284,7 +2308,7 @@ build main/meta_types/mytxt_main_json_file_list.txt main/meta_types/mytxt_main_j
 #############################################
 # Phony custom command for main\CMakeFiles\mytxt_main_autogen_timestamp_deps
 
-build main/CMakeFiles/mytxt_main_autogen_timestamp_deps | ${cmake_ninja_workdir}main/CMakeFiles/mytxt_main_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Svg.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
+build main/CMakeFiles/mytxt_main_autogen_timestamp_deps | ${cmake_ninja_workdir}main/CMakeFiles/mytxt_main_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Svg.a
 
 
 #############################################
@@ -2648,7 +2672,7 @@ build email/simple-mail/src/SimpleMail3Qt6_autogen/timestamp email/simple-mail/s
 #############################################
 # Phony custom command for email\simple-mail\src\CMakeFiles\SimpleMail3Qt6_autogen_timestamp_deps
 
-build email/simple-mail/src/CMakeFiles/SimpleMail3Qt6_autogen_timestamp_deps | ${cmake_ninja_workdir}email/simple-mail/src/CMakeFiles/SimpleMail3Qt6_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
+build email/simple-mail/src/CMakeFiles/SimpleMail3Qt6_autogen_timestamp_deps | ${cmake_ninja_workdir}email/simple-mail/src/CMakeFiles/SimpleMail3Qt6_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
 
 
 #############################################

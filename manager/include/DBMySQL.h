@@ -1,7 +1,6 @@
 #ifndef DBMYSQL_H
 #define DBMYSQL_H
 
-
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
@@ -27,19 +26,16 @@ public:
     void close();
     bool createTable();
 
-
     QString lastError() const;
 
     void recordSubmission(const QString &filePath, const QString &backupFilePath);
     QList<QString> getRecordSub(const QString& filePath);
-
     bool hasSubmissions(const QString& filePath) const;
 
 
     bool insertSharedFile(const QString &filePath, const QString &fileName, const QString &shareToken);
     QStringList getSharedFilesByShareToken(const QString &shareToken);
     int getPasswordIdByPassword(const QString &password);
-
 
 private:
     DBMySQL(); // 构造函数私有

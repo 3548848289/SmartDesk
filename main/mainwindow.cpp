@@ -1,5 +1,6 @@
 #include "./include/mainwindow.h"
 #include "ui/ui_mainwindow.h"
+#include "../manager/include/dbService.h"
 
 
 void MainWindow::initFunc()
@@ -23,6 +24,7 @@ void MainWindow::initFunc()
 
     ui->stackedWidget->setObjectName("pWidget");
     ui->stackedWidget->setStyleSheet("QWidget#pWidget { border: 1px solid #808080; }");
+
     ui->stackedWidget->addWidget(widgetr);
     ui->stackedWidget->addWidget(wonlinedoc);
     ui->stackedWidget->addWidget(schedule);
@@ -77,6 +79,7 @@ void MainWindow::initSmal()
     loginButton->setFixedSize(30, 30);
     loginButton->setStyleSheet("border: none; border-radius: 15px;");
     loginButton->setIcon(QIcon("://image/user.svg"));
+
     loginButton->setIconSize(loginButton->size());
 
     ui->menubar->setCornerWidget(loginButton, Qt::TopRightCorner);
@@ -110,6 +113,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(schedule, &WSchedule::fileClicked, this, &MainWindow::openFile);
     connect(wfilehis, &WFileHis::s_fileopen, this, &MainWindow::openFile);
     recentFilesManager->populateRecentFilesMenu(ui->recentFile);
+
+
+    dbService dbservice("D:/dbList/DataGrip 2023.2/myDgPro/mytxt/file_metadata.db");
+    // 文件路径操作
+    int fileid = 0;
+    // dbservice.filePathManager().addFilePath("C:/appverifUI.dll", fileid);
+    dbservice.backupRecordManager().recordSubmission("C:/appverifUI.dll", "appverifUI2.dll");
 }
 
 void MainWindow::onTabChanged(int index) {
