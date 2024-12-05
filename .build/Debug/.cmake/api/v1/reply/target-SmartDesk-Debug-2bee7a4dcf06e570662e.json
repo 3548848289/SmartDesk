@@ -91,7 +91,7 @@
 			{
 				"command" : 5,
 				"file" : 2,
-				"line" : 47,
+				"line" : 51,
 				"parent" : 7
 			},
 			{
@@ -362,7 +362,7 @@
 	[
 		{
 			"backtrace" : 6,
-			"id" : "mytxt_filehis::@b1a02ab4c4f7c6b19840"
+			"id" : "mytxt_filetag::@45fe5781c95c17cffa70"
 		},
 		{
 			"backtrace" : 6,
@@ -370,7 +370,7 @@
 		},
 		{
 			"backtrace" : 6,
-			"id" : "mytxt_filetag::@45fe5781c95c17cffa70"
+			"id" : "mytxt_filehis::@b1a02ab4c4f7c6b19840"
 		},
 		{
 			"backtrace" : 6,
@@ -394,22 +394,22 @@
 		},
 		{
 			"backtrace" : 6,
-			"id" : "mytxt_main::@15c4a824ab2728a3f5e7"
+			"id" : "mytxt_draw::@f99138a17b78bc09f6a1"
 		},
 		{
 			"backtrace" : 6,
-			"id" : "mytxt_draw::@f99138a17b78bc09f6a1"
+			"id" : "mytxt_main::@15c4a824ab2728a3f5e7"
 		},
 		{
 			"backtrace" : 0,
 			"id" : "SmartDesk_autogen::@6890427a1f51a3e7e1df"
 		},
 		{
-			"backtrace" : 6,
-			"id" : "SimpleMail3Qt6::@bfedbfe0dfa1ee136e7a"
+			"id" : "SmartDesk_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "SmartDesk_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 6,
+			"id" : "SimpleMail3Qt6::@bfedbfe0dfa1ee136e7a"
 		}
 	],
 	"id" : "SmartDesk::@6890427a1f51a3e7e1df",

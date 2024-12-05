@@ -23,7 +23,7 @@
 #include <QJsonValue>
 #include <QJsonArray>
 #include <QRegularExpression>
-
+#include <QPointer>
 class ServerManager : public QObject {
     Q_OBJECT
 
@@ -39,6 +39,8 @@ public:
     ServerManager& operator=(const ServerManager&) = delete;
 
     bool commitToServer(const QString& fileName, const QString& tag);
+    bool commitFile(const QString& filepath);
+
     void getCommitHistory(const QModelIndex& index, QAbstractItemModel* model);
     void setCurdir(const QString& curdir);
     void downloadFile(const QString& fileName);
@@ -47,6 +49,8 @@ public:
     void onListFilesFinished(QNetworkReply* reply);
 
     void sendfilepaths(QList<QString> filepaths);
+
+    void test(const QString& filepath);
 signals:
     void commitSuccess();
     void commitFailed();
@@ -55,7 +59,8 @@ signals:
 
 private slots:
     void onDownloadFinished(QNetworkReply* reply, const QString& fileName);
-    void onUploadFinished(QNetworkReply* reply);
+    // void onUploadFinished(QNetworkReply* reply);
+    void onUploadFinished(QPointer<QNetworkReply> reply);
 
 private:
     explicit ServerManager(QObject *parent = nullptr) : QObject(parent) {}

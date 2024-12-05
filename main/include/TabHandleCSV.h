@@ -16,8 +16,9 @@
 #include <QInputDialog>
 #include <QDebug>
 #include <QNetworkInterface>
-
+#include <QSplitter>
 #include "TabAbstract.h"
+#include "ControlWidCSV.h"
 #include "../../manager/include/myJson.h"
 
 
@@ -49,6 +50,10 @@ public:
     void clearfromServer(const QJsonObject& jsonObj);
     void editedfromServer(const QJsonObject& jsonObj);
 
+    void ControlWidget(QWidget* WControl){
+        qDebug() << "TabHandleCSV: Showing control frame!";
+    }
+
 signals:
     void dataToSend(const QString &data);
 
@@ -56,6 +61,9 @@ signals:
 protected:
 
 private:
+
+    ControlWidCSV *controlwidget;
+
     int row = 0, col = 0;
     int foucsRow = 0;
     int foucsCol = 0;

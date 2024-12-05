@@ -31,6 +31,10 @@
 
 #include "../../email/sendemail.h"
 #include "../../draw/ControlFrame.h"
+
+
+#include "ControlWidCSV.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -57,10 +61,6 @@ private slots:
     void handleFileDownload(const QString &fileName, const QByteArray &fileContent);
     void on_actionscv_file_triggered();
     void on_actiontxt_file_triggered();
-    void on_actionadd_triggered();
-    void on_actionsub_triggered();
-    void on_actiondel_row_triggered();
-    void on_actiondel_col_triggered();
 
     void handleFilePathSent();
     void openFile(const QString &filePath);
@@ -77,9 +77,6 @@ private:
     RecentFilesManager *recentFilesManager;
     QWidget * widgetr;
 
-    // DBSQlite *dbSqlite;
-    // DBMySQL *dbMysql;
-
     WFileTag * wfiletag;
     WFileHis * wfilehis;
 
@@ -87,8 +84,6 @@ private:
     WidgetFunctional* widgetfunc;
     Setting * setiing;
     WSchedule * schedule;
-    ControlFrame *controlFrame;
-
 
     void initFunc();
     void initSpli();
@@ -101,8 +96,6 @@ private:
     template<typename T>
     T* getCurrentTab();
 
-    template<typename Func>
-    void handleTableTabAction(Func func, const QString &errorMessage);
 };
 
 #endif // MAINWINDOW_H

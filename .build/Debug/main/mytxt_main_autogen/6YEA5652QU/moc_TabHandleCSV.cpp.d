@@ -1,5 +1,6 @@
 D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_TabHandleCSV.cpp: D:/CxxProgram/SmartDesk/main/include/TabHandleCSV.h \
   D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/moc_predefs.h \
+  D:/CxxProgram/SmartDesk/main/include/ControlWidCSV.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
   D:/CxxProgram/SmartDesk/manager/include/myJson.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
@@ -8,6 +9,8 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_TabH
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonDocument \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonObject \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonValue \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QList \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QTextStream \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QTimer \
@@ -196,9 +199,12 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_TabH
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QInputDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QPushButton \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QSplitter \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTableWidget \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QVBoxLayout \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractbutton.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractitemview.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -216,9 +222,11 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_TabH
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayoutitem.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlineedit.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qpushbutton.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qrubberband.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qslider.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsplitter.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qstyle.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qstyleoption.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtabbar.h \

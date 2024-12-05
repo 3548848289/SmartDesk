@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "filehis/libmytxt_filehis.a"
+			"path" : "manager/libmytxt_manager.a"
 		}
 	],
 	"backtrace" : 4,
@@ -24,7 +24,7 @@
 		"files" : 
 		[
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
-			"filehis/CMakeLists.txt",
+			"manager/CMakeLists.txt",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:2684:EVAL"
 		],
 		"nodes" : 
@@ -35,7 +35,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 17,
+				"line" : 25,
 				"parent" : 0
 			},
 			{
@@ -59,13 +59,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 23,
+				"line" : 31,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 28,
+				"line" : 38,
 				"parent" : 0
 			},
 			{
@@ -122,6 +122,10 @@
 				},
 				{
 					"backtrace" : 5,
+					"define" : "QT_SQL_LIB"
+				},
+				{
+					"backtrace" : 5,
 					"define" : "QT_WIDGETS_LIB"
 				},
 				{
@@ -152,27 +156,38 @@
 			"includes" : 
 			[
 				{
+					"path" : "D:/CxxProgram/SmartDesk/.build/Debug/manager"
+				},
+				{
+					"path" : "D:/CxxProgram/SmartDesk/manager"
+				},
+				{
 					"backtrace" : 0,
-					"path" : "D:/CxxProgram/SmartDesk/.build/Debug/filehis/mytxt_filehis_autogen/include"
+					"path" : "D:/CxxProgram/SmartDesk/.build/Debug/manager/mytxt_manager_autogen/include"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "D:/CxxProgram/SmartDesk/filehis"
+					"path" : "D:/CxxProgram/SmartDesk/manager/include"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "D:/QT6/6.8.0/mingw_64/include/QtNetwork"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "D:/QT6/6.8.0/mingw_64/include"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "D:/QT6/6.8.0/mingw_64/include/QtCore"
 				},
 				{
 					"backtrace" : 5,
 					"isSystem" : true,
 					"path" : "D:/QT6/6.8.0/mingw_64/include/QtWidgets"
-				},
-				{
-					"backtrace" : 5,
-					"isSystem" : true,
-					"path" : "D:/QT6/6.8.0/mingw_64/include"
-				},
-				{
-					"backtrace" : 5,
-					"isSystem" : true,
-					"path" : "D:/QT6/6.8.0/mingw_64/include/QtCore"
 				},
 				{
 					"backtrace" : 5,
@@ -187,7 +202,7 @@
 				{
 					"backtrace" : 5,
 					"isSystem" : true,
-					"path" : "D:/QT6/6.8.0/mingw_64/include/QtNetwork"
+					"path" : "D:/QT6/6.8.0/mingw_64/include/QtSql"
 				}
 			],
 			"language" : "CXX",
@@ -195,7 +210,10 @@
 			[
 				0,
 				1,
-				2
+				2,
+				3,
+				4,
+				5
 			]
 		}
 	],
@@ -203,19 +221,19 @@
 	[
 		{
 			"backtrace" : 0,
-			"id" : "mytxt_filehis_autogen::@b1a02ab4c4f7c6b19840"
+			"id" : "mytxt_manager_autogen::@97418e93d514bfe7a5e1"
 		},
 		{
-			"id" : "mytxt_filehis_autogen_timestamp_deps::@b1a02ab4c4f7c6b19840"
+			"id" : "mytxt_manager_autogen_timestamp_deps::@97418e93d514bfe7a5e1"
 		}
 	],
-	"id" : "mytxt_filehis::@b1a02ab4c4f7c6b19840",
-	"name" : "mytxt_filehis",
-	"nameOnDisk" : "libmytxt_filehis.a",
+	"id" : "mytxt_manager::@97418e93d514bfe7a5e1",
+	"name" : "mytxt_manager",
+	"nameOnDisk" : "libmytxt_manager.a",
 	"paths" : 
 	{
-		"build" : "filehis",
-		"source" : "filehis"
+		"build" : "manager",
+		"source" : "manager"
 	},
 	"sourceGroups" : 
 	[
@@ -225,36 +243,39 @@
 			[
 				0,
 				1,
-				2
+				2,
+				3,
+				4,
+				5
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				3,
-				4,
+				6,
+				7,
 				8,
-				9
+				9,
+				10,
+				11
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				5,
-				6,
-				7,
-				10
+				12,
+				13
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				11,
-				12,
-				13
+				14,
+				15,
+				16
 			]
 		}
 	],
@@ -264,81 +285,97 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : ".build/Debug/filehis/mytxt_filehis_autogen/mocs_compilation.cpp",
+			"path" : ".build/Debug/manager/mytxt_manager_autogen/mocs_compilation.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "filehis/DPull.cpp",
+			"path" : "manager/myJson.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "filehis/WFileHis.cpp",
+			"path" : "manager/ServerManager.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
-			"path" : "filehis/DPull.h",
+			"compileGroupIndex" : 0,
+			"path" : "manager/dbManager.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "manager/dbFilepath.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "manager/dbBackupRecord.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "manager/include/dbBackupRecord.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
-			"path" : "filehis/WFileHis.h",
+			"path" : "manager/include/myJson.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
-			"path" : "filehis/DPull.ui",
-			"sourceGroupIndex" : 2
+			"path" : "manager/include/ServerManager.h",
+			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
-			"path" : "filehis/WFileHis.ui",
-			"sourceGroupIndex" : 2
+			"path" : "manager/include/dbManager.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "manager/include/dbFilepath.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "manager/include/dbService.h",
+			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 10,
 			"isGenerated" : true,
-			"path" : ".build/Debug/filehis/meta_types/qt6mytxt_filehis_debug_metatypes.json.gen",
+			"path" : ".build/Debug/manager/meta_types/qt6mytxt_manager_debug_metatypes.json.gen",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/Debug/filehis/mytxt_filehis_autogen/include/ui_DPull.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 0,
-			"isGenerated" : true,
-			"path" : ".build/Debug/filehis/mytxt_filehis_autogen/include/ui_WFileHis.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 0,
-			"isGenerated" : true,
-			"path" : ".build/Debug/filehis/mytxt_filehis_autogen/timestamp",
+			"path" : ".build/Debug/manager/mytxt_manager_autogen/timestamp",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/Debug/filehis/meta_types/qt6mytxt_filehis_debug_metatypes.json.gen.rule",
+			"path" : ".build/Debug/manager/meta_types/qt6mytxt_manager_debug_metatypes.json.gen.rule",
 			"sourceGroupIndex" : 3
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/Debug/filehis/mytxt_filehis_autogen/timestamp.rule",
+			"path" : ".build/Debug/manager/mytxt_manager_autogen/timestamp.rule",
 			"sourceGroupIndex" : 3
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/Debug/filehis/meta_types/mytxt_filehis_json_file_list.txt.rule",
+			"path" : ".build/Debug/manager/meta_types/mytxt_manager_json_file_list.txt.rule",
 			"sourceGroupIndex" : 3
 		}
 	],

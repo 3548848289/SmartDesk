@@ -22,6 +22,7 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/CxxProgram/SmartDesk/filetag/include/DCommit.h \
   D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h \
   D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h \
+  D:/CxxProgram/SmartDesk/main/include/ControlWidCSV.h \
   D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
   D:/CxxProgram/SmartDesk/main/include/TabHandleCSV.h \
@@ -67,6 +68,7 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtCore/QModelIndex \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QMutex \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QPointer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QPropertyAnimation \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRandomGenerator \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRect \
@@ -356,6 +358,9 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtGui/QMouseEvent \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QPainter \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QPixmap \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/QSyntaxHighlighter \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/QTextCharFormat \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/QTextDocument \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QTransform \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qaction.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qbitmap.h \
@@ -367,8 +372,10 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtGui/qeventpoint.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qfilesystemmodel.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qfont.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qfontdatabase.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qfontinfo.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qfontmetrics.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qglyphrun.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qguiapplication.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qguiapplication_platform.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qicon.h \
@@ -386,14 +393,18 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtGui/qpixmap.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qpointingdevice.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qpolygon.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qrawfont.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qregion.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qrgb.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qrgba64.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qscreen.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qscreen_platform.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qsyntaxhighlighter.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtextcursor.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtextdocument.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtextformat.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qtextlayout.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qtextobject.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtextoption.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtgui-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtguiexports.h \
@@ -449,7 +460,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QDockWidget \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
-  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFrame \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGraphicsItem \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGraphicsScene \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGraphicsView \

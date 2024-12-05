@@ -16,6 +16,7 @@ D:/CxxProgram/SmartDesk/.build/Debug/manager/mytxt_manager_autogen/6YEA5652QU/mo
   D:/QT6/6.8.0/mingw_64/include/QtCore/QMetaType \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QModelIndex \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QPointer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRegularExpression \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSharedDataPointer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
@@ -105,6 +106,7 @@ D:/CxxProgram/SmartDesk/.build/Debug/manager/mytxt_manager_autogen/6YEA5652QU/mo
   D:/QT6/6.8.0/mingw_64/include/QtCore/qobjectdefs_impl.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qoverload.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qpair.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qpointer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qprocessordetection.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qrefcount.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qregularexpression.h \

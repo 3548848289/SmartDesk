@@ -9,6 +9,7 @@
 #include "../../../../../manager/include/ServerManager.h"
 #include <QtNetwork/QSslError>
 #include <QtCore/qmetatype.h>
+#include <QtCore/QPointer>
 
 #include <QtCore/qtmochelpers.h>
 
@@ -48,7 +49,8 @@ constexpr auto qt_meta_stringdata_CLASSServerManagerENDCLASS = QtMocHelpers::str
     "QNetworkReply*",
     "reply",
     "fileName",
-    "onUploadFinished"
+    "onUploadFinished",
+    "QPointer<QNetworkReply>"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -86,7 +88,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSServerManagerENDCLASS[] = {
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 9, QMetaType::QString,   10,   11,
-    QMetaType::Void, 0x80000000 | 9,   10,
+    QMetaType::Void, 0x80000000 | 13,   10,
 
        0        // eod
 };
@@ -116,7 +118,7 @@ Q_CONSTINIT const QMetaObject ServerManager::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'onUploadFinished'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QNetworkReply *, std::false_type>
+        QtPrivate::TypeAndForceComplete<QPointer<QNetworkReply>, std::false_type>
     >,
     nullptr
 } };
@@ -132,7 +134,7 @@ void ServerManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 2: _t->historyReceived((*reinterpret_cast< std::add_pointer_t<QStringList>>(_a[1]))); break;
         case 3: _t->onFilesListUpdated((*reinterpret_cast< std::add_pointer_t<QStringList>>(_a[1]))); break;
         case 4: _t->onDownloadFinished((*reinterpret_cast< std::add_pointer_t<QNetworkReply*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 5: _t->onUploadFinished((*reinterpret_cast< std::add_pointer_t<QNetworkReply*>>(_a[1]))); break;
+        case 5: _t->onUploadFinished((*reinterpret_cast< std::add_pointer_t<QPointer<QNetworkReply>>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -149,7 +151,7 @@ void ServerManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
-                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QNetworkReply* >(); break;
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QPointer<QNetworkReply> >(); break;
             }
             break;
         }

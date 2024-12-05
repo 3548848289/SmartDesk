@@ -364,7 +364,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SmartDesk::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SmartDesk-Debug-190b49f0d552aebe57f6.json",
+					"jsonFile" : "target-SmartDesk-Debug-2bee7a4dcf06e570662e.json",
 					"name" : "SmartDesk",
 					"projectIndex" : 0
 				},
@@ -378,7 +378,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SmartDesk_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SmartDesk_autogen_timestamp_deps-Debug-251f6f86d021bfbacea1.json",
+					"jsonFile" : "target-SmartDesk_autogen_timestamp_deps-Debug-c6c215d8bda833fd9f4b.json",
 					"name" : "SmartDesk_autogen_timestamp_deps",
 					"projectIndex" : 0
 				},
@@ -469,7 +469,7 @@
 				{
 					"directoryIndex" : 10,
 					"id" : "mytxt_main::@15c4a824ab2728a3f5e7",
-					"jsonFile" : "target-mytxt_main-Debug-732ffe53ed15e15110a2.json",
+					"jsonFile" : "target-mytxt_main-Debug-4161f72d6739e4590982.json",
 					"name" : "mytxt_main",
 					"projectIndex" : 0
 				},
@@ -490,7 +490,7 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "mytxt_manager::@97418e93d514bfe7a5e1",
-					"jsonFile" : "target-mytxt_manager-Debug-87cafccb913f89ba34f0.json",
+					"jsonFile" : "target-mytxt_manager-Debug-df04f6113f83452ca362.json",
 					"name" : "mytxt_manager",
 					"projectIndex" : 0
 				},
@@ -511,7 +511,7 @@
 				{
 					"directoryIndex" : 4,
 					"id" : "mytxt_onlinedoc::@7149736b0edd5551e3a2",
-					"jsonFile" : "target-mytxt_onlinedoc-Debug-14c362b58ddbbbd979a6.json",
+					"jsonFile" : "target-mytxt_onlinedoc-Debug-1e09a015a5655a9466e6.json",
 					"name" : "mytxt_onlinedoc",
 					"projectIndex" : 0
 				},
@@ -553,7 +553,7 @@
 				{
 					"directoryIndex" : 6,
 					"id" : "mytxt_setting::@99ddcd2d224c7a01b08e",
-					"jsonFile" : "target-mytxt_setting-Debug-da67d5bfab2d7cc68ebe.json",
+					"jsonFile" : "target-mytxt_setting-Debug-1d95d1f0c7b63f08cf74.json",
 					"name" : "mytxt_setting",
 					"projectIndex" : 0
 				},

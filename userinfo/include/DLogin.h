@@ -64,13 +64,13 @@ protected:
     void mousePressEvent(QMouseEvent *event) override {
         if (event->button() == Qt::LeftButton) {
             mousePressed = true;
-            startPos = event->globalPos() - this->frameGeometry().topLeft();
+            startPos = event->globalPosition().toPoint() - this->frameGeometry().topLeft();
         }
     }
 
     void mouseMoveEvent(QMouseEvent *event) override {
         if (mousePressed) {
-            move(event->globalPos() - startPos);
+            move(event->globalPosition().toPoint() - startPos);
         }
     }
 

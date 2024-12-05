@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "MainWindow",
-            "lineNumber": 38,
+            "lineNumber": 42,
             "object": true,
             "qualifiedClassName": "MainWindow",
             "signals": [
@@ -81,30 +81,6 @@
                 {
                     "access": "private",
                     "index": 9,
-                    "name": "on_actionadd_triggered",
-                    "returnType": "void"
-                },
-                {
-                    "access": "private",
-                    "index": 10,
-                    "name": "on_actionsub_triggered",
-                    "returnType": "void"
-                },
-                {
-                    "access": "private",
-                    "index": 11,
-                    "name": "on_actiondel_row_triggered",
-                    "returnType": "void"
-                },
-                {
-                    "access": "private",
-                    "index": 12,
-                    "name": "on_actiondel_col_triggered",
-                    "returnType": "void"
-                },
-                {
-                    "access": "private",
-                    "index": 13,
                     "name": "handleFilePathSent",
                     "returnType": "void"
                 },
@@ -116,19 +92,19 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 14,
+                    "index": 10,
                     "name": "openFile",
                     "returnType": "void"
                 },
                 {
                     "access": "private",
-                    "index": 15,
+                    "index": 11,
                     "name": "on_actionshe_triggered",
                     "returnType": "void"
                 },
                 {
                     "access": "private",
-                    "index": 16,
+                    "index": 12,
                     "name": "showUserInfoDialog",
                     "returnType": "void"
                 },
@@ -140,7 +116,7 @@
                             "type": "SendEmail*"
                         }
                     ],
-                    "index": 17,
+                    "index": 13,
                     "name": "receiveSendEmailForm",
                     "returnType": "void"
                 }

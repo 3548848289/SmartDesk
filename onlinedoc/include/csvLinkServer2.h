@@ -45,8 +45,8 @@ private slots:
     void on_disconnected();
     void on_readfiieBtn_clicked();
     void on_sendmsgEdit_clicked();
-    void on_pushButton_2_clicked();
     void on_tableWidget_itemClicked(QTableWidgetItem *item);
+    void on_buildBtn_clicked();
 
 private:
     void on_linkserverBtn_clicked();

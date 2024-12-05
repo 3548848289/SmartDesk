@@ -20,7 +20,6 @@ void MainWindow::initFunc()
     wonlinedoc = new WOnlineDoc(this);
     schedule = new WSchedule(this);
     widgetfunc = new WidgetFunctional(this);
-    controlFrame = new ControlFrame(this);
 
     ui->stackedWidget->setObjectName("pWidget");
     ui->stackedWidget->setStyleSheet("QWidget#pWidget { border: 1px solid #808080; }");
@@ -28,7 +27,6 @@ void MainWindow::initFunc()
     ui->stackedWidget->addWidget(widgetr);
     ui->stackedWidget->addWidget(wonlinedoc);
     ui->stackedWidget->addWidget(schedule);
-    ui->stackedWidget->addWidget(controlFrame);
     ui->stackedWidget->setCurrentWidget(widgetr);
 
     connect(widgetfunc, &WidgetFunctional::showFiletag, this, [=] {
@@ -42,15 +40,17 @@ void MainWindow::initFunc()
     connect(widgetfunc, &WidgetFunctional::sendEmailForm, this, &MainWindow::receiveSendEmailForm);
 
     connect(widgetfunc, &WidgetFunctional::showDraw, this, [=] {
-        ui->stackedWidget->setCurrentWidget(controlFrame);
+        // ui->stackedWidget->setCurrentWidget(controlFrame);
         QWidget *currentWidget = tabWidget->currentWidget();
         TabHandleIMG *tabHandleImg = qobject_cast<TabHandleIMG*>(currentWidget);
         if (tabHandleImg) {
-            tabHandleImg->showControlFrame(controlFrame);
+            // tabHandleImg->showControlFrame(controlFrame);
         } else {
             qWarning() << "Current widget is not a TabHandleIMG instance!";
         }
     });
+
+
 
 }
 
@@ -253,7 +253,7 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
              fileName.endsWith(".jpeg", Qt::CaseInsensitive) ||
              fileName.endsWith(".bmp", Qt::CaseInsensitive))
     {
-        return new TabHandleIMG(fileName);  // 使用带路径的构造函数
+        return new TabHandleIMG(fileName);
     }
     else
     {
@@ -333,16 +333,7 @@ T* MainWindow::getCurrentTab()
     return currentTab;
 }
 
-template<typename Func>
-void MainWindow::handleTableTabAction(Func func, const QString &errorMessage)
-{
-    auto currentTab = getCurrentTab<TabHandleCSV>();
-    if (currentTab) {
-        (currentTab->*func)();
-    } else {
-        QMessageBox::warning(this, tr("Error"), errorMessage);
-    }
-}
+
 
 
 void MainWindow::on_actionshe_triggered()
@@ -351,25 +342,4 @@ void MainWindow::on_actionshe_triggered()
     setiing->show();
 }
 
-
-
-void MainWindow::on_actionadd_triggered()
-{
-    handleTableTabAction(&TabHandleCSV::addRow, tr("Current tab is not a table."));
-}
-
-void MainWindow::on_actionsub_triggered()
-{
-    handleTableTabAction(&TabHandleCSV::addColumn, tr("Current tab is not a table."));
-}
-
-void MainWindow::on_actiondel_row_triggered()
-{
-    handleTableTabAction(&TabHandleCSV::deleteRow, tr("Current tab is not a table."));
-}
-
-void MainWindow::on_actiondel_col_triggered()
-{
-    handleTableTabAction(&TabHandleCSV::deleteColumn, tr("Current tab is not a table."));
-}
 

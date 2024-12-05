@@ -148,11 +148,11 @@ D:/CxxProgram/SmartDesk/draw/ControlFrame.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qtransform.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h
- mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFrame
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGroupBox
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QHBoxLayout
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QSlider
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QVBoxLayout
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractslider.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qboxlayout.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h
@@ -556,7 +556,6 @@ D:/CxxProgram/SmartDesk/draw/TabHandleIMG.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog
- mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFrame
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGraphicsItem
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGraphicsScene
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGraphicsView
@@ -565,6 +564,7 @@ D:/CxxProgram/SmartDesk/draw/TabHandleIMG.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QSlider
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QSplitter
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QVBoxLayout
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractscrollarea.h
@@ -586,6 +586,7 @@ D:/CxxProgram/SmartDesk/draw/TabHandleIMG.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qscrollarea.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qslider.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsplitter.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h

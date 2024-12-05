@@ -2,6 +2,68 @@
     {
         "classes": [
             {
+                "className": "ControlWidCSV",
+                "lineNumber": 13,
+                "object": true,
+                "qualifiedClassName": "ControlWidCSV",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "addRowClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "deleteRowClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "name": "addColumnClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "name": "deleteColumnClicked",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "ControlWidCSV.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "ControlWidget",
+                "lineNumber": 7,
+                "object": true,
+                "qualifiedClassName": "ControlWidget",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "ControlWidget.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
                 "className": "RecentFilesManager",
                 "lineNumber": 10,
                 "object": true,
@@ -35,7 +97,7 @@
         "classes": [
             {
                 "className": "TabAbstract",
-                "lineNumber": 13,
+                "lineNumber": 14,
                 "object": true,
                 "qualifiedClassName": "TabAbstract",
                 "signals": [
@@ -73,7 +135,7 @@
         "classes": [
             {
                 "className": "TabHandleCSV",
-                "lineNumber": 24,
+                "lineNumber": 25,
                 "object": true,
                 "qualifiedClassName": "TabHandleCSV",
                 "signals": [
@@ -104,8 +166,20 @@
     {
         "classes": [
             {
+                "className": "CppHighlighter",
+                "lineNumber": 18,
+                "object": true,
+                "qualifiedClassName": "CppHighlighter",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QSyntaxHighlighter"
+                    }
+                ]
+            },
+            {
                 "className": "TextTab",
-                "lineNumber": 12,
+                "lineNumber": 66,
                 "object": true,
                 "qualifiedClassName": "TextTab",
                 "superClasses": [
@@ -235,7 +309,7 @@
         "classes": [
             {
                 "className": "MainWindow",
-                "lineNumber": 38,
+                "lineNumber": 42,
                 "object": true,
                 "qualifiedClassName": "MainWindow",
                 "signals": [
@@ -314,30 +388,6 @@
                     {
                         "access": "private",
                         "index": 9,
-                        "name": "on_actionadd_triggered",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
-                        "index": 10,
-                        "name": "on_actionsub_triggered",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
-                        "index": 11,
-                        "name": "on_actiondel_row_triggered",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
-                        "index": 12,
-                        "name": "on_actiondel_col_triggered",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
-                        "index": 13,
                         "name": "handleFilePathSent",
                         "returnType": "void"
                     },
@@ -349,19 +399,19 @@
                                 "type": "QString"
                             }
                         ],
-                        "index": 14,
+                        "index": 10,
                         "name": "openFile",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "index": 15,
+                        "index": 11,
                         "name": "on_actionshe_triggered",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "index": 16,
+                        "index": 12,
                         "name": "showUserInfoDialog",
                         "returnType": "void"
                     },
@@ -373,7 +423,7 @@
                                 "type": "SendEmail*"
                             }
                         ],
-                        "index": 17,
+                        "index": 13,
                         "name": "receiveSendEmailForm",
                         "returnType": "void"
                     }

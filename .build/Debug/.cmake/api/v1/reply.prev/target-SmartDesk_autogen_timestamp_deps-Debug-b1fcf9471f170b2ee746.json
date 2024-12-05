@@ -17,25 +17,25 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "mytxt_filehis::@b1a02ab4c4f7c6b19840"
-		},
-		{
-			"id" : "mytxt_filetag::@45fe5781c95c17cffa70"
-		},
-		{
 			"id" : "mytxt_manager::@97418e93d514bfe7a5e1"
 		},
 		{
-			"id" : "mytxt_schedule::@9e36be1de487767cdad7"
+			"id" : "mytxt_filehis::@b1a02ab4c4f7c6b19840"
 		},
 		{
 			"id" : "mytxt_onlinedoc::@7149736b0edd5551e3a2"
 		},
 		{
-			"id" : "mytxt_email::@ab3f1ad037796e8bb7c1"
+			"id" : "mytxt_filetag::@45fe5781c95c17cffa70"
+		},
+		{
+			"id" : "mytxt_schedule::@9e36be1de487767cdad7"
 		},
 		{
 			"id" : "mytxt_userinfo::@d674bccc37d551b1d410"
+		},
+		{
+			"id" : "mytxt_email::@ab3f1ad037796e8bb7c1"
 		},
 		{
 			"id" : "mytxt_setting::@99ddcd2d224c7a01b08e"

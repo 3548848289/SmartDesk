@@ -465,7 +465,6 @@ D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
-D:/CxxProgram/SmartDesk/userinfo/FlaskInfo.cpp
 D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h
@@ -943,6 +942,7 @@ D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
+D:/CxxProgram/SmartDesk/userinfo/FlaskInfo.cpp
 D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h

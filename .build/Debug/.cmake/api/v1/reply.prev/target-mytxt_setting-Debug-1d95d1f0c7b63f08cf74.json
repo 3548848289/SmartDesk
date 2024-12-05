@@ -192,11 +192,11 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "mytxt_setting_autogen::@99ddcd2d224c7a01b08e"
+			"id" : "mytxt_setting_autogen_timestamp_deps::@99ddcd2d224c7a01b08e"
 		},
 		{
-			"id" : "mytxt_setting_autogen_timestamp_deps::@99ddcd2d224c7a01b08e"
+			"backtrace" : 0,
+			"id" : "mytxt_setting_autogen::@99ddcd2d224c7a01b08e"
 		}
 	],
 	"id" : "mytxt_setting::@99ddcd2d224c7a01b08e",

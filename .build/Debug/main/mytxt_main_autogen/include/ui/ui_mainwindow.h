@@ -29,16 +29,13 @@ class Ui_MainWindow
 public:
     QAction *actionopen;
     QAction *actionsave;
-    QAction *actionadd;
-    QAction *actionsub;
     QAction *actionclose;
     QAction *actiondownload;
     QAction *actiontxt_file;
     QAction *actionscv_file;
-    QAction *actiondel_row;
-    QAction *actiondel_col;
     QAction *actionshe;
     QAction *actiontest;
+    QAction *actiondo;
     QWidget *centralwidget;
     QWidget *combinedWidget;
     QGridLayout *gridLayout_2;
@@ -80,10 +77,6 @@ public:
             icon2.addFile(QString::fromUtf8(":/image/table_save.svg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         }
         actionsave->setIcon(icon2);
-        actionadd = new QAction(MainWindow);
-        actionadd->setObjectName("actionadd");
-        actionsub = new QAction(MainWindow);
-        actionsub->setObjectName("actionsub");
         actionclose = new QAction(MainWindow);
         actionclose->setObjectName("actionclose");
         QIcon icon3(QIcon::fromTheme(QIcon::ThemeIcon::EditClear));
@@ -105,10 +98,6 @@ public:
         actionscv_file = new QAction(MainWindow);
         actionscv_file->setObjectName("actionscv_file");
         actionscv_file->setIcon(icon5);
-        actiondel_row = new QAction(MainWindow);
-        actiondel_row->setObjectName("actiondel_row");
-        actiondel_col = new QAction(MainWindow);
-        actiondel_col->setObjectName("actiondel_col");
         actionshe = new QAction(MainWindow);
         actionshe->setObjectName("actionshe");
         QIcon icon6;
@@ -118,6 +107,8 @@ public:
         actiontest->setObjectName("actiontest");
         QIcon icon7(QIcon::fromTheme(QIcon::ThemeIcon::UserAvailable));
         actiontest->setIcon(icon7);
+        actiondo = new QAction(MainWindow);
+        actiondo->setObjectName("actiondo");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setStyleSheet(QString::fromUtf8(""));
@@ -172,10 +163,7 @@ public:
         menufile->addAction(actiondownload);
         menunew->addAction(actiontxt_file);
         menunew->addAction(actionscv_file);
-        menuaction->addAction(actionadd);
-        menuaction->addAction(actiondel_row);
-        menuaction->addAction(actionsub);
-        menuaction->addAction(actiondel_col);
+        menuaction->addAction(actiondo);
         menu->addAction(actionshe);
         menu->addAction(actiontest);
 
@@ -195,8 +183,6 @@ public:
 #if QT_CONFIG(shortcut)
         actionsave->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+S", nullptr));
 #endif // QT_CONFIG(shortcut)
-        actionadd->setText(QCoreApplication::translate("MainWindow", "\346\267\273\345\212\240\350\241\214", nullptr));
-        actionsub->setText(QCoreApplication::translate("MainWindow", "\346\267\273\345\212\240\345\210\227", nullptr));
         actionclose->setText(QCoreApplication::translate("MainWindow", "\345\205\263\351\227\255", nullptr));
 #if QT_CONFIG(shortcut)
         actionclose->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+W", nullptr));
@@ -213,10 +199,9 @@ public:
 #if QT_CONFIG(shortcut)
         actionscv_file->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+N, Ctrl+C", nullptr));
 #endif // QT_CONFIG(shortcut)
-        actiondel_row->setText(QCoreApplication::translate("MainWindow", "\345\210\240\351\231\244\350\241\214", nullptr));
-        actiondel_col->setText(QCoreApplication::translate("MainWindow", "\345\210\240\351\231\244\345\210\227", nullptr));
         actionshe->setText(QCoreApplication::translate("MainWindow", "\350\256\276\347\275\256", nullptr));
         actiontest->setText(QCoreApplication::translate("MainWindow", "\346\265\213\350\257\225", nullptr));
+        actiondo->setText(QCoreApplication::translate("MainWindow", "\346\223\215\347\272\265csv", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "\345\275\223\345\211\215\347\225\214\351\235\242", nullptr));
         menufile->setTitle(QCoreApplication::translate("MainWindow", "\346\226\207\344\273\266", nullptr));
         menunew->setTitle(QCoreApplication::translate("MainWindow", "\346\226\260\345\273\272", nullptr));

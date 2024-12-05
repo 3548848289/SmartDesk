@@ -1,9 +1,7 @@
 #include "./include/DTag.h"
 #include "ui/ui_DTag.h"
 
-DTag::DTag(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::DTag)
+DTag::DTag(QWidget *parent) :QDialog(parent),ui(new Ui::DTag)
 {
     ui->setupUi(this);
     QDateTime newDateTime = QDateTime::currentDateTime().addDays(1);

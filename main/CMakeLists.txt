@@ -9,6 +9,7 @@ set(MAIN_SOURCES
     TabHandleCSV.cpp
     TabHandleTXT.cpp
     WidgetFunctional.cpp
+    ControlWidCSV.cpp
 
     include/mainwindow.h
     include/RecentFilesManager.h
@@ -16,8 +17,11 @@ set(MAIN_SOURCES
     include/TabHandleCSV.h
     include/TabHandleTXT.h
     include/WidgetFunctional.h
+    include/ControlWidget.h
+    include/ControlWidCSV.h
 
     ui/WidgetFunctional.ui
+    ui/ControlWidCSV.ui
     ui/mainwindow.ui
 
 )

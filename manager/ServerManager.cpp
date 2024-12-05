@@ -49,15 +49,60 @@ bool ServerManager::commitToServer(const QString& fileName, const QString& tag) 
     });
 }
 
+bool ServerManager::commitFile(const QString &filepath)
+{
+    QFile file(filepath);
+    if (!file.open(QIODevice::ReadOnly)) {
+        qWarning() << "Failed to open file for upload:" << file.errorString();
+        emit commitFailed();
+        return false;
+    }
 
-void ServerManager::onUploadFinished(QNetworkReply* reply) {
+    // 将文件内容读取到 QByteArray 中
+    QByteArray fileData = file.readAll();
+    file.close(); // 读取完数据后，关闭文件
+
+    QString fileName = QFileInfo(filepath).fileName();
+    QString httpUrl = "http://127.0.0.1:5000/" + fileName;
+
+    QNetworkRequest request{QUrl(httpUrl)};
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/octet-stream");
+
+    QString shareToken = "123456";
+    request.setRawHeader("Share-Token", shareToken.toUtf8());
+
+    QNetworkReply *reply = networkManager.put(request, fileData);
+    if (!reply) {
+        qWarning() << "Failed to create network reply!";
+        emit commitFailed();
+        return false;
+    }
+
+    QPointer<QNetworkReply> safeReply = reply;
+    connect(reply, &QNetworkReply::finished, this, [this, safeReply]() {
+        onUploadFinished(safeReply);
+    });
+
+    return true;
+}
+
+void ServerManager::onUploadFinished(QPointer<QNetworkReply> reply)
+{
+    if (!reply) {
+        qWarning() << "Reply is invalid.";
+        emit commitFailed();
+        return;
+    }
+
     if (reply->error() == QNetworkReply::NoError) {
         emit commitSuccess();
+        qDebug() << "提交成功";
     } else {
         qWarning() << "Upload failed:" << reply->errorString();
         emit commitFailed();
     }
-    reply->deleteLater(); // 确保 reply 在处理后被删除
+
+    reply->deleteLater(); // 删除 reply 对象
 }
 
 void ServerManager::downloadFile(const QString& fileName) {
@@ -158,6 +203,11 @@ void ServerManager::onListFilesFinished(QNetworkReply* reply) {
 void ServerManager::sendfilepaths(QList<QString> filepaths)
 {
     emit onFilesListUpdated(filepaths);
+}
+
+void ServerManager::test(const QString &filepath)
+{
+    qDebug() << filepath;
 }
 
 

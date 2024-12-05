@@ -179,7 +179,6 @@ D:/CxxProgram/SmartDesk/.build/Debug/draw/mytxt_draw_autogen/EWIEGA46WW/moc_TabH
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
-  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFrame \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGraphicsItem \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGraphicsScene \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGraphicsView \
@@ -188,6 +187,7 @@ D:/CxxProgram/SmartDesk/.build/Debug/draw/mytxt_draw_autogen/EWIEGA46WW/moc_TabH
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QSlider \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QSplitter \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QVBoxLayout \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -209,6 +209,7 @@ D:/CxxProgram/SmartDesk/.build/Debug/draw/mytxt_draw_autogen/EWIEGA46WW/moc_TabH
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qscrollarea.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qslider.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsplitter.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

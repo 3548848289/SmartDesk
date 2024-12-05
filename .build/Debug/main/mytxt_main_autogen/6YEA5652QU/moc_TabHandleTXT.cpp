@@ -34,6 +34,73 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
+struct qt_meta_stringdata_CLASSCppHighlighterENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSCppHighlighterENDCLASS = QtMocHelpers::stringData(
+    "CppHighlighter"
+);
+#else  // !QT_MOC_HAS_STRINGDATA
+#error "qtmochelpers.h not found or too old."
+#endif // !QT_MOC_HAS_STRINGDATA
+} // unnamed namespace
+
+Q_CONSTINIT static const uint qt_meta_data_CLASSCppHighlighterENDCLASS[] = {
+
+ // content:
+      12,       // revision
+       0,       // classname
+       0,    0, // classinfo
+       0,    0, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       0,       // signalCount
+
+       0        // eod
+};
+
+Q_CONSTINIT const QMetaObject CppHighlighter::staticMetaObject = { {
+    QMetaObject::SuperData::link<QSyntaxHighlighter::staticMetaObject>(),
+    qt_meta_stringdata_CLASSCppHighlighterENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSCppHighlighterENDCLASS,
+    qt_static_metacall,
+    nullptr,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSCppHighlighterENDCLASS_t,
+        // Q_OBJECT / Q_GADGET
+        QtPrivate::TypeAndForceComplete<CppHighlighter, std::true_type>
+    >,
+    nullptr
+} };
+
+void CppHighlighter::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    (void)_o;
+    (void)_id;
+    (void)_c;
+    (void)_a;
+}
+
+const QMetaObject *CppHighlighter::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *CppHighlighter::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSCppHighlighterENDCLASS.stringdata0))
+        return static_cast<void*>(this);
+    return QSyntaxHighlighter::qt_metacast(_clname);
+}
+
+int CppHighlighter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QSyntaxHighlighter::qt_metacall(_c, _id, _a);
+    return _id;
+}
+namespace {
+
+#ifdef QT_MOC_HAS_STRINGDATA
 struct qt_meta_stringdata_CLASSTextTabENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSTextTabENDCLASS = QtMocHelpers::stringData(
     "TextTab"

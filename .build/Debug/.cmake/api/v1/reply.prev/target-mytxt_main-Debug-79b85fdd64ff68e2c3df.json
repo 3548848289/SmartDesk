@@ -35,7 +35,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 30,
+				"line" : 33,
 				"parent" : 0
 			},
 			{
@@ -59,13 +59,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 47,
+				"line" : 51,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 41,
+				"line" : 45,
 				"parent" : 0
 			},
 			{
@@ -208,18 +208,19 @@
 				3,
 				4,
 				5,
-				6
+				6,
+				7
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "mytxt_main_autogen::@15c4a824ab2728a3f5e7"
+			"id" : "mytxt_main_autogen_timestamp_deps::@15c4a824ab2728a3f5e7"
 		},
 		{
-			"id" : "mytxt_main_autogen_timestamp_deps::@15c4a824ab2728a3f5e7"
+			"backtrace" : 0,
+			"id" : "mytxt_main_autogen::@15c4a824ab2728a3f5e7"
 		}
 	],
 	"id" : "mytxt_main::@15c4a824ab2728a3f5e7",
@@ -242,41 +243,44 @@
 				3,
 				4,
 				5,
-				6
+				6,
+				7
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				7,
 				8,
 				9,
 				10,
 				11,
 				12,
-				17,
-				18
+				13,
+				14,
+				15,
+				20,
+				21
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				13,
-				14,
-				15,
 				16,
-				19
+				17,
+				18,
+				19,
+				22
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				20,
-				21,
-				22
+				23,
+				24,
+				25
 			]
 		}
 	],
@@ -327,6 +331,12 @@
 		},
 		{
 			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "main/ControlWidCSV.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
 			"path" : "main/include/mainwindow.h",
 			"sourceGroupIndex" : 1
 		},
@@ -353,6 +363,16 @@
 		{
 			"backtrace" : 4,
 			"path" : "main/include/WidgetFunctional.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "main/include/ControlWidget.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "main/include/ControlWidCSV.h",
 			"sourceGroupIndex" : 1
 		},
 		{

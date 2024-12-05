@@ -90,10 +90,7 @@
     <property name="title">
      <string>编辑</string>
     </property>
-    <addaction name="actionadd"/>
-    <addaction name="actiondel_row"/>
-    <addaction name="actionsub"/>
-    <addaction name="actiondel_col"/>
+    <addaction name="actiondo"/>
    </widget>
    <widget class="QMenu" name="menu">
     <property name="title">
@@ -129,16 +126,6 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
-   </property>
-  </action>
-  <action name="actionadd">
-   <property name="text">
-    <string>添加行</string>
-   </property>
-  </action>
-  <action name="actionsub">
-   <property name="text">
-    <string>添加列</string>
    </property>
   </action>
   <action name="actionclose">
@@ -186,16 +173,6 @@
     <string>Ctrl+N, Ctrl+C</string>
    </property>
   </action>
-  <action name="actiondel_row">
-   <property name="text">
-    <string>删除行</string>
-   </property>
-  </action>
-  <action name="actiondel_col">
-   <property name="text">
-    <string>删除列</string>
-   </property>
-  </action>
   <action name="actionshe">
    <property name="icon">
     <iconset resource="../../resources/res.qrc">
@@ -211,6 +188,11 @@
    </property>
    <property name="text">
     <string>测试</string>
+   </property>
+  </action>
+  <action name="actiondo">
+   <property name="text">
+    <string>操纵csv</string>
    </property>
   </action>
  </widget>

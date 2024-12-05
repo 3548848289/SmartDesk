@@ -7,6 +7,7 @@
 #include <QGraphicsScene>
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QSplitter>
 #include "ControlFrame.h"
 class TabHandleIMG : public TabAbstract
 {
@@ -25,6 +26,10 @@ public:
     void clearfromServer(const QJsonObject& jsonObj) override {}
     void editedfromServer(const QJsonObject& jsonObj) override {}
 
+    void ControlWidget(QWidget* WControl){
+        qDebug() << "TabHandleIMG: Showing control frame!";
+    }
+
 public slots:
     void showControlFrame(ControlFrame *controlFrame);
 
@@ -37,7 +42,7 @@ private:
     QGraphicsView *view;
     QGraphicsScene *scene;
     PixItem *pixItem;
-
+    ControlFrame *controlFrame;
     int angle;
     qreal scaleValue;
     qreal shearValue;

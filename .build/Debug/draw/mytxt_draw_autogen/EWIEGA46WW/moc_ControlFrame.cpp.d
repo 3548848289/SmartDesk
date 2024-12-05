@@ -145,11 +145,11 @@ D:/CxxProgram/SmartDesk/.build/Debug/draw/mytxt_draw_autogen/EWIEGA46WW/moc_Cont
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtransform.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
-  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFrame \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGroupBox \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QHBoxLayout \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QSlider \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QVBoxLayout \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractslider.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qboxlayout.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h \

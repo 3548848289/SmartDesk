@@ -8,7 +8,6 @@ csvLinkServer::csvLinkServer(QWidget *parent): QWidget(parent),ui(new Ui::csvLin
 {
     ui->setupUi(this);
 //    on_linkserverBtn_clicked();
-
 }
 
 csvLinkServer::~csvLinkServer()
@@ -162,42 +161,6 @@ void csvLinkServer::on_closeserverBtn_clicked()
     }
 }
 
-void csvLinkServer::on_pushButton_2_clicked() {
-    QString filePath = QFileDialog::getOpenFileName(this, tr("选择文件"), "", tr("CSV Files (*.csv);;All Files (*)"));
-
-    if (filePath.isEmpty()) {
-        QMessageBox::warning(this, tr("警告"), tr("未选择任何文件！"));
-        return;
-    }
-
-    QString fileName = QFileInfo(filePath).fileName();
-    ui->readfileEdit_2->setText(filePath);
-
-    //
-    //
-    //
-    //
-    //
-    //从用户界面输入框获取用户输入的口令,本来从数据库获取的，未完善
-    //
-    //
-    //
-    //
-    QString shareToken = ui->passwdEdit->text();
-
-    if (shareToken.isEmpty()) {
-        QMessageBox::warning(this, tr("警告"), tr("请输入共享口令！"));
-        return;
-    }
-    serverManager->commitToServer(filePath, "online/");
-    if (dbservice.dbBackup().insertSharedFile(filePath, fileName, shareToken)) {
-        QMessageBox::information(this, tr("成功"), tr("文件上传成功，口令为：%1").arg(shareToken));
-    } else {
-        QMessageBox::warning(this, tr("警告"), tr("文件上传失败！"));
-    }
-}
-
-
 void csvLinkServer::on_tableWidget_itemClicked(QTableWidgetItem *item)
 {
     int row = item->row();
@@ -216,3 +179,32 @@ void csvLinkServer::on_tableWidget_itemClicked(QTableWidgetItem *item)
     ui->msgEdit->clear();
     emit filePathSent();
 }
+
+void csvLinkServer::on_buildBtn_clicked()
+{
+    QString filePath = QFileDialog::getOpenFileName(this, tr("选择文件"), "", tr("All Files (*)"));
+
+    if (filePath.isEmpty()) {
+        QMessageBox::warning(this, tr("警告"), tr("未选择任何文件！"));
+        return;
+    }
+
+    QString fileName = QFileInfo(filePath).fileName();
+    ui->readfileEdit_2->setText(filePath);
+
+    QString shareToken = ui->passwdEdit->text();
+    if (shareToken.isEmpty()) {
+        QMessageBox::warning(this, tr("警告"), tr("请输入共享口令！"));
+        return;
+    }
+    // serverManager->test(filePath);
+    serverManager->commitFile(filePath);
+
+    qDebug() << "csvLinkServer::on_buildBtn_clicked";
+    // if (serverManager->commitFile(filePath)) {
+    //     QMessageBox::information(this, tr("成功"), tr("文件上传成功，口令为：%1").arg(shareToken));
+    // } else {
+    //     QMessageBox::warning(this, tr("警告"), tr("文件上传失败！"));
+    // }
+}
+

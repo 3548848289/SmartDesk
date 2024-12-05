@@ -2,11 +2,34 @@
 
 TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstract(filePath, parent)
 {
+
+    QSplitter* splitter;  // 新增 QSplitter
+
+    // 在构造函数中
     highlightLabel = new QLabel(this);
     tableWidget = new QTableWidget(this);
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->addWidget(tableWidget);
+
+    splitter = new QSplitter(Qt::Vertical, this);  // 使用垂直方向的 QSplitter
+
+    // 创建 ControlWidCSV 控件
+    controlwidget = new ControlWidCSV(this);
+    connect(controlwidget, &ControlWidCSV::addRowClicked, this, &TabHandleCSV::addRow);
+    connect(controlwidget, &ControlWidCSV::deleteRowClicked, this, &TabHandleCSV::deleteRow);
+    connect(controlwidget, &ControlWidCSV::addColumnClicked, this, &TabHandleCSV::addColumn);
+    connect(controlwidget, &ControlWidCSV::deleteColumnClicked, this, &TabHandleCSV::deleteColumn);
+
+    // 将控件添加到 QSplitter 中
+    splitter->addWidget(tableWidget);
+    splitter->addWidget(controlwidget);
+    splitter->setSizes({700, 100});
+    // 创建一个布局，包含 QSplitter
+    QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->addWidget(splitter);  // 将 QSplitter 添加到布局中
+
     setLayout(layout);
+
+
+
 
     connect(tableWidget, &QAbstractItemView::clicked, [=](const QModelIndex &index){
         foucsRow = index.row();
@@ -141,6 +164,7 @@ void TabHandleCSV::adjustItem(QTableWidgetItem *item)
 
 void TabHandleCSV::addRow()
 {
+    qDebug () << "TabHandleCSV::addRow()";
     int rowCount = tableWidget->rowCount();
     tableWidget->insertRow(rowCount);
 }
@@ -276,3 +300,6 @@ void TabHandleCSV::editedfromServer(const QJsonObject& jsonObj)
         qDebug() << "Invalid row or column index: (" << row << ", " << col << ")";
     }
 }
+
+
+

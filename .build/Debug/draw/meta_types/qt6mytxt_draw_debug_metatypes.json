@@ -59,7 +59,7 @@
                 "superClasses": [
                     {
                         "access": "public",
-                        "name": "QFrame"
+                        "name": "QWidget"
                     }
                 ]
             }
@@ -71,7 +71,7 @@
         "classes": [
             {
                 "className": "TabHandleIMG",
-                "lineNumber": 11,
+                "lineNumber": 12,
                 "object": true,
                 "qualifiedClassName": "TabHandleIMG",
                 "slots": [

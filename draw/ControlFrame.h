@@ -1,13 +1,13 @@
 #ifndef CONTROLFRAME_H
 #define CONTROLFRAME_H
 
-#include <QFrame>
+#include <QWidget>
 #include <QSlider>
 #include <QGroupBox>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
-class ControlFrame : public QFrame
+class ControlFrame : public QWidget
 {
     Q_OBJECT
 

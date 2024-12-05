@@ -10,6 +10,7 @@
 
 #include <QJsonObject>
 #include <QJsonDocument>
+
 class TabAbstract : public QWidget
 {
     Q_OBJECT
@@ -35,6 +36,9 @@ public:
 
     virtual QString getCurrentFilePath() const { return currentFilePath; }
     virtual void setCurrentFilePath(const QString& path) { currentFilePath = path; }
+
+
+    virtual void ControlWidget(QWidget* WControl) = 0;
 
     void save()
     {

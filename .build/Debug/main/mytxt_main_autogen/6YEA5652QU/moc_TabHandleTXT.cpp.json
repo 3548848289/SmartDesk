@@ -1,8 +1,20 @@
 {
     "classes": [
         {
+            "className": "CppHighlighter",
+            "lineNumber": 18,
+            "object": true,
+            "qualifiedClassName": "CppHighlighter",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QSyntaxHighlighter"
+                }
+            ]
+        },
+        {
             "className": "TextTab",
-            "lineNumber": 12,
+            "lineNumber": 66,
             "object": true,
             "qualifiedClassName": "TextTab",
             "superClasses": [

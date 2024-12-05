@@ -1,6 +1,6 @@
 #include "ControlFrame.h"
 
-ControlFrame::ControlFrame(QWidget *parent) : QFrame(parent)
+ControlFrame::ControlFrame(QWidget *parent) : QWidget(parent)
 {
     createControlFrame();
 }

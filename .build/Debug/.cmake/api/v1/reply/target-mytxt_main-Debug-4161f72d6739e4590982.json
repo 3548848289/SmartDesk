@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "onlinedoc/libmytxt_onlinedoc.a"
+			"path" : "main/libmytxt_main.a"
 		}
 	],
 	"backtrace" : 4,
@@ -24,7 +24,7 @@
 		"files" : 
 		[
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
-			"onlinedoc/CMakeLists.txt",
+			"main/CMakeLists.txt",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:2684:EVAL"
 		],
 		"nodes" : 
@@ -35,7 +35,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 21,
+				"line" : 34,
 				"parent" : 0
 			},
 			{
@@ -59,13 +59,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 27,
+				"line" : 51,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 33,
+				"line" : 45,
 				"parent" : 0
 			},
 			{
@@ -122,6 +122,10 @@
 				},
 				{
 					"backtrace" : 5,
+					"define" : "QT_SVG_LIB"
+				},
+				{
+					"backtrace" : 5,
 					"define" : "QT_WIDGETS_LIB"
 				},
 				{
@@ -153,25 +157,11 @@
 			[
 				{
 					"backtrace" : 0,
-					"path" : "D:/CxxProgram/SmartDesk/.build/Debug/onlinedoc/mytxt_onlinedoc_autogen/include"
+					"path" : "D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/include"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "D:/CxxProgram/SmartDesk/onlinedoc/include"
-				},
-				{
-					"backtrace" : 6,
-					"path" : "D:/CxxProgram/SmartDesk/onlinedoc"
-				},
-				{
-					"backtrace" : 5,
-					"isSystem" : true,
-					"path" : "D:/QT6/6.8.0/mingw_64/include/QtWidgets"
-				},
-				{
-					"backtrace" : 5,
-					"isSystem" : true,
-					"path" : "D:/QT6/6.8.0/mingw_64/include"
+					"path" : "D:/CxxProgram/SmartDesk/main/include"
 				},
 				{
 					"backtrace" : 5,
@@ -181,7 +171,17 @@
 				{
 					"backtrace" : 5,
 					"isSystem" : true,
+					"path" : "D:/QT6/6.8.0/mingw_64/include"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
 					"path" : "D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "D:/QT6/6.8.0/mingw_64/include/QtWidgets"
 				},
 				{
 					"backtrace" : 5,
@@ -192,6 +192,11 @@
 					"backtrace" : 5,
 					"isSystem" : true,
 					"path" : "D:/QT6/6.8.0/mingw_64/include/QtNetwork"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "D:/QT6/6.8.0/mingw_64/include/QtSvg"
 				}
 			],
 			"language" : "CXX",
@@ -201,27 +206,30 @@
 				1,
 				2,
 				3,
-				4
+				4,
+				5,
+				6,
+				7
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"id" : "mytxt_onlinedoc_autogen_timestamp_deps::@7149736b0edd5551e3a2"
+			"backtrace" : 0,
+			"id" : "mytxt_main_autogen::@15c4a824ab2728a3f5e7"
 		},
 		{
-			"backtrace" : 0,
-			"id" : "mytxt_onlinedoc_autogen::@7149736b0edd5551e3a2"
+			"id" : "mytxt_main_autogen_timestamp_deps::@15c4a824ab2728a3f5e7"
 		}
 	],
-	"id" : "mytxt_onlinedoc::@7149736b0edd5551e3a2",
-	"name" : "mytxt_onlinedoc",
-	"nameOnDisk" : "libmytxt_onlinedoc.a",
+	"id" : "mytxt_main::@15c4a824ab2728a3f5e7",
+	"name" : "mytxt_main",
+	"nameOnDisk" : "libmytxt_main.a",
 	"paths" : 
 	{
-		"build" : "onlinedoc",
-		"source" : "onlinedoc"
+		"build" : "main",
+		"source" : "main"
 	},
 	"sourceGroups" : 
 	[
@@ -233,40 +241,48 @@
 				1,
 				2,
 				3,
-				4
+				4,
+				5,
+				6,
+				7
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				5,
-				6,
-				7,
 				8,
+				9,
+				10,
+				11,
+				12,
 				13,
 				14,
-				15
+				15,
+				21,
+				22,
+				23
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				9,
-				10,
-				11,
-				12,
-				16
+				16,
+				17,
+				18,
+				19,
+				20,
+				24
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				17,
-				18,
-				19
+				25,
+				26,
+				27
 			]
 		}
 	],
@@ -276,114 +292,157 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : ".build/Debug/onlinedoc/mytxt_onlinedoc_autogen/mocs_compilation.cpp",
+			"path" : ".build/Debug/main/mytxt_main_autogen/mocs_compilation.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "onlinedoc/csvLinkServer2.cpp",
+			"path" : "main/main.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "onlinedoc/DLfromNet.cpp",
+			"path" : "main/mainwindow.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "onlinedoc/EditedLog.cpp",
+			"path" : "main/RecentFilesManager.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "onlinedoc/WOnlineDoc.cpp",
+			"path" : "main/TabHandleCSV.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
-			"path" : "onlinedoc/include/csvLinkServer2.h",
+			"compileGroupIndex" : 0,
+			"path" : "main/TabHandleTXT.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "main/WidgetFunctional.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "main/ControlWidCSV.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "main/include/mainwindow.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
-			"path" : "onlinedoc/include/DLfromNet.h",
+			"path" : "main/include/RecentFilesManager.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
-			"path" : "onlinedoc/include/EditedLog.h",
+			"path" : "main/include/TabAbstract.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
-			"path" : "onlinedoc/include/WOnlineDoc.h",
+			"path" : "main/include/TabHandleCSV.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
-			"path" : "onlinedoc/ui/csvLinkServer2.ui",
+			"path" : "main/include/TabHandleTXT.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "main/include/WidgetFunctional.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "main/include/ControlWidget.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "main/include/ControlWidCSV.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "main/ui/WidgetFunctional.ui",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 4,
-			"path" : "onlinedoc/ui/DLfromNet.ui",
+			"path" : "main/ui/ControlWidCSV.ui",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 4,
-			"path" : "onlinedoc/ui/WOnlineDoc.ui",
+			"path" : "main/ui/mainwindow.ui",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "resources/res.qrc",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 10,
 			"isGenerated" : true,
-			"path" : ".build/Debug/onlinedoc/meta_types/qt6mytxt_onlinedoc_debug_metatypes.json.gen",
+			"path" : ".build/Debug/main/meta_types/qt6mytxt_main_debug_metatypes.json.gen",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/Debug/onlinedoc/mytxt_onlinedoc_autogen/include/ui/ui_csvLinkServer2.h",
+			"path" : ".build/Debug/main/mytxt_main_autogen/include/ui/ui_WidgetFunctional.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/Debug/onlinedoc/mytxt_onlinedoc_autogen/include/ui/ui_DLfromNet.h",
+			"path" : ".build/Debug/main/mytxt_main_autogen/include/ui/ui_ControlWidCSV.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/Debug/onlinedoc/mytxt_onlinedoc_autogen/include/ui/ui_WOnlineDoc.h",
+			"path" : ".build/Debug/main/mytxt_main_autogen/include/ui/ui_mainwindow.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/Debug/onlinedoc/mytxt_onlinedoc_autogen/timestamp",
+			"path" : ".build/Debug/main/mytxt_main_autogen/timestamp",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/Debug/onlinedoc/meta_types/qt6mytxt_onlinedoc_debug_metatypes.json.gen.rule",
+			"path" : ".build/Debug/main/meta_types/qt6mytxt_main_debug_metatypes.json.gen.rule",
 			"sourceGroupIndex" : 3
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/Debug/onlinedoc/mytxt_onlinedoc_autogen/timestamp.rule",
+			"path" : ".build/Debug/main/mytxt_main_autogen/timestamp.rule",
 			"sourceGroupIndex" : 3
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/Debug/onlinedoc/meta_types/mytxt_onlinedoc_json_file_list.txt.rule",
+			"path" : ".build/Debug/main/meta_types/mytxt_main_json_file_list.txt.rule",
 			"sourceGroupIndex" : 3
 		}
 	],

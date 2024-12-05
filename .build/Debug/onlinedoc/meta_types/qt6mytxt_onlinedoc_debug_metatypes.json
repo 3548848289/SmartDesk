@@ -173,20 +173,20 @@
                     },
                     {
                         "access": "private",
-                        "index": 7,
-                        "name": "on_pushButton_2_clicked",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
                         "arguments": [
                             {
                                 "name": "item",
                                 "type": "QTableWidgetItem*"
                             }
                         ],
-                        "index": 8,
+                        "index": 7,
                         "name": "on_tableWidget_itemClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 8,
+                        "name": "on_buildBtn_clicked",
                         "returnType": "void"
                     }
                 ],

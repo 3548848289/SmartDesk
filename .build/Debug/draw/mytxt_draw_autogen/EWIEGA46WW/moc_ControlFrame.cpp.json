@@ -58,7 +58,7 @@
             "superClasses": [
                 {
                     "access": "public",
-                    "name": "QFrame"
+                    "name": "QWidget"
                 }
             ]
         }

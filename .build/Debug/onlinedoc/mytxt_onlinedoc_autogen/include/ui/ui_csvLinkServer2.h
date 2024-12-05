@@ -38,7 +38,7 @@ public:
     QPushButton *sendmsgEdit;
     QLineEdit *msgEdit;
     QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton_2;
+    QPushButton *buildBtn;
     QLineEdit *readfileEdit_2;
 
     void setupUi(QWidget *csvLinkServer2)
@@ -80,7 +80,7 @@ public:
         horizontalLayout_5->setObjectName("horizontalLayout_5");
         label = new QLabel(csvLinkServer2);
         label->setObjectName("label");
-        label->setAlignment(Qt::AlignCenter);
+        label->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         horizontalLayout_5->addWidget(label);
 
@@ -124,10 +124,10 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        pushButton_2 = new QPushButton(csvLinkServer2);
-        pushButton_2->setObjectName("pushButton_2");
+        buildBtn = new QPushButton(csvLinkServer2);
+        buildBtn->setObjectName("buildBtn");
 
-        horizontalLayout->addWidget(pushButton_2);
+        horizontalLayout->addWidget(buildBtn);
 
         readfileEdit_2 = new QLineEdit(csvLinkServer2);
         readfileEdit_2->setObjectName("readfileEdit_2");
@@ -159,7 +159,7 @@ public:
 "\346\240\217", nullptr));
         sendmsgEdit->setText(QCoreApplication::translate("csvLinkServer2", "\345\271\277\346\222\255\n"
 "\344\277\241\346\201\257", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("csvLinkServer2", "\345\277\253\351\200\237\345\273\272\347\253\213\n"
+        buildBtn->setText(QCoreApplication::translate("csvLinkServer2", "\345\277\253\351\200\237\345\273\272\347\253\213\n"
 "\345\205\261\344\272\253\346\226\207\344\273\266", nullptr));
         readfileEdit_2->setText(QString());
     } // retranslateUi
