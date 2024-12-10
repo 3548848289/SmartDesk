@@ -40,6 +40,7 @@ bool TagItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
 
         QRect submissionButtonRect(option.rect.right() - 60, option.rect.top() + 5, 20, 20);
         if (submissionButtonRect.contains(mouseEvent->pos())) {
+            onHistoryTriggered(model, index);
             isButtonClicked = true;
             this->serverManager->getFilesInDirectory(index, model);
             emit subbutClicked(index);
@@ -71,8 +72,6 @@ bool TagItemDelegate::hasTags(const QString &filePath) const
     return hasTags;
 
 }
-
-
 void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &index, QAbstractItemModel *model) {
     QMenu contextMenu;
     QAction *openAction = new QAction("打开文件", &contextMenu);
@@ -81,49 +80,11 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     QAction *commit = new QAction("提交远程", &contextMenu);
     QAction *history = new QAction("提交历史", &contextMenu);
 
-    connect(newtag, &QAction::triggered, [this, index, model]() {
-        DTag tagDialog;
-        addTag(model, index, tagDialog);
-
-    });
-
-    connect(openAction, &QAction::triggered, [this, index, model]() {
-        QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
-        emit openFileRequested(filePath);
-    });
-
-    connect(deleteAction, &QAction::triggered, [this, index, model]() {
-        QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
-        QFile file(filePath);
-        if (file.remove()) {
-            qDebug() << "文件已删除:" << filePath;
-            model->removeRow(index.row());
-        } else {
-            qWarning() << "删除文件失败:" << filePath << "错误:" << file.errorString();
-        }
-        emit deleteFileRequested(filePath);
-    });
-
-    connect(commit, &QAction::triggered, [this, index, model]() {
-        QString fileName = model->data(index).toString();
-        QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
-
-        DCommit *commitDialog = new DCommit(filePath, nullptr);
-        if (commitDialog->exec() == QDialog::Accepted) {
-            QString backupFilePath = commitDialog->getBackupFilePath();
-            dbservice.dbBackup().recordSubmission(filePath, backupFilePath);
-        }
-        commitDialog->deleteLater();
-        // if(serverManager->commitToServer(fileName, "upload/"))
-        //     dbmysql.recordSubmission(filePath);
-    });
-
-    connect(history, &QAction::triggered, [this, index, model]()
-    {
-        QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
-        QList<QString> filepaths = dbservice.dbBackup().getRecordSub(filePath);
-        this->serverManager->sendfilepaths(filepaths);
-    });
+    connect(newtag, &QAction::triggered, [this, model, index]() { onNewTagTriggered(model, index); });
+    connect(openAction, &QAction::triggered, [this, model, index]() { onOpenFileTriggered(model, index); });
+    connect(deleteAction, &QAction::triggered, [this, model, index]() { onDeleteFileTriggered(model, index); });
+    connect(commit, &QAction::triggered, [this, model, index]() { onCommitTriggered(model, index); });
+    connect(history, &QAction::triggered, [this, model, index]() { onHistoryTriggered(model, index); });
 
     contextMenu.addAction(openAction);
     contextMenu.addAction(deleteAction);
@@ -132,6 +93,44 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     contextMenu.addAction(history);
 
     contextMenu.exec(pos);
+}
+
+void TagItemDelegate::onNewTagTriggered(QAbstractItemModel *model, const QModelIndex &index) {
+    DTag tagDialog;
+    addTag(model, index, tagDialog);
+}
+
+void TagItemDelegate::onOpenFileTriggered(QAbstractItemModel *model, const QModelIndex &index) {
+    QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
+    emit openFileRequested(filePath);
+}
+
+void TagItemDelegate::onDeleteFileTriggered(QAbstractItemModel *model, const QModelIndex &index) {
+    QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
+    QFile file(filePath);
+    if (file.remove()) {
+        qDebug() << "文件已删除:" << filePath;
+        model->removeRow(index.row());
+    } else {
+        qWarning() << "删除文件失败:" << filePath << "错误:" << file.errorString();
+    }
+    emit deleteFileRequested(filePath);
+}
+
+void TagItemDelegate::onCommitTriggered(QAbstractItemModel *model, const QModelIndex &index) {
+    QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
+    DCommit *commitDialog = new DCommit(filePath, nullptr);
+    if (commitDialog->exec() == QDialog::Accepted) {
+        QString backupFilePath = commitDialog->getBackupFilePath();
+        dbservice.dbBackup().recordSubmission(filePath, backupFilePath);
+    }
+    commitDialog->deleteLater();
+}
+
+void TagItemDelegate::onHistoryTriggered(QAbstractItemModel *model, const QModelIndex &index) {
+    QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
+    QList<QString> filepaths = dbservice.dbBackup().getRecordSub(filePath);
+    this->serverManager->sendfilepaths(filepaths);
 }
 
 void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex &index, DTag &tagDialog) {
@@ -150,5 +149,6 @@ void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex 
         dbservice.dbTags().saveTags(fileId, tagName);
         dbservice.dbTags().saveAnnotation(fileId, annotation);
         dbservice.dbTags().saveExpirationDate(fileId, expirationDate);
+
     }
 }

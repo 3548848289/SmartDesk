@@ -57,8 +57,8 @@ void WFileTag::onItemClicked(const QModelIndex &index) {
     QString curfilePath = fileSystemModel->filePath(index);
     QString directoryPath = QFileInfo(curfilePath).absolutePath();
 
-    qDebug() << "----WFileTag File Path:" << curfilePath;
-    qDebug() << "----WFileTag Directory Path:" << directoryPath;
+    // qDebug() << "----WFileTag File Path:" << curfilePath;
+    // qDebug() << "----WFileTag Directory Path:" << directoryPath;
 
     currentDir = directoryPath;
     serverManager->setCurdir(currentDir);

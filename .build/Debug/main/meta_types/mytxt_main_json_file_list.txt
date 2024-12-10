@@ -1,8 +1,0 @@
-D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/include/../6YEA5652QU/moc_ControlWidCSV.cpp.json
-D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/include/../6YEA5652QU/moc_ControlWidget.cpp.json
-D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/include/../6YEA5652QU/moc_RecentFilesManager.cpp.json
-D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/include/../6YEA5652QU/moc_TabAbstract.cpp.json
-D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/include/../6YEA5652QU/moc_TabHandleCSV.cpp.json
-D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/include/../6YEA5652QU/moc_TabHandleTXT.cpp.json
-D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/include/../6YEA5652QU/moc_WidgetFunctional.cpp.json
-D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/include/../6YEA5652QU/moc_mainwindow.cpp.json

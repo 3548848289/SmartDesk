@@ -55,6 +55,32 @@ QStringList dbFilepath::searchFiles(const QString &keyword) {
     return filePaths;
 }
 
+
+// QList<QPair<QString, QString>> dbFilepath::searchFiles(const QString &keyword) {
+//     QList<QPair<QString, QString>> result;
+//     QSqlQuery query(dbsqlite);
+
+//     query.prepare("SELECT DISTINCT fp.file_path, a.annotation "
+//                   "FROM FilePaths fp "
+//                   "LEFT JOIN Tags t ON fp.id = t.file_id "
+//                   "LEFT JOIN Annotation a ON fp.id = a.file_id "
+//                   "WHERE fp.file_path LIKE :keyword "
+//                   "OR t.tag_name LIKE :keyword "
+//                   "OR a.annotation LIKE :keyword");
+
+//     query.bindValue(":keyword", "%" + keyword + "%");
+//     query.exec();
+
+//     while (query.next()) {
+//         QString filePath = query.value(0).toString();
+//         QString annotation = query.value(1).toString();
+
+//         result.append(qMakePair(filePath, annotation));
+//     }
+
+//     return result;
+// }
+
 // 获取所有文件路径
 QStringList dbFilepath::getAllFilePaths() {
     QStringList filePaths;
@@ -141,15 +167,48 @@ QStringList dbFilepath::getAllTags() {
 }
 
 
+// QList<FilePathInfo> dbFilepath::getFilePathsByTag(const QString &tag) {
+//     QList<FilePathInfo> filePathsWithTags;
+//     QSqlQuery query(dbsqlite);
+
+
+//     if (tag == "刷新") {
+//         query.prepare("SELECT DISTINCT fp.file_path, t.tag_name, fp.expiration_date FROM FilePaths fp JOIN Tags t ON fp.id = t.file_id");
+//     } else {
+//         query.prepare("SELECT DISTINCT fp.file_path, t.tag_name, fp.expiration_date FROM FilePaths fp JOIN Tags t ON fp.id = t.file_id WHERE t.tag_name = :tag");
+//         query.bindValue(":tag", tag);
+//     }
+
+//     query.exec();
+
+//     while (query.next()) {
+//         FilePathInfo info;
+//         info.filePath = query.value(0).toString();
+//         info.tagName = query.value(1).toString();
+//         info.expirationDate = query.value(2).toDateTime();
+
+//         filePathsWithTags.append(info);
+//     }
+
+//     return filePathsWithTags;
+// }
+
 QList<FilePathInfo> dbFilepath::getFilePathsByTag(const QString &tag) {
     QList<FilePathInfo> filePathsWithTags;
     QSqlQuery query(dbsqlite);
 
-
+    // 更新查询语句，获取 file_path, tag_name, expiration_date 和 annotation
     if (tag == "刷新") {
-        query.prepare("SELECT fp.file_path, t.tag_name, fp.expiration_date FROM FilePaths fp JOIN Tags t ON fp.id = t.file_id");
+        query.prepare("SELECT DISTINCT fp.file_path, t.tag_name, fp.expiration_date, a.annotation "
+                      "FROM FilePaths fp "
+                      "LEFT JOIN Tags t ON fp.id = t.file_id "
+                      "LEFT JOIN Annotations a ON fp.id = a.file_id");
     } else {
-        query.prepare("SELECT fp.file_path, t.tag_name, fp.expiration_date FROM FilePaths fp JOIN Tags t ON fp.id = t.file_id WHERE t.tag_name = :tag");
+        query.prepare("SELECT DISTINCT fp.file_path, t.tag_name, fp.expiration_date, a.annotation "
+                      "FROM FilePaths fp "
+                      "LEFT JOIN Tags t ON fp.id = t.file_id "
+                      "LEFT JOIN Annotations a ON fp.id = a.file_id "
+                      "WHERE t.tag_name = :tag");
         query.bindValue(":tag", tag);
     }
 
@@ -160,6 +219,7 @@ QList<FilePathInfo> dbFilepath::getFilePathsByTag(const QString &tag) {
         info.filePath = query.value(0).toString();
         info.tagName = query.value(1).toString();
         info.expirationDate = query.value(2).toDateTime();
+        info.annotation = query.value(3).toString();  // 获取批注内容
 
         filePathsWithTags.append(info);
     }

@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "D:/CxxProgram/SmartDesk/.build/Debug/SmartDesk.exe")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "D:/CxxProgram/SmartDesk/.build/debug/SmartDesk.exe")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/SmartDesk.exe" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/SmartDesk.exe")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -49,17 +49,17 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("D:/CxxProgram/SmartDesk/.build/Debug/manager/cmake_install.cmake")
-  include("D:/CxxProgram/SmartDesk/.build/Debug/filehis/cmake_install.cmake")
-  include("D:/CxxProgram/SmartDesk/.build/Debug/filetag/cmake_install.cmake")
-  include("D:/CxxProgram/SmartDesk/.build/Debug/onlinedoc/cmake_install.cmake")
-  include("D:/CxxProgram/SmartDesk/.build/Debug/schedule/cmake_install.cmake")
-  include("D:/CxxProgram/SmartDesk/.build/Debug/setting/cmake_install.cmake")
-  include("D:/CxxProgram/SmartDesk/.build/Debug/userinfo/cmake_install.cmake")
-  include("D:/CxxProgram/SmartDesk/.build/Debug/email/cmake_install.cmake")
-  include("D:/CxxProgram/SmartDesk/.build/Debug/draw/cmake_install.cmake")
-  include("D:/CxxProgram/SmartDesk/.build/Debug/main/cmake_install.cmake")
-  include("D:/CxxProgram/SmartDesk/.build/Debug/email/simple-mail/cmake_install.cmake")
+  include("D:/CxxProgram/SmartDesk/.build/debug/manager/cmake_install.cmake")
+  include("D:/CxxProgram/SmartDesk/.build/debug/filehis/cmake_install.cmake")
+  include("D:/CxxProgram/SmartDesk/.build/debug/filetag/cmake_install.cmake")
+  include("D:/CxxProgram/SmartDesk/.build/debug/onlinedoc/cmake_install.cmake")
+  include("D:/CxxProgram/SmartDesk/.build/debug/schedule/cmake_install.cmake")
+  include("D:/CxxProgram/SmartDesk/.build/debug/setting/cmake_install.cmake")
+  include("D:/CxxProgram/SmartDesk/.build/debug/userinfo/cmake_install.cmake")
+  include("D:/CxxProgram/SmartDesk/.build/debug/email/cmake_install.cmake")
+  include("D:/CxxProgram/SmartDesk/.build/debug/draw/cmake_install.cmake")
+  include("D:/CxxProgram/SmartDesk/.build/debug/main/cmake_install.cmake")
+  include("D:/CxxProgram/SmartDesk/.build/debug/email/simple-mail/cmake_install.cmake")
 
 endif()
 
@@ -71,5 +71,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/CxxProgram/SmartDesk/.build/Debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/CxxProgram/SmartDesk/.build/debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

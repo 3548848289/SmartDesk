@@ -23,12 +23,16 @@ void Setting::loadSettings() {
     ui->horizontalSlider->setValue(fontSize);
     ui->lineEdit->setText(QString::number(fontSize));
     ui->label->setText(QString("Font Size: %1").arg(fontSize));
+
+    bool enableTray = settings.value("enableTray", true).toBool();  // 默认为启用托盘
+    ui->enableTrayCheckBox->setChecked(enableTray);
 }
 
 void Setting::saveSettings() {
-    qDebug() << "完成";
     QSettings settings("MyApp", "MySettings");
     settings.setValue("FontSize", ui->horizontalSlider->value());
+
+    settings.setValue("enableTray", ui->enableTrayCheckBox->isChecked());
 }
 
 void Setting::updateFontSize(int size) {
@@ -48,3 +52,10 @@ void Setting::onLineEditEditingFinished() {
         updateFontSize(size);
     }
 }
+
+void Setting::on_enableTrayCheckBox_checkStateChanged(const Qt::CheckState &arg1)
+{
+    saveSettings();
+
+}
+

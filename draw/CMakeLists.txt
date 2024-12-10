@@ -14,6 +14,7 @@ set(SCHEDULE_HEADERS
 qt_add_library(mytxt_draw STATIC
     ${SCHEDULE_SOURCES}
     ${SCHEDULE_HEADERS}
+    ControlFrame.ui
 )
 
 target_link_libraries(mytxt_draw PRIVATE

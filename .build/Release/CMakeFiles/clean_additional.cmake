@@ -3,8 +3,9 @@ cmake_minimum_required(VERSION 3.16)
 
 if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "Release")
   file(REMOVE_RECURSE
-  "CMakeFiles\\mytxt_executable_autogen.dir\\AutogenUsed.txt"
-  "CMakeFiles\\mytxt_executable_autogen.dir\\ParseCache.txt"
+  "CMakeFiles\\SmartDesk_autogen.dir\\AutogenUsed.txt"
+  "CMakeFiles\\SmartDesk_autogen.dir\\ParseCache.txt"
+  "SmartDesk_autogen"
   "draw\\CMakeFiles\\mytxt_draw_autogen.dir\\AutogenUsed.txt"
   "draw\\CMakeFiles\\mytxt_draw_autogen.dir\\ParseCache.txt"
   "draw\\mytxt_draw_autogen"
@@ -26,7 +27,6 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "Release")
   "manager\\CMakeFiles\\mytxt_manager_autogen.dir\\AutogenUsed.txt"
   "manager\\CMakeFiles\\mytxt_manager_autogen.dir\\ParseCache.txt"
   "manager\\mytxt_manager_autogen"
-  "mytxt_executable_autogen"
   "onlinedoc\\CMakeFiles\\mytxt_onlinedoc_autogen.dir\\AutogenUsed.txt"
   "onlinedoc\\CMakeFiles\\mytxt_onlinedoc_autogen.dir\\ParseCache.txt"
   "onlinedoc\\mytxt_onlinedoc_autogen"

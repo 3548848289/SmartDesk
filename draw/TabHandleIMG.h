@@ -32,16 +32,19 @@ public:
 
 public slots:
     void showControlFrame(ControlFrame *controlFrame);
+    void onTextAdded(const QString &text, const QPointF &position);
 
 private:
     void updateTransformations(int angle, qreal scale, qreal shear, qreal translate);
+    void addTextToImage(const QString &text, const QPointF &position);
+    void exportImage(const QString &filePath);
 
-    QLabel *imageLabel;
-    QPixmap currentImage;
 
     QGraphicsView *view;
     QGraphicsScene *scene;
     PixItem *pixItem;
+    QGraphicsTextItem *textItem;
+
     ControlFrame *controlFrame;
     int angle;
     qreal scaleValue;

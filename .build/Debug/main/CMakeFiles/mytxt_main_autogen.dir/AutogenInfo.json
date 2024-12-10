@@ -1,7 +1,7 @@
 {
-	"BUILD_DIR" : "D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen",
-	"CMAKE_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/Debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/Debug/main",
+	"BUILD_DIR" : "D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen",
+	"CMAKE_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/debug/main",
 	"CMAKE_CURRENT_SOURCE_DIR" : "D:/CxxProgram/SmartDesk/main",
 	"CMAKE_EXECUTABLE" : "D:/QT6/Tools/CMake_64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
@@ -80,62 +80,12 @@
 		"D:/CxxProgram/SmartDesk/resources/res.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "D:/CxxProgram/SmartDesk",
-	"DEP_FILE" : "D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/deps",
+	"DEP_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "mytxt_main_autogen/timestamp",
-	"HEADERS" : 
-	[
-		[
-			"D:/CxxProgram/SmartDesk/main/include/ControlWidCSV.h",
-			"MU",
-			"6YEA5652QU/moc_ControlWidCSV.cpp",
-			null
-		],
-		[
-			"D:/CxxProgram/SmartDesk/main/include/ControlWidget.h",
-			"MU",
-			"6YEA5652QU/moc_ControlWidget.cpp",
-			null
-		],
-		[
-			"D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h",
-			"MU",
-			"6YEA5652QU/moc_RecentFilesManager.cpp",
-			null
-		],
-		[
-			"D:/CxxProgram/SmartDesk/main/include/TabAbstract.h",
-			"MU",
-			"6YEA5652QU/moc_TabAbstract.cpp",
-			null
-		],
-		[
-			"D:/CxxProgram/SmartDesk/main/include/TabHandleCSV.h",
-			"MU",
-			"6YEA5652QU/moc_TabHandleCSV.cpp",
-			null
-		],
-		[
-			"D:/CxxProgram/SmartDesk/main/include/TabHandleTXT.h",
-			"MU",
-			"6YEA5652QU/moc_TabHandleTXT.cpp",
-			null
-		],
-		[
-			"D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h",
-			"MU",
-			"6YEA5652QU/moc_WidgetFunctional.cpp",
-			null
-		],
-		[
-			"D:/CxxProgram/SmartDesk/main/include/mainwindow.h",
-			"MU",
-			"6YEA5652QU/moc_mainwindow.cpp",
-			null
-		]
-	],
+	"HEADERS" : [],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/include",
-	"MOC_COMPILATION_FILE" : "D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/include",
+	"MOC_COMPILATION_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"MINGW_HAS_SECURE_API=1",
@@ -194,39 +144,30 @@
 		"-c",
 		"D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "D:/CxxProgram/SmartDesk/.build/Debug/main/mytxt_main_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : 
 	[
-		"D:/CxxProgram/SmartDesk/.build/Debug/main/qrc_RESOURCE.cpp",
-		"D:/CxxProgram/SmartDesk/.build/Debug/main/qrc_mytxt_main.cpp",
-		"D:/CxxProgram/SmartDesk/.build/Debug/main/qrc_res.cpp"
+		"D:/CxxProgram/SmartDesk/.build/debug/main/qrc_RESOURCE.cpp",
+		"D:/CxxProgram/SmartDesk/.build/debug/main/qrc_mytxt_main.cpp",
+		"D:/CxxProgram/SmartDesk/.build/debug/main/qrc_res.cpp"
 	],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 6,
-	"PARSE_CACHE_FILE" : "D:/CxxProgram/SmartDesk/.build/Debug/main/CMakeFiles/mytxt_main_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/main/CMakeFiles/mytxt_main_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "D:/QT6/6.8.0/mingw_64/bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "D:/QT6/6.8.0/mingw_64/bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 8,
-	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/Debug/main/CMakeFiles/mytxt_main_autogen.dir/AutogenUsed.txt",
-	"SOURCES" : 
-	[
-		[ "D:/CxxProgram/SmartDesk/main/ControlWidCSV.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/main/RecentFilesManager.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/main/TabHandleCSV.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/main/TabHandleTXT.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/main/WidgetFunctional.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/main/main.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/main/mainwindow.cpp", "MU", null ]
-	],
+	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/main/CMakeFiles/mytxt_main_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : [],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
 	"UIC_SKIP" : 
 	[
-		"D:/CxxProgram/SmartDesk/.build/Debug/main/qrc_RESOURCE.cpp",
-		"D:/CxxProgram/SmartDesk/.build/Debug/main/qrc_mytxt_main.cpp",
-		"D:/CxxProgram/SmartDesk/.build/Debug/main/qrc_res.cpp"
+		"D:/CxxProgram/SmartDesk/.build/debug/main/qrc_RESOURCE.cpp",
+		"D:/CxxProgram/SmartDesk/.build/debug/main/qrc_mytxt_main.cpp",
+		"D:/CxxProgram/SmartDesk/.build/debug/main/qrc_res.cpp"
 	],
 	"UIC_UI_FILES" : [],
 	"VERBOSITY" : 0

@@ -59,13 +59,15 @@ void WSchedule::loadTags() {
 
 void WSchedule::filterByTag(const QString &tag) {
     ui->listWidget->clear();
-
     QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag(tag);
 
     for (const auto &info : files) {
         QString path = info.filePath;
         QString tag = info.tagName;
         QDateTime expDate = info.expirationDate;
+        QString annotation = info.annotation;
+
+        qDebug() << "annotation data:" << annotation;
 
         FileItemWidget *widget = new FileItemWidget();
         widget->setTag(tag);
@@ -143,6 +145,7 @@ void WSchedule::filterByKeyword(const QString &keyword) {
         ui->listWidget->setItemWidget(listItem, widget);
     }
 }
+
 
 void WSchedule::onSortClicked()
 {

@@ -1,32 +1,28 @@
 #include "TabHandleTXT.h"
-
 TextTab::TextTab(const QString &filePath, QWidget *parent)  : TabAbstract(filePath, parent)
 {
     textEdit = new QTextEdit(this);
     // 为 QTextEdit 设置 C++ 语法高亮
     new CppHighlighter(textEdit->document());
 
-    // textEdit->setStyleSheet(
-    //     "QScrollBar:vertical {"
-    //     "    background: #f0f0f0;"
-    //     "    width: 6px;"
-    //     "}"
-    //     "QScrollBar::handle:vertical {"
-    //     "    background: #6ab6d2;"
-    //     "}"
+    controlWsidtxt = new ControlWidTXT(this);
 
+    splitter = new QSplitter(Qt::Vertical, this);
+    splitter->addWidget(textEdit);
+    splitter->addWidget(controlWsidtxt);
+    splitter->setSizes({700, 100});
 
-
-    //     );
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->addWidget(textEdit);
+    QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->addWidget(splitter);
     setLayout(layout);
+
     loadSettings();
 
     connect(textEdit, &QTextEdit::textChanged, this, [this]() {
-        setContentModified(true);  // 内容修改时设置为已修改
+        setContentModified(true);
     });
 }
+
 
 void TextTab::setText(const QString &text)
 {

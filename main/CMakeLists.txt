@@ -10,7 +10,9 @@ set(MAIN_SOURCES
     TabHandleTXT.cpp
     WidgetFunctional.cpp
     ControlWidCSV.cpp
+    ControlWidTXT.cpp
 
+    include/ControlWidTXT.h
     include/mainwindow.h
     include/RecentFilesManager.h
     include/TabAbstract.h
@@ -22,6 +24,7 @@ set(MAIN_SOURCES
 
     ui/WidgetFunctional.ui
     ui/ControlWidCSV.ui
+    ui/ControlWidTXT.ui
     ui/mainwindow.ui
 
 )

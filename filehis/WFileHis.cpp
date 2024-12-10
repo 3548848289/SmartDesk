@@ -15,19 +15,23 @@ WFileHis::~WFileHis()
 }
 
 void WFileHis::updateFileList(const QStringList& files) {
-    for (const QString& file : files) {
-        ui->listWidget->addItem(file);
-        qDebug() << "File in WFileTag:" << file;
+    for (const QString& filePath : files) {
+        QFileInfo fileInfo(filePath);
+        QString fileName = fileInfo.fileName();
+        QListWidgetItem *item = new QListWidgetItem(fileName);
+        item->setToolTip(filePath);
+        item->setData(Qt::UserRole, filePath);
+        ui->listWidget->addItem(item);
+        qDebug() << "File in WFileTag:" << filePath;
     }
-
 }
 
 void WFileHis::on_listWidget_itemClicked(QListWidgetItem *item)
 {
+    QString filePath = item->data(Qt::UserRole).toString();
 
-    QString fileName = item->text();
-    emit s_fileopen(fileName);
-    dpull = new DPull(fileName, serverManager, this);
+    emit s_fileopen(filePath);
+
+    dpull = new DPull(filePath, serverManager, this);
     dpull->exec();
 }
-

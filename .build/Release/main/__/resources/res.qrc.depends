@@ -21,5 +21,6 @@
         <file>usedimage/history.svg</file>
         <file>image/login.png</file>
         <file>png/Settings.png</file>
+        <file>image/user.svg</file>
     </qresource>
 </RCC>

@@ -89,6 +89,8 @@ void MainWindow::initSmal()
     tabWidget = new QTabWidget(this);
     tabWidget->setTabsClosable(true);
     connect(tabWidget, &QTabWidget::tabCloseRequested, this, [this](int index) {
+        qDebug() << "Tab close requested at index: " << index;
+
         on_actionclose_triggered();
     });
 }
@@ -114,7 +116,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 }
 
 void MainWindow::onTabChanged(int index) {
-    qDebug() << "MainWindow::MainWindow" << index;
+    // qDebug() << "MainWindow::MainWindow" << index;
     currentIndex = index;
 }
 
@@ -142,7 +144,11 @@ void MainWindow::receiveSendEmailForm(SendEmail *form)
     int newIndex = tabWidget->addTab(form, QLatin1String("Email"));
     form->show();
     tabWidget->setCurrentIndex(newIndex);
+
     ui->stackedWidget->setCurrentWidget(widgetr);
+
+
+
 }
 
 void MainWindow::on_actiontxt_file_triggered()
@@ -213,7 +219,7 @@ void MainWindow::on_actionsave_triggered()
         if (currentFilePath.isEmpty())
             return;  // 如果用户取消保存
     }
-    currentTab->save();
+    currentTab->fileSave();
     currentTab->setCurrentFilePath(currentFilePath);
 }
 
@@ -236,7 +242,6 @@ void MainWindow::createNewTab(std::function<TabAbstract*()> tabFactory, const QS
 
 TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
 {
-    qDebug() << "MainWindow::createTabByFileName" << fileName;
     if (fileName.endsWith(".txt", Qt::CaseInsensitive) ||
         fileName.endsWith(".cpp", Qt::CaseInsensitive) ||
         fileName.endsWith(".qrc", Qt::CaseInsensitive) ||
@@ -265,7 +270,7 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
 
 void MainWindow::on_actionclose_triggered()
 {
-    int currentIndex = tabWidget->currentIndex();  // 获取当前选中的标签页索引
+    int currentIndex = tabWidget->currentIndex();
     if (currentIndex >= 0) {
         QWidget *widget = tabWidget->widget(currentIndex);
 
@@ -273,16 +278,21 @@ void MainWindow::on_actionclose_triggered()
             qDebug() << "No widget found at current index.";
             return;
         }
-
+        if (dynamic_cast<SendEmail*>(widget)) {
+            SendEmail *sendEmailTab = qobject_cast<SendEmail*>(widget);
+            tabWidget->removeTab(currentIndex);
+            delete sendEmailTab;
+        }
         TabAbstract *tab = qobject_cast<TabAbstract*>(widget);
         if (tab) {
-            if (tab->confirmClose()) {
+            if (tab->confirmClose())
                 tabWidget->removeTab(currentIndex);
-            } else {
+
+            else
                 qDebug() << "Tab close canceled by user.";
-            }
         }
-    } else {
+    }
+    else {
         qDebug() << "No tab to close.";
     }
 }

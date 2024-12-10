@@ -1,12 +1,12 @@
 {
-	"BUILD_DIR" : "D:/CxxProgram/SmartDesk/.build/Debug/setting/mytxt_setting_autogen",
-	"CMAKE_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/Debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/Debug/setting",
+	"BUILD_DIR" : "D:/CxxProgram/SmartDesk/.build/debug/setting/mytxt_setting_autogen",
+	"CMAKE_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/debug/setting",
 	"CMAKE_CURRENT_SOURCE_DIR" : "D:/CxxProgram/SmartDesk/setting",
 	"CMAKE_EXECUTABLE" : "D:/QT6/Tools/CMake_64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : [ "D:/CxxProgram/SmartDesk/setting/CMakeLists.txt" ],
 	"CMAKE_SOURCE_DIR" : "D:/CxxProgram/SmartDesk",
-	"DEP_FILE" : "D:/CxxProgram/SmartDesk/.build/Debug/setting/mytxt_setting_autogen/deps",
+	"DEP_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/setting/mytxt_setting_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "mytxt_setting_autogen/timestamp",
 	"HEADERS" : 
 	[
@@ -18,8 +18,8 @@
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "D:/CxxProgram/SmartDesk/.build/Debug/setting/mytxt_setting_autogen/include",
-	"MOC_COMPILATION_FILE" : "D:/CxxProgram/SmartDesk/.build/Debug/setting/mytxt_setting_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "D:/CxxProgram/SmartDesk/.build/debug/setting/mytxt_setting_autogen/include",
+	"MOC_COMPILATION_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/setting/mytxt_setting_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"MINGW_HAS_SECURE_API=1",
@@ -74,17 +74,17 @@
 		"-c",
 		"D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "D:/CxxProgram/SmartDesk/.build/Debug/setting/mytxt_setting_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/setting/mytxt_setting_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 6,
-	"PARSE_CACHE_FILE" : "D:/CxxProgram/SmartDesk/.build/Debug/setting/CMakeFiles/mytxt_setting_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/setting/CMakeFiles/mytxt_setting_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "D:/QT6/6.8.0/mingw_64/bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "D:/QT6/6.8.0/mingw_64/bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 8,
-	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/Debug/setting/CMakeFiles/mytxt_setting_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/setting/CMakeFiles/mytxt_setting_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[ "D:/CxxProgram/SmartDesk/setting/Setting.cpp", "MU", null ]

@@ -1,4 +1,4 @@
-D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/mytxt_executable.dir
+D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/SmartDesk.dir
 D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/package.dir
 D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/package_source.dir
 D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/edit_cache.dir
@@ -7,8 +7,8 @@ D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/list_install_components.dir
 D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/install.dir
 D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/install/local.dir
 D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/install/strip.dir
-D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/mytxt_executable_autogen_timestamp_deps.dir
-D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/mytxt_executable_autogen.dir
+D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/SmartDesk_autogen_timestamp_deps.dir
+D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/SmartDesk_autogen.dir
 D:/CxxProgram/SmartDesk/.build/Release/manager/CMakeFiles/mytxt_manager.dir
 D:/CxxProgram/SmartDesk/.build/Release/manager/CMakeFiles/package.dir
 D:/CxxProgram/SmartDesk/.build/Release/manager/CMakeFiles/package_source.dir

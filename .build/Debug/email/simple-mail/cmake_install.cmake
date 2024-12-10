@@ -39,8 +39,8 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/SimpleMail3Qt6" TYPE FILE FILES
-    "D:/CxxProgram/SmartDesk/.build/Debug/email/simple-mail/SimpleMail3Qt6Config.cmake"
-    "D:/CxxProgram/SmartDesk/.build/Debug/email/simple-mail/SimpleMail3Qt6ConfigVersion.cmake"
+    "D:/CxxProgram/SmartDesk/.build/debug/email/simple-mail/SimpleMail3Qt6Config.cmake"
+    "D:/CxxProgram/SmartDesk/.build/debug/email/simple-mail/SimpleMail3Qt6ConfigVersion.cmake"
     )
 endif()
 
@@ -48,7 +48,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Devel" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/SimpleMail3Qt6/SimpleMail3Qt6Targets.cmake")
     file(DIFFERENT _cmake_export_file_changed FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/SimpleMail3Qt6/SimpleMail3Qt6Targets.cmake"
-         "D:/CxxProgram/SmartDesk/.build/Debug/email/simple-mail/CMakeFiles/Export/356f8d4e89d949eed3792a8f2288a122/SimpleMail3Qt6Targets.cmake")
+         "D:/CxxProgram/SmartDesk/.build/debug/email/simple-mail/CMakeFiles/Export/356f8d4e89d949eed3792a8f2288a122/SimpleMail3Qt6Targets.cmake")
     if(_cmake_export_file_changed)
       file(GLOB _cmake_old_config_files "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/SimpleMail3Qt6/SimpleMail3Qt6Targets-*.cmake")
       if(_cmake_old_config_files)
@@ -61,15 +61,15 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Devel" OR NOT CMAKE_INSTALL_COMPONENT)
     endif()
     unset(_cmake_export_file_changed)
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/SimpleMail3Qt6" TYPE FILE FILES "D:/CxxProgram/SmartDesk/.build/Debug/email/simple-mail/CMakeFiles/Export/356f8d4e89d949eed3792a8f2288a122/SimpleMail3Qt6Targets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/SimpleMail3Qt6" TYPE FILE FILES "D:/CxxProgram/SmartDesk/.build/debug/email/simple-mail/CMakeFiles/Export/356f8d4e89d949eed3792a8f2288a122/SimpleMail3Qt6Targets.cmake")
   if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/SimpleMail3Qt6" TYPE FILE FILES "D:/CxxProgram/SmartDesk/.build/Debug/email/simple-mail/CMakeFiles/Export/356f8d4e89d949eed3792a8f2288a122/SimpleMail3Qt6Targets-debug.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/SimpleMail3Qt6" TYPE FILE FILES "D:/CxxProgram/SmartDesk/.build/debug/email/simple-mail/CMakeFiles/Export/356f8d4e89d949eed3792a8f2288a122/SimpleMail3Qt6Targets-debug.cmake")
   endif()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("D:/CxxProgram/SmartDesk/.build/Debug/email/simple-mail/src/cmake_install.cmake")
+  include("D:/CxxProgram/SmartDesk/.build/debug/email/simple-mail/src/cmake_install.cmake")
 
 endif()
 

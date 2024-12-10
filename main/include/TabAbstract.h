@@ -40,7 +40,7 @@ public:
 
     virtual void ControlWidget(QWidget* WControl) = 0;
 
-    void save()
+    void fileSave()
     {
         if (currentFilePath.isEmpty()) {
             QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"));
@@ -65,7 +65,7 @@ public:
                 );
 
             if (reply == QMessageBox::Yes) {
-                save();
+                fileSave();
                 return true;
             } else if (reply == QMessageBox::No) {
                 return true;

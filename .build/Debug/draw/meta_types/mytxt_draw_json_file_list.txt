@@ -1,2 +1,0 @@
-D:/CxxProgram/SmartDesk/.build/Debug/draw/mytxt_draw_autogen/include/../EWIEGA46WW/moc_ControlFrame.cpp.json
-D:/CxxProgram/SmartDesk/.build/Debug/draw/mytxt_draw_autogen/include/../EWIEGA46WW/moc_TabHandleIMG.cpp.json

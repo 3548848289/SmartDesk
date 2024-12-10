@@ -22,6 +22,7 @@ signals:
 private slots:
     void onFontSizeChanged(int value);
     void onLineEditEditingFinished();
+    void on_enableTrayCheckBox_checkStateChanged(const Qt::CheckState &arg1);
 
 private:
     void loadSettings();

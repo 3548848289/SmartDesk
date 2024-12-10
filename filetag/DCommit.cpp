@@ -13,12 +13,11 @@ DCommit::DCommit(const QString &filePath, QWidget *parent) :QDialog(parent),ui(n
     QString timeStamp = QDateTime::currentDateTime().toString("yyyyMMddHHmmss");
     QString backupFileName = QFileInfo(filePath).baseName() + "_" + timeStamp + "." + QFileInfo(filePath).suffix();
 
-    QString backupDir = "D:/QT6/Qt_pro/project/mytxt/resources/user";
-
+    QString appDir = QCoreApplication::applicationDirPath();
+    QString backupDir = appDir + "/../user";
+    qDebug() << backupDir;
     ui->edit_path->setText(backupDir);
     ui->edit_name->setText(backupFileName);
-
-    qDebug() << ui->edit_path->text() << ui->edit_name->text();
 }
 
 QString DCommit::getBackupFilePath() const {

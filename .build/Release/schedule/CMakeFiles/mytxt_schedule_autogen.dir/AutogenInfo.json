@@ -11,15 +11,39 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/CxxProgram/SmartDesk/schedule/FileItemWidget.h",
+			"D:/CxxProgram/SmartDesk/schedule/LmsgNotify/arrangedwnd.h",
 			"MU",
-			"EWIEGA46WW/moc_FileItemWidget.cpp",
+			"JNREVZZB47/moc_arrangedwnd.cpp",
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/schedule/WSchedule.h",
+			"D:/CxxProgram/SmartDesk/schedule/LmsgNotify/notifymanager.h",
 			"MU",
-			"EWIEGA46WW/moc_WSchedule.cpp",
+			"JNREVZZB47/moc_notifymanager.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/schedule/LmsgNotify/notifywnd.h",
+			"MU",
+			"JNREVZZB47/moc_notifywnd.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/schedule/include/DTag.h",
+			"MU",
+			"6YEA5652QU/moc_DTag.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/schedule/include/FileItemWidget.h",
+			"MU",
+			"6YEA5652QU/moc_FileItemWidget.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/schedule/include/WSchedule.h",
+			"MU",
+			"6YEA5652QU/moc_WSchedule.cpp",
 			null
 		]
 	],
@@ -49,6 +73,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
+		"D:/CxxProgram/SmartDesk/schedule/include",
 		"D:/CxxProgram/SmartDesk/schedule",
 		"D:/QT6/6.8.0/mingw_64/include/QtWidgets",
 		"D:/QT6/6.8.0/mingw_64/include",
@@ -94,7 +119,23 @@
 	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/Release/schedule/CMakeFiles/mytxt_schedule_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "D:/CxxProgram/SmartDesk/schedule/DTag.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/schedule/FileItemWidget.cpp", "MU", null ],
+		[
+			"D:/CxxProgram/SmartDesk/schedule/LmsgNotify/arrangedwnd.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/schedule/LmsgNotify/notifymanager.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/schedule/LmsgNotify/notifywnd.cpp",
+			"MU",
+			null
+		],
 		[ "D:/CxxProgram/SmartDesk/schedule/WSchedule.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],

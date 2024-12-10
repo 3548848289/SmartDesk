@@ -57,6 +57,7 @@ bool dbManager::initializeTables() {
             CREATE TABLE IF NOT EXISTS SubmissionRecords (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 submission_id INTEGER,
+                remote_file_name TEXT,
                 submit_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (submission_id) REFERENCES Submissions(id) ON DELETE CASCADE
             );

@@ -12,6 +12,7 @@ dbBackupRecord::~dbBackupRecord() {
 }
 
 void dbBackupRecord::recordSubmission(const QString &filePath, const QString &backupFilePath) {
+
     QSqlQuery query(dbsqlite);
     QString currentTime = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
 

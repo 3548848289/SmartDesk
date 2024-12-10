@@ -13,6 +13,7 @@ struct FilePathInfo {
     QString filePath;
     QString tagName;
     QDateTime expirationDate;
+    QString annotation;
 };
 
 class dbFilepath : public dbManager {
@@ -26,6 +27,8 @@ public:
     bool getFileId(const QString &filePath, int &fileId);
     QStringList getAllFilePaths();
     QStringList searchFiles(const QString &keyword);
+    // QList<QPair<QString, QString>> searchFiles(const QString &keyword);
+
 
     bool saveTags(int fileId, const QStringList &tags);
     bool saveAnnotation(int fileId, const QString &annotation);

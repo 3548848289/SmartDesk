@@ -84,21 +84,33 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/CxxProgram/SmartDesk/manager/include/DBMySQL.h",
-			"MU",
-			"6YEA5652QU/moc_DBMySQL.cpp",
-			null
-		],
-		[
-			"D:/CxxProgram/SmartDesk/manager/include/DBSQlite.h",
-			"MU",
-			"6YEA5652QU/moc_DBSQlite.cpp",
-			null
-		],
-		[
 			"D:/CxxProgram/SmartDesk/manager/include/ServerManager.h",
 			"MU",
 			"6YEA5652QU/moc_ServerManager.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h",
+			"MU",
+			"6YEA5652QU/moc_dbBackupRecord.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h",
+			"MU",
+			"6YEA5652QU/moc_dbFilepath.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/manager/include/dbManager.h",
+			"MU",
+			"6YEA5652QU/moc_dbManager.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/manager/include/dbService.h",
+			"MU",
+			"6YEA5652QU/moc_dbService.cpp",
 			null
 		],
 		[
@@ -185,9 +197,10 @@
 	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/Release/manager/CMakeFiles/mytxt_manager_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/CxxProgram/SmartDesk/manager/DBMySQL.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/manager/DBSQlite.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/manager/ServerManager.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/manager/dbBackupRecord.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/manager/dbFilepath.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/manager/dbManager.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/manager/myJson.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],

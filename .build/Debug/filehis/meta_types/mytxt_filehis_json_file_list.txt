@@ -1,2 +1,0 @@
-D:/CxxProgram/SmartDesk/.build/Debug/filehis/mytxt_filehis_autogen/include/../EWIEGA46WW/moc_DPull.cpp.json
-D:/CxxProgram/SmartDesk/.build/Debug/filehis/mytxt_filehis_autogen/include/../EWIEGA46WW/moc_WFileHis.cpp.json

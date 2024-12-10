@@ -34,6 +34,12 @@ public:
 
     void showContextMenu(const QPoint &pos, const QModelIndex &index, QAbstractItemModel *model);
 
+private slots:
+    void onNewTagTriggered(QAbstractItemModel *model, const QModelIndex &index);
+    void onOpenFileTriggered(QAbstractItemModel *model, const QModelIndex &index);
+    void onDeleteFileTriggered(QAbstractItemModel *model, const QModelIndex &index);
+    void onCommitTriggered(QAbstractItemModel *model, const QModelIndex &index);
+    void onHistoryTriggered(QAbstractItemModel *model, const QModelIndex &index);
 private:
     QStringList fileList;
 

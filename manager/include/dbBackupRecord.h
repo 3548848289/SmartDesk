@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QStringList>
+#include <QFileInfo>
 #include <QDateTime>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
