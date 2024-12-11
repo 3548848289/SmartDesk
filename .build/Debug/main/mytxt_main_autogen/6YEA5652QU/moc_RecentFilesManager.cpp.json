@@ -1,0 +1,32 @@
+{
+    "classes": [
+        {
+            "className": "RecentFilesManager",
+            "lineNumber": 10,
+            "object": true,
+            "qualifiedClassName": "RecentFilesManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "filePath",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "fileOpened",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "RecentFilesManager.h",
+    "outputRevision": 68
+}

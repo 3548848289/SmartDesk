@@ -1,0 +1,38 @@
+{
+    "classes": [
+        {
+            "className": "TabAbstract",
+            "lineNumber": 14,
+            "object": true,
+            "qualifiedClassName": "TabAbstract",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "contentModified",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "contentSaved",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QWidget"
+                }
+            ]
+        }
+    ],
+    "inputFile": "TabAbstract.h",
+    "outputRevision": 68
+}

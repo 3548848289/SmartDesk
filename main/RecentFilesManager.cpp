@@ -45,7 +45,7 @@ void RecentFilesManager::saveHistory() {
 
 void RecentFilesManager::populateRecentFilesMenu(QMenu *menu) {
     menu->clear();
-    for (const QString &filePath : qAsConst(fileHistory)) {
+    for (const QString &filePath : std::as_const(fileHistory)) {
         QAction *action = new QAction(filePath, menu);
         connect(action, &QAction::triggered, this, [this, filePath]() {
             emit fileOpened(filePath);

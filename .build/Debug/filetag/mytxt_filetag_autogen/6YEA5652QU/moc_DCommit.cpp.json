@@ -1,0 +1,26 @@
+{
+    "classes": [
+        {
+            "className": "DCommit",
+            "lineNumber": 12,
+            "object": true,
+            "qualifiedClassName": "DCommit",
+            "slots": [
+                {
+                    "access": "private",
+                    "index": 0,
+                    "name": "on_save_clicked",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QDialog"
+                }
+            ]
+        }
+    ],
+    "inputFile": "DCommit.h",
+    "outputRevision": 68
+}

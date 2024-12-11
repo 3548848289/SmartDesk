@@ -82,7 +82,63 @@
 	"CMAKE_SOURCE_DIR" : "D:/CxxProgram/SmartDesk",
 	"DEP_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "mytxt_main_autogen/timestamp",
-	"HEADERS" : [],
+	"HEADERS" : 
+	[
+		[
+			"D:/CxxProgram/SmartDesk/main/include/ControlWidCSV.h",
+			"MU",
+			"6YEA5652QU/moc_ControlWidCSV.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/main/include/ControlWidTXT.h",
+			"MU",
+			"6YEA5652QU/moc_ControlWidTXT.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/main/include/ControlWidget.h",
+			"MU",
+			"6YEA5652QU/moc_ControlWidget.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h",
+			"MU",
+			"6YEA5652QU/moc_RecentFilesManager.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/main/include/TabAbstract.h",
+			"MU",
+			"6YEA5652QU/moc_TabAbstract.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/main/include/TabHandleCSV.h",
+			"MU",
+			"6YEA5652QU/moc_TabHandleCSV.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/main/include/TabHandleTXT.h",
+			"MU",
+			"6YEA5652QU/moc_TabHandleTXT.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h",
+			"MU",
+			"6YEA5652QU/moc_WidgetFunctional.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/main/include/mainwindow.h",
+			"MU",
+			"6YEA5652QU/moc_mainwindow.cpp",
+			null
+		]
+	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/include",
 	"MOC_COMPILATION_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/mocs_compilation.cpp",
@@ -160,7 +216,17 @@
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 8,
 	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/main/CMakeFiles/mytxt_main_autogen.dir/AutogenUsed.txt",
-	"SOURCES" : [],
+	"SOURCES" : 
+	[
+		[ "D:/CxxProgram/SmartDesk/main/ControlWidCSV.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/main/ControlWidTXT.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/main/RecentFilesManager.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/main/TabHandleCSV.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/main/TabHandleTXT.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/main/WidgetFunctional.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/main/main.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/main/mainwindow.cpp", "MU", null ]
+	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
 	"UIC_SKIP" : 

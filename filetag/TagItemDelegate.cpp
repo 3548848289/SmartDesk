@@ -52,7 +52,7 @@ bool TagItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
     if (event->type() == QEvent::MouseButtonRelease) {
         QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
         if (mouseEvent->button() == Qt::RightButton && option.rect.contains(mouseEvent->pos())) {
-            showContextMenu(mouseEvent->globalPos(), index, model);
+            showContextMenu(mouseEvent->globalPosition().toPoint(), index, model);
             return true;
         }
     }

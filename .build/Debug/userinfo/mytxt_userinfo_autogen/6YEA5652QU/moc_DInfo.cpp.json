@@ -1,0 +1,26 @@
+{
+    "classes": [
+        {
+            "className": "DInfo",
+            "lineNumber": 21,
+            "object": true,
+            "qualifiedClassName": "DInfo",
+            "slots": [
+                {
+                    "access": "private",
+                    "index": 0,
+                    "name": "on_saveButton_clicked",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QDialog"
+                }
+            ]
+        }
+    ],
+    "inputFile": "DInfo.h",
+    "outputRevision": 68
+}

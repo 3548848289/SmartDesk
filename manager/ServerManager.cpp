@@ -47,6 +47,7 @@ bool ServerManager::commitToServer(const QString& fileName, const QString& tag) 
         onUploadFinished(reply);
         return true;
     });
+    return true;
 }
 
 bool ServerManager::commitFile(const QString &filepath)

@@ -1,0 +1,112 @@
+{
+    "classes": [
+        {
+            "className": "WidgetFunctional",
+            "lineNumber": 25,
+            "object": true,
+            "qualifiedClassName": "WidgetFunctional",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "showFiletag",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "showwOnlinedoc",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "name": "showWSchedule",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "form",
+                            "type": "SendEmail*"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "sendEmailForm",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
+                    "name": "showDraw",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "index": 5,
+                    "name": "on_pushButton_1_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 6,
+                    "name": "on_pushButton_3_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 7,
+                    "name": "on_pushButton_6_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 8,
+                    "name": "on_pushButton_2_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "username",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 9,
+                    "name": "handleLoginSuccess",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 10,
+                    "name": "on_pushButton_5_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 11,
+                    "name": "on_pushButton_7_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 12,
+                    "name": "on_pushButton_4_clicked",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QWidget"
+                }
+            ]
+        }
+    ],
+    "inputFile": "WidgetFunctional.h",
+    "outputRevision": 68
+}
