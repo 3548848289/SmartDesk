@@ -1,4 +1,4 @@
-# Install script for directory: D:/CxxProgram/SmartDesk/onlinedoc
+# Install script for directory: D:/CxxProgram/SmartDesk/OnlineDoc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

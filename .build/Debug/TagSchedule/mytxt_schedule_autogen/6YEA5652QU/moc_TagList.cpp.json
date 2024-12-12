@@ -1,0 +1,18 @@
+{
+    "classes": [
+        {
+            "className": "TagList",
+            "lineNumber": 12,
+            "object": true,
+            "qualifiedClassName": "TagList",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QWidget"
+                }
+            ]
+        }
+    ],
+    "inputFile": "TagList.h",
+    "outputRevision": 68
+}

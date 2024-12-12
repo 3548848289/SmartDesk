@@ -351,13 +351,13 @@ CPACK_SOURCE_ZIP:BOOL=ON
 ENABLE_MAINTAINER_CFLAGS:BOOL=OFF
 
 //Value Computed by CMake
-Email_BINARY_DIR:STATIC=D:/CxxProgram/SmartDesk/.build/debug/email
+Email_BINARY_DIR:STATIC=D:/CxxProgram/SmartDesk/.build/debug/EmailService
 
 //Value Computed by CMake
 Email_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-Email_SOURCE_DIR:STATIC=D:/CxxProgram/SmartDesk/email
+Email_SOURCE_DIR:STATIC=D:/CxxProgram/SmartDesk/EmailService
 
 //Additional directories where find(Qt6 ...) host Qt components
 // are searched
@@ -451,13 +451,13 @@ Vulkan_LIBRARY:FILEPATH=Vulkan_LIBRARY-NOTFOUND
 WINDEPLOYQT_EXECUTABLE:FILEPATH=D:/QT6/6.8.0/mingw_64/bin/windeployqt.exe
 
 //Value Computed by CMake
-libsimplemail_BINARY_DIR:STATIC=D:/CxxProgram/SmartDesk/.build/debug/email/simple-mail
+libsimplemail_BINARY_DIR:STATIC=D:/CxxProgram/SmartDesk/.build/debug/EmailService/simple-mail
 
 //Value Computed by CMake
 libsimplemail_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-libsimplemail_SOURCE_DIR:STATIC=D:/CxxProgram/SmartDesk/email/simple-mail
+libsimplemail_SOURCE_DIR:STATIC=D:/CxxProgram/SmartDesk/EmailService/simple-mail
 
 
 ########################

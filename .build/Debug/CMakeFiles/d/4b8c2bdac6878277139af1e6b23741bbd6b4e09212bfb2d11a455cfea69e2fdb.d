@@ -1,5 +1,14 @@
 onlinedoc/mytxt_onlinedoc_autogen/timestamp: \
   onlinedoc/mytxt_onlinedoc_autogen/moc_predefs.h \
+  D:/CxxProgram/SmartDesk/OnlineDoc/CMakeLists.txt \
+  D:/CxxProgram/SmartDesk/OnlineDoc/DLfromNet.cpp \
+  D:/CxxProgram/SmartDesk/OnlineDoc/EditedLog.cpp \
+  D:/CxxProgram/SmartDesk/OnlineDoc/WOnlineDoc.cpp \
+  D:/CxxProgram/SmartDesk/OnlineDoc/csvLinkServer2.cpp \
+  D:/CxxProgram/SmartDesk/OnlineDoc/include/DLfromNet.h \
+  D:/CxxProgram/SmartDesk/OnlineDoc/include/EditedLog.h \
+  D:/CxxProgram/SmartDesk/OnlineDoc/include/WOnlineDoc.h \
+  D:/CxxProgram/SmartDesk/OnlineDoc/include/csvLinkServer2.h \
   D:/CxxProgram/SmartDesk/main/include/ControlWidCSV.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
   D:/CxxProgram/SmartDesk/main/include/TabHandleCSV.h \
@@ -9,15 +18,6 @@ onlinedoc/mytxt_onlinedoc_autogen/timestamp: \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/CxxProgram/SmartDesk/manager/include/myJson.h \
-  D:/CxxProgram/SmartDesk/onlinedoc/CMakeLists.txt \
-  D:/CxxProgram/SmartDesk/onlinedoc/DLfromNet.cpp \
-  D:/CxxProgram/SmartDesk/onlinedoc/EditedLog.cpp \
-  D:/CxxProgram/SmartDesk/onlinedoc/WOnlineDoc.cpp \
-  D:/CxxProgram/SmartDesk/onlinedoc/csvLinkServer2.cpp \
-  D:/CxxProgram/SmartDesk/onlinedoc/include/DLfromNet.h \
-  D:/CxxProgram/SmartDesk/onlinedoc/include/EditedLog.h \
-  D:/CxxProgram/SmartDesk/onlinedoc/include/WOnlineDoc.h \
-  D:/CxxProgram/SmartDesk/onlinedoc/include/csvLinkServer2.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
@@ -575,7 +575,7 @@ onlinedoc/mytxt_onlinedoc_autogen/timestamp: \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
-  D:/CxxProgram/SmartDesk/onlinedoc/ui/DLfromNet.ui \
-  D:/CxxProgram/SmartDesk/onlinedoc/ui/WOnlineDoc.ui \
-  D:/CxxProgram/SmartDesk/onlinedoc/ui/csvLinkServer2.ui \
+  D:/CxxProgram/SmartDesk/OnlineDoc/ui/DLfromNet.ui \
+  D:/CxxProgram/SmartDesk/OnlineDoc/ui/WOnlineDoc.ui \
+  D:/CxxProgram/SmartDesk/OnlineDoc/ui/csvLinkServer2.ui \
   D:/QT6/Tools/CMake_64/bin/cmake.exe

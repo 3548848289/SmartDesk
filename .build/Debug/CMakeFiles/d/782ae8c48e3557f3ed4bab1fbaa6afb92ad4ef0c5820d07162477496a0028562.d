@@ -1,10 +1,10 @@
 filehis/mytxt_filehis_autogen/timestamp: \
   filehis/mytxt_filehis_autogen/moc_predefs.h \
   D:/CxxProgram/SmartDesk/filehis/CMakeLists.txt \
-  D:/CxxProgram/SmartDesk/filehis/DPull.cpp \
-  D:/CxxProgram/SmartDesk/filehis/DPull.h \
-  D:/CxxProgram/SmartDesk/filehis/WFileHis.cpp \
-  D:/CxxProgram/SmartDesk/filehis/WFileHis.h \
+  D:/CxxProgram/SmartDesk/filehis/FileBackupList.cpp \
+  D:/CxxProgram/SmartDesk/filehis/FileBackupList.h \
+  D:/CxxProgram/SmartDesk/filehis/FileRestoreWid.cpp \
+  D:/CxxProgram/SmartDesk/filehis/FileRestoreWid.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
@@ -483,6 +483,6 @@ filehis/mytxt_filehis_autogen/timestamp: \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
-  D:/CxxProgram/SmartDesk/filehis/DPull.ui \
-  D:/CxxProgram/SmartDesk/filehis/WFileHis.ui \
+  D:/CxxProgram/SmartDesk/filehis/FileBackupList.ui \
+  D:/CxxProgram/SmartDesk/filehis/FileRestoreWid.ui \
   D:/QT6/Tools/CMake_64/bin/cmake.exe

@@ -1,0 +1,124 @@
+[
+    {
+        "classes": [
+            {
+                "className": "FileBackup",
+                "lineNumber": 17,
+                "object": true,
+                "qualifiedClassName": "FileBackup",
+                "slots": [
+                    {
+                        "access": "private",
+                        "index": 0,
+                        "name": "on_save_clicked",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QDialog"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "FileBackup.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "FileBackupList",
+                "lineNumber": 14,
+                "object": true,
+                "qualifiedClassName": "FileBackupList",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "filepath",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "s_fileopen",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "files",
+                                "type": "QStringList"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "updateFileList",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "item",
+                                "type": "QListWidgetItem*"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "on_listWidget_itemClicked",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "FileBackupList.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "FileRestoreWid",
+                "lineNumber": 14,
+                "object": true,
+                "qualifiedClassName": "FileRestoreWid",
+                "slots": [
+                    {
+                        "access": "private",
+                        "index": 0,
+                        "name": "on_fastDlBtn_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 1,
+                        "name": "on_dlBtn_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 2,
+                        "name": "on_dlBtn_2_clicked",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QDialog"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "FileRestoreWid.h",
+        "outputRevision": 68
+    }
+]

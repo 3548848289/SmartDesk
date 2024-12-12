@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../../../userinfo/include/FlaskInfo.h"
+#include "../../../../../UserInfo/include/FlaskInfo.h"
 #include <QtNetwork/QSslError>
 #include <QtCore/qmetatype.h>
 

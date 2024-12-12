@@ -11,21 +11,21 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/CxxProgram/SmartDesk/filetag/include/DCommit.h",
+			"D:/CxxProgram/SmartDesk/filetag/include/FileBackup.h",
 			"MU",
-			"6YEA5652QU/moc_DCommit.cpp",
+			"6YEA5652QU/moc_FileBackup.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/filetag/include/FileSystem.h",
+			"MU",
+			"6YEA5652QU/moc_FileSystem.cpp",
 			null
 		],
 		[
 			"D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h",
 			"MU",
 			"6YEA5652QU/moc_TagItemDelegate.cpp",
-			null
-		],
-		[
-			"D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h",
-			"MU",
-			"6YEA5652QU/moc_WFileTag.cpp",
 			null
 		]
 	],
@@ -100,9 +100,9 @@
 	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/filetag/CMakeFiles/mytxt_filetag_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/CxxProgram/SmartDesk/filetag/DCommit.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/filetag/TagItemDelegate.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/filetag/WFileTag.cpp", "MU", null ]
+		[ "D:/CxxProgram/SmartDesk/filetag/FileBackup.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/filetag/FileSystem.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/filetag/TagItemDelegate.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

@@ -1,4 +1,4 @@
-D:/CxxProgram/SmartDesk/.build/debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/moc_FlaskInfo.cpp: D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h \
+D:/CxxProgram/SmartDesk/.build/debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/moc_FlaskInfo.cpp: D:/CxxProgram/SmartDesk/UserInfo/include/FlaskInfo.h \
   D:/CxxProgram/SmartDesk/.build/debug/userinfo/mytxt_userinfo_autogen/moc_predefs.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFlags \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QIODevice \

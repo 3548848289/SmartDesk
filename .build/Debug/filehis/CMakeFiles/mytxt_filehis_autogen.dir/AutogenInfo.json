@@ -11,15 +11,15 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/CxxProgram/SmartDesk/filehis/DPull.h",
+			"D:/CxxProgram/SmartDesk/filehis/FileBackupList.h",
 			"MU",
-			"EWIEGA46WW/moc_DPull.cpp",
+			"EWIEGA46WW/moc_FileBackupList.cpp",
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/filehis/WFileHis.h",
+			"D:/CxxProgram/SmartDesk/filehis/FileRestoreWid.h",
 			"MU",
-			"EWIEGA46WW/moc_WFileHis.cpp",
+			"EWIEGA46WW/moc_FileRestoreWid.cpp",
 			null
 		]
 	],
@@ -95,8 +95,8 @@
 	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/filehis/CMakeFiles/mytxt_filehis_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/CxxProgram/SmartDesk/filehis/DPull.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/filehis/WFileHis.cpp", "MU", null ]
+		[ "D:/CxxProgram/SmartDesk/filehis/FileBackupList.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/filehis/FileRestoreWid.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

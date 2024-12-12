@@ -1,0 +1,32 @@
+{
+    "classes": [
+        {
+            "className": "NotifyManager",
+            "lineNumber": 8,
+            "object": true,
+            "qualifiedClassName": "NotifyManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "data",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "notifyDetail",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "notifymanager.h",
+    "outputRevision": 68
+}

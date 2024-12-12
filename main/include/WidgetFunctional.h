@@ -14,7 +14,7 @@
 #include "../../userinfo/include/DLogin.h"
 #include "../../manager/include/dbService.h"
 #include "../../userinfo/include/DInfo.h"
-#include "../../email/sendemail.h"
+#include "../../EmailService/SendEmail.h"
 //#include "../draw/mainwidget.h"
 
 

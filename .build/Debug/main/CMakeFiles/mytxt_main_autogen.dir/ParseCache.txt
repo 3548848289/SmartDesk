@@ -1927,20 +1927,20 @@ D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h
  mdp:D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/moc_predefs.h
- mdp:D:/CxxProgram/SmartDesk/email/sendemail.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/SimpleMail
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/emailaddress.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimeattachment.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimecontentformatter.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimefile.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimehtml.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimeinlinefile.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimemessage.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimepart.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimetext.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/server.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/serverreply.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/smtpexports.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/SendEmail.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/SimpleMail
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/emailaddress.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimeattachment.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimecontentformatter.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimefile.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimehtml.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimeinlinefile.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimemessage.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimepart.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimetext.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/server.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/serverreply.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/smtpexports.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbManager.h
@@ -3461,28 +3461,36 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/moc_predefs.h
- mdp:D:/CxxProgram/SmartDesk/draw/ControlFrame.h
- mdp:D:/CxxProgram/SmartDesk/draw/PixItem.h
- mdp:D:/CxxProgram/SmartDesk/draw/TabHandleIMG.h
- mdp:D:/CxxProgram/SmartDesk/email/sendemail.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/SimpleMail
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/emailaddress.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimeattachment.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimecontentformatter.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimefile.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimehtml.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimeinlinefile.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimemessage.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimepart.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/mimetext.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/server.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/serverreply.h
- mdp:D:/CxxProgram/SmartDesk/email/simple-mail/src/smtpexports.h
- mdp:D:/CxxProgram/SmartDesk/filehis/DPull.h
- mdp:D:/CxxProgram/SmartDesk/filehis/WFileHis.h
- mdp:D:/CxxProgram/SmartDesk/filetag/include/DCommit.h
- mdp:D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h
- mdp:D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/SendEmail.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/SimpleMail
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/emailaddress.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimeattachment.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimecontentformatter.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimefile.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimehtml.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimeinlinefile.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimemessage.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimepart.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimetext.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/server.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/serverreply.h
+ mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/smtpexports.h
+ mdp:D:/CxxProgram/SmartDesk/FileBackup/include/FileBackup.h
+ mdp:D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupList.h
+ mdp:D:/CxxProgram/SmartDesk/FileBackup/include/FileRestoreWid.h
+ mdp:D:/CxxProgram/SmartDesk/FileSystem/include/FileSystem.h
+ mdp:D:/CxxProgram/SmartDesk/FileSystem/include/TagItemDelegate.h
+ mdp:D:/CxxProgram/SmartDesk/ImageDispose/ControlFrame.h
+ mdp:D:/CxxProgram/SmartDesk/ImageDispose/PixItem.h
+ mdp:D:/CxxProgram/SmartDesk/ImageDispose/TabHandleIMG.h
+ mdp:D:/CxxProgram/SmartDesk/OnlineDoc/include/DLfromNet.h
+ mdp:D:/CxxProgram/SmartDesk/OnlineDoc/include/WOnlineDoc.h
+ mdp:D:/CxxProgram/SmartDesk/OnlineDoc/include/csvLinkServer2.h
+ mdp:D:/CxxProgram/SmartDesk/Setting/Setting.h
+ mdp:D:/CxxProgram/SmartDesk/TagSchedule/LmsgNotify/notifymanager.h
+ mdp:D:/CxxProgram/SmartDesk/TagSchedule/include/AddTag.h
+ mdp:D:/CxxProgram/SmartDesk/TagSchedule/include/ScheduleWid.h
+ mdp:D:/CxxProgram/SmartDesk/TagSchedule/include/TagList.h
  mdp:D:/CxxProgram/SmartDesk/main/include/ControlWidCSV.h
  mdp:D:/CxxProgram/SmartDesk/main/include/ControlWidTXT.h
  mdp:D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h
@@ -3496,20 +3504,13 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbManager.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbService.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/myJson.h
- mdp:D:/CxxProgram/SmartDesk/onlinedoc/include/DLfromNet.h
- mdp:D:/CxxProgram/SmartDesk/onlinedoc/include/WOnlineDoc.h
- mdp:D:/CxxProgram/SmartDesk/onlinedoc/include/csvLinkServer2.h
- mdp:D:/CxxProgram/SmartDesk/schedule/LmsgNotify/notifymanager.h
- mdp:D:/CxxProgram/SmartDesk/schedule/include/DTag.h
- mdp:D:/CxxProgram/SmartDesk/schedule/include/FileItemWidget.h
- mdp:D:/CxxProgram/SmartDesk/schedule/include/WSchedule.h
- mdp:D:/CxxProgram/SmartDesk/setting/Setting.h
- mdp:D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h
- mdp:D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h
- mdp:D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h
+ mdp:D:/CxxProgram/SmartDesk/UserInfo/include/DInfo.h
+ mdp:D:/CxxProgram/SmartDesk/UserInfo/include/DLogin.h
+ mdp:D:/CxxProgram/SmartDesk/UserInfo/include/FlaskInfo.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QBuffer
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QCoreApplication
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDate
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDeadlineTimer

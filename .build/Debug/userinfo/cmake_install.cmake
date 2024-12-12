@@ -1,4 +1,4 @@
-# Install script for directory: D:/CxxProgram/SmartDesk/userinfo
+# Install script for directory: D:/CxxProgram/SmartDesk/UserInfo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -15,18 +15,18 @@ set(CMAKE_AUTORCC ON)
 
 # 添加子目录
 add_subdirectory(manager)
-add_subdirectory(filehis)
-add_subdirectory(filetag)
-add_subdirectory(onlinedoc)
-add_subdirectory(schedule)
-add_subdirectory(setting)
-add_subdirectory(userinfo)
-add_subdirectory(email)
-add_subdirectory(draw)
+add_subdirectory(FileBackup)
+add_subdirectory(FileSystem)
+add_subdirectory(OnlineDoc)
+add_subdirectory(TagSchedule)
+add_subdirectory(Setting)
+add_subdirectory(UserInfo)
+add_subdirectory(EmailService)
+add_subdirectory(ImageDispose)
 add_subdirectory(main)
 
 # 添加 SimpleMail 库（已经在 email/CMakeLists.txt 中处理）
-add_subdirectory(email/simple-mail ${CMAKE_CURRENT_BINARY_DIR}/email/simple-mail)
+add_subdirectory(EmailService/simple-mail ${CMAKE_CURRENT_BINARY_DIR}/EmailService/simple-mail)
 
 # 添加资源文件
 qt_add_resources(RESOURCES

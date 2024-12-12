@@ -2,16 +2,16 @@
 	"BUILD_DIR" : "D:/CxxProgram/SmartDesk/.build/debug/setting/mytxt_setting_autogen",
 	"CMAKE_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/debug",
 	"CMAKE_CURRENT_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/debug/setting",
-	"CMAKE_CURRENT_SOURCE_DIR" : "D:/CxxProgram/SmartDesk/setting",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/CxxProgram/SmartDesk/Setting",
 	"CMAKE_EXECUTABLE" : "D:/QT6/Tools/CMake_64/bin/cmake.exe",
-	"CMAKE_LIST_FILES" : [ "D:/CxxProgram/SmartDesk/setting/CMakeLists.txt" ],
+	"CMAKE_LIST_FILES" : [ "D:/CxxProgram/SmartDesk/Setting/CMakeLists.txt" ],
 	"CMAKE_SOURCE_DIR" : "D:/CxxProgram/SmartDesk",
 	"DEP_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/setting/mytxt_setting_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "mytxt_setting_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"D:/CxxProgram/SmartDesk/setting/Setting.h",
+			"D:/CxxProgram/SmartDesk/Setting/Setting.h",
 			"MU",
 			"EWIEGA46WW/moc_Setting.cpp",
 			null
@@ -42,7 +42,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"D:/CxxProgram/SmartDesk/setting",
+		"D:/CxxProgram/SmartDesk/Setting",
 		"D:/QT6/6.8.0/mingw_64/include/QtWidgets",
 		"D:/QT6/6.8.0/mingw_64/include",
 		"D:/QT6/6.8.0/mingw_64/include/QtCore",
@@ -87,7 +87,7 @@
 	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/setting/CMakeFiles/mytxt_setting_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/CxxProgram/SmartDesk/setting/Setting.cpp", "MU", null ]
+		[ "D:/CxxProgram/SmartDesk/Setting/Setting.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

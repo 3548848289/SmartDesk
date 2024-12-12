@@ -1,8 +1,8 @@
 mytxt_setting_autogen/timestamp: \
 	D:/CxxProgram/SmartDesk/.build/debug/setting/mytxt_setting_autogen/moc_predefs.h \
-	D:/CxxProgram/SmartDesk/setting/CMakeLists.txt \
-	D:/CxxProgram/SmartDesk/setting/Setting.cpp \
-	D:/CxxProgram/SmartDesk/setting/Setting.h \
+	D:/CxxProgram/SmartDesk/Setting/CMakeLists.txt \
+	D:/CxxProgram/SmartDesk/Setting/Setting.cpp \
+	D:/CxxProgram/SmartDesk/Setting/Setting.h \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h \
@@ -375,5 +375,5 @@ mytxt_setting_autogen/timestamp: \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-	D:/CxxProgram/SmartDesk/setting/Setting.ui \
+	D:/CxxProgram/SmartDesk/Setting/Setting.ui \
 	D:/QT6/Tools/CMake_64/bin/cmake.exe

@@ -8,17 +8,17 @@ void MainWindow::initFunc()
 
     widgetr = new QWidget(this);
     QGridLayout *gridLayout = new QGridLayout(widgetr);
-    wfiletag = new WFileTag(widgetr);
-    wfilehis = new WFileHis(widgetr);
+    file_system = new FileSystem(widgetr);
+    file_backup_list = new FileBackupList(widgetr);
     QSplitter *splitter = new QSplitter(Qt::Vertical, widgetr);
-    splitter->addWidget(wfiletag);
-    splitter->addWidget(wfilehis);
+    splitter->addWidget(file_system);
+    splitter->addWidget(file_backup_list);
     splitter->setSizes(QList<int>() << 500 << 200);
     gridLayout->addWidget(splitter, 0, 0);
     widgetr->setLayout(gridLayout);
 
     wonlinedoc = new WOnlineDoc(this);
-    schedule = new WSchedule(this);
+    schedule_wid= new ScheduleWid(this);
     widgetfunc = new WidgetFunctional(this);
 
     ui->stackedWidget->setObjectName("pWidget");
@@ -26,7 +26,7 @@ void MainWindow::initFunc()
 
     ui->stackedWidget->addWidget(widgetr);
     ui->stackedWidget->addWidget(wonlinedoc);
-    ui->stackedWidget->addWidget(schedule);
+    ui->stackedWidget->addWidget(schedule_wid);
     ui->stackedWidget->setCurrentWidget(widgetr);
 
     connect(widgetfunc, &WidgetFunctional::showFiletag, this, [=] {
@@ -36,7 +36,7 @@ void MainWindow::initFunc()
         ui->stackedWidget->setCurrentWidget(wonlinedoc); });
 
     connect(widgetfunc, &WidgetFunctional::showWSchedule, this, [=] {
-        ui->stackedWidget->setCurrentWidget(schedule); });
+        ui->stackedWidget->setCurrentWidget(schedule_wid); });
     connect(widgetfunc, &WidgetFunctional::sendEmailForm, this, &MainWindow::receiveSendEmailForm);
 
     connect(widgetfunc, &WidgetFunctional::showDraw, this, [=] {
@@ -108,9 +108,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(tabWidget, &QTabWidget::currentChanged, this, &MainWindow::onTabChanged);
     connect(wonlinedoc->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
     connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
-    connect(wfiletag, &WFileTag::fileOpened, this, &MainWindow::openFile);
-    connect(schedule, &WSchedule::fileClicked, this, &MainWindow::openFile);
-    connect(wfilehis, &WFileHis::s_fileopen, this, &MainWindow::openFile);
+    connect(file_system, &FileSystem::fileOpened, this, &MainWindow::openFile);
+    connect(schedule_wid, &ScheduleWid::fileClicked, this, &MainWindow::openFile);
+    connect(file_backup_list, &FileBackupList::s_fileopen, this, &MainWindow::openFile);
     recentFilesManager->populateRecentFilesMenu(ui->recentFile);
 
 }

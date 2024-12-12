@@ -16,23 +16,16 @@
 #include "RecentFilesManager.h"
 #include "TabHandleTXT.h"
 #include "TabHandleCSV.h"
-#include "../../draw/TabHandleIMG.h"
+#include "../../ImageDispose/TabHandleIMG.h"
 #include "WidgetFunctional.h"
-
-#include "../../onlinedoc/include/WOnlineDoc.h"
-#include "../../setting/Setting.h"
-#include "../../schedule/include/WSchedule.h"
-#include "../../filetag/include/WFileTag.h"
-#include "../../filehis/WFileHis.h"
-
-
-
+#include "../../OnlineDoc/include/WOnlineDoc.h"
+#include "../../Setting/Setting.h"
+#include "../../TagSchedule/include/ScheduleWid.h"
+#include "../../FileSystem/include/FileSystem.h"
+#include "../../FileBackup/include/FileBackupList.h"
 #include "../../manager/include/dbService.h"
-
-#include "../../email/sendemail.h"
-#include "../../draw/ControlFrame.h"
-
-
+#include "../../EmailService/SendEmail.h"
+#include "../../ImageDispose/ControlFrame.h"
 #include "ControlWidCSV.h"
 
 QT_BEGIN_NAMESPACE
@@ -77,13 +70,13 @@ private:
     RecentFilesManager *recentFilesManager;
     QWidget * widgetr;
 
-    WFileTag * wfiletag;
-    WFileHis * wfilehis;
+    FileSystem * file_system;
+    FileBackupList * file_backup_list;
 
     WOnlineDoc* wonlinedoc;
     WidgetFunctional* widgetfunc;
     Setting * setiing;
-    WSchedule * schedule;
+    ScheduleWid * schedule_wid;
 
     void initFunc();
     void initSpli();

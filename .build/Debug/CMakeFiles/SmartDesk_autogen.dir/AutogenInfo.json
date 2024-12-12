@@ -363,7 +363,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"D:/CxxProgram/SmartDesk/email/simple-mail/src",
+		"D:/CxxProgram/SmartDesk/EmailService/simple-mail/src",
 		"D:/QT6/6.8.0/mingw_64/include/QtCore",
 		"D:/QT6/6.8.0/mingw_64/include",
 		"D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++",

@@ -1,0 +1,64 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"EmailService/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "SimpleMail3Qt6::@30c29cfdcb280d7d821e"
+		}
+	],
+	"id" : "mytxt_email_autogen_timestamp_deps::@41759cfb2da9273c3e42",
+	"isGeneratorProvided" : true,
+	"name" : "mytxt_email_autogen_timestamp_deps",
+	"paths" : 
+	{
+		"build" : "EmailService",
+		"source" : "EmailService"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : ".build/debug/EmailService/CMakeFiles/mytxt_email_autogen_timestamp_deps",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : ".build/debug/EmailService/CMakeFiles/mytxt_email_autogen_timestamp_deps.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}
