@@ -6,25 +6,15 @@ set(MAIN_SOURCES
     main.cpp
     mainwindow.cpp
     RecentFilesManager.cpp
-    TabHandleCSV.cpp
-    TabHandleTXT.cpp
     WidgetFunctional.cpp
-    ControlWidCSV.cpp
-    ControlWidTXT.cpp
 
-    include/ControlWidTXT.h
     include/mainwindow.h
-    include/RecentFilesManager.h
     include/TabAbstract.h
-    include/TabHandleCSV.h
-    include/TabHandleTXT.h
+    include/RecentFilesManager.h
     include/WidgetFunctional.h
     include/ControlWidget.h
-    include/ControlWidCSV.h
 
     ui/WidgetFunctional.ui
-    ui/ControlWidCSV.ui
-    ui/ControlWidTXT.ui
     ui/mainwindow.ui
 
 )

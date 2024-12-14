@@ -14,7 +14,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include "../../manager/include/myJson.h"
-#include "../../main/include/TabHandleCSV.h"
+#include "../../DisposeAbstract/DisposeCSV/TabHandleCSV.h"
 #include "../../manager/include/ServerManager.h"
 #include "../../manager/include/dbService.h"
 

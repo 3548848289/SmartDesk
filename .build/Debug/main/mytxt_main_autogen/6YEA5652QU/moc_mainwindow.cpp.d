@@ -1,5 +1,12 @@
 D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_mainwindow.cpp: D:/CxxProgram/SmartDesk/main/include/mainwindow.h \
   D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/moc_predefs.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/ControlWidCSV.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/TabHandleCSV.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/ControlFrame.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/PixItem.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/TabHandleIMG.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/ControlWidTXT.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/TabHandleTXT.h \
   D:/CxxProgram/SmartDesk/EmailService/SendEmail.h \
   D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/SimpleMail \
   D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/emailaddress.h \
@@ -19,9 +26,6 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/CxxProgram/SmartDesk/FileBackup/include/FileRestoreWid.h \
   D:/CxxProgram/SmartDesk/FileSystem/include/FileSystem.h \
   D:/CxxProgram/SmartDesk/FileSystem/include/TagItemDelegate.h \
-  D:/CxxProgram/SmartDesk/ImageDispose/ControlFrame.h \
-  D:/CxxProgram/SmartDesk/ImageDispose/PixItem.h \
-  D:/CxxProgram/SmartDesk/ImageDispose/TabHandleIMG.h \
   D:/CxxProgram/SmartDesk/OnlineDoc/include/DLfromNet.h \
   D:/CxxProgram/SmartDesk/OnlineDoc/include/WOnlineDoc.h \
   D:/CxxProgram/SmartDesk/OnlineDoc/include/csvLinkServer2.h \
@@ -30,12 +34,8 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/CxxProgram/SmartDesk/TagSchedule/include/AddTag.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/ScheduleWid.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/TagList.h \
-  D:/CxxProgram/SmartDesk/main/include/ControlWidCSV.h \
-  D:/CxxProgram/SmartDesk/main/include/ControlWidTXT.h \
   D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
-  D:/CxxProgram/SmartDesk/main/include/TabHandleCSV.h \
-  D:/CxxProgram/SmartDesk/main/include/TabHandleTXT.h \
   D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \

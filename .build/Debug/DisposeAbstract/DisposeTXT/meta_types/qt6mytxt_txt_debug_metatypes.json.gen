@@ -1,0 +1,50 @@
+[
+    {
+        "classes": [
+            {
+                "className": "CppHighlighter",
+                "lineNumber": 12,
+                "object": true,
+                "qualifiedClassName": "CppHighlighter",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QSyntaxHighlighter"
+                    }
+                ]
+            },
+            {
+                "className": "ControlWidTXT",
+                "lineNumber": 64,
+                "object": true,
+                "qualifiedClassName": "ControlWidTXT",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "ControlWidTXT.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "TextTab",
+                "lineNumber": 14,
+                "object": true,
+                "qualifiedClassName": "TextTab",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "TabAbstract"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "TabHandleTXT.h",
+        "outputRevision": 68
+    }
+]

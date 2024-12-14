@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "MainWindow",
-            "lineNumber": 35,
+            "lineNumber": 37,
             "object": true,
             "qualifiedClassName": "MainWindow",
             "signals": [

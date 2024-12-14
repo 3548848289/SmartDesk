@@ -1,5 +1,12 @@
 mytxt_main_autogen/timestamp: \
 	D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/moc_predefs.h \
+	D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/ControlWidCSV.h \
+	D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/TabHandleCSV.h \
+	D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/ControlFrame.h \
+	D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/PixItem.h \
+	D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/TabHandleIMG.h \
+	D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/ControlWidTXT.h \
+	D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/TabHandleTXT.h \
 	D:/CxxProgram/SmartDesk/EmailService/SendEmail.h \
 	D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/SimpleMail \
 	D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/emailaddress.h \
@@ -19,9 +26,6 @@ mytxt_main_autogen/timestamp: \
 	D:/CxxProgram/SmartDesk/FileBackup/include/FileRestoreWid.h \
 	D:/CxxProgram/SmartDesk/FileSystem/include/FileSystem.h \
 	D:/CxxProgram/SmartDesk/FileSystem/include/TagItemDelegate.h \
-	D:/CxxProgram/SmartDesk/ImageDispose/ControlFrame.h \
-	D:/CxxProgram/SmartDesk/ImageDispose/PixItem.h \
-	D:/CxxProgram/SmartDesk/ImageDispose/TabHandleIMG.h \
 	D:/CxxProgram/SmartDesk/OnlineDoc/include/DLfromNet.h \
 	D:/CxxProgram/SmartDesk/OnlineDoc/include/WOnlineDoc.h \
 	D:/CxxProgram/SmartDesk/OnlineDoc/include/csvLinkServer2.h \
@@ -34,19 +38,11 @@ mytxt_main_autogen/timestamp: \
 	D:/CxxProgram/SmartDesk/UserInfo/include/DLogin.h \
 	D:/CxxProgram/SmartDesk/UserInfo/include/FlaskInfo.h \
 	D:/CxxProgram/SmartDesk/main/CMakeLists.txt \
-	D:/CxxProgram/SmartDesk/main/ControlWidCSV.cpp \
-	D:/CxxProgram/SmartDesk/main/ControlWidTXT.cpp \
 	D:/CxxProgram/SmartDesk/main/RecentFilesManager.cpp \
-	D:/CxxProgram/SmartDesk/main/TabHandleCSV.cpp \
-	D:/CxxProgram/SmartDesk/main/TabHandleTXT.cpp \
 	D:/CxxProgram/SmartDesk/main/WidgetFunctional.cpp \
-	D:/CxxProgram/SmartDesk/main/include/ControlWidCSV.h \
-	D:/CxxProgram/SmartDesk/main/include/ControlWidTXT.h \
 	D:/CxxProgram/SmartDesk/main/include/ControlWidget.h \
 	D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h \
 	D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
-	D:/CxxProgram/SmartDesk/main/include/TabHandleCSV.h \
-	D:/CxxProgram/SmartDesk/main/include/TabHandleTXT.h \
 	D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h \
 	D:/CxxProgram/SmartDesk/main/include/mainwindow.h \
 	D:/CxxProgram/SmartDesk/main/main.cpp \
@@ -944,8 +940,6 @@ mytxt_main_autogen/timestamp: \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
-	D:/CxxProgram/SmartDesk/main/ui/ControlWidCSV.ui \
-	D:/CxxProgram/SmartDesk/main/ui/ControlWidTXT.ui \
 	D:/CxxProgram/SmartDesk/main/ui/WidgetFunctional.ui \
 	D:/CxxProgram/SmartDesk/main/ui/mainwindow.ui \
 	D:/QT6/Tools/CMake_64/bin/cmake.exe

@@ -67,7 +67,7 @@ void ScheduleWid::filterByTag(const QString &tag) {
         QDateTime expDate = info.expirationDate;
         QString annotation = info.annotation;
 
-        qDebug() << "annotation data:" << annotation;
+        // qDebug() << "annotation data:" << annotation;
 
         TagList *widget = new TagList();
         widget->setTag(tag);

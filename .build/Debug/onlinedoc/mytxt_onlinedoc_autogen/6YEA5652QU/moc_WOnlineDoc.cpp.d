@@ -1,10 +1,10 @@
 D:/CxxProgram/SmartDesk/.build/debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652QU/moc_WOnlineDoc.cpp: D:/CxxProgram/SmartDesk/OnlineDoc/include/WOnlineDoc.h \
   D:/CxxProgram/SmartDesk/.build/debug/onlinedoc/mytxt_onlinedoc_autogen/moc_predefs.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/ControlWidCSV.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/TabHandleCSV.h \
   D:/CxxProgram/SmartDesk/OnlineDoc/include/DLfromNet.h \
   D:/CxxProgram/SmartDesk/OnlineDoc/include/csvLinkServer2.h \
-  D:/CxxProgram/SmartDesk/main/include/ControlWidCSV.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
-  D:/CxxProgram/SmartDesk/main/include/TabHandleCSV.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \

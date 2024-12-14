@@ -1,0 +1,78 @@
+[
+    {
+        "classes": [
+            {
+                "className": "ControlWidCSV",
+                "lineNumber": 13,
+                "object": true,
+                "qualifiedClassName": "ControlWidCSV",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "addRowClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "deleteRowClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "name": "addColumnClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "name": "deleteColumnClicked",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "ControlWidCSV.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "TabHandleCSV",
+                "lineNumber": 25,
+                "object": true,
+                "qualifiedClassName": "TabHandleCSV",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "data",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "dataToSend",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "TabAbstract"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "TabHandleCSV.h",
+        "outputRevision": 68
+    }
+]

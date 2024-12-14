@@ -3461,6 +3461,13 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/moc_predefs.h
+ mdp:D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/ControlWidCSV.h
+ mdp:D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/TabHandleCSV.h
+ mdp:D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/ControlFrame.h
+ mdp:D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/PixItem.h
+ mdp:D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/TabHandleIMG.h
+ mdp:D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/ControlWidTXT.h
+ mdp:D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/TabHandleTXT.h
  mdp:D:/CxxProgram/SmartDesk/EmailService/SendEmail.h
  mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/SimpleMail
  mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/emailaddress.h
@@ -3480,9 +3487,6 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/CxxProgram/SmartDesk/FileBackup/include/FileRestoreWid.h
  mdp:D:/CxxProgram/SmartDesk/FileSystem/include/FileSystem.h
  mdp:D:/CxxProgram/SmartDesk/FileSystem/include/TagItemDelegate.h
- mdp:D:/CxxProgram/SmartDesk/ImageDispose/ControlFrame.h
- mdp:D:/CxxProgram/SmartDesk/ImageDispose/PixItem.h
- mdp:D:/CxxProgram/SmartDesk/ImageDispose/TabHandleIMG.h
  mdp:D:/CxxProgram/SmartDesk/OnlineDoc/include/DLfromNet.h
  mdp:D:/CxxProgram/SmartDesk/OnlineDoc/include/WOnlineDoc.h
  mdp:D:/CxxProgram/SmartDesk/OnlineDoc/include/csvLinkServer2.h
@@ -3491,12 +3495,8 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/CxxProgram/SmartDesk/TagSchedule/include/AddTag.h
  mdp:D:/CxxProgram/SmartDesk/TagSchedule/include/ScheduleWid.h
  mdp:D:/CxxProgram/SmartDesk/TagSchedule/include/TagList.h
- mdp:D:/CxxProgram/SmartDesk/main/include/ControlWidCSV.h
- mdp:D:/CxxProgram/SmartDesk/main/include/ControlWidTXT.h
  mdp:D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h
  mdp:D:/CxxProgram/SmartDesk/main/include/TabAbstract.h
- mdp:D:/CxxProgram/SmartDesk/main/include/TabHandleCSV.h
- mdp:D:/CxxProgram/SmartDesk/main/include/TabHandleTXT.h
  mdp:D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/ServerManager.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h

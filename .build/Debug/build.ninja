@@ -47,7 +47,7 @@ cmake_ninja_workdir = D$:/CxxProgram/SmartDesk/.build/debug/
 #############################################
 # Order-only phony target for SmartDesk
 
-build cmake_object_order_depends_target_SmartDesk: phony || SmartDesk_autogen SmartDesk_autogen/mocs_compilation.cpp SmartDesk_autogen/timestamp SmartDesk_autogen_timestamp_deps cmake_object_order_depends_target_SimpleMail3Qt6 cmake_object_order_depends_target_mytxt_draw cmake_object_order_depends_target_mytxt_email cmake_object_order_depends_target_mytxt_filehis cmake_object_order_depends_target_mytxt_filetag cmake_object_order_depends_target_mytxt_main cmake_object_order_depends_target_mytxt_manager cmake_object_order_depends_target_mytxt_onlinedoc cmake_object_order_depends_target_mytxt_schedule cmake_object_order_depends_target_mytxt_setting cmake_object_order_depends_target_mytxt_userinfo qrc_res.cpp
+build cmake_object_order_depends_target_SmartDesk: phony || SmartDesk_autogen SmartDesk_autogen/mocs_compilation.cpp SmartDesk_autogen/timestamp SmartDesk_autogen_timestamp_deps cmake_object_order_depends_target_SimpleMail3Qt6 cmake_object_order_depends_target_mytxt_csv cmake_object_order_depends_target_mytxt_email cmake_object_order_depends_target_mytxt_filehis cmake_object_order_depends_target_mytxt_filetag cmake_object_order_depends_target_mytxt_img cmake_object_order_depends_target_mytxt_main cmake_object_order_depends_target_mytxt_manager cmake_object_order_depends_target_mytxt_onlinedoc cmake_object_order_depends_target_mytxt_schedule cmake_object_order_depends_target_mytxt_setting cmake_object_order_depends_target_mytxt_txt cmake_object_order_depends_target_mytxt_userinfo qrc_res.cpp
 
 build CMakeFiles/SmartDesk.dir/SmartDesk_autogen/mocs_compilation.cpp.obj: CXX_COMPILER__SmartDesk_Debug D$:/CxxProgram/SmartDesk/.build/debug/SmartDesk_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_SmartDesk
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
@@ -73,9 +73,9 @@ build CMakeFiles/SmartDesk.dir/qrc_res.cpp.obj: CXX_COMPILER__SmartDesk_Debug D$
 #############################################
 # Link the executable SmartDesk.exe
 
-build SmartDesk.exe: CXX_EXECUTABLE_LINKER__SmartDesk_Debug CMakeFiles/SmartDesk.dir/SmartDesk_autogen/mocs_compilation.cpp.obj CMakeFiles/SmartDesk.dir/qrc_res.cpp.obj | main/libmytxt_main.a FileBackup/libmytxt_filehis.a FileSystem/libmytxt_filetag.a onlinedoc/libmytxt_onlinedoc.a TagSchedule/libmytxt_schedule.a setting/libmytxt_setting.a userinfo/libmytxt_userinfo.a EmailService/libmytxt_email.a ImageDispose/libmytxt_draw.a manager/libmytxt_manager.a EmailService/simple-mail/src/libSimpleMail3Qt6.dll.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Svg.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Gui.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Sql.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a || EmailService/mytxt_email.dll EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileSystem/libmytxt_filetag.a ImageDispose/libmytxt_draw.a SmartDesk_autogen SmartDesk_autogen_timestamp_deps TagSchedule/libmytxt_schedule.a main/libmytxt_main.a manager/libmytxt_manager.a onlinedoc/libmytxt_onlinedoc.a setting/libmytxt_setting.a userinfo/libmytxt_userinfo.a
+build SmartDesk.exe: CXX_EXECUTABLE_LINKER__SmartDesk_Debug CMakeFiles/SmartDesk.dir/SmartDesk_autogen/mocs_compilation.cpp.obj CMakeFiles/SmartDesk.dir/qrc_res.cpp.obj | main/libmytxt_main.a FileBackup/libmytxt_filehis.a FileSystem/libmytxt_filetag.a onlinedoc/libmytxt_onlinedoc.a TagSchedule/libmytxt_schedule.a setting/libmytxt_setting.a userinfo/libmytxt_userinfo.a EmailService/libmytxt_email.a DisposeAbstract/DisposeTXT/libmytxt_txt.a DisposeAbstract/DisposeCSV/libmytxt_csv.a DisposeAbstract/DisposeIMG/libmytxt_img.a manager/libmytxt_manager.a EmailService/simple-mail/src/libSimpleMail3Qt6.dll.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Svg.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Gui.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Sql.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a || DisposeAbstract/DisposeCSV/libmytxt_csv.a DisposeAbstract/DisposeIMG/libmytxt_img.a DisposeAbstract/DisposeTXT/libmytxt_txt.a EmailService/mytxt_email.dll EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileSystem/libmytxt_filetag.a SmartDesk_autogen SmartDesk_autogen_timestamp_deps TagSchedule/libmytxt_schedule.a main/libmytxt_main.a manager/libmytxt_manager.a onlinedoc/libmytxt_onlinedoc.a setting/libmytxt_setting.a userinfo/libmytxt_userinfo.a
   FLAGS = -g
-  LINK_LIBRARIES = main/libmytxt_main.a  FileBackup/libmytxt_filehis.a  FileSystem/libmytxt_filetag.a  onlinedoc/libmytxt_onlinedoc.a  TagSchedule/libmytxt_schedule.a  setting/libmytxt_setting.a  userinfo/libmytxt_userinfo.a  EmailService/libmytxt_email.a  ImageDispose/libmytxt_draw.a  manager/libmytxt_manager.a  EmailService/simple-mail/src/libSimpleMail3Qt6.dll.a  D:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a  D:/QT6/6.8.0/mingw_64/lib/libQt6Svg.a  D:/QT6/6.8.0/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  -ld3d12  D:/QT6/6.8.0/mingw_64/lib/libQt6Network.a  -lws2_32  D:/QT6/6.8.0/mingw_64/lib/libQt6Sql.a  D:/QT6/6.8.0/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = main/libmytxt_main.a  FileBackup/libmytxt_filehis.a  FileSystem/libmytxt_filetag.a  onlinedoc/libmytxt_onlinedoc.a  TagSchedule/libmytxt_schedule.a  setting/libmytxt_setting.a  userinfo/libmytxt_userinfo.a  EmailService/libmytxt_email.a  DisposeAbstract/DisposeTXT/libmytxt_txt.a  DisposeAbstract/DisposeCSV/libmytxt_csv.a  DisposeAbstract/DisposeIMG/libmytxt_img.a  manager/libmytxt_manager.a  EmailService/simple-mail/src/libSimpleMail3Qt6.dll.a  D:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a  D:/QT6/6.8.0/mingw_64/lib/libQt6Svg.a  D:/QT6/6.8.0/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  -ld3d12  D:/QT6/6.8.0/mingw_64/lib/libQt6Network.a  -lws2_32  D:/QT6/6.8.0/mingw_64/lib/libQt6Sql.a  D:/QT6/6.8.0/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\SmartDesk.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -177,7 +177,7 @@ build install/strip: phony CMakeFiles/install/strip.util
 #############################################
 # Utility command for SmartDesk_autogen_timestamp_deps
 
-build SmartDesk_autogen_timestamp_deps: phony CMakeFiles/SmartDesk_autogen_timestamp_deps EmailService/mytxt_email.dll EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileSystem/libmytxt_filetag.a ImageDispose/libmytxt_draw.a TagSchedule/libmytxt_schedule.a main/libmytxt_main.a manager/libmytxt_manager.a onlinedoc/libmytxt_onlinedoc.a setting/libmytxt_setting.a userinfo/libmytxt_userinfo.a
+build SmartDesk_autogen_timestamp_deps: phony CMakeFiles/SmartDesk_autogen_timestamp_deps DisposeAbstract/DisposeCSV/libmytxt_csv.a DisposeAbstract/DisposeIMG/libmytxt_img.a DisposeAbstract/DisposeTXT/libmytxt_txt.a EmailService/mytxt_email.dll EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileSystem/libmytxt_filetag.a TagSchedule/libmytxt_schedule.a main/libmytxt_main.a manager/libmytxt_manager.a onlinedoc/libmytxt_onlinedoc.a setting/libmytxt_setting.a userinfo/libmytxt_userinfo.a
 
 
 #############################################
@@ -189,7 +189,7 @@ build SmartDesk_autogen: phony CMakeFiles/SmartDesk_autogen SmartDesk_autogen/ti
 #############################################
 # Custom command for qrc_res.cpp
 
-build qrc_res.cpp | ${cmake_ninja_workdir}qrc_res.cpp: CUSTOM_COMMAND D$:/CxxProgram/SmartDesk/resources/res.qrc D$:/CxxProgram/SmartDesk/resources/usedimage/go.svg D$:/CxxProgram/SmartDesk/resources/usedimage/list.svg D$:/CxxProgram/SmartDesk/resources/usedimage/user.svg D$:/CxxProgram/SmartDesk/resources/usedimage/addtag.svg D$:/CxxProgram/SmartDesk/resources/usedimage/edittag.svg D$:/CxxProgram/SmartDesk/resources/usedimage/picture.svg D$:/CxxProgram/SmartDesk/resources/usedimage/tag.svg D$:/CxxProgram/SmartDesk/resources/usedimage/editdoc.svg D$:/CxxProgram/SmartDesk/resources/usedimage/close-black.svg D$:/CxxProgram/SmartDesk/resources/usedimage/close-white.svg D$:/CxxProgram/SmartDesk/resources/usedimage/proxy-black.svg D$:/CxxProgram/SmartDesk/resources/usedimage/QQ.svg D$:/CxxProgram/SmartDesk/resources/usedimage/package.svg D$:/CxxProgram/SmartDesk/resources/usedimage/schedule.svg D$:/CxxProgram/SmartDesk/resources/image/arrow_refresh_small.svg D$:/CxxProgram/SmartDesk/resources/image/cross.svg D$:/CxxProgram/SmartDesk/resources/image/database_go.svg D$:/CxxProgram/SmartDesk/resources/image/table_save.svg D$:/CxxProgram/SmartDesk/resources/usedimage/history.svg D$:/CxxProgram/SmartDesk/resources/image/login.png D$:/CxxProgram/SmartDesk/resources/png/Settings.png D$:/CxxProgram/SmartDesk/resources/image/user.svg resources/res.qrc.depends D$:/QT6/6.8.0/mingw_64/bin/rcc.exe || EmailService/mytxt_email.dll EmailService/mytxt_email_autogen EmailService/mytxt_email_autogen_timestamp_deps EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileBackup/mytxt_filehis_autogen FileBackup/mytxt_filehis_autogen_timestamp_deps FileSystem/libmytxt_filetag.a FileSystem/mytxt_filetag_autogen FileSystem/mytxt_filetag_autogen_timestamp_deps ImageDispose/libmytxt_draw.a ImageDispose/mytxt_draw_autogen ImageDispose/mytxt_draw_autogen_timestamp_deps SmartDesk_autogen SmartDesk_autogen_timestamp_deps TagSchedule/libmytxt_schedule.a TagSchedule/mytxt_schedule_autogen TagSchedule/mytxt_schedule_autogen_timestamp_deps main/libmytxt_main.a main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps manager/libmytxt_manager.a manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps onlinedoc/libmytxt_onlinedoc.a onlinedoc/mytxt_onlinedoc_autogen onlinedoc/mytxt_onlinedoc_autogen_timestamp_deps setting/libmytxt_setting.a setting/mytxt_setting_autogen setting/mytxt_setting_autogen_timestamp_deps userinfo/libmytxt_userinfo.a userinfo/mytxt_userinfo_autogen userinfo/mytxt_userinfo_autogen_timestamp_deps
+build qrc_res.cpp | ${cmake_ninja_workdir}qrc_res.cpp: CUSTOM_COMMAND D$:/CxxProgram/SmartDesk/resources/res.qrc D$:/CxxProgram/SmartDesk/resources/usedimage/go.svg D$:/CxxProgram/SmartDesk/resources/usedimage/list.svg D$:/CxxProgram/SmartDesk/resources/usedimage/user.svg D$:/CxxProgram/SmartDesk/resources/usedimage/addtag.svg D$:/CxxProgram/SmartDesk/resources/usedimage/edittag.svg D$:/CxxProgram/SmartDesk/resources/usedimage/picture.svg D$:/CxxProgram/SmartDesk/resources/usedimage/tag.svg D$:/CxxProgram/SmartDesk/resources/usedimage/editdoc.svg D$:/CxxProgram/SmartDesk/resources/usedimage/close-black.svg D$:/CxxProgram/SmartDesk/resources/usedimage/close-white.svg D$:/CxxProgram/SmartDesk/resources/usedimage/proxy-black.svg D$:/CxxProgram/SmartDesk/resources/usedimage/QQ.svg D$:/CxxProgram/SmartDesk/resources/usedimage/package.svg D$:/CxxProgram/SmartDesk/resources/usedimage/schedule.svg D$:/CxxProgram/SmartDesk/resources/image/arrow_refresh_small.svg D$:/CxxProgram/SmartDesk/resources/image/cross.svg D$:/CxxProgram/SmartDesk/resources/image/database_go.svg D$:/CxxProgram/SmartDesk/resources/image/table_save.svg D$:/CxxProgram/SmartDesk/resources/usedimage/history.svg D$:/CxxProgram/SmartDesk/resources/image/login.png D$:/CxxProgram/SmartDesk/resources/png/Settings.png D$:/CxxProgram/SmartDesk/resources/image/user.svg resources/res.qrc.depends D$:/QT6/6.8.0/mingw_64/bin/rcc.exe || DisposeAbstract/DisposeCSV/libmytxt_csv.a DisposeAbstract/DisposeCSV/mytxt_csv_autogen DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps DisposeAbstract/DisposeIMG/libmytxt_img.a DisposeAbstract/DisposeIMG/mytxt_img_autogen DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps DisposeAbstract/DisposeTXT/libmytxt_txt.a DisposeAbstract/DisposeTXT/mytxt_txt_autogen DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps EmailService/mytxt_email.dll EmailService/mytxt_email_autogen EmailService/mytxt_email_autogen_timestamp_deps EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileBackup/mytxt_filehis_autogen FileBackup/mytxt_filehis_autogen_timestamp_deps FileSystem/libmytxt_filetag.a FileSystem/mytxt_filetag_autogen FileSystem/mytxt_filetag_autogen_timestamp_deps SmartDesk_autogen SmartDesk_autogen_timestamp_deps TagSchedule/libmytxt_schedule.a TagSchedule/mytxt_schedule_autogen TagSchedule/mytxt_schedule_autogen_timestamp_deps main/libmytxt_main.a main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps manager/libmytxt_manager.a manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps onlinedoc/libmytxt_onlinedoc.a onlinedoc/mytxt_onlinedoc_autogen onlinedoc/mytxt_onlinedoc_autogen_timestamp_deps setting/libmytxt_setting.a setting/mytxt_setting_autogen setting/mytxt_setting_autogen_timestamp_deps userinfo/libmytxt_userinfo.a userinfo/mytxt_userinfo_autogen userinfo/mytxt_userinfo_autogen_timestamp_deps
   COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug && D:\QT6\6.8.0\mingw_64\bin\rcc.exe --no-zstd --name res --output D:/CxxProgram/SmartDesk/.build/debug/qrc_res.cpp D:/CxxProgram/SmartDesk/resources/res.qrc"
   DESC = Generating qrc_res.cpp
   restat = 1
@@ -198,7 +198,7 @@ build qrc_res.cpp | ${cmake_ninja_workdir}qrc_res.cpp: CUSTOM_COMMAND D$:/CxxPro
 #############################################
 # Custom command for SmartDesk_autogen\timestamp
 
-build SmartDesk_autogen/timestamp SmartDesk_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}SmartDesk_autogen/timestamp ${cmake_ninja_workdir}SmartDesk_autogen/mocs_compilation.cpp: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe || EmailService/mytxt_email.dll EmailService/mytxt_email_autogen EmailService/mytxt_email_autogen_timestamp_deps EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileBackup/mytxt_filehis_autogen FileBackup/mytxt_filehis_autogen_timestamp_deps FileSystem/libmytxt_filetag.a FileSystem/mytxt_filetag_autogen FileSystem/mytxt_filetag_autogen_timestamp_deps ImageDispose/libmytxt_draw.a ImageDispose/mytxt_draw_autogen ImageDispose/mytxt_draw_autogen_timestamp_deps SmartDesk_autogen_timestamp_deps TagSchedule/libmytxt_schedule.a TagSchedule/mytxt_schedule_autogen TagSchedule/mytxt_schedule_autogen_timestamp_deps main/libmytxt_main.a main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps manager/libmytxt_manager.a manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps onlinedoc/libmytxt_onlinedoc.a onlinedoc/mytxt_onlinedoc_autogen onlinedoc/mytxt_onlinedoc_autogen_timestamp_deps setting/libmytxt_setting.a setting/mytxt_setting_autogen setting/mytxt_setting_autogen_timestamp_deps userinfo/libmytxt_userinfo.a userinfo/mytxt_userinfo_autogen userinfo/mytxt_userinfo_autogen_timestamp_deps
+build SmartDesk_autogen/timestamp SmartDesk_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}SmartDesk_autogen/timestamp ${cmake_ninja_workdir}SmartDesk_autogen/mocs_compilation.cpp: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe || DisposeAbstract/DisposeCSV/libmytxt_csv.a DisposeAbstract/DisposeCSV/mytxt_csv_autogen DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps DisposeAbstract/DisposeIMG/libmytxt_img.a DisposeAbstract/DisposeIMG/mytxt_img_autogen DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps DisposeAbstract/DisposeTXT/libmytxt_txt.a DisposeAbstract/DisposeTXT/mytxt_txt_autogen DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps EmailService/mytxt_email.dll EmailService/mytxt_email_autogen EmailService/mytxt_email_autogen_timestamp_deps EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileBackup/mytxt_filehis_autogen FileBackup/mytxt_filehis_autogen_timestamp_deps FileSystem/libmytxt_filetag.a FileSystem/mytxt_filetag_autogen FileSystem/mytxt_filetag_autogen_timestamp_deps SmartDesk_autogen_timestamp_deps TagSchedule/libmytxt_schedule.a TagSchedule/mytxt_schedule_autogen TagSchedule/mytxt_schedule_autogen_timestamp_deps main/libmytxt_main.a main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps manager/libmytxt_manager.a manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps onlinedoc/libmytxt_onlinedoc.a onlinedoc/mytxt_onlinedoc_autogen onlinedoc/mytxt_onlinedoc_autogen_timestamp_deps setting/libmytxt_setting.a setting/mytxt_setting_autogen setting/mytxt_setting_autogen_timestamp_deps userinfo/libmytxt_userinfo.a userinfo/mytxt_userinfo_autogen userinfo/mytxt_userinfo_autogen_timestamp_deps
   COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug && D:\QT6\Tools\CMake_64\bin\cmake.exe -E cmake_autogen D:/CxxProgram/SmartDesk/.build/debug/CMakeFiles/SmartDesk_autogen.dir/AutogenInfo.json Debug && D:\QT6\Tools\CMake_64\bin\cmake.exe -E touch D:/CxxProgram/SmartDesk/.build/debug/SmartDesk_autogen/timestamp && D:\QT6\Tools\CMake_64\bin\cmake.exe -E cmake_transform_depfile Ninja gccdepfile D:/CxxProgram/SmartDesk D:/CxxProgram/SmartDesk D:/CxxProgram/SmartDesk/.build/debug D:/CxxProgram/SmartDesk/.build/debug D:/CxxProgram/SmartDesk/.build/debug/SmartDesk_autogen/deps D:/CxxProgram/SmartDesk/.build/debug/CMakeFiles/d/099dfc08eea4c188068bcd41a0431863581450d7640787952331d12a2bfa7f02.d"
   DESC = Automatic MOC and UIC for target SmartDesk
   depfile = D:/CxxProgram/SmartDesk/.build/debug/CMakeFiles/d/099dfc08eea4c188068bcd41a0431863581450d7640787952331d12a2bfa7f02.d
@@ -208,13 +208,13 @@ build SmartDesk_autogen/timestamp SmartDesk_autogen/mocs_compilation.cpp | ${cma
 #############################################
 # Phony custom command for CMakeFiles\SmartDesk_autogen_timestamp_deps
 
-build CMakeFiles/SmartDesk_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/SmartDesk_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe setting/libmytxt_setting.a TagSchedule/libmytxt_schedule.a EmailService/simple-mail/src/libSimpleMail3Qt6.dll ImageDispose/libmytxt_draw.a userinfo/libmytxt_userinfo.a manager/libmytxt_manager.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a FileSystem/libmytxt_filetag.a FileBackup/libmytxt_filehis.a onlinedoc/libmytxt_onlinedoc.a EmailService/mytxt_email.dll main/libmytxt_main.a || EmailService/mytxt_email.dll EmailService/mytxt_email_autogen EmailService/mytxt_email_autogen_timestamp_deps EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileBackup/mytxt_filehis_autogen FileBackup/mytxt_filehis_autogen_timestamp_deps FileSystem/libmytxt_filetag.a FileSystem/mytxt_filetag_autogen FileSystem/mytxt_filetag_autogen_timestamp_deps ImageDispose/libmytxt_draw.a ImageDispose/mytxt_draw_autogen ImageDispose/mytxt_draw_autogen_timestamp_deps TagSchedule/libmytxt_schedule.a TagSchedule/mytxt_schedule_autogen TagSchedule/mytxt_schedule_autogen_timestamp_deps main/libmytxt_main.a main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps manager/libmytxt_manager.a manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps onlinedoc/libmytxt_onlinedoc.a onlinedoc/mytxt_onlinedoc_autogen onlinedoc/mytxt_onlinedoc_autogen_timestamp_deps setting/libmytxt_setting.a setting/mytxt_setting_autogen setting/mytxt_setting_autogen_timestamp_deps userinfo/libmytxt_userinfo.a userinfo/mytxt_userinfo_autogen userinfo/mytxt_userinfo_autogen_timestamp_deps
+build CMakeFiles/SmartDesk_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/SmartDesk_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a setting/libmytxt_setting.a DisposeAbstract/DisposeIMG/libmytxt_img.a DisposeAbstract/DisposeCSV/libmytxt_csv.a FileSystem/libmytxt_filetag.a userinfo/libmytxt_userinfo.a manager/libmytxt_manager.a onlinedoc/libmytxt_onlinedoc.a TagSchedule/libmytxt_schedule.a DisposeAbstract/DisposeTXT/libmytxt_txt.a FileBackup/libmytxt_filehis.a EmailService/mytxt_email.dll EmailService/simple-mail/src/libSimpleMail3Qt6.dll main/libmytxt_main.a || DisposeAbstract/DisposeCSV/libmytxt_csv.a DisposeAbstract/DisposeCSV/mytxt_csv_autogen DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps DisposeAbstract/DisposeIMG/libmytxt_img.a DisposeAbstract/DisposeIMG/mytxt_img_autogen DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps DisposeAbstract/DisposeTXT/libmytxt_txt.a DisposeAbstract/DisposeTXT/mytxt_txt_autogen DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps EmailService/mytxt_email.dll EmailService/mytxt_email_autogen EmailService/mytxt_email_autogen_timestamp_deps EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileBackup/mytxt_filehis_autogen FileBackup/mytxt_filehis_autogen_timestamp_deps FileSystem/libmytxt_filetag.a FileSystem/mytxt_filetag_autogen FileSystem/mytxt_filetag_autogen_timestamp_deps TagSchedule/libmytxt_schedule.a TagSchedule/mytxt_schedule_autogen TagSchedule/mytxt_schedule_autogen_timestamp_deps main/libmytxt_main.a main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps manager/libmytxt_manager.a manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps onlinedoc/libmytxt_onlinedoc.a onlinedoc/mytxt_onlinedoc_autogen onlinedoc/mytxt_onlinedoc_autogen_timestamp_deps setting/libmytxt_setting.a setting/mytxt_setting_autogen setting/mytxt_setting_autogen_timestamp_deps userinfo/libmytxt_userinfo.a userinfo/mytxt_userinfo_autogen userinfo/mytxt_userinfo_autogen_timestamp_deps
 
 
 #############################################
 # Phony custom command for CMakeFiles\SmartDesk_autogen
 
-build CMakeFiles/SmartDesk_autogen | ${cmake_ninja_workdir}CMakeFiles/SmartDesk_autogen: phony SmartDesk_autogen/timestamp || EmailService/mytxt_email.dll EmailService/mytxt_email_autogen EmailService/mytxt_email_autogen_timestamp_deps EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileBackup/mytxt_filehis_autogen FileBackup/mytxt_filehis_autogen_timestamp_deps FileSystem/libmytxt_filetag.a FileSystem/mytxt_filetag_autogen FileSystem/mytxt_filetag_autogen_timestamp_deps ImageDispose/libmytxt_draw.a ImageDispose/mytxt_draw_autogen ImageDispose/mytxt_draw_autogen_timestamp_deps SmartDesk_autogen_timestamp_deps TagSchedule/libmytxt_schedule.a TagSchedule/mytxt_schedule_autogen TagSchedule/mytxt_schedule_autogen_timestamp_deps main/libmytxt_main.a main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps manager/libmytxt_manager.a manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps onlinedoc/libmytxt_onlinedoc.a onlinedoc/mytxt_onlinedoc_autogen onlinedoc/mytxt_onlinedoc_autogen_timestamp_deps setting/libmytxt_setting.a setting/mytxt_setting_autogen setting/mytxt_setting_autogen_timestamp_deps userinfo/libmytxt_userinfo.a userinfo/mytxt_userinfo_autogen userinfo/mytxt_userinfo_autogen_timestamp_deps
+build CMakeFiles/SmartDesk_autogen | ${cmake_ninja_workdir}CMakeFiles/SmartDesk_autogen: phony SmartDesk_autogen/timestamp || DisposeAbstract/DisposeCSV/libmytxt_csv.a DisposeAbstract/DisposeCSV/mytxt_csv_autogen DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps DisposeAbstract/DisposeIMG/libmytxt_img.a DisposeAbstract/DisposeIMG/mytxt_img_autogen DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps DisposeAbstract/DisposeTXT/libmytxt_txt.a DisposeAbstract/DisposeTXT/mytxt_txt_autogen DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps EmailService/mytxt_email.dll EmailService/mytxt_email_autogen EmailService/mytxt_email_autogen_timestamp_deps EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileBackup/mytxt_filehis_autogen FileBackup/mytxt_filehis_autogen_timestamp_deps FileSystem/libmytxt_filetag.a FileSystem/mytxt_filetag_autogen FileSystem/mytxt_filetag_autogen_timestamp_deps SmartDesk_autogen_timestamp_deps TagSchedule/libmytxt_schedule.a TagSchedule/mytxt_schedule_autogen TagSchedule/mytxt_schedule_autogen_timestamp_deps main/libmytxt_main.a main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps manager/libmytxt_manager.a manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps onlinedoc/libmytxt_onlinedoc.a onlinedoc/mytxt_onlinedoc_autogen onlinedoc/mytxt_onlinedoc_autogen_timestamp_deps setting/libmytxt_setting.a setting/mytxt_setting_autogen setting/mytxt_setting_autogen_timestamp_deps userinfo/libmytxt_userinfo.a userinfo/mytxt_userinfo_autogen userinfo/mytxt_userinfo_autogen_timestamp_deps
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -428,7 +428,7 @@ build manager/meta_types/mytxt_manager_json_file_list.txt manager/meta_types/myt
 #############################################
 # Phony custom command for manager\CMakeFiles\mytxt_manager_autogen_timestamp_deps
 
-build manager/CMakeFiles/mytxt_manager_autogen_timestamp_deps | ${cmake_ninja_workdir}manager/CMakeFiles/mytxt_manager_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Sql.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+build manager/CMakeFiles/mytxt_manager_autogen_timestamp_deps | ${cmake_ninja_workdir}manager/CMakeFiles/mytxt_manager_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Sql.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
 
 
 #############################################
@@ -632,7 +632,7 @@ build FileBackup/meta_types/mytxt_filehis_json_file_list.txt FileBackup/meta_typ
 #############################################
 # Phony custom command for FileBackup\CMakeFiles\mytxt_filehis_autogen_timestamp_deps
 
-build FileBackup/CMakeFiles/mytxt_filehis_autogen_timestamp_deps | ${cmake_ninja_workdir}FileBackup/CMakeFiles/mytxt_filehis_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+build FileBackup/CMakeFiles/mytxt_filehis_autogen_timestamp_deps | ${cmake_ninja_workdir}FileBackup/CMakeFiles/mytxt_filehis_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
 
 
 #############################################
@@ -1040,7 +1040,7 @@ build onlinedoc/meta_types/mytxt_onlinedoc_json_file_list.txt onlinedoc/meta_typ
 #############################################
 # Phony custom command for onlinedoc\CMakeFiles\mytxt_onlinedoc_autogen_timestamp_deps
 
-build onlinedoc/CMakeFiles/mytxt_onlinedoc_autogen_timestamp_deps | ${cmake_ninja_workdir}onlinedoc/CMakeFiles/mytxt_onlinedoc_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+build onlinedoc/CMakeFiles/mytxt_onlinedoc_autogen_timestamp_deps | ${cmake_ninja_workdir}onlinedoc/CMakeFiles/mytxt_onlinedoc_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
 
 
 #############################################
@@ -1660,7 +1660,7 @@ build userinfo/meta_types/mytxt_userinfo_json_file_list.txt userinfo/meta_types/
 #############################################
 # Phony custom command for userinfo\CMakeFiles\mytxt_userinfo_autogen_timestamp_deps
 
-build userinfo/CMakeFiles/mytxt_userinfo_autogen_timestamp_deps | ${cmake_ninja_workdir}userinfo/CMakeFiles/mytxt_userinfo_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+build userinfo/CMakeFiles/mytxt_userinfo_autogen_timestamp_deps | ${cmake_ninja_workdir}userinfo/CMakeFiles/mytxt_userinfo_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
 
 
 #############################################
@@ -1851,7 +1851,7 @@ build EmailService/meta_types/mytxt_email_json_file_list.txt EmailService/meta_t
 #############################################
 # Phony custom command for EmailService\CMakeFiles\mytxt_email_autogen_timestamp_deps
 
-build EmailService/CMakeFiles/mytxt_email_autogen_timestamp_deps | ${cmake_ninja_workdir}EmailService/CMakeFiles/mytxt_email_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe EmailService/simple-mail/src/libSimpleMail3Qt6.dll D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a || EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll
+build EmailService/CMakeFiles/mytxt_email_autogen_timestamp_deps | ${cmake_ninja_workdir}EmailService/CMakeFiles/mytxt_email_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a EmailService/simple-mail/src/libSimpleMail3Qt6.dll || EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll
 
 
 #############################################
@@ -1865,203 +1865,595 @@ build EmailService/CMakeFiles/mytxt_email_autogen EmailService/mytxt_email_autog
 # =============================================================================
 
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target mytxt_draw
+# Object build statements for STATIC_LIBRARY target mytxt_txt
 
 
 #############################################
-# Order-only phony target for mytxt_draw
+# Order-only phony target for mytxt_txt
 
-build cmake_object_order_depends_target_mytxt_draw: phony || ImageDispose/meta_types/mytxt_draw_json_file_list.txt ImageDispose/meta_types/mytxt_draw_json_file_list.txt.timestamp ImageDispose/meta_types/qt6mytxt_draw_debug_metatypes.json ImageDispose/meta_types/qt6mytxt_draw_debug_metatypes.json.gen ImageDispose/mytxt_draw_autogen ImageDispose/mytxt_draw_autogen/mocs_compilation.cpp ImageDispose/mytxt_draw_autogen/timestamp ImageDispose/mytxt_draw_autogen_timestamp_deps
+build cmake_object_order_depends_target_mytxt_txt: phony || DisposeAbstract/DisposeTXT/meta_types/mytxt_txt_json_file_list.txt DisposeAbstract/DisposeTXT/meta_types/mytxt_txt_json_file_list.txt.timestamp DisposeAbstract/DisposeTXT/meta_types/qt6mytxt_txt_debug_metatypes.json DisposeAbstract/DisposeTXT/meta_types/qt6mytxt_txt_debug_metatypes.json.gen DisposeAbstract/DisposeTXT/mytxt_txt_autogen DisposeAbstract/DisposeTXT/mytxt_txt_autogen/mocs_compilation.cpp DisposeAbstract/DisposeTXT/mytxt_txt_autogen/timestamp DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps
 
-build ImageDispose/CMakeFiles/mytxt_draw.dir/mytxt_draw_autogen/mocs_compilation.cpp.obj: CXX_COMPILER__mytxt_draw_Debug D$:/CxxProgram/SmartDesk/.build/debug/ImageDispose/mytxt_draw_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_mytxt_draw
+build DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt.dir/mytxt_txt_autogen/mocs_compilation.cpp.obj: CXX_COMPILER__mytxt_txt_Debug D$:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_mytxt_txt
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = ImageDispose\CMakeFiles\mytxt_draw.dir\mytxt_draw_autogen\mocs_compilation.cpp.obj.d
+  DEP_FILE = DisposeAbstract\DisposeTXT\CMakeFiles\mytxt_txt.dir\mytxt_txt_autogen\mocs_compilation.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/ImageDispose/mytxt_draw_autogen/include -ID:/CxxProgram/SmartDesk/ImageDispose -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
-  OBJECT_DIR = ImageDispose\CMakeFiles\mytxt_draw.dir
-  OBJECT_FILE_DIR = ImageDispose\CMakeFiles\mytxt_draw.dir\mytxt_draw_autogen
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/include -ID:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
+  OBJECT_DIR = DisposeAbstract\DisposeTXT\CMakeFiles\mytxt_txt.dir
+  OBJECT_FILE_DIR = DisposeAbstract\DisposeTXT\CMakeFiles\mytxt_txt.dir\mytxt_txt_autogen
 
-build ImageDispose/CMakeFiles/mytxt_draw.dir/TabHandleIMG.cpp.obj: CXX_COMPILER__mytxt_draw_Debug D$:/CxxProgram/SmartDesk/ImageDispose/TabHandleIMG.cpp || cmake_object_order_depends_target_mytxt_draw
+build DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt.dir/ControlWidTXT.cpp.obj: CXX_COMPILER__mytxt_txt_Debug D$:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/ControlWidTXT.cpp || cmake_object_order_depends_target_mytxt_txt
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = ImageDispose\CMakeFiles\mytxt_draw.dir\TabHandleIMG.cpp.obj.d
+  DEP_FILE = DisposeAbstract\DisposeTXT\CMakeFiles\mytxt_txt.dir\ControlWidTXT.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/ImageDispose/mytxt_draw_autogen/include -ID:/CxxProgram/SmartDesk/ImageDispose -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
-  OBJECT_DIR = ImageDispose\CMakeFiles\mytxt_draw.dir
-  OBJECT_FILE_DIR = ImageDispose\CMakeFiles\mytxt_draw.dir
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/include -ID:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
+  OBJECT_DIR = DisposeAbstract\DisposeTXT\CMakeFiles\mytxt_txt.dir
+  OBJECT_FILE_DIR = DisposeAbstract\DisposeTXT\CMakeFiles\mytxt_txt.dir
 
-build ImageDispose/CMakeFiles/mytxt_draw.dir/ControlFrame.cpp.obj: CXX_COMPILER__mytxt_draw_Debug D$:/CxxProgram/SmartDesk/ImageDispose/ControlFrame.cpp || cmake_object_order_depends_target_mytxt_draw
+build DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt.dir/TabHandleTXT.cpp.obj: CXX_COMPILER__mytxt_txt_Debug D$:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/TabHandleTXT.cpp || cmake_object_order_depends_target_mytxt_txt
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = ImageDispose\CMakeFiles\mytxt_draw.dir\ControlFrame.cpp.obj.d
+  DEP_FILE = DisposeAbstract\DisposeTXT\CMakeFiles\mytxt_txt.dir\TabHandleTXT.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/ImageDispose/mytxt_draw_autogen/include -ID:/CxxProgram/SmartDesk/ImageDispose -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
-  OBJECT_DIR = ImageDispose\CMakeFiles\mytxt_draw.dir
-  OBJECT_FILE_DIR = ImageDispose\CMakeFiles\mytxt_draw.dir
-
-build ImageDispose/CMakeFiles/mytxt_draw.dir/PixItem.cpp.obj: CXX_COMPILER__mytxt_draw_Debug D$:/CxxProgram/SmartDesk/ImageDispose/PixItem.cpp || cmake_object_order_depends_target_mytxt_draw
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = ImageDispose\CMakeFiles\mytxt_draw.dir\PixItem.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/ImageDispose/mytxt_draw_autogen/include -ID:/CxxProgram/SmartDesk/ImageDispose -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
-  OBJECT_DIR = ImageDispose\CMakeFiles\mytxt_draw.dir
-  OBJECT_FILE_DIR = ImageDispose\CMakeFiles\mytxt_draw.dir
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/include -ID:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
+  OBJECT_DIR = DisposeAbstract\DisposeTXT\CMakeFiles\mytxt_txt.dir
+  OBJECT_FILE_DIR = DisposeAbstract\DisposeTXT\CMakeFiles\mytxt_txt.dir
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target mytxt_draw
+# Link build statements for STATIC_LIBRARY target mytxt_txt
 
 
 #############################################
-# Link the static library ImageDispose\libmytxt_draw.a
+# Link the static library DisposeAbstract\DisposeTXT\libmytxt_txt.a
 
-build ImageDispose/libmytxt_draw.a: CXX_STATIC_LIBRARY_LINKER__mytxt_draw_Debug ImageDispose/CMakeFiles/mytxt_draw.dir/mytxt_draw_autogen/mocs_compilation.cpp.obj ImageDispose/CMakeFiles/mytxt_draw.dir/TabHandleIMG.cpp.obj ImageDispose/CMakeFiles/mytxt_draw.dir/ControlFrame.cpp.obj ImageDispose/CMakeFiles/mytxt_draw.dir/PixItem.cpp.obj || ImageDispose/mytxt_draw_autogen ImageDispose/mytxt_draw_autogen_timestamp_deps
+build DisposeAbstract/DisposeTXT/libmytxt_txt.a: CXX_STATIC_LIBRARY_LINKER__mytxt_txt_Debug DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt.dir/mytxt_txt_autogen/mocs_compilation.cpp.obj DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt.dir/ControlWidTXT.cpp.obj DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt.dir/TabHandleTXT.cpp.obj || DisposeAbstract/DisposeTXT/mytxt_txt_autogen DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = ImageDispose\CMakeFiles\mytxt_draw.dir
+  OBJECT_DIR = DisposeAbstract\DisposeTXT\CMakeFiles\mytxt_txt.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = ImageDispose\libmytxt_draw.a
-  TARGET_PDB = mytxt_draw.a.dbg
+  TARGET_FILE = DisposeAbstract\DisposeTXT\libmytxt_txt.a
+  TARGET_PDB = mytxt_txt.a.dbg
 
 
 #############################################
 # Utility command for package
 
-build ImageDispose/CMakeFiles/package.util: CUSTOM_COMMAND ImageDispose/all
+build DisposeAbstract/DisposeTXT/CMakeFiles/package.util: CUSTOM_COMMAND DisposeAbstract/DisposeTXT/all
   COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug && D:\QT6\Tools\CMake_64\bin\cpack.exe --config ./CPackConfig.cmake"
   DESC = Run CPack packaging tool...
   pool = console
   restat = 1
 
-build ImageDispose/package: phony ImageDispose/CMakeFiles/package.util
+build DisposeAbstract/DisposeTXT/package: phony DisposeAbstract/DisposeTXT/CMakeFiles/package.util
 
 
 #############################################
 # Utility command for package_source
 
-build ImageDispose/CMakeFiles/package_source.util: CUSTOM_COMMAND
+build DisposeAbstract/DisposeTXT/CMakeFiles/package_source.util: CUSTOM_COMMAND
   COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug && D:\QT6\Tools\CMake_64\bin\cpack.exe --config ./CPackSourceConfig.cmake D:/CxxProgram/SmartDesk/.build/debug/CPackSourceConfig.cmake"
   DESC = Run CPack packaging tool for source...
   pool = console
   restat = 1
 
-build ImageDispose/package_source: phony ImageDispose/CMakeFiles/package_source.util
+build DisposeAbstract/DisposeTXT/package_source: phony DisposeAbstract/DisposeTXT/CMakeFiles/package_source.util
 
 
 #############################################
 # Utility command for edit_cache
 
-build ImageDispose/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\ImageDispose && D:\QT6\Tools\CMake_64\bin\cmake-gui.exe -SD:\CxxProgram\SmartDesk -BD:\CxxProgram\SmartDesk\.build\debug"
+build DisposeAbstract/DisposeTXT/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeTXT && D:\QT6\Tools\CMake_64\bin\cmake-gui.exe -SD:\CxxProgram\SmartDesk -BD:\CxxProgram\SmartDesk\.build\debug"
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
 
-build ImageDispose/edit_cache: phony ImageDispose/CMakeFiles/edit_cache.util
+build DisposeAbstract/DisposeTXT/edit_cache: phony DisposeAbstract/DisposeTXT/CMakeFiles/edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build ImageDispose/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\ImageDispose && D:\QT6\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -SD:\CxxProgram\SmartDesk -BD:\CxxProgram\SmartDesk\.build\debug"
+build DisposeAbstract/DisposeTXT/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeTXT && D:\QT6\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -SD:\CxxProgram\SmartDesk -BD:\CxxProgram\SmartDesk\.build\debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build ImageDispose/rebuild_cache: phony ImageDispose/CMakeFiles/rebuild_cache.util
+build DisposeAbstract/DisposeTXT/rebuild_cache: phony DisposeAbstract/DisposeTXT/CMakeFiles/rebuild_cache.util
 
 
 #############################################
 # Utility command for list_install_components
 
-build ImageDispose/list_install_components: phony
+build DisposeAbstract/DisposeTXT/list_install_components: phony
 
 
 #############################################
 # Utility command for install
 
-build ImageDispose/CMakeFiles/install.util: CUSTOM_COMMAND ImageDispose/all
-  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\ImageDispose && D:\QT6\Tools\CMake_64\bin\cmake.exe -P cmake_install.cmake"
+build DisposeAbstract/DisposeTXT/CMakeFiles/install.util: CUSTOM_COMMAND DisposeAbstract/DisposeTXT/all
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeTXT && D:\QT6\Tools\CMake_64\bin\cmake.exe -P cmake_install.cmake"
   DESC = Install the project...
   pool = console
   restat = 1
 
-build ImageDispose/install: phony ImageDispose/CMakeFiles/install.util
+build DisposeAbstract/DisposeTXT/install: phony DisposeAbstract/DisposeTXT/CMakeFiles/install.util
 
 
 #############################################
 # Utility command for install/local
 
-build ImageDispose/CMakeFiles/install/local.util: CUSTOM_COMMAND ImageDispose/all
-  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\ImageDispose && D:\QT6\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+build DisposeAbstract/DisposeTXT/CMakeFiles/install/local.util: CUSTOM_COMMAND DisposeAbstract/DisposeTXT/all
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeTXT && D:\QT6\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
   DESC = Installing only the local directory...
   pool = console
   restat = 1
 
-build ImageDispose/install/local: phony ImageDispose/CMakeFiles/install/local.util
+build DisposeAbstract/DisposeTXT/install/local: phony DisposeAbstract/DisposeTXT/CMakeFiles/install/local.util
 
 
 #############################################
 # Utility command for install/strip
 
-build ImageDispose/CMakeFiles/install/strip.util: CUSTOM_COMMAND ImageDispose/all
-  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\ImageDispose && D:\QT6\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+build DisposeAbstract/DisposeTXT/CMakeFiles/install/strip.util: CUSTOM_COMMAND DisposeAbstract/DisposeTXT/all
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeTXT && D:\QT6\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
   DESC = Installing the project stripped...
   pool = console
   restat = 1
 
-build ImageDispose/install/strip: phony ImageDispose/CMakeFiles/install/strip.util
+build DisposeAbstract/DisposeTXT/install/strip: phony DisposeAbstract/DisposeTXT/CMakeFiles/install/strip.util
 
 
 #############################################
-# Utility command for mytxt_draw_autogen_timestamp_deps
+# Utility command for mytxt_txt_autogen_timestamp_deps
 
-build ImageDispose/mytxt_draw_autogen_timestamp_deps: phony ImageDispose/CMakeFiles/mytxt_draw_autogen_timestamp_deps
-
-
-#############################################
-# Utility command for mytxt_draw_autogen
-
-build ImageDispose/mytxt_draw_autogen: phony ImageDispose/CMakeFiles/mytxt_draw_autogen ImageDispose/mytxt_draw_autogen/include/ui_ControlFrame.h ImageDispose/mytxt_draw_autogen/timestamp ImageDispose/mytxt_draw_autogen/mocs_compilation.cpp ImageDispose/mytxt_draw_autogen_timestamp_deps
+build DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps: phony DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt_autogen_timestamp_deps
 
 
 #############################################
-# Custom command for ImageDispose\meta_types\qt6mytxt_draw_debug_metatypes.json.gen
+# Utility command for mytxt_txt_autogen
 
-build ImageDispose/meta_types/qt6mytxt_draw_debug_metatypes.json.gen ImageDispose/meta_types/qt6mytxt_draw_debug_metatypes.json | ${cmake_ninja_workdir}ImageDispose/meta_types/qt6mytxt_draw_debug_metatypes.json.gen ${cmake_ninja_workdir}ImageDispose/meta_types/qt6mytxt_draw_debug_metatypes.json: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/moc.exe ImageDispose/meta_types/mytxt_draw_json_file_list.txt || ImageDispose/mytxt_draw_autogen ImageDispose/mytxt_draw_autogen_timestamp_deps
-  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\ImageDispose && D:\QT6\6.8.0\mingw_64\bin\moc.exe -o D:/CxxProgram/SmartDesk/.build/debug/ImageDispose/meta_types/qt6mytxt_draw_debug_metatypes.json.gen --collect-json @D:/CxxProgram/SmartDesk/.build/debug/ImageDispose/meta_types/mytxt_draw_json_file_list.txt && D:\QT6\Tools\CMake_64\bin\cmake.exe -E copy_if_different D:/CxxProgram/SmartDesk/.build/debug/ImageDispose/meta_types/qt6mytxt_draw_debug_metatypes.json.gen D:/CxxProgram/SmartDesk/.build/debug/ImageDispose/meta_types/qt6mytxt_draw_debug_metatypes.json"
-  DESC = Running moc --collect-json for target mytxt_draw
+build DisposeAbstract/DisposeTXT/mytxt_txt_autogen: phony DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt_autogen DisposeAbstract/DisposeTXT/mytxt_txt_autogen/include/ui_ControlWidTXT.h DisposeAbstract/DisposeTXT/mytxt_txt_autogen/timestamp DisposeAbstract/DisposeTXT/mytxt_txt_autogen/mocs_compilation.cpp DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps
+
+
+#############################################
+# Custom command for DisposeAbstract\DisposeTXT\meta_types\qt6mytxt_txt_debug_metatypes.json.gen
+
+build DisposeAbstract/DisposeTXT/meta_types/qt6mytxt_txt_debug_metatypes.json.gen DisposeAbstract/DisposeTXT/meta_types/qt6mytxt_txt_debug_metatypes.json | ${cmake_ninja_workdir}DisposeAbstract/DisposeTXT/meta_types/qt6mytxt_txt_debug_metatypes.json.gen ${cmake_ninja_workdir}DisposeAbstract/DisposeTXT/meta_types/qt6mytxt_txt_debug_metatypes.json: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/moc.exe DisposeAbstract/DisposeTXT/meta_types/mytxt_txt_json_file_list.txt || DisposeAbstract/DisposeTXT/mytxt_txt_autogen DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeTXT && D:\QT6\6.8.0\mingw_64\bin\moc.exe -o D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/meta_types/qt6mytxt_txt_debug_metatypes.json.gen --collect-json @D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/meta_types/mytxt_txt_json_file_list.txt && D:\QT6\Tools\CMake_64\bin\cmake.exe -E copy_if_different D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/meta_types/qt6mytxt_txt_debug_metatypes.json.gen D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/meta_types/qt6mytxt_txt_debug_metatypes.json"
+  DESC = Running moc --collect-json for target mytxt_txt
   restat = 1
 
 
 #############################################
-# Custom command for ImageDispose\mytxt_draw_autogen\timestamp
+# Custom command for DisposeAbstract\DisposeTXT\mytxt_txt_autogen\timestamp
 
-build ImageDispose/mytxt_draw_autogen/timestamp ImageDispose/mytxt_draw_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}ImageDispose/mytxt_draw_autogen/timestamp ${cmake_ninja_workdir}ImageDispose/mytxt_draw_autogen/mocs_compilation.cpp: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe || ImageDispose/mytxt_draw_autogen_timestamp_deps
-  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\ImageDispose && D:\QT6\Tools\CMake_64\bin\cmake.exe -E cmake_autogen D:/CxxProgram/SmartDesk/.build/debug/ImageDispose/CMakeFiles/mytxt_draw_autogen.dir/AutogenInfo.json Debug && D:\QT6\Tools\CMake_64\bin\cmake.exe -E touch D:/CxxProgram/SmartDesk/.build/debug/ImageDispose/mytxt_draw_autogen/timestamp && D:\QT6\Tools\CMake_64\bin\cmake.exe -E cmake_transform_depfile Ninja gccdepfile D:/CxxProgram/SmartDesk D:/CxxProgram/SmartDesk/ImageDispose D:/CxxProgram/SmartDesk/.build/debug D:/CxxProgram/SmartDesk/.build/debug/ImageDispose D:/CxxProgram/SmartDesk/.build/debug/ImageDispose/mytxt_draw_autogen/deps D:/CxxProgram/SmartDesk/.build/debug/CMakeFiles/d/ac5ef0bf8db70753fd8e5678cf56fb99973e0733c508577d5a5d19c7db0515b6.d"
-  DESC = Automatic MOC and UIC for target mytxt_draw
-  depfile = D:/CxxProgram/SmartDesk/.build/debug/CMakeFiles/d/ac5ef0bf8db70753fd8e5678cf56fb99973e0733c508577d5a5d19c7db0515b6.d
+build DisposeAbstract/DisposeTXT/mytxt_txt_autogen/timestamp DisposeAbstract/DisposeTXT/mytxt_txt_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}DisposeAbstract/DisposeTXT/mytxt_txt_autogen/timestamp ${cmake_ninja_workdir}DisposeAbstract/DisposeTXT/mytxt_txt_autogen/mocs_compilation.cpp: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe || DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeTXT && D:\QT6\Tools\CMake_64\bin\cmake.exe -E cmake_autogen D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt_autogen.dir/AutogenInfo.json Debug && D:\QT6\Tools\CMake_64\bin\cmake.exe -E touch D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/timestamp && D:\QT6\Tools\CMake_64\bin\cmake.exe -E cmake_transform_depfile Ninja gccdepfile D:/CxxProgram/SmartDesk D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT D:/CxxProgram/SmartDesk/.build/debug D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/deps D:/CxxProgram/SmartDesk/.build/debug/CMakeFiles/d/05d32b59ad26ed9ad3434a8b0d15414596cafecef0a33da96e9f335fd202461a.d"
+  DESC = Automatic MOC and UIC for target mytxt_txt
+  depfile = D:/CxxProgram/SmartDesk/.build/debug/CMakeFiles/d/05d32b59ad26ed9ad3434a8b0d15414596cafecef0a33da96e9f335fd202461a.d
   restat = 1
 
 
 #############################################
-# Custom command for ImageDispose\meta_types\mytxt_draw_json_file_list.txt
+# Custom command for DisposeAbstract\DisposeTXT\meta_types\mytxt_txt_json_file_list.txt
 
-build ImageDispose/meta_types/mytxt_draw_json_file_list.txt ImageDispose/meta_types/mytxt_draw_json_file_list.txt.timestamp | ${cmake_ninja_workdir}ImageDispose/meta_types/mytxt_draw_json_file_list.txt ${cmake_ninja_workdir}ImageDispose/meta_types/mytxt_draw_json_file_list.txt.timestamp: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/cmake_automoc_parser.exe ImageDispose/mytxt_draw_autogen/timestamp || ImageDispose/mytxt_draw_autogen ImageDispose/mytxt_draw_autogen_timestamp_deps
-  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\ImageDispose && D:\QT6\6.8.0\mingw_64\bin\cmake_automoc_parser.exe --cmake-autogen-cache-file D:/CxxProgram/SmartDesk/.build/debug/ImageDispose/CMakeFiles/mytxt_draw_autogen.dir/ParseCache.txt --cmake-autogen-info-file D:/CxxProgram/SmartDesk/.build/debug/ImageDispose/CMakeFiles/mytxt_draw_autogen.dir/AutogenInfo.json --output-file-path D:/CxxProgram/SmartDesk/.build/debug/ImageDispose/meta_types/mytxt_draw_json_file_list.txt --timestamp-file-path D:/CxxProgram/SmartDesk/.build/debug/ImageDispose/meta_types/mytxt_draw_json_file_list.txt.timestamp --cmake-autogen-include-dir-path D:/CxxProgram/SmartDesk/.build/debug/ImageDispose/mytxt_draw_autogen/include"
-  DESC = Running AUTOMOC file extraction for target mytxt_draw
+build DisposeAbstract/DisposeTXT/meta_types/mytxt_txt_json_file_list.txt DisposeAbstract/DisposeTXT/meta_types/mytxt_txt_json_file_list.txt.timestamp | ${cmake_ninja_workdir}DisposeAbstract/DisposeTXT/meta_types/mytxt_txt_json_file_list.txt ${cmake_ninja_workdir}DisposeAbstract/DisposeTXT/meta_types/mytxt_txt_json_file_list.txt.timestamp: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/cmake_automoc_parser.exe DisposeAbstract/DisposeTXT/mytxt_txt_autogen/timestamp || DisposeAbstract/DisposeTXT/mytxt_txt_autogen DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeTXT && D:\QT6\6.8.0\mingw_64\bin\cmake_automoc_parser.exe --cmake-autogen-cache-file D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt_autogen.dir/ParseCache.txt --cmake-autogen-info-file D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt_autogen.dir/AutogenInfo.json --output-file-path D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/meta_types/mytxt_txt_json_file_list.txt --timestamp-file-path D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/meta_types/mytxt_txt_json_file_list.txt.timestamp --cmake-autogen-include-dir-path D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/include"
+  DESC = Running AUTOMOC file extraction for target mytxt_txt
   restat = 1
 
 
 #############################################
-# Phony custom command for ImageDispose\CMakeFiles\mytxt_draw_autogen_timestamp_deps
+# Phony custom command for DisposeAbstract\DisposeTXT\CMakeFiles\mytxt_txt_autogen_timestamp_deps
 
-build ImageDispose/CMakeFiles/mytxt_draw_autogen_timestamp_deps | ${cmake_ninja_workdir}ImageDispose/CMakeFiles/mytxt_draw_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+build DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt_autogen_timestamp_deps | ${cmake_ninja_workdir}DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
 
 
 #############################################
-# Phony custom command for ImageDispose\CMakeFiles\mytxt_draw_autogen
+# Phony custom command for DisposeAbstract\DisposeTXT\CMakeFiles\mytxt_txt_autogen
 
-build ImageDispose/CMakeFiles/mytxt_draw_autogen ImageDispose/mytxt_draw_autogen/include/ui_ControlFrame.h | ${cmake_ninja_workdir}ImageDispose/CMakeFiles/mytxt_draw_autogen ${cmake_ninja_workdir}ImageDispose/mytxt_draw_autogen/include/ui_ControlFrame.h: phony ImageDispose/mytxt_draw_autogen/timestamp || ImageDispose/mytxt_draw_autogen_timestamp_deps
+build DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt_autogen DisposeAbstract/DisposeTXT/mytxt_txt_autogen/include/ui_ControlWidTXT.h | ${cmake_ninja_workdir}DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt_autogen ${cmake_ninja_workdir}DisposeAbstract/DisposeTXT/mytxt_txt_autogen/include/ui_ControlWidTXT.h: phony DisposeAbstract/DisposeTXT/mytxt_txt_autogen/timestamp || DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/CxxProgram/SmartDesk/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target mytxt_csv
+
+
+#############################################
+# Order-only phony target for mytxt_csv
+
+build cmake_object_order_depends_target_mytxt_csv: phony || DisposeAbstract/DisposeCSV/meta_types/mytxt_csv_json_file_list.txt DisposeAbstract/DisposeCSV/meta_types/mytxt_csv_json_file_list.txt.timestamp DisposeAbstract/DisposeCSV/meta_types/qt6mytxt_csv_debug_metatypes.json DisposeAbstract/DisposeCSV/meta_types/qt6mytxt_csv_debug_metatypes.json.gen DisposeAbstract/DisposeCSV/mytxt_csv_autogen DisposeAbstract/DisposeCSV/mytxt_csv_autogen/mocs_compilation.cpp DisposeAbstract/DisposeCSV/mytxt_csv_autogen/timestamp DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps
+
+build DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv.dir/mytxt_csv_autogen/mocs_compilation.cpp.obj: CXX_COMPILER__mytxt_csv_Debug D$:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/mytxt_csv_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_mytxt_csv
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = DisposeAbstract\DisposeCSV\CMakeFiles\mytxt_csv.dir\mytxt_csv_autogen\mocs_compilation.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/mytxt_csv_autogen/include -ID:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
+  OBJECT_DIR = DisposeAbstract\DisposeCSV\CMakeFiles\mytxt_csv.dir
+  OBJECT_FILE_DIR = DisposeAbstract\DisposeCSV\CMakeFiles\mytxt_csv.dir\mytxt_csv_autogen
+
+build DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv.dir/ControlWidCSV.cpp.obj: CXX_COMPILER__mytxt_csv_Debug D$:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/ControlWidCSV.cpp || cmake_object_order_depends_target_mytxt_csv
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = DisposeAbstract\DisposeCSV\CMakeFiles\mytxt_csv.dir\ControlWidCSV.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/mytxt_csv_autogen/include -ID:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
+  OBJECT_DIR = DisposeAbstract\DisposeCSV\CMakeFiles\mytxt_csv.dir
+  OBJECT_FILE_DIR = DisposeAbstract\DisposeCSV\CMakeFiles\mytxt_csv.dir
+
+build DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv.dir/TabHandleCSV.cpp.obj: CXX_COMPILER__mytxt_csv_Debug D$:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/TabHandleCSV.cpp || cmake_object_order_depends_target_mytxt_csv
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = DisposeAbstract\DisposeCSV\CMakeFiles\mytxt_csv.dir\TabHandleCSV.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/mytxt_csv_autogen/include -ID:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
+  OBJECT_DIR = DisposeAbstract\DisposeCSV\CMakeFiles\mytxt_csv.dir
+  OBJECT_FILE_DIR = DisposeAbstract\DisposeCSV\CMakeFiles\mytxt_csv.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target mytxt_csv
+
+
+#############################################
+# Link the static library DisposeAbstract\DisposeCSV\libmytxt_csv.a
+
+build DisposeAbstract/DisposeCSV/libmytxt_csv.a: CXX_STATIC_LIBRARY_LINKER__mytxt_csv_Debug DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv.dir/mytxt_csv_autogen/mocs_compilation.cpp.obj DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv.dir/ControlWidCSV.cpp.obj DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv.dir/TabHandleCSV.cpp.obj || DisposeAbstract/DisposeCSV/mytxt_csv_autogen DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = DisposeAbstract\DisposeCSV\CMakeFiles\mytxt_csv.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = DisposeAbstract\DisposeCSV\libmytxt_csv.a
+  TARGET_PDB = mytxt_csv.a.dbg
+
+
+#############################################
+# Utility command for package
+
+build DisposeAbstract/DisposeCSV/CMakeFiles/package.util: CUSTOM_COMMAND DisposeAbstract/DisposeCSV/all
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug && D:\QT6\Tools\CMake_64\bin\cpack.exe --config ./CPackConfig.cmake"
+  DESC = Run CPack packaging tool...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeCSV/package: phony DisposeAbstract/DisposeCSV/CMakeFiles/package.util
+
+
+#############################################
+# Utility command for package_source
+
+build DisposeAbstract/DisposeCSV/CMakeFiles/package_source.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug && D:\QT6\Tools\CMake_64\bin\cpack.exe --config ./CPackSourceConfig.cmake D:/CxxProgram/SmartDesk/.build/debug/CPackSourceConfig.cmake"
+  DESC = Run CPack packaging tool for source...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeCSV/package_source: phony DisposeAbstract/DisposeCSV/CMakeFiles/package_source.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build DisposeAbstract/DisposeCSV/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeCSV && D:\QT6\Tools\CMake_64\bin\cmake-gui.exe -SD:\CxxProgram\SmartDesk -BD:\CxxProgram\SmartDesk\.build\debug"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeCSV/edit_cache: phony DisposeAbstract/DisposeCSV/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build DisposeAbstract/DisposeCSV/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeCSV && D:\QT6\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -SD:\CxxProgram\SmartDesk -BD:\CxxProgram\SmartDesk\.build\debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeCSV/rebuild_cache: phony DisposeAbstract/DisposeCSV/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build DisposeAbstract/DisposeCSV/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build DisposeAbstract/DisposeCSV/CMakeFiles/install.util: CUSTOM_COMMAND DisposeAbstract/DisposeCSV/all
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeCSV && D:\QT6\Tools\CMake_64\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeCSV/install: phony DisposeAbstract/DisposeCSV/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build DisposeAbstract/DisposeCSV/CMakeFiles/install/local.util: CUSTOM_COMMAND DisposeAbstract/DisposeCSV/all
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeCSV && D:\QT6\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeCSV/install/local: phony DisposeAbstract/DisposeCSV/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build DisposeAbstract/DisposeCSV/CMakeFiles/install/strip.util: CUSTOM_COMMAND DisposeAbstract/DisposeCSV/all
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeCSV && D:\QT6\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeCSV/install/strip: phony DisposeAbstract/DisposeCSV/CMakeFiles/install/strip.util
+
+
+#############################################
+# Utility command for mytxt_csv_autogen_timestamp_deps
+
+build DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps: phony DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv_autogen_timestamp_deps
+
+
+#############################################
+# Utility command for mytxt_csv_autogen
+
+build DisposeAbstract/DisposeCSV/mytxt_csv_autogen: phony DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv_autogen DisposeAbstract/DisposeCSV/mytxt_csv_autogen/include/ui_ControlWidCSV.h DisposeAbstract/DisposeCSV/mytxt_csv_autogen/timestamp DisposeAbstract/DisposeCSV/mytxt_csv_autogen/mocs_compilation.cpp DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps
+
+
+#############################################
+# Custom command for DisposeAbstract\DisposeCSV\meta_types\qt6mytxt_csv_debug_metatypes.json.gen
+
+build DisposeAbstract/DisposeCSV/meta_types/qt6mytxt_csv_debug_metatypes.json.gen DisposeAbstract/DisposeCSV/meta_types/qt6mytxt_csv_debug_metatypes.json | ${cmake_ninja_workdir}DisposeAbstract/DisposeCSV/meta_types/qt6mytxt_csv_debug_metatypes.json.gen ${cmake_ninja_workdir}DisposeAbstract/DisposeCSV/meta_types/qt6mytxt_csv_debug_metatypes.json: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/moc.exe DisposeAbstract/DisposeCSV/meta_types/mytxt_csv_json_file_list.txt || DisposeAbstract/DisposeCSV/mytxt_csv_autogen DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeCSV && D:\QT6\6.8.0\mingw_64\bin\moc.exe -o D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/meta_types/qt6mytxt_csv_debug_metatypes.json.gen --collect-json @D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/meta_types/mytxt_csv_json_file_list.txt && D:\QT6\Tools\CMake_64\bin\cmake.exe -E copy_if_different D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/meta_types/qt6mytxt_csv_debug_metatypes.json.gen D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/meta_types/qt6mytxt_csv_debug_metatypes.json"
+  DESC = Running moc --collect-json for target mytxt_csv
+  restat = 1
+
+
+#############################################
+# Custom command for DisposeAbstract\DisposeCSV\mytxt_csv_autogen\timestamp
+
+build DisposeAbstract/DisposeCSV/mytxt_csv_autogen/timestamp DisposeAbstract/DisposeCSV/mytxt_csv_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}DisposeAbstract/DisposeCSV/mytxt_csv_autogen/timestamp ${cmake_ninja_workdir}DisposeAbstract/DisposeCSV/mytxt_csv_autogen/mocs_compilation.cpp: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe || DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeCSV && D:\QT6\Tools\CMake_64\bin\cmake.exe -E cmake_autogen D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv_autogen.dir/AutogenInfo.json Debug && D:\QT6\Tools\CMake_64\bin\cmake.exe -E touch D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/mytxt_csv_autogen/timestamp && D:\QT6\Tools\CMake_64\bin\cmake.exe -E cmake_transform_depfile Ninja gccdepfile D:/CxxProgram/SmartDesk D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV D:/CxxProgram/SmartDesk/.build/debug D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/mytxt_csv_autogen/deps D:/CxxProgram/SmartDesk/.build/debug/CMakeFiles/d/8a73f067c177646d55aacdd94c98b7b5b4f00f0d06a40d3dca1da9734321d77d.d"
+  DESC = Automatic MOC and UIC for target mytxt_csv
+  depfile = D:/CxxProgram/SmartDesk/.build/debug/CMakeFiles/d/8a73f067c177646d55aacdd94c98b7b5b4f00f0d06a40d3dca1da9734321d77d.d
+  restat = 1
+
+
+#############################################
+# Custom command for DisposeAbstract\DisposeCSV\meta_types\mytxt_csv_json_file_list.txt
+
+build DisposeAbstract/DisposeCSV/meta_types/mytxt_csv_json_file_list.txt DisposeAbstract/DisposeCSV/meta_types/mytxt_csv_json_file_list.txt.timestamp | ${cmake_ninja_workdir}DisposeAbstract/DisposeCSV/meta_types/mytxt_csv_json_file_list.txt ${cmake_ninja_workdir}DisposeAbstract/DisposeCSV/meta_types/mytxt_csv_json_file_list.txt.timestamp: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/cmake_automoc_parser.exe DisposeAbstract/DisposeCSV/mytxt_csv_autogen/timestamp || DisposeAbstract/DisposeCSV/mytxt_csv_autogen DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeCSV && D:\QT6\6.8.0\mingw_64\bin\cmake_automoc_parser.exe --cmake-autogen-cache-file D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv_autogen.dir/ParseCache.txt --cmake-autogen-info-file D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv_autogen.dir/AutogenInfo.json --output-file-path D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/meta_types/mytxt_csv_json_file_list.txt --timestamp-file-path D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/meta_types/mytxt_csv_json_file_list.txt.timestamp --cmake-autogen-include-dir-path D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/mytxt_csv_autogen/include"
+  DESC = Running AUTOMOC file extraction for target mytxt_csv
+  restat = 1
+
+
+#############################################
+# Phony custom command for DisposeAbstract\DisposeCSV\CMakeFiles\mytxt_csv_autogen_timestamp_deps
+
+build DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv_autogen_timestamp_deps | ${cmake_ninja_workdir}DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+
+
+#############################################
+# Phony custom command for DisposeAbstract\DisposeCSV\CMakeFiles\mytxt_csv_autogen
+
+build DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv_autogen DisposeAbstract/DisposeCSV/mytxt_csv_autogen/include/ui_ControlWidCSV.h | ${cmake_ninja_workdir}DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv_autogen ${cmake_ninja_workdir}DisposeAbstract/DisposeCSV/mytxt_csv_autogen/include/ui_ControlWidCSV.h: phony DisposeAbstract/DisposeCSV/mytxt_csv_autogen/timestamp || DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/CxxProgram/SmartDesk/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target mytxt_img
+
+
+#############################################
+# Order-only phony target for mytxt_img
+
+build cmake_object_order_depends_target_mytxt_img: phony || DisposeAbstract/DisposeIMG/meta_types/mytxt_img_json_file_list.txt DisposeAbstract/DisposeIMG/meta_types/mytxt_img_json_file_list.txt.timestamp DisposeAbstract/DisposeIMG/meta_types/qt6mytxt_img_debug_metatypes.json DisposeAbstract/DisposeIMG/meta_types/qt6mytxt_img_debug_metatypes.json.gen DisposeAbstract/DisposeIMG/mytxt_img_autogen DisposeAbstract/DisposeIMG/mytxt_img_autogen/mocs_compilation.cpp DisposeAbstract/DisposeIMG/mytxt_img_autogen/timestamp DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps
+
+build DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img.dir/mytxt_img_autogen/mocs_compilation.cpp.obj: CXX_COMPILER__mytxt_img_Debug D$:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/mytxt_img_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_mytxt_img
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img.dir\mytxt_img_autogen\mocs_compilation.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/mytxt_img_autogen/include -ID:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
+  OBJECT_DIR = DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img.dir
+  OBJECT_FILE_DIR = DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img.dir\mytxt_img_autogen
+
+build DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img.dir/TabHandleIMG.cpp.obj: CXX_COMPILER__mytxt_img_Debug D$:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/TabHandleIMG.cpp || cmake_object_order_depends_target_mytxt_img
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img.dir\TabHandleIMG.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/mytxt_img_autogen/include -ID:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
+  OBJECT_DIR = DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img.dir
+  OBJECT_FILE_DIR = DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img.dir
+
+build DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img.dir/ControlFrame.cpp.obj: CXX_COMPILER__mytxt_img_Debug D$:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/ControlFrame.cpp || cmake_object_order_depends_target_mytxt_img
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img.dir\ControlFrame.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/mytxt_img_autogen/include -ID:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
+  OBJECT_DIR = DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img.dir
+  OBJECT_FILE_DIR = DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img.dir
+
+build DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img.dir/PixItem.cpp.obj: CXX_COMPILER__mytxt_img_Debug D$:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/PixItem.cpp || cmake_object_order_depends_target_mytxt_img
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img.dir\PixItem.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/mytxt_img_autogen/include -ID:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtGui
+  OBJECT_DIR = DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img.dir
+  OBJECT_FILE_DIR = DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target mytxt_img
+
+
+#############################################
+# Link the static library DisposeAbstract\DisposeIMG\libmytxt_img.a
+
+build DisposeAbstract/DisposeIMG/libmytxt_img.a: CXX_STATIC_LIBRARY_LINKER__mytxt_img_Debug DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img.dir/mytxt_img_autogen/mocs_compilation.cpp.obj DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img.dir/TabHandleIMG.cpp.obj DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img.dir/ControlFrame.cpp.obj DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img.dir/PixItem.cpp.obj || DisposeAbstract/DisposeIMG/mytxt_img_autogen DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = DisposeAbstract\DisposeIMG\libmytxt_img.a
+  TARGET_PDB = mytxt_img.a.dbg
+
+
+#############################################
+# Utility command for package
+
+build DisposeAbstract/DisposeIMG/CMakeFiles/package.util: CUSTOM_COMMAND DisposeAbstract/DisposeIMG/all
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug && D:\QT6\Tools\CMake_64\bin\cpack.exe --config ./CPackConfig.cmake"
+  DESC = Run CPack packaging tool...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeIMG/package: phony DisposeAbstract/DisposeIMG/CMakeFiles/package.util
+
+
+#############################################
+# Utility command for package_source
+
+build DisposeAbstract/DisposeIMG/CMakeFiles/package_source.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug && D:\QT6\Tools\CMake_64\bin\cpack.exe --config ./CPackSourceConfig.cmake D:/CxxProgram/SmartDesk/.build/debug/CPackSourceConfig.cmake"
+  DESC = Run CPack packaging tool for source...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeIMG/package_source: phony DisposeAbstract/DisposeIMG/CMakeFiles/package_source.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build DisposeAbstract/DisposeIMG/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeIMG && D:\QT6\Tools\CMake_64\bin\cmake-gui.exe -SD:\CxxProgram\SmartDesk -BD:\CxxProgram\SmartDesk\.build\debug"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeIMG/edit_cache: phony DisposeAbstract/DisposeIMG/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build DisposeAbstract/DisposeIMG/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeIMG && D:\QT6\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -SD:\CxxProgram\SmartDesk -BD:\CxxProgram\SmartDesk\.build\debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeIMG/rebuild_cache: phony DisposeAbstract/DisposeIMG/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build DisposeAbstract/DisposeIMG/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build DisposeAbstract/DisposeIMG/CMakeFiles/install.util: CUSTOM_COMMAND DisposeAbstract/DisposeIMG/all
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeIMG && D:\QT6\Tools\CMake_64\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeIMG/install: phony DisposeAbstract/DisposeIMG/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build DisposeAbstract/DisposeIMG/CMakeFiles/install/local.util: CUSTOM_COMMAND DisposeAbstract/DisposeIMG/all
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeIMG && D:\QT6\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeIMG/install/local: phony DisposeAbstract/DisposeIMG/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build DisposeAbstract/DisposeIMG/CMakeFiles/install/strip.util: CUSTOM_COMMAND DisposeAbstract/DisposeIMG/all
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeIMG && D:\QT6\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build DisposeAbstract/DisposeIMG/install/strip: phony DisposeAbstract/DisposeIMG/CMakeFiles/install/strip.util
+
+
+#############################################
+# Utility command for mytxt_img_autogen_timestamp_deps
+
+build DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps: phony DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img_autogen_timestamp_deps
+
+
+#############################################
+# Utility command for mytxt_img_autogen
+
+build DisposeAbstract/DisposeIMG/mytxt_img_autogen: phony DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img_autogen DisposeAbstract/DisposeIMG/mytxt_img_autogen/include/ui_ControlFrame.h DisposeAbstract/DisposeIMG/mytxt_img_autogen/timestamp DisposeAbstract/DisposeIMG/mytxt_img_autogen/mocs_compilation.cpp DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps
+
+
+#############################################
+# Custom command for DisposeAbstract\DisposeIMG\meta_types\qt6mytxt_img_debug_metatypes.json.gen
+
+build DisposeAbstract/DisposeIMG/meta_types/qt6mytxt_img_debug_metatypes.json.gen DisposeAbstract/DisposeIMG/meta_types/qt6mytxt_img_debug_metatypes.json | ${cmake_ninja_workdir}DisposeAbstract/DisposeIMG/meta_types/qt6mytxt_img_debug_metatypes.json.gen ${cmake_ninja_workdir}DisposeAbstract/DisposeIMG/meta_types/qt6mytxt_img_debug_metatypes.json: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/moc.exe DisposeAbstract/DisposeIMG/meta_types/mytxt_img_json_file_list.txt || DisposeAbstract/DisposeIMG/mytxt_img_autogen DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeIMG && D:\QT6\6.8.0\mingw_64\bin\moc.exe -o D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/meta_types/qt6mytxt_img_debug_metatypes.json.gen --collect-json @D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/meta_types/mytxt_img_json_file_list.txt && D:\QT6\Tools\CMake_64\bin\cmake.exe -E copy_if_different D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/meta_types/qt6mytxt_img_debug_metatypes.json.gen D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/meta_types/qt6mytxt_img_debug_metatypes.json"
+  DESC = Running moc --collect-json for target mytxt_img
+  restat = 1
+
+
+#############################################
+# Custom command for DisposeAbstract\DisposeIMG\mytxt_img_autogen\timestamp
+
+build DisposeAbstract/DisposeIMG/mytxt_img_autogen/timestamp DisposeAbstract/DisposeIMG/mytxt_img_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}DisposeAbstract/DisposeIMG/mytxt_img_autogen/timestamp ${cmake_ninja_workdir}DisposeAbstract/DisposeIMG/mytxt_img_autogen/mocs_compilation.cpp: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe || DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeIMG && D:\QT6\Tools\CMake_64\bin\cmake.exe -E cmake_autogen D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img_autogen.dir/AutogenInfo.json Debug && D:\QT6\Tools\CMake_64\bin\cmake.exe -E touch D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/mytxt_img_autogen/timestamp && D:\QT6\Tools\CMake_64\bin\cmake.exe -E cmake_transform_depfile Ninja gccdepfile D:/CxxProgram/SmartDesk D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG D:/CxxProgram/SmartDesk/.build/debug D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/mytxt_img_autogen/deps D:/CxxProgram/SmartDesk/.build/debug/CMakeFiles/d/731f76efb2e4493f22fae30fdbadc60663cf7691a9453da781a5a0e4bbf0a886.d"
+  DESC = Automatic MOC and UIC for target mytxt_img
+  depfile = D:/CxxProgram/SmartDesk/.build/debug/CMakeFiles/d/731f76efb2e4493f22fae30fdbadc60663cf7691a9453da781a5a0e4bbf0a886.d
+  restat = 1
+
+
+#############################################
+# Custom command for DisposeAbstract\DisposeIMG\meta_types\mytxt_img_json_file_list.txt
+
+build DisposeAbstract/DisposeIMG/meta_types/mytxt_img_json_file_list.txt DisposeAbstract/DisposeIMG/meta_types/mytxt_img_json_file_list.txt.timestamp | ${cmake_ninja_workdir}DisposeAbstract/DisposeIMG/meta_types/mytxt_img_json_file_list.txt ${cmake_ninja_workdir}DisposeAbstract/DisposeIMG/meta_types/mytxt_img_json_file_list.txt.timestamp: CUSTOM_COMMAND D$:/QT6/6.8.0/mingw_64/bin/cmake_automoc_parser.exe DisposeAbstract/DisposeIMG/mytxt_img_autogen/timestamp || DisposeAbstract/DisposeIMG/mytxt_img_autogen DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps
+  COMMAND = cmd.exe /C "cd /D D:\CxxProgram\SmartDesk\.build\debug\DisposeAbstract\DisposeIMG && D:\QT6\6.8.0\mingw_64\bin\cmake_automoc_parser.exe --cmake-autogen-cache-file D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img_autogen.dir/ParseCache.txt --cmake-autogen-info-file D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img_autogen.dir/AutogenInfo.json --output-file-path D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/meta_types/mytxt_img_json_file_list.txt --timestamp-file-path D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/meta_types/mytxt_img_json_file_list.txt.timestamp --cmake-autogen-include-dir-path D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/mytxt_img_autogen/include"
+  DESC = Running AUTOMOC file extraction for target mytxt_img
+  restat = 1
+
+
+#############################################
+# Phony custom command for DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img_autogen_timestamp_deps
+
+build DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img_autogen_timestamp_deps | ${cmake_ninja_workdir}DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+
+
+#############################################
+# Phony custom command for DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img_autogen
+
+build DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img_autogen DisposeAbstract/DisposeIMG/mytxt_img_autogen/include/ui_ControlFrame.h | ${cmake_ninja_workdir}DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img_autogen ${cmake_ninja_workdir}DisposeAbstract/DisposeIMG/mytxt_img_autogen/include/ui_ControlFrame.h: phony DisposeAbstract/DisposeIMG/mytxt_img_autogen/timestamp || DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -2109,41 +2501,9 @@ build main/CMakeFiles/mytxt_main.dir/RecentFilesManager.cpp.obj: CXX_COMPILER__m
   OBJECT_DIR = main\CMakeFiles\mytxt_main.dir
   OBJECT_FILE_DIR = main\CMakeFiles\mytxt_main.dir
 
-build main/CMakeFiles/mytxt_main.dir/TabHandleCSV.cpp.obj: CXX_COMPILER__mytxt_main_Debug D$:/CxxProgram/SmartDesk/main/TabHandleCSV.cpp || cmake_object_order_depends_target_mytxt_main
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = main\CMakeFiles\mytxt_main.dir\TabHandleCSV.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/include -ID:/CxxProgram/SmartDesk/main/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include/QtGui -isystem D:/QT6/6.8.0/mingw_64/include/QtNetwork -isystem D:/QT6/6.8.0/mingw_64/include/QtSvg
-  OBJECT_DIR = main\CMakeFiles\mytxt_main.dir
-  OBJECT_FILE_DIR = main\CMakeFiles\mytxt_main.dir
-
-build main/CMakeFiles/mytxt_main.dir/TabHandleTXT.cpp.obj: CXX_COMPILER__mytxt_main_Debug D$:/CxxProgram/SmartDesk/main/TabHandleTXT.cpp || cmake_object_order_depends_target_mytxt_main
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = main\CMakeFiles\mytxt_main.dir\TabHandleTXT.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/include -ID:/CxxProgram/SmartDesk/main/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include/QtGui -isystem D:/QT6/6.8.0/mingw_64/include/QtNetwork -isystem D:/QT6/6.8.0/mingw_64/include/QtSvg
-  OBJECT_DIR = main\CMakeFiles\mytxt_main.dir
-  OBJECT_FILE_DIR = main\CMakeFiles\mytxt_main.dir
-
 build main/CMakeFiles/mytxt_main.dir/WidgetFunctional.cpp.obj: CXX_COMPILER__mytxt_main_Debug D$:/CxxProgram/SmartDesk/main/WidgetFunctional.cpp || cmake_object_order_depends_target_mytxt_main
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = main\CMakeFiles\mytxt_main.dir\WidgetFunctional.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/include -ID:/CxxProgram/SmartDesk/main/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include/QtGui -isystem D:/QT6/6.8.0/mingw_64/include/QtNetwork -isystem D:/QT6/6.8.0/mingw_64/include/QtSvg
-  OBJECT_DIR = main\CMakeFiles\mytxt_main.dir
-  OBJECT_FILE_DIR = main\CMakeFiles\mytxt_main.dir
-
-build main/CMakeFiles/mytxt_main.dir/ControlWidCSV.cpp.obj: CXX_COMPILER__mytxt_main_Debug D$:/CxxProgram/SmartDesk/main/ControlWidCSV.cpp || cmake_object_order_depends_target_mytxt_main
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = main\CMakeFiles\mytxt_main.dir\ControlWidCSV.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/include -ID:/CxxProgram/SmartDesk/main/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include/QtGui -isystem D:/QT6/6.8.0/mingw_64/include/QtNetwork -isystem D:/QT6/6.8.0/mingw_64/include/QtSvg
-  OBJECT_DIR = main\CMakeFiles\mytxt_main.dir
-  OBJECT_FILE_DIR = main\CMakeFiles\mytxt_main.dir
-
-build main/CMakeFiles/mytxt_main.dir/ControlWidTXT.cpp.obj: CXX_COMPILER__mytxt_main_Debug D$:/CxxProgram/SmartDesk/main/ControlWidTXT.cpp || cmake_object_order_depends_target_mytxt_main
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = main\CMakeFiles\mytxt_main.dir\ControlWidTXT.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/include -ID:/CxxProgram/SmartDesk/main/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include/QtGui -isystem D:/QT6/6.8.0/mingw_64/include/QtNetwork -isystem D:/QT6/6.8.0/mingw_64/include/QtSvg
   OBJECT_DIR = main\CMakeFiles\mytxt_main.dir
@@ -2157,7 +2517,7 @@ build main/CMakeFiles/mytxt_main.dir/ControlWidTXT.cpp.obj: CXX_COMPILER__mytxt_
 #############################################
 # Link the static library main\libmytxt_main.a
 
-build main/libmytxt_main.a: CXX_STATIC_LIBRARY_LINKER__mytxt_main_Debug main/CMakeFiles/mytxt_main.dir/mytxt_main_autogen/mocs_compilation.cpp.obj main/CMakeFiles/mytxt_main.dir/main.cpp.obj main/CMakeFiles/mytxt_main.dir/mainwindow.cpp.obj main/CMakeFiles/mytxt_main.dir/RecentFilesManager.cpp.obj main/CMakeFiles/mytxt_main.dir/TabHandleCSV.cpp.obj main/CMakeFiles/mytxt_main.dir/TabHandleTXT.cpp.obj main/CMakeFiles/mytxt_main.dir/WidgetFunctional.cpp.obj main/CMakeFiles/mytxt_main.dir/ControlWidCSV.cpp.obj main/CMakeFiles/mytxt_main.dir/ControlWidTXT.cpp.obj || main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps
+build main/libmytxt_main.a: CXX_STATIC_LIBRARY_LINKER__mytxt_main_Debug main/CMakeFiles/mytxt_main.dir/mytxt_main_autogen/mocs_compilation.cpp.obj main/CMakeFiles/mytxt_main.dir/main.cpp.obj main/CMakeFiles/mytxt_main.dir/mainwindow.cpp.obj main/CMakeFiles/mytxt_main.dir/RecentFilesManager.cpp.obj main/CMakeFiles/mytxt_main.dir/WidgetFunctional.cpp.obj || main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = main\CMakeFiles\mytxt_main.dir
   POST_BUILD = cd .
@@ -2265,7 +2625,7 @@ build main/mytxt_main_autogen_timestamp_deps: phony main/CMakeFiles/mytxt_main_a
 #############################################
 # Utility command for mytxt_main_autogen
 
-build main/mytxt_main_autogen: phony main/CMakeFiles/mytxt_main_autogen main/mytxt_main_autogen/include/ui/ui_WidgetFunctional.h main/mytxt_main_autogen/include/ui/ui_ControlWidCSV.h main/mytxt_main_autogen/include/ui/ui_ControlWidTXT.h main/mytxt_main_autogen/include/ui/ui_mainwindow.h main/mytxt_main_autogen/timestamp main/mytxt_main_autogen/mocs_compilation.cpp main/mytxt_main_autogen_timestamp_deps
+build main/mytxt_main_autogen: phony main/CMakeFiles/mytxt_main_autogen main/mytxt_main_autogen/include/ui/ui_WidgetFunctional.h main/mytxt_main_autogen/include/ui/ui_mainwindow.h main/mytxt_main_autogen/timestamp main/mytxt_main_autogen/mocs_compilation.cpp main/mytxt_main_autogen_timestamp_deps
 
 
 #############################################
@@ -2308,13 +2668,13 @@ build main/meta_types/mytxt_main_json_file_list.txt main/meta_types/mytxt_main_j
 #############################################
 # Phony custom command for main\CMakeFiles\mytxt_main_autogen_timestamp_deps
 
-build main/CMakeFiles/mytxt_main_autogen_timestamp_deps | ${cmake_ninja_workdir}main/CMakeFiles/mytxt_main_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Svg.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+build main/CMakeFiles/mytxt_main_autogen_timestamp_deps | ${cmake_ninja_workdir}main/CMakeFiles/mytxt_main_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Svg.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
 
 
 #############################################
 # Phony custom command for main\CMakeFiles\mytxt_main_autogen
 
-build main/CMakeFiles/mytxt_main_autogen main/mytxt_main_autogen/include/ui/ui_WidgetFunctional.h main/mytxt_main_autogen/include/ui/ui_ControlWidCSV.h main/mytxt_main_autogen/include/ui/ui_ControlWidTXT.h main/mytxt_main_autogen/include/ui/ui_mainwindow.h | ${cmake_ninja_workdir}main/CMakeFiles/mytxt_main_autogen ${cmake_ninja_workdir}main/mytxt_main_autogen/include/ui/ui_WidgetFunctional.h ${cmake_ninja_workdir}main/mytxt_main_autogen/include/ui/ui_ControlWidCSV.h ${cmake_ninja_workdir}main/mytxt_main_autogen/include/ui/ui_ControlWidTXT.h ${cmake_ninja_workdir}main/mytxt_main_autogen/include/ui/ui_mainwindow.h: phony main/mytxt_main_autogen/timestamp || main/mytxt_main_autogen_timestamp_deps
+build main/CMakeFiles/mytxt_main_autogen main/mytxt_main_autogen/include/ui/ui_WidgetFunctional.h main/mytxt_main_autogen/include/ui/ui_mainwindow.h | ${cmake_ninja_workdir}main/CMakeFiles/mytxt_main_autogen ${cmake_ninja_workdir}main/mytxt_main_autogen/include/ui/ui_WidgetFunctional.h ${cmake_ninja_workdir}main/mytxt_main_autogen/include/ui/ui_mainwindow.h: phony main/mytxt_main_autogen/timestamp || main/mytxt_main_autogen_timestamp_deps
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -2693,11 +3053,13 @@ build SmartDesk: phony SmartDesk.exe
 
 build libSimpleMail3Qt6.dll: phony EmailService/simple-mail/src/libSimpleMail3Qt6.dll
 
-build libmytxt_draw.a: phony ImageDispose/libmytxt_draw.a
+build libmytxt_csv.a: phony DisposeAbstract/DisposeCSV/libmytxt_csv.a
 
 build libmytxt_filehis.a: phony FileBackup/libmytxt_filehis.a
 
 build libmytxt_filetag.a: phony FileSystem/libmytxt_filetag.a
+
+build libmytxt_img.a: phony DisposeAbstract/DisposeIMG/libmytxt_img.a
 
 build libmytxt_main.a: phony main/libmytxt_main.a
 
@@ -2709,13 +3071,15 @@ build libmytxt_schedule.a: phony TagSchedule/libmytxt_schedule.a
 
 build libmytxt_setting.a: phony setting/libmytxt_setting.a
 
+build libmytxt_txt.a: phony DisposeAbstract/DisposeTXT/libmytxt_txt.a
+
 build libmytxt_userinfo.a: phony userinfo/libmytxt_userinfo.a
 
-build mytxt_draw: phony ImageDispose/libmytxt_draw.a
+build mytxt_csv: phony DisposeAbstract/DisposeCSV/libmytxt_csv.a
 
-build mytxt_draw_autogen: phony ImageDispose/mytxt_draw_autogen
+build mytxt_csv_autogen: phony DisposeAbstract/DisposeCSV/mytxt_csv_autogen
 
-build mytxt_draw_autogen_timestamp_deps: phony ImageDispose/mytxt_draw_autogen_timestamp_deps
+build mytxt_csv_autogen_timestamp_deps: phony DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps
 
 build mytxt_email: phony EmailService/mytxt_email.dll
 
@@ -2736,6 +3100,12 @@ build mytxt_filetag: phony FileSystem/libmytxt_filetag.a
 build mytxt_filetag_autogen: phony FileSystem/mytxt_filetag_autogen
 
 build mytxt_filetag_autogen_timestamp_deps: phony FileSystem/mytxt_filetag_autogen_timestamp_deps
+
+build mytxt_img: phony DisposeAbstract/DisposeIMG/libmytxt_img.a
+
+build mytxt_img_autogen: phony DisposeAbstract/DisposeIMG/mytxt_img_autogen
+
+build mytxt_img_autogen_timestamp_deps: phony DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps
 
 build mytxt_main: phony main/libmytxt_main.a
 
@@ -2767,6 +3137,12 @@ build mytxt_setting_autogen: phony setting/mytxt_setting_autogen
 
 build mytxt_setting_autogen_timestamp_deps: phony setting/mytxt_setting_autogen_timestamp_deps
 
+build mytxt_txt: phony DisposeAbstract/DisposeTXT/libmytxt_txt.a
+
+build mytxt_txt_autogen: phony DisposeAbstract/DisposeTXT/mytxt_txt_autogen
+
+build mytxt_txt_autogen_timestamp_deps: phony DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps
+
 build mytxt_userinfo: phony userinfo/libmytxt_userinfo.a
 
 build mytxt_userinfo_autogen: phony userinfo/mytxt_userinfo_autogen
@@ -2781,7 +3157,28 @@ build mytxt_userinfo_autogen_timestamp_deps: phony userinfo/mytxt_userinfo_autog
 #############################################
 # Folder: D:/CxxProgram/SmartDesk/.build/debug
 
-build all: phony SmartDesk.exe manager/all FileBackup/all FileSystem/all onlinedoc/all TagSchedule/all setting/all userinfo/all EmailService/all ImageDispose/all main/all EmailService/simple-mail/all
+build all: phony SmartDesk.exe manager/all FileBackup/all FileSystem/all onlinedoc/all TagSchedule/all setting/all userinfo/all EmailService/all DisposeAbstract/DisposeTXT/all DisposeAbstract/DisposeCSV/all DisposeAbstract/DisposeIMG/all main/all EmailService/simple-mail/all
+
+# =============================================================================
+
+#############################################
+# Folder: D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV
+
+build DisposeAbstract/DisposeCSV/all: phony DisposeAbstract/DisposeCSV/libmytxt_csv.a
+
+# =============================================================================
+
+#############################################
+# Folder: D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG
+
+build DisposeAbstract/DisposeIMG/all: phony DisposeAbstract/DisposeIMG/libmytxt_img.a
+
+# =============================================================================
+
+#############################################
+# Folder: D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT
+
+build DisposeAbstract/DisposeTXT/all: phony DisposeAbstract/DisposeTXT/libmytxt_txt.a
 
 # =============================================================================
 
@@ -2817,13 +3214,6 @@ build FileBackup/all: phony FileBackup/libmytxt_filehis.a
 # Folder: D:/CxxProgram/SmartDesk/.build/debug/FileSystem
 
 build FileSystem/all: phony FileSystem/libmytxt_filetag.a
-
-# =============================================================================
-
-#############################################
-# Folder: D:/CxxProgram/SmartDesk/.build/debug/ImageDispose
-
-build ImageDispose/all: phony ImageDispose/libmytxt_draw.a
 
 # =============================================================================
 
@@ -2874,14 +3264,14 @@ build userinfo/all: phony userinfo/libmytxt_userinfo.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | .qtc/package-manager/auto-setup.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeRCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake D$:/CxxProgram/SmartDesk/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/simple-mail/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/simple-mail/cmake/modules/CPackConfig.cmake D$:/CxxProgram/SmartDesk/EmailService/simple-mail/cmake/modules/simplemailqtX-config-version.cmake.in D$:/CxxProgram/SmartDesk/EmailService/simple-mail/cmake/modules/simplemailqtX-config.cmake.in D$:/CxxProgram/SmartDesk/EmailService/simple-mail/src/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/simple-mail/src/simplemail-qtX.pc.in D$:/CxxProgram/SmartDesk/FileBackup/CMakeLists.txt D$:/CxxProgram/SmartDesk/FileSystem/CMakeLists.txt D$:/CxxProgram/SmartDesk/ImageDispose/CMakeLists.txt D$:/CxxProgram/SmartDesk/OnlineDoc/CMakeLists.txt D$:/CxxProgram/SmartDesk/Setting/CMakeLists.txt D$:/CxxProgram/SmartDesk/TagSchedule/CMakeLists.txt D$:/CxxProgram/SmartDesk/UserInfo/CMakeLists.txt D$:/CxxProgram/SmartDesk/main/CMakeLists.txt D$:/CxxProgram/SmartDesk/manager/CMakeLists.txt D$:/CxxProgram/SmartDesk/resources/res.qrc D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsVersionlessTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigExtras.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointMinGW32Target.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/FindWrapAtomic.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6ConfigExtras.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Targets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6VersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtFeature.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtFeatureCommon.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtInstallPaths.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicAppleHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicCMakeHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicExternalProjectHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicFinalizerHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicFindPackageHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicGitHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicPluginHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicSbomGenerationHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicSbomHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicTargetHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicTestHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicToolHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindDependencyMacro.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeRCInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CPack.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CPackComponent.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCSourceCompiles.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCXXCompilerFlag.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCXXSourceCompiles.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckIncludeFile.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckIncludeFileCXX.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckLibraryExists.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageMessage.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindThreads.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindVulkan.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/GNUInstallDirs.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckCompilerFlag.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckFlagCommonConfig.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-C-ABI.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-C.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Templates/CPackConfig.cmake.in
+build build.ninja: RERUN_CMAKE | .qtc/package-manager/auto-setup.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeRCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake D$:/CxxProgram/SmartDesk/CMakeLists.txt D$:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/CMakeLists.txt D$:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/CMakeLists.txt D$:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/simple-mail/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/simple-mail/cmake/modules/CPackConfig.cmake D$:/CxxProgram/SmartDesk/EmailService/simple-mail/cmake/modules/simplemailqtX-config-version.cmake.in D$:/CxxProgram/SmartDesk/EmailService/simple-mail/cmake/modules/simplemailqtX-config.cmake.in D$:/CxxProgram/SmartDesk/EmailService/simple-mail/src/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/simple-mail/src/simplemail-qtX.pc.in D$:/CxxProgram/SmartDesk/FileBackup/CMakeLists.txt D$:/CxxProgram/SmartDesk/FileSystem/CMakeLists.txt D$:/CxxProgram/SmartDesk/OnlineDoc/CMakeLists.txt D$:/CxxProgram/SmartDesk/Setting/CMakeLists.txt D$:/CxxProgram/SmartDesk/TagSchedule/CMakeLists.txt D$:/CxxProgram/SmartDesk/UserInfo/CMakeLists.txt D$:/CxxProgram/SmartDesk/main/CMakeLists.txt D$:/CxxProgram/SmartDesk/manager/CMakeLists.txt D$:/CxxProgram/SmartDesk/resources/res.qrc D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsVersionlessTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigExtras.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointMinGW32Target.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/FindWrapAtomic.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6ConfigExtras.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Targets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6VersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtFeature.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtFeatureCommon.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtInstallPaths.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicAppleHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicCMakeHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicExternalProjectHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicFinalizerHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicFindPackageHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicGitHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicPluginHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicSbomGenerationHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicSbomHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicTargetHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicTestHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicToolHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindDependencyMacro.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeRCInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CPack.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CPackComponent.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCSourceCompiles.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCXXCompilerFlag.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCXXSourceCompiles.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckIncludeFile.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckIncludeFileCXX.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckLibraryExists.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageMessage.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindThreads.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindVulkan.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/GNUInstallDirs.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckCompilerFlag.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckFlagCommonConfig.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-C-ABI.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-C.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Templates/CPackConfig.cmake.in
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build .qtc/package-manager/auto-setup.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeRCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake D$:/CxxProgram/SmartDesk/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/simple-mail/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/simple-mail/cmake/modules/CPackConfig.cmake D$:/CxxProgram/SmartDesk/EmailService/simple-mail/cmake/modules/simplemailqtX-config-version.cmake.in D$:/CxxProgram/SmartDesk/EmailService/simple-mail/cmake/modules/simplemailqtX-config.cmake.in D$:/CxxProgram/SmartDesk/EmailService/simple-mail/src/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/simple-mail/src/simplemail-qtX.pc.in D$:/CxxProgram/SmartDesk/FileBackup/CMakeLists.txt D$:/CxxProgram/SmartDesk/FileSystem/CMakeLists.txt D$:/CxxProgram/SmartDesk/ImageDispose/CMakeLists.txt D$:/CxxProgram/SmartDesk/OnlineDoc/CMakeLists.txt D$:/CxxProgram/SmartDesk/Setting/CMakeLists.txt D$:/CxxProgram/SmartDesk/TagSchedule/CMakeLists.txt D$:/CxxProgram/SmartDesk/UserInfo/CMakeLists.txt D$:/CxxProgram/SmartDesk/main/CMakeLists.txt D$:/CxxProgram/SmartDesk/manager/CMakeLists.txt D$:/CxxProgram/SmartDesk/resources/res.qrc D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsVersionlessTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigExtras.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointMinGW32Target.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/FindWrapAtomic.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6ConfigExtras.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Targets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6VersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtFeature.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtFeatureCommon.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtInstallPaths.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicAppleHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicCMakeHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicExternalProjectHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicFinalizerHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicFindPackageHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicGitHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicPluginHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicSbomGenerationHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicSbomHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicTargetHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicTestHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicToolHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindDependencyMacro.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeRCInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CPack.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CPackComponent.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCSourceCompiles.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCXXCompilerFlag.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCXXSourceCompiles.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckIncludeFile.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckIncludeFileCXX.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckLibraryExists.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageMessage.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindThreads.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindVulkan.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/GNUInstallDirs.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckCompilerFlag.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckFlagCommonConfig.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-C-ABI.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-C.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Templates/CPackConfig.cmake.in: phony
+build .qtc/package-manager/auto-setup.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeRCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake D$:/CxxProgram/SmartDesk/CMakeLists.txt D$:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/CMakeLists.txt D$:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/CMakeLists.txt D$:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/simple-mail/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/simple-mail/cmake/modules/CPackConfig.cmake D$:/CxxProgram/SmartDesk/EmailService/simple-mail/cmake/modules/simplemailqtX-config-version.cmake.in D$:/CxxProgram/SmartDesk/EmailService/simple-mail/cmake/modules/simplemailqtX-config.cmake.in D$:/CxxProgram/SmartDesk/EmailService/simple-mail/src/CMakeLists.txt D$:/CxxProgram/SmartDesk/EmailService/simple-mail/src/simplemail-qtX.pc.in D$:/CxxProgram/SmartDesk/FileBackup/CMakeLists.txt D$:/CxxProgram/SmartDesk/FileSystem/CMakeLists.txt D$:/CxxProgram/SmartDesk/OnlineDoc/CMakeLists.txt D$:/CxxProgram/SmartDesk/Setting/CMakeLists.txt D$:/CxxProgram/SmartDesk/TagSchedule/CMakeLists.txt D$:/CxxProgram/SmartDesk/UserInfo/CMakeLists.txt D$:/CxxProgram/SmartDesk/main/CMakeLists.txt D$:/CxxProgram/SmartDesk/manager/CMakeLists.txt D$:/CxxProgram/SmartDesk/resources/res.qrc D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsVersionlessTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigExtras.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointMinGW32Target.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Svg/Qt6SvgVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsPlugins.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets-relwithdebinfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateAdditionalTargetInfo.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfig.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateVersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/FindWrapAtomic.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6ConfigExtras.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Targets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6VersionlessAliasTargets.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtFeature.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtFeatureCommon.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtInstallPaths.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicAppleHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicCMakeHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicExternalProjectHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicFinalizerHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicFindPackageHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicGitHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicPluginHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicSbomGenerationHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicSbomHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicTargetHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicTestHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicToolHelpers.cmake D$:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindDependencyMacro.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeRCInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CPack.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CPackComponent.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCSourceCompiles.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCXXCompilerFlag.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckCXXSourceCompiles.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckIncludeFile.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckIncludeFileCXX.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CheckLibraryExists.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageMessage.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindThreads.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindVulkan.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/GNUInstallDirs.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckCompilerFlag.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckFlagCommonConfig.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-C-ABI.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-C.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake D$:/QT6/Tools/CMake_64/share/cmake-3.24/Templates/CPackConfig.cmake.in: phony
 
 
 #############################################

@@ -12,12 +12,16 @@
 #include <QStackedWidget>
 #include <QSplitter>
 
-#include "TabAbstract.h"
 #include "RecentFilesManager.h"
-#include "TabHandleTXT.h"
-#include "TabHandleCSV.h"
-#include "../../ImageDispose/TabHandleIMG.h"
 #include "WidgetFunctional.h"
+
+#include "TabAbstract.h"
+#include "../../DisposeAbstract/DisposeTXT/TabHandleTXT.h"
+#include "../../DisposeAbstract/DisposeCSV/TabHandleCSV.h"
+#include "../../DisposeAbstract/DisposeIMG/TabHandleIMG.h"
+#include "../../DisposeAbstract/DisposeCSV/ControlWidCSV.h"
+#include "../../DisposeAbstract/DisposeIMG/ControlFrame.h"
+
 #include "../../OnlineDoc/include/WOnlineDoc.h"
 #include "../../Setting/Setting.h"
 #include "../../TagSchedule/include/ScheduleWid.h"
@@ -25,8 +29,6 @@
 #include "../../FileBackup/include/FileBackupList.h"
 #include "../../manager/include/dbService.h"
 #include "../../EmailService/SendEmail.h"
-#include "../../ImageDispose/ControlFrame.h"
-#include "ControlWidCSV.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
