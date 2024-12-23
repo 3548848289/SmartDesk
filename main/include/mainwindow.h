@@ -18,9 +18,9 @@
 #include "TabAbstract.h"
 #include "../../DisposeAbstract/DisposeTXT/TabHandleTXT.h"
 #include "../../DisposeAbstract/DisposeCSV/TabHandleCSV.h"
-#include "../../DisposeAbstract/DisposeIMG/TabHandleIMG.h"
+#include "../../DisposeAbstract/DisposeIMG/include/TabHandleIMG.h"
 #include "../../DisposeAbstract/DisposeCSV/ControlWidCSV.h"
-#include "../../DisposeAbstract/DisposeIMG/ControlFrame.h"
+#include "../../DisposeAbstract/DisposeIMG/include/ControlFrame.h"
 
 #include "../../OnlineDoc/include/WOnlineDoc.h"
 #include "../../Setting/Setting.h"
@@ -66,6 +66,8 @@ private slots:
 private:
 
     int currentIndex = 0;
+    QMap<QString, int> fileTabMap;
+
     QPushButton *loginButton;
     QTabWidget *tabWidget;
     Ui::MainWindow *ui;

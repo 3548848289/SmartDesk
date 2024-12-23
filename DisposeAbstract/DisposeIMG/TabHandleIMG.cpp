@@ -1,4 +1,4 @@
-#include "TabHandleIMG.h"
+#include "include/TabHandleIMG.h"
 #include <QHBoxLayout>
 
 TabHandleIMG::TabHandleIMG(const QString& filePath, QWidget *parent)
@@ -83,19 +83,32 @@ void TabHandleIMG::updateTransformations(int angle, qreal scale, qreal shear, qr
 }
 
 void TabHandleIMG::exportImage(const QString &filePath) {
-
-
-    // 获取场景的边界
+    // 获取场景的边界，扩展到包含所有图形项
     QRectF sceneRect = scene->sceneRect();
+    QRectF itemsRect = scene->itemsBoundingRect(); // 获取所有图形项的边界
+    sceneRect = sceneRect.united(itemsRect);  // 合并场景区域和项的边界
 
-    // 创建一个 QImage 来保存场景内容，指定图像大小
+    // 创建 QImage 来保存场景内容
     QImage image(sceneRect.width(), sceneRect.height(), QImage::Format_ARGB32);
     image.fill(Qt::white);  // 填充背景色为白色
 
-    // 创建 QPainter 对象来绘制场景到图像
+    // 创建 QPainter 对象并设置渲染区域
     QPainter painter(&image);
-    scene->render(&painter);  // 渲染场景内容到 QImage
+    QTransform transform;
+    transform.translate(-sceneRect.left(), -sceneRect.top());  // 平移到场景的起点
+    painter.setTransform(transform);
 
+    // 如果有视图，考虑视图的缩放比例
+    if (!scene->views().isEmpty()) {
+        QGraphicsView *view = scene->views().first();  // 获取第一个视图
+        QTransform viewTransform = view->transform();
+        painter.scale(viewTransform.m11(), viewTransform.m22());  // 按视图缩放渲染
+    }
+
+    // 渲染整个场景
+    scene->render(&painter, QRectF(), sceneRect);
+
+    // 保存图像
     if (!image.isNull()) {
         if (!image.save(filePath)) {
             QMessageBox::warning(this, tr("Export Error"), tr("Failed to export image."));
@@ -105,6 +118,4 @@ void TabHandleIMG::exportImage(const QString &filePath) {
     } else {
         QMessageBox::warning(this, tr("Export Error"), tr("Image is not loaded or invalid."));
     }
-
 }
-

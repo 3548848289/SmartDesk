@@ -41,6 +41,12 @@
 			null
 		],
 		[
+			"D:/CxxProgram/SmartDesk/TagSchedule/include/TagDetail.h",
+			"MU",
+			"6YEA5652QU/moc_TagDetail.cpp",
+			null
+		],
+		[
 			"D:/CxxProgram/SmartDesk/TagSchedule/include/TagList.h",
 			"MU",
 			"6YEA5652QU/moc_TagList.cpp",
@@ -135,6 +141,7 @@
 			null
 		],
 		[ "D:/CxxProgram/SmartDesk/TagSchedule/ScheduleWid.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/TagSchedule/TagDetail.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/TagSchedule/TagList.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],

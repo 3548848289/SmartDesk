@@ -1,14 +1,15 @@
 set(FILETAG_SOURCES
     FileSystem.cpp
     TagItemDelegate.cpp
+    # FileContextMenu.cpp
+
 )
 
 set(FILETAG_HEADERS
 
     include/FileSystem.h
     include/TagItemDelegate.h
-
-
+    # include/FileContextMenu.h
 )
 
 set(FILETAG_UIS
@@ -21,7 +22,6 @@ qt_add_library(mytxt_filetag
     ${FILETAG_SOURCES}
     ${FILETAG_HEADERS}
     ${FILETAG_UIS}
-
 )
 
 target_link_libraries(mytxt_filetag PRIVATE

@@ -15,7 +15,6 @@
 
 #include "TagList.h"
 
-#include "../../manager/include/dbService.h"
 #include "../LmsgNotify/notifymanager.h"
 // #include "Notify.h"
 
@@ -38,21 +37,17 @@ signals:
     void fileClicked(const QString &path);
 
 private slots:
-    void onItemClicked(QListWidgetItem *item);  // 文件点击事件
-    void onTagChanged(const QString &tag);  // 标签筛选事件
-    void onSearch(const QString &keyword);  // 关键词搜索事件
-    void sortByExpDate(); // 新增排序功能
+    void onItemClicked(QListWidgetItem *item);
+    void onSearch(const QString &keyword);
 
-    void onSortClicked();
+    void on_sortBtn_clicked();
 
-    void on_pushButton_clicked();
+    void on_comboBox_currentIndexChanged(int index);
 
 private:
-    QString getExpInfo(const QString &path, const QDateTime &dateTime);
     void loadFiles();  // 从数据库加载文件
     void loadTags();  // 从数据库加载标签到ComboBox
     void filterByTag(const QString &tag);  // 基于标签筛选文件
-    void filterByKeyword(const QString &keyword);  // 基于关键词筛选文件
 
     void startExpirationCheck();
     void checkExpiration();

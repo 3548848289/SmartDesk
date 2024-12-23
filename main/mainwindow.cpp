@@ -147,8 +147,6 @@ void MainWindow::receiveSendEmailForm(SendEmail *form)
 
     ui->stackedWidget->setCurrentWidget(widgetr);
 
-
-
 }
 
 void MainWindow::on_actiontxt_file_triggered()
@@ -172,6 +170,14 @@ void MainWindow::on_actionopen_triggered()
 
 void MainWindow::openFile(const QString &filePath)
 {
+    qDebug() << "MainWindow::openFile" << filePath;
+
+    if (fileTabMap.contains(filePath)) {
+        int existingIndex = fileTabMap[filePath];
+        tabWidget->setCurrentIndex(existingIndex);  // 跳转到已有标签页
+        return;  // 文件已打开，直接返回
+    }
+
     TabAbstract* newTab = createTabByFileName(filePath);
     if (newTab) {
         newTab->loadFromFile(filePath);
@@ -189,6 +195,7 @@ void MainWindow::openFile(const QString &filePath)
             qDebug() << baseName;
             tabWidget->setTabText(newIndex, QFileInfo(baseName).fileName());
         });
+        fileTabMap.insert(filePath, newIndex);
         tabWidget->setCurrentIndex(newIndex);
 
         recentFilesManager->addFile(filePath);
@@ -286,8 +293,11 @@ void MainWindow::on_actionclose_triggered()
         TabAbstract *tab = qobject_cast<TabAbstract*>(widget);
         if (tab) {
             if (tab->confirmClose())
+            {
                 tabWidget->removeTab(currentIndex);
-
+                QString filePath = tab->getCurrentFilePath();
+                qDebug() << "MainWindow::on_actionclose_triggered" << filePath;
+                fileTabMap.remove(filePath);            }
             else
                 qDebug() << "Tab close canceled by user.";
         }

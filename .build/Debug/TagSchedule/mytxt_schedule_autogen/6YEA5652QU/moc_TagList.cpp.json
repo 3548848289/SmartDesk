@@ -2,9 +2,17 @@
     "classes": [
         {
             "className": "TagList",
-            "lineNumber": 12,
+            "lineNumber": 21,
             "object": true,
             "qualifiedClassName": "TagList",
+            "slots": [
+                {
+                    "access": "private",
+                    "index": 0,
+                    "name": "on_pushButton_clicked",
+                    "returnType": "void"
+                }
+            ],
             "superClasses": [
                 {
                     "access": "public",

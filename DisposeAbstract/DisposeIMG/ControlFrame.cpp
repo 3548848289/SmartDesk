@@ -1,5 +1,5 @@
-#include "ControlFrame.h"
-#include "ui_ControlFrame.h"
+#include "include/ControlFrame.h"
+#include "ui/ui_ControlFrame.h"
 
 ControlFrame::ControlFrame(QWidget *parent)
     : QWidget(parent), ui(new Ui::ControlFrame)

@@ -11,21 +11,21 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/ControlFrame.h",
+			"D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/ControlFrame.h",
 			"MU",
-			"EWIEGA46WW/moc_ControlFrame.cpp",
+			"6YEA5652QU/moc_ControlFrame.cpp",
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/PixItem.h",
+			"D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/PixItem.h",
 			"MU",
-			"EWIEGA46WW/moc_PixItem.cpp",
+			"6YEA5652QU/moc_PixItem.cpp",
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/TabHandleIMG.h",
+			"D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/TabHandleIMG.h",
 			"MU",
-			"EWIEGA46WW/moc_TabHandleIMG.cpp",
+			"6YEA5652QU/moc_TabHandleIMG.cpp",
 			null
 		]
 	],

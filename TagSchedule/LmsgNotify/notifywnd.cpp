@@ -115,8 +115,8 @@ void NotifyWnd::setData(const QVariantMap &data)
     }
 
     // 在 bodyLabel 上显示所有内容
-    bodyLabel->setText(fullBody);
-    qDebug() << bodyLabel->text();
+    bodyLabel->setText(bodyElid);
+    // qDebug() << bodyLabel->text();
 
     // // 处理样式
     // if (data.contains("styleSheet"))

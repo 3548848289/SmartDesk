@@ -1,12 +1,22 @@
 D:/CxxProgram/SmartDesk/.build/debug/TagSchedule/mytxt_schedule_autogen/6YEA5652QU/moc_TagList.cpp: D:/CxxProgram/SmartDesk/TagSchedule/include/TagList.h \
   D:/CxxProgram/SmartDesk/.build/debug/TagSchedule/mytxt_schedule_autogen/moc_predefs.h \
+  D:/CxxProgram/SmartDesk/TagSchedule/include/TagDetail.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbService.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QFile \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFileInfo \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QUuid \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20memory.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20type_traits.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q23utility.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qabstractitemmodel.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qalgorithms.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qanystringview.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qarraydata.h \
@@ -37,6 +47,8 @@ D:/CxxProgram/SmartDesk/.build/debug/TagSchedule/mytxt_schedule_autogen/6YEA5652
   D:/QT6/6.8.0/mingw_64/include/QtCore/qdatastream.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qdatetime.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qdebug.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qdir.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qdirlisting.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qendian.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qexceptionhandling.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qfile.h \
@@ -54,6 +66,7 @@ D:/CxxProgram/SmartDesk/.build/debug/TagSchedule/mytxt_schedule_autogen/6YEA5652
   D:/QT6/6.8.0/mingw_64/include/QtCore/qhashfunctions.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qiodevice.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qiodevicebase.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qitemselectionmodel.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qiterable.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qiterator.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qlatin1stringview.h \
@@ -66,6 +79,7 @@ D:/CxxProgram/SmartDesk/.build/debug/TagSchedule/mytxt_schedule_autogen/6YEA5652
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmargins.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmath.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmetacontainer.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qmetaobject.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmetatype.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qminmax.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qnamespace.h \
@@ -80,6 +94,7 @@ D:/CxxProgram/SmartDesk/.build/debug/TagSchedule/mytxt_schedule_autogen/6YEA5652
   D:/QT6/6.8.0/mingw_64/include/QtCore/qprocessordetection.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qrect.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qrefcount.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qregularexpression.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qscopedpointer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qscopeguard.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qset.h \
@@ -124,7 +139,9 @@ D:/CxxProgram/SmartDesk/.build/debug/TagSchedule/mytxt_schedule_autogen/6YEA5652
   D:/QT6/6.8.0/mingw_64/include/QtCore/qtversionchecks.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qtypeinfo.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qtypes.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qurl.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qutf8stringview.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/quuid.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qvariant.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qvarlengtharray.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qversiontagging.h \
@@ -153,10 +170,45 @@ D:/CxxProgram/SmartDesk/.build/debug/TagSchedule/mytxt_schedule_autogen/6YEA5652
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtguiexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtguiglobal.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtransform.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qvalidator.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlDatabase \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlError \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlQuery \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qsqldatabase.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlerror.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlquery.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qtsql-config.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlexports.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QPushButton \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTableWidget \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTableWidgetItem \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractitemview.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractslider.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialog.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qfiledialog.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qpushbutton.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qrubberband.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qslider.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qstyle.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qstyleoption.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtabbar.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtableview.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtablewidget.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtabwidget.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

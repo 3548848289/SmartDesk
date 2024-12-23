@@ -106,6 +106,9 @@ void TagItemDelegate::onOpenFileTriggered(QAbstractItemModel *model, const QMode
 }
 
 void TagItemDelegate::onDeleteFileTriggered(QAbstractItemModel *model, const QModelIndex &index) {
+    qDebug() << "TagItemDelegate::onDeleteFileTriggered 文件删除功能隐藏了";
+    return;
+
     QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
     QFile file(filePath);
     if (file.remove()) {
@@ -149,6 +152,5 @@ void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex 
         dbservice.dbTags().saveTags(fileId, tagName);
         dbservice.dbTags().saveAnnotation(fileId, annotation);
         dbservice.dbTags().saveExpirationDate(fileId, expirationDate);
-
     }
 }

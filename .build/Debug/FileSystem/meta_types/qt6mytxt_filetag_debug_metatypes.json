@@ -55,7 +55,7 @@
         "classes": [
             {
                 "className": "TagItemDelegate",
-                "lineNumber": 18,
+                "lineNumber": 19,
                 "object": true,
                 "qualifiedClassName": "TagItemDelegate",
                 "signals": [

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>409</width>
-    <height>160</height>
+    <width>365</width>
+    <height>142</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,4,4">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,4,4,0">
      <item>
       <widget class="QLabel" name="tagLabel">
        <property name="text">
@@ -67,6 +67,19 @@
         </widget>
        </item>
       </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>详情</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

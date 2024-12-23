@@ -26,11 +26,16 @@ public:
     bool addFilePath(const QString &filePath, int &fileId);
     bool getFileId(const QString &filePath, int &fileId);
     QStringList getAllFilePaths();
-    QStringList searchFiles(const QString &keyword);
+    QList<FilePathInfo> searchFiles(const QString &keyword);
+
     // QList<QPair<QString, QString>> searchFiles(const QString &keyword);
 
 
     bool saveTags(int fileId, const QStringList &tags);
+    bool deleteTag(int fileId);
+    bool updateFileInfo(const FilePathInfo& fileInfo);
+    bool updateFilePath(const QString &newFilePath, const QString &oldFilePath);
+
     bool saveAnnotation(int fileId, const QString &annotation);
     void saveExpirationDate(int fileId, const QDateTime &expirationDateTime);
 
@@ -38,7 +43,7 @@ public:
     QStringList getAllTags();
     QList<FilePathInfo> getFilePathsByTag(const QString &tag);
 
-    QVector<QPair<QString, QDateTime>> getSortByExp();
+    QList<FilePathInfo> getSortByExp();
     bool getAnnotation(int fileId, QString &annotation);
 
     bool getTags(int fileId, QStringList &tags);

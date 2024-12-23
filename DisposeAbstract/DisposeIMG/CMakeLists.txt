@@ -5,16 +5,16 @@ set(SCHEDULE_SOURCES
 )
 
 set(SCHEDULE_HEADERS
-    TabHandleIMG.h
-    ControlFrame.h
-    PixItem.h
+    include/TabHandleIMG.h
+    include/ControlFrame.h
+    include/PixItem.h
 )
 
 
 qt_add_library(mytxt_img STATIC
     ${SCHEDULE_SOURCES}
     ${SCHEDULE_HEADERS}
-    ControlFrame.ui
+    ui/ControlFrame.ui
 )
 
 target_link_libraries(mytxt_img PRIVATE

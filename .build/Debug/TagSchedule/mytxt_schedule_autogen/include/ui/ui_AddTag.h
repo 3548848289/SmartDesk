@@ -126,7 +126,7 @@ public:
     void retranslateUi(QDialog *AddTag)
     {
         AddTag->setWindowTitle(QCoreApplication::translate("AddTag", "\346\226\260\345\242\236\345\244\207\345\277\230\346\226\207\344\273\266", nullptr));
-        label_1->setText(QCoreApplication::translate("AddTag", "\346\226\207\344\273\266", nullptr));
+        label_1->setText(QCoreApplication::translate("AddTag", "\346\240\207\347\255\276", nullptr));
         label_3->setText(QString());
         label_2->setText(QCoreApplication::translate("AddTag", "\346\227\245\346\234\237", nullptr));
         saveButton->setText(QCoreApplication::translate("AddTag", "\344\277\235\345\255\230", nullptr));

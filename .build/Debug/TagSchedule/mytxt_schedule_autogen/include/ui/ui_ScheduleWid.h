@@ -32,7 +32,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QComboBox *comboBox;
     QLabel *label;
-    QPushButton *pushButton;
+    QPushButton *sortBtn;
     QListWidget *listWidget;
 
     void setupUi(QWidget *ScheduleWid)
@@ -73,10 +73,10 @@ public:
 
         horizontalLayout->addWidget(label);
 
-        pushButton = new QPushButton(ScheduleWid);
-        pushButton->setObjectName("pushButton");
+        sortBtn = new QPushButton(ScheduleWid);
+        sortBtn->setObjectName("sortBtn");
 
-        horizontalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(sortBtn);
 
         horizontalLayout->setStretch(0, 1);
         horizontalLayout->setStretch(1, 4);
@@ -107,7 +107,7 @@ public:
         searchLineEdit->setText(QString());
         searchLineEdit->setPlaceholderText(QCoreApplication::translate("ScheduleWid", "\346\220\234\347\264\242\346\226\207\344\273\266", nullptr));
         label->setText(QCoreApplication::translate("ScheduleWid", "\346\226\207\344\273\266\344\275\215\347\275\256", nullptr));
-        pushButton->setText(QCoreApplication::translate("ScheduleWid", "\345\210\260\346\234\237\346\227\266\351\227\264\346\216\222\345\272\217", nullptr));
+        sortBtn->setText(QCoreApplication::translate("ScheduleWid", "\345\210\260\346\234\237\346\227\266\351\227\264\346\216\222\345\272\217", nullptr));
     } // retranslateUi
 
 };

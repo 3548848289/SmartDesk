@@ -2,11 +2,11 @@ DisposeAbstract/DisposeIMG/mytxt_img_autogen/timestamp: \
   DisposeAbstract/DisposeIMG/mytxt_img_autogen/moc_predefs.h \
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/CMakeLists.txt \
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/ControlFrame.cpp \
-  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/ControlFrame.h \
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/PixItem.cpp \
-  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/PixItem.h \
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/TabHandleIMG.cpp \
-  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/TabHandleIMG.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/ControlFrame.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/PixItem.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/TabHandleIMG.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonDocument \
@@ -454,5 +454,5 @@ DisposeAbstract/DisposeIMG/mytxt_img_autogen/timestamp: \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
-  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/ControlFrame.ui \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/ui/ControlFrame.ui \
   D:/QT6/Tools/CMake_64/bin/cmake.exe

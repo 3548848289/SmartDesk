@@ -2,9 +2,9 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/moc_predefs.h \
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/ControlWidCSV.h \
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/TabHandleCSV.h \
-  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/ControlFrame.h \
-  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/PixItem.h \
-  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/TabHandleIMG.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/ControlFrame.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/PixItem.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/TabHandleIMG.h \
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/ControlWidTXT.h \
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/TabHandleTXT.h \
   D:/CxxProgram/SmartDesk/EmailService/SendEmail.h \
@@ -33,6 +33,7 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/CxxProgram/SmartDesk/TagSchedule/LmsgNotify/notifymanager.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/AddTag.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/ScheduleWid.h \
+  D:/CxxProgram/SmartDesk/TagSchedule/include/TagDetail.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/TagList.h \
   D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
@@ -483,6 +484,7 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QStyleOptionButton \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QStyledItemDelegate \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTableWidget \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTableWidgetItem \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTextEdit \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QVBoxLayout \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget \

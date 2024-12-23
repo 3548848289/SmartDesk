@@ -1,4 +1,4 @@
-#include "PixItem.h"
+#include "include/PixItem.h"
 
 PixItem::PixItem(QPixmap *pixmap) : pix(*pixmap) {}
 

@@ -10,7 +10,7 @@ NotifyManager::NotifyManager(QObject *parent) : QObject(parent)
     m_animateTime = 300;
     m_spacing = 10;
     m_notifyWndSize = QSize(300, 60);
-    m_defaultIcon = "D:/CxxProgram/SmartDesk/schedule/LmsgNotify/message.png";
+    m_defaultIcon = "D:/CxxProgram/SmartDesk/TagSchedule/LmsgNotify/message.png";
     m_styleSheets["default"] =
             "#notify-background {"
             "background: white;"

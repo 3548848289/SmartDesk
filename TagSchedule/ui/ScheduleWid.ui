@@ -58,7 +58,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="sortBtn">
          <property name="text">
           <string>到期时间排序</string>
          </property>

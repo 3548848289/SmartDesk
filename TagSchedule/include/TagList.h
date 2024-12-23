@@ -2,30 +2,40 @@
 #define TAGLIST_H
 
 #include <QWidget>
-#include <QFileInfo>
 #include <QString>
+#include <QFileInfo>
+#include <QDateTime>
+#include <QFileInfo>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QTableWidget>
+#include "TagDetail.h"
+
+#include "../../manager/include/dbService.h"
 
 namespace Ui {
 class TagList;
 }
+
 
 class TagList : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit TagList(QWidget *parent = nullptr);
+    explicit TagList(const FilePathInfo &fileInfo, QWidget *parent = nullptr);
     ~TagList();
 
-    void setFileInfo(const QString &filePath, const QString &expirationInfo);
-    void setTag(const QString &mtag);
-
+    // 获取文件路径
     QString getFilePath() const;
+
+    QString getExpInfo(const QDateTime expDate);
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::TagList *ui;
-    QString filePath;
-    QString tag;
+    FilePathInfo fileInfo;
 };
 
 #endif // TAGLIST_H

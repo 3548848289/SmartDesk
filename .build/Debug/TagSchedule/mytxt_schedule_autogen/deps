@@ -9,9 +9,11 @@ mytxt_schedule_autogen/timestamp: \
 	D:/CxxProgram/SmartDesk/TagSchedule/LmsgNotify/notifywnd.cpp \
 	D:/CxxProgram/SmartDesk/TagSchedule/LmsgNotify/notifywnd.h \
 	D:/CxxProgram/SmartDesk/TagSchedule/ScheduleWid.cpp \
+	D:/CxxProgram/SmartDesk/TagSchedule/TagDetail.cpp \
 	D:/CxxProgram/SmartDesk/TagSchedule/TagList.cpp \
 	D:/CxxProgram/SmartDesk/TagSchedule/include/AddTag.h \
 	D:/CxxProgram/SmartDesk/TagSchedule/include/ScheduleWid.h \
+	D:/CxxProgram/SmartDesk/TagSchedule/include/TagDetail.h \
 	D:/CxxProgram/SmartDesk/TagSchedule/include/TagList.h \
 	D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
 	D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
@@ -19,6 +21,7 @@ mytxt_schedule_autogen/timestamp: \
 	D:/CxxProgram/SmartDesk/manager/include/dbService.h \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QDeadlineTimer \
+	D:/QT6/6.8.0/mingw_64/include/QtCore/QFile \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QFileInfo \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QHash \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QList \
@@ -354,11 +357,14 @@ mytxt_schedule_autogen/timestamp: \
 	D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlexports.h \
 	D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QDialog \
+	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QListWidget \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QListWidgetItem \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QPushButton \
+	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTableWidget \
+	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTableWidgetItem \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractbutton.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -368,6 +374,7 @@ mytxt_schedule_autogen/timestamp: \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialog.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qfiledialog.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlabel.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistview.h \
@@ -380,6 +387,8 @@ mytxt_schedule_autogen/timestamp: \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qstyle.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qstyleoption.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtabbar.h \
+	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtableview.h \
+	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtablewidget.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtabwidget.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
@@ -728,5 +737,6 @@ mytxt_schedule_autogen/timestamp: \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
 	D:/CxxProgram/SmartDesk/TagSchedule/ui/AddTag.ui \
 	D:/CxxProgram/SmartDesk/TagSchedule/ui/ScheduleWid.ui \
+	D:/CxxProgram/SmartDesk/TagSchedule/ui/TagDetail.ui \
 	D:/CxxProgram/SmartDesk/TagSchedule/ui/TagList.ui \
 	D:/QT6/Tools/CMake_64/bin/cmake.exe

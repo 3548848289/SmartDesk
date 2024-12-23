@@ -38,48 +38,33 @@ bool dbFilepath::getFileId(const QString &filePath, int &fileId) {
     return false;
 }
 
-// 根据关键字搜索文件路径
-QStringList dbFilepath::searchFiles(const QString &keyword) {
-    QStringList filePaths;
+QList<FilePathInfo> dbFilepath::searchFiles(const QString &keyword) {
+    QList<FilePathInfo> fileInfos;
     QSqlQuery query(dbsqlite);
 
-    query.prepare("SELECT DISTINCT file_path FROM FilePaths fp "
+    // 查询文件路径、标签、到期时间和注释
+    query.prepare("SELECT DISTINCT fp.file_path, t.tag_name, fp.expiration_date, t.annotation "
+                  "FROM FilePaths fp "
                   "LEFT JOIN Tags t ON fp.id = t.file_id "
-                  "WHERE file_path LIKE :keyword OR t.tag_name LIKE :keyword");
+                  "WHERE fp.file_path LIKE :keyword OR t.tag_name LIKE :keyword");
     query.bindValue(":keyword", "%" + keyword + "%");
     query.exec();
 
     while (query.next()) {
-        filePaths << query.value(0).toString();
+        FilePathInfo fileInfo;
+
+        fileInfo.filePath = query.value(0).toString();
+        fileInfo.tagName = query.value(1).toString();
+        fileInfo.expirationDate = query.value(2).toDateTime();
+        fileInfo.annotation = query.value(3).toString();
+
+        fileInfos << fileInfo;
     }
-    return filePaths;
+
+    return fileInfos;
 }
 
 
-// QList<QPair<QString, QString>> dbFilepath::searchFiles(const QString &keyword) {
-//     QList<QPair<QString, QString>> result;
-//     QSqlQuery query(dbsqlite);
-
-//     query.prepare("SELECT DISTINCT fp.file_path, a.annotation "
-//                   "FROM FilePaths fp "
-//                   "LEFT JOIN Tags t ON fp.id = t.file_id "
-//                   "LEFT JOIN Annotation a ON fp.id = a.file_id "
-//                   "WHERE fp.file_path LIKE :keyword "
-//                   "OR t.tag_name LIKE :keyword "
-//                   "OR a.annotation LIKE :keyword");
-
-//     query.bindValue(":keyword", "%" + keyword + "%");
-//     query.exec();
-
-//     while (query.next()) {
-//         QString filePath = query.value(0).toString();
-//         QString annotation = query.value(1).toString();
-
-//         result.append(qMakePair(filePath, annotation));
-//     }
-
-//     return result;
-// }
 
 // 获取所有文件路径
 QStringList dbFilepath::getAllFilePaths() {
@@ -105,18 +90,117 @@ QStringList dbFilepath::getAllFilePaths() {
 bool dbFilepath::saveTags(int fileId, const QStringList &tags) {
     QSqlQuery query(dbsqlite);
 
+    // 删除已有的标签，确保每次保存时是重新保存标签
     query.prepare("DELETE FROM Tags WHERE file_id = :fileId");
+    query.bindValue(":fileId", fileId);
+    if (!query.exec()) {
+        qWarning() << "Failed to delete tags for fileId" << fileId;
+        return false;
+    }
+
+    // 插入新的标签，避免重复插入
+    query.prepare("INSERT INTO Tags (file_id, tag_name) VALUES (:fileId, :tagName)");
     for (const QString &tag : tags) {
-        query.prepare("INSERT INTO Tags (file_id, tag_name) VALUES (:fileId, :tagName)");
         query.bindValue(":fileId", fileId);
         query.bindValue(":tagName", tag);
-        query.exec();
+        if (!query.exec()) {
+            qWarning() << "Failed to insert tag:" << tag;
+            return false;
+        }
     }
-    query.bindValue(":fileId", fileId);
-    query.exec();
 
     return true;
 }
+
+bool dbFilepath::deleteTag(int fileId) {
+    QSqlDatabase::database().transaction();
+
+    QSqlQuery deleteTagQuery(dbsqlite);
+    deleteTagQuery.prepare("DELETE FROM Tags WHERE file_id = :file_id");
+    deleteTagQuery.bindValue(":file_id", fileId);
+    bool tagDeleted = deleteTagQuery.exec();
+
+    QSqlQuery deleteAnnotationQuery(dbsqlite);
+    deleteAnnotationQuery.prepare("DELETE FROM Annotations WHERE file_id = :file_id");
+    deleteAnnotationQuery.bindValue(":file_id", fileId);
+    bool annotationDeleted = deleteAnnotationQuery.exec();
+
+    QSqlQuery deleteFilePathQuery(dbsqlite);
+    deleteFilePathQuery.prepare("DELETE FROM FilePaths WHERE id = :file_id");
+    deleteFilePathQuery.bindValue(":file_id", fileId);
+    bool filePathDeleted = deleteFilePathQuery.exec();
+
+    if (!(tagDeleted && annotationDeleted && filePathDeleted)) {
+        QSqlDatabase::database().rollback();
+        return false;
+    }
+
+    QSqlDatabase::database().commit();
+    return true;
+}
+
+bool dbFilepath::updateFilePath(const QString &newFilePath, const QString &oldFilePath)
+{
+    QSqlQuery query(dbsqlite);
+
+    // 执行更新操作，将旧的文件路径替换成新的文件路径
+    query.prepare("UPDATE FilePaths SET file_path = :newFilePath WHERE file_path = :oldFilePath");
+    query.bindValue(":newFilePath", newFilePath);
+    query.bindValue(":oldFilePath", oldFilePath);
+
+    if (query.exec()) {
+        return true;
+    } else {
+        qDebug() << "Error updating file path: " << query.lastError();
+        return false;
+    }
+}
+
+bool dbFilepath::updateFileInfo(const FilePathInfo& fileInfo)
+{
+
+    QSqlQuery query(dbsqlite);
+    dbsqlite.transaction();
+    query.prepare("UPDATE FilePaths SET expiration_date = :expiration_date WHERE file_path = :file_path");
+    query.bindValue(":file_path", fileInfo.filePath);
+    query.bindValue(":expiration_date", fileInfo.expirationDate.toString("yyyy-MM-dd HH:mm:ss"));
+
+    if (!query.exec()) {
+        dbsqlite.rollback();
+        return false;
+    }
+
+    query.prepare("SELECT id FROM FilePaths WHERE file_path = :file_path");
+    query.bindValue(":file_path", fileInfo.filePath);
+    if (!query.exec() || !query.next()) {
+        dbsqlite.rollback();
+        return false;
+    }
+
+    int fileId = query.value(0).toInt();
+
+    query.prepare("UPDATE Tags SET tag_name = :tag WHERE file_id = :file_id");
+    query.bindValue(":tag", fileInfo.tagName);
+    query.bindValue(":file_id", fileId);
+
+    if (!query.exec()) {
+        dbsqlite.rollback();
+        return false;
+    }
+
+    query.prepare("UPDATE Annotations SET annotation = :annotation WHERE file_id = :file_id");
+    query.bindValue(":annotation", fileInfo.annotation);
+    query.bindValue(":file_id", fileId);
+
+    if (!query.exec()) {
+        dbsqlite.rollback();
+        return false;
+    }
+
+    dbsqlite.commit();
+    return true;
+}
+
 
 bool dbFilepath::saveAnnotation(int fileId, const QString &annotation) {
     QSqlQuery query(dbsqlite);
@@ -167,37 +251,10 @@ QStringList dbFilepath::getAllTags() {
 }
 
 
-// QList<FilePathInfo> dbFilepath::getFilePathsByTag(const QString &tag) {
-//     QList<FilePathInfo> filePathsWithTags;
-//     QSqlQuery query(dbsqlite);
-
-
-//     if (tag == "刷新") {
-//         query.prepare("SELECT DISTINCT fp.file_path, t.tag_name, fp.expiration_date FROM FilePaths fp JOIN Tags t ON fp.id = t.file_id");
-//     } else {
-//         query.prepare("SELECT DISTINCT fp.file_path, t.tag_name, fp.expiration_date FROM FilePaths fp JOIN Tags t ON fp.id = t.file_id WHERE t.tag_name = :tag");
-//         query.bindValue(":tag", tag);
-//     }
-
-//     query.exec();
-
-//     while (query.next()) {
-//         FilePathInfo info;
-//         info.filePath = query.value(0).toString();
-//         info.tagName = query.value(1).toString();
-//         info.expirationDate = query.value(2).toDateTime();
-
-//         filePathsWithTags.append(info);
-//     }
-
-//     return filePathsWithTags;
-// }
-
 QList<FilePathInfo> dbFilepath::getFilePathsByTag(const QString &tag) {
     QList<FilePathInfo> filePathsWithTags;
     QSqlQuery query(dbsqlite);
 
-    // 更新查询语句，获取 file_path, tag_name, expiration_date 和 annotation
     if (tag == "刷新") {
         query.prepare("SELECT DISTINCT fp.file_path, t.tag_name, fp.expiration_date, a.annotation "
                       "FROM FilePaths fp "
@@ -226,24 +283,6 @@ QList<FilePathInfo> dbFilepath::getFilePathsByTag(const QString &tag) {
 
     return filePathsWithTags;
 }
-
-QVector<QPair<QString, QDateTime>> dbFilepath::getSortByExp() {
-    QVector<QPair<QString, QDateTime>> fileList;
-    QSqlQuery query(dbsqlite);
-
-
-    // 执行查询，按到期时间排序
-    query.prepare("SELECT file_path, expiration_date FROM FilePaths ORDER BY expiration_date ASC");
-    query.exec();
-
-    while (query.next()) {
-        QString filePath = query.value(0).toString();
-        QDateTime expirationDateTime = query.value(1).toDateTime();
-        fileList.append(qMakePair(filePath, expirationDateTime));
-    }
-    return fileList;
-}
-
 
 bool dbFilepath::getTags(int fileId, QStringList &tags) {
     QSqlQuery query(dbsqlite);

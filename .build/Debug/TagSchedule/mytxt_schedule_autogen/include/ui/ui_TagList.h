@@ -14,6 +14,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -30,12 +31,13 @@ public:
     QLabel *pathLabel;
     QVBoxLayout *verticalLayout_2;
     QLabel *expirationLabel;
+    QPushButton *pushButton;
 
     void setupUi(QWidget *TagList)
     {
         if (TagList->objectName().isEmpty())
             TagList->setObjectName("TagList");
-        TagList->resize(409, 160);
+        TagList->resize(365, 142);
         gridLayout = new QGridLayout(TagList);
         gridLayout->setObjectName("gridLayout");
         horizontalLayout = new QHBoxLayout();
@@ -81,6 +83,16 @@ public:
 
         horizontalLayout->addLayout(verticalLayout_2);
 
+        pushButton = new QPushButton(TagList);
+        pushButton->setObjectName("pushButton");
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
+        pushButton->setSizePolicy(sizePolicy);
+
+        horizontalLayout->addWidget(pushButton);
+
         horizontalLayout->setStretch(0, 1);
         horizontalLayout->setStretch(1, 4);
         horizontalLayout->setStretch(2, 4);
@@ -100,6 +112,7 @@ public:
         fileLabel->setText(QCoreApplication::translate("TagList", "TextLabel", nullptr));
         pathLabel->setText(QCoreApplication::translate("TagList", "TextLabel", nullptr));
         expirationLabel->setText(QCoreApplication::translate("TagList", "TextLabel", nullptr));
+        pushButton->setText(QCoreApplication::translate("TagList", "\350\257\246\346\203\205", nullptr));
     } // retranslateUi
 
 };

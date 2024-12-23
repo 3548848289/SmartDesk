@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "ScheduleWid",
-            "lineNumber": 29,
+            "lineNumber": 28,
             "object": true,
             "qualifiedClassName": "ScheduleWid",
             "signals": [
@@ -36,42 +36,30 @@
                     "access": "private",
                     "arguments": [
                         {
-                            "name": "tag",
+                            "name": "keyword",
                             "type": "QString"
                         }
                     ],
                     "index": 2,
-                    "name": "onTagChanged",
+                    "name": "onSearch",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 3,
+                    "name": "on_sortBtn_clicked",
                     "returnType": "void"
                 },
                 {
                     "access": "private",
                     "arguments": [
                         {
-                            "name": "keyword",
-                            "type": "QString"
+                            "name": "index",
+                            "type": "int"
                         }
                     ],
-                    "index": 3,
-                    "name": "onSearch",
-                    "returnType": "void"
-                },
-                {
-                    "access": "private",
                     "index": 4,
-                    "name": "sortByExpDate",
-                    "returnType": "void"
-                },
-                {
-                    "access": "private",
-                    "index": 5,
-                    "name": "onSortClicked",
-                    "returnType": "void"
-                },
-                {
-                    "access": "private",
-                    "index": 6,
-                    "name": "on_pushButton_clicked",
+                    "name": "on_comboBox_currentIndexChanged",
                     "returnType": "void"
                 }
             ],

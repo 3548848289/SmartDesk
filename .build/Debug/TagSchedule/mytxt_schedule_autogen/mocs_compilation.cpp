@@ -4,4 +4,5 @@
 #include "JNREVZZB47/moc_notifywnd.cpp"
 #include "6YEA5652QU/moc_AddTag.cpp"
 #include "6YEA5652QU/moc_ScheduleWid.cpp"
+#include "6YEA5652QU/moc_TagDetail.cpp"
 #include "6YEA5652QU/moc_TagList.cpp"

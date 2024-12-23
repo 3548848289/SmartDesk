@@ -10,6 +10,7 @@ set(FILETAG_SOURCES
     AddTag.cpp
     ScheduleWid.cpp
     TagList.cpp
+    TagDetail.cpp
     ${LMSGNOTIFY_SOURCES}
 )
 
@@ -17,6 +18,7 @@ set(FILETAG_HEADERS
     include/AddTag.h
     include/ScheduleWid.h
     include/TagList.h
+    include/TagDetail.h
     ${LMSGNOTIFY_HEADERS}
 )
 
@@ -24,6 +26,7 @@ set(FILETAG_UIS
     ui/AddTag.ui
     ui/ScheduleWid.ui
     ui/TagList.ui
+    ui/TagDetail.ui
 
 )
 

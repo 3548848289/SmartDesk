@@ -9,7 +9,6 @@ ScheduleWid::ScheduleWid(QWidget *parent) : QWidget(parent), ui(new Ui::Schedule
     loadTags();
 
     connect(ui->listWidget, &QListWidget::itemClicked, this, &ScheduleWid::onItemClicked);
-    connect(ui->comboBox, &QComboBox::currentTextChanged, this, &ScheduleWid::onTagChanged);
     connect(ui->searchLineEdit, &QLineEdit::textChanged, this, &ScheduleWid::onSearch);
 
     // 启动定时器检查到期文件
@@ -17,7 +16,7 @@ ScheduleWid::ScheduleWid(QWidget *parent) : QWidget(parent), ui(new Ui::Schedule
 
     manager = new NotifyManager(this);
     manager->setMaxCount(5);
-    manager->setDisplayTime(5000);
+    manager->setDisplayTime(10000);
     manager->setNotifyWndSize(300, 80);
     connect(manager, &NotifyManager::notifyDetail, [](const QVariantMap &data){
         QMessageBox msgbox(QMessageBox::Information, QStringLiteral("新消息"), data.value("title").toString());
@@ -31,7 +30,7 @@ ScheduleWid::ScheduleWid(QWidget *parent) : QWidget(parent), ui(new Ui::Schedule
         msgbox.findChild<QDialogButtonBox*>()->setMinimumWidth(500);
         msgbox.exec();
     });
-
+    checkExpiration();
 }
 
 ScheduleWid::~ScheduleWid()
@@ -62,82 +61,25 @@ void ScheduleWid::filterByTag(const QString &tag) {
     QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag(tag);
 
     for (const auto &info : files) {
-        QString path = info.filePath;
-        QString tag = info.tagName;
-        QDateTime expDate = info.expirationDate;
-        QString annotation = info.annotation;
-
-        // qDebug() << "annotation data:" << annotation;
-
-        TagList *widget = new TagList();
-        widget->setTag(tag);
-
-        QString expInfo = getExpInfo(path, expDate);
-        widget->setFileInfo(path, expInfo);
+        TagList *taglist = new TagList(info);
 
         QListWidgetItem *listItem = new QListWidgetItem(ui->listWidget);
-        listItem->setSizeHint(widget->sizeHint());
+        listItem->setSizeHint(taglist->sizeHint());
         ui->listWidget->addItem(listItem);
-        ui->listWidget->setItemWidget(listItem, widget);
+        ui->listWidget->setItemWidget(listItem, taglist);
     }
 }
 
-QString ScheduleWid::getExpInfo(const QString &path, const QDateTime &expDate) {
-    QDateTime now = QDateTime::currentDateTime();
-    QString expInfo;
-
-    if (expDate.isValid()) {
-        qint64 mnow = now.secsTo(expDate);
-        if (mnow >= 0) {
-            int s = mnow / 3600;        // 计算小时数
-            int m = (mnow % 3600) / 60; // 计算分钟数
-            expInfo = QString("%1:%2").arg(s, 2, 10, QChar('0')).arg(m, 2, 10, QChar('0'));
-        } else {
-            int oh = -mnow / 3600;         // 计算小时数（过期时是负值）
-            int om = (-mnow % 3600) / 60;  // 计算分钟数（过期时是负值）
-            expInfo = QString("%1:%2").arg(oh, 2, 10, QChar('0')).arg(om, 2, 10, QChar('0'));
-        }
-    } else {
-        expInfo = "No expiration date";
-    }
-
-    return expDate.isValid()
-               ? expDate.toString("MM-dd hh:mm\n") + " (" + expInfo + ")" : expInfo;
-}
-
-void ScheduleWid::sortByExpDate() {
-    ui->listWidget->clear();
-    QVector<QPair<QString, QDateTime>> files = dbservice.dbTags().getSortByExp();
-
-    for (const auto &file : files) {
-        QString path = file.first;
-        QDateTime expDate = file.second;
-
-        TagList *widget = new TagList();
-        widget->setFileInfo(path, getExpInfo(path, expDate));
-
-        QListWidgetItem *listItem = new QListWidgetItem(ui->listWidget);
-        listItem->setSizeHint(widget->sizeHint());
-        ui->listWidget->addItem(listItem);
-        ui->listWidget->setItemWidget(listItem, widget);
-    }
-}
-
-void ScheduleWid::onTagChanged(const QString &tag) {
-    filterByTag(tag);
-}
 
 void ScheduleWid::onSearch(const QString &keyword) {
-    filterByKeyword(keyword);
-}
-
-void ScheduleWid::filterByKeyword(const QString &keyword) {
     ui->listWidget->clear();
-    QStringList paths = dbservice.dbTags().searchFiles(keyword);
 
-    for (const QString &path : paths) {
-        TagList *widget = new TagList();
-        widget->setFileInfo(path, "No expiration date");
+    // 调用 modified searchFiles 方法，获取 FilePathInfo 结构体列表
+    QList<FilePathInfo> files = dbservice.dbTags().searchFiles(keyword);
+
+    // 遍历文件信息列表，创建 TagList 小部件
+    for (const FilePathInfo &fileInfo : files) {
+        TagList *widget = new TagList(fileInfo);  // 传递结构体数据到 TagList
 
         QListWidgetItem *listItem = new QListWidgetItem(ui->listWidget);
         listItem->setSizeHint(widget->sizeHint());
@@ -146,16 +88,6 @@ void ScheduleWid::filterByKeyword(const QString &keyword) {
     }
 }
 
-
-void ScheduleWid::onSortClicked()
-{
-    sortByExpDate();
-}
-
-void ScheduleWid::on_pushButton_clicked()
-{
-    sortByExpDate();
-}
 
 void ScheduleWid::startExpirationCheck() {
     expirationTimer = new QTimer(this);
@@ -170,7 +102,6 @@ void ScheduleWid::checkExpiration() {
         QString path = file.filePath;
         QDateTime expDate = file.expirationDate;
 
-        // 如果文件即将到期，弹出提醒
         if (expDate.isValid() && QDateTime::currentDateTime().secsTo(expDate) <= 2 * 3600) {  // 2小时内到期
             int fileid = 0;
             QStringList tag;
@@ -187,5 +118,30 @@ void ScheduleWid::checkExpiration() {
 
         }
     }
+}
+
+
+void ScheduleWid::on_sortBtn_clicked()
+{
+    ui->listWidget->clear();
+    QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag("刷新");
+    std::sort(files.begin(), files.end(), [](const FilePathInfo &a, const FilePathInfo &b) {
+        return a.expirationDate < b.expirationDate;
+    });
+    for (const FilePathInfo &file : files) {
+        TagList *widget = new TagList(file);
+
+        QListWidgetItem *listItem = new QListWidgetItem(ui->listWidget);
+        listItem->setSizeHint(widget->sizeHint());
+        ui->listWidget->addItem(listItem);
+        ui->listWidget->setItemWidget(listItem, widget);
+    }
+}
+
+
+void ScheduleWid::on_comboBox_currentIndexChanged(int index)
+{
+    QString tag = ui->comboBox->currentText();
+    filterByTag(tag);
 }
 
