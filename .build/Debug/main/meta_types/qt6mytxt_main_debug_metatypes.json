@@ -202,8 +202,102 @@
     {
         "classes": [
             {
+                "className": "FindDialog",
+                "lineNumber": 13,
+                "object": true,
+                "qualifiedClassName": "FindDialog",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "str",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "cs",
+                                "type": "Qt::CaseSensitivity"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "findNext",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "str",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "cs",
+                                "type": "Qt::CaseSensitivity"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "findPrevious",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "str",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "cs",
+                                "type": "Qt::CaseSensitivity"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "findAll",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "index": 3,
+                        "name": "findClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 4,
+                        "name": "findAllClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "text",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 5,
+                        "name": "enableFindButton",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QDialog"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "finddialog.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
                 "className": "MainWindow",
-                "lineNumber": 37,
+                "lineNumber": 39,
                 "object": true,
                 "qualifiedClassName": "MainWindow",
                 "signals": [
@@ -319,6 +413,12 @@
                         ],
                         "index": 13,
                         "name": "receiveSendEmailForm",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 14,
+                        "name": "on_actionfind_triggered",
                         "returnType": "void"
                     }
                 ],

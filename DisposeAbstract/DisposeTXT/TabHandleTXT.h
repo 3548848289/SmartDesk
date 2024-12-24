@@ -33,7 +33,9 @@ public:
     void ControlWidget(QWidget* WControl){
         qDebug() << "TabHandleTXT: Showing control frame!";
     }
-
+public slots:
+    void findNext(const QString &str, Qt::CaseSensitivity cs);
+    void findAll(const QString &str, Qt::CaseSensitivity cs);
 private:
     void setFontSize(int fontSize);
     void loadSettings();

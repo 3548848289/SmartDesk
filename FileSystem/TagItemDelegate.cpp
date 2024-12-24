@@ -10,7 +10,6 @@ TagItemDelegate::TagItemDelegate(QObject *parent, ServerManager *serverManager)
 void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QStyledItemDelegate::paint(painter, option, index);
-
     QString filePath = index.data(QFileSystemModel::FilePathRole).toString();
 
     if (hasTags(filePath)) {
@@ -42,7 +41,7 @@ bool TagItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
         if (submissionButtonRect.contains(mouseEvent->pos())) {
             onHistoryTriggered(model, index);
             isButtonClicked = true;
-            this->serverManager->getFilesInDirectory(index, model);
+            // this->serverManager->getFilesInDirectory(index, model);
             emit subbutClicked(index);
 
             return true;
@@ -138,7 +137,7 @@ void TagItemDelegate::onHistoryTriggered(QAbstractItemModel *model, const QModel
 
 void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex &index, AddTag &tagDialog) {
     if (tagDialog.exec() == QDialog::Accepted) {
-        QStringList tagName = tagDialog.getTagName();
+        QString tagName = tagDialog.getTagName();
         QString annotation = tagDialog.getAnnotation();
         QDateTime expirationDate = tagDialog.getExpirationDate();
 
@@ -148,9 +147,20 @@ void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex 
 
         if (!dbservice.dbTags().getFileId(filePath, fileId)) {
             dbservice.dbTags().addFilePath(filePath, fileId);
+            dbservice.dbTags().saveTags(fileId, tagName);
+            dbservice.dbTags().saveAnnotation(fileId, annotation);
+            dbservice.dbTags().saveExpirationDate(fileId, expirationDate);
+
         }
-        dbservice.dbTags().saveTags(fileId, tagName);
-        dbservice.dbTags().saveAnnotation(fileId, annotation);
-        dbservice.dbTags().saveExpirationDate(fileId, expirationDate);
+        else {
+            FilePathInfo fileInfo;
+            fileInfo.filePath = filePath;
+            fileInfo.tagName = tagName;
+            fileInfo.expirationDate = expirationDate;
+            fileInfo.annotation = annotation;
+            dbservice.dbTags().updateFileInfo(fileInfo);
+        }
+
+        emit TagUpdated();
     }
 }

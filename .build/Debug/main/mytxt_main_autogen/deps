@@ -41,10 +41,12 @@ mytxt_main_autogen/timestamp: \
 	D:/CxxProgram/SmartDesk/main/CMakeLists.txt \
 	D:/CxxProgram/SmartDesk/main/RecentFilesManager.cpp \
 	D:/CxxProgram/SmartDesk/main/WidgetFunctional.cpp \
+	D:/CxxProgram/SmartDesk/main/finddialog.cpp \
 	D:/CxxProgram/SmartDesk/main/include/ControlWidget.h \
 	D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h \
 	D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
 	D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h \
+	D:/CxxProgram/SmartDesk/main/include/finddialog.h \
 	D:/CxxProgram/SmartDesk/main/include/mainwindow.h \
 	D:/CxxProgram/SmartDesk/main/main.cpp \
 	D:/CxxProgram/SmartDesk/main/mainwindow.cpp \
@@ -55,6 +57,9 @@ mytxt_main_autogen/timestamp: \
 	D:/CxxProgram/SmartDesk/manager/include/dbService.h \
 	D:/CxxProgram/SmartDesk/manager/include/myJson.h \
 	D:/CxxProgram/SmartDesk/resources/res.qrc \
+	D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h \
+	D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h \
+	D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QBuffer \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \

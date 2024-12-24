@@ -39,7 +39,12 @@ constexpr auto qt_meta_stringdata_CLASSTabHandleCSVENDCLASS = QtMocHelpers::stri
     "TabHandleCSV",
     "dataToSend",
     "",
-    "data"
+    "data",
+    "findNext",
+    "str",
+    "Qt::CaseSensitivity",
+    "cs",
+    "findAll"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -52,7 +57,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSTabHandleCSVENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -60,10 +65,18 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSTabHandleCSVENDCLASS[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   20,    2, 0x06,    1 /* Public */,
+       1,    1,   32,    2, 0x06,    1 /* Public */,
+
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+       4,    2,   35,    2, 0x0a,    3 /* Public */,
+       8,    2,   40,    2, 0x0a,    6 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
+
+ // slots: parameters
+    QMetaType::Void, QMetaType::QString, 0x80000000 | 6,    5,    7,
+    QMetaType::Void, QMetaType::QString, 0x80000000 | 6,    5,    7,
 
        0        // eod
 };
@@ -79,7 +92,15 @@ Q_CONSTINIT const QMetaObject TabHandleCSV::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<TabHandleCSV, std::true_type>,
         // method 'dataToSend'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'findNext'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Qt::CaseSensitivity, std::false_type>,
+        // method 'findAll'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Qt::CaseSensitivity, std::false_type>
     >,
     nullptr
 } };
@@ -91,6 +112,8 @@ void TabHandleCSV::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         (void)_t;
         switch (_id) {
         case 0: _t->dataToSend((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 1: _t->findNext((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Qt::CaseSensitivity>>(_a[2]))); break;
+        case 2: _t->findAll((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Qt::CaseSensitivity>>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -124,13 +147,13 @@ int TabHandleCSV::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 1;
+        _id -= 3;
     }
     return _id;
 }

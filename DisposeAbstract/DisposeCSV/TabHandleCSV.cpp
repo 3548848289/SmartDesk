@@ -302,4 +302,60 @@ void TabHandleCSV::editedfromServer(const QJsonObject& jsonObj)
 }
 
 
+void TabHandleCSV::findNext(const QString &str, Qt::CaseSensitivity cs)
+{
+    bool found = false;
+    int rowCount = tableWidget->rowCount();
+    int colCount = tableWidget->columnCount();
 
+    // 获取当前选中的单元格
+    QTableWidgetItem *currentItem = tableWidget->currentItem();
+    if (!currentItem) return;  // 如果没有选中单元格，退出
+
+    int currentRow = currentItem->row();
+    int currentCol = currentItem->column();
+
+    // 查找下一个匹配项
+    for (int row = currentRow; row < rowCount; ++row) {
+        for (int col = (row == currentRow ? currentCol + 1 : 0); col < colCount; ++col) {
+            QTableWidgetItem *item = tableWidget->item(row, col);
+            if (item && item->text().contains(str, cs == Qt::CaseInsensitive ? Qt::CaseInsensitive : Qt::CaseSensitive)) {
+                // 找到匹配项，设置高亮
+                item->setBackground(QBrush(Qt::yellow));  // 使用 setBackground 而不是 setBackgroundColor
+                tableWidget->setCurrentItem(item);  // 将焦点移动到找到的单元格
+                found = true;
+                break;
+            }
+        }
+        if (found) break;
+    }
+
+    if (!found) {
+        QMessageBox::information(this, tr("Word Not Found"),
+                                 tr("Sorry, the word cannot be found."));
+    }
+}
+
+void TabHandleCSV::findAll(const QString &str, Qt::CaseSensitivity cs)
+{
+    bool found = false;
+    int rowCount = tableWidget->rowCount();
+    int colCount = tableWidget->columnCount();
+
+    // 遍历所有单元格，查找匹配项
+    for (int row = 0; row < rowCount; ++row) {
+        for (int col = 0; col < colCount; ++col) {
+            QTableWidgetItem *item = tableWidget->item(row, col);
+            if (item && item->text().contains(str, cs == Qt::CaseInsensitive ? Qt::CaseInsensitive : Qt::CaseSensitive)) {
+                // 找到匹配项，设置高亮
+                item->setBackground(QBrush(Qt::yellow));  // 使用 setBackground 而不是 setBackgroundColor
+                found = true;
+            }
+        }
+    }
+
+    if (!found) {
+        QMessageBox::information(this, tr("Word Not Found"),
+                                 tr("Sorry, the word cannot be found."));
+    }
+}

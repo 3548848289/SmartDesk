@@ -208,7 +208,7 @@ build SmartDesk_autogen/timestamp SmartDesk_autogen/mocs_compilation.cpp | ${cma
 #############################################
 # Phony custom command for CMakeFiles\SmartDesk_autogen_timestamp_deps
 
-build CMakeFiles/SmartDesk_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/SmartDesk_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a setting/libmytxt_setting.a FileSystem/libmytxt_filetag.a manager/libmytxt_manager.a onlinedoc/libmytxt_onlinedoc.a FileBackup/libmytxt_filehis.a TagSchedule/libmytxt_schedule.a main/libmytxt_main.a EmailService/mytxt_email.dll EmailService/simple-mail/src/libSimpleMail3Qt6.dll DisposeAbstract/DisposeIMG/libmytxt_img.a DisposeAbstract/DisposeTXT/libmytxt_txt.a DisposeAbstract/DisposeCSV/libmytxt_csv.a userinfo/libmytxt_userinfo.a || DisposeAbstract/DisposeCSV/libmytxt_csv.a DisposeAbstract/DisposeCSV/mytxt_csv_autogen DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps DisposeAbstract/DisposeIMG/libmytxt_img.a DisposeAbstract/DisposeIMG/mytxt_img_autogen DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps DisposeAbstract/DisposeTXT/libmytxt_txt.a DisposeAbstract/DisposeTXT/mytxt_txt_autogen DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps EmailService/mytxt_email.dll EmailService/mytxt_email_autogen EmailService/mytxt_email_autogen_timestamp_deps EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileBackup/mytxt_filehis_autogen FileBackup/mytxt_filehis_autogen_timestamp_deps FileSystem/libmytxt_filetag.a FileSystem/mytxt_filetag_autogen FileSystem/mytxt_filetag_autogen_timestamp_deps TagSchedule/libmytxt_schedule.a TagSchedule/mytxt_schedule_autogen TagSchedule/mytxt_schedule_autogen_timestamp_deps main/libmytxt_main.a main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps manager/libmytxt_manager.a manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps onlinedoc/libmytxt_onlinedoc.a onlinedoc/mytxt_onlinedoc_autogen onlinedoc/mytxt_onlinedoc_autogen_timestamp_deps setting/libmytxt_setting.a setting/mytxt_setting_autogen setting/mytxt_setting_autogen_timestamp_deps userinfo/libmytxt_userinfo.a userinfo/mytxt_userinfo_autogen userinfo/mytxt_userinfo_autogen_timestamp_deps
+build CMakeFiles/SmartDesk_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/SmartDesk_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a TagSchedule/libmytxt_schedule.a setting/libmytxt_setting.a onlinedoc/libmytxt_onlinedoc.a DisposeAbstract/DisposeIMG/libmytxt_img.a DisposeAbstract/DisposeCSV/libmytxt_csv.a manager/libmytxt_manager.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a FileBackup/libmytxt_filehis.a EmailService/mytxt_email.dll DisposeAbstract/DisposeTXT/libmytxt_txt.a userinfo/libmytxt_userinfo.a FileSystem/libmytxt_filetag.a EmailService/simple-mail/src/libSimpleMail3Qt6.dll main/libmytxt_main.a || DisposeAbstract/DisposeCSV/libmytxt_csv.a DisposeAbstract/DisposeCSV/mytxt_csv_autogen DisposeAbstract/DisposeCSV/mytxt_csv_autogen_timestamp_deps DisposeAbstract/DisposeIMG/libmytxt_img.a DisposeAbstract/DisposeIMG/mytxt_img_autogen DisposeAbstract/DisposeIMG/mytxt_img_autogen_timestamp_deps DisposeAbstract/DisposeTXT/libmytxt_txt.a DisposeAbstract/DisposeTXT/mytxt_txt_autogen DisposeAbstract/DisposeTXT/mytxt_txt_autogen_timestamp_deps EmailService/mytxt_email.dll EmailService/mytxt_email_autogen EmailService/mytxt_email_autogen_timestamp_deps EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll FileBackup/libmytxt_filehis.a FileBackup/mytxt_filehis_autogen FileBackup/mytxt_filehis_autogen_timestamp_deps FileSystem/libmytxt_filetag.a FileSystem/mytxt_filetag_autogen FileSystem/mytxt_filetag_autogen_timestamp_deps TagSchedule/libmytxt_schedule.a TagSchedule/mytxt_schedule_autogen TagSchedule/mytxt_schedule_autogen_timestamp_deps main/libmytxt_main.a main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps manager/libmytxt_manager.a manager/mytxt_manager_autogen manager/mytxt_manager_autogen_timestamp_deps onlinedoc/libmytxt_onlinedoc.a onlinedoc/mytxt_onlinedoc_autogen onlinedoc/mytxt_onlinedoc_autogen_timestamp_deps setting/libmytxt_setting.a setting/mytxt_setting_autogen setting/mytxt_setting_autogen_timestamp_deps userinfo/libmytxt_userinfo.a userinfo/mytxt_userinfo_autogen userinfo/mytxt_userinfo_autogen_timestamp_deps
 
 
 #############################################
@@ -428,7 +428,7 @@ build manager/meta_types/mytxt_manager_json_file_list.txt manager/meta_types/myt
 #############################################
 # Phony custom command for manager\CMakeFiles\mytxt_manager_autogen_timestamp_deps
 
-build manager/CMakeFiles/mytxt_manager_autogen_timestamp_deps | ${cmake_ninja_workdir}manager/CMakeFiles/mytxt_manager_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Sql.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
+build manager/CMakeFiles/mytxt_manager_autogen_timestamp_deps | ${cmake_ninja_workdir}manager/CMakeFiles/mytxt_manager_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Sql.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
 
 
 #############################################
@@ -632,7 +632,7 @@ build FileBackup/meta_types/mytxt_filehis_json_file_list.txt FileBackup/meta_typ
 #############################################
 # Phony custom command for FileBackup\CMakeFiles\mytxt_filehis_autogen_timestamp_deps
 
-build FileBackup/CMakeFiles/mytxt_filehis_autogen_timestamp_deps | ${cmake_ninja_workdir}FileBackup/CMakeFiles/mytxt_filehis_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
+build FileBackup/CMakeFiles/mytxt_filehis_autogen_timestamp_deps | ${cmake_ninja_workdir}FileBackup/CMakeFiles/mytxt_filehis_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
 
 
 #############################################
@@ -828,7 +828,7 @@ build FileSystem/meta_types/mytxt_filetag_json_file_list.txt FileSystem/meta_typ
 #############################################
 # Phony custom command for FileSystem\CMakeFiles\mytxt_filetag_autogen_timestamp_deps
 
-build FileSystem/CMakeFiles/mytxt_filetag_autogen_timestamp_deps | ${cmake_ninja_workdir}FileSystem/CMakeFiles/mytxt_filetag_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+build FileSystem/CMakeFiles/mytxt_filetag_autogen_timestamp_deps | ${cmake_ninja_workdir}FileSystem/CMakeFiles/mytxt_filetag_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
 
 
 #############################################
@@ -1040,7 +1040,7 @@ build onlinedoc/meta_types/mytxt_onlinedoc_json_file_list.txt onlinedoc/meta_typ
 #############################################
 # Phony custom command for onlinedoc\CMakeFiles\mytxt_onlinedoc_autogen_timestamp_deps
 
-build onlinedoc/CMakeFiles/mytxt_onlinedoc_autogen_timestamp_deps | ${cmake_ninja_workdir}onlinedoc/CMakeFiles/mytxt_onlinedoc_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
+build onlinedoc/CMakeFiles/mytxt_onlinedoc_autogen_timestamp_deps | ${cmake_ninja_workdir}onlinedoc/CMakeFiles/mytxt_onlinedoc_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
 
 
 #############################################
@@ -1276,7 +1276,7 @@ build TagSchedule/meta_types/mytxt_schedule_json_file_list.txt TagSchedule/meta_
 #############################################
 # Phony custom command for TagSchedule\CMakeFiles\mytxt_schedule_autogen_timestamp_deps
 
-build TagSchedule/CMakeFiles/mytxt_schedule_autogen_timestamp_deps | ${cmake_ninja_workdir}TagSchedule/CMakeFiles/mytxt_schedule_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+build TagSchedule/CMakeFiles/mytxt_schedule_autogen_timestamp_deps | ${cmake_ninja_workdir}TagSchedule/CMakeFiles/mytxt_schedule_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
 
 
 #############################################
@@ -1464,7 +1464,7 @@ build setting/meta_types/mytxt_setting_json_file_list.txt setting/meta_types/myt
 #############################################
 # Phony custom command for setting\CMakeFiles\mytxt_setting_autogen_timestamp_deps
 
-build setting/CMakeFiles/mytxt_setting_autogen_timestamp_deps | ${cmake_ninja_workdir}setting/CMakeFiles/mytxt_setting_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+build setting/CMakeFiles/mytxt_setting_autogen_timestamp_deps | ${cmake_ninja_workdir}setting/CMakeFiles/mytxt_setting_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
 
 
 #############################################
@@ -1668,7 +1668,7 @@ build userinfo/meta_types/mytxt_userinfo_json_file_list.txt userinfo/meta_types/
 #############################################
 # Phony custom command for userinfo\CMakeFiles\mytxt_userinfo_autogen_timestamp_deps
 
-build userinfo/CMakeFiles/mytxt_userinfo_autogen_timestamp_deps | ${cmake_ninja_workdir}userinfo/CMakeFiles/mytxt_userinfo_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
+build userinfo/CMakeFiles/mytxt_userinfo_autogen_timestamp_deps | ${cmake_ninja_workdir}userinfo/CMakeFiles/mytxt_userinfo_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
 
 
 #############################################
@@ -1859,7 +1859,7 @@ build EmailService/meta_types/mytxt_email_json_file_list.txt EmailService/meta_t
 #############################################
 # Phony custom command for EmailService\CMakeFiles\mytxt_email_autogen_timestamp_deps
 
-build EmailService/CMakeFiles/mytxt_email_autogen_timestamp_deps | ${cmake_ninja_workdir}EmailService/CMakeFiles/mytxt_email_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a EmailService/simple-mail/src/libSimpleMail3Qt6.dll || EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll
+build EmailService/CMakeFiles/mytxt_email_autogen_timestamp_deps | ${cmake_ninja_workdir}EmailService/CMakeFiles/mytxt_email_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a EmailService/simple-mail/src/libSimpleMail3Qt6.dll || EmailService/simple-mail/src/SimpleMail3Qt6_autogen EmailService/simple-mail/src/SimpleMail3Qt6_autogen_timestamp_deps EmailService/simple-mail/src/libSimpleMail3Qt6.dll
 
 
 #############################################
@@ -2055,7 +2055,7 @@ build DisposeAbstract/DisposeTXT/meta_types/mytxt_txt_json_file_list.txt Dispose
 #############################################
 # Phony custom command for DisposeAbstract\DisposeTXT\CMakeFiles\mytxt_txt_autogen_timestamp_deps
 
-build DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt_autogen_timestamp_deps | ${cmake_ninja_workdir}DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+build DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt_autogen_timestamp_deps | ${cmake_ninja_workdir}DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
 
 
 #############################################
@@ -2251,7 +2251,7 @@ build DisposeAbstract/DisposeCSV/meta_types/mytxt_csv_json_file_list.txt Dispose
 #############################################
 # Phony custom command for DisposeAbstract\DisposeCSV\CMakeFiles\mytxt_csv_autogen_timestamp_deps
 
-build DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv_autogen_timestamp_deps | ${cmake_ninja_workdir}DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+build DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv_autogen_timestamp_deps | ${cmake_ninja_workdir}DisposeAbstract/DisposeCSV/CMakeFiles/mytxt_csv_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
 
 
 #############################################
@@ -2455,7 +2455,7 @@ build DisposeAbstract/DisposeIMG/meta_types/mytxt_img_json_file_list.txt Dispose
 #############################################
 # Phony custom command for DisposeAbstract\DisposeIMG\CMakeFiles\mytxt_img_autogen_timestamp_deps
 
-build DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img_autogen_timestamp_deps | ${cmake_ninja_workdir}DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
+build DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img_autogen_timestamp_deps | ${cmake_ninja_workdir}DisposeAbstract/DisposeIMG/CMakeFiles/mytxt_img_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a
 
 
 #############################################
@@ -2517,6 +2517,14 @@ build main/CMakeFiles/mytxt_main.dir/WidgetFunctional.cpp.obj: CXX_COMPILER__myt
   OBJECT_DIR = main\CMakeFiles\mytxt_main.dir
   OBJECT_FILE_DIR = main\CMakeFiles\mytxt_main.dir
 
+build main/CMakeFiles/mytxt_main.dir/finddialog.cpp.obj: CXX_COMPILER__mytxt_main_Debug D$:/CxxProgram/SmartDesk/main/finddialog.cpp || cmake_object_order_depends_target_mytxt_main
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = main\CMakeFiles\mytxt_main.dir\finddialog.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -ID:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/include -ID:/CxxProgram/SmartDesk/main/include -isystem D:/QT6/6.8.0/mingw_64/include/QtCore -isystem D:/QT6/6.8.0/mingw_64/include -isystem D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++ -isystem D:/QT6/6.8.0/mingw_64/include/QtWidgets -isystem D:/QT6/6.8.0/mingw_64/include/QtGui -isystem D:/QT6/6.8.0/mingw_64/include/QtNetwork -isystem D:/QT6/6.8.0/mingw_64/include/QtSvg
+  OBJECT_DIR = main\CMakeFiles\mytxt_main.dir
+  OBJECT_FILE_DIR = main\CMakeFiles\mytxt_main.dir
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target mytxt_main
@@ -2525,7 +2533,7 @@ build main/CMakeFiles/mytxt_main.dir/WidgetFunctional.cpp.obj: CXX_COMPILER__myt
 #############################################
 # Link the static library main\libmytxt_main.a
 
-build main/libmytxt_main.a: CXX_STATIC_LIBRARY_LINKER__mytxt_main_Debug main/CMakeFiles/mytxt_main.dir/mytxt_main_autogen/mocs_compilation.cpp.obj main/CMakeFiles/mytxt_main.dir/main.cpp.obj main/CMakeFiles/mytxt_main.dir/mainwindow.cpp.obj main/CMakeFiles/mytxt_main.dir/RecentFilesManager.cpp.obj main/CMakeFiles/mytxt_main.dir/WidgetFunctional.cpp.obj || main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps
+build main/libmytxt_main.a: CXX_STATIC_LIBRARY_LINKER__mytxt_main_Debug main/CMakeFiles/mytxt_main.dir/mytxt_main_autogen/mocs_compilation.cpp.obj main/CMakeFiles/mytxt_main.dir/main.cpp.obj main/CMakeFiles/mytxt_main.dir/mainwindow.cpp.obj main/CMakeFiles/mytxt_main.dir/RecentFilesManager.cpp.obj main/CMakeFiles/mytxt_main.dir/WidgetFunctional.cpp.obj main/CMakeFiles/mytxt_main.dir/finddialog.cpp.obj || main/mytxt_main_autogen main/mytxt_main_autogen_timestamp_deps
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = main\CMakeFiles\mytxt_main.dir
   POST_BUILD = cd .
@@ -2676,7 +2684,7 @@ build main/meta_types/mytxt_main_json_file_list.txt main/meta_types/mytxt_main_j
 #############################################
 # Phony custom command for main\CMakeFiles\mytxt_main_autogen_timestamp_deps
 
-build main/CMakeFiles/mytxt_main_autogen_timestamp_deps | ${cmake_ninja_workdir}main/CMakeFiles/mytxt_main_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Svg.a
+build main/CMakeFiles/mytxt_main_autogen_timestamp_deps | ${cmake_ninja_workdir}main/CMakeFiles/mytxt_main_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Widgets.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Svg.a
 
 
 #############################################
@@ -3040,7 +3048,7 @@ build EmailService/simple-mail/src/SimpleMail3Qt6_autogen/timestamp EmailService
 #############################################
 # Phony custom command for EmailService\simple-mail\src\CMakeFiles\SimpleMail3Qt6_autogen_timestamp_deps
 
-build EmailService/simple-mail/src/CMakeFiles/SimpleMail3Qt6_autogen_timestamp_deps | ${cmake_ninja_workdir}EmailService/simple-mail/src/CMakeFiles/SimpleMail3Qt6_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
+build EmailService/simple-mail/src/CMakeFiles/SimpleMail3Qt6_autogen_timestamp_deps | ${cmake_ninja_workdir}EmailService/simple-mail/src/CMakeFiles/SimpleMail3Qt6_autogen_timestamp_deps: phony D$:/QT6/6.8.0/mingw_64/bin/uic.exe D$:/QT6/6.8.0/mingw_64/bin/moc.exe D$:/QT6/6.8.0/mingw_64/lib/libQt6Core.a D$:/QT6/6.8.0/mingw_64/lib/libQt6Network.a
 
 
 #############################################

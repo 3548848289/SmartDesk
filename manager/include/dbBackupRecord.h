@@ -26,6 +26,8 @@ public:
     int getPasswordIdByPassword(const QString &password);
 
 
+    QString getInitPath(const QString &remoteFileName);
+    QDateTime getSubTime(const QString &remoteFileName);
 };
 
 #endif // DBBACKUPRECORD_H

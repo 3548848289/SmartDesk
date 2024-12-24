@@ -47,6 +47,7 @@ constexpr auto qt_meta_stringdata_CLASSTagItemDelegateENDCLASS = QtMocHelpers::s
     "deleteFileRequested",
     "onFilesListUpdated",
     "files",
+    "TagUpdated",
     "onNewTagTriggered",
     "QAbstractItemModel*",
     "model",
@@ -66,26 +67,27 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSTagItemDelegateENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       5,       // signalCount
+       6,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   74,    2, 0x06,    1 /* Public */,
-       5,    1,   77,    2, 0x06,    3 /* Public */,
-       6,    1,   80,    2, 0x06,    5 /* Public */,
-       8,    1,   83,    2, 0x06,    7 /* Public */,
-       9,    1,   86,    2, 0x06,    9 /* Public */,
+       1,    1,   80,    2, 0x06,    1 /* Public */,
+       5,    1,   83,    2, 0x06,    3 /* Public */,
+       6,    1,   86,    2, 0x06,    5 /* Public */,
+       8,    1,   89,    2, 0x06,    7 /* Public */,
+       9,    1,   92,    2, 0x06,    9 /* Public */,
+      11,    0,   95,    2, 0x06,   11 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      11,    2,   89,    2, 0x08,   11 /* Private */,
-      14,    2,   94,    2, 0x08,   14 /* Private */,
-      15,    2,   99,    2, 0x08,   17 /* Private */,
-      16,    2,  104,    2, 0x08,   20 /* Private */,
-      17,    2,  109,    2, 0x08,   23 /* Private */,
+      12,    2,   96,    2, 0x08,   12 /* Private */,
+      15,    2,  101,    2, 0x08,   15 /* Private */,
+      16,    2,  106,    2, 0x08,   18 /* Private */,
+      17,    2,  111,    2, 0x08,   21 /* Private */,
+      18,    2,  116,    2, 0x08,   24 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -93,13 +95,14 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSTagItemDelegateENDCLASS[] = {
     QMetaType::Void, QMetaType::QString,    7,
     QMetaType::Void, QMetaType::QString,    7,
     QMetaType::Void, QMetaType::QStringList,   10,
+    QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 12, 0x80000000 | 3,   13,    4,
-    QMetaType::Void, 0x80000000 | 12, 0x80000000 | 3,   13,    4,
-    QMetaType::Void, 0x80000000 | 12, 0x80000000 | 3,   13,    4,
-    QMetaType::Void, 0x80000000 | 12, 0x80000000 | 3,   13,    4,
-    QMetaType::Void, 0x80000000 | 12, 0x80000000 | 3,   13,    4,
+    QMetaType::Void, 0x80000000 | 13, 0x80000000 | 3,   14,    4,
+    QMetaType::Void, 0x80000000 | 13, 0x80000000 | 3,   14,    4,
+    QMetaType::Void, 0x80000000 | 13, 0x80000000 | 3,   14,    4,
+    QMetaType::Void, 0x80000000 | 13, 0x80000000 | 3,   14,    4,
+    QMetaType::Void, 0x80000000 | 13, 0x80000000 | 3,   14,    4,
 
        0        // eod
 };
@@ -128,6 +131,8 @@ Q_CONSTINIT const QMetaObject TagItemDelegate::staticMetaObject = { {
         // method 'onFilesListUpdated'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QStringList &, std::false_type>,
+        // method 'TagUpdated'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onNewTagTriggered'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QAbstractItemModel *, std::false_type>,
@@ -163,23 +168,17 @@ void TagItemDelegate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 2: _t->openFileRequested((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 3: _t->deleteFileRequested((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 4: _t->onFilesListUpdated((*reinterpret_cast< std::add_pointer_t<QStringList>>(_a[1]))); break;
-        case 5: _t->onNewTagTriggered((*reinterpret_cast< std::add_pointer_t<QAbstractItemModel*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[2]))); break;
-        case 6: _t->onOpenFileTriggered((*reinterpret_cast< std::add_pointer_t<QAbstractItemModel*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[2]))); break;
-        case 7: _t->onDeleteFileTriggered((*reinterpret_cast< std::add_pointer_t<QAbstractItemModel*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[2]))); break;
-        case 8: _t->onCommitTriggered((*reinterpret_cast< std::add_pointer_t<QAbstractItemModel*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[2]))); break;
-        case 9: _t->onHistoryTriggered((*reinterpret_cast< std::add_pointer_t<QAbstractItemModel*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[2]))); break;
+        case 5: _t->TagUpdated(); break;
+        case 6: _t->onNewTagTriggered((*reinterpret_cast< std::add_pointer_t<QAbstractItemModel*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[2]))); break;
+        case 7: _t->onOpenFileTriggered((*reinterpret_cast< std::add_pointer_t<QAbstractItemModel*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[2]))); break;
+        case 8: _t->onDeleteFileTriggered((*reinterpret_cast< std::add_pointer_t<QAbstractItemModel*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[2]))); break;
+        case 9: _t->onCommitTriggered((*reinterpret_cast< std::add_pointer_t<QAbstractItemModel*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[2]))); break;
+        case 10: _t->onHistoryTriggered((*reinterpret_cast< std::add_pointer_t<QAbstractItemModel*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 5:
-            switch (*reinterpret_cast<int*>(_a[1])) {
-            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-            case 0:
-                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QAbstractItemModel* >(); break;
-            }
-            break;
         case 6:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
@@ -202,6 +201,13 @@ void TagItemDelegate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
             }
             break;
         case 9:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QAbstractItemModel* >(); break;
+            }
+            break;
+        case 10:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -246,6 +252,13 @@ void TagItemDelegate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
                 return;
             }
         }
+        {
+            using _t = void (TagItemDelegate::*)();
+            if (_t _q_method = &TagItemDelegate::TagUpdated; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 5;
+                return;
+            }
+        }
     }
 }
 
@@ -268,13 +281,13 @@ int TagItemDelegate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 11;
     }
     return _id;
 }
@@ -312,5 +325,11 @@ void TagItemDelegate::onFilesListUpdated(const QStringList & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 4, _a);
+}
+
+// SIGNAL 5
+void TagItemDelegate::TagUpdated()
+{
+    QMetaObject::activate(this, &staticMetaObject, 5, nullptr);
 }
 QT_WARNING_POP

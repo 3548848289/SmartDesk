@@ -38,6 +38,7 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
   D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h \
+  D:/CxxProgram/SmartDesk/main/include/finddialog.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \

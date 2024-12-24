@@ -14,8 +14,10 @@
 
 #include "RecentFilesManager.h"
 #include "WidgetFunctional.h"
-
+#include "finddialog.h"
 #include "TabAbstract.h"
+
+
 #include "../../DisposeAbstract/DisposeTXT/TabHandleTXT.h"
 #include "../../DisposeAbstract/DisposeCSV/TabHandleCSV.h"
 #include "../../DisposeAbstract/DisposeIMG/include/TabHandleIMG.h"
@@ -63,6 +65,8 @@ private slots:
     void showUserInfoDialog();
     void receiveSendEmailForm(SendEmail *form);
 
+    void on_actionfind_triggered();
+
 private:
 
     int currentIndex = 0;
@@ -81,6 +85,7 @@ private:
     WidgetFunctional* widgetfunc;
     Setting * setiing;
     ScheduleWid * schedule_wid;
+    FindDialog *findDialog;
 
     void initFunc();
     void initSpli();

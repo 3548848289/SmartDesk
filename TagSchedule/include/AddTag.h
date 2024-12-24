@@ -14,7 +14,7 @@ class AddTag : public QDialog
 public:
     explicit AddTag(QWidget *parent = nullptr);
 
-    QStringList getTagName() const;
+    QString getTagName() const;
     QString getAnnotation() const;
     QDateTime getExpirationDate() const;
     ~AddTag();

@@ -36,6 +36,7 @@ public:
     QAction *actionshe;
     QAction *actiontest;
     QAction *actiondo;
+    QAction *actionfind;
     QWidget *centralwidget;
     QWidget *combinedWidget;
     QGridLayout *gridLayout_2;
@@ -109,6 +110,10 @@ public:
         actiontest->setIcon(icon7);
         actiondo = new QAction(MainWindow);
         actiondo->setObjectName("actiondo");
+        actionfind = new QAction(MainWindow);
+        actionfind->setObjectName("actionfind");
+        QIcon icon8(QIcon::fromTheme(QIcon::ThemeIcon::EditFind));
+        actionfind->setIcon(icon8);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setStyleSheet(QString::fromUtf8(""));
@@ -165,6 +170,7 @@ public:
         menunew->addAction(actionscv_file);
         menuaction->addAction(actiondo);
         menu->addAction(actionshe);
+        menu->addAction(actionfind);
         menu->addAction(actiontest);
 
         retranslateUi(MainWindow);
@@ -202,6 +208,10 @@ public:
         actionshe->setText(QCoreApplication::translate("MainWindow", "\350\256\276\347\275\256", nullptr));
         actiontest->setText(QCoreApplication::translate("MainWindow", "\346\265\213\350\257\225", nullptr));
         actiondo->setText(QCoreApplication::translate("MainWindow", "\346\223\215\347\272\265csv", nullptr));
+        actionfind->setText(QCoreApplication::translate("MainWindow", "\346\237\245\346\211\276", nullptr));
+#if QT_CONFIG(shortcut)
+        actionfind->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+F", nullptr));
+#endif // QT_CONFIG(shortcut)
         label->setText(QCoreApplication::translate("MainWindow", "\345\275\223\345\211\215\347\225\214\351\235\242", nullptr));
         menufile->setTitle(QCoreApplication::translate("MainWindow", "\346\226\207\344\273\266", nullptr));
         menunew->setTitle(QCoreApplication::translate("MainWindow", "\346\226\260\345\273\272", nullptr));

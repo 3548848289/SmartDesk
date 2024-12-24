@@ -36,6 +36,11 @@ FileSystem::FileSystem(QWidget *parent)
     connect(ui->goButton, &QPushButton::clicked, this, &FileSystem::goButtonClicked);
     connect(ui->treeView, &QTreeView::clicked, this, &FileSystem::onItemClicked);
 
+    connect(tagItemdelegate, &TagItemDelegate::TagUpdated, this, [=](){
+        //被标签缓存击中了，这里无法及时刷新
+        ui->treeView->update();
+    });
+
     connect(tagItemdelegate, &TagItemDelegate::tagbutClicked, this, [this](const QModelIndex &index) {
         qDebug() << "点击了添加标签按钮";
     });

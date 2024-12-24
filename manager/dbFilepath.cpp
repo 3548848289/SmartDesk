@@ -86,8 +86,7 @@ QStringList dbFilepath::getAllFilePaths() {
     return filePaths;
 }
 
-
-bool dbFilepath::saveTags(int fileId, const QStringList &tags) {
+bool dbFilepath::saveTags(int fileId, const QString &tag) {
     QSqlQuery query(dbsqlite);
 
     // 删除已有的标签，确保每次保存时是重新保存标签
@@ -98,19 +97,37 @@ bool dbFilepath::saveTags(int fileId, const QStringList &tags) {
         return false;
     }
 
-    // 插入新的标签，避免重复插入
+    // 插入新的标签
     query.prepare("INSERT INTO Tags (file_id, tag_name) VALUES (:fileId, :tagName)");
-    for (const QString &tag : tags) {
-        query.bindValue(":fileId", fileId);
-        query.bindValue(":tagName", tag);
-        if (!query.exec()) {
-            qWarning() << "Failed to insert tag:" << tag;
-            return false;
-        }
+    query.bindValue(":fileId", fileId);
+    query.bindValue(":tagName", tag.trimmed());  // 去除标签前后的空白字符
+    if (!query.exec()) {
+        qWarning() << "Failed to insert tag:" << tag;
+        return false;
     }
 
     return true;
 }
+
+bool dbFilepath::saveAnnotation(int fileId, const QString &annotation) {
+    QSqlQuery query(dbsqlite);
+
+    query.prepare("INSERT OR REPLACE INTO Annotations (file_id, annotation) VALUES (:fileId, :annotation)");
+    query.bindValue(":fileId", fileId);
+    query.bindValue(":annotation", annotation);
+    return query.exec();
+}
+
+
+void dbFilepath::saveExpirationDate(int fileId, const QDateTime &expirationDateTime) {
+    QSqlQuery query(dbsqlite);
+
+    query.prepare("UPDATE FilePaths SET expiration_date = :expiration_date WHERE id = :file_id");
+    query.bindValue(":expiration_date", expirationDateTime);
+    query.bindValue(":file_id", fileId);
+    query.exec();
+}
+
 
 bool dbFilepath::deleteTag(int fileId) {
     QSqlDatabase::database().transaction();
@@ -201,25 +218,6 @@ bool dbFilepath::updateFileInfo(const FilePathInfo& fileInfo)
     return true;
 }
 
-
-bool dbFilepath::saveAnnotation(int fileId, const QString &annotation) {
-    QSqlQuery query(dbsqlite);
-
-    query.prepare("INSERT OR REPLACE INTO Annotations (file_id, annotation) VALUES (:fileId, :annotation)");
-    query.bindValue(":fileId", fileId);
-    query.bindValue(":annotation", annotation);
-    return query.exec();
-}
-
-
-void dbFilepath::saveExpirationDate(int fileId, const QDateTime &expirationDateTime) {
-    QSqlQuery query(dbsqlite);
-
-    query.prepare("UPDATE FilePaths SET expiration_date = :expiration_date WHERE id = :file_id");
-    query.bindValue(":expiration_date", expirationDateTime);
-    query.bindValue(":file_id", fileId);
-    query.exec();
-}
 
 bool dbFilepath::hasTagsForFile(const QString &filePath) const
 {

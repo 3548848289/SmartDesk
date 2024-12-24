@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "onlinedoc/libmytxt_onlinedoc.a"
+			"path" : "DisposeAbstract/DisposeTXT/libmytxt_txt.a"
 		}
 	],
 	"backtrace" : 4,
@@ -24,7 +24,7 @@
 		"files" : 
 		[
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
-			"OnlineDoc/CMakeLists.txt",
+			"DisposeAbstract/DisposeTXT/CMakeLists.txt",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:2684:EVAL"
 		],
 		"nodes" : 
@@ -35,7 +35,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 21,
+				"line" : 12,
 				"parent" : 0
 			},
 			{
@@ -59,13 +59,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 27,
+				"line" : 18,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 33,
+				"line" : 22,
 				"parent" : 0
 			},
 			{
@@ -118,10 +118,6 @@
 				},
 				{
 					"backtrace" : 5,
-					"define" : "QT_NETWORK_LIB"
-				},
-				{
-					"backtrace" : 5,
 					"define" : "QT_WIDGETS_LIB"
 				},
 				{
@@ -153,15 +149,11 @@
 			[
 				{
 					"backtrace" : 0,
-					"path" : "D:/CxxProgram/SmartDesk/.build/debug/onlinedoc/mytxt_onlinedoc_autogen/include"
+					"path" : "D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/include"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "D:/CxxProgram/SmartDesk/OnlineDoc/include"
-				},
-				{
-					"backtrace" : 6,
-					"path" : "D:/CxxProgram/SmartDesk/OnlineDoc"
+					"path" : "D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT"
 				},
 				{
 					"backtrace" : 5,
@@ -187,11 +179,6 @@
 					"backtrace" : 5,
 					"isSystem" : true,
 					"path" : "D:/QT6/6.8.0/mingw_64/include/QtGui"
-				},
-				{
-					"backtrace" : 5,
-					"isSystem" : true,
-					"path" : "D:/QT6/6.8.0/mingw_64/include/QtNetwork"
 				}
 			],
 			"language" : "CXX",
@@ -199,29 +186,27 @@
 			[
 				0,
 				1,
-				2,
-				3,
-				4
+				2
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"id" : "mytxt_onlinedoc_autogen_timestamp_deps::@7149736b0edd5551e3a2"
+			"id" : "mytxt_txt_autogen_timestamp_deps::@22d3c4ea2864f1017caf"
 		},
 		{
 			"backtrace" : 0,
-			"id" : "mytxt_onlinedoc_autogen::@7149736b0edd5551e3a2"
+			"id" : "mytxt_txt_autogen::@22d3c4ea2864f1017caf"
 		}
 	],
-	"id" : "mytxt_onlinedoc::@7149736b0edd5551e3a2",
-	"name" : "mytxt_onlinedoc",
-	"nameOnDisk" : "libmytxt_onlinedoc.a",
+	"id" : "mytxt_txt::@22d3c4ea2864f1017caf",
+	"name" : "mytxt_txt",
+	"nameOnDisk" : "libmytxt_txt.a",
 	"paths" : 
 	{
-		"build" : "onlinedoc",
-		"source" : "OnlineDoc"
+		"build" : "DisposeAbstract/DisposeTXT",
+		"source" : "DisposeAbstract/DisposeTXT"
 	},
 	"sourceGroups" : 
 	[
@@ -231,42 +216,34 @@
 			[
 				0,
 				1,
-				2,
-				3,
-				4
+				2
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				5,
-				6,
-				7,
-				8,
-				13,
-				14,
-				15
+				3,
+				4,
+				7
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				9,
-				10,
-				11,
-				12,
-				16
+				5,
+				6,
+				8
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				17,
-				18,
-				19
+				9,
+				10,
+				11
 			]
 		}
 	],
@@ -276,114 +253,70 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : ".build/debug/onlinedoc/mytxt_onlinedoc_autogen/mocs_compilation.cpp",
+			"path" : ".build/debug/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/mocs_compilation.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "OnlineDoc/csvLinkServer2.cpp",
+			"path" : "DisposeAbstract/DisposeTXT/ControlWidTXT.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "OnlineDoc/DLfromNet.cpp",
+			"path" : "DisposeAbstract/DisposeTXT/TabHandleTXT.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "OnlineDoc/EditedLog.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "OnlineDoc/WOnlineDoc.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 4,
-			"path" : "OnlineDoc/include/csvLinkServer2.h",
+			"path" : "DisposeAbstract/DisposeTXT/ControlWidTXT.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
-			"path" : "OnlineDoc/include/DLfromNet.h",
+			"path" : "DisposeAbstract/DisposeTXT/TabHandleTXT.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
-			"path" : "OnlineDoc/include/EditedLog.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 4,
-			"path" : "OnlineDoc/include/WOnlineDoc.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 4,
-			"path" : "OnlineDoc/ui/csvLinkServer2.ui",
-			"sourceGroupIndex" : 2
-		},
-		{
-			"backtrace" : 4,
-			"path" : "OnlineDoc/ui/DLfromNet.ui",
-			"sourceGroupIndex" : 2
-		},
-		{
-			"backtrace" : 4,
-			"path" : "OnlineDoc/ui/WOnlineDoc.ui",
+			"path" : "DisposeAbstract/DisposeTXT/ControlWidTXT.ui",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 10,
 			"isGenerated" : true,
-			"path" : ".build/debug/onlinedoc/meta_types/qt6mytxt_onlinedoc_debug_metatypes.json.gen",
+			"path" : ".build/debug/DisposeAbstract/DisposeTXT/meta_types/qt6mytxt_txt_debug_metatypes.json.gen",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/debug/onlinedoc/mytxt_onlinedoc_autogen/include/ui/ui_csvLinkServer2.h",
+			"path" : ".build/debug/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/include/ui_ControlWidTXT.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/debug/onlinedoc/mytxt_onlinedoc_autogen/include/ui/ui_DLfromNet.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 0,
-			"isGenerated" : true,
-			"path" : ".build/debug/onlinedoc/mytxt_onlinedoc_autogen/include/ui/ui_WOnlineDoc.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 0,
-			"isGenerated" : true,
-			"path" : ".build/debug/onlinedoc/mytxt_onlinedoc_autogen/timestamp",
+			"path" : ".build/debug/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/timestamp",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/debug/onlinedoc/meta_types/qt6mytxt_onlinedoc_debug_metatypes.json.gen.rule",
+			"path" : ".build/debug/DisposeAbstract/DisposeTXT/meta_types/qt6mytxt_txt_debug_metatypes.json.gen.rule",
 			"sourceGroupIndex" : 3
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/debug/onlinedoc/mytxt_onlinedoc_autogen/timestamp.rule",
+			"path" : ".build/debug/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/timestamp.rule",
 			"sourceGroupIndex" : 3
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/debug/onlinedoc/meta_types/mytxt_onlinedoc_json_file_list.txt.rule",
+			"path" : ".build/debug/DisposeAbstract/DisposeTXT/meta_types/mytxt_txt_json_file_list.txt.rule",
 			"sourceGroupIndex" : 3
 		}
 	],

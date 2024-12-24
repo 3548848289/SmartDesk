@@ -7,8 +7,10 @@ set(MAIN_SOURCES
     mainwindow.cpp
     RecentFilesManager.cpp
     WidgetFunctional.cpp
+    finddialog.cpp
 
     include/mainwindow.h
+    include/finddialog.h
     include/TabAbstract.h
     include/RecentFilesManager.h
     include/WidgetFunctional.h

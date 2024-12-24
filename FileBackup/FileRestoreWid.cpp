@@ -2,30 +2,25 @@
 #include "ui/ui_FileRestoreWid.h"
 
 FileRestoreWid::FileRestoreWid(QString fileName, ServerManager* serverManager, QWidget *parent)
-    :QDialog(parent), ui(new Ui::FileRestoreWid), fileName(fileName), serverManager(serverManager)
+    :QDialog(parent), ui(new Ui::FileRestoreWid), file_name(fileName), serverManager(serverManager)
+    , dbservice(dbService::instance("../SmartDesk.db"))
+
 {
     ui->setupUi(this);
 
-    QFileInfo fileInfo(fileName);
-    QString baseName = fileInfo.baseName();
-    QString extension = fileInfo.suffix();
+    QFileInfo tmp(fileName);
+    backup_filepath = tmp.path();
 
-    // 定义正则表达式来提取文件名中的时间戳部分
-    QRegularExpression regex("(.*?)(\\d{14})$");  // 匹配文件名中以14位数字结尾的时间戳部分
-    QRegularExpressionMatch match = regex.match(baseName);
+    submit_time = dbservice.dbBackup().getSubTime(fileName);
+    initial_file_name = dbservice.dbBackup().getInitPath(fileName);
 
-    if (match.hasMatch()) {
-        QString fileCoreName = match.captured(1);  // 提取文件名（时间戳之前的部分）
-        QString timeStamp = match.captured(2);     // 提取时间戳部分
+    QFileInfo fileInfo(initial_file_name);
+    QString baseName = fileInfo.fileName();
 
-        ui->lineEdit->setText(fileCoreName + "." + extension);
-
-        QDateTime dateTime = QDateTime::fromString(timeStamp, "yyyyMMddHHmmss");
-        ui->dateTimeEdit->setDateTime(dateTime);
-    }
-    else {
-        qDebug() << "File name does not match expected pattern.";
-    }
+    ui->dateTimeEdit->setDateTime(submit_time);
+    ui->filenameEdit->setText(baseName);
+    ui->initpathEdit->setText(initial_file_name);
+    ui->backupPathRdit->setText(backup_filepath);
 }
 
 FileRestoreWid::~FileRestoreWid()
@@ -33,25 +28,53 @@ FileRestoreWid::~FileRestoreWid()
     delete ui;
 }
 
-void FileRestoreWid::on_fastDlBtn_clicked()
-{
-    serverManager->downloadFile(fileName);
-}
 
 
-void FileRestoreWid::on_dlBtn_clicked()
-{
-
-}
-
-
-void FileRestoreWid::on_dlBtn_2_clicked()
+void FileRestoreWid::on_pathBtn_clicked()
 {
     QString dir = QFileDialog::getExistingDirectory(this, tr("选择保存目录"),
-        QString(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
-    // 如果用户选择了目录，设置到lineEdit_2
+                                                    QString(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
     if (!dir.isEmpty()) {
-        ui->lineEdit_2->setText(dir);
+        ui->backupPathRdit->setText(dir);
     }
 }
 
+
+void FileRestoreWid::on_saveasBtn_clicked()
+{
+
+}
+
+void FileRestoreWid::on_restoreBtn_clicked()
+{
+    QFileInfo backup_file_info(file_name);
+    if (!backup_file_info.exists()) {
+        QMessageBox::warning(this, "错误", "备份文件不存在!");
+        return;
+    }
+
+    QFileInfo init_file_info(initial_file_name);
+    QDir target_dir = init_file_info.absolutePath();
+
+    if (!target_dir.exists()) {
+        if (!target_dir.mkpath(".")) {
+            QMessageBox::warning(this, "错误", "无法创建目标目录!");
+            return;
+        }
+    }
+
+    if (init_file_info.exists() && !QFile::remove(initial_file_name)) {
+        QMessageBox::warning(this, "错误", "无法删除原文件!");
+        return;
+    }
+
+    if (!QFile::copy(file_name, initial_file_name)) {
+        QMessageBox::warning(this, "错误", "无法恢复备份文件!");
+        return;
+    }
+
+    QMessageBox::information(this, "成功", "文件恢复成功!");
+}
+
+
+// serverManager->downloadFile(fileName);

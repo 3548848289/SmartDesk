@@ -31,7 +31,7 @@ public:
     // QList<QPair<QString, QString>> searchFiles(const QString &keyword);
 
 
-    bool saveTags(int fileId, const QStringList &tags);
+    bool saveTags(int fileId, const QString &tags);
     bool deleteTag(int fileId);
     bool updateFileInfo(const FilePathInfo& fileInfo);
     bool updateFilePath(const QString &newFilePath, const QString &oldFilePath);

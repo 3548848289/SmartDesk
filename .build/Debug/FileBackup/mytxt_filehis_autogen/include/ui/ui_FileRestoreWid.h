@@ -23,13 +23,15 @@ class Ui_FileRestoreWid
 {
 public:
     QDateTimeEdit *dateTimeEdit;
-    QLineEdit *lineEdit;
-    QPushButton *dlBtn;
+    QLineEdit *filenameEdit;
+    QPushButton *saveasBtn;
     QLabel *label;
-    QPushButton *fastDlBtn;
-    QLineEdit *lineEdit_2;
+    QPushButton *restoreBtn;
+    QLineEdit *backupPathRdit;
+    QLabel *label_3;
+    QPushButton *pathBtn;
     QLabel *label_2;
-    QPushButton *dlBtn_2;
+    QLineEdit *initpathEdit;
 
     void setupUi(QDialog *FileRestoreWid)
     {
@@ -38,28 +40,34 @@ public:
         FileRestoreWid->resize(400, 300);
         dateTimeEdit = new QDateTimeEdit(FileRestoreWid);
         dateTimeEdit->setObjectName("dateTimeEdit");
-        dateTimeEdit->setGeometry(QRect(100, 90, 141, 41));
-        lineEdit = new QLineEdit(FileRestoreWid);
-        lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(20, 20, 361, 41));
-        dlBtn = new QPushButton(FileRestoreWid);
-        dlBtn->setObjectName("dlBtn");
-        dlBtn->setGeometry(QRect(290, 250, 91, 41));
+        dateTimeEdit->setGeometry(QRect(100, 90, 181, 41));
+        filenameEdit = new QLineEdit(FileRestoreWid);
+        filenameEdit->setObjectName("filenameEdit");
+        filenameEdit->setGeometry(QRect(20, 20, 361, 41));
+        saveasBtn = new QPushButton(FileRestoreWid);
+        saveasBtn->setObjectName("saveasBtn");
+        saveasBtn->setGeometry(QRect(290, 250, 91, 41));
         label = new QLabel(FileRestoreWid);
         label->setObjectName("label");
         label->setGeometry(QRect(20, 90, 71, 41));
-        fastDlBtn = new QPushButton(FileRestoreWid);
-        fastDlBtn->setObjectName("fastDlBtn");
-        fastDlBtn->setGeometry(QRect(10, 250, 91, 41));
-        lineEdit_2 = new QLineEdit(FileRestoreWid);
-        lineEdit_2->setObjectName("lineEdit_2");
-        lineEdit_2->setGeometry(QRect(100, 160, 121, 41));
+        restoreBtn = new QPushButton(FileRestoreWid);
+        restoreBtn->setObjectName("restoreBtn");
+        restoreBtn->setGeometry(QRect(10, 250, 91, 41));
+        backupPathRdit = new QLineEdit(FileRestoreWid);
+        backupPathRdit->setObjectName("backupPathRdit");
+        backupPathRdit->setGeometry(QRect(100, 190, 171, 41));
+        label_3 = new QLabel(FileRestoreWid);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(20, 190, 71, 41));
+        pathBtn = new QPushButton(FileRestoreWid);
+        pathBtn->setObjectName("pathBtn");
+        pathBtn->setGeometry(QRect(290, 190, 91, 41));
         label_2 = new QLabel(FileRestoreWid);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(20, 160, 71, 41));
-        dlBtn_2 = new QPushButton(FileRestoreWid);
-        dlBtn_2->setObjectName("dlBtn_2");
-        dlBtn_2->setGeometry(QRect(270, 160, 91, 41));
+        label_2->setGeometry(QRect(20, 140, 71, 41));
+        initpathEdit = new QLineEdit(FileRestoreWid);
+        initpathEdit->setObjectName("initpathEdit");
+        initpathEdit->setGeometry(QRect(100, 140, 171, 41));
 
         retranslateUi(FileRestoreWid);
 
@@ -69,12 +77,13 @@ public:
     void retranslateUi(QDialog *FileRestoreWid)
     {
         FileRestoreWid->setWindowTitle(QCoreApplication::translate("FileRestoreWid", "Dialog", nullptr));
-        lineEdit->setPlaceholderText(QCoreApplication::translate("FileRestoreWid", "\350\256\276\347\275\256\344\270\213\350\275\275\347\232\204\346\226\207\344\273\266\345\220\215", nullptr));
-        dlBtn->setText(QCoreApplication::translate("FileRestoreWid", "\344\270\213\350\275\275", nullptr));
+        filenameEdit->setPlaceholderText(QCoreApplication::translate("FileRestoreWid", "\350\256\276\347\275\256\344\270\213\350\275\275\347\232\204\346\226\207\344\273\266\345\220\215", nullptr));
+        saveasBtn->setText(QCoreApplication::translate("FileRestoreWid", "\345\217\246\345\255\230\344\270\272", nullptr));
         label->setText(QCoreApplication::translate("FileRestoreWid", "\344\270\212\344\274\240\346\227\266\351\227\264", nullptr));
-        fastDlBtn->setText(QCoreApplication::translate("FileRestoreWid", "\345\277\253\351\200\237\344\270\213\350\275\275", nullptr));
-        label_2->setText(QCoreApplication::translate("FileRestoreWid", "\344\277\235\345\255\230\350\267\257\345\276\204", nullptr));
-        dlBtn_2->setText(QCoreApplication::translate("FileRestoreWid", "openBtn", nullptr));
+        restoreBtn->setText(QCoreApplication::translate("FileRestoreWid", "\350\277\230\345\216\237\346\226\207\344\273\266", nullptr));
+        label_3->setText(QCoreApplication::translate("FileRestoreWid", "\345\244\207\344\273\275\350\267\257\345\276\204", nullptr));
+        pathBtn->setText(QCoreApplication::translate("FileRestoreWid", "\351\200\211\346\213\251\347\233\256\345\275\225", nullptr));
+        label_2->setText(QCoreApplication::translate("FileRestoreWid", "\345\216\237\350\267\257\345\276\204", nullptr));
     } // retranslateUi
 
 };

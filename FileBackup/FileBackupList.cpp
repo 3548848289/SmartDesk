@@ -15,6 +15,7 @@ FileBackupList::~FileBackupList()
 }
 
 void FileBackupList::updateFileList(const QStringList& files) {
+    ui->listWidget->clear();
     for (const QString& filePath : files) {
         QFileInfo fileInfo(filePath);
         QString fileName = fileInfo.fileName();

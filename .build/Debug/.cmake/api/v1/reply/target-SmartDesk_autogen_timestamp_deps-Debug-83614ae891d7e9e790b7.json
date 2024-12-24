@@ -17,19 +17,19 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "mytxt_manager::@97418e93d514bfe7a5e1"
-		},
-		{
-			"id" : "mytxt_onlinedoc::@7149736b0edd5551e3a2"
-		},
-		{
 			"id" : "mytxt_filehis::@a04c9e1285aa3f368306"
+		},
+		{
+			"id" : "mytxt_manager::@97418e93d514bfe7a5e1"
 		},
 		{
 			"id" : "mytxt_filetag::@b9ea1107c55a7f026a8a"
 		},
 		{
 			"id" : "mytxt_schedule::@ccb69b48cedb0a3f86be"
+		},
+		{
+			"id" : "mytxt_onlinedoc::@7149736b0edd5551e3a2"
 		},
 		{
 			"id" : "mytxt_setting::@99ddcd2d224c7a01b08e"
@@ -44,13 +44,13 @@
 			"id" : "mytxt_txt::@22d3c4ea2864f1017caf"
 		},
 		{
-			"id" : "mytxt_main::@15c4a824ab2728a3f5e7"
+			"id" : "mytxt_img::@b35f1dbe17117d7379f7"
 		},
 		{
 			"id" : "mytxt_csv::@901643182fe1ace82d6e"
 		},
 		{
-			"id" : "mytxt_img::@b35f1dbe17117d7379f7"
+			"id" : "mytxt_main::@15c4a824ab2728a3f5e7"
 		},
 		{
 			"id" : "SimpleMail3Qt6::@30c29cfdcb280d7d821e"

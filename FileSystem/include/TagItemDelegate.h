@@ -26,6 +26,7 @@ signals:
     void openFileRequested(const QString &filePath);
     void deleteFileRequested(const QString &filePath);
     void onFilesListUpdated(const QStringList& files);
+    void TagUpdated();
 
 public:
     mutable bool isButtonClicked = false;

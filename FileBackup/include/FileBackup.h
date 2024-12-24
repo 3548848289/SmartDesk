@@ -21,7 +21,6 @@ class FileBackup : public QDialog
 public:
     explicit FileBackup(const QString &filePath, QWidget *parent = nullptr);  // 修改构造函数
     QString getBackupFilePath() const;
-
     ~FileBackup();
 
 private slots:

@@ -109,6 +109,12 @@
 			null
 		],
 		[
+			"D:/CxxProgram/SmartDesk/main/include/finddialog.h",
+			"MU",
+			"6YEA5652QU/moc_finddialog.cpp",
+			null
+		],
+		[
 			"D:/CxxProgram/SmartDesk/main/include/mainwindow.h",
 			"MU",
 			"6YEA5652QU/moc_mainwindow.cpp",
@@ -196,6 +202,7 @@
 	[
 		[ "D:/CxxProgram/SmartDesk/main/RecentFilesManager.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/main/WidgetFunctional.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/main/finddialog.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/main/main.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/main/mainwindow.cpp", "MU", null ]
 	],

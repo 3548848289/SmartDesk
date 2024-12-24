@@ -1,8 +1,13 @@
 D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU/moc_FileRestoreWid.cpp: D:/CxxProgram/SmartDesk/FileBackup/include/FileRestoreWid.h \
   D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/moc_predefs.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDir \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFile \
@@ -23,6 +28,7 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QUrl \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QUuid \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QVariant \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h \
@@ -99,6 +105,7 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmargins.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmath.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmetacontainer.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qmetaobject.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmetatype.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qminmax.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qnamespace.h \
@@ -215,10 +222,22 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlDatabase \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlError \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlQuery \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qsqldatabase.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlerror.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qsqlquery.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qtsql-config.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlexports.h \
+  D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialog.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qfiledialog.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \

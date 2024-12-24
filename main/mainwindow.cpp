@@ -363,3 +363,44 @@ void MainWindow::on_actionshe_triggered()
 }
 
 
+void MainWindow::on_actionfind_triggered()
+{
+    // 获取当前选中的 Tab
+    auto currentTab = getCurrentTab<TabAbstract>();
+
+    // 如果当前 Tab 是 TabHandleCSV 类型（包含 QTableWidget）
+    TabHandleCSV* csvTab = qobject_cast<TabHandleCSV*>(currentTab);
+    if (csvTab) {
+        // 创建查找对话框
+        findDialog = new FindDialog(this);
+
+        // 连接 findAll 和 findNext 信号到 TabHandleCSV 中的相应方法
+        connect(findDialog, &FindDialog::findAll, csvTab, &TabHandleCSV::findAll);
+        connect(findDialog, &FindDialog::findNext, csvTab, &TabHandleCSV::findNext);
+
+        // 显示对话框
+        findDialog->show();
+        findDialog->raise();
+        findDialog->activateWindow();
+    }
+    // 如果当前 Tab 是 TextTab 类型（包含 QTextEdit）
+    else {
+        TextTab* textTab = qobject_cast<TextTab*>(currentTab);
+        if (textTab) {
+            // 创建查找对话框
+            findDialog = new FindDialog(this);
+
+            // 连接 findAll 和 findNext 信号到 TextTab 中的相应方法
+            connect(findDialog, &FindDialog::findAll, textTab, &TextTab::findAll);
+            connect(findDialog, &FindDialog::findNext, textTab, &TextTab::findNext);
+
+            // 显示对话框
+            findDialog->show();
+            findDialog->raise();
+            findDialog->activateWindow();
+        } else {
+            qDebug() << "currentTab is neither a TabHandleCSV nor a TextTab!";
+        }
+    }
+}
+

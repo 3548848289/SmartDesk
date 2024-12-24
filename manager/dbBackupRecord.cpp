@@ -1,15 +1,8 @@
 #include "dbBackupRecord.h"
 
-dbBackupRecord::dbBackupRecord(const QString &dbName)
-    : dbManager(dbName)  // 调用基类的构造函数，初始化数据库连接
-{
-    // 这里不需要再手动初始化 dbsqlite，因为已经通过父类构造函数完成了初始化
-}
+dbBackupRecord::dbBackupRecord(const QString &dbName) : dbManager(dbName) { }
 
-
-dbBackupRecord::~dbBackupRecord() {
-
-}
+dbBackupRecord::~dbBackupRecord() { }
 
 void dbBackupRecord::recordSubmission(const QString &filePath, const QString &backupFilePath) {
 
@@ -94,6 +87,41 @@ bool dbBackupRecord::hasSubmissions(const QString& filePath) const {
     return false;
 }
 
+QString dbBackupRecord::getInitPath(const QString &remoteFileName)
+{
+    QSqlQuery query(dbsqlite);
+    query.prepare("SELECT Submissions.file_path "
+                  "FROM Submissions "
+                  "JOIN SubmissionRecords ON SubmissionRecords.submission_id = Submissions.id "
+                  "WHERE SubmissionRecords.remote_file_name = :remoteFileName");
+
+    query.bindValue(":remoteFileName", remoteFileName);
+
+    if (query.exec() && query.next())
+    {
+        return query.value(0).toString();
+    } else {
+        qDebug() << "查询失败或没有找到数据";
+        return QString();
+    }
+}
+
+QDateTime dbBackupRecord::getSubTime(const QString &remoteFileName)
+{
+    QSqlQuery query(dbsqlite);
+    query.prepare("SELECT SubmissionRecords.submit_time "
+                  "FROM SubmissionRecords "
+                  "WHERE SubmissionRecords.remote_file_name = :remoteFileName");
+
+    query.bindValue(":remoteFileName", remoteFileName);
+
+    if (query.exec() && query.next()) {
+        return query.value(0).toDateTime();
+    } else {
+        qDebug() << "查询失败或没有找到数据";
+        return QDateTime();
+    }
+}
 
 
 

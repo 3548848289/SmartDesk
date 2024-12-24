@@ -97,6 +97,7 @@
      <string>工具</string>
     </property>
     <addaction name="actionshe"/>
+    <addaction name="actionfind"/>
     <addaction name="actiontest"/>
    </widget>
    <addaction name="menufile"/>
@@ -193,6 +194,17 @@
   <action name="actiondo">
    <property name="text">
     <string>操纵csv</string>
+   </property>
+  </action>
+  <action name="actionfind">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::EditFind"/>
+   </property>
+   <property name="text">
+    <string>查找</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
    </property>
   </action>
  </widget>

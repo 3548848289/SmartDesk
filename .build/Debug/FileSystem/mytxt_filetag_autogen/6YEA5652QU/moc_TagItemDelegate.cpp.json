@@ -65,6 +65,12 @@
                     "index": 4,
                     "name": "onFilesListUpdated",
                     "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 5,
+                    "name": "TagUpdated",
+                    "returnType": "void"
                 }
             ],
             "slots": [
@@ -80,7 +86,7 @@
                             "type": "QModelIndex"
                         }
                     ],
-                    "index": 5,
+                    "index": 6,
                     "name": "onNewTagTriggered",
                     "returnType": "void"
                 },
@@ -96,7 +102,7 @@
                             "type": "QModelIndex"
                         }
                     ],
-                    "index": 6,
+                    "index": 7,
                     "name": "onOpenFileTriggered",
                     "returnType": "void"
                 },
@@ -112,7 +118,7 @@
                             "type": "QModelIndex"
                         }
                     ],
-                    "index": 7,
+                    "index": 8,
                     "name": "onDeleteFileTriggered",
                     "returnType": "void"
                 },
@@ -128,7 +134,7 @@
                             "type": "QModelIndex"
                         }
                     ],
-                    "index": 8,
+                    "index": 9,
                     "name": "onCommitTriggered",
                     "returnType": "void"
                 },
@@ -144,7 +150,7 @@
                             "type": "QModelIndex"
                         }
                     ],
-                    "index": 9,
+                    "index": 10,
                     "name": "onHistoryTriggered",
                     "returnType": "void"
                 }

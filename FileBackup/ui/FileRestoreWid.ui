@@ -18,12 +18,12 @@
     <rect>
      <x>100</x>
      <y>90</y>
-     <width>141</width>
+     <width>181</width>
      <height>41</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="filenameEdit">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -36,7 +36,7 @@
     <string>设置下载的文件名</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="dlBtn">
+  <widget class="QPushButton" name="saveasBtn">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -46,7 +46,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>下载</string>
+    <string>另存为</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -62,7 +62,7 @@
     <string>上传时间</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="fastDlBtn">
+  <widget class="QPushButton" name="restoreBtn">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -72,43 +72,66 @@
     </rect>
    </property>
    <property name="text">
-    <string>快速下载</string>
+    <string>还原文件</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="backupPathRdit">
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>160</y>
-     <width>121</width>
+     <y>190</y>
+     <width>171</width>
      <height>41</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>190</y>
+     <width>71</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>备份路径</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pathBtn">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>190</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>选择目录</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>160</y>
+     <y>140</y>
      <width>71</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>保存路径</string>
+    <string>原路径</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="dlBtn_2">
+  <widget class="QLineEdit" name="initpathEdit">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>160</y>
-     <width>91</width>
+     <x>100</x>
+     <y>140</y>
+     <width>171</width>
      <height>41</height>
     </rect>
-   </property>
-   <property name="text">
-    <string>openBtn</string>
    </property>
   </widget>
  </widget>

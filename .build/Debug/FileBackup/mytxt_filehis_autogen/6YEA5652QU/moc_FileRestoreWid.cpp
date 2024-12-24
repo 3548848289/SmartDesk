@@ -37,10 +37,10 @@ namespace {
 struct qt_meta_stringdata_CLASSFileRestoreWidENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSFileRestoreWidENDCLASS = QtMocHelpers::stringData(
     "FileRestoreWid",
-    "on_fastDlBtn_clicked",
+    "on_pathBtn_clicked",
     "",
-    "on_dlBtn_clicked",
-    "on_dlBtn_2_clicked"
+    "on_saveasBtn_clicked",
+    "on_restoreBtn_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -82,11 +82,11 @@ Q_CONSTINIT const QMetaObject FileRestoreWid::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSFileRestoreWidENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<FileRestoreWid, std::true_type>,
-        // method 'on_fastDlBtn_clicked'
+        // method 'on_pathBtn_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_dlBtn_clicked'
+        // method 'on_saveasBtn_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_dlBtn_2_clicked'
+        // method 'on_restoreBtn_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -98,9 +98,9 @@ void FileRestoreWid::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         auto *_t = static_cast<FileRestoreWid *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_fastDlBtn_clicked(); break;
-        case 1: _t->on_dlBtn_clicked(); break;
-        case 2: _t->on_dlBtn_2_clicked(); break;
+        case 0: _t->on_pathBtn_clicked(); break;
+        case 1: _t->on_saveasBtn_clicked(); break;
+        case 2: _t->on_restoreBtn_clicked(); break;
         default: ;
         }
     }

@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "MainWindow",
-            "lineNumber": 37,
+            "lineNumber": 39,
             "object": true,
             "qualifiedClassName": "MainWindow",
             "signals": [
@@ -118,6 +118,12 @@
                     ],
                     "index": 13,
                     "name": "receiveSendEmailForm",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 14,
+                    "name": "on_actionfind_triggered",
                     "returnType": "void"
                 }
             ],

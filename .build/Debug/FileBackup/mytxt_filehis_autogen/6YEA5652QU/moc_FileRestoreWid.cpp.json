@@ -2,26 +2,26 @@
     "classes": [
         {
             "className": "FileRestoreWid",
-            "lineNumber": 14,
+            "lineNumber": 16,
             "object": true,
             "qualifiedClassName": "FileRestoreWid",
             "slots": [
                 {
                     "access": "private",
                     "index": 0,
-                    "name": "on_fastDlBtn_clicked",
+                    "name": "on_pathBtn_clicked",
                     "returnType": "void"
                 },
                 {
                     "access": "private",
                     "index": 1,
-                    "name": "on_dlBtn_clicked",
+                    "name": "on_saveasBtn_clicked",
                     "returnType": "void"
                 },
                 {
                     "access": "private",
                     "index": 2,
-                    "name": "on_dlBtn_2_clicked",
+                    "name": "on_restoreBtn_clicked",
                     "returnType": "void"
                 }
             ],

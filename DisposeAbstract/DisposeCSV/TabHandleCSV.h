@@ -54,6 +54,9 @@ public:
         qDebug() << "TabHandleCSV: Showing control frame!";
     }
 
+public slots:
+    void findNext(const QString &str, Qt::CaseSensitivity cs);
+    void findAll(const QString &str, Qt::CaseSensitivity cs);
 signals:
     void dataToSend(const QString &data);
 

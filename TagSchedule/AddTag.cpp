@@ -13,9 +13,9 @@ AddTag::~AddTag()
     delete ui;
 }
 
-QStringList AddTag::getTagName() const
+QString AddTag::getTagName() const
 {
-    return ui->tagsLineEdit->text().split(", ");
+    return ui->tagsLineEdit->text();
 }
 
 QString AddTag::getAnnotation() const

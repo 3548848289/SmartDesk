@@ -50,6 +50,15 @@ bool ServerManager::commitToServer(const QString& fileName, const QString& tag) 
     return true;
 }
 
+#include <QNetworkRequest>
+#include <QHttpMultiPart>
+#include <QHttpPart>
+
+#include <QHttpMultiPart>
+#include <QHttpPart>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+
 bool ServerManager::commitFile(const QString &filepath)
 {
     QFile file(filepath);
@@ -59,29 +68,38 @@ bool ServerManager::commitFile(const QString &filepath)
         return false;
     }
 
-    // 将文件内容读取到 QByteArray 中
     QByteArray fileData = file.readAll();
-    file.close(); // 读取完数据后，关闭文件
+    file.close();
 
     QString fileName = QFileInfo(filepath).fileName();
     QString httpUrl = "http://127.0.0.1:5000/" + fileName;
 
+    // 使用大括号来初始化 QNetworkRequest
     QNetworkRequest request{QUrl(httpUrl)};
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/octet-stream");
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "multipart/form-data");
 
-    QString shareToken = "123456";
-    request.setRawHeader("Share-Token", shareToken.toUtf8());
+    // 创建 QHttpMultiPart 对象，准备上传文件
+    QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
-    QNetworkReply *reply = networkManager.put(request, fileData);
+    QHttpPart filePart;
+    filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QString("form-data; name=\"file\"; filename=\"%1\"").arg(fileName));
+    filePart.setHeader(QNetworkRequest::ContentTypeHeader, "application/octet-stream");
+    filePart.setBody(fileData);  // 直接传递文件数据
+
+    multiPart->append(filePart);  // 将文件部分添加到 multipart 中
+
+    // 发送 PUT 请求
+    QNetworkReply *reply = networkManager.put(request, multiPart);
     if (!reply) {
         qWarning() << "Failed to create network reply!";
         emit commitFailed();
         return false;
     }
 
-    QPointer<QNetworkReply> safeReply = reply;
-    connect(reply, &QNetworkReply::finished, this, [this, safeReply]() {
-        onUploadFinished(safeReply);
+    // 确保多部分请求在回复后销毁
+    connect(reply, &QNetworkReply::finished, this, [this, reply, multiPart]() {
+        multiPart->deleteLater();
+        onUploadFinished(reply);
     });
 
     return true;

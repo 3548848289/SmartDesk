@@ -6,7 +6,7 @@ FileBackup::FileBackup(const QString &filePath, QWidget *parent) :QDialog(parent
     ui->setupUi(this);
 
     QString timeStamp = QDateTime::currentDateTime().toString("yyyyMMddHHmmss");
-    QString backupFileName = QFileInfo(filePath).baseName() + "_" + timeStamp + "." + QFileInfo(filePath).suffix();
+    QString backupFileName = QFileInfo(filePath).baseName() + timeStamp + "." + QFileInfo(filePath).suffix();
 
     QString appDir = QCoreApplication::applicationDirPath();
     QString backupDir = appDir + "/../user";
@@ -18,6 +18,7 @@ FileBackup::FileBackup(const QString &filePath, QWidget *parent) :QDialog(parent
 QString FileBackup::getBackupFilePath() const {
     return m_backupFilePath;
 }
+
 
 
 FileBackup::~FileBackup()
