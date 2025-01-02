@@ -1,9 +1,11 @@
 set(SETTING_SOURCES
     Setting.cpp
+    SettingManager.cpp
 )
 
 set(SETTING_HEADERS
     Setting.h
+    SettingManager.h
 )
 
 set(SETTING_UIS

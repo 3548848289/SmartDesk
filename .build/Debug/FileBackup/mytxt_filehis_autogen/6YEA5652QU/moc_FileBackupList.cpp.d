@@ -5,6 +5,7 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \
   D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
@@ -237,6 +238,7 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QListWidgetItem \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMenu \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -250,6 +252,7 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistview.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistwidget.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmenu.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qrubberband.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \

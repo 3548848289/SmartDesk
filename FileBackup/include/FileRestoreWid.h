@@ -6,7 +6,6 @@
 #include <QFileInfo>
 #include <QFileDialog>
 #include <QMessageBox>
-#include "../../manager/include/ServerManager.h"
 #include "../../manager/include/dbService.h"
 
 namespace Ui {
@@ -18,7 +17,7 @@ class FileRestoreWid : public QDialog
     Q_OBJECT
 
 public:
-    explicit FileRestoreWid(QString fileName, ServerManager* serverManager, QWidget *parent = nullptr);
+    explicit FileRestoreWid(QString fileName, QWidget *parent = nullptr);
     ~FileRestoreWid();
 
 private slots:
@@ -34,7 +33,6 @@ private:
     QString backup_filepath;    //备份文件路径
     QDateTime submit_time;
     QString initial_file_name;  //原文件全文件路径
-    ServerManager* serverManager;
     dbService& dbservice;
 
 };

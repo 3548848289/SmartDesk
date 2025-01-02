@@ -1,4 +1,4 @@
-# Install script for directory: D:/CxxProgram/SmartDesk/setting
+# Install script for directory: D:/CxxProgram/SmartDesk/Setting
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

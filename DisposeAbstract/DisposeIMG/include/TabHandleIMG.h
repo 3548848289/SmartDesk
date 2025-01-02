@@ -21,10 +21,6 @@ public:
     void loadFromFile(const QString &fileName) override {}
     void saveToFile(const QString &fileName) {}
     void loadFromContent(const QByteArray &content) override {}
-    void ReadfromServer(const QJsonObject& jsonObj) override {}
-    void ChickfromServer(const QJsonObject& jsonObj) override {}
-    void clearfromServer(const QJsonObject& jsonObj) override {}
-    void editedfromServer(const QJsonObject& jsonObj) override {}
 
     void ControlWidget(QWidget* WControl){
         qDebug() << "TabHandleIMG: Showing control frame!";

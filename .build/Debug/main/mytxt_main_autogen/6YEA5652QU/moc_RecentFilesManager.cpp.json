@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "RecentFilesManager",
-            "lineNumber": 10,
+            "lineNumber": 11,
             "object": true,
             "qualifiedClassName": "RecentFilesManager",
             "signals": [

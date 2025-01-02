@@ -14,7 +14,7 @@
 
 #include "../../manager/include/dbService.h"
 #include "../../manager/include/ServerManager.h"
-#include "../../FileBackup/include/FileBackup.h"
+#include "../../FileBackup/include/FileBackupWid.h"
 #include "../../TagSchedule/include/AddTag.h"
 class TagItemDelegate : public QStyledItemDelegate
 {

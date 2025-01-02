@@ -78,7 +78,7 @@ void FlaskInfo::handleResponse(QNetworkReply *reply, const QString &action)
     }
 
     QJsonObject jsonRes = jsonDoc.object();
-    // qDebug() << "Response JSON:" << jsonRes;
+    qDebug() << "Response JSON:" << jsonRes;
 
     // 根据不同的动作处理
     if (action == "login") {

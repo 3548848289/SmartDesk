@@ -24,7 +24,7 @@ bool ServerManager::commitToServer(const QString& fileName, const QString& tag) 
         return false;
     }
 
-    QString httpUrl = "http://192.168.45.236:5000/" + tag + QFileInfo(targetPath).fileName();
+    QString httpUrl = "http://127.0.0.1:5000/" + tag + QFileInfo(targetPath).fileName();
     QString trimmedDir = m_curdir.mid(3);
     httpUrl += "?path=" + QUrl::toPercentEncoding(trimmedDir);
     qDebug() << "Upload URL:" << httpUrl;
@@ -50,58 +50,34 @@ bool ServerManager::commitToServer(const QString& fileName, const QString& tag) 
     return true;
 }
 
-#include <QNetworkRequest>
-#include <QHttpMultiPart>
-#include <QHttpPart>
 
-#include <QHttpMultiPart>
-#include <QHttpPart>
-#include <QNetworkRequest>
-#include <QNetworkReply>
+bool ServerManager::commitFile(const QString& fileName) {
 
-bool ServerManager::commitFile(const QString &filepath)
-{
-    QFile file(filepath);
-    if (!file.open(QIODevice::ReadOnly)) {
-        qWarning() << "Failed to open file for upload:" << file.errorString();
-        emit commitFailed();
-        return false;
-    }
+    QString httpUrl = "http://127.0.0.1:5000/" + QFileInfo(fileName).fileName();
+    qDebug() << "Upload URL:" << httpUrl;
 
-    QByteArray fileData = file.readAll();
-    file.close();
-
-    QString fileName = QFileInfo(filepath).fileName();
-    QString httpUrl = "http://127.0.0.1:5000/" + fileName;
-
-    // 使用大括号来初始化 QNetworkRequest
     QNetworkRequest request{QUrl(httpUrl)};
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "multipart/form-data");
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/octet-stream");
 
-    // 创建 QHttpMultiPart 对象，准备上传文件
-    QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
-
-    QHttpPart filePart;
-    filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QString("form-data; name=\"file\"; filename=\"%1\"").arg(fileName));
-    filePart.setHeader(QNetworkRequest::ContentTypeHeader, "application/octet-stream");
-    filePart.setBody(fileData);  // 直接传递文件数据
-
-    multiPart->append(filePart);  // 将文件部分添加到 multipart 中
-
-    // 发送 PUT 请求
-    QNetworkReply *reply = networkManager.put(request, multiPart);
-    if (!reply) {
-        qWarning() << "Failed to create network reply!";
+    QFile *file = new QFile(fileName);
+    if (!file->exists()) {
+        qWarning() << "File does not exist:" << fileName;
         emit commitFailed();
         return false;
     }
 
-    // 确保多部分请求在回复后销毁
-    connect(reply, &QNetworkReply::finished, this, [this, reply, multiPart]() {
-        multiPart->deleteLater();
-        onUploadFinished(reply);
-    });
+    if (!file->open(QIODevice::ReadOnly)) {
+        qWarning() << "Failed to open file for upload:" << file->errorString();
+        emit commitFailed();
+        return false;
+    }
 
+    QNetworkReply *reply = networkManager.put(request, file);
+    file->setParent(reply);
+    connect(reply, &QNetworkReply::finished, this, [this, reply]() {
+        onUploadFinished(reply);
+        return true;
+    });
     return true;
 }
 
@@ -121,7 +97,7 @@ void ServerManager::onUploadFinished(QPointer<QNetworkReply> reply)
         emit commitFailed();
     }
 
-    reply->deleteLater(); // 删除 reply 对象
+    reply->deleteLater();
 }
 
 void ServerManager::downloadFile(const QString& fileName) {
@@ -211,7 +187,7 @@ void ServerManager::onListFilesFinished(QNetworkReply* reply) {
                 qDebug() << fileName;
             }
 
-            emit onFilesListUpdated(filesList);
+            // emit onFilesListUpdated(filesList);
 
         }
         else { qDebug() << "Invalid response format"; }
@@ -219,9 +195,9 @@ void ServerManager::onListFilesFinished(QNetworkReply* reply) {
     reply->deleteLater();
 }
 
-void ServerManager::sendfilepaths(QList<QString> filepaths)
+void ServerManager::sendfilepath(QString filepath)
 {
-    emit onFilesListUpdated(filepaths);
+    emit onFilesListUpdated(filepath);
 }
 
 void ServerManager::test(const QString &filepath)

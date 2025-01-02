@@ -8,7 +8,10 @@ set(MANAGER_SOURCES
     dbManager.cpp
     dbFilepath.cpp
     dbBackupRecord.cpp
+    dbOnlineDoc.cpp
 
+
+    include/dbOnlineDoc.h
     include/dbBackupRecord.h
     include/myJson.h
     include/ServerManager.h

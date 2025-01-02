@@ -2,34 +2,34 @@
 	"BUILD_DIR" : "D:/CxxProgram/SmartDesk/.build/Release/onlinedoc/mytxt_onlinedoc_autogen",
 	"CMAKE_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/Release",
 	"CMAKE_CURRENT_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/Release/onlinedoc",
-	"CMAKE_CURRENT_SOURCE_DIR" : "D:/CxxProgram/SmartDesk/onlinedoc",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/CxxProgram/SmartDesk/OnlineDoc",
 	"CMAKE_EXECUTABLE" : "D:/QT6/Tools/CMake_64/bin/cmake.exe",
-	"CMAKE_LIST_FILES" : [ "D:/CxxProgram/SmartDesk/onlinedoc/CMakeLists.txt" ],
+	"CMAKE_LIST_FILES" : [ "D:/CxxProgram/SmartDesk/OnlineDoc/CMakeLists.txt" ],
 	"CMAKE_SOURCE_DIR" : "D:/CxxProgram/SmartDesk",
 	"DEP_FILE" : "D:/CxxProgram/SmartDesk/.build/Release/onlinedoc/mytxt_onlinedoc_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "mytxt_onlinedoc_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"D:/CxxProgram/SmartDesk/onlinedoc/include/DLfromNet.h",
+			"D:/CxxProgram/SmartDesk/OnlineDoc/include/DLfromNet.h",
 			"MU",
 			"6YEA5652QU/moc_DLfromNet.cpp",
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/onlinedoc/include/EditedLog.h",
+			"D:/CxxProgram/SmartDesk/OnlineDoc/include/EditedLog.h",
 			"MU",
 			"6YEA5652QU/moc_EditedLog.cpp",
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/onlinedoc/include/WOnlineDoc.h",
+			"D:/CxxProgram/SmartDesk/OnlineDoc/include/WOnlineDoc.h",
 			"MU",
 			"6YEA5652QU/moc_WOnlineDoc.cpp",
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/onlinedoc/include/csvLinkServer2.h",
+			"D:/CxxProgram/SmartDesk/OnlineDoc/include/csvLinkServer2.h",
 			"MU",
 			"6YEA5652QU/moc_csvLinkServer2.cpp",
 			null
@@ -62,8 +62,8 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"D:/CxxProgram/SmartDesk/onlinedoc/include",
-		"D:/CxxProgram/SmartDesk/onlinedoc",
+		"D:/CxxProgram/SmartDesk/OnlineDoc/include",
+		"D:/CxxProgram/SmartDesk/OnlineDoc",
 		"D:/QT6/6.8.0/mingw_64/include/QtWidgets",
 		"D:/QT6/6.8.0/mingw_64/include",
 		"D:/QT6/6.8.0/mingw_64/include/QtCore",
@@ -109,10 +109,10 @@
 	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/Release/onlinedoc/CMakeFiles/mytxt_onlinedoc_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/CxxProgram/SmartDesk/onlinedoc/DLfromNet.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/onlinedoc/EditedLog.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/onlinedoc/WOnlineDoc.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/onlinedoc/csvLinkServer2.cpp", "MU", null ]
+		[ "D:/CxxProgram/SmartDesk/OnlineDoc/DLfromNet.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/OnlineDoc/EditedLog.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/OnlineDoc/WOnlineDoc.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/OnlineDoc/csvLinkServer2.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

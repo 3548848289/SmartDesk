@@ -1,42 +1,52 @@
 main/mytxt_main_autogen/timestamp: \
   main/mytxt_main_autogen/moc_predefs.h \
-  D:/CxxProgram/SmartDesk/draw/ControlFrame.h \
-  D:/CxxProgram/SmartDesk/draw/PixItem.h \
-  D:/CxxProgram/SmartDesk/draw/TabHandleIMG.h \
-  D:/CxxProgram/SmartDesk/email/sendemail.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/SimpleMail \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/emailaddress.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimeattachment.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimecontentformatter.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimefile.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimehtml.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimeinlinefile.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimemessage.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimepart.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimetext.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/server.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/serverreply.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/smtpexports.h \
-  D:/CxxProgram/SmartDesk/filehis/DPull.h \
-  D:/CxxProgram/SmartDesk/filehis/WFileHis.h \
-  D:/CxxProgram/SmartDesk/filetag/include/DCommit.h \
-  D:/CxxProgram/SmartDesk/filetag/include/TagItemDelegate.h \
-  D:/CxxProgram/SmartDesk/filetag/include/WFileTag.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/ControlWidCSV.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/TabHandleCSV.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/ControlFrame.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/PixItem.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/TabHandleIMG.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/ControlWidTXT.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/TabHandleTXT.h \
+  D:/CxxProgram/SmartDesk/EmailService/SendEmail.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/SimpleMail \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/emailaddress.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimeattachment.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimecontentformatter.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimefile.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimehtml.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimeinlinefile.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimemessage.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimepart.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimetext.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/server.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/serverreply.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/smtpexports.h \
+  D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupList.h \
+  D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupWid.h \
+  D:/CxxProgram/SmartDesk/FileBackup/include/FileRestoreWid.h \
+  D:/CxxProgram/SmartDesk/FileSystem/include/FileSystem.h \
+  D:/CxxProgram/SmartDesk/FileSystem/include/TagItemDelegate.h \
+  D:/CxxProgram/SmartDesk/OnlineDoc/include/DLfromNet.h \
+  D:/CxxProgram/SmartDesk/OnlineDoc/include/WOnlineDoc.h \
+  D:/CxxProgram/SmartDesk/OnlineDoc/include/csvLinkServer2.h \
+  D:/CxxProgram/SmartDesk/Setting/Setting.h \
+  D:/CxxProgram/SmartDesk/TagSchedule/LmsgNotify/notifymanager.h \
+  D:/CxxProgram/SmartDesk/TagSchedule/include/AddTag.h \
+  D:/CxxProgram/SmartDesk/TagSchedule/include/ScheduleWid.h \
+  D:/CxxProgram/SmartDesk/TagSchedule/include/TagDetail.h \
+  D:/CxxProgram/SmartDesk/TagSchedule/include/TagList.h \
+  D:/CxxProgram/SmartDesk/UserInfo/include/DInfo.h \
+  D:/CxxProgram/SmartDesk/UserInfo/include/DLogin.h \
+  D:/CxxProgram/SmartDesk/UserInfo/include/FlaskInfo.h \
   D:/CxxProgram/SmartDesk/main/CMakeLists.txt \
-  D:/CxxProgram/SmartDesk/main/ControlWidCSV.cpp \
-  D:/CxxProgram/SmartDesk/main/ControlWidTXT.cpp \
   D:/CxxProgram/SmartDesk/main/RecentFilesManager.cpp \
-  D:/CxxProgram/SmartDesk/main/TabHandleCSV.cpp \
-  D:/CxxProgram/SmartDesk/main/TabHandleTXT.cpp \
   D:/CxxProgram/SmartDesk/main/WidgetFunctional.cpp \
-  D:/CxxProgram/SmartDesk/main/include/ControlWidCSV.h \
-  D:/CxxProgram/SmartDesk/main/include/ControlWidTXT.h \
+  D:/CxxProgram/SmartDesk/main/finddialog.cpp \
   D:/CxxProgram/SmartDesk/main/include/ControlWidget.h \
   D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
-  D:/CxxProgram/SmartDesk/main/include/TabHandleCSV.h \
-  D:/CxxProgram/SmartDesk/main/include/TabHandleTXT.h \
   D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h \
+  D:/CxxProgram/SmartDesk/main/include/finddialog.h \
   D:/CxxProgram/SmartDesk/main/include/mainwindow.h \
   D:/CxxProgram/SmartDesk/main/main.cpp \
   D:/CxxProgram/SmartDesk/main/mainwindow.cpp \
@@ -46,21 +56,11 @@ main/mytxt_main_autogen/timestamp: \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/CxxProgram/SmartDesk/manager/include/myJson.h \
-  D:/CxxProgram/SmartDesk/onlinedoc/include/DLfromNet.h \
-  D:/CxxProgram/SmartDesk/onlinedoc/include/WOnlineDoc.h \
-  D:/CxxProgram/SmartDesk/onlinedoc/include/csvLinkServer2.h \
   D:/CxxProgram/SmartDesk/resources/res.qrc \
-  D:/CxxProgram/SmartDesk/schedule/LmsgNotify/notifymanager.h \
-  D:/CxxProgram/SmartDesk/schedule/include/DTag.h \
-  D:/CxxProgram/SmartDesk/schedule/include/FileItemWidget.h \
-  D:/CxxProgram/SmartDesk/schedule/include/WSchedule.h \
-  D:/CxxProgram/SmartDesk/setting/Setting.h \
-  D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h \
-  D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h \
-  D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QBuffer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QCoreApplication \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDate \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDeadlineTimer \
@@ -494,6 +494,7 @@ main/mytxt_main_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QStyleOptionButton \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QStyledItemDelegate \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTableWidget \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTableWidgetItem \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTextEdit \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QVBoxLayout \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget \
@@ -940,8 +941,6 @@ main/mytxt_main_autogen/timestamp: \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
-  D:/CxxProgram/SmartDesk/main/ControlWidTXT.ui \
-  D:/CxxProgram/SmartDesk/main/ui/ControlWidCSV.ui \
   D:/CxxProgram/SmartDesk/main/ui/WidgetFunctional.ui \
   D:/CxxProgram/SmartDesk/main/ui/mainwindow.ui \
   D:/QT6/Tools/CMake_64/bin/cmake.exe

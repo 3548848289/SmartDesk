@@ -1,0 +1,66 @@
+{
+    "classes": [
+        {
+            "className": "TabHandleCSV",
+            "lineNumber": 25,
+            "object": true,
+            "qualifiedClassName": "TabHandleCSV",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "data",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "dataToSend",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "str",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "cs",
+                            "type": "Qt::CaseSensitivity"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "findNext",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "str",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "cs",
+                            "type": "Qt::CaseSensitivity"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "findAll",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "TabAbstract"
+                }
+            ]
+        }
+    ],
+    "inputFile": "TabHandleCSV.h",
+    "outputRevision": 68
+}

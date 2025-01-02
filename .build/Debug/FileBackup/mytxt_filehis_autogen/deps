@@ -1,16 +1,17 @@
 mytxt_filehis_autogen/timestamp: \
 	D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/moc_predefs.h \
 	D:/CxxProgram/SmartDesk/FileBackup/CMakeLists.txt \
-	D:/CxxProgram/SmartDesk/FileBackup/FileBackup.cpp \
-	D:/CxxProgram/SmartDesk/FileBackup/FileBackupList.cpp \
+	D:/CxxProgram/SmartDesk/FileBackup/FileBackupView.cpp \
+	D:/CxxProgram/SmartDesk/FileBackup/FileBackupWid.cpp \
 	D:/CxxProgram/SmartDesk/FileBackup/FileRestoreWid.cpp \
-	D:/CxxProgram/SmartDesk/FileBackup/include/FileBackup.h \
-	D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupList.h \
+	D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupView.h \
+	D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupWid.h \
 	D:/CxxProgram/SmartDesk/FileBackup/include/FileRestoreWid.h \
 	D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
 	D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
 	D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
 	D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+	D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \
 	D:/CxxProgram/SmartDesk/manager/include/dbService.h \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
@@ -32,6 +33,7 @@ mytxt_filehis_autogen/timestamp: \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QPointer \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QRegularExpression \
+	D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QSharedDataPointer \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList \
@@ -141,6 +143,7 @@ mytxt_filehis_autogen/timestamp: \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/qscopedpointer.h \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/qscopeguard.h \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/qset.h \
+	D:/QT6/6.8.0/mingw_64/include/QtCore/qsettings.h \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata.h \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata_impl.h \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer.h \
@@ -251,6 +254,7 @@ mytxt_filehis_autogen/timestamp: \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QDialog \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QListWidgetItem \
+	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMenu \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -264,6 +268,7 @@ mytxt_filehis_autogen/timestamp: \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistview.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistwidget.h \
+	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmenu.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qrubberband.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \
@@ -512,7 +517,7 @@ mytxt_filehis_autogen/timestamp: \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
-	D:/CxxProgram/SmartDesk/FileBackup/ui/FileBackup.ui \
-	D:/CxxProgram/SmartDesk/FileBackup/ui/FileBackupList.ui \
+	D:/CxxProgram/SmartDesk/FileBackup/ui/FileBackupView.ui \
+	D:/CxxProgram/SmartDesk/FileBackup/ui/FileBackupWid.ui \
 	D:/CxxProgram/SmartDesk/FileBackup/ui/FileRestoreWid.ui \
 	D:/QT6/Tools/CMake_64/bin/cmake.exe

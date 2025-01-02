@@ -21,7 +21,7 @@
         "classes": [
             {
                 "className": "RecentFilesManager",
-                "lineNumber": 10,
+                "lineNumber": 11,
                 "object": true,
                 "qualifiedClassName": "RecentFilesManager",
                 "signals": [
@@ -104,12 +104,18 @@
                     {
                         "access": "public",
                         "index": 1,
-                        "name": "showwOnlinedoc",
+                        "name": "showFilebackup",
                         "returnType": "void"
                     },
                     {
                         "access": "public",
                         "index": 2,
+                        "name": "showwOnlinedoc",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
                         "name": "showWSchedule",
                         "returnType": "void"
                     },
@@ -121,13 +127,13 @@
                                 "type": "SendEmail*"
                             }
                         ],
-                        "index": 3,
+                        "index": 4,
                         "name": "sendEmailForm",
                         "returnType": "void"
                     },
                     {
                         "access": "public",
-                        "index": 4,
+                        "index": 5,
                         "name": "showDraw",
                         "returnType": "void"
                     }
@@ -135,38 +141,26 @@
                 "slots": [
                     {
                         "access": "private",
-                        "index": 5,
+                        "index": 6,
                         "name": "on_pushButton_1_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "index": 6,
-                        "name": "on_pushButton_3_clicked",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
                         "index": 7,
-                        "name": "on_pushButton_6_clicked",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
-                        "index": 8,
                         "name": "on_pushButton_2_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "arguments": [
-                            {
-                                "name": "username",
-                                "type": "QString"
-                            }
-                        ],
+                        "index": 8,
+                        "name": "on_pushButton_3_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
                         "index": 9,
-                        "name": "handleLoginSuccess",
+                        "name": "on_pushButton_4_clicked",
                         "returnType": "void"
                     },
                     {
@@ -178,13 +172,31 @@
                     {
                         "access": "private",
                         "index": 11,
-                        "name": "on_pushButton_7_clicked",
+                        "name": "on_pushButton_6_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
                         "index": 12,
-                        "name": "on_pushButton_4_clicked",
+                        "name": "on_pushButton_7_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 13,
+                        "name": "on_pushButton_8_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "username",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 14,
+                        "name": "handleLoginSuccess",
                         "returnType": "void"
                     }
                 ],

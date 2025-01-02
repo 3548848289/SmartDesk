@@ -22,12 +22,18 @@ public:
 
 
     bool insertSharedFile(const QString &filePath, const QString &fileName, const QString &shareToken);
-    QStringList getSharedFilesByShareToken(const QString &shareToken);
     int getPasswordIdByPassword(const QString &password);
 
 
     QString getInitPath(const QString &remoteFileName);
     QDateTime getSubTime(const QString &remoteFileName);
+
+    QList<QString> getAllFileNames();
+    QList<QString> getBackupFileNames(const QString &filePath);
+    bool deleteBackupRecord(const QString &filePath);
+    bool updateFilePath(const QString &oldFilePath, const QString &newFilePath);
+    bool updateSubmissions(const QString &oldFilePath, const QString &newFilePath);
+    bool deleteAll(const QString &filePath);
 };
 
 #endif // DBBACKUPRECORD_H

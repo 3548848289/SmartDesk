@@ -16,67 +16,314 @@
   <widget class="QTreeWidget" name="treeWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>101</width>
+     <x>6</x>
+     <y>6</y>
+     <width>131</width>
      <height>351</height>
     </rect>
    </property>
    <column>
     <property name="text">
-     <string>文本编辑器</string>
+     <string>设置</string>
     </property>
    </column>
    <item>
     <property name="text">
-     <string>字体</string>
+     <string>总体设置</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>文件查看</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>字体大小</string>
+     </property>
+    </item>
+   </item>
+   <item>
+    <property name="text">
+     <string>邮件服务</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>收发人</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>设置</string>
+     </property>
+    </item>
+   </item>
+   <item>
+    <property name="text">
+     <string>文件备份</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>备份路径</string>
+     </property>
+    </item>
+   </item>
+   <item>
+    <property name="text">
+     <string>备忘日程</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>到期提醒方式</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>提前多久提醒</string>
+     </property>
+    </item>
+   </item>
   </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget">
+  <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>20</y>
-     <width>261</width>
-     <height>80</height>
+     <x>182</x>
+     <y>6</y>
+     <width>321</width>
+     <height>341</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,0">
-    <item>
-     <widget class="QLabel" name="label">
+   <property name="currentIndex">
+    <number>2</number>
+   </property>
+   <widget class="QWidget" name="all_setting">
+    <widget class="QCheckBox" name="enableTrayCheckBox">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>30</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>是否启用</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>71</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>托盘</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="file_see">
+    <widget class="QWidget" name="horizontalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>70</y>
+       <width>141</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>字体大小</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox"/>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="email_service">
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>30</y>
+       <width>231</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEdit_3"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>ssl</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>用户名</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEdit_4"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>端口</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="lineEdit_5"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>服务器</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit"/>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_2"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>发件人</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="lineEdit_6"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string>收件人</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="file_backup">
+    <widget class="QWidget" name="horizontalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>321</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,5,0">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>程序
+备份
+目录</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEditBackupDir"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>选取
+路径</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="online_doc">
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>101</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>提醒方式</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBoxReminder">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>30</y>
+       <width>121</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <item>
       <property name="text">
-       <string>大小</string>
+       <string>不提醒</string>
       </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
+     </item>
+     <item>
+      <property name="text">
+       <string>弹窗提醒</string>
       </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="lineEdit"/>
-    </item>
-    <item>
-     <widget class="QSlider" name="horizontalSlider">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
+     </item>
+     <item>
+      <property name="text">
+       <string>邮件提醒</string>
       </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QCheckBox" name="enableTrayCheckBox">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>160</y>
-     <width>58</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>CheckBox</string>
-   </property>
+     </item>
+    </widget>
+    <widget class="QTimeEdit" name="timeEditReminder">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>80</y>
+       <width>118</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>101</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>提前多久提醒</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources/>

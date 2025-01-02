@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "FileBackupList",
-            "lineNumber": 14,
+            "lineNumber": 16,
             "object": true,
             "qualifiedClassName": "FileBackupList",
             "signals": [
@@ -21,11 +21,11 @@
             ],
             "slots": [
                 {
-                    "access": "private",
+                    "access": "public",
                     "arguments": [
                         {
-                            "name": "files",
-                            "type": "QStringList"
+                            "name": "filepath",
+                            "type": "QString"
                         }
                     ],
                     "index": 1,
@@ -41,7 +41,37 @@
                         }
                     ],
                     "index": 2,
-                    "name": "on_listWidget_itemClicked",
+                    "name": "on_backupList_itemClicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "on_fileListComboBox_currentIndexChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 4,
+                    "name": "on_pushButton_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "pos",
+                            "type": "QPoint"
+                        }
+                    ],
+                    "index": 5,
+                    "name": "on_backupList_customContextMenuRequested",
                     "returnType": "void"
                 }
             ],

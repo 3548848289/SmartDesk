@@ -1,4 +1,4 @@
-D:/CxxProgram/SmartDesk/.build/Release/setting/mytxt_setting_autogen/EWIEGA46WW/moc_Setting.cpp: D:/CxxProgram/SmartDesk/setting/Setting.h \
+D:/CxxProgram/SmartDesk/.build/Release/setting/mytxt_setting_autogen/EWIEGA46WW/moc_Setting.cpp: D:/CxxProgram/SmartDesk/Setting/Setting.h \
   D:/CxxProgram/SmartDesk/.build/Release/setting/mytxt_setting_autogen/moc_predefs.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings \

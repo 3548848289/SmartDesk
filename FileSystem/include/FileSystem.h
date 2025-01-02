@@ -24,12 +24,11 @@ public:
 
 private slots:
     void onItemClicked(const QModelIndex &index);
-    void goButtonClicked();
-
+    void on_goButton_clicked();
 
 signals:
     void fileOpened(const QString &filePath);
-
+    void filebackuplistOpened();
 private:
     void loadFileMetadata(const QString &filePath);
     void saveExpirationDate(const QString &filePath, const QDate &expirationDate);

@@ -1,0 +1,38 @@
+{
+    "classes": [
+        {
+            "className": "TagDetail",
+            "lineNumber": 17,
+            "object": true,
+            "qualifiedClassName": "TagDetail",
+            "slots": [
+                {
+                    "access": "private",
+                    "index": 0,
+                    "name": "on_choosePathBtn_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 1,
+                    "name": "on_YesBtn_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 2,
+                    "name": "on_deleteBtn_clicked",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QWidget"
+                }
+            ]
+        }
+    ],
+    "inputFile": "TagDetail.h",
+    "outputRevision": 68
+}

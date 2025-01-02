@@ -21,8 +21,8 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/server.h \
   D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/serverreply.h \
   D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/smtpexports.h \
-  D:/CxxProgram/SmartDesk/FileBackup/include/FileBackup.h \
-  D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupList.h \
+  D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupView.h \
+  D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupWid.h \
   D:/CxxProgram/SmartDesk/FileBackup/include/FileRestoreWid.h \
   D:/CxxProgram/SmartDesk/FileSystem/include/FileSystem.h \
   D:/CxxProgram/SmartDesk/FileSystem/include/TagItemDelegate.h \
@@ -30,6 +30,7 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/CxxProgram/SmartDesk/OnlineDoc/include/WOnlineDoc.h \
   D:/CxxProgram/SmartDesk/OnlineDoc/include/csvLinkServer2.h \
   D:/CxxProgram/SmartDesk/Setting/Setting.h \
+  D:/CxxProgram/SmartDesk/Setting/SettingManager.h \
   D:/CxxProgram/SmartDesk/TagSchedule/LmsgNotify/notifymanager.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/AddTag.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/ScheduleWid.h \
@@ -43,6 +44,7 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \
   D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/CxxProgram/SmartDesk/manager/include/myJson.h \
   D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h \
@@ -356,6 +358,7 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtCore/qxptype_traits.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qyieldcpu.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QAction \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/QCloseEvent \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QDesktopServices \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QFileSystemModel \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QImage \
@@ -469,6 +472,7 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGraphicsView \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGroupBox \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QHBoxLayout \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QHeaderView \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QInputDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLineEdit \
@@ -487,6 +491,7 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTableWidget \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTableWidgetItem \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTextEdit \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTreeWidgetItem \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QVBoxLayout \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractbutton.h \
@@ -510,6 +515,7 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qgraphicsview.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qgridlayout.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qgroupbox.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qheaderview.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qinputdialog.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlabel.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayout.h \
@@ -535,6 +541,9 @@ D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_main
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtablewidget.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtabwidget.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtextedit.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtreeview.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtreewidget.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

@@ -1,11 +1,12 @@
 D:/CxxProgram/SmartDesk/.build/debug/FileSystem/mytxt_filetag_autogen/6YEA5652QU/moc_TagItemDelegate.cpp: D:/CxxProgram/SmartDesk/FileSystem/include/TagItemDelegate.h \
   D:/CxxProgram/SmartDesk/.build/debug/FileSystem/mytxt_filetag_autogen/moc_predefs.h \
-  D:/CxxProgram/SmartDesk/FileBackup/include/FileBackup.h \
+  D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupWid.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/AddTag.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \
   D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
@@ -29,6 +30,7 @@ D:/CxxProgram/SmartDesk/.build/debug/FileSystem/mytxt_filetag_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtCore/QPointer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRect \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRegularExpression \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSharedDataPointer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSize \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSizeF \
@@ -139,6 +141,7 @@ D:/CxxProgram/SmartDesk/.build/debug/FileSystem/mytxt_filetag_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtCore/qscopedpointer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qscopeguard.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qset.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qsettings.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata_impl.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer.h \

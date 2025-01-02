@@ -91,6 +91,8 @@ void DInfo::onErrorOccurred(const QString &error) {
 void DInfo::on_saveButton_clicked()
 {
     QMap<QString, QVariant> userInfo;
+
+    userInfo["username"] = ui->accountEdit->text();
     userInfo["name"] = ui->nameEdit->text();
     userInfo["motto"] = ui->mottoEdit->text();
     userInfo["gender"] = ui->genderCombo->currentText();

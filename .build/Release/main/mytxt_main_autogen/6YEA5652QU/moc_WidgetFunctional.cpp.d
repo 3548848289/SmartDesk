@@ -1,19 +1,19 @@
 D:/CxxProgram/SmartDesk/.build/Release/main/mytxt_main_autogen/6YEA5652QU/moc_WidgetFunctional.cpp: D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h \
   D:/CxxProgram/SmartDesk/.build/Release/main/mytxt_main_autogen/moc_predefs.h \
-  D:/CxxProgram/SmartDesk/email/sendemail.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/SimpleMail \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/emailaddress.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimeattachment.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimecontentformatter.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimefile.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimehtml.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimeinlinefile.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimemessage.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimepart.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/mimetext.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/server.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/serverreply.h \
-  D:/CxxProgram/SmartDesk/email/simple-mail/src/smtpexports.h \
+  D:/CxxProgram/SmartDesk/EmailService/SendEmail.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/SimpleMail \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/emailaddress.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimeattachment.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimecontentformatter.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimefile.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimehtml.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimeinlinefile.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimemessage.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimepart.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/mimetext.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/server.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/serverreply.h \
+  D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/smtpexports.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \

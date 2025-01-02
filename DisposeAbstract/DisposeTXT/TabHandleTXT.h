@@ -10,6 +10,7 @@
 #include <QSettings>
 #include <QSplitter>
 #include "ControlWidTXT.h"
+#include "../../Setting/SettingManager.h"
 
 class TextTab : public TabAbstract
 {
@@ -25,10 +26,6 @@ public:
     void loadFromFile(const QString &fileName) override;
     void saveToFile(const QString &fileName) override;
     void loadFromContent(const QByteArray &content) override;
-    void ReadfromServer(const QJsonObject& jsonObj) { }
-    void ChickfromServer(const QJsonObject& jsonObj) { }
-    void clearfromServer(const QJsonObject& jsonObj) { }
-    void editedfromServer(const QJsonObject& jsonObj) { }
 
     void ControlWidget(QWidget* WControl){
         qDebug() << "TabHandleTXT: Showing control frame!";
@@ -36,11 +33,6 @@ public:
 public slots:
     void findNext(const QString &str, Qt::CaseSensitivity cs);
     void findAll(const QString &str, Qt::CaseSensitivity cs);
-private:
-    void setFontSize(int fontSize);
-    void loadSettings();
-    void updateFontSize(int size);
-
 
 private:
     ControlWidTXT * controlWsidtxt;

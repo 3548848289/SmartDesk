@@ -1,42 +1,20 @@
 D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU/moc_FileRestoreWid.cpp: D:/CxxProgram/SmartDesk/FileBackup/include/FileRestoreWid.h \
   D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/moc_predefs.h \
-  D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \
   D:/CxxProgram/SmartDesk/manager/include/dbService.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QDir \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QFile \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFileInfo \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QFlags \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QIODevice \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonArray \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonDocument \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonObject \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonValue \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QList \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QMetaType \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QModelIndex \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QPointer \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QRegularExpression \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QSharedDataPointer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QUrl \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QUuid \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/QVariant \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20memory.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20type_traits.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q23utility.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/q26numeric.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qabstractitemmodel.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qalgorithms.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qanystringview.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qarraydata.h \
@@ -52,8 +30,6 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtCore/qbytearraylist.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qbytearrayview.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qcalendar.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qcborcommon.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qcborvalue.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qchar.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qcompare.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qcompare_impl.h \
@@ -65,7 +41,6 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtCore/qcontainerinfo.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qcontainertools_impl.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qcontiguouscache.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qcryptographichash.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qdarwinhelpers.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qdatastream.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qdatetime.h \
@@ -91,10 +66,6 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtCore/qiodevicebase.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qiterable.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qiterator.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qjsonarray.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qjsondocument.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qjsonobject.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qjsonvalue.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qlatin1stringview.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qline.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qlist.h \
@@ -117,11 +88,9 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtCore/qoverload.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qpair.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qpoint.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qpointer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qprocessordetection.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qrect.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qrefcount.h \
-  D:/QT6/6.8.0/mingw_64/include/QtCore/qregularexpression.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qscopedpointer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qscopeguard.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qset.h \
@@ -199,29 +168,6 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtransform.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/QHttpMultiPart \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkReply \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkRequest \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/QSslConfiguration \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qabstractsocket.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qhostaddress.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qhttpheaders.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qhttpmultipart.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkaccessmanager.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkreply.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qnetworkrequest.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qssl.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qsslcertificate.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qsslconfiguration.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qsslerror.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qsslsocket.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtcpsocket.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
-  D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
   D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlDatabase \
   D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlError \
   D:/QT6/6.8.0/mingw_64/include/QtSql/QSqlQuery \

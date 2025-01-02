@@ -28,7 +28,7 @@ class Ui_csvLinkServer2
 public:
     QGridLayout *gridLayout;
     QHBoxLayout *horizontalLayout_4;
-    QPushButton *readfiieBtn;
+    QLabel *label_2;
     QLineEdit *passwdEdit;
     QTableWidget *tableWidget;
     QHBoxLayout *horizontalLayout_5;
@@ -58,16 +58,18 @@ public:
         horizontalLayout_4->setSpacing(7);
         horizontalLayout_4->setObjectName("horizontalLayout_4");
         horizontalLayout_4->setContentsMargins(-1, -1, 0, -1);
-        readfiieBtn = new QPushButton(csvLinkServer2);
-        readfiieBtn->setObjectName("readfiieBtn");
+        label_2 = new QLabel(csvLinkServer2);
+        label_2->setObjectName("label_2");
 
-        horizontalLayout_4->addWidget(readfiieBtn);
+        horizontalLayout_4->addWidget(label_2);
 
         passwdEdit = new QLineEdit(csvLinkServer2);
         passwdEdit->setObjectName("passwdEdit");
 
         horizontalLayout_4->addWidget(passwdEdit);
 
+        horizontalLayout_4->setStretch(0, 1);
+        horizontalLayout_4->setStretch(1, 4);
 
         gridLayout->addLayout(horizontalLayout_4, 0, 0, 1, 1);
 
@@ -151,13 +153,12 @@ public:
     void retranslateUi(QWidget *csvLinkServer2)
     {
         csvLinkServer2->setWindowTitle(QCoreApplication::translate("csvLinkServer2", "Form", nullptr));
-        readfiieBtn->setText(QCoreApplication::translate("csvLinkServer2", "\350\276\223\345\205\245\n"
-"\345\217\243\344\273\244", nullptr));
-        passwdEdit->setText(QCoreApplication::translate("csvLinkServer2", "4e0740", nullptr));
+        label_2->setText(QCoreApplication::translate("csvLinkServer2", "\350\276\223\345\205\245\345\217\243\344\273\244", nullptr));
+        passwdEdit->setText(QCoreApplication::translate("csvLinkServer2", "K7i6LfSp", nullptr));
         label->setText(QCoreApplication::translate("csvLinkServer2", "\345\205\254\n"
 "\345\221\212\n"
 "\346\240\217", nullptr));
-        sendmsgEdit->setText(QCoreApplication::translate("csvLinkServer2", "\345\271\277\346\222\255\n"
+        sendmsgEdit->setText(QCoreApplication::translate("csvLinkServer2", "\345\217\221\n"
 "\344\277\241\346\201\257", nullptr));
         buildBtn->setText(QCoreApplication::translate("csvLinkServer2", "\345\277\253\351\200\237\345\273\272\347\253\213\n"
 "\345\205\261\344\272\253\346\226\207\344\273\266", nullptr));

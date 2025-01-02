@@ -20,6 +20,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -38,11 +39,13 @@ public:
     QAction *actiondo;
     QAction *actionfind;
     QWidget *centralwidget;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
     QWidget *combinedWidget;
     QGridLayout *gridLayout_2;
     QGridLayout *gridLayout;
-    QLabel *label;
     QStackedWidget *stackedWidget;
+    QLabel *label;
     QMenuBar *menubar;
     QMenu *menufile;
     QMenu *menunew;
@@ -117,26 +120,37 @@ public:
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setStyleSheet(QString::fromUtf8(""));
-        combinedWidget = new QWidget(centralwidget);
+        verticalLayoutWidget = new QWidget(centralwidget);
+        verticalLayoutWidget->setObjectName("verticalLayoutWidget");
+        verticalLayoutWidget->setGeometry(QRect(310, 20, 221, 421));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        combinedWidget = new QWidget(verticalLayoutWidget);
         combinedWidget->setObjectName("combinedWidget");
-        combinedWidget->setGeometry(QRect(50, 20, 271, 441));
         gridLayout_2 = new QGridLayout(combinedWidget);
         gridLayout_2->setObjectName("gridLayout_2");
+        gridLayout_2->setContentsMargins(0, 0, 0, 0);
         gridLayout = new QGridLayout();
+        gridLayout->setSpacing(4);
         gridLayout->setObjectName("gridLayout");
+        gridLayout->setContentsMargins(0, -1, -1, 0);
+        stackedWidget = new QStackedWidget(combinedWidget);
+        stackedWidget->setObjectName("stackedWidget");
+
+        gridLayout->addWidget(stackedWidget, 1, 0, 1, 1);
+
         label = new QLabel(combinedWidget);
         label->setObjectName("label");
         label->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(label, 0, 0, 1, 1);
 
-        stackedWidget = new QStackedWidget(combinedWidget);
-        stackedWidget->setObjectName("stackedWidget");
-
-        gridLayout->addWidget(stackedWidget, 1, 0, 1, 1);
-
 
         gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);
+
+
+        verticalLayout->addWidget(combinedWidget);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -206,6 +220,9 @@ public:
         actionscv_file->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+N, Ctrl+C", nullptr));
 #endif // QT_CONFIG(shortcut)
         actionshe->setText(QCoreApplication::translate("MainWindow", "\350\256\276\347\275\256", nullptr));
+#if QT_CONFIG(shortcut)
+        actionshe->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+,", nullptr));
+#endif // QT_CONFIG(shortcut)
         actiontest->setText(QCoreApplication::translate("MainWindow", "\346\265\213\350\257\225", nullptr));
         actiondo->setText(QCoreApplication::translate("MainWindow", "\346\223\215\347\272\265csv", nullptr));
         actionfind->setText(QCoreApplication::translate("MainWindow", "\346\237\245\346\211\276", nullptr));

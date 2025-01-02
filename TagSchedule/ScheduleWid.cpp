@@ -73,13 +73,9 @@ void ScheduleWid::filterByTag(const QString &tag) {
 
 void ScheduleWid::onSearch(const QString &keyword) {
     ui->listWidget->clear();
-
-    // 调用 modified searchFiles 方法，获取 FilePathInfo 结构体列表
     QList<FilePathInfo> files = dbservice.dbTags().searchFiles(keyword);
-
-    // 遍历文件信息列表，创建 TagList 小部件
     for (const FilePathInfo &fileInfo : files) {
-        TagList *widget = new TagList(fileInfo);  // 传递结构体数据到 TagList
+        TagList *widget = new TagList(fileInfo);
 
         QListWidgetItem *listItem = new QListWidgetItem(ui->listWidget);
         listItem->setSizeHint(widget->sizeHint());
@@ -92,17 +88,21 @@ void ScheduleWid::onSearch(const QString &keyword) {
 void ScheduleWid::startExpirationCheck() {
     expirationTimer = new QTimer(this);
     connect(expirationTimer, &QTimer::timeout, this, &ScheduleWid::checkExpiration);
-    expirationTimer->start(180000);  // 每30分钟（30 * 60 * 1000毫秒）
+    expirationTimer->start(180000);
 }
 
 void ScheduleWid::checkExpiration() {
     QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag("刷新");
 
+
+    QString reminderType = SettingManager::Instance().getReminderType();
+    int reminderTime = SettingManager::Instance().getReminderTime();
+
     for (const auto &file : files) {
         QString path = file.filePath;
         QDateTime expDate = file.expirationDate;
 
-        if (expDate.isValid() && QDateTime::currentDateTime().secsTo(expDate) <= 2 * 3600) {  // 2小时内到期
+        if (expDate.isValid() && QDateTime::currentDateTime().secsTo(expDate) <= reminderTime) {
             int fileid = 0;
             QStringList tag;
             QString annotation;
@@ -110,15 +110,22 @@ void ScheduleWid::checkExpiration() {
 
             dbservice.dbTags().getFileId(path, fileid);
             dbservice.dbTags().getTags(fileid, tag);
-            dbservice.dbTags().getAnnotation(fileid,annotation);
+            dbservice.dbTags().getAnnotation(fileid, annotation);
 
             data["tag"] = tag;
             data["annotation"] = annotation;
-            manager->notify("到期提醒", path, data);  // 传递title, body和data
 
+            if (reminderType == "Popup")
+                manager->notify("到期提醒", path, data);
+            else if (reminderType == "Email") {
+                qDebug() << "邮件提醒";
+                // manager->sendEmail("到期提醒", path, data);
+            }
         }
     }
 }
+
+
 
 
 void ScheduleWid::on_sortBtn_clicked()

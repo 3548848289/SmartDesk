@@ -2,80 +2,6 @@
     {
         "classes": [
             {
-                "className": "ControlWidCSV",
-                "lineNumber": 13,
-                "object": true,
-                "qualifiedClassName": "ControlWidCSV",
-                "signals": [
-                    {
-                        "access": "public",
-                        "index": 0,
-                        "name": "addRowClicked",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "public",
-                        "index": 1,
-                        "name": "deleteRowClicked",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "public",
-                        "index": 2,
-                        "name": "addColumnClicked",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "public",
-                        "index": 3,
-                        "name": "deleteColumnClicked",
-                        "returnType": "void"
-                    }
-                ],
-                "superClasses": [
-                    {
-                        "access": "public",
-                        "name": "QWidget"
-                    }
-                ]
-            }
-        ],
-        "inputFile": "ControlWidCSV.h",
-        "outputRevision": 68
-    },
-    {
-        "classes": [
-            {
-                "className": "CppHighlighter",
-                "lineNumber": 12,
-                "object": true,
-                "qualifiedClassName": "CppHighlighter",
-                "superClasses": [
-                    {
-                        "access": "public",
-                        "name": "QSyntaxHighlighter"
-                    }
-                ]
-            },
-            {
-                "className": "ControlWidTXT",
-                "lineNumber": 64,
-                "object": true,
-                "qualifiedClassName": "ControlWidTXT",
-                "superClasses": [
-                    {
-                        "access": "public",
-                        "name": "QWidget"
-                    }
-                ]
-            }
-        ],
-        "inputFile": "ControlWidTXT.h",
-        "outputRevision": 68
-    },
-    {
-        "classes": [
-            {
                 "className": "ControlWidget",
                 "lineNumber": 7,
                 "object": true,
@@ -164,56 +90,6 @@
     {
         "classes": [
             {
-                "className": "TabHandleCSV",
-                "lineNumber": 25,
-                "object": true,
-                "qualifiedClassName": "TabHandleCSV",
-                "signals": [
-                    {
-                        "access": "public",
-                        "arguments": [
-                            {
-                                "name": "data",
-                                "type": "QString"
-                            }
-                        ],
-                        "index": 0,
-                        "name": "dataToSend",
-                        "returnType": "void"
-                    }
-                ],
-                "superClasses": [
-                    {
-                        "access": "public",
-                        "name": "TabAbstract"
-                    }
-                ]
-            }
-        ],
-        "inputFile": "TabHandleCSV.h",
-        "outputRevision": 68
-    },
-    {
-        "classes": [
-            {
-                "className": "TextTab",
-                "lineNumber": 14,
-                "object": true,
-                "qualifiedClassName": "TextTab",
-                "superClasses": [
-                    {
-                        "access": "public",
-                        "name": "TabAbstract"
-                    }
-                ]
-            }
-        ],
-        "inputFile": "TabHandleTXT.h",
-        "outputRevision": 68
-    },
-    {
-        "classes": [
-            {
                 "className": "WidgetFunctional",
                 "lineNumber": 25,
                 "object": true,
@@ -228,12 +104,18 @@
                     {
                         "access": "public",
                         "index": 1,
-                        "name": "showwOnlinedoc",
+                        "name": "showFilebackup",
                         "returnType": "void"
                     },
                     {
                         "access": "public",
                         "index": 2,
+                        "name": "showwOnlinedoc",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
                         "name": "showWSchedule",
                         "returnType": "void"
                     },
@@ -245,13 +127,13 @@
                                 "type": "SendEmail*"
                             }
                         ],
-                        "index": 3,
+                        "index": 4,
                         "name": "sendEmailForm",
                         "returnType": "void"
                     },
                     {
                         "access": "public",
-                        "index": 4,
+                        "index": 5,
                         "name": "showDraw",
                         "returnType": "void"
                     }
@@ -259,38 +141,26 @@
                 "slots": [
                     {
                         "access": "private",
-                        "index": 5,
+                        "index": 6,
                         "name": "on_pushButton_1_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "index": 6,
-                        "name": "on_pushButton_3_clicked",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
                         "index": 7,
-                        "name": "on_pushButton_6_clicked",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
-                        "index": 8,
                         "name": "on_pushButton_2_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "arguments": [
-                            {
-                                "name": "username",
-                                "type": "QString"
-                            }
-                        ],
+                        "index": 8,
+                        "name": "on_pushButton_3_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
                         "index": 9,
-                        "name": "handleLoginSuccess",
+                        "name": "on_pushButton_4_clicked",
                         "returnType": "void"
                     },
                     {
@@ -302,13 +172,31 @@
                     {
                         "access": "private",
                         "index": 11,
-                        "name": "on_pushButton_7_clicked",
+                        "name": "on_pushButton_6_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
                         "index": 12,
-                        "name": "on_pushButton_4_clicked",
+                        "name": "on_pushButton_7_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 13,
+                        "name": "on_pushButton_8_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "username",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 14,
+                        "name": "handleLoginSuccess",
                         "returnType": "void"
                     }
                 ],
@@ -326,8 +214,102 @@
     {
         "classes": [
             {
+                "className": "FindDialog",
+                "lineNumber": 13,
+                "object": true,
+                "qualifiedClassName": "FindDialog",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "str",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "cs",
+                                "type": "Qt::CaseSensitivity"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "findNext",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "str",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "cs",
+                                "type": "Qt::CaseSensitivity"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "findPrevious",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "str",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "cs",
+                                "type": "Qt::CaseSensitivity"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "findAll",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "index": 3,
+                        "name": "findClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 4,
+                        "name": "findAllClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "text",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 5,
+                        "name": "enableFindButton",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QDialog"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "finddialog.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
                 "className": "MainWindow",
-                "lineNumber": 42,
+                "lineNumber": 39,
                 "object": true,
                 "qualifiedClassName": "MainWindow",
                 "signals": [
@@ -443,6 +425,12 @@
                         ],
                         "index": 13,
                         "name": "receiveSendEmailForm",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 14,
+                        "name": "on_actionfind_triggered",
                         "returnType": "void"
                     }
                 ],

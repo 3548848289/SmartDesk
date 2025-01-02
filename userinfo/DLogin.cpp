@@ -120,6 +120,7 @@ void DLogin::onLoginResponse(const QJsonObject &response)
 
         emit loginSuccessful(response["username"].toString());
         QMessageBox::information(this, "登录成功", message);
+        this->close();
     }
     else
         QMessageBox::warning(this, "登录失败", message);
@@ -130,6 +131,8 @@ void DLogin::onRegisterResponse(const QJsonObject &response)
     QString message = response["message"].toString();
     if (message == "User registered successfully!") {
         QMessageBox::information(this, "注册成功", message);
+        this->close();
+
     } else {
         QMessageBox::critical(this, "注册失败", message);
     }

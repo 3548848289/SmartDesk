@@ -1,0 +1,2 @@
+D:/CxxProgram/SmartDesk/.build/Release/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/include/../EWIEGA46WW/moc_ControlWidTXT.cpp.json
+D:/CxxProgram/SmartDesk/.build/Release/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/include/../EWIEGA46WW/moc_TabHandleTXT.cpp.json

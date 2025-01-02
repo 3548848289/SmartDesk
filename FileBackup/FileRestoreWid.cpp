@@ -1,8 +1,8 @@
 #include "include/FileRestoreWid.h"
 #include "ui/ui_FileRestoreWid.h"
 
-FileRestoreWid::FileRestoreWid(QString fileName, ServerManager* serverManager, QWidget *parent)
-    :QDialog(parent), ui(new Ui::FileRestoreWid), file_name(fileName), serverManager(serverManager)
+FileRestoreWid::FileRestoreWid(QString fileName, QWidget *parent)
+    :QDialog(parent), ui(new Ui::FileRestoreWid), file_name(fileName)
     , dbservice(dbService::instance("../SmartDesk.db"))
 
 {

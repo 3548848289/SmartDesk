@@ -43,9 +43,10 @@ signals:
 private slots:
     void on_readyRead();
     void on_disconnected();
-    void on_readfiieBtn_clicked();
     void on_sendmsgEdit_clicked();
     void on_tableWidget_itemClicked(QTableWidgetItem *item);
+    void on_passwdEdit_editingFinished();
+
     void on_buildBtn_clicked();
 
 private:

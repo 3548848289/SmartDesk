@@ -18,6 +18,12 @@
                         "index": 0,
                         "name": "fileOpened",
                         "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "filebackuplistOpened",
+                        "returnType": "void"
                     }
                 ],
                 "slots": [
@@ -29,14 +35,14 @@
                                 "type": "QModelIndex"
                             }
                         ],
-                        "index": 1,
+                        "index": 2,
                         "name": "onItemClicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "index": 2,
-                        "name": "goButtonClicked",
+                        "index": 3,
+                        "name": "on_goButton_clicked",
                         "returnType": "void"
                     }
                 ],

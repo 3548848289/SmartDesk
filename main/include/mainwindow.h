@@ -28,7 +28,7 @@
 #include "../../Setting/Setting.h"
 #include "../../TagSchedule/include/ScheduleWid.h"
 #include "../../FileSystem/include/FileSystem.h"
-#include "../../FileBackup/include/FileBackupList.h"
+#include "../../FileBackup/include/FileBackupView.h"
 #include "../../manager/include/dbService.h"
 #include "../../EmailService/SendEmail.h"
 
@@ -69,6 +69,8 @@ private slots:
 
 private:
 
+    QWidget * widget;
+
     int currentIndex = 0;
     QMap<QString, int> fileTabMap;
 
@@ -79,7 +81,7 @@ private:
     QWidget * widgetr;
 
     FileSystem * file_system;
-    FileBackupList * file_backup_list;
+    FileBackupView * file_backup_view;
 
     WOnlineDoc* wonlinedoc;
     WidgetFunctional* widgetfunc;

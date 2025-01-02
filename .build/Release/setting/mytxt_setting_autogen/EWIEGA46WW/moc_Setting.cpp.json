@@ -49,6 +49,12 @@
                     "index": 3,
                     "name": "on_enableTrayCheckBox_checkStateChanged",
                     "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 4,
+                    "name": "on_pushButton_clicked",
+                    "returnType": "void"
                 }
             ],
             "superClasses": [

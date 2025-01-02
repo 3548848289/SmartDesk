@@ -565,6 +565,7 @@ D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/TabHandleCSV.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QHeaderView
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QInputDialog
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox
@@ -585,6 +586,7 @@ D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/TabHandleCSV.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qfiledialog.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qgridlayout.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qheaderview.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qinputdialog.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlabel.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayout.h

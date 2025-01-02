@@ -45,11 +45,11 @@ constexpr auto qt_meta_stringdata_CLASScsvLinkServerENDCLASS = QtMocHelpers::str
     "sendDataToServer",
     "on_readyRead",
     "on_disconnected",
-    "on_readfiieBtn_clicked",
     "on_sendmsgEdit_clicked",
     "on_tableWidget_itemClicked",
     "QTableWidgetItem*",
     "item",
+    "on_passwdEdit_editingFinished",
     "on_buildBtn_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -79,8 +79,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASScsvLinkServerENDCLASS[] = {
        6,    0,   75,    2, 0x08,    6 /* Private */,
        7,    0,   76,    2, 0x08,    7 /* Private */,
        8,    0,   77,    2, 0x08,    8 /* Private */,
-       9,    0,   78,    2, 0x08,    9 /* Private */,
-      10,    1,   79,    2, 0x08,   10 /* Private */,
+       9,    1,   78,    2, 0x08,    9 /* Private */,
+      12,    0,   81,    2, 0x08,   11 /* Private */,
       13,    0,   82,    2, 0x08,   12 /* Private */,
 
  // signals: parameters
@@ -92,8 +92,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASScsvLinkServerENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 10,   11,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 11,   12,
     QMetaType::Void,
 
        0        // eod
@@ -120,13 +120,13 @@ Q_CONSTINIT const QMetaObject csvLinkServer::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_disconnected'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_readfiieBtn_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_sendmsgEdit_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_tableWidget_itemClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QTableWidgetItem *, std::false_type>,
+        // method 'on_passwdEdit_editingFinished'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_buildBtn_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
@@ -144,9 +144,9 @@ void csvLinkServer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 2: _t->sendDataToServer((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 3: _t->on_readyRead(); break;
         case 4: _t->on_disconnected(); break;
-        case 5: _t->on_readfiieBtn_clicked(); break;
-        case 6: _t->on_sendmsgEdit_clicked(); break;
-        case 7: _t->on_tableWidget_itemClicked((*reinterpret_cast< std::add_pointer_t<QTableWidgetItem*>>(_a[1]))); break;
+        case 5: _t->on_sendmsgEdit_clicked(); break;
+        case 6: _t->on_tableWidget_itemClicked((*reinterpret_cast< std::add_pointer_t<QTableWidgetItem*>>(_a[1]))); break;
+        case 7: _t->on_passwdEdit_editingFinished(); break;
         case 8: _t->on_buildBtn_clicked(); break;
         default: ;
         }

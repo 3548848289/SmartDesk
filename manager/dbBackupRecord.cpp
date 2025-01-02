@@ -63,9 +63,6 @@ QList<QString> dbBackupRecord::getRecordSub(const QString& filePath) {
             QString remoteFilePath = query.value(0).toString();
             filePaths.append(remoteFilePath);
         }
-        for (const QString &path : filePaths) {
-            qDebug() << "File Path: " << path;
-        }
     } else {
         qDebug() << "Query failed: " << query.lastError().text();
     }
@@ -123,6 +120,43 @@ QDateTime dbBackupRecord::getSubTime(const QString &remoteFileName)
     }
 }
 
+QList<QString> dbBackupRecord::getAllFileNames()
+{
+    QList<QString> fileNames;
+    QSqlQuery query(dbsqlite);
+    query.prepare("SELECT file_path FROM Submissions");
+
+    if (query.exec()) {
+        while (query.next()) {
+            fileNames.append(query.value(0).toString());
+        }
+    } else {
+        qDebug() << "查询失败: " << query.lastError();
+    }
+
+    return fileNames;
+}
+
+QList<QString> dbBackupRecord::getBackupFileNames(const QString &filePath)
+{
+    QList<QString> backupFileNames;
+    QSqlQuery query(dbsqlite);
+
+    query.prepare("SELECT remote_file_name FROM SubmissionRecords "
+                  "WHERE submission_id = (SELECT id FROM Submissions WHERE file_path = :filePath)");
+
+    query.bindValue(":filePath", filePath);
+
+    if (query.exec()) {
+        while (query.next()) {
+            backupFileNames.append(query.value(0).toString());
+        }
+    } else {
+        qDebug() << "查询失败: " << query.lastError();
+    }
+
+    return backupFileNames;
+}
 
 
 bool dbBackupRecord::insertSharedFile(const QString &filePath, const QString &fileName, const QString &shareToken) {
@@ -159,28 +193,87 @@ int dbBackupRecord::getPasswordIdByPassword(const QString &password) {
     }
 }
 
-QStringList dbBackupRecord::getSharedFilesByShareToken(const QString &shareToken) {
+bool dbBackupRecord::deleteBackupRecord(const QString &filePath) {
     QSqlQuery query(dbsqlite);
 
-    query.prepare(R"(
-        SELECT remote_file_name, local_file_path
-        FROM SharedFiles
-        WHERE share_token = :share_token
-    )");
-    query.bindValue(":share_token", shareToken);
-    qDebug() << shareToken;
+    query.prepare("DELETE FROM SubmissionRecords WHERE remote_file_name = :filePath");
+    query.bindValue(":filePath", filePath);
+    if (!query.exec()) {
+        qDebug() << "Failed to delete from SubmissionRecords:" << query.lastError();
+        QSqlDatabase::database().rollback();
+        return false;
+    }
+    return true;
+}
 
-    QStringList fileList;
+bool dbBackupRecord::updateFilePath(const QString &oldFilePath, const QString &newFilePath)
+{
+    if (newFilePath.isEmpty()) {
+        qDebug() << "New file path cannot be empty!";
+        return false;
+    }
+    QSqlQuery query(dbsqlite);
+
+    query.prepare("UPDATE SubmissionRecords SET remote_file_name = :newFilePath WHERE remote_file_name = :oldFilePath");
+    query.bindValue(":newFilePath", newFilePath);
+    query.bindValue(":oldFilePath", oldFilePath);
+
+    if (!query.exec()) {
+        qDebug() << "Failed to update SubmissionRecords remote_file_name:" << query.lastError();
+        return false;
+    }
+    return true;
+}
+
+bool dbBackupRecord::updateSubmissions(const QString &oldFilePath, const QString &newFilePath)
+{
+    qDebug() << oldFilePath << newFilePath;
+    QSqlQuery query(dbsqlite);
+    query.prepare("UPDATE Submissions SET file_path = :newFilePath WHERE file_path = :oldFilePath");
+    query.bindValue(":newFilePath", newFilePath);
+    query.bindValue(":oldFilePath", oldFilePath);
 
     if (query.exec()) {
-        while (query.next()) {
-            QString remoteFileName = query.value(0).toString();  // 远程文件名
-            QString localFilePath = query.value(1).toString();   // 本地文件路径
-            fileList.append(remoteFileName + " " + localFilePath);  // 用空格分隔文件名和路径
-        }
+        return true;
     } else {
-        qDebug() << "Failed to retrieve shared files: " << query.lastError().text();
+        qDebug() << "Error updating file path:" << query.lastError();
+        return false;
+    }
+}
+
+bool dbBackupRecord::deleteAll(const QString &filePath)
+{
+
+    QSqlQuery query(dbsqlite);
+    query.prepare("SELECT id FROM Submissions WHERE file_path = :filePath");
+    query.bindValue(":filePath", filePath);
+
+    if (!query.exec() || !query.next()) {
+        qDebug() << "Error fetching submission_id from Submissions:" << query.lastError();
+        QSqlDatabase::database().rollback();
+        return false;
     }
 
-    return fileList;
+    int submissionId = query.value(0).toInt();
+
+    query.prepare("DELETE FROM SubmissionRecords WHERE submission_id = :submissionId");
+    query.bindValue(":submissionId", submissionId);
+
+    if (!query.exec()) {
+        qDebug() << "Error deleting from SubmissionRecords:" << query.lastError();
+        QSqlDatabase::database().rollback();
+        return false;
+    }
+
+    query.prepare("DELETE FROM Submissions WHERE id = :submissionId");
+    query.bindValue(":submissionId", submissionId);
+
+    if (!query.exec()) {
+        qDebug() << "Error deleting from Submissions:" << query.lastError();
+        QSqlDatabase::database().rollback();
+        return false;
+    }
+    return true;
+
 }
+

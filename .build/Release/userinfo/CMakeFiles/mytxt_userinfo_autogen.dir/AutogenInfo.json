@@ -2,11 +2,11 @@
 	"BUILD_DIR" : "D:/CxxProgram/SmartDesk/.build/Release/userinfo/mytxt_userinfo_autogen",
 	"CMAKE_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/Release",
 	"CMAKE_CURRENT_BINARY_DIR" : "D:/CxxProgram/SmartDesk/.build/Release/userinfo",
-	"CMAKE_CURRENT_SOURCE_DIR" : "D:/CxxProgram/SmartDesk/userinfo",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/CxxProgram/SmartDesk/UserInfo",
 	"CMAKE_EXECUTABLE" : "D:/QT6/Tools/CMake_64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"D:/CxxProgram/SmartDesk/userinfo/CMakeLists.txt",
+		"D:/CxxProgram/SmartDesk/UserInfo/CMakeLists.txt",
 		"D:/CxxProgram/SmartDesk/.build/Release/.qtc/package-manager/auto-setup.cmake",
 		"D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/3.24.2/CMakeCCompiler.cmake",
 		"D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCInformation.cmake",
@@ -95,19 +95,19 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h",
+			"D:/CxxProgram/SmartDesk/UserInfo/include/DInfo.h",
 			"MU",
 			"6YEA5652QU/moc_DInfo.cpp",
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h",
+			"D:/CxxProgram/SmartDesk/UserInfo/include/DLogin.h",
 			"MU",
 			"6YEA5652QU/moc_DLogin.cpp",
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h",
+			"D:/CxxProgram/SmartDesk/UserInfo/include/FlaskInfo.h",
 			"MU",
 			"6YEA5652QU/moc_FlaskInfo.cpp",
 			null
@@ -140,7 +140,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"D:/CxxProgram/SmartDesk/userinfo",
+		"D:/CxxProgram/SmartDesk/UserInfo",
 		"D:/QT6/6.8.0/mingw_64/include/QtWidgets",
 		"D:/QT6/6.8.0/mingw_64/include",
 		"D:/QT6/6.8.0/mingw_64/include/QtCore",
@@ -186,9 +186,9 @@
 	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/Release/userinfo/CMakeFiles/mytxt_userinfo_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/CxxProgram/SmartDesk/userinfo/DInfo.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/userinfo/DLogin.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/userinfo/FlaskInfo.cpp", "MU", null ]
+		[ "D:/CxxProgram/SmartDesk/UserInfo/DInfo.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/UserInfo/DLogin.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/UserInfo/FlaskInfo.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

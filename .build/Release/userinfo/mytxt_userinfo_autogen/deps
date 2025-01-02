@@ -2,17 +2,17 @@ mytxt_userinfo_autogen/timestamp: \
 	D:/CxxProgram/SmartDesk/.build/Release/.qtc/package-manager/auto-setup.cmake \
 	D:/CxxProgram/SmartDesk/.build/Release/CMakeFiles/3.24.2/CMakeCCompiler.cmake \
 	D:/CxxProgram/SmartDesk/.build/Release/userinfo/mytxt_userinfo_autogen/moc_predefs.h \
+	D:/CxxProgram/SmartDesk/UserInfo/CMakeLists.txt \
+	D:/CxxProgram/SmartDesk/UserInfo/DInfo.cpp \
+	D:/CxxProgram/SmartDesk/UserInfo/DLogin.cpp \
+	D:/CxxProgram/SmartDesk/UserInfo/FlaskInfo.cpp \
+	D:/CxxProgram/SmartDesk/UserInfo/include/DInfo.h \
+	D:/CxxProgram/SmartDesk/UserInfo/include/DLogin.h \
+	D:/CxxProgram/SmartDesk/UserInfo/include/FlaskInfo.h \
 	D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
 	D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
 	D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
 	D:/CxxProgram/SmartDesk/manager/include/dbService.h \
-	D:/CxxProgram/SmartDesk/userinfo/CMakeLists.txt \
-	D:/CxxProgram/SmartDesk/userinfo/DInfo.cpp \
-	D:/CxxProgram/SmartDesk/userinfo/DLogin.cpp \
-	D:/CxxProgram/SmartDesk/userinfo/FlaskInfo.cpp \
-	D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h \
-	D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h \
-	D:/CxxProgram/SmartDesk/userinfo/include/FlaskInfo.h \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QBuffer \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QDate \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
@@ -576,6 +576,6 @@ mytxt_userinfo_autogen/timestamp: \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
-	D:/CxxProgram/SmartDesk/userinfo/ui/DInfo.ui \
-	D:/CxxProgram/SmartDesk/userinfo/ui/DLogin.ui \
+	D:/CxxProgram/SmartDesk/UserInfo/ui/DInfo.ui \
+	D:/CxxProgram/SmartDesk/UserInfo/ui/DLogin.ui \
 	D:/QT6/Tools/CMake_64/bin/cmake.exe

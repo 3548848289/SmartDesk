@@ -108,6 +108,12 @@
 			null
 		],
 		[
+			"D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h",
+			"MU",
+			"6YEA5652QU/moc_dbOnlineDoc.cpp",
+			null
+		],
+		[
 			"D:/CxxProgram/SmartDesk/manager/include/dbService.h",
 			"MU",
 			"6YEA5652QU/moc_dbService.cpp",
@@ -200,6 +206,7 @@
 		[ "D:/CxxProgram/SmartDesk/manager/dbBackupRecord.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/manager/dbFilepath.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/manager/dbManager.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/manager/dbOnlineDoc.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/manager/myJson.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],

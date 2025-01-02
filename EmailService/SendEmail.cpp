@@ -32,22 +32,17 @@ SendEmail::SendEmail(QWidget *parent): QWidget(parent), ui(new Ui::SendEmail)
 {
     ui->setupUi(this);
 
-//    ui->host->setText(
-//        m_settings.value(QStringLiteral("host"), QStringLiteral("localhost")).toString());
-//    ui->port->setValue(m_settings.value(QStringLiteral("port"), 25).toInt());
-//    ui->username->setText(m_settings.value(QStringLiteral("username")).toString());
-//    ui->password->setText(m_settings.value(QStringLiteral("password")).toString());
-//    ui->security->setCurrentIndex(m_settings.value(QStringLiteral("ssl")).toInt());
-//    ui->sender->setText(m_settings.value(QStringLiteral("sender")).toString());
+    QSettings m_settings("settings.ini", QSettings::IniFormat);
+
+    ui->host->setText(m_settings.value("EmailConfig/host", "localhost").toString());
+    ui->port->setValue(m_settings.value("EmailConfig/port", 25).toInt());
+    ui->username->setText(m_settings.value("EmailConfig/username").toString());
+    ui->password->setText(m_settings.value("EmailConfig/password").toString());
+    ui->security->setCurrentIndex(m_settings.value("EmailConfig/ssl").toInt());
+    ui->sender->setText(m_settings.value("EmailConfig/sender").toString());
+    ui->recipients->setText(m_settings.value("EmailConfig/received").toString());
 
 
-    ui->host->setText("smtp.qq.com");
-    ui->port->setValue(465);
-    ui->username->setText("3548848289@qq.com");
-    ui->password->setText("kxwkjvtmkggqchgg");
-    ui->security->setCurrentIndex(1);
-    ui->sender->setText("李阳坚<3548848289@qq.com>");
-    ui->recipients->setText("Outlook <M3548848289@outlook.com>");
     for (int i = 0; i < ui->gridLayout->count(); ++i) {
         QLayoutItem *item = ui->gridLayout->itemAt(i);
         if (item) {
@@ -99,12 +94,7 @@ void SendEmail::on_sendEmail_clicked()
             std::make_shared<QFile>(ui->attachments->item(i)->text())));
     }
 
-//    m_settings.setValue(QStringLiteral("host"), ui->host->text());
-//    m_settings.setValue(QStringLiteral("port"), ui->port->value());
-//    m_settings.setValue(QStringLiteral("username"), ui->username->text());
-//    m_settings.setValue(QStringLiteral("password"), ui->password->text());
-//    m_settings.setValue(QStringLiteral("ssl"), ui->security->currentIndex());
-//    m_settings.setValue(QStringLiteral("sender"), ui->sender->text());
+
 
     sendMailAsync(message);
 }

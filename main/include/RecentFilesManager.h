@@ -6,6 +6,7 @@
 #include <QSettings>
 #include <QAction>
 #include <QMenu>
+#include "../../Setting/SettingManager.h"
 
 class RecentFilesManager : public QObject
 {

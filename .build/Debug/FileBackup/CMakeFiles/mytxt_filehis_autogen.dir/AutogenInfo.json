@@ -11,15 +11,15 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/CxxProgram/SmartDesk/FileBackup/include/FileBackup.h",
+			"D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupView.h",
 			"MU",
-			"6YEA5652QU/moc_FileBackup.cpp",
+			"6YEA5652QU/moc_FileBackupView.cpp",
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupList.h",
+			"D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupWid.h",
 			"MU",
-			"6YEA5652QU/moc_FileBackupList.cpp",
+			"6YEA5652QU/moc_FileBackupWid.cpp",
 			null
 		],
 		[
@@ -101,8 +101,8 @@
 	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/FileBackup/CMakeFiles/mytxt_filehis_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/CxxProgram/SmartDesk/FileBackup/FileBackup.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/FileBackup/FileBackupList.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/FileBackup/FileBackupView.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/FileBackup/FileBackupWid.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/FileBackup/FileRestoreWid.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],

@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../../../onlinedoc/include/DLfromNet.h"
+#include "../../../../../OnlineDoc/include/DLfromNet.h"
 #include <QtNetwork/QSslError>
 #include <QtCore/qmetatype.h>
 

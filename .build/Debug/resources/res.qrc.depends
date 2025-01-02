@@ -22,5 +22,6 @@
         <file>image/login.png</file>
         <file>png/Settings.png</file>
         <file>image/user.svg</file>
+        <file>usedimage/tips.svg</file>
     </qresource>
 </RCC>

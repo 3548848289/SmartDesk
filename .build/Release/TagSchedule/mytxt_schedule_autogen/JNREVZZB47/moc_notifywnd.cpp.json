@@ -1,0 +1,30 @@
+{
+    "classes": [
+        {
+            "className": "NotifyWnd",
+            "lineNumber": 9,
+            "object": true,
+            "qualifiedClassName": "NotifyWnd",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "ArrangedWnd"
+                }
+            ]
+        },
+        {
+            "className": "NotifyCountWnd",
+            "lineNumber": 29,
+            "object": true,
+            "qualifiedClassName": "NotifyCountWnd",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "ArrangedWnd"
+                }
+            ]
+        }
+    ],
+    "inputFile": "notifywnd.h",
+    "outputRevision": 68
+}

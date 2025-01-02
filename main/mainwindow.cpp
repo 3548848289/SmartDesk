@@ -3,34 +3,50 @@
 #include "../manager/include/dbService.h"
 
 
+void MainWindow::initSmal()
+{
+    loginButton = new QPushButton(this);
+    loginButton->setFixedSize(30, 30);
+    loginButton->setStyleSheet("border: none; border-radius: 15px;");
+    loginButton->setIcon(QIcon("://image/user.svg"));
+
+    loginButton->setIconSize(loginButton->size());
+
+    ui->menubar->setCornerWidget(loginButton, Qt::TopRightCorner);
+    connect(loginButton, &QPushButton::clicked, this, &MainWindow::showUserInfoDialog);
+
+
+    tabWidget = new QTabWidget(this);
+    tabWidget->setTabsClosable(true);
+    connect(tabWidget, &QTabWidget::tabCloseRequested, this, [this](int index) {
+        qDebug() << "Tab close requested at index: " << index;
+
+        on_actionclose_triggered();
+    });
+}
+
 void MainWindow::initFunc()
 {
 
-    widgetr = new QWidget(this);
-    QGridLayout *gridLayout = new QGridLayout(widgetr);
-    file_system = new FileSystem(widgetr);
-    file_backup_list = new FileBackupList(widgetr);
-    QSplitter *splitter = new QSplitter(Qt::Vertical, widgetr);
-    splitter->addWidget(file_system);
-    splitter->addWidget(file_backup_list);
-    splitter->setSizes(QList<int>() << 500 << 200);
-    gridLayout->addWidget(splitter, 0, 0);
-    widgetr->setLayout(gridLayout);
-
+    file_system = new FileSystem(this);
+    file_backup_view = new FileBackupView(file_system);
     wonlinedoc = new WOnlineDoc(this);
     schedule_wid= new ScheduleWid(this);
     widgetfunc = new WidgetFunctional(this);
 
     ui->stackedWidget->setObjectName("pWidget");
     ui->stackedWidget->setStyleSheet("QWidget#pWidget { border: 1px solid #808080; }");
-
-    ui->stackedWidget->addWidget(widgetr);
+    ui->stackedWidget->addWidget(file_system);
+    ui->stackedWidget->addWidget(file_backup_view);
     ui->stackedWidget->addWidget(wonlinedoc);
     ui->stackedWidget->addWidget(schedule_wid);
-    ui->stackedWidget->setCurrentWidget(widgetr);
+    ui->stackedWidget->setCurrentWidget(file_system);
 
     connect(widgetfunc, &WidgetFunctional::showFiletag, this, [=] {
-        ui->stackedWidget->setCurrentWidget(widgetr); });
+        ui->stackedWidget->setCurrentWidget(file_system); });
+
+    connect(widgetfunc, &WidgetFunctional::showFilebackup, this, [=] {
+        ui->stackedWidget->setCurrentWidget(file_backup_view); });
 
     connect(widgetfunc, &WidgetFunctional::showwOnlinedoc, this, [=] {
         ui->stackedWidget->setCurrentWidget(wonlinedoc); });
@@ -73,28 +89,6 @@ void MainWindow::initSpli()
     horizontalSplitter->setSizes(sizes);
 }
 
-void MainWindow::initSmal()
-{
-    loginButton = new QPushButton(this);
-    loginButton->setFixedSize(30, 30);
-    loginButton->setStyleSheet("border: none; border-radius: 15px;");
-    loginButton->setIcon(QIcon("://image/user.svg"));
-
-    loginButton->setIconSize(loginButton->size());
-
-    ui->menubar->setCornerWidget(loginButton, Qt::TopRightCorner);
-    connect(loginButton, &QPushButton::clicked, this, &MainWindow::showUserInfoDialog);
-
-
-    tabWidget = new QTabWidget(this);
-    tabWidget->setTabsClosable(true);
-    connect(tabWidget, &QTabWidget::tabCloseRequested, this, [this](int index) {
-        qDebug() << "Tab close requested at index: " << index;
-
-        on_actionclose_triggered();
-    });
-}
-
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow),
     recentFilesManager(new RecentFilesManager(this))
@@ -109,8 +103,14 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(wonlinedoc->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
     connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
     connect(file_system, &FileSystem::fileOpened, this, &MainWindow::openFile);
+
+    connect(file_system, &FileSystem::filebackuplistOpened, this, [=]{
+        ui->stackedWidget->setCurrentWidget(file_backup_view);
+    });
+
     connect(schedule_wid, &ScheduleWid::fileClicked, this, &MainWindow::openFile);
-    connect(file_backup_list, &FileBackupList::s_fileopen, this, &MainWindow::openFile);
+    connect(file_backup_view, &FileBackupView::s_fileopen, this, &MainWindow::openFile);
+
     recentFilesManager->populateRecentFilesMenu(ui->recentFile);
 
 }
@@ -170,12 +170,11 @@ void MainWindow::on_actionopen_triggered()
 
 void MainWindow::openFile(const QString &filePath)
 {
-    qDebug() << "MainWindow::openFile" << filePath;
 
     if (fileTabMap.contains(filePath)) {
         int existingIndex = fileTabMap[filePath];
-        tabWidget->setCurrentIndex(existingIndex);  // 跳转到已有标签页
-        return;  // 文件已打开，直接返回
+        tabWidget->setCurrentIndex(existingIndex);
+        return;
     }
 
     TabAbstract* newTab = createTabByFileName(filePath);
@@ -186,15 +185,17 @@ void MainWindow::openFile(const QString &filePath)
 
         int newIndex = tabWidget->addTab(newTab, baseName);
         connect(newTab, &TabAbstract::contentModified, this, [this, newIndex, baseName]() {
+            qDebug() << baseName;
+
             if (!tabWidget->tabText(newIndex).endsWith("*")) {
                 tabWidget->setTabText(newIndex, baseName + "*");
             }
         });
 
         connect(newTab, &TabAbstract::contentSaved, this, [this, newIndex, baseName]() {
-            qDebug() << baseName;
             tabWidget->setTabText(newIndex, QFileInfo(baseName).fileName());
         });
+
         fileTabMap.insert(filePath, newIndex);
         tabWidget->setCurrentIndex(newIndex);
 
@@ -209,10 +210,8 @@ void MainWindow::on_actionsave_triggered()
     auto currentTab = getCurrentTab<TabAbstract>();
     if (!currentTab) return;
 
-    // 获取当前的文件路径
     QString currentFilePath = currentTab->getCurrentFilePath();
 
-    // 如果文件路径为空，说明这是第一次保存，弹出保存对话框
     if (currentFilePath.isEmpty()) {
         QString fileFilter;
         if (dynamic_cast<TextTab*>(currentTab))
@@ -224,7 +223,7 @@ void MainWindow::on_actionsave_triggered()
 
         currentFilePath = QFileDialog::getSaveFileName(this, tr("Save File"), "", fileFilter);
         if (currentFilePath.isEmpty())
-            return;  // 如果用户取消保存
+            return;
     }
     currentTab->fileSave();
     currentTab->setCurrentFilePath(currentFilePath);
@@ -296,7 +295,7 @@ void MainWindow::on_actionclose_triggered()
             {
                 tabWidget->removeTab(currentIndex);
                 QString filePath = tab->getCurrentFilePath();
-                qDebug() << "MainWindow::on_actionclose_triggered" << filePath;
+                // qDebug() << "MainWindow::on_actionclose_triggered" << filePath;
                 fileTabMap.remove(filePath);            }
             else
                 qDebug() << "Tab close canceled by user.";
@@ -334,9 +333,8 @@ void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &f
 void MainWindow::handleFilePathSent()
 {
 
-    on_actionscv_file_triggered();
+    createNewTab([]() { return new TabHandleCSV(""); }, "共享文档");
     auto currentTab = getCurrentTab<TabHandleCSV>();
-
     currentTab->setLinkStatus(true);
     wonlinedoc->m_csvLinkServer->bindTab(currentTab);
 }
@@ -360,6 +358,7 @@ void MainWindow::on_actionshe_triggered()
 {
     setiing = new Setting();
     setiing->show();
+
 }
 
 
@@ -403,4 +402,5 @@ void MainWindow::on_actionfind_triggered()
         }
     }
 }
+
 

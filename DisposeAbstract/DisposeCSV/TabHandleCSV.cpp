@@ -3,15 +3,13 @@
 TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstract(filePath, parent)
 {
 
-    QSplitter* splitter;  // 新增 QSplitter
-
-    // 在构造函数中
+    QSplitter* splitter;
     highlightLabel = new QLabel(this);
     tableWidget = new QTableWidget(this);
+    tableWidget->setSortingEnabled(true);
+    tableWidget->horizontalHeader()->setSortIndicatorShown(true);
+    splitter = new QSplitter(Qt::Vertical, this);
 
-    splitter = new QSplitter(Qt::Vertical, this);  // 使用垂直方向的 QSplitter
-
-    // 创建 ControlWidCSV 控件
     controlwidget = new ControlWidCSV(this);
     connect(controlwidget, &ControlWidCSV::addRowClicked, this, &TabHandleCSV::addRow);
     connect(controlwidget, &ControlWidCSV::deleteRowClicked, this, &TabHandleCSV::deleteRow);
@@ -28,9 +26,6 @@ TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstrac
 
     setLayout(layout);
 
-
-
-
     connect(tableWidget, &QAbstractItemView::clicked, [=](const QModelIndex &index){
         foucsRow = index.row();
         foucsCol = index.column();
@@ -45,6 +40,8 @@ TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstrac
         QString jsonString = myJson::constructJson(localIp, "edited",item->row(), item->column(), item->text());
         if (link)
             emit dataToSend(jsonString);
+        setContentModified(true);
+
     });
 
     // 改变选中单元格时发送 clear 操作的 JSON 数据
@@ -59,27 +56,22 @@ TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstrac
 void TabHandleCSV::setText(const QString &text)
 {
     tableWidget->clear();
-    QStringList rows = text.split('\n');
+    QStringList rows = text.split('\n', Qt::SkipEmptyParts);
     if (rows.isEmpty())
         return;
 
-    QStringList headers = rows.first().split(',');    // 处理第一行作为表头
+    QStringList headers = rows.first().split(',');
     tableWidget->setColumnCount(headers.size());
     tableWidget->setHorizontalHeaderLabels(headers);
-    tableWidget->setRowCount(rows.size() - 1);        // 减去表头行
+    tableWidget->setRowCount(rows.size() - 1);
 
-    int maxCols = 0;
     for (int i = 1; i < rows.size(); ++i) {
         QStringList cols = rows[i].split(',');
-        tableWidget->setColumnCount(qMax(tableWidget->columnCount(), cols.size()));
-        for (int j = 0; j < cols.size(); ++j) {
+        for (int j = 0; j < cols.size(); ++j)
             tableWidget->setItem(i - 1, j, new QTableWidgetItem(cols[j]));
-        }
-        maxCols = qMax(maxCols, cols.size());
     }
-
-    tableWidget->setColumnCount(maxCols);
 }
+
 
 void TabHandleCSV::loadFromFile(const QString &fileName)
 {
@@ -91,6 +83,8 @@ void TabHandleCSV::loadFromFile(const QString &fileName)
     } else {
         QMessageBox::warning(this, tr("Error"), tr("Could not open file"));
     }
+    setContentModified(false);
+
 }
 
 
@@ -135,17 +129,26 @@ void TabHandleCSV::loadFromContent(const QByteArray &content)
 QString TabHandleCSV::toCSV() const
 {
     QString csvText;
+    for (int j = 0; j < tableWidget->columnCount(); ++j) {
+        if (j > 0)
+            csvText += ',';
+        csvText += tableWidget->horizontalHeaderItem(j)->text();
+    }
+    csvText += '\n';
+
+
     for (int i = 0; i < tableWidget->rowCount(); ++i) {
         for (int j = 0; j < tableWidget->columnCount(); ++j) {
             if (j > 0)
                 csvText += ',';
             if (tableWidget->item(i, j))
-                csvText += tableWidget->item(i, j)->text();
+                csvText += tableWidget->item(i, j)->text();  // 获取单元格内容
         }
         csvText += '\n';
     }
     return csvText;
 }
+
 
 void TabHandleCSV::adjustItem(QTableWidgetItem *item)
 {
@@ -164,7 +167,6 @@ void TabHandleCSV::adjustItem(QTableWidgetItem *item)
 
 void TabHandleCSV::addRow()
 {
-    qDebug () << "TabHandleCSV::addRow()";
     int rowCount = tableWidget->rowCount();
     tableWidget->insertRow(rowCount);
 }
@@ -245,13 +247,9 @@ void TabHandleCSV::parseCSV(const QString &csvText)
     }
 }
 
-
 void TabHandleCSV::ChickfromServer(const QJsonObject& jsonObj)
 {
     auto [ip, row, col, newValue] = myJson::extract_common_fields(jsonObj);
-
-    qDebug() << "chick data: (" << row << ", " << col << ")";
-
     if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount()) {
         QTableWidgetItem *item = tableWidget->item(row, col);
         if (item) {
@@ -268,8 +266,6 @@ void TabHandleCSV::ChickfromServer(const QJsonObject& jsonObj)
 void TabHandleCSV::clearfromServer(const QJsonObject& jsonObj)
 {
     auto [ip, row, col, newValue] = myJson::extract_common_fields(jsonObj);
-    qDebug() << "clear data: (" << row << ", " << col << ")";
-
     if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount()) {
         QTableWidgetItem *item = tableWidget->item(row, col);
         if (item) {
@@ -286,8 +282,6 @@ void TabHandleCSV::clearfromServer(const QJsonObject& jsonObj)
 void TabHandleCSV::editedfromServer(const QJsonObject& jsonObj)
 {
     auto [ip, row, col, newValue] = myJson::extract_common_fields(jsonObj);
-    qDebug() << "Edited cell (" << row << ", " << col << ") with new value: " << newValue.value();
-
     if (row >= 0 && row < tableWidget->rowCount() && col >= 0 && col < tableWidget->columnCount()) {
         QTableWidgetItem *item = tableWidget->item(row, col);
         if (!item) {

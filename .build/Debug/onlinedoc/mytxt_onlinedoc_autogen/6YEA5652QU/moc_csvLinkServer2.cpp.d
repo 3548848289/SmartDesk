@@ -7,6 +7,7 @@ D:/CxxProgram/SmartDesk/.build/debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652Q
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \
   D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/CxxProgram/SmartDesk/manager/include/myJson.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
@@ -256,6 +257,7 @@ D:/CxxProgram/SmartDesk/.build/debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652Q
   D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QHeaderView \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QInputDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
@@ -276,6 +278,7 @@ D:/CxxProgram/SmartDesk/.build/debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652Q
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qfiledialog.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qgridlayout.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qheaderview.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qinputdialog.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlabel.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayout.h \

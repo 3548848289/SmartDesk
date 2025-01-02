@@ -866,7 +866,6 @@ D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/TabHandleIMG.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
 D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/ControlFrame.cpp
  uic:ui/ui_ControlFrame.h
-D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/PixItem.cpp
 D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/ControlFrame.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/ControlFrame.h
@@ -1278,6 +1277,7 @@ D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/ControlFrame.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
+D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/PixItem.cpp
 D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/TabHandleIMG.cpp
 D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/PixItem.h
 D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/TabHandleIMG.h

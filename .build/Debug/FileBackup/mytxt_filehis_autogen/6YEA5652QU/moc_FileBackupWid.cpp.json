@@ -1,0 +1,26 @@
+{
+    "classes": [
+        {
+            "className": "FileBackupWid",
+            "lineNumber": 18,
+            "object": true,
+            "qualifiedClassName": "FileBackupWid",
+            "slots": [
+                {
+                    "access": "private",
+                    "index": 0,
+                    "name": "on_save_clicked",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QDialog"
+                }
+            ]
+        }
+    ],
+    "inputFile": "FileBackupWid.h",
+    "outputRevision": 68
+}

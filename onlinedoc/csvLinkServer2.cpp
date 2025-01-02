@@ -7,7 +7,6 @@ csvLinkServer::csvLinkServer(QWidget *parent): QWidget(parent),ui(new Ui::csvLin
     dbservice(dbService::instance("../SmartDesk.db"))
 {
     ui->setupUi(this);
-//    on_linkserverBtn_clicked();
 }
 
 csvLinkServer::~csvLinkServer()
@@ -82,34 +81,6 @@ void csvLinkServer::sendDataToServer(const QString &data)
     }
 }
 
-void csvLinkServer::on_readfiieBtn_clicked() {
-    QString shareToken = ui->passwdEdit->text();
-    qDebug() << shareToken;
-    if (shareToken.isEmpty()) {
-        QMessageBox::warning(this, tr("警告"), tr("请输入共享口令！"));
-        return;
-    }
-
-    QStringList files = dbservice.dbBackup().getSharedFilesByShareToken(shareToken);
-
-    if (!files.isEmpty()) {
-        ui->tableWidget->clear();
-        ui->tableWidget->setRowCount(files.size());
-        ui->tableWidget->setColumnCount(2);
-        ui->tableWidget->setHorizontalHeaderLabels(QStringList() << tr("远程文件名") << tr("本地文件路径"));
-
-        for (int i = 0; i < files.size(); ++i) {
-            QStringList fileInfo = files[i].split(" ");
-            if (fileInfo.size() >= 2) {
-                ui->tableWidget->setItem(i, 0, new QTableWidgetItem(fileInfo[0]));  // 远程文件名
-                ui->tableWidget->setItem(i, 1, new QTableWidgetItem(fileInfo[1]));  // 本地路径
-            }
-        }
-        ui->tableWidget->resizeColumnsToContents();
-    } else {
-        QMessageBox::warning(this, tr("警告"), tr("未找到对应的共享文件！"));
-    }
-}
 
 void csvLinkServer::on_sendmsgEdit_clicked()
 {
@@ -123,7 +94,7 @@ void csvLinkServer::on_sendmsgEdit_clicked()
 void csvLinkServer::on_linkserverBtn_clicked()
 {
 
-    QString serverIp = "192.168.240.236";
+    QString serverIp = "192.168.188.236";
     QString portString = "9200";
     bool ok;
     quint16 serverPort = portString.toUShort(&ok);
@@ -163,6 +134,7 @@ void csvLinkServer::on_closeserverBtn_clicked()
 
 void csvLinkServer::on_tableWidget_itemClicked(QTableWidgetItem *item)
 {
+    on_linkserverBtn_clicked();
     int row = item->row();
     QTableWidgetItem *firstColumnItem = ui->tableWidget->item(row, 0);
     QString filePath;
@@ -180,10 +152,41 @@ void csvLinkServer::on_tableWidget_itemClicked(QTableWidgetItem *item)
     emit filePathSent();
 }
 
+
+
+void csvLinkServer::on_passwdEdit_editingFinished()
+{
+    QString shareToken = ui->passwdEdit->text();
+    if (shareToken.isEmpty()) {
+        QMessageBox::warning(this, tr("警告"), tr("请输入共享口令！"));
+        return;
+    }
+
+    QStringList files = dbservice.dbOnline().getSharedFilesByShareToken(shareToken);
+
+    if (!files.isEmpty()) {
+        ui->tableWidget->clear();
+        ui->tableWidget->setRowCount(files.size());
+        ui->tableWidget->setColumnCount(1);
+        ui->tableWidget->setHorizontalHeaderLabels(QStringList() << tr("远程文件名"));
+
+        for (int i = 0; i < files.size(); ++i) {
+            QStringList fileInfo = files[i].split(" ");
+            if (fileInfo.size() >= 1) {
+                ui->tableWidget->setItem(i, 0, new QTableWidgetItem(fileInfo[0]));
+            }
+        }
+        ui->tableWidget->resizeColumnsToContents();
+    } else {
+        QMessageBox::warning(this, tr("警告"), tr("未找到对应的共享文件！"));
+    }
+}
+
+
+
 void csvLinkServer::on_buildBtn_clicked()
 {
     QString filePath = QFileDialog::getOpenFileName(this, tr("选择文件"), "", tr("All Files (*)"));
-
     if (filePath.isEmpty()) {
         QMessageBox::warning(this, tr("警告"), tr("未选择任何文件！"));
         return;
@@ -197,14 +200,10 @@ void csvLinkServer::on_buildBtn_clicked()
         QMessageBox::warning(this, tr("警告"), tr("请输入共享口令！"));
         return;
     }
-    // serverManager->test(filePath);
-    serverManager->commitFile(filePath);
 
-    qDebug() << "csvLinkServer::on_buildBtn_clicked";
-    // if (serverManager->commitFile(filePath)) {
-    //     QMessageBox::information(this, tr("成功"), tr("文件上传成功，口令为：%1").arg(shareToken));
-    // } else {
-    //     QMessageBox::warning(this, tr("警告"), tr("文件上传失败！"));
-    // }
+    if (serverManager->commitFile(filePath))
+        QMessageBox::information(this, tr("成功"), tr("文件上传成功，口令为：%1").arg(shareToken));
+    else
+        QMessageBox::warning(this, tr("警告"), tr("文件上传失败！"));
 }
 

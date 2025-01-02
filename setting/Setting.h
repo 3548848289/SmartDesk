@@ -6,32 +6,34 @@
 #include <QLineEdit>
 #include <QSettings>
 #include <QDebug>
+#include <QTreeWidgetItem>
+#include <QCloseEvent>
+
 namespace Ui {
 class Setting;
 }
 
-class Setting : public QWidget {
+class Setting : public QWidget
+{
     Q_OBJECT
+
 public:
-    Setting(QWidget *parent = nullptr);
+    explicit Setting(QWidget *parent = nullptr);
     ~Setting();
 
-signals:
-    void fontSizeChanged(int size);
-
 private slots:
-    void onFontSizeChanged(int value);
-    void onLineEditEditingFinished();
-    void on_enableTrayCheckBox_checkStateChanged(const Qt::CheckState &arg1);
+    void on_pushButton_clicked();
+
+    void on_treeWidget_itemClicked(QTreeWidgetItem *item, int column);
 
 private:
+    Ui::Setting *ui;
+    QSettings settings;
     void loadSettings();
     void saveSettings();
-    void updateFontSize(int size);
 
-    Ui::Setting *ui;
+    void closeEvent(QCloseEvent *event);
 };
-
 
 
 

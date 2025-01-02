@@ -29,11 +29,6 @@ public:
     virtual void saveToFile(const QString &fileName) = 0;
     virtual void loadFromContent(const QByteArray &content) = 0;
 
-    virtual void ReadfromServer(const QJsonObject& jsonObj) = 0;
-    virtual void ChickfromServer(const QJsonObject& jsonObj) = 0;
-    virtual void clearfromServer(const QJsonObject& jsonObj) = 0;
-    virtual void editedfromServer(const QJsonObject& jsonObj) = 0;
-
     virtual QString getCurrentFilePath() const { return currentFilePath; }
     virtual void setCurrentFilePath(const QString& path) { currentFilePath = path; }
 
@@ -51,8 +46,8 @@ public:
             }
         }
         saveToFile(currentFilePath);
-        setContentModified(false);  // 保存后将修改状态重置
-        emit contentSaved(currentFilePath);  // 发射保存成功信号
+        setContentModified(false);
+        emit contentSaved(currentFilePath);
     }
 
     bool confirmClose()

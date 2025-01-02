@@ -84,7 +84,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSServerManagerENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QStringList,    5,
-    QMetaType::Void, QMetaType::QStringList,    7,
+    QMetaType::Void, QMetaType::QString,    7,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 9, QMetaType::QString,   10,   11,
@@ -111,7 +111,7 @@ Q_CONSTINIT const QMetaObject ServerManager::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<const QStringList &, std::false_type>,
         // method 'onFilesListUpdated'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QStringList &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'onDownloadFinished'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QNetworkReply *, std::false_type>,
@@ -132,7 +132,7 @@ void ServerManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 0: _t->commitSuccess(); break;
         case 1: _t->commitFailed(); break;
         case 2: _t->historyReceived((*reinterpret_cast< std::add_pointer_t<QStringList>>(_a[1]))); break;
-        case 3: _t->onFilesListUpdated((*reinterpret_cast< std::add_pointer_t<QStringList>>(_a[1]))); break;
+        case 3: _t->onFilesListUpdated((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 4: _t->onDownloadFinished((*reinterpret_cast< std::add_pointer_t<QNetworkReply*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
         case 5: _t->onUploadFinished((*reinterpret_cast< std::add_pointer_t<QPointer<QNetworkReply>>>(_a[1]))); break;
         default: ;
@@ -179,7 +179,7 @@ void ServerManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
             }
         }
         {
-            using _t = void (ServerManager::*)(const QStringList & );
+            using _t = void (ServerManager::*)(const QString & );
             if (_t _q_method = &ServerManager::onFilesListUpdated; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 3;
                 return;
@@ -238,7 +238,7 @@ void ServerManager::historyReceived(const QStringList & _t1)
 }
 
 // SIGNAL 3
-void ServerManager::onFilesListUpdated(const QStringList & _t1)
+void ServerManager::onFilesListUpdated(const QString & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);

@@ -22,8 +22,11 @@ void RecentFilesManager::addFile(const QString &filePath) {
     saveHistory();
 }
 
+
 void RecentFilesManager::loadHistory() {
-    QSettings settings("MyCompany", "MyApp");
+
+    QSettings settings("settings.ini", QSettings::IniFormat);
+
     int size = settings.beginReadArray("fileHistory");
     fileHistory.clear();
     for (int i = 0; i < size; ++i) {
@@ -34,7 +37,8 @@ void RecentFilesManager::loadHistory() {
 }
 
 void RecentFilesManager::saveHistory() {
-    QSettings settings("MyCompany", "MyApp");
+    QSettings settings("settings.ini", QSettings::IniFormat);
+
     settings.beginWriteArray("fileHistory");
     for (int i = 0; i < fileHistory.size(); ++i) {
         settings.setArrayIndex(i);
@@ -42,6 +46,7 @@ void RecentFilesManager::saveHistory() {
     }
     settings.endArray();
 }
+
 
 void RecentFilesManager::populateRecentFilesMenu(QMenu *menu) {
     menu->clear();

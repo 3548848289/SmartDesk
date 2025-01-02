@@ -15,10 +15,12 @@
 #include <string>
 #include <QInputDialog>
 #include <QDebug>
-#include <QtNetwork/QNetworkInterface>
+#include <QHeaderView>
 #include <QSplitter>
-#include "../../main/include/TabAbstract.h"
+#include <QtNetwork/QNetworkInterface>
+
 #include "ControlWidCSV.h"
+#include "../../main/include/TabAbstract.h"
 #include "../../manager/include/myJson.h"
 
 

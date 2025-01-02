@@ -1,8 +1,8 @@
-D:/CxxProgram/SmartDesk/.build/Release/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652QU/moc_csvLinkServer2.cpp: D:/CxxProgram/SmartDesk/onlinedoc/include/csvLinkServer2.h \
+D:/CxxProgram/SmartDesk/.build/Release/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652QU/moc_csvLinkServer2.cpp: D:/CxxProgram/SmartDesk/OnlineDoc/include/csvLinkServer2.h \
   D:/CxxProgram/SmartDesk/.build/Release/onlinedoc/mytxt_onlinedoc_autogen/moc_predefs.h \
-  D:/CxxProgram/SmartDesk/main/include/ControlWidCSV.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/ControlWidCSV.h \
+  D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/TabHandleCSV.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
-  D:/CxxProgram/SmartDesk/main/include/TabHandleCSV.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \

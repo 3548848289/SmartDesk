@@ -121,7 +121,7 @@ void TagItemDelegate::onDeleteFileTriggered(QAbstractItemModel *model, const QMo
 
 void TagItemDelegate::onCommitTriggered(QAbstractItemModel *model, const QModelIndex &index) {
     QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
-    FileBackup *commitDialog = new FileBackup(filePath, nullptr);
+    FileBackupWid *commitDialog = new FileBackupWid(filePath, nullptr);
     if (commitDialog->exec() == QDialog::Accepted) {
         QString backupFilePath = commitDialog->getBackupFilePath();
         dbservice.dbBackup().recordSubmission(filePath, backupFilePath);
@@ -131,8 +131,7 @@ void TagItemDelegate::onCommitTriggered(QAbstractItemModel *model, const QModelI
 
 void TagItemDelegate::onHistoryTriggered(QAbstractItemModel *model, const QModelIndex &index) {
     QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
-    QList<QString> filepaths = dbservice.dbBackup().getRecordSub(filePath);
-    this->serverManager->sendfilepaths(filepaths);
+    this->serverManager->sendfilepath(filePath);
 }
 
 void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex &index, AddTag &tagDialog) {

@@ -16,7 +16,12 @@ TextTab::TextTab(const QString &filePath, QWidget *parent)  : TabAbstract(filePa
     layout->addWidget(splitter);
     setLayout(layout);
 
-    loadSettings();
+    int fontSize = SettingManager::Instance().getFontSize();
+
+    QFont font = textEdit->font();
+    font.setPointSize(fontSize);
+    textEdit->setFont(font);
+
 
     connect(textEdit, &QTextEdit::textChanged, this, [this]() {
         setContentModified(true);
@@ -71,32 +76,6 @@ void TextTab::loadFromContent(const QByteArray &content)
     setText(text);
 }
 
-
-void TextTab::loadSettings() {
-    QSettings settings("MyApp", "MySettings");
-    int fontSize = settings.value("FontSize", 12).toInt(); // 默认字体大小为 12
-    updateFontSize(fontSize);
-}
-
-void TextTab::updateFontSize(int size) {
-    if (size < 8) size = 8; // 设置最小字体大小
-    if (size > 72) size = 72; // 设置最大字体大小
-
-    QFont font = textEdit->font(); // 获取当前字体
-    font.setPointSize(size); // 设置新字体大小
-    textEdit->setFont(font); // 应用字体大小
-
-    QSettings settings("MyApp", "MySettings");
-    settings.setValue("FontSize", textEdit->font().pointSize());
-}
-
-
-void TextTab::setFontSize(int fontSize)
-{
-    QFont font = textEdit->font();
-    font.setPointSize(fontSize);
-    textEdit->setFont(font);
-}
 
 
 void TextTab::findNext(const QString &str, Qt::CaseSensitivity cs)

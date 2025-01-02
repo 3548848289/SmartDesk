@@ -48,14 +48,14 @@ public:
 
     void onListFilesFinished(QNetworkReply* reply);
 
-    void sendfilepaths(QList<QString> filepaths);
+    void sendfilepath(QString filepath);
 
     void test(const QString& filepath);
 signals:
     void commitSuccess();
     void commitFailed();
     void historyReceived(const QStringList& history);
-    void onFilesListUpdated(const QStringList& files);
+    void onFilesListUpdated(const QString& files);
 
 private slots:
     void onDownloadFinished(QNetworkReply* reply, const QString& fileName);

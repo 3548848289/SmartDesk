@@ -53,12 +53,6 @@
                 {
                     "access": "private",
                     "index": 5,
-                    "name": "on_readfiieBtn_clicked",
-                    "returnType": "void"
-                },
-                {
-                    "access": "private",
-                    "index": 6,
                     "name": "on_sendmsgEdit_clicked",
                     "returnType": "void"
                 },
@@ -70,8 +64,14 @@
                             "type": "QTableWidgetItem*"
                         }
                     ],
-                    "index": 7,
+                    "index": 6,
                     "name": "on_tableWidget_itemClicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 7,
+                    "name": "on_passwdEdit_editingFinished",
                     "returnType": "void"
                 },
                 {

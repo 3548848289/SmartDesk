@@ -1,0 +1,3 @@
+D:/CxxProgram/SmartDesk/.build/Release/FileBackup/mytxt_filehis_autogen/include/../6YEA5652QU/moc_FileBackupList.cpp.json
+D:/CxxProgram/SmartDesk/.build/Release/FileBackup/mytxt_filehis_autogen/include/../6YEA5652QU/moc_FileBackupWid.cpp.json
+D:/CxxProgram/SmartDesk/.build/Release/FileBackup/mytxt_filehis_autogen/include/../6YEA5652QU/moc_FileRestoreWid.cpp.json

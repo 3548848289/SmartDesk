@@ -196,6 +196,7 @@ D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/mytxt_csv_autoge
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QHeaderView \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QInputDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
@@ -216,6 +217,7 @@ D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeCSV/mytxt_csv_autoge
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qfiledialog.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qgridlayout.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qheaderview.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qinputdialog.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlabel.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayout.h \

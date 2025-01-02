@@ -4,6 +4,7 @@ D:/CxxProgram/SmartDesk/.build/debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \
   D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDate \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \

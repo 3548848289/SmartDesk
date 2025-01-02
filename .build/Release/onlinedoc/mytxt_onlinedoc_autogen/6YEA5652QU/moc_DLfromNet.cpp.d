@@ -1,4 +1,4 @@
-D:/CxxProgram/SmartDesk/.build/Release/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652QU/moc_DLfromNet.cpp: D:/CxxProgram/SmartDesk/onlinedoc/include/DLfromNet.h \
+D:/CxxProgram/SmartDesk/.build/Release/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652QU/moc_DLfromNet.cpp: D:/CxxProgram/SmartDesk/OnlineDoc/include/DLfromNet.h \
   D:/CxxProgram/SmartDesk/.build/Release/onlinedoc/mytxt_onlinedoc_autogen/moc_predefs.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDir \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFile \

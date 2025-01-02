@@ -1,19 +1,19 @@
 set(FILEHIS_SOURCES
     FileRestoreWid.cpp
-    FileBackupList.cpp
-    FileBackup.cpp
+    FileBackupView.cpp
+    FileBackupWid.cpp
 )
 
 set(FILEHIS_HEADERS
     include/FileRestoreWid.h
-    include/FileBackupList.h
-    include/FileBackup.h
+    include/FileBackupView.h
+    include/FileBackupWid.h
 )
 
 set(FILEHIS_UIS
     ui/FileRestoreWid.ui
-    ui/FileBackupList.ui
-    ui/FileBackup.ui
+    ui/FileBackupView.ui
+    ui/FileBackupWid.ui
 )
 
 qt_add_library(mytxt_filehis STATIC

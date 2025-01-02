@@ -15,7 +15,6 @@ FileSystem::FileSystem(QWidget *parent)
 
     fileSystemModel->setRootPath(currentDir);
 
-
     QFont font = ui->treeView->font();
     font.setPointSize(12);
     ui->treeView->setFont(font);
@@ -32,12 +31,10 @@ FileSystem::FileSystem(QWidget *parent)
     tagItemdelegate = new TagItemDelegate(this, serverManager);
     ui->treeView->setItemDelegate(tagItemdelegate);
 
-    connect(ui->pathLineEdit, &QLineEdit::returnPressed, this, &FileSystem::goButtonClicked);
-    connect(ui->goButton, &QPushButton::clicked, this, &FileSystem::goButtonClicked);
+    connect(ui->pathLineEdit, &QLineEdit::returnPressed, this, &FileSystem::on_goButton_clicked);
     connect(ui->treeView, &QTreeView::clicked, this, &FileSystem::onItemClicked);
 
     connect(tagItemdelegate, &TagItemDelegate::TagUpdated, this, [=](){
-        //被标签缓存击中了，这里无法及时刷新
         ui->treeView->update();
     });
 
@@ -45,8 +42,7 @@ FileSystem::FileSystem(QWidget *parent)
         qDebug() << "点击了添加标签按钮";
     });
     connect(tagItemdelegate, &TagItemDelegate::subbutClicked, this, [this](const QModelIndex &index) {
-        qDebug() << "点击了提交记录按钮";
-
+        emit filebackuplistOpened();
     });
 
 }
@@ -71,8 +67,8 @@ void FileSystem::onItemClicked(const QModelIndex &index) {
     emit fileOpened(curfilePath);
 }
 
-
-void FileSystem::goButtonClicked() {
+void FileSystem::on_goButton_clicked()
+{
     currentDir = ui->pathLineEdit->text();
     QFileInfo fileInfo(currentDir);
     if (fileInfo.exists() && fileInfo.isDir()) {
@@ -81,8 +77,6 @@ void FileSystem::goButtonClicked() {
         qDebug() << "Invalid path:" << currentDir;
     }
 }
-
-
 
 FileSystem::~FileSystem() {
     delete ui;

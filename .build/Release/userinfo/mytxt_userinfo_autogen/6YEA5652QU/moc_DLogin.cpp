@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../../../userinfo/include/DLogin.h"
+#include "../../../../../UserInfo/include/DLogin.h"
 #include <QtNetwork/QSslError>
 #include <QtCore/qmetatype.h>
 

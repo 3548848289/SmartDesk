@@ -24,7 +24,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout" rowstretch="1,2,2,1,1">
    <item row="0" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,0">
+    <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,4">
      <property name="spacing">
       <number>7</number>
      </property>
@@ -32,17 +32,16 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="QPushButton" name="readfiieBtn">
+      <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>输入
-口令</string>
+        <string>输入口令</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLineEdit" name="passwdEdit">
        <property name="text">
-        <string>4e0740</string>
+        <string>K7i6LfSp</string>
        </property>
       </widget>
      </item>
@@ -91,7 +90,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>广播
+        <string>发
 信息</string>
        </property>
       </widget>
