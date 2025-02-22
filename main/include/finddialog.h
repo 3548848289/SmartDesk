@@ -3,38 +3,35 @@
 
 #include <QDialog>
 
-QT_BEGIN_NAMESPACE
-class QCheckBox;
-class QLabel;
-class QLineEdit;
-class QPushButton;
-QT_END_NAMESPACE
+namespace Ui {
+class FindDialog;
+}
 
 class FindDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    FindDialog(QWidget *parent = 0);
-
+    explicit FindDialog(QWidget *parent = nullptr);
+    ~FindDialog();
 signals:
     void findNext(const QString &str, Qt::CaseSensitivity cs);
     void findPrevious(const QString &str, Qt::CaseSensitivity cs);
-     void findAll(const QString &str, Qt::CaseSensitivity cs);
+    void findAll(const QString &str, Qt::CaseSensitivity cs);
+    void dialogClosed();
+protected:
+    void closeEvent(QCloseEvent *event) override {
+        emit dialogClosed();
+        QDialog::closeEvent(event);
+    }
 
 private slots:
-    void findClicked();
-    void findAllClicked();
-    void enableFindButton(const QString &text);
+    void on_lineEdit_textChanged(const QString &arg1);
+    void on_findButton_clicked();
+    void on_findAllButton_clicked();
 
 private:
-    QLabel *label;
-    QLineEdit *lineEdit;
-    QCheckBox *caseCheckBox;
-    QCheckBox *backwardCheckBox;
-    QPushButton *findButton;
-    QPushButton *findAllButton;
-    QPushButton *closeButton;
+    Ui::FindDialog *ui;
 };
 
-#endif
+#endif // FINDDIALOG_H

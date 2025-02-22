@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "csvLinkServer",
-            "lineNumber": 25,
+            "lineNumber": 26,
             "object": true,
             "qualifiedClassName": "csvLinkServer",
             "signals": [
@@ -58,26 +58,26 @@
                 },
                 {
                     "access": "private",
-                    "arguments": [
-                        {
-                            "name": "item",
-                            "type": "QTableWidgetItem*"
-                        }
-                    ],
                     "index": 6,
-                    "name": "on_tableWidget_itemClicked",
-                    "returnType": "void"
-                },
-                {
-                    "access": "private",
-                    "index": 7,
                     "name": "on_passwdEdit_editingFinished",
                     "returnType": "void"
                 },
                 {
                     "access": "private",
-                    "index": 8,
+                    "index": 7,
                     "name": "on_buildBtn_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "item",
+                            "type": "QListWidgetItem*"
+                        }
+                    ],
+                    "index": 8,
+                    "name": "on_listWidget_itemClicked",
                     "returnType": "void"
                 }
             ],

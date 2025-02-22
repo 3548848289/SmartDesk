@@ -12,7 +12,6 @@ FileBackupWid::FileBackupWid(const QString &filePath, QWidget *parent) :QDialog(
     QSettings settings("settings.ini", QSettings::IniFormat);
     QString backupDir = settings.value("BackupDir", "D:/CxxProgram/SmartDesk/.build/user").toString();
 
-    qDebug() << backupDir;
     ui->edit_path->setText(backupDir);
     ui->edit_name->setText(backupFileName);
 }
@@ -21,16 +20,11 @@ QString FileBackupWid::getBackupFilePath() const {
     return m_backupFilePath;
 }
 
-
-
-FileBackupWid::~FileBackupWid()
-{
+FileBackupWid::~FileBackupWid() {
     delete ui;
 }
 
-
-bool FileBackupWid::backupFile(const QString &filePath, const QString &fileName)
-{
+bool FileBackupWid::backupFile(const QString &filePath, const QString &fileName) {
     QString backupDir = ui->edit_path->text();
     QDir dir(backupDir);
     if (!dir.exists())

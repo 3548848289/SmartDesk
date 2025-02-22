@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "FileSystem",
-            "lineNumber": 16,
+            "lineNumber": 19,
             "object": true,
             "qualifiedClassName": "FileSystem",
             "signals": [
@@ -42,6 +42,12 @@
                     "access": "private",
                     "index": 3,
                     "name": "on_goButton_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 4,
+                    "name": "on_pathLineEdit_editingFinished",
                     "returnType": "void"
                 }
             ],

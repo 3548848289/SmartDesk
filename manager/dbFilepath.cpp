@@ -159,8 +159,6 @@ bool dbFilepath::deleteTag(int fileId) {
 bool dbFilepath::updateFilePath(const QString &newFilePath, const QString &oldFilePath)
 {
     QSqlQuery query(dbsqlite);
-
-    // 执行更新操作，将旧的文件路径替换成新的文件路径
     query.prepare("UPDATE FilePaths SET file_path = :newFilePath WHERE file_path = :oldFilePath");
     query.bindValue(":newFilePath", newFilePath);
     query.bindValue(":oldFilePath", oldFilePath);
@@ -308,4 +306,6 @@ bool dbFilepath::getAnnotation(int fileId, QString &annotation) {
     }
     return false;
 }
+
+
 

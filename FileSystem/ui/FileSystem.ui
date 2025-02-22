@@ -63,7 +63,8 @@ QPushButton {
 */</string>
          </property>
          <property name="text">
-          <string> 跳转</string>
+          <string>更改
+路径</string>
          </property>
          <property name="icon">
           <iconset theme="QIcon::ThemeIcon::GoUp"/>

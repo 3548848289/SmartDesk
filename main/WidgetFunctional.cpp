@@ -45,15 +45,16 @@ void WidgetFunctional::on_pushButton_6_clicked()
 
 void WidgetFunctional::on_pushButton_7_clicked()
 {
-
+    dlogin = new DLogin();
+    connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
+    dlogin->exec();
 }
 
 
 void WidgetFunctional::on_pushButton_8_clicked()
 {
-    dlogin = new DLogin();
-    connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
-    dlogin->exec();
+    more_function = new MoreFunction();
+    more_function->show();
 }
 
 void WidgetFunctional::handleLoginSuccess(const QString& username) {
@@ -105,6 +106,31 @@ WidgetFunctional::WidgetFunctional(QWidget *parent)
         "{background:transparent;border:none;   border-bottom:3px solid #7598db;color:#7598db;}"
     );
 
+}
+
+
+void WidgetFunctional::toggleButtonVisibility(int buttonIndex)
+{
+    QPushButton *button = nullptr;
+    switch (buttonIndex) {
+    case 1: button = ui->pushButton_1; break;
+    case 2: button = ui->pushButton_2; break;
+    case 3: button = ui->pushButton_3; break;
+    case 4: button = ui->pushButton_4; break;
+    case 5: button = ui->pushButton_5; break;
+    case 6: button = ui->pushButton_6; break;
+    case 7: button = ui->pushButton_7; break;
+    case 8: button = ui->pushButton_8; break;
+    default: return;
+    }
+
+    if (button) {
+        bool isVisible = button->isVisible();
+        button->setVisible(!isVisible);  // 切换按钮的可见性
+
+        // 发出信号，通知 MainWindow 更新菜单项文本
+        emit buttonVisibilityChanged(buttonIndex, !isVisible);
+    }
 }
 
 

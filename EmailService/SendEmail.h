@@ -4,6 +4,7 @@
 #include "./simple-mail/src/SimpleMail"
 #include <QSettings>
 #include <QWidget>
+#include <QMenu>
 
 namespace Ui {
 class SendEmail;
@@ -28,6 +29,8 @@ private Q_SLOTS:
 
     void on_sendEmail_clicked();
     void sendMailAsync(const MimeMessage &msg);
+
+    void on_attachments_customContextMenuRequested(const QPoint &pos);
 
 private:
     QSettings m_settings;

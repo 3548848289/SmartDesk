@@ -104,6 +104,14 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>addRowButton</tabstop>
+  <tabstop>deleteRowButton</tabstop>
+  <tabstop>addColumnButton</tabstop>
+  <tabstop>deleteColumnButton</tabstop>
+  <tabstop>filterButton</tabstop>
+  <tabstop>sortButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

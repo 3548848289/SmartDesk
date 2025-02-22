@@ -248,6 +248,15 @@ public:
         verticalLayout->setStretch(0, 1);
         verticalLayout->setStretch(1, 2);
         verticalLayout->setStretch(2, 6);
+        QWidget::setTabOrder(avatar_pushButton, username);
+        QWidget::setTabOrder(username, password);
+        QWidget::setTabOrder(password, radioButton);
+        QWidget::setTabOrder(radioButton, registerBtn);
+        QWidget::setTabOrder(registerBtn, loginBtn);
+        QWidget::setTabOrder(loginBtn, resiger_pushButton);
+        QWidget::setTabOrder(resiger_pushButton, forget_pushButton);
+        QWidget::setTabOrder(forget_pushButton, login_pushButton_2);
+        QWidget::setTabOrder(login_pushButton_2, exit_toolButton);
 
         retranslateUi(DLogin);
 

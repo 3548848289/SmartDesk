@@ -68,6 +68,12 @@
                         "index": 1,
                         "name": "findAll",
                         "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "name": "clearHighlight",
+                        "returnType": "void"
                     }
                 ],
                 "superClasses": [

@@ -41,7 +41,9 @@ constexpr auto qt_meta_stringdata_CLASSSendEmailENDCLASS = QtMocHelpers::stringD
     "on_sendEmail_clicked",
     "sendMailAsync",
     "MimeMessage",
-    "msg"
+    "msg",
+    "on_attachments_customContextMenuRequested",
+    "pos"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -54,7 +56,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSSendEmailENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -62,14 +64,16 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSSendEmailENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   32,    2, 0x08,    1 /* Private */,
-       3,    0,   33,    2, 0x08,    2 /* Private */,
-       4,    1,   34,    2, 0x08,    3 /* Private */,
+       1,    0,   38,    2, 0x08,    1 /* Private */,
+       3,    0,   39,    2, 0x08,    2 /* Private */,
+       4,    1,   40,    2, 0x08,    3 /* Private */,
+       7,    1,   43,    2, 0x08,    5 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 5,    6,
+    QMetaType::Void, QMetaType::QPoint,    8,
 
        0        // eod
 };
@@ -89,7 +93,10 @@ Q_CONSTINIT const QMetaObject SendEmail::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'sendMailAsync'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const MimeMessage &, std::false_type>
+        QtPrivate::TypeAndForceComplete<const MimeMessage &, std::false_type>,
+        // method 'on_attachments_customContextMenuRequested'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QPoint &, std::false_type>
     >,
     nullptr
 } };
@@ -103,6 +110,7 @@ void SendEmail::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 0: _t->on_addAttachment_clicked(); break;
         case 1: _t->on_sendEmail_clicked(); break;
         case 2: _t->sendMailAsync((*reinterpret_cast< std::add_pointer_t<MimeMessage>>(_a[1]))); break;
+        case 3: _t->on_attachments_customContextMenuRequested((*reinterpret_cast< std::add_pointer_t<QPoint>>(_a[1]))); break;
         default: ;
         }
     }
@@ -127,13 +135,13 @@ int SendEmail::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }

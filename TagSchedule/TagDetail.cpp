@@ -46,9 +46,8 @@ void TagDetail::on_choosePathBtn_clicked()
     QString newPath = QFileDialog::getExistingDirectory(this, "选择新文件夹", "", QFileDialog::ShowDirsOnly);
 
     if (!newPath.isEmpty()) {
-        QString oldFilePath = fileInfo.filePath;
-        ui->tableWidget->item(0, 1)->setText(fileInfo.filePath);
-
+        oldFilePath = fileInfo.filePath;
+        ui->tableWidget->item(0, 1)->setText(newPath);
         QFileInfo fileInfoCheck(fileInfo.filePath);
         if (!fileInfoCheck.exists()) {
             ui->tableWidget->item(4, 1)->setText("文件夹不存在");
@@ -56,12 +55,6 @@ void TagDetail::on_choosePathBtn_clicked()
             ui->tableWidget->item(4, 1)->setText("文件夹存在");
         }
 
-        bool judge = dbservice.dbTags().updateFilePath(fileInfo.filePath, oldFilePath);
-        if (judge) {
-            QMessageBox::information(this, "成功", "文件夹路径已更新");
-        } else {
-            QMessageBox::warning(this, "失败", "更新文件夹路径失败");
-        }
     }
 }
 
@@ -73,6 +66,15 @@ void TagDetail::on_YesBtn_clicked()
     QString newTag = ui->tableWidget->item(1, 1)->text();
     QString newDate = ui->tableWidget->item(2, 1)->text();
     QString newAnnotation = ui->tableWidget->item(3, 1)->text();
+
+    if(filePath != oldFilePath)
+    {
+        bool judge = dbservice.dbTags().updateFilePath(filePath, oldFilePath);
+        if (!judge) {
+            QMessageBox::warning(this, "警告", "更新文件夹路径失败");
+            return;
+        }
+    }
 
     if (newTag.isEmpty()) {
         QMessageBox::warning(this, "警告", "标签不能为空！");
@@ -107,7 +109,6 @@ void TagDetail::on_deleteBtn_clicked() {
             QMessageBox::warning(this, "错误", "无法找到文件ID！");
             return;
         }
-        qDebug() << "TagDetail::on_deleteBtn_clicked" << fileId;
         bool result = dbservice.dbTags().deleteTag(fileId);
 
         if (!result)

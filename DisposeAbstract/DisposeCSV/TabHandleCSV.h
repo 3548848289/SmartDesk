@@ -59,6 +59,7 @@ public:
 public slots:
     void findNext(const QString &str, Qt::CaseSensitivity cs);
     void findAll(const QString &str, Qt::CaseSensitivity cs);
+    void clearHighlight();
 signals:
     void dataToSend(const QString &data);
 
@@ -70,8 +71,7 @@ private:
     ControlWidCSV *controlwidget;
 
     int row = 0, col = 0;
-    int foucsRow = 0;
-    int foucsCol = 0;
+    int foucsRow = 0, foucsCol = 0;
     bool link = false;
     QString localIp;
 

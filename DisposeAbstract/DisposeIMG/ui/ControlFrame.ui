@@ -129,6 +129,17 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>rotateSlider</tabstop>
+  <tabstop>scaleSlider</tabstop>
+  <tabstop>shearSlider</tabstop>
+  <tabstop>translateSlider</tabstop>
+  <tabstop>textInput</tabstop>
+  <tabstop>yPosInput</tabstop>
+  <tabstop>xPosInput</tabstop>
+  <tabstop>addTextButton</tabstop>
+  <tabstop>exportButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

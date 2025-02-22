@@ -1,7 +1,8 @@
 #include "include/mainwindow.h"
 #include "ui/ui_mainwindow.h"
 #include "../manager/include/dbService.h"
-
+#include <QWidgetAction>
+#include <QCheckBox>
 
 void MainWindow::initSmal()
 {
@@ -56,15 +57,21 @@ void MainWindow::initFunc()
     connect(widgetfunc, &WidgetFunctional::sendEmailForm, this, &MainWindow::receiveSendEmailForm);
 
     connect(widgetfunc, &WidgetFunctional::showDraw, this, [=] {
-        // ui->stackedWidget->setCurrentWidget(controlFrame);
         QWidget *currentWidget = tabWidget->currentWidget();
         TabHandleIMG *tabHandleImg = qobject_cast<TabHandleIMG*>(currentWidget);
         if (tabHandleImg) {
-            // tabHandleImg->showControlFrame(controlFrame);
+            tabHandleImg->test();
         } else {
-            qWarning() << "Current widget is not a TabHandleIMG instance!";
+            QMessageBox::StandardButton reply;
+            reply = QMessageBox::warning(this, "无效的文件类型",
+                "当前文件不是图片文件，是不是选取图片打开。",QMessageBox::Yes | QMessageBox::No);
+            if (reply == QMessageBox::Yes)
+                on_actionopen_triggered();
+            else
+                qDebug() << "用户取消打开图片操作";
         }
     });
+
 
 
 
@@ -72,6 +79,34 @@ void MainWindow::initFunc()
 
 void MainWindow::initSpli()
 {
+    connect(widgetfunc, &WidgetFunctional::buttonVisibilityChanged,
+            this, [this](int buttonIndex, bool isVisible) {
+                QAction *action = findChild<QAction*>(QString("Function%1").arg(buttonIndex));
+                if (action) {
+                    QString text;
+                    switch (buttonIndex) {
+                    case 1: text = isVisible ? "关闭文件标签" : "打开文件标签"; break;
+                    case 2: text = isVisible ? "关闭文件备份" : "打开文件备份"; break;
+                    case 3: text = isVisible ? "关闭备忘日程" : "打开备忘日程"; break;
+                    case 4: text = isVisible ? "关闭在线文档" : "打开在线文档"; break;
+                    case 5: text = isVisible ? "关闭手写绘图" : "打开手写绘图"; break;
+                    case 6: text = isVisible ? "关闭邮件服务" : "打开邮件服务"; break;
+                    case 7: text = isVisible ? "关闭用户登录" : "打开用户登录"; break;
+                    case 8: text = isVisible ? "关闭更多功能" : "打开更多功能"; break;
+                    default: return;
+                    }
+                    action->setText(text);
+                }
+    });
+    connect(ui->Function1, &QAction::triggered, this, [=]() { toggleButtonVisibility(1); });
+    connect(ui->Function2, &QAction::triggered, this, [=]() { toggleButtonVisibility(2); });
+    connect(ui->Function3, &QAction::triggered, this, [=]() { toggleButtonVisibility(3); });
+    connect(ui->Function4, &QAction::triggered, this, [=]() { toggleButtonVisibility(4); });
+    connect(ui->Function5, &QAction::triggered, this, [=]() { toggleButtonVisibility(5); });
+    connect(ui->Function6, &QAction::triggered, this, [=]() { toggleButtonVisibility(6); });
+    connect(ui->Function7, &QAction::triggered, this, [=]() { toggleButtonVisibility(7); });
+    connect(ui->Function8, &QAction::triggered, this, [=]() { toggleButtonVisibility(8); });
+
 
     QSplitter *horizontalSplitter = new QSplitter(Qt::Horizontal);
     horizontalSplitter->addWidget(widgetfunc);
@@ -80,7 +115,7 @@ void MainWindow::initSpli()
 
     horizontalSplitter->setStretchFactor(0, 0);
     horizontalSplitter->setStretchFactor(1, 1);
-    horizontalSplitter->setStretchFactor(2, 2);
+    horizontalSplitter->setStretchFactor(2, 3);
 
     setCentralWidget(horizontalSplitter);
 
@@ -94,13 +129,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     recentFilesManager(new RecentFilesManager(this))
 {
     ui->setupUi(this);
-
     initSmal();
     initFunc();
     initSpli();
 
     connect(tabWidget, &QTabWidget::currentChanged, this, &MainWindow::onTabChanged);
-    connect(wonlinedoc->m_csvLinkServer, &csvLinkServer::filePathSent, this, &MainWindow::handleFilePathSent);
+    connect(wonlinedoc->shared_view, &SharedView::filePathSent, this, &MainWindow::handleFilePathSent);
     connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
     connect(file_system, &FileSystem::fileOpened, this, &MainWindow::openFile);
 
@@ -145,7 +179,7 @@ void MainWindow::receiveSendEmailForm(SendEmail *form)
     form->show();
     tabWidget->setCurrentIndex(newIndex);
 
-    ui->stackedWidget->setCurrentWidget(widgetr);
+    ui->stackedWidget->setCurrentWidget(file_system);
 
 }
 
@@ -251,11 +285,13 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
     if (fileName.endsWith(".txt", Qt::CaseInsensitive) ||
         fileName.endsWith(".cpp", Qt::CaseInsensitive) ||
         fileName.endsWith(".qrc", Qt::CaseInsensitive) ||
+        fileName.endsWith(".ini", Qt::CaseInsensitive) ||
         fileName.endsWith(".h", Qt::CaseInsensitive))
     {
         return new TextTab(fileName);  // 使用带路径的构造函数
     }
-    else if (fileName.endsWith(".csv", Qt::CaseInsensitive))
+    else if (fileName.endsWith(".csv", Qt::CaseInsensitive) ||
+             fileName.endsWith(".xlsx", Qt::CaseInsensitive))
     {
         return new TabHandleCSV(fileName);  // 使用带路径的构造函数
     }
@@ -288,6 +324,7 @@ void MainWindow::on_actionclose_triggered()
             SendEmail *sendEmailTab = qobject_cast<SendEmail*>(widget);
             tabWidget->removeTab(currentIndex);
             delete sendEmailTab;
+            return;
         }
         TabAbstract *tab = qobject_cast<TabAbstract*>(widget);
         if (tab) {
@@ -311,9 +348,9 @@ void MainWindow::on_actiondownload_triggered()
 {
     auto currentTab = getCurrentTab<TabAbstract>();
     if (currentTab) {
-        downLoad* downloadWidget = new downLoad();
-        connect(downloadWidget, &downLoad::fileDownloaded, this, &MainWindow::handleFileDownload);
-        downloadWidget->show();
+        DownloadView* download_view = new DownloadView();
+        connect(download_view, &DownloadView::fileDownloaded, this, &MainWindow::handleFileDownload);
+        download_view->show();
     } else
         qDebug() << "Failed to cast current tab to TabAbstract*";
 }
@@ -336,7 +373,7 @@ void MainWindow::handleFilePathSent()
     createNewTab([]() { return new TabHandleCSV(""); }, "共享文档");
     auto currentTab = getCurrentTab<TabHandleCSV>();
     currentTab->setLinkStatus(true);
-    wonlinedoc->m_csvLinkServer->bindTab(currentTab);
+    wonlinedoc->shared_view->bindTab(currentTab);
 }
 
 
@@ -364,36 +401,28 @@ void MainWindow::on_actionshe_triggered()
 
 void MainWindow::on_actionfind_triggered()
 {
-    // 获取当前选中的 Tab
     auto currentTab = getCurrentTab<TabAbstract>();
-
-    // 如果当前 Tab 是 TabHandleCSV 类型（包含 QTableWidget）
     TabHandleCSV* csvTab = qobject_cast<TabHandleCSV*>(currentTab);
     if (csvTab) {
-        // 创建查找对话框
         findDialog = new FindDialog(this);
 
-        // 连接 findAll 和 findNext 信号到 TabHandleCSV 中的相应方法
         connect(findDialog, &FindDialog::findAll, csvTab, &TabHandleCSV::findAll);
         connect(findDialog, &FindDialog::findNext, csvTab, &TabHandleCSV::findNext);
+        connect(findDialog, &FindDialog::dialogClosed, csvTab, &TabHandleCSV::clearHighlight);
 
-        // 显示对话框
         findDialog->show();
         findDialog->raise();
         findDialog->activateWindow();
     }
-    // 如果当前 Tab 是 TextTab 类型（包含 QTextEdit）
     else {
         TextTab* textTab = qobject_cast<TextTab*>(currentTab);
         if (textTab) {
-            // 创建查找对话框
             findDialog = new FindDialog(this);
 
-            // 连接 findAll 和 findNext 信号到 TextTab 中的相应方法
             connect(findDialog, &FindDialog::findAll, textTab, &TextTab::findAll);
             connect(findDialog, &FindDialog::findNext, textTab, &TextTab::findNext);
+            connect(findDialog, &FindDialog::dialogClosed, textTab, &TextTab::clearHighlight);
 
-            // 显示对话框
             findDialog->show();
             findDialog->raise();
             findDialog->activateWindow();
@@ -402,5 +431,15 @@ void MainWindow::on_actionfind_triggered()
         }
     }
 }
+
+
+
+
+
+void MainWindow::toggleButtonVisibility(int buttonIndex)
+{
+    widgetfunc->toggleButtonVisibility(buttonIndex);
+}
+
 
 

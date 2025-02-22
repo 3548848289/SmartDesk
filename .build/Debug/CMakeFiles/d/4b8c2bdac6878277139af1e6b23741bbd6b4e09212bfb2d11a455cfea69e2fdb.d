@@ -3,14 +3,14 @@ onlinedoc/mytxt_onlinedoc_autogen/timestamp: \
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/ControlWidCSV.h \
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/TabHandleCSV.h \
   D:/CxxProgram/SmartDesk/OnlineDoc/CMakeLists.txt \
-  D:/CxxProgram/SmartDesk/OnlineDoc/DLfromNet.cpp \
+  D:/CxxProgram/SmartDesk/OnlineDoc/DownloadView.cpp \
   D:/CxxProgram/SmartDesk/OnlineDoc/EditedLog.cpp \
+  D:/CxxProgram/SmartDesk/OnlineDoc/SharedView.cpp \
   D:/CxxProgram/SmartDesk/OnlineDoc/WOnlineDoc.cpp \
-  D:/CxxProgram/SmartDesk/OnlineDoc/csvLinkServer2.cpp \
-  D:/CxxProgram/SmartDesk/OnlineDoc/include/DLfromNet.h \
+  D:/CxxProgram/SmartDesk/OnlineDoc/include/DownloadView.h \
   D:/CxxProgram/SmartDesk/OnlineDoc/include/EditedLog.h \
+  D:/CxxProgram/SmartDesk/OnlineDoc/include/SharedView.h \
   D:/CxxProgram/SmartDesk/OnlineDoc/include/WOnlineDoc.h \
-  D:/CxxProgram/SmartDesk/OnlineDoc/include/csvLinkServer2.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
@@ -273,6 +273,7 @@ onlinedoc/mytxt_onlinedoc_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QHeaderView \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QInputDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QListWidgetItem \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QPushButton \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QSplitter \
@@ -297,6 +298,8 @@ onlinedoc/mytxt_onlinedoc_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayout.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayoutitem.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlineedit.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistview.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistwidget.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qpushbutton.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qrubberband.h \
@@ -578,7 +581,7 @@ onlinedoc/mytxt_onlinedoc_autogen/timestamp: \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
-  D:/CxxProgram/SmartDesk/OnlineDoc/ui/DLfromNet.ui \
+  D:/CxxProgram/SmartDesk/OnlineDoc/ui/DownloadView.ui \
+  D:/CxxProgram/SmartDesk/OnlineDoc/ui/SharedView.ui \
   D:/CxxProgram/SmartDesk/OnlineDoc/ui/WOnlineDoc.ui \
-  D:/CxxProgram/SmartDesk/OnlineDoc/ui/csvLinkServer2.ui \
   D:/QT6/Tools/CMake_64/bin/cmake.exe

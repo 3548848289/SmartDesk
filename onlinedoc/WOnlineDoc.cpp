@@ -1,21 +1,20 @@
 #include "./include/WOnlineDoc.h"
 #include "ui/ui_WOnlineDoc.h"
 
-// 修改 WOnlineDoc 构造函数，确保内部控件的布局
 WOnlineDoc::WOnlineDoc(QWidget *parent) : QWidget(parent), ui(new Ui::WOnlineDoc)
 {
     ui->setupUi(this);
 
-    downloadWidget = new downLoad();
-    m_csvLinkServer = new csvLinkServer();
+    download_view = new DownloadView();
+    shared_view = new SharedView();
 
-    ui->tabWidget->addTab(m_csvLinkServer, "连接服务器");
-    ui->tabWidget->addTab(downloadWidget, "网络资源下载");
-
+    ui->tabWidget->addTab(download_view, "网络资源下载");
+    ui->tabWidget->addTab(shared_view, "CSV文件共享（尚未开放！）");
 }
 
 
 WOnlineDoc::~WOnlineDoc()
 {
+
     delete ui;
 }

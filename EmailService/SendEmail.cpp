@@ -31,11 +31,11 @@ using namespace SimpleMail;
 SendEmail::SendEmail(QWidget *parent): QWidget(parent), ui(new Ui::SendEmail)
 {
     ui->setupUi(this);
+    ui->attachments->setContextMenuPolicy(Qt::CustomContextMenu);
 
     QSettings m_settings("settings.ini", QSettings::IniFormat);
-
     ui->host->setText(m_settings.value("EmailConfig/host", "localhost").toString());
-    ui->port->setValue(m_settings.value("EmailConfig/port", 25).toInt());
+    ui->port->setValue(m_settings.value("EmailConfig/port", 465).toInt());
     ui->username->setText(m_settings.value("EmailConfig/username").toString());
     ui->password->setText(m_settings.value("EmailConfig/password").toString());
     ui->security->setCurrentIndex(m_settings.value("EmailConfig/ssl").toInt());
@@ -69,7 +69,11 @@ void SendEmail::on_addAttachment_clicked()
         for (const QString &filePath : selectedFiles) {
             QFileInfo fileInfo(filePath);
             QString fileName = fileInfo.fileName();
-            ui->attachments->addItem(fileName);
+
+            QListWidgetItem* item = new QListWidgetItem(fileName);
+            item->setData(Qt::UserRole, filePath);
+            item->setToolTip(filePath);
+            ui->attachments->addItem(item);
         }
     }
 }
@@ -86,28 +90,23 @@ void SendEmail::on_sendEmail_clicked()
     for (const QString &to : rcptStringList) {
         message.addTo(EmailAddress{to});
     }
-
     message.addPart(std::make_shared<MimeHtml>(ui->texteditor->toHtml()));
-
     for (int i = 0; i < ui->attachments->count(); ++i) {
+        QString fullFilePath = ui->attachments->item(i)->data(Qt::UserRole).toString();
         message.addPart(std::make_shared<MimeAttachment>(
-            std::make_shared<QFile>(ui->attachments->item(i)->text())));
+            std::make_shared<QFile>(fullFilePath)));
     }
-
-
 
     sendMailAsync(message);
 }
 
 void SendEmail::sendMailAsync(const MimeMessage &msg)
 {
-    qDebug() << "sendMailAsync";
     const QString host = ui->host->text();
     const quint16 port(ui->port->value());
     const Server::ConnectionType ct = ui->security->currentIndex() == 0   ? Server::TcpConnection
                                       : ui->security->currentIndex() == 1 ? Server::SslConnection
                                                                           : Server::TlsConnection;
-
     Server *server = nullptr;
     for (auto srv : m_aServers) {
         if (srv->host() == host && srv->port() == port && srv->connectionType() == ct) {
@@ -152,8 +151,21 @@ void SendEmail::sendMailAsync(const MimeMessage &msg)
 void SendEmail::errorMessage(const QString &message)
 {
     QErrorMessage err(this);
-
     err.showMessage(message);
-
     err.exec();
 }
+
+void SendEmail::on_attachments_customContextMenuRequested(const QPoint &pos)
+{
+    QListWidgetItem* item = ui->attachments->itemAt(pos);
+    if (!item) return;
+    QMenu contextMenu(this);
+    QAction *removeAction = new QAction("移除", this);
+    connect(removeAction, &QAction::triggered, this, [this, item]() {
+        int row = ui->attachments->row(item);
+        delete ui->attachments->takeItem(row);
+    });
+    contextMenu.addAction(removeAction);
+    contextMenu.exec(ui->attachments->viewport()->mapToGlobal(pos));
+}
+

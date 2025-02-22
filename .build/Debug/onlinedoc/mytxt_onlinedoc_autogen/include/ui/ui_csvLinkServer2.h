@@ -13,11 +13,10 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
@@ -27,11 +26,13 @@ class Ui_csvLinkServer2
 {
 public:
     QGridLayout *gridLayout;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_3;
+    QListWidget *listWidget;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_2;
     QLineEdit *passwdEdit;
-    QTableWidget *tableWidget;
-    QHBoxLayout *horizontalLayout_5;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *label;
     QTextEdit *textBrowser;
     QHBoxLayout *horizontalLayout_3;
@@ -54,8 +55,27 @@ public:
         csvLinkServer2->setStyleSheet(QString::fromUtf8(""));
         gridLayout = new QGridLayout(csvLinkServer2);
         gridLayout->setObjectName("gridLayout");
+        gridLayout->setContentsMargins(5, -1, -1, -1);
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setSpacing(0);
+        horizontalLayout_6->setObjectName("horizontalLayout_6");
+        label_3 = new QLabel(csvLinkServer2);
+        label_3->setObjectName("label_3");
+
+        horizontalLayout_6->addWidget(label_3);
+
+        listWidget = new QListWidget(csvLinkServer2);
+        listWidget->setObjectName("listWidget");
+
+        horizontalLayout_6->addWidget(listWidget);
+
+        horizontalLayout_6->setStretch(0, 1);
+        horizontalLayout_6->setStretch(1, 5);
+
+        gridLayout->addLayout(horizontalLayout_6, 1, 0, 1, 1);
+
         horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setSpacing(7);
+        horizontalLayout_4->setSpacing(0);
         horizontalLayout_4->setObjectName("horizontalLayout_4");
         horizontalLayout_4->setContentsMargins(-1, -1, 0, -1);
         label_2 = new QLabel(csvLinkServer2);
@@ -69,22 +89,18 @@ public:
         horizontalLayout_4->addWidget(passwdEdit);
 
         horizontalLayout_4->setStretch(0, 1);
-        horizontalLayout_4->setStretch(1, 4);
+        horizontalLayout_4->setStretch(1, 5);
 
         gridLayout->addLayout(horizontalLayout_4, 0, 0, 1, 1);
 
-        tableWidget = new QTableWidget(csvLinkServer2);
-        tableWidget->setObjectName("tableWidget");
-
-        gridLayout->addWidget(tableWidget, 1, 0, 1, 1);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName("horizontalLayout_5");
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(0);
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
         label = new QLabel(csvLinkServer2);
         label->setObjectName("label");
         label->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        horizontalLayout_5->addWidget(label);
+        horizontalLayout_2->addWidget(label);
 
         textBrowser = new QTextEdit(csvLinkServer2);
         textBrowser->setObjectName("textBrowser");
@@ -94,12 +110,12 @@ public:
         sizePolicy1.setHeightForWidth(textBrowser->sizePolicy().hasHeightForWidth());
         textBrowser->setSizePolicy(sizePolicy1);
 
-        horizontalLayout_5->addWidget(textBrowser);
+        horizontalLayout_2->addWidget(textBrowser);
 
-        horizontalLayout_5->setStretch(0, 1);
-        horizontalLayout_5->setStretch(1, 10);
+        horizontalLayout_2->setStretch(0, 1);
+        horizontalLayout_2->setStretch(1, 5);
 
-        gridLayout->addLayout(horizontalLayout_5, 2, 0, 1, 1);
+        gridLayout->addLayout(horizontalLayout_2, 2, 0, 1, 1);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
@@ -141,9 +157,13 @@ public:
 
         gridLayout->setRowStretch(0, 1);
         gridLayout->setRowStretch(1, 2);
-        gridLayout->setRowStretch(2, 2);
+        gridLayout->setRowStretch(2, 7);
         gridLayout->setRowStretch(3, 1);
         gridLayout->setRowStretch(4, 1);
+        QWidget::setTabOrder(passwdEdit, sendmsgEdit);
+        QWidget::setTabOrder(sendmsgEdit, msgEdit);
+        QWidget::setTabOrder(msgEdit, buildBtn);
+        QWidget::setTabOrder(buildBtn, readfileEdit_2);
 
         retranslateUi(csvLinkServer2);
 
@@ -153,11 +173,25 @@ public:
     void retranslateUi(QWidget *csvLinkServer2)
     {
         csvLinkServer2->setWindowTitle(QCoreApplication::translate("csvLinkServer2", "Form", nullptr));
-        label_2->setText(QCoreApplication::translate("csvLinkServer2", "\350\276\223\345\205\245\345\217\243\344\273\244", nullptr));
-        passwdEdit->setText(QCoreApplication::translate("csvLinkServer2", "K7i6LfSp", nullptr));
-        label->setText(QCoreApplication::translate("csvLinkServer2", "\345\205\254\n"
-"\345\221\212\n"
-"\346\240\217", nullptr));
+        label_3->setText(QCoreApplication::translate("csvLinkServer2", "\345\205\261\344\272\253\345\210\227\350\241\250", nullptr));
+        label_2->setText(QCoreApplication::translate("csvLinkServer2", "\345\205\261\344\272\253\345\217\243\344\273\244", nullptr));
+        passwdEdit->setText(QString());
+        label->setText(QCoreApplication::translate("csvLinkServer2", "\344\272\244\n"
+"\344\272\222\n"
+"\344\277\241\n"
+"\346\201\257", nullptr));
+        textBrowser->setHtml(QCoreApplication::translate("csvLinkServer2", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">\350\277\231\346\230\257\344\270\200\344\270\252\345\205\261\344\272\253csv\346\226\207\344\273\266\347\232\204\345\212\237\350\203\275\351\241\271\357\274\214\347\224\250\346\210\267\350\203\275\344\273\216\347\256\241\347\220\206\350\200\205\346\211\213\344\270\255\350\216\267\345\217\226\345\217\243\344\273\244\343\200\202<br />\347\224\250\346\210\267\346"
+                        "\240\271\346\215\256\345\217\243\344\273\244\350\216\267\345\217\226\350\257\245\347\256\241\347\220\206\350\200\205\347\232\204\346\211\200\346\234\211\345\205\261\344\272\253\346\226\207\344\273\266\343\200\202</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">\351\200\232\350\277\207\345\217\243\344\273\244\344\272\222\350\201\224\345\220\216\357\274\214\347\224\250\346\210\267\345\257\271csv\346\226\207\344\273\266\347\232\204\345\242\236\345\210\240\346\224\271\346\237\245\351\203\275\350\203\275\350\242\253\345\205\266\345\256\203\347\224\250\346\210\267\346\211\200\347\237\245</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">\347\224\250\346\210\267\350\277\230\350\203\275\345\220\221\344\272\222\350\201\224\347\232\204\347\224\250\346\210\267\345\217\221\351\200\201\346"
+                        "\226\207\346\234\254\346\266\210\346\201\257</span></p></body></html>", nullptr));
         sendmsgEdit->setText(QCoreApplication::translate("csvLinkServer2", "\345\217\221\n"
 "\344\277\241\346\201\257", nullptr));
         buildBtn->setText(QCoreApplication::translate("csvLinkServer2", "\345\277\253\351\200\237\345\273\272\347\253\213\n"

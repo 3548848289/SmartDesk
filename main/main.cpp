@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QIcon>
+#include <QFont>
 #include "mainwindow.h"
 #include "../../Setting/SettingManager.h"
 
@@ -12,10 +13,15 @@ int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     QApplication::setQuitOnLastWindowClosed(false);
 
+    int font_size = SettingManager::Instance().all_setting_fontsize();
+    QFont font = QApplication::font();
+    font.setPointSize(font_size);
+    QApplication::setFont(font);
+
     MainWindow w;
     w.show();
 
-    bool enableTray = SettingManager::Instance().getEnableTray();
+    bool enableTray = SettingManager::Instance().all_setting_fenable_tray();
 
     QSystemTrayIcon trayIcon;
     trayIcon.setIcon(QIcon(":/usedimage/package.svg"));

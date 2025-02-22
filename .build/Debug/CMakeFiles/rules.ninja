@@ -193,6 +193,25 @@ rule CXX_SHARED_LIBRARY_LINKER__mytxt_email_Debug
 #############################################
 # Rule for compiling CXX files.
 
+rule CXX_COMPILER__mytxt_morefunction_Debug
+  depfile = $DEP_FILE
+  deps = gcc
+  command = D:\QT6\Tools\mingw1310_64\bin\g++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for linking CXX static library.
+
+rule CXX_STATIC_LIBRARY_LINKER__mytxt_morefunction_Debug
+  command = cmd.exe /C "$PRE_LINK && D:\QT6\Tools\CMake_64\bin\cmake.exe -E rm -f $TARGET_FILE && D:\QT6\Tools\mingw1310_64\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && D:\QT6\Tools\mingw1310_64\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
+  description = Linking CXX static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling CXX files.
+
 rule CXX_COMPILER__mytxt_txt_Debug
   depfile = $DEP_FILE
   deps = gcc

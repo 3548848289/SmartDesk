@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QListWidgetItem>
 #include <QMenu>
+#include <QToolTip>
+#include <QListView>
 
 #include "FileRestoreWid.h"
 #include "../../manager/include/dbService.h"

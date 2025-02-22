@@ -25,57 +25,69 @@ class Ui_FileBackupView
 {
 public:
     QGridLayout *gridLayout;
-    QLabel *label_2;
-    QHBoxLayout *horizontalLayout_3;
+    QHBoxLayout *horizontalLayout;
     QComboBox *fileListComboBox;
     QPushButton *pushButton;
-    QLabel *label;
     QListWidget *backupList;
+    QLabel *label;
+    QLabel *label_2;
 
     void setupUi(QWidget *FileBackupView)
     {
         if (FileBackupView->objectName().isEmpty())
             FileBackupView->setObjectName("FileBackupView");
-        FileBackupView->resize(400, 381);
+        FileBackupView->resize(311, 381);
         gridLayout = new QGridLayout(FileBackupView);
         gridLayout->setObjectName("gridLayout");
-        label_2 = new QLabel(FileBackupView);
-        label_2->setObjectName("label_2");
-
-        gridLayout->addWidget(label_2, 0, 0, 1, 1);
-
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
         fileListComboBox = new QComboBox(FileBackupView);
         fileListComboBox->setObjectName("fileListComboBox");
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(fileListComboBox->sizePolicy().hasHeightForWidth());
+        fileListComboBox->setSizePolicy(sizePolicy);
+        fileListComboBox->setMaximumSize(QSize(16777215, 16777215));
 
-        horizontalLayout_3->addWidget(fileListComboBox);
+        horizontalLayout->addWidget(fileListComboBox);
 
         pushButton = new QPushButton(FileBackupView);
         pushButton->setObjectName("pushButton");
         pushButton->setEnabled(true);
-        QSizePolicy sizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
+        pushButton->setSizePolicy(sizePolicy1);
 
-        horizontalLayout_3->addWidget(pushButton);
+        horizontalLayout->addWidget(pushButton);
 
-        horizontalLayout_3->setStretch(0, 7);
+        horizontalLayout->setStretch(0, 4);
+        horizontalLayout->setStretch(1, 1);
 
-        gridLayout->addLayout(horizontalLayout_3, 3, 0, 1, 1);
+        gridLayout->addLayout(horizontalLayout, 1, 0, 1, 1);
+
+        backupList = new QListWidget(FileBackupView);
+        backupList->setObjectName("backupList");
+        QSizePolicy sizePolicy2(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(backupList->sizePolicy().hasHeightForWidth());
+        backupList->setSizePolicy(sizePolicy2);
+        backupList->setSpacing(8);
+
+        gridLayout->addWidget(backupList, 8, 0, 1, 1);
 
         label = new QLabel(FileBackupView);
         label->setObjectName("label");
 
-        gridLayout->addWidget(label, 5, 0, 1, 1);
+        gridLayout->addWidget(label, 7, 0, 1, 1);
 
-        backupList = new QListWidget(FileBackupView);
-        backupList->setObjectName("backupList");
-        backupList->setSpacing(8);
+        label_2 = new QLabel(FileBackupView);
+        label_2->setObjectName("label_2");
 
-        gridLayout->addWidget(backupList, 6, 0, 1, 1);
+        gridLayout->addWidget(label_2, 0, 0, 1, 1);
 
 
         retranslateUi(FileBackupView);
@@ -86,9 +98,9 @@ public:
     void retranslateUi(QWidget *FileBackupView)
     {
         FileBackupView->setWindowTitle(QCoreApplication::translate("FileBackupView", "Form", nullptr));
-        label_2->setText(QCoreApplication::translate("FileBackupView", "\346\217\220\344\272\244\350\277\207\347\232\204\346\226\207\344\273\266", nullptr));
         pushButton->setText(QCoreApplication::translate("FileBackupView", "\350\260\203\346\225\264", nullptr));
         label->setText(QCoreApplication::translate("FileBackupView", "\346\217\220\344\272\244\345\216\206\345\217\262", nullptr));
+        label_2->setText(QCoreApplication::translate("FileBackupView", "\346\217\220\344\272\244\350\277\207\347\232\204\346\226\207\344\273\266", nullptr));
     } // retranslateUi
 
 };

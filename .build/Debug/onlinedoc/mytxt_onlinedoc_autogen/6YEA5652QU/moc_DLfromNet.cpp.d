@@ -192,10 +192,12 @@ D:/CxxProgram/SmartDesk/.build/debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652Q
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialog.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qfiledialog.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h \

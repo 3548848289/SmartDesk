@@ -76,21 +76,23 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     QAction *openAction = new QAction("打开文件", &contextMenu);
     QAction *deleteAction = new QAction("删除文件", &contextMenu);
     QAction *newtag = new QAction("新建标签", &contextMenu);
-    QAction *commit = new QAction("提交远程", &contextMenu);
+    QAction *commit = new QAction("文件备份", &contextMenu);
     QAction *history = new QAction("提交历史", &contextMenu);
+    QAction *copyAction = new QAction("复制路径", &contextMenu);
 
     connect(newtag, &QAction::triggered, [this, model, index]() { onNewTagTriggered(model, index); });
     connect(openAction, &QAction::triggered, [this, model, index]() { onOpenFileTriggered(model, index); });
     connect(deleteAction, &QAction::triggered, [this, model, index]() { onDeleteFileTriggered(model, index); });
     connect(commit, &QAction::triggered, [this, model, index]() { onCommitTriggered(model, index); });
     connect(history, &QAction::triggered, [this, model, index]() { onHistoryTriggered(model, index); });
+    connect(copyAction, &QAction::triggered, [this, model, index]() { onCopyPathTriggered(model, index); });
 
     contextMenu.addAction(openAction);
     contextMenu.addAction(deleteAction);
     contextMenu.addAction(newtag);
     contextMenu.addAction(commit);
     contextMenu.addAction(history);
-
+    contextMenu.addAction(copyAction);
     contextMenu.exec(pos);
 }
 
@@ -161,5 +163,21 @@ void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex 
         }
 
         emit TagUpdated();
+    }
+}
+
+void TagItemDelegate::onCopyPathTriggered(QAbstractItemModel *model, const QModelIndex &index)
+{
+    if (!index.isValid()) {
+        return;
+    }
+    // 假设 model 是 QFileSystemModel
+    QFileSystemModel *fileSystemModel = qobject_cast<QFileSystemModel*>(model);
+    if (fileSystemModel) {
+        QString filePath = fileSystemModel->filePath(index);  // 获取文件路径
+        if (!filePath.isEmpty()) {
+            QClipboard *clipboard = QGuiApplication::clipboard();
+            clipboard->setText(filePath);  // 将文件路径复制到剪贴板
+        }
     }
 }

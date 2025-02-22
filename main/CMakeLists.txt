@@ -7,17 +7,18 @@ set(MAIN_SOURCES
     mainwindow.cpp
     RecentFilesManager.cpp
     WidgetFunctional.cpp
-    finddialog.cpp
+    FindDialog.cpp
 
     include/mainwindow.h
-    include/finddialog.h
     include/TabAbstract.h
     include/RecentFilesManager.h
     include/WidgetFunctional.h
     include/ControlWidget.h
+    include/FindDialog.h
 
     ui/WidgetFunctional.ui
     ui/mainwindow.ui
+    ui/FindDialog.ui
 
 )
 

@@ -260,6 +260,7 @@ D:/CxxProgram/SmartDesk/.build/debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652Q
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QHeaderView \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QInputDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QListWidgetItem \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QPushButton \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QSplitter \
@@ -284,6 +285,8 @@ D:/CxxProgram/SmartDesk/.build/debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652Q
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayout.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayoutitem.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlineedit.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistview.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistwidget.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qpushbutton.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qrubberband.h \

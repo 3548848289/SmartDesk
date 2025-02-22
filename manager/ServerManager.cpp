@@ -109,7 +109,6 @@ void ServerManager::downloadFile(const QString& fileName) {
     QNetworkRequest request{QUrl(url)};
     QNetworkReply* reply = networkManager.get(request);
 
-    // 使用捕获列表传递fileName
     connect(reply, &QNetworkReply::finished, this, [this, reply, fileName]() {
         onDownloadFinished(reply, fileName);
     });

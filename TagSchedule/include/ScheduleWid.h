@@ -15,10 +15,8 @@
 
 #include "TagList.h"
 #include "../../Setting/SettingManager.h"
-
 #include "../LmsgNotify/notifymanager.h"
 // #include "Notify.h"
-
 
 class DatabaseManager;
 
@@ -40,22 +38,19 @@ signals:
 private slots:
     void onItemClicked(QListWidgetItem *item);
     void onSearch(const QString &keyword);
-
-    void on_sortBtn_clicked();
-
     void on_comboBox_currentIndexChanged(int index);
+    void on_sortComboBox_currentIndexChanged(int index);
 
 private:
-    void loadFiles();  // 从数据库加载文件
-    void loadTags();  // 从数据库加载标签到ComboBox
-    void filterByTag(const QString &tag);  // 基于标签筛选文件
+    void loadFiles();
+    void loadTags();
+    void filterByTag(const QString &tag);
 
     void startExpirationCheck();
     void checkExpiration();
 
     QTimer *expirationTimer;
     Ui::ScheduleWid *ui;
-    // DBSQlite *dbsqlite;
     NotifyManager *manager;
     dbService& dbservice;
 

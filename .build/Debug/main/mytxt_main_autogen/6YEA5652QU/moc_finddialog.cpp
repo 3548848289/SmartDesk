@@ -43,10 +43,11 @@ constexpr auto qt_meta_stringdata_CLASSFindDialogENDCLASS = QtMocHelpers::string
     "cs",
     "findPrevious",
     "findAll",
-    "findClicked",
-    "findAllClicked",
-    "enableFindButton",
-    "text"
+    "dialogClosed",
+    "on_lineEdit_textChanged",
+    "arg1",
+    "on_findButton_clicked",
+    "on_findAllButton_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -59,32 +60,34 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSFindDialogENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    2,   50,    2, 0x06,    1 /* Public */,
-       6,    2,   55,    2, 0x06,    4 /* Public */,
-       7,    2,   60,    2, 0x06,    7 /* Public */,
+       1,    2,   56,    2, 0x06,    1 /* Public */,
+       6,    2,   61,    2, 0x06,    4 /* Public */,
+       7,    2,   66,    2, 0x06,    7 /* Public */,
+       8,    0,   71,    2, 0x06,   10 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       8,    0,   65,    2, 0x08,   10 /* Private */,
-       9,    0,   66,    2, 0x08,   11 /* Private */,
-      10,    1,   67,    2, 0x08,   12 /* Private */,
+       9,    1,   72,    2, 0x08,   11 /* Private */,
+      11,    0,   75,    2, 0x08,   13 /* Private */,
+      12,    0,   76,    2, 0x08,   14 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString, 0x80000000 | 4,    3,    5,
     QMetaType::Void, QMetaType::QString, 0x80000000 | 4,    3,    5,
     QMetaType::Void, QMetaType::QString, 0x80000000 | 4,    3,    5,
+    QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void, QMetaType::QString,   10,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   11,
 
        0        // eod
 };
@@ -110,13 +113,15 @@ Q_CONSTINIT const QMetaObject FindDialog::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         QtPrivate::TypeAndForceComplete<Qt::CaseSensitivity, std::false_type>,
-        // method 'findClicked'
+        // method 'dialogClosed'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'findAllClicked'
+        // method 'on_lineEdit_textChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'enableFindButton'
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'on_findButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+        // method 'on_findAllButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -130,9 +135,10 @@ void FindDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->findNext((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Qt::CaseSensitivity>>(_a[2]))); break;
         case 1: _t->findPrevious((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Qt::CaseSensitivity>>(_a[2]))); break;
         case 2: _t->findAll((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Qt::CaseSensitivity>>(_a[2]))); break;
-        case 3: _t->findClicked(); break;
-        case 4: _t->findAllClicked(); break;
-        case 5: _t->enableFindButton((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 3: _t->dialogClosed(); break;
+        case 4: _t->on_lineEdit_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 5: _t->on_findButton_clicked(); break;
+        case 6: _t->on_findAllButton_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -158,6 +164,13 @@ void FindDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
                 return;
             }
         }
+        {
+            using _t = void (FindDialog::*)();
+            if (_t _q_method = &FindDialog::dialogClosed; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 3;
+                return;
+            }
+        }
     }
 }
 
@@ -180,13 +193,13 @@ int FindDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }
@@ -210,5 +223,11 @@ void FindDialog::findAll(const QString & _t1, Qt::CaseSensitivity _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
+}
+
+// SIGNAL 3
+void FindDialog::dialogClosed()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
 }
 QT_WARNING_POP

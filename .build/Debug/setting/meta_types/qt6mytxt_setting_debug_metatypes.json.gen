@@ -3,16 +3,10 @@
         "classes": [
             {
                 "className": "Setting",
-                "lineNumber": 16,
+                "lineNumber": 17,
                 "object": true,
                 "qualifiedClassName": "Setting",
                 "slots": [
-                    {
-                        "access": "private",
-                        "index": 0,
-                        "name": "on_pushButton_clicked",
-                        "returnType": "void"
-                    },
                     {
                         "access": "private",
                         "arguments": [
@@ -25,8 +19,20 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 1,
+                        "index": 0,
                         "name": "on_treeWidget_itemClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 1,
+                        "name": "on_file_system_Btn_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 2,
+                        "name": "on_file_backup_Btn_clicked",
                         "returnType": "void"
                     }
                 ],

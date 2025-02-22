@@ -114,6 +114,13 @@ void NotifyWnd::setData(const QVariantMap &data)
         }
     }
 
+    if (data.contains("expirationDate")) {
+        QString expirationDate = data.value("expirationDate").toString();
+        if (!expirationDate.isEmpty()) {
+            fullBody += "<br/><i>expirationDate: " + expirationDate + "</i>";
+        }
+    }
+
     // 在 bodyLabel 上显示所有内容
     bodyLabel->setText(bodyElid);
     // qDebug() << bodyLabel->text();

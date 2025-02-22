@@ -314,6 +314,18 @@ QPushButton#registerBtn{
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>avatar_pushButton</tabstop>
+  <tabstop>username</tabstop>
+  <tabstop>password</tabstop>
+  <tabstop>radioButton</tabstop>
+  <tabstop>registerBtn</tabstop>
+  <tabstop>loginBtn</tabstop>
+  <tabstop>resiger_pushButton</tabstop>
+  <tabstop>forget_pushButton</tabstop>
+  <tabstop>login_pushButton_2</tabstop>
+  <tabstop>exit_toolButton</tabstop>
+ </tabstops>
  <resources>
   <include location="../../resources/res.qrc"/>
  </resources>

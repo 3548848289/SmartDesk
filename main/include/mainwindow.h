@@ -44,6 +44,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void toggleButtonVisibility(int buttonIndex);
 signals:
     void showUserInfo();
 
@@ -78,7 +79,6 @@ private:
     QTabWidget *tabWidget;
     Ui::MainWindow *ui;
     RecentFilesManager *recentFilesManager;
-    QWidget * widgetr;
 
     FileSystem * file_system;
     FileBackupView * file_backup_view;

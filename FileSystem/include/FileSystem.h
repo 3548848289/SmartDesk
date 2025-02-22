@@ -5,9 +5,12 @@
 #include <QFileSystemModel>
 #include <QModelIndex>
 #include <QListWidgetItem>
+#include <QFileDialog>
+#include <QStandardPaths>
 #include "TagItemDelegate.h"
 #include "../../manager/include/dbService.h"
 #include "../../manager/include/ServerManager.h"
+#include "../../Setting/SettingManager.h"
 
 namespace Ui {
 class FileSystem;
@@ -26,6 +29,8 @@ private slots:
     void onItemClicked(const QModelIndex &index);
     void on_goButton_clicked();
 
+    void on_pathLineEdit_editingFinished();
+
 signals:
     void fileOpened(const QString &filePath);
     void filebackuplistOpened();
@@ -41,6 +46,7 @@ private:
     QString curfilePath;
     QString currentDir;
 
+    void changePath(QString path);
 };
 
 #endif // FILESYSTEM_H

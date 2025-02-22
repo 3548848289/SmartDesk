@@ -109,7 +109,8 @@ public:
     void retranslateUi(QWidget *FileSystem)
     {
         FileSystem->setWindowTitle(QCoreApplication::translate("FileSystem", "Form", nullptr));
-        goButton->setText(QCoreApplication::translate("FileSystem", " \350\267\263\350\275\254", nullptr));
+        goButton->setText(QCoreApplication::translate("FileSystem", "\346\233\264\346\224\271\n"
+"\350\267\257\345\276\204", nullptr));
     } // retranslateUi
 
 };

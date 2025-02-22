@@ -15,7 +15,7 @@
 #include "../../manager/include/dbService.h"
 #include "../../userinfo/include/DInfo.h"
 #include "../../EmailService/SendEmail.h"
-//#include "../draw/mainwidget.h"
+#include "../../MoreFunction/MoreFunction.h"
 
 
 namespace Ui {
@@ -31,6 +31,8 @@ public:
     ~WidgetFunctional();
     DInfo* getDInfo();
 
+    void hideButton1();
+    void toggleButtonVisibility(int buttonIndex);
 signals:
     void showFiletag();
     void showFilebackup();
@@ -38,6 +40,7 @@ signals:
     void showWSchedule();
     void sendEmailForm(SendEmail *form);
     void showDraw();
+    void buttonVisibilityChanged(int buttonIndex, bool isVisible);
 
 private slots:
     void on_pushButton_1_clicked();
@@ -56,6 +59,7 @@ private:
     QVBoxLayout* mainLayout;
     DLogin * dlogin;
     DInfo *dinfo;
+    MoreFunction * more_function;
     Ui::WidgetFunctional *ui;
 };
 

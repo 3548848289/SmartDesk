@@ -1,20 +1,20 @@
 set(ONLINEDOC_SOURCES
-    csvLinkServer2.cpp
-    DLfromNet.cpp
+    SharedView.cpp
+    DownloadView.cpp
     EditedLog.cpp
     WOnlineDoc.cpp
 )
 
 set(ONLINEDOC_HEADERS
-    include/csvLinkServer2.h
-    include/DLfromNet.h
+    include/SharedView.h
+    include/DownloadView.h
     include/EditedLog.h
     include/WOnlineDoc.h
 )
 
 set(ONLINEDOC_UIS
-    ui/csvLinkServer2.ui
-    ui/DLfromNet.ui
+    ui/SharedView.ui
+    ui/DownloadView.ui
     ui/WOnlineDoc.ui
 )
 

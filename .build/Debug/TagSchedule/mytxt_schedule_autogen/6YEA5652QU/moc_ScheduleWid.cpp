@@ -44,9 +44,9 @@ constexpr auto qt_meta_stringdata_CLASSScheduleWidENDCLASS = QtMocHelpers::strin
     "item",
     "onSearch",
     "keyword",
-    "on_sortBtn_clicked",
     "on_comboBox_currentIndexChanged",
-    "index"
+    "index",
+    "on_sortComboBox_currentIndexChanged"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -72,8 +72,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSScheduleWidENDCLASS[] = {
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
        4,    1,   47,    2, 0x08,    3 /* Private */,
        7,    1,   50,    2, 0x08,    5 /* Private */,
-       9,    0,   53,    2, 0x08,    7 /* Private */,
-      10,    1,   54,    2, 0x08,    8 /* Private */,
+       9,    1,   53,    2, 0x08,    7 /* Private */,
+      11,    1,   56,    2, 0x08,    9 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
@@ -81,8 +81,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSScheduleWidENDCLASS[] = {
  // slots: parameters
     QMetaType::Void, 0x80000000 | 5,    6,
     QMetaType::Void, QMetaType::QString,    8,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   11,
+    QMetaType::Void, QMetaType::Int,   10,
+    QMetaType::Void, QMetaType::Int,   10,
 
        0        // eod
 };
@@ -105,9 +105,10 @@ Q_CONSTINIT const QMetaObject ScheduleWid::staticMetaObject = { {
         // method 'onSearch'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
-        // method 'on_sortBtn_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_comboBox_currentIndexChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_sortComboBox_currentIndexChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>
     >,
@@ -123,8 +124,8 @@ void ScheduleWid::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 0: _t->fileClicked((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 1: _t->onItemClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
         case 2: _t->onSearch((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 3: _t->on_sortBtn_clicked(); break;
-        case 4: _t->on_comboBox_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 3: _t->on_comboBox_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 4: _t->on_sortComboBox_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

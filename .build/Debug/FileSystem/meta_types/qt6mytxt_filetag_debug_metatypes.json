@@ -3,7 +3,7 @@
         "classes": [
             {
                 "className": "FileSystem",
-                "lineNumber": 16,
+                "lineNumber": 19,
                 "object": true,
                 "qualifiedClassName": "FileSystem",
                 "signals": [
@@ -44,6 +44,12 @@
                         "index": 3,
                         "name": "on_goButton_clicked",
                         "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 4,
+                        "name": "on_pathLineEdit_editingFinished",
+                        "returnType": "void"
                     }
                 ],
                 "superClasses": [
@@ -61,7 +67,7 @@
         "classes": [
             {
                 "className": "TagItemDelegate",
-                "lineNumber": 19,
+                "lineNumber": 20,
                 "object": true,
                 "qualifiedClassName": "TagItemDelegate",
                 "signals": [
@@ -211,6 +217,22 @@
                         ],
                         "index": 10,
                         "name": "onHistoryTriggered",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "model",
+                                "type": "QAbstractItemModel*"
+                            },
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 11,
+                        "name": "onCopyPathTriggered",
                         "returnType": "void"
                     }
                 ],

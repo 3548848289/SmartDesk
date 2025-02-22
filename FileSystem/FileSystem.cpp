@@ -7,11 +7,12 @@ FileSystem::FileSystem(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QString appDir = QCoreApplication::applicationDirPath();
-    QDir dir(appDir);
-    dir.cdUp();
-    dir.cdUp();
-    currentDir = dir.absolutePath();
+    QString userDir = SettingManager::Instance().getFilesystemDir();
+    if (userDir.isEmpty())
+        userDir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+
+    QDir dir(userDir);
+    QString currentDir = dir.absolutePath();
 
     fileSystemModel->setRootPath(currentDir);
 
@@ -31,13 +32,10 @@ FileSystem::FileSystem(QWidget *parent)
     tagItemdelegate = new TagItemDelegate(this, serverManager);
     ui->treeView->setItemDelegate(tagItemdelegate);
 
-    connect(ui->pathLineEdit, &QLineEdit::returnPressed, this, &FileSystem::on_goButton_clicked);
     connect(ui->treeView, &QTreeView::clicked, this, &FileSystem::onItemClicked);
-
     connect(tagItemdelegate, &TagItemDelegate::TagUpdated, this, [=](){
         ui->treeView->update();
     });
-
     connect(tagItemdelegate, &TagItemDelegate::tagbutClicked, this, [this](const QModelIndex &index) {
         qDebug() << "点击了添加标签按钮";
     });
@@ -67,17 +65,27 @@ void FileSystem::onItemClicked(const QModelIndex &index) {
     emit fileOpened(curfilePath);
 }
 
-void FileSystem::on_goButton_clicked()
-{
-    currentDir = ui->pathLineEdit->text();
-    QFileInfo fileInfo(currentDir);
-    if (fileInfo.exists() && fileInfo.isDir()) {
-        ui->treeView->setRootIndex(fileSystemModel->index(currentDir));
-    } else {
-        qDebug() << "Invalid path:" << currentDir;
-    }
+void FileSystem::on_goButton_clicked() {
+    QString selectedDir = QFileDialog::getExistingDirectory(this, "Select Directory");
+    ui->pathLineEdit->setText(selectedDir);
+    changePath(selectedDir);
+}
+
+void FileSystem::on_pathLineEdit_editingFinished() {
+    changePath(ui->pathLineEdit->text());
+}
+
+void FileSystem::changePath(QString path){
+    QFileInfo fileInfo(path);
+    if (fileInfo.exists() && fileInfo.isDir())
+        ui->treeView->setRootIndex(fileSystemModel->index(path));
+    else
+        qDebug() << "Invalid path:" << path;
 }
 
 FileSystem::~FileSystem() {
     delete ui;
 }
+
+
+

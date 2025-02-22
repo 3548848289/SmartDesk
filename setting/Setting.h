@@ -8,6 +8,7 @@
 #include <QDebug>
 #include <QTreeWidgetItem>
 #include <QCloseEvent>
+#include <QStandardPaths>
 
 namespace Ui {
 class Setting;
@@ -22,9 +23,9 @@ public:
     ~Setting();
 
 private slots:
-    void on_pushButton_clicked();
-
     void on_treeWidget_itemClicked(QTreeWidgetItem *item, int column);
+    void on_file_system_Btn_clicked();
+    void on_file_backup_Btn_clicked();
 
 private:
     Ui::Setting *ui;

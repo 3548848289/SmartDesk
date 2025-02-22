@@ -8,6 +8,8 @@ FileBackupView::FileBackupView(QWidget *parent)
 {
     ui->setupUi(this);
     ui->backupList->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->fileListComboBox->setMinimumContentsLength(30);
+
 
     connect(serverManager, &ServerManager::onFilesListUpdated, this, &FileBackupView::updateFileList);
     loadFileNames();
@@ -22,11 +24,11 @@ FileBackupView::~FileBackupView()
 void FileBackupView::loadFileNames()
 {
     QList<QString> fileNames = dbservice.dbBackup().getAllFileNames();
-    QList<QString> missingFiles;
 
     for (const QString &filePath : fileNames) {
         if (QFile::exists(filePath)) {
             ui->fileListComboBox->addItem(filePath, filePath);
+
         } else {
             QIcon missingIcon = QIcon::fromTheme(
                 "dialog-warning", QIcon(":/usedimage/tips.png"));
@@ -35,8 +37,9 @@ void FileBackupView::loadFileNames()
             ui->fileListComboBox->setItemData(itemIndex, "missing", Qt::UserRole);
         }
     }
-}
 
+
+}
 
 void FileBackupView::updateFileList(const QString filepath)
 {
@@ -50,10 +53,12 @@ void FileBackupView::updateFileList(const QString filepath)
 void FileBackupView::on_fileListComboBox_currentIndexChanged(int index)
 {
     if (index != -1) {
+
         if (ui->fileListComboBox->itemData(index) == "missing") {
             QMessageBox::warning(this, "文件缺失", "您选择的文件已经缺失，请选择其他文件。");
         }
         choosed_file = ui->fileListComboBox->currentText();
+        ui->fileListComboBox->setToolTip(choosed_file);
         QList<QString> backupFileNames = dbservice.dbBackup().getBackupFileNames(choosed_file);
         ui->backupList->clear();
 
@@ -122,12 +127,10 @@ void FileBackupView::on_pushButton_clicked()
 
     }
     else if (msgBox.clickedButton() == deleteButton) {
-        if (dbservice.dbBackup().deleteAll(choosed_file)) {
+        if (dbservice.dbBackup().deleteAll(choosed_file))
             ui->fileListComboBox->removeItem(index);
-        } else {
+        else
             qDebug() << "Failed to delete file record from database.";
-        }
-
     } else {
         msgBox.close();
     }

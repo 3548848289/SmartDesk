@@ -195,6 +195,18 @@ int dbBackupRecord::getPasswordIdByPassword(const QString &password) {
 
 bool dbBackupRecord::deleteBackupRecord(const QString &filePath) {
     QSqlQuery query(dbsqlite);
+    if (!dbsqlite.transaction()) {
+        qDebug() << "Failed to start transaction: " << dbsqlite.lastError().text();
+        return false;
+    }
+    query.prepare("SELECT submission_id FROM SubmissionRecords WHERE remote_file_name = :filePath");
+    query.bindValue(":filePath", filePath);
+    if (!query.exec() || !query.next()) {
+        qDebug() << "Failed to get submission_id:" << query.lastError();
+        QSqlDatabase::database().rollback();
+        return false;
+    }
+    int submissionId = query.value(0).toInt();
 
     query.prepare("DELETE FROM SubmissionRecords WHERE remote_file_name = :filePath");
     query.bindValue(":filePath", filePath);
@@ -203,8 +215,34 @@ bool dbBackupRecord::deleteBackupRecord(const QString &filePath) {
         QSqlDatabase::database().rollback();
         return false;
     }
+
+    query.prepare("SELECT COUNT(*) FROM SubmissionRecords WHERE submission_id = :submissionId");
+    query.bindValue(":submissionId", submissionId);
+    if (!query.exec() || !query.next()) {
+        qDebug() << "Failed to check remaining records:" << query.lastError();
+        QSqlDatabase::database().rollback();
+        return false;
+    }
+
+    int count = query.value(0).toInt();
+    if (count == 0) {
+        query.prepare("DELETE FROM Submissions WHERE id = :submissionId");
+        query.bindValue(":submissionId", submissionId);
+        if (!query.exec()) {
+            qDebug() << "Failed to delete from Submissions:" << query.lastError();
+            QSqlDatabase::database().rollback();
+            return false;
+        }
+    }
+
+    if (!dbsqlite.commit()) {
+        qDebug() << "Failed to commit transaction: " << dbsqlite.lastError().text();
+        dbsqlite.rollback();  // 回滚事务
+        return false;
+    }
     return true;
 }
+
 
 bool dbBackupRecord::updateFilePath(const QString &oldFilePath, const QString &newFilePath)
 {

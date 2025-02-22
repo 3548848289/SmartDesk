@@ -17,13 +17,17 @@ public:
     SettingManager(const SettingManager&) = delete;
     SettingManager& operator=(const SettingManager&) = delete;
 
-    bool getEnableTray();
+    int all_setting_fontsize();
+    bool all_setting_fenable_tray();
 
     int getFontSize();
 
     QString getReminderType();
 
+    QString getFilesystemDir();
+
     int getReminderTime();
+    int getReminderInterval();
 
     void loadHistory();
 

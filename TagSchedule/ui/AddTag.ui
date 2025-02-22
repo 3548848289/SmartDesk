@@ -109,6 +109,12 @@ QPushButton {
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>tagsLineEdit</tabstop>
+  <tabstop>dateTimeEdit</tabstop>
+  <tabstop>annotationTextEdit</tabstop>
+  <tabstop>saveButton</tabstop>
+ </tabstops>
  <resources>
   <include location="../../resources/res.qrc"/>
  </resources>

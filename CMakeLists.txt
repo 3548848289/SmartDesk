@@ -22,25 +22,21 @@ add_subdirectory(TagSchedule)
 add_subdirectory(Setting)
 add_subdirectory(UserInfo)
 add_subdirectory(EmailService)
+add_subdirectory(MoreFunction)
 add_subdirectory(DisposeAbstract/DisposeTXT)
 add_subdirectory(DisposeAbstract/DisposeCSV)
 add_subdirectory(DisposeAbstract/DisposeIMG)
 add_subdirectory(main)
 
-# 添加 SimpleMail 库（已经在 email/CMakeLists.txt 中处理）
 add_subdirectory(EmailService/simple-mail ${CMAKE_CURRENT_BINARY_DIR}/EmailService/simple-mail)
 
-# 添加资源文件
 qt_add_resources(RESOURCES
     resources/res.qrc
 )
 
-#定义最终的可执行文件
 qt_add_executable(SmartDesk ${RESOURCES})
-
-# 链接所有库，包括 mytxt_email（从 email 子目录构建的库）
 target_link_libraries(SmartDesk PRIVATE
-    mytxt_main           # main 子目录生成的静态库
+    mytxt_main
     mytxt_filehis
     mytxt_filetag
     mytxt_onlinedoc
@@ -52,7 +48,8 @@ target_link_libraries(SmartDesk PRIVATE
     mytxt_csv
     mytxt_img
     mytxt_manager
-    SimpleMail::Core     # 链接 SimpleMail 核心库
+    mytxt_morefunction
+    SimpleMail::Core
     Qt${QT_VERSION_MAJOR}::Widgets
 )
 

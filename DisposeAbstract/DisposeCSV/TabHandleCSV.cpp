@@ -16,13 +16,11 @@ TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstrac
     connect(controlwidget, &ControlWidCSV::addColumnClicked, this, &TabHandleCSV::addColumn);
     connect(controlwidget, &ControlWidCSV::deleteColumnClicked, this, &TabHandleCSV::deleteColumn);
 
-    // 将控件添加到 QSplitter 中
     splitter->addWidget(tableWidget);
     splitter->addWidget(controlwidget);
     splitter->setSizes({700, 100});
-    // 创建一个布局，包含 QSplitter
     QVBoxLayout* layout = new QVBoxLayout(this);
-    layout->addWidget(splitter);  // 将 QSplitter 添加到布局中
+    layout->addWidget(splitter);
 
     setLayout(layout);
 
@@ -44,7 +42,6 @@ TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstrac
 
     });
 
-    // 改变选中单元格时发送 clear 操作的 JSON 数据
     connect(tableWidget, &QTableWidget::itemSelectionChanged, [=](){
         QString jsonString = myJson::constructJson(localIp, "clear",foucsRow, foucsCol, "");
         if (link)
@@ -302,32 +299,29 @@ void TabHandleCSV::findNext(const QString &str, Qt::CaseSensitivity cs)
     int rowCount = tableWidget->rowCount();
     int colCount = tableWidget->columnCount();
 
-    // 获取当前选中的单元格
     QTableWidgetItem *currentItem = tableWidget->currentItem();
-    if (!currentItem) return;  // 如果没有选中单元格，退出
+    if (!currentItem) return;
 
     int currentRow = currentItem->row();
     int currentCol = currentItem->column();
 
-    // 查找下一个匹配项
     for (int row = currentRow; row < rowCount; ++row) {
         for (int col = (row == currentRow ? currentCol + 1 : 0); col < colCount; ++col) {
             QTableWidgetItem *item = tableWidget->item(row, col);
-            if (item && item->text().contains(str, cs == Qt::CaseInsensitive ? Qt::CaseInsensitive : Qt::CaseSensitive)) {
+            if (item && item->text().contains(
+                    str, cs == Qt::CaseInsensitive ? Qt::CaseInsensitive : Qt::CaseSensitive))
+            {
                 // 找到匹配项，设置高亮
-                item->setBackground(QBrush(Qt::yellow));  // 使用 setBackground 而不是 setBackgroundColor
-                tableWidget->setCurrentItem(item);  // 将焦点移动到找到的单元格
+                // item->setBackground(QBrush(Qt::yellow));
+                tableWidget->setCurrentItem(item);
                 found = true;
                 break;
             }
         }
         if (found) break;
     }
-
-    if (!found) {
-        QMessageBox::information(this, tr("Word Not Found"),
-                                 tr("Sorry, the word cannot be found."));
-    }
+    if (!found)
+        QMessageBox::information(this, tr("Word Not Found"), tr("Sorry, the word cannot be found."));
 }
 
 void TabHandleCSV::findAll(const QString &str, Qt::CaseSensitivity cs)
@@ -351,5 +345,21 @@ void TabHandleCSV::findAll(const QString &str, Qt::CaseSensitivity cs)
     if (!found) {
         QMessageBox::information(this, tr("Word Not Found"),
                                  tr("Sorry, the word cannot be found."));
+    }
+}
+
+void TabHandleCSV::clearHighlight()
+{
+
+    int rowCount = tableWidget->rowCount();
+    int colCount = tableWidget->columnCount();
+
+    for (int row = 0; row < rowCount; ++row) {
+        for (int col = 0; col < colCount; ++col) {
+            QTableWidgetItem *item = tableWidget->item(row, col);
+            if (item) {
+                item->setBackground(QBrush(Qt::transparent));
+            }
+        }
     }
 }

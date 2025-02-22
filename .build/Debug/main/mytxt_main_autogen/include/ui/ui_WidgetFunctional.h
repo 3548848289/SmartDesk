@@ -24,11 +24,11 @@ public:
     QGridLayout *gridLayout;
     QPushButton *pushButton_3;
     QPushButton *pushButton_2;
-    QPushButton *pushButton_8;
+    QPushButton *pushButton_7;
     QPushButton *pushButton_1;
     QPushButton *pushButton_5;
     QPushButton *pushButton_4;
-    QPushButton *pushButton_7;
+    QPushButton *pushButton_8;
     QPushButton *pushButton_6;
 
     void setupUi(QWidget *WidgetFunctional)
@@ -64,15 +64,15 @@ public:
 
         gridLayout->addWidget(pushButton_2, 1, 0, 1, 1);
 
-        pushButton_8 = new QPushButton(WidgetFunctional);
-        pushButton_8->setObjectName("pushButton_8");
-        sizePolicy.setHeightForWidth(pushButton_8->sizePolicy().hasHeightForWidth());
-        pushButton_8->setSizePolicy(sizePolicy);
-        pushButton_8->setMaximumSize(QSize(60, 60));
+        pushButton_7 = new QPushButton(WidgetFunctional);
+        pushButton_7->setObjectName("pushButton_7");
+        sizePolicy.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
+        pushButton_7->setSizePolicy(sizePolicy);
+        pushButton_7->setMaximumSize(QSize(60, 60));
         QIcon icon2(QIcon::fromTheme(QIcon::ThemeIcon::ContactNew));
-        pushButton_8->setIcon(icon2);
+        pushButton_7->setIcon(icon2);
 
-        gridLayout->addWidget(pushButton_8, 8, 0, 1, 1);
+        gridLayout->addWidget(pushButton_7, 8, 0, 1, 1);
 
         pushButton_1 = new QPushButton(WidgetFunctional);
         pushButton_1->setObjectName("pushButton_1");
@@ -106,15 +106,15 @@ public:
 
         gridLayout->addWidget(pushButton_4, 3, 0, 1, 1);
 
-        pushButton_7 = new QPushButton(WidgetFunctional);
-        pushButton_7->setObjectName("pushButton_7");
-        sizePolicy.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
-        pushButton_7->setSizePolicy(sizePolicy);
-        pushButton_7->setMaximumSize(QSize(60, 60));
+        pushButton_8 = new QPushButton(WidgetFunctional);
+        pushButton_8->setObjectName("pushButton_8");
+        sizePolicy.setHeightForWidth(pushButton_8->sizePolicy().hasHeightForWidth());
+        pushButton_8->setSizePolicy(sizePolicy);
+        pushButton_8->setMaximumSize(QSize(60, 60));
         QIcon icon6(QIcon::fromTheme(QIcon::ThemeIcon::SystemSearch));
-        pushButton_7->setIcon(icon6);
+        pushButton_8->setIcon(icon6);
 
-        gridLayout->addWidget(pushButton_7, 9, 0, 1, 1);
+        gridLayout->addWidget(pushButton_8, 9, 0, 1, 1);
 
         pushButton_6 = new QPushButton(WidgetFunctional);
         pushButton_6->setObjectName("pushButton_6");
@@ -126,6 +126,13 @@ public:
 
         gridLayout->addWidget(pushButton_6, 5, 0, 1, 1);
 
+        QWidget::setTabOrder(pushButton_1, pushButton_2);
+        QWidget::setTabOrder(pushButton_2, pushButton_3);
+        QWidget::setTabOrder(pushButton_3, pushButton_4);
+        QWidget::setTabOrder(pushButton_4, pushButton_5);
+        QWidget::setTabOrder(pushButton_5, pushButton_6);
+        QWidget::setTabOrder(pushButton_6, pushButton_7);
+        QWidget::setTabOrder(pushButton_7, pushButton_8);
 
         retranslateUi(WidgetFunctional);
 
@@ -139,7 +146,7 @@ public:
 "\346\227\245\347\250\213", nullptr));
         pushButton_2->setText(QCoreApplication::translate("WidgetFunctional", "\346\226\207\344\273\266\n"
 "\345\244\207\344\273\275", nullptr));
-        pushButton_8->setText(QCoreApplication::translate("WidgetFunctional", "\347\224\250\346\210\267\n"
+        pushButton_7->setText(QCoreApplication::translate("WidgetFunctional", "\347\224\250\346\210\267\n"
 "\347\231\273\345\275\225", nullptr));
         pushButton_1->setText(QCoreApplication::translate("WidgetFunctional", "\346\226\207\344\273\266\n"
 "\346\240\207\347\255\276", nullptr));
@@ -147,7 +154,7 @@ public:
 "\347\273\230\345\233\276", nullptr));
         pushButton_4->setText(QCoreApplication::translate("WidgetFunctional", "\345\234\250\347\272\277\n"
 "\346\226\207\346\241\243", nullptr));
-        pushButton_7->setText(QCoreApplication::translate("WidgetFunctional", "\346\233\264\345\244\232\n"
+        pushButton_8->setText(QCoreApplication::translate("WidgetFunctional", "\346\233\264\345\244\232\n"
 "\345\212\237\350\203\275", nullptr));
         pushButton_6->setText(QCoreApplication::translate("WidgetFunctional", "\351\202\256\344\273\266\n"
 "\346\234\215\345\212\241", nullptr));

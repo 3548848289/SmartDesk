@@ -192,6 +192,7 @@ D:/CxxProgram/SmartDesk/.build/debug/FileSystem/mytxt_filetag_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtCore/qxptype_traits.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qyieldcpu.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QAction \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/QClipboard \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QFileSystemModel \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QMouseEvent \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QPainter \
@@ -199,6 +200,7 @@ D:/CxxProgram/SmartDesk/.build/debug/FileSystem/mytxt_filetag_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtGui/qaction.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qbitmap.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qbrush.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qclipboard.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qcolor.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qcursor.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qevent.h \

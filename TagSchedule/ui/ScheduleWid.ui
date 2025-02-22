@@ -15,7 +15,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,14">
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,14,0">
      <item>
       <widget class="QLineEdit" name="searchLineEdit">
        <property name="sizePolicy">
@@ -33,7 +33,7 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,4,4">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,8,4,1">
        <property name="spacing">
         <number>6</number>
        </property>
@@ -58,21 +58,43 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="sortBtn">
+        <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>到期时间排序</string>
+          <string>到期时间</string>
          </property>
         </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget" native="true"/>
        </item>
       </layout>
      </item>
      <item>
       <widget class="QListWidget" name="listWidget"/>
      </item>
+     <item>
+      <widget class="QComboBox" name="sortComboBox">
+       <item>
+        <property name="text">
+         <string>按到期时间升序</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>按到期时间降序</string>
+        </property>
+       </item>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>searchLineEdit</tabstop>
+  <tabstop>comboBox</tabstop>
+  <tabstop>listWidget</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

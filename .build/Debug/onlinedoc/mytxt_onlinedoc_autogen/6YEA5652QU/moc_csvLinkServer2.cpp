@@ -46,11 +46,11 @@ constexpr auto qt_meta_stringdata_CLASScsvLinkServerENDCLASS = QtMocHelpers::str
     "on_readyRead",
     "on_disconnected",
     "on_sendmsgEdit_clicked",
-    "on_tableWidget_itemClicked",
-    "QTableWidgetItem*",
-    "item",
     "on_passwdEdit_editingFinished",
-    "on_buildBtn_clicked"
+    "on_buildBtn_clicked",
+    "on_listWidget_itemClicked",
+    "QListWidgetItem*",
+    "item"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -79,9 +79,9 @@ Q_CONSTINIT static const uint qt_meta_data_CLASScsvLinkServerENDCLASS[] = {
        6,    0,   75,    2, 0x08,    6 /* Private */,
        7,    0,   76,    2, 0x08,    7 /* Private */,
        8,    0,   77,    2, 0x08,    8 /* Private */,
-       9,    1,   78,    2, 0x08,    9 /* Private */,
-      12,    0,   81,    2, 0x08,   11 /* Private */,
-      13,    0,   82,    2, 0x08,   12 /* Private */,
+       9,    0,   78,    2, 0x08,    9 /* Private */,
+      10,    0,   79,    2, 0x08,   10 /* Private */,
+      11,    1,   80,    2, 0x08,   11 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
@@ -92,9 +92,9 @@ Q_CONSTINIT static const uint qt_meta_data_CLASScsvLinkServerENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 10,   11,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 12,   13,
 
        0        // eod
 };
@@ -122,13 +122,13 @@ Q_CONSTINIT const QMetaObject csvLinkServer::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_sendmsgEdit_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_tableWidget_itemClicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QTableWidgetItem *, std::false_type>,
         // method 'on_passwdEdit_editingFinished'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_buildBtn_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_listWidget_itemClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>
     >,
     nullptr
 } };
@@ -145,9 +145,9 @@ void csvLinkServer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 3: _t->on_readyRead(); break;
         case 4: _t->on_disconnected(); break;
         case 5: _t->on_sendmsgEdit_clicked(); break;
-        case 6: _t->on_tableWidget_itemClicked((*reinterpret_cast< std::add_pointer_t<QTableWidgetItem*>>(_a[1]))); break;
-        case 7: _t->on_passwdEdit_editingFinished(); break;
-        case 8: _t->on_buildBtn_clicked(); break;
+        case 6: _t->on_passwdEdit_editingFinished(); break;
+        case 7: _t->on_buildBtn_clicked(); break;
+        case 8: _t->on_listWidget_itemClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

@@ -37,7 +37,7 @@ private:
     Ui::TagDetail *ui;
     dbService& dbservice;    // dbService 单例引用
     const FilePathInfo &fileInfo;  // 引用传递的文件路径信息
-
+    QString oldFilePath ;
 };
 
 #endif // TAGDETAIL_H

@@ -1,0 +1,90 @@
+{
+    "classes": [
+        {
+            "className": "DownloadView",
+            "lineNumber": 18,
+            "object": true,
+            "qualifiedClassName": "DownloadView",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "fileContent",
+                            "type": "QByteArray"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "fileDownloaded",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "index": 1,
+                    "name": "do_finished",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 2,
+                    "name": "do_readyRead",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "bytesRead",
+                            "type": "qint64"
+                        },
+                        {
+                            "name": "totalBytes",
+                            "type": "qint64"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "do_downloadProgress",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 4,
+                    "name": "on_btnDefaultPath_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 5,
+                    "name": "on_btnDownload_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "arg1",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 6,
+                    "name": "on_editURL_textChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QWidget"
+                }
+            ]
+        }
+    ],
+    "inputFile": "DownloadView.h",
+    "outputRevision": 68
+}

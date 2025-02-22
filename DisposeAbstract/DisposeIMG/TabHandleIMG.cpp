@@ -17,8 +17,10 @@ TabHandleIMG::TabHandleIMG(const QString& filePath, QWidget *parent)
     view = new QGraphicsView;
     view->setScene(scene);
     view->setMinimumSize(200, 200);
+    view->installEventFilter(this);
 
     ControlFrame *controlFrame = new ControlFrame(this);
+    controlFrame->hide();
 
     splitter->addWidget(view);
     splitter->addWidget(controlFrame);
@@ -34,24 +36,19 @@ TabHandleIMG::TabHandleIMG(const QString& filePath, QWidget *parent)
 
     connect(controlFrame, &ControlFrame::textAdded, this, &TabHandleIMG::onTextAdded);
     connect(controlFrame, &ControlFrame::exportRequested, this, &TabHandleIMG::exportImage);
-
 }
 
-
-void TabHandleIMG::addTextToImage(const QString &text, const QPointF &position) {
-    textItem = new QGraphicsTextItem(text);
-    QFont font = textItem->font();  // 使用默认字体
-    font.setPointSize(16);  // 设置字体大小
-    textItem->setFont(font);
-    textItem->setPos(position);
-    scene->addItem(textItem);
-
+void TabHandleIMG::test()
+{
+    // controlFrame->show();
+    qDebug() << "TabHandleCSV: Showing control frame!";
 }
 
 void TabHandleIMG::onTextAdded(const QString &text, const QPointF &position) {
-    // 在图像上添加文字，位置由用户指定
     addTextToImage(text, position);
 }
+
+
 
 void TabHandleIMG::showControlFrame(ControlFrame *controlFrame)
 {
@@ -82,40 +79,54 @@ void TabHandleIMG::updateTransformations(int angle, qreal scale, qreal shear, qr
     view->translate(translate, translate);
 }
 
-void TabHandleIMG::exportImage(const QString &filePath) {
-    // 获取场景的边界，扩展到包含所有图形项
-    QRectF sceneRect = scene->sceneRect();
-    QRectF itemsRect = scene->itemsBoundingRect(); // 获取所有图形项的边界
-    sceneRect = sceneRect.united(itemsRect);  // 合并场景区域和项的边界
+void TabHandleIMG::addTextToImage(const QString &text, const QPointF &position) {
+    // 获取当前视图的变换矩阵
+    QTransform currentTransform = view->transform();
 
-    // 创建 QImage 来保存场景内容
-    QImage image(sceneRect.width(), sceneRect.height(), QImage::Format_ARGB32);
-    image.fill(Qt::white);  // 填充背景色为白色
+    // 转换坐标为当前变换下的坐标
+    QPointF transformedPos = currentTransform.inverted().map(position);
 
-    // 创建 QPainter 对象并设置渲染区域
-    QPainter painter(&image);
-    QTransform transform;
-    transform.translate(-sceneRect.left(), -sceneRect.top());  // 平移到场景的起点
-    painter.setTransform(transform);
+    // 创建文字项
+    textItem = new QGraphicsTextItem(text);
+    QFont font = textItem->font();
+    font.setPointSize(16);
+    textItem->setFont(font);
+    textItem->setPos(transformedPos);
+    scene->addItem(textItem);
+}
 
-    // 如果有视图，考虑视图的缩放比例
-    if (!scene->views().isEmpty()) {
-        QGraphicsView *view = scene->views().first();  // 获取第一个视图
-        QTransform viewTransform = view->transform();
-        painter.scale(viewTransform.m11(), viewTransform.m22());  // 按视图缩放渲染
-    }
-
-    // 渲染整个场景
-    scene->render(&painter, QRectF(), sceneRect);
-
-    // 保存图像
-    if (!image.isNull()) {
-        if (!image.save(filePath)) {
-            QMessageBox::warning(this, tr("Export Error"), tr("Failed to export image."));
-        } else {
-            QMessageBox::information(this, tr("Export Success"), tr("Image successfully exported."));
+bool TabHandleIMG::eventFilter(QObject* watched, QEvent* event)
+{
+    if (watched == view && event->type() == QEvent::MouseButtonPress) {
+        QMouseEvent* mouseEvent = static_cast<QMouseEvent*>(event);
+        if (mouseEvent->button() == Qt::LeftButton) {
+            QPointF scenePos = view->mapToScene(mouseEvent->pos());
+            bool ok;
+            QString text = QInputDialog::getText(
+                this, tr("输入文字"), tr("请输入水印文字:"), QLineEdit::Normal, "", &ok);
+            if (ok && !text.isEmpty())
+                addTextToImage(text, scenePos);
+            return true;
         }
+    }
+    return QWidget::eventFilter(watched, event);
+}
+
+
+void TabHandleIMG::exportImage(const QString &filePath) {
+    QRectF itemsRect = scene->itemsBoundingRect();
+    scene->setSceneRect(itemsRect);
+    qreal margin = 10.0;
+    itemsRect.adjust(-margin, -margin, margin, margin);
+    QSize imageSize(itemsRect.width(), itemsRect.height());
+    QImage image(imageSize, QImage::Format_ARGB32);
+    QPainter painter(&image);
+    painter.translate(-itemsRect.topLeft());
+    scene->render(&painter);
+    if (!image.save(filePath, "PNG")) {
+        QMessageBox::warning(this, tr("Export Error"), tr("Failed to export image."));
     } else {
-        QMessageBox::warning(this, tr("Export Error"), tr("Image is not loaded or invalid."));
+        QMessageBox::information(this, tr("Export Success"), tr("Image successfully exported to: ") + filePath);
     }
 }
+

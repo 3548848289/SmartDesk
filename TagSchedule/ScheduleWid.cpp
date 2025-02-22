@@ -5,6 +5,7 @@ ScheduleWid::ScheduleWid(QWidget *parent) : QWidget(parent), ui(new Ui::Schedule
     dbservice(dbService::instance("../SmartDesk.db"))
 {
     ui->setupUi(this);
+
     filterByTag("刷新");
     loadTags();
 
@@ -19,12 +20,14 @@ ScheduleWid::ScheduleWid(QWidget *parent) : QWidget(parent), ui(new Ui::Schedule
     manager->setDisplayTime(10000);
     manager->setNotifyWndSize(300, 80);
     connect(manager, &NotifyManager::notifyDetail, [](const QVariantMap &data){
-        QMessageBox msgbox(QMessageBox::Information, QStringLiteral("新消息"), data.value("title").toString());
+        QMessageBox msgbox(QMessageBox::Information, QStringLiteral("具体信息"), data.value("title").toString());
 
 
         QStringList tagList = data.value("tag").toStringList();
-        QString allDetails = data.value("body").toString() + "\n\n" + "Tags: " + tagList.join(", ") + "\n" +
-                             "Annotation: " + data.value("annotation").toString();
+        QString allDetails = data.value("body").toString() + "\n\n" +
+                             "标签: " + tagList.join(", ") + "\n" +
+                             "备注: " + data.value("annotation").toString() + "\n" +
+                             "到期时间: " + data.value("expirationDate").toString();
 
         msgbox.setInformativeText(allDetails);
         msgbox.findChild<QDialogButtonBox*>()->setMinimumWidth(500);
@@ -88,12 +91,12 @@ void ScheduleWid::onSearch(const QString &keyword) {
 void ScheduleWid::startExpirationCheck() {
     expirationTimer = new QTimer(this);
     connect(expirationTimer, &QTimer::timeout, this, &ScheduleWid::checkExpiration);
-    expirationTimer->start(180000);
+    int reminderInterval = SettingManager::Instance().getReminderInterval();
+    expirationTimer->start(reminderInterval);
 }
 
 void ScheduleWid::checkExpiration() {
     QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag("刷新");
-
 
     QString reminderType = SettingManager::Instance().getReminderType();
     int reminderTime = SettingManager::Instance().getReminderTime();
@@ -103,19 +106,12 @@ void ScheduleWid::checkExpiration() {
         QDateTime expDate = file.expirationDate;
 
         if (expDate.isValid() && QDateTime::currentDateTime().secsTo(expDate) <= reminderTime) {
-            int fileid = 0;
-            QStringList tag;
-            QString annotation;
             QVariantMap data;
+            data["tag"] = file.tagName;
+            data["annotation"] = file.annotation;
+            data["expirationDate"] = file.expirationDate;
 
-            dbservice.dbTags().getFileId(path, fileid);
-            dbservice.dbTags().getTags(fileid, tag);
-            dbservice.dbTags().getAnnotation(fileid, annotation);
-
-            data["tag"] = tag;
-            data["annotation"] = annotation;
-
-            if (reminderType == "Popup")
+            if (reminderType == "弹窗提醒")
                 manager->notify("到期提醒", path, data);
             else if (reminderType == "Email") {
                 qDebug() << "邮件提醒";
@@ -125,30 +121,35 @@ void ScheduleWid::checkExpiration() {
     }
 }
 
-
-
-
-void ScheduleWid::on_sortBtn_clicked()
-{
-    ui->listWidget->clear();
-    QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag("刷新");
-    std::sort(files.begin(), files.end(), [](const FilePathInfo &a, const FilePathInfo &b) {
-        return a.expirationDate < b.expirationDate;
-    });
-    for (const FilePathInfo &file : files) {
-        TagList *widget = new TagList(file);
-
-        QListWidgetItem *listItem = new QListWidgetItem(ui->listWidget);
-        listItem->setSizeHint(widget->sizeHint());
-        ui->listWidget->addItem(listItem);
-        ui->listWidget->setItemWidget(listItem, widget);
-    }
-}
-
-
 void ScheduleWid::on_comboBox_currentIndexChanged(int index)
 {
     QString tag = ui->comboBox->currentText();
     filterByTag(tag);
 }
+
+
+void ScheduleWid::on_sortComboBox_currentIndexChanged(int index)
+{
+    if(index == 0 || index == 1)
+    {
+        ui->listWidget->clear();
+        QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag("刷新");
+
+        bool isAscending = (index == 0);
+        std::sort(files.begin(), files.end(), [isAscending](const FilePathInfo &a, const FilePathInfo &b) {
+            return isAscending ? a.expirationDate < b.expirationDate : a.expirationDate > b.expirationDate;
+        });
+
+
+        for (const FilePathInfo &file : files) {
+            TagList *widget = new TagList(file);
+
+            QListWidgetItem *listItem = new QListWidgetItem(ui->listWidget);
+            listItem->setSizeHint(widget->sizeHint());
+            ui->listWidget->addItem(listItem);
+            ui->listWidget->setItemWidget(listItem, widget);
+        }
+    }
+}
+
 

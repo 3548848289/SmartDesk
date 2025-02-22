@@ -11,6 +11,7 @@
 #include <QMenu>
 #include <QAction>
 #include <QMap>
+#include <QClipboard>
 
 #include "../../manager/include/dbService.h"
 #include "../../manager/include/ServerManager.h"
@@ -42,6 +43,7 @@ private slots:
     void onDeleteFileTriggered(QAbstractItemModel *model, const QModelIndex &index);
     void onCommitTriggered(QAbstractItemModel *model, const QModelIndex &index);
     void onHistoryTriggered(QAbstractItemModel *model, const QModelIndex &index);
+    void onCopyPathTriggered(QAbstractItemModel *model, const QModelIndex &index);
 private:
     QStringList fileList;
 

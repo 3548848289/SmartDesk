@@ -12,6 +12,7 @@ setting/mytxt_setting_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSize \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSizeF \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QStandardPaths \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20memory.h \
@@ -105,6 +106,7 @@ setting/mytxt_setting_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer_impl.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qsize.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qspan.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qstandardpaths.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qstring.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qstringalgorithms.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qstringbuilder.h \

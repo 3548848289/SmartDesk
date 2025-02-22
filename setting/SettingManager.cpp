@@ -4,22 +4,35 @@ SettingManager::SettingManager():settings("settings.ini", QSettings::IniFormat) 
 
 SettingManager::~SettingManager() {}
 
-
-bool SettingManager::getEnableTray() {
-    return settings.value("enableTray", true).toBool();
+int SettingManager::all_setting_fontsize() {
+    return settings.value("all_setting/font_size", 12).toInt();
+}
+bool SettingManager::all_setting_fenable_tray() {
+    return settings.value("all_setting/fenable_tray", true).toBool();
 }
 
+
 int SettingManager::getFontSize() {
-    return settings.value("FontSize", 12).toInt();
+    return settings.value("file_see/font_size", 12).toInt();
 
 }
 
 QString SettingManager::getReminderType() {
-    return settings.value("ReminderType", "Popup").toString();  // 默认提醒方式为 "Popup"
+    return settings.value("online_doc/reminder_type", "弹窗提醒").toString();
+}
+
+QString SettingManager::getFilesystemDir()
+{
+    return settings.value("file_system/file_system_dir").toString();
 }
 
 int SettingManager::getReminderTime() {
-    int timeInSeconds = settings.value("ReminderTime", 600).toInt();  // 默认 10 分钟（600秒）
+    int timeInSeconds = settings.value("online_doc/reminder_time", 1440).toInt();
+    return timeInSeconds;
+}
+
+int SettingManager::getReminderInterval() {
+    int timeInSeconds = settings.value("online_doc/interval_time", 1440).toInt();
     return timeInSeconds;
 }
 

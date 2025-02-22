@@ -234,6 +234,16 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>accountEdit</tabstop>
+  <tabstop>nameEdit</tabstop>
+  <tabstop>mottoEdit</tabstop>
+  <tabstop>genderCombo</tabstop>
+  <tabstop>birthdayEdit</tabstop>
+  <tabstop>locationEdit</tabstop>
+  <tabstop>companyEdit</tabstop>
+  <tabstop>saveButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

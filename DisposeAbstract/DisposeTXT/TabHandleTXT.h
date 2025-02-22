@@ -33,7 +33,7 @@ public:
 public slots:
     void findNext(const QString &str, Qt::CaseSensitivity cs);
     void findAll(const QString &str, Qt::CaseSensitivity cs);
-
+    void clearHighlight();
 private:
     ControlWidTXT * controlWsidtxt;
     QSplitter * splitter;

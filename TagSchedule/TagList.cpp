@@ -11,7 +11,10 @@ TagList::TagList(const FilePathInfo &fileInfo, QWidget *parent)
 
     QFileInfo fileInfoObj(fileInfo.filePath);
     ui->fileLabel->setText(fileInfoObj.fileName());
-    ui->pathLabel->setText(fileInfoObj.path());
+
+    ui->lineEdit->setMaximumHeight(30);
+    ui->lineEdit->setText(fileInfoObj.path());
+    ui->lineEdit->setToolTip(fileInfoObj.path());
 
     ui->expirationLabel->setText(getExpInfo(fileInfo.expirationDate));
     ui->tagLabel->setText(fileInfo.tagName);
@@ -41,9 +44,10 @@ QString TagList::getExpInfo(const QDateTime expDate)
             int m = (mnow % 3600) / 60; // 计算分钟数
             expInfo = QString("%1:%2").arg(s, 2, 10, QChar('0')).arg(m, 2, 10, QChar('0'));
         } else {
-            int oh = -mnow / 3600;         // 计算小时数（过期时是负值）
-            int om = (-mnow % 3600) / 60;  // 计算分钟数（过期时是负值）
-            expInfo = QString("%1:%2").arg(oh, 2, 10, QChar('0')).arg(om, 2, 10, QChar('0'));
+            // int oh = -mnow / 3600;         // 计算小时数（过期时是负值）
+            // int om = (-mnow % 3600) / 60;  // 计算分钟数（过期时是负值）
+            // expInfo = QString("%1:%2").arg(oh, 2, 10, QChar('0')).arg(om, 2, 10, QChar('0'));
+            expInfo = "已过期";
         }
     } else {
         expInfo = "No expiration date";

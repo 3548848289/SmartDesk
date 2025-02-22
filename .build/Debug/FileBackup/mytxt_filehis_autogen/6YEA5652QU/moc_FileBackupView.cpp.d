@@ -237,9 +237,11 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QListView \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QListWidgetItem \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMenu \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QToolTip \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractitemview.h \
@@ -261,6 +263,7 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qstyleoption.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtabbar.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtabwidget.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtooltip.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

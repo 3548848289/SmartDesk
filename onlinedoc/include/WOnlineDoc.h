@@ -3,8 +3,8 @@
 
 #include <QWidget>
 #include <QPainter>
-#include "DLfromNet.h"
-#include "csvLinkServer2.h"
+#include "DownloadView.h"
+#include "SharedView.h"
 
 namespace Ui {
 class WOnlineDoc;
@@ -17,8 +17,8 @@ class WOnlineDoc : public QWidget
 public:
     explicit WOnlineDoc(QWidget *parent = nullptr);
     ~WOnlineDoc();
-    downLoad* downloadWidget;
-    csvLinkServer* m_csvLinkServer;
+    DownloadView* download_view;
+    SharedView* shared_view;
 
 
 private:

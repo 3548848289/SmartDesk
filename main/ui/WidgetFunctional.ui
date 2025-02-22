@@ -79,7 +79,7 @@
     </widget>
    </item>
    <item row="8" column="0">
-    <widget class="QPushButton" name="pushButton_8">
+    <widget class="QPushButton" name="pushButton_7">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
        <horstretch>0</horstretch>
@@ -183,7 +183,7 @@
     </widget>
    </item>
    <item row="9" column="0">
-    <widget class="QPushButton" name="pushButton_7">
+    <widget class="QPushButton" name="pushButton_8">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
        <horstretch>0</horstretch>
@@ -230,6 +230,16 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>pushButton_1</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton_3</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>pushButton_5</tabstop>
+  <tabstop>pushButton_6</tabstop>
+  <tabstop>pushButton_7</tabstop>
+  <tabstop>pushButton_8</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

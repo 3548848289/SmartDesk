@@ -228,6 +228,17 @@ public:
 
         gridLayout_2->addLayout(verticalLayout, 0, 0, 1, 1);
 
+        QWidget::setTabOrder(host, port);
+        QWidget::setTabOrder(port, security);
+        QWidget::setTabOrder(security, username);
+        QWidget::setTabOrder(username, password);
+        QWidget::setTabOrder(password, sender);
+        QWidget::setTabOrder(sender, recipients);
+        QWidget::setTabOrder(recipients, subject);
+        QWidget::setTabOrder(subject, texteditor);
+        QWidget::setTabOrder(texteditor, addAttachment);
+        QWidget::setTabOrder(addAttachment, attachments);
+        QWidget::setTabOrder(attachments, sendEmail);
 
         retranslateUi(SendEmail);
 
@@ -252,7 +263,13 @@ public:
         recipients->setInputMask(QString());
         recipients->setText(QString());
         recipients->setPlaceholderText(QCoreApplication::translate("SendEmail", "\346\224\266\344\273\266\344\272\272", nullptr));
+        subject->setInputMask(QString());
+        subject->setPlaceholderText(QCoreApplication::translate("SendEmail", "\344\270\273\351\242\230", nullptr));
+        texteditor->setPlaceholderText(QCoreApplication::translate("SendEmail", " \346\255\243\346\226\207", nullptr));
         addAttachment->setText(QCoreApplication::translate("SendEmail", "\346\267\273\345\212\240\346\226\207\344\273\266", nullptr));
+#if QT_CONFIG(tooltip)
+        attachments->setToolTip(QCoreApplication::translate("SendEmail", "\351\231\204\344\273\266\345\210\227\350\241\250", nullptr));
+#endif // QT_CONFIG(tooltip)
         sendEmail->setText(QCoreApplication::translate("SendEmail", "\345\217\221\351\200\201\351\202\256\344\273\266", nullptr));
     } // retranslateUi
 

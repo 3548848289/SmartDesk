@@ -10,6 +10,7 @@ D:/CxxProgram/SmartDesk/Setting/Setting.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QSize
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QSizeF
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QStandardPaths
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20memory.h
@@ -103,6 +104,7 @@ D:/CxxProgram/SmartDesk/Setting/Setting.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer_impl.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsize.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qspan.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstandardpaths.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstring.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringalgorithms.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringbuilder.h

@@ -1,81 +1,40 @@
+#include "include/FindDialog.h"
+#include "ui/ui_FindDialog.h"
 
-#include <QtWidgets>
-#include<QDebug>
-
-#include "finddialog.h"
-
-FindDialog::FindDialog(QWidget *parent)
-    : QDialog(parent)
+FindDialog::FindDialog(QWidget *parent): QDialog(parent), ui(new Ui::FindDialog)
 {
-    label = new QLabel(tr("Find &what:"));
-    lineEdit = new QLineEdit;
-    label->setBuddy(lineEdit);
-
-    caseCheckBox = new QCheckBox(tr("Match &case"));
-    backwardCheckBox = new QCheckBox(tr("Search &backward"));
-
-    findButton = new QPushButton(tr("&Find"));
-    findButton->setDefault(true);
-    findButton->setEnabled(false);
-
-    findAllButton = new QPushButton(tr("&Find All"));
-//    findAllButton->setDefault(true);
-//    findAllButton->setEnabled(false);
-
-    closeButton = new QPushButton(tr("Close"));
-
-    connect(lineEdit, &QLineEdit::textChanged,
-            this, &FindDialog::enableFindButton);
-    connect(findButton, &QAbstractButton::clicked,
-            this, &FindDialog::findClicked);
-    connect(findAllButton, &QAbstractButton::clicked,
-            this, &FindDialog::findAllClicked);
-    connect(closeButton, &QAbstractButton::clicked,
-            this, &FindDialog::close);
-
-    QHBoxLayout *topLeftLayout = new QHBoxLayout;
-    topLeftLayout->addWidget(label);
-    topLeftLayout->addWidget(lineEdit);
-
-    QVBoxLayout *leftLayout = new QVBoxLayout;
-    leftLayout->addLayout(topLeftLayout);
-    leftLayout->addWidget(caseCheckBox);
-    leftLayout->addWidget(backwardCheckBox);
-
-    QVBoxLayout *rightLayout = new QVBoxLayout;
-    rightLayout->addWidget(findButton);
-    rightLayout->addWidget(findAllButton);
-    rightLayout->addWidget(closeButton);
-    rightLayout->addStretch();
-
-    QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->addLayout(leftLayout);
-    mainLayout->addLayout(rightLayout);
-    setLayout(mainLayout);
-
-    setWindowTitle(tr("Find"));
-    setFixedHeight(sizeHint().height());
+    ui->setupUi(this);
+    ui->label->setBuddy(ui->lineEdit);
+    ui->findButton->setDefault(true);
+    ui->findButton->setEnabled(false);
 }
 
-void FindDialog::findClicked()
+FindDialog::~FindDialog()
 {
-    QString text = lineEdit->text();
+    delete ui;
+}
+
+void FindDialog::on_lineEdit_textChanged(const QString &arg1)
+{
+    ui->findButton->setEnabled(!arg1.isEmpty());
+}
+
+
+void FindDialog::on_findButton_clicked()
+{
+    QString text = ui->lineEdit->text();
     Qt::CaseSensitivity cs =
-            caseCheckBox->isChecked() ? Qt::CaseSensitive : Qt::CaseInsensitive;
+        ui->caseCheckBox->isChecked() ? Qt::CaseSensitive : Qt::CaseInsensitive;
     emit findNext(text, cs);
 }
 
-//查找所有
-void FindDialog::findAllClicked()
-{
-    QString text = lineEdit->text();
-    Qt::CaseSensitivity cs =
-            caseCheckBox->isChecked() ? Qt::CaseSensitive
-                                      : Qt::CaseInsensitive;
-        emit findAll(text, cs);
 
-}
-void FindDialog::enableFindButton(const QString &text)
+void FindDialog::on_findAllButton_clicked()
 {
-    findButton->setEnabled(!text.isEmpty());
+    QString text = ui->lineEdit->text();
+    Qt::CaseSensitivity cs =
+        ui->caseCheckBox->isChecked() ? Qt::CaseSensitive
+                                      : Qt::CaseInsensitive;
+    emit findAll(text, cs);
 }
+

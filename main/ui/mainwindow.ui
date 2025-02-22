@@ -24,62 +24,56 @@
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>20</y>
-      <width>221</width>
-      <height>421</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QWidget" name="combinedWidget" native="true">
-       <layout class="QGridLayout" name="gridLayout_2">
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item row="0" column="0">
-         <layout class="QGridLayout" name="gridLayout">
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <property name="spacing">
-           <number>4</number>
-          </property>
-          <item row="1" column="0">
-           <widget class="QStackedWidget" name="stackedWidget"/>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label">
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="text">
-             <string>当前界面</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QWidget" name="combinedWidget" native="true">
+        <layout class="QGridLayout" name="gridLayout_2">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item row="0" column="0">
+          <layout class="QGridLayout" name="gridLayout">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>4</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>当前界面</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QStackedWidget" name="stackedWidget"/>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -117,7 +111,12 @@
     <property name="title">
      <string>编辑</string>
     </property>
-    <addaction name="actiondo"/>
+    <addaction name="actionZ"/>
+    <addaction name="actionY"/>
+    <addaction name="actionX"/>
+    <addaction name="actionC"/>
+    <addaction name="actionV"/>
+    <addaction name="actionA"/>
    </widget>
    <widget class="QMenu" name="menu">
     <property name="title">
@@ -127,9 +126,29 @@
     <addaction name="actionfind"/>
     <addaction name="actiontest"/>
    </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>视图</string>
+    </property>
+    <widget class="QMenu" name="menuFuction">
+     <property name="title">
+      <string>模型</string>
+     </property>
+     <addaction name="Function1"/>
+     <addaction name="Function2"/>
+     <addaction name="Function3"/>
+     <addaction name="Function4"/>
+     <addaction name="Function5"/>
+     <addaction name="Function6"/>
+     <addaction name="Function7"/>
+     <addaction name="Function8"/>
+    </widget>
+    <addaction name="menuFuction"/>
+   </widget>
    <addaction name="menufile"/>
    <addaction name="menuaction"/>
    <addaction name="menu"/>
+   <addaction name="menu_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionopen">
@@ -221,9 +240,12 @@
     <string>测试</string>
    </property>
   </action>
-  <action name="actiondo">
+  <action name="actionZ">
    <property name="text">
-    <string>操纵csv</string>
+    <string>撤销</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
    </property>
   </action>
   <action name="actionfind">
@@ -235,6 +257,110 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionY">
+   <property name="text">
+    <string>重做</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+  </action>
+  <action name="actionX">
+   <property name="text">
+    <string>剪切</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionC">
+   <property name="text">
+    <string>复制</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionV">
+   <property name="text">
+    <string>黏贴</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionA">
+   <property name="text">
+    <string>全选</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="Function1">
+   <property name="text">
+    <string>关闭文件标签</string>
+   </property>
+   <property name="toolTip">
+    <string>关闭文件标签</string>
+   </property>
+  </action>
+  <action name="Function2">
+   <property name="text">
+    <string>关闭文件备份</string>
+   </property>
+   <property name="toolTip">
+    <string>关闭文件备份</string>
+   </property>
+  </action>
+  <action name="Function3">
+   <property name="text">
+    <string>关闭备忘日程</string>
+   </property>
+   <property name="toolTip">
+    <string>关闭备忘日程</string>
+   </property>
+  </action>
+  <action name="Function4">
+   <property name="text">
+    <string>关闭在线文档</string>
+   </property>
+   <property name="toolTip">
+    <string>关闭在线文档</string>
+   </property>
+  </action>
+  <action name="Function5">
+   <property name="text">
+    <string>关闭手写绘图</string>
+   </property>
+   <property name="toolTip">
+    <string>关闭手写绘图</string>
+   </property>
+  </action>
+  <action name="Function6">
+   <property name="text">
+    <string>关闭邮件服务</string>
+   </property>
+   <property name="toolTip">
+    <string>关闭邮件服务</string>
+   </property>
+  </action>
+  <action name="Function7">
+   <property name="text">
+    <string>关闭用户登录</string>
+   </property>
+   <property name="toolTip">
+    <string>关闭用户登录</string>
+   </property>
+  </action>
+  <action name="Function8">
+   <property name="text">
+    <string>关闭更多功能</string>
+   </property>
+   <property name="toolTip">
+    <string>关闭更多功能</string>
    </property>
   </action>
  </widget>
