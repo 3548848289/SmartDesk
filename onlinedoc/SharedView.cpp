@@ -4,7 +4,7 @@
 
 SharedView::SharedView(QWidget *parent): QWidget(parent),ui(new Ui::SharedView),
     tcpSocket(new QTcpSocket(this)),serverManager(ServerManager::instance()),
-    dbservice(dbService::instance("../SmartDesk.db"))
+    dbservice(dbService::instance("./SmartDesk.db"))
 {
     ui->setupUi(this);
 }

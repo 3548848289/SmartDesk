@@ -5,10 +5,12 @@ manager/mytxt_manager_autogen/timestamp: \
   D:/CxxProgram/SmartDesk/manager/dbBackupRecord.cpp \
   D:/CxxProgram/SmartDesk/manager/dbFilepath.cpp \
   D:/CxxProgram/SmartDesk/manager/dbManager.cpp \
+  D:/CxxProgram/SmartDesk/manager/dbOnlineDoc.cpp \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \
   D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/CxxProgram/SmartDesk/manager/include/myJson.h \
   D:/CxxProgram/SmartDesk/manager/myJson.cpp \

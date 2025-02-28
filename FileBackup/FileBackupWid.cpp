@@ -10,7 +10,7 @@ FileBackupWid::FileBackupWid(const QString &filePath, QWidget *parent) :QDialog(
 
 
     QSettings settings("settings.ini", QSettings::IniFormat);
-    QString backupDir = settings.value("BackupDir", "D:/CxxProgram/SmartDesk/.build/user").toString();
+    QString backupDir = settings.value("BackupDir", QCoreApplication::applicationDirPath() + "/user").toString();
 
     ui->edit_path->setText(backupDir);
     ui->edit_name->setText(backupFileName);
@@ -52,5 +52,10 @@ void FileBackupWid::on_save_clicked()
     } else {
         QMessageBox::critical(this, "备份失败", "备份文件失败！");
     }
+}
+
+void FileBackupWid::on_canle_clicked()
+{
+    this->close();
 }
 

@@ -1,4 +1,4 @@
-D:/CxxProgram/SmartDesk/.build/Release/main/mytxt_main_autogen/6YEA5652QU/moc_finddialog.cpp: D:/CxxProgram/SmartDesk/main/include/finddialog.h \
+D:/CxxProgram/SmartDesk/.build/Release/main/mytxt_main_autogen/6YEA5652QU/moc_FindDialog.cpp: D:/CxxProgram/SmartDesk/main/include/FindDialog.h \
   D:/CxxProgram/SmartDesk/.build/Release/main/mytxt_main_autogen/moc_predefs.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h \

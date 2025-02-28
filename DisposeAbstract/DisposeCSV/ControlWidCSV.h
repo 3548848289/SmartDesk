@@ -27,10 +27,6 @@ signals:
 
 private:
     Ui::ControlWidCSV *ui;  // UI 类的指针
-
-    // CSV 数据结构，存储每一行的数据（这里使用 QList<QList<QString>> 作为示例）
-    QList<QList<QString>> data;
-
 };
 
 #endif // CONTROLWIDCSV_H

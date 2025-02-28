@@ -2,58 +2,36 @@
     "classes": [
         {
             "className": "Setting",
-            "lineNumber": 13,
+            "lineNumber": 17,
             "object": true,
             "qualifiedClassName": "Setting",
-            "signals": [
-                {
-                    "access": "public",
-                    "arguments": [
-                        {
-                            "name": "size",
-                            "type": "int"
-                        }
-                    ],
-                    "index": 0,
-                    "name": "fontSizeChanged",
-                    "returnType": "void"
-                }
-            ],
             "slots": [
                 {
                     "access": "private",
                     "arguments": [
                         {
-                            "name": "value",
+                            "name": "item",
+                            "type": "QTreeWidgetItem*"
+                        },
+                        {
+                            "name": "column",
                             "type": "int"
                         }
                     ],
+                    "index": 0,
+                    "name": "on_treeWidget_itemClicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
                     "index": 1,
-                    "name": "onFontSizeChanged",
+                    "name": "on_file_system_Btn_clicked",
                     "returnType": "void"
                 },
                 {
                     "access": "private",
                     "index": 2,
-                    "name": "onLineEditEditingFinished",
-                    "returnType": "void"
-                },
-                {
-                    "access": "private",
-                    "arguments": [
-                        {
-                            "name": "arg1",
-                            "type": "Qt::CheckState"
-                        }
-                    ],
-                    "index": 3,
-                    "name": "on_enableTrayCheckBox_checkStateChanged",
-                    "returnType": "void"
-                },
-                {
-                    "access": "private",
-                    "index": 4,
-                    "name": "on_pushButton_clicked",
+                    "name": "on_file_backup_Btn_clicked",
                     "returnType": "void"
                 }
             ],

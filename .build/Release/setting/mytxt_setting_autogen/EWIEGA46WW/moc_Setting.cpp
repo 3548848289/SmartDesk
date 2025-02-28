@@ -37,16 +37,13 @@ namespace {
 struct qt_meta_stringdata_CLASSSettingENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSSettingENDCLASS = QtMocHelpers::stringData(
     "Setting",
-    "fontSizeChanged",
+    "on_treeWidget_itemClicked",
     "",
-    "size",
-    "onFontSizeChanged",
-    "value",
-    "onLineEditEditingFinished",
-    "on_enableTrayCheckBox_checkStateChanged",
-    "Qt::CheckState",
-    "arg1",
-    "on_pushButton_clicked"
+    "QTreeWidgetItem*",
+    "item",
+    "column",
+    "on_file_system_Btn_clicked",
+    "on_file_backup_Btn_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -59,29 +56,21 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSSettingENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
-
- // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   44,    2, 0x06,    1 /* Public */,
+       0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    1,   47,    2, 0x08,    3 /* Private */,
-       6,    0,   50,    2, 0x08,    5 /* Private */,
-       7,    1,   51,    2, 0x08,    6 /* Private */,
-      10,    0,   54,    2, 0x08,    8 /* Private */,
-
- // signals: parameters
-    QMetaType::Void, QMetaType::Int,    3,
+       1,    2,   32,    2, 0x08,    1 /* Private */,
+       6,    0,   37,    2, 0x08,    4 /* Private */,
+       7,    0,   38,    2, 0x08,    5 /* Private */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Int,    5,
+    QMetaType::Void, 0x80000000 | 3, QMetaType::Int,    4,    5,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 8,    9,
     QMetaType::Void,
 
        0        // eod
@@ -96,18 +85,13 @@ Q_CONSTINIT const QMetaObject Setting::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSSettingENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<Setting, std::true_type>,
-        // method 'fontSizeChanged'
+        // method 'on_treeWidget_itemClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QTreeWidgetItem *, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'onFontSizeChanged'
+        // method 'on_file_system_Btn_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'onLineEditEditingFinished'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_enableTrayCheckBox_checkStateChanged'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const Qt::CheckState &, std::false_type>,
-        // method 'on_pushButton_clicked'
+        // method 'on_file_backup_Btn_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -119,21 +103,10 @@ void Setting::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         auto *_t = static_cast<Setting *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->fontSizeChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 1: _t->onFontSizeChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 2: _t->onLineEditEditingFinished(); break;
-        case 3: _t->on_enableTrayCheckBox_checkStateChanged((*reinterpret_cast< std::add_pointer_t<Qt::CheckState>>(_a[1]))); break;
-        case 4: _t->on_pushButton_clicked(); break;
+        case 0: _t->on_treeWidget_itemClicked((*reinterpret_cast< std::add_pointer_t<QTreeWidgetItem*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
+        case 1: _t->on_file_system_Btn_clicked(); break;
+        case 2: _t->on_file_backup_Btn_clicked(); break;
         default: ;
-        }
-    } else if (_c == QMetaObject::IndexOfMethod) {
-        int *result = reinterpret_cast<int *>(_a[0]);
-        {
-            using _t = void (Setting::*)(int );
-            if (_t _q_method = &Setting::fontSizeChanged; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
-                *result = 0;
-                return;
-            }
         }
     }
 }
@@ -157,21 +130,14 @@ int Setting::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 3;
     }
     return _id;
-}
-
-// SIGNAL 0
-void Setting::fontSizeChanged(int _t1)
-{
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP

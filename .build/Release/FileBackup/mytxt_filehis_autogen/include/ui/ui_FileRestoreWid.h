@@ -40,10 +40,11 @@ public:
         FileRestoreWid->resize(400, 300);
         dateTimeEdit = new QDateTimeEdit(FileRestoreWid);
         dateTimeEdit->setObjectName("dateTimeEdit");
-        dateTimeEdit->setGeometry(QRect(100, 90, 181, 41));
+        dateTimeEdit->setGeometry(QRect(100, 90, 271, 41));
+        dateTimeEdit->setReadOnly(true);
         filenameEdit = new QLineEdit(FileRestoreWid);
         filenameEdit->setObjectName("filenameEdit");
-        filenameEdit->setGeometry(QRect(20, 20, 361, 41));
+        filenameEdit->setGeometry(QRect(20, 20, 341, 41));
         saveasBtn = new QPushButton(FileRestoreWid);
         saveasBtn->setObjectName("saveasBtn");
         saveasBtn->setGeometry(QRect(290, 250, 91, 41));
@@ -55,19 +56,19 @@ public:
         restoreBtn->setGeometry(QRect(10, 250, 91, 41));
         backupPathRdit = new QLineEdit(FileRestoreWid);
         backupPathRdit->setObjectName("backupPathRdit");
-        backupPathRdit->setGeometry(QRect(100, 190, 171, 41));
+        backupPathRdit->setGeometry(QRect(100, 190, 271, 41));
         label_3 = new QLabel(FileRestoreWid);
         label_3->setObjectName("label_3");
         label_3->setGeometry(QRect(20, 190, 71, 41));
         pathBtn = new QPushButton(FileRestoreWid);
         pathBtn->setObjectName("pathBtn");
-        pathBtn->setGeometry(QRect(290, 190, 91, 41));
+        pathBtn->setGeometry(QRect(150, 250, 91, 41));
         label_2 = new QLabel(FileRestoreWid);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(20, 140, 71, 41));
         initpathEdit = new QLineEdit(FileRestoreWid);
         initpathEdit->setObjectName("initpathEdit");
-        initpathEdit->setGeometry(QRect(100, 140, 171, 41));
+        initpathEdit->setGeometry(QRect(100, 140, 271, 41));
 
         retranslateUi(FileRestoreWid);
 

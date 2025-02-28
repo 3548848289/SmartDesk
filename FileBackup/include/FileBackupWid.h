@@ -28,6 +28,8 @@ private slots:
 
     void on_save_clicked();
 
+    void on_canle_clicked();
+
 private:
     Ui::FileBackupWid *ui;
     bool backupFile(const QString &filePath, const QString &fileName);

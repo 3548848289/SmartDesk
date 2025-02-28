@@ -13,6 +13,10 @@ void MainWindow::initSmal()
 
     loginButton->setIconSize(loginButton->size());
 
+    //
+    // 暂时隐藏
+    //
+    loginButton->hide();
     ui->menubar->setCornerWidget(loginButton, Qt::TopRightCorner);
     connect(loginButton, &QPushButton::clicked, this, &MainWindow::showUserInfoDialog);
 

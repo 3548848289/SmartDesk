@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "FileBackupWid",
-            "lineNumber": 17,
+            "lineNumber": 18,
             "object": true,
             "qualifiedClassName": "FileBackupWid",
             "slots": [
@@ -10,6 +10,12 @@
                     "access": "private",
                     "index": 0,
                     "name": "on_save_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 1,
+                    "name": "on_canle_clicked",
                     "returnType": "void"
                 }
             ],

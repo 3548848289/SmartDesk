@@ -11,9 +11,9 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/CxxProgram/SmartDesk/OnlineDoc/include/DLfromNet.h",
+			"D:/CxxProgram/SmartDesk/OnlineDoc/include/DownloadView.h",
 			"MU",
-			"6YEA5652QU/moc_DLfromNet.cpp",
+			"6YEA5652QU/moc_DownloadView.cpp",
 			null
 		],
 		[
@@ -23,15 +23,15 @@
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/OnlineDoc/include/WOnlineDoc.h",
+			"D:/CxxProgram/SmartDesk/OnlineDoc/include/SharedView.h",
 			"MU",
-			"6YEA5652QU/moc_WOnlineDoc.cpp",
+			"6YEA5652QU/moc_SharedView.cpp",
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/OnlineDoc/include/csvLinkServer2.h",
+			"D:/CxxProgram/SmartDesk/OnlineDoc/include/WOnlineDoc.h",
 			"MU",
-			"6YEA5652QU/moc_csvLinkServer2.cpp",
+			"6YEA5652QU/moc_WOnlineDoc.cpp",
 			null
 		]
 	],
@@ -109,10 +109,10 @@
 	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/Release/onlinedoc/CMakeFiles/mytxt_onlinedoc_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/CxxProgram/SmartDesk/OnlineDoc/DLfromNet.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/OnlineDoc/DownloadView.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/OnlineDoc/EditedLog.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/OnlineDoc/WOnlineDoc.cpp", "MU", null ],
-		[ "D:/CxxProgram/SmartDesk/OnlineDoc/csvLinkServer2.cpp", "MU", null ]
+		[ "D:/CxxProgram/SmartDesk/OnlineDoc/SharedView.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/OnlineDoc/WOnlineDoc.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

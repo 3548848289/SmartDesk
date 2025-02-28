@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>设置</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources/res.qrc">
+    <normaloff>:/png/Settings.png</normaloff>:/png/Settings.png</iconset>
   </property>
   <widget class="QTreeWidget" name="treeWidget">
    <property name="geometry">
@@ -350,7 +354,7 @@
       <rect>
        <x>110</x>
        <y>30</y>
-       <width>121</width>
+       <width>111</width>
        <height>22</height>
       </rect>
      </property>
@@ -421,8 +425,8 @@
       <rect>
        <x>110</x>
        <y>120</y>
-       <width>61</width>
-       <height>16</height>
+       <width>111</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
@@ -450,6 +454,8 @@
   <tabstop>online_doc_comboBox</tabstop>
   <tabstop>online_doc_timeEdit_1</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="../resources/res.qrc"/>
+ </resources>
  <connections/>
 </ui>

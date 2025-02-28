@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "TagItemDelegate",
-            "lineNumber": 19,
+            "lineNumber": 20,
             "object": true,
             "qualifiedClassName": "TagItemDelegate",
             "signals": [
@@ -152,6 +152,22 @@
                     ],
                     "index": 10,
                     "name": "onHistoryTriggered",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "model",
+                            "type": "QAbstractItemModel*"
+                        },
+                        {
+                            "name": "index",
+                            "type": "QModelIndex"
+                        }
+                    ],
+                    "index": 11,
+                    "name": "onCopyPathTriggered",
                     "returnType": "void"
                 }
             ],

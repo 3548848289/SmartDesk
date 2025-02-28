@@ -107,6 +107,13 @@ public:
         label_7 = new QLabel(DInfo);
         label_7->setObjectName("label_7");
         label_7->setGeometry(QRect(10, 100, 91, 31));
+        QWidget::setTabOrder(accountEdit, nameEdit);
+        QWidget::setTabOrder(nameEdit, mottoEdit);
+        QWidget::setTabOrder(mottoEdit, genderCombo);
+        QWidget::setTabOrder(genderCombo, birthdayEdit);
+        QWidget::setTabOrder(birthdayEdit, locationEdit);
+        QWidget::setTabOrder(locationEdit, companyEdit);
+        QWidget::setTabOrder(companyEdit, saveButton);
 
         retranslateUi(DInfo);
 

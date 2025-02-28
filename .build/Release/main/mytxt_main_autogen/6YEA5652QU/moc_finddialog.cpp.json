@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "FindDialog",
-            "lineNumber": 13,
+            "lineNumber": 10,
             "object": true,
             "qualifiedClassName": "FindDialog",
             "signals": [
@@ -53,31 +53,37 @@
                     "index": 2,
                     "name": "findAll",
                     "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "name": "dialogClosed",
+                    "returnType": "void"
                 }
             ],
             "slots": [
                 {
                     "access": "private",
-                    "index": 3,
-                    "name": "findClicked",
-                    "returnType": "void"
-                },
-                {
-                    "access": "private",
-                    "index": 4,
-                    "name": "findAllClicked",
-                    "returnType": "void"
-                },
-                {
-                    "access": "private",
                     "arguments": [
                         {
-                            "name": "text",
+                            "name": "arg1",
                             "type": "QString"
                         }
                     ],
+                    "index": 4,
+                    "name": "on_lineEdit_textChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
                     "index": 5,
-                    "name": "enableFindButton",
+                    "name": "on_findButton_clicked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 6,
+                    "name": "on_findAllButton_clicked",
                     "returnType": "void"
                 }
             ],
@@ -89,6 +95,6 @@
             ]
         }
     ],
-    "inputFile": "finddialog.h",
+    "inputFile": "FindDialog.h",
     "outputRevision": 68
 }

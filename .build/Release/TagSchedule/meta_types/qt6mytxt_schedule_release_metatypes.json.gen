@@ -29,7 +29,7 @@
         "classes": [
             {
                 "className": "ScheduleWid",
-                "lineNumber": 28,
+                "lineNumber": 27,
                 "object": true,
                 "qualifiedClassName": "ScheduleWid",
                 "signals": [
@@ -73,8 +73,14 @@
                     },
                     {
                         "access": "private",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
                         "index": 3,
-                        "name": "on_sortBtn_clicked",
+                        "name": "on_comboBox_currentIndexChanged",
                         "returnType": "void"
                     },
                     {
@@ -86,7 +92,7 @@
                             }
                         ],
                         "index": 4,
-                        "name": "on_comboBox_currentIndexChanged",
+                        "name": "on_sortComboBox_currentIndexChanged",
                         "returnType": "void"
                     }
                 ],

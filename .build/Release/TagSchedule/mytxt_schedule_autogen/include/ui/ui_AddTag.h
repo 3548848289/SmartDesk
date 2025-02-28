@@ -117,6 +117,9 @@ public:
 
         horizontalLayout_2->addWidget(saveButton);
 
+        QWidget::setTabOrder(tagsLineEdit, dateTimeEdit);
+        QWidget::setTabOrder(dateTimeEdit, annotationTextEdit);
+        QWidget::setTabOrder(annotationTextEdit, saveButton);
 
         retranslateUi(AddTag);
 

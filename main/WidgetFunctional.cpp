@@ -106,6 +106,11 @@ WidgetFunctional::WidgetFunctional(QWidget *parent)
         "{background:transparent;border:none;   border-bottom:3px solid #7598db;color:#7598db;}"
     );
 
+    //
+    // 暂时隐藏
+    //
+    ui->pushButton_7->hide();
+
 }
 
 
@@ -126,9 +131,7 @@ void WidgetFunctional::toggleButtonVisibility(int buttonIndex)
 
     if (button) {
         bool isVisible = button->isVisible();
-        button->setVisible(!isVisible);  // 切换按钮的可见性
-
-        // 发出信号，通知 MainWindow 更新菜单项文本
+        button->setVisible(!isVisible);
         emit buttonVisibilityChanged(buttonIndex, !isVisible);
     }
 }

@@ -27,7 +27,7 @@ public:
     {
         if (WOnlineDoc->objectName().isEmpty())
             WOnlineDoc->setObjectName("WOnlineDoc");
-        WOnlineDoc->resize(413, 608);
+        WOnlineDoc->resize(250, 330);
         QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -36,6 +36,7 @@ public:
         WOnlineDoc->setStyleSheet(QString::fromUtf8(""));
         gridLayout = new QGridLayout(WOnlineDoc);
         gridLayout->setObjectName("gridLayout");
+        gridLayout->setContentsMargins(0, 0, 0, 0);
         tabWidget = new QTabWidget(WOnlineDoc);
         tabWidget->setObjectName("tabWidget");
         tabWidget->setEnabled(true);
@@ -45,7 +46,7 @@ public:
         sizePolicy1.setHeightForWidth(tabWidget->sizePolicy().hasHeightForWidth());
         tabWidget->setSizePolicy(sizePolicy1);
         tabWidget->setStyleSheet(QString::fromUtf8(""));
-        tabWidget->setTabPosition(QTabWidget::South);
+        tabWidget->setTabPosition(QTabWidget::TabPosition::North);
 
         gridLayout->addWidget(tabWidget, 0, 0, 2, 2);
 

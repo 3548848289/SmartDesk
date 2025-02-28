@@ -5,6 +5,7 @@ D:/CxxProgram/SmartDesk/.build/Release/FileBackup/mytxt_filehis_autogen/6YEA5652
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDir \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFile \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20memory.h \
@@ -95,6 +96,7 @@ D:/CxxProgram/SmartDesk/.build/Release/FileBackup/mytxt_filehis_autogen/6YEA5652
   D:/QT6/6.8.0/mingw_64/include/QtCore/qscopedpointer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qscopeguard.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qset.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qsettings.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata_impl.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer.h \

@@ -6,11 +6,13 @@ FileSystem/mytxt_filetag_autogen/timestamp: \
   D:/CxxProgram/SmartDesk/FileSystem/TagItemDelegate.cpp \
   D:/CxxProgram/SmartDesk/FileSystem/include/FileSystem.h \
   D:/CxxProgram/SmartDesk/FileSystem/include/TagItemDelegate.h \
+  D:/CxxProgram/SmartDesk/Setting/SettingManager.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/AddTag.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \
   D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
@@ -34,9 +36,11 @@ FileSystem/mytxt_filetag_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QPointer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRect \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRegularExpression \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSharedDataPointer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSize \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSizeF \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QStandardPaths \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QUrl \
@@ -145,12 +149,14 @@ FileSystem/mytxt_filetag_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qscopedpointer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qscopeguard.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qset.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qsettings.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata_impl.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer_impl.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qsize.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qspan.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qstandardpaths.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qstring.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qstringalgorithms.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qstringbuilder.h \
@@ -195,6 +201,7 @@ FileSystem/mytxt_filetag_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qxptype_traits.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qyieldcpu.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QAction \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/QClipboard \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QFileSystemModel \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QMouseEvent \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QPainter \
@@ -202,6 +209,7 @@ FileSystem/mytxt_filetag_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qaction.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qbitmap.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qbrush.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qclipboard.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qcolor.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qcursor.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qevent.h \
@@ -274,6 +282,7 @@ FileSystem/mytxt_filetag_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtSql/qtsqlglobal.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QApplication \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QDialog \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QListWidgetItem \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMenu \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
@@ -289,6 +298,7 @@ FileSystem/mytxt_filetag_autogen/timestamp: \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qapplication.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialog.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qfiledialog.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistview.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlistwidget.h \

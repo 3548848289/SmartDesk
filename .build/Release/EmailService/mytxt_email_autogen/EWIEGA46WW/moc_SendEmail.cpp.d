@@ -171,7 +171,9 @@ D:/CxxProgram/SmartDesk/.build/Release/EmailService/mytxt_email_autogen/EWIEGA46
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMenu \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmenu.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \

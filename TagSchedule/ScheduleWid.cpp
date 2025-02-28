@@ -2,7 +2,7 @@
 #include "ui/ui_ScheduleWid.h"
 
 ScheduleWid::ScheduleWid(QWidget *parent) : QWidget(parent), ui(new Ui::ScheduleWid),
-    dbservice(dbService::instance("../SmartDesk.db"))
+    dbservice(dbService::instance("./SmartDesk.db"))
 {
     ui->setupUi(this);
 

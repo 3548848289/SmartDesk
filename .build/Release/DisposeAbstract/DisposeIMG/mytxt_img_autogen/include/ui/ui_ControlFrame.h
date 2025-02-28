@@ -143,6 +143,14 @@ public:
 
         gridLayout_2->addLayout(gridLayout, 2, 0, 1, 4);
 
+        QWidget::setTabOrder(rotateSlider, scaleSlider);
+        QWidget::setTabOrder(scaleSlider, shearSlider);
+        QWidget::setTabOrder(shearSlider, translateSlider);
+        QWidget::setTabOrder(translateSlider, textInput);
+        QWidget::setTabOrder(textInput, yPosInput);
+        QWidget::setTabOrder(yPosInput, xPosInput);
+        QWidget::setTabOrder(xPosInput, addTextButton);
+        QWidget::setTabOrder(addTextButton, exportButton);
 
         retranslateUi(ControlFrame);
 

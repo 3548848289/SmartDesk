@@ -97,6 +97,17 @@ D:/CxxProgram/SmartDesk/.build/Release/EmailService/CMakeFiles/install/local.dir
 D:/CxxProgram/SmartDesk/.build/Release/EmailService/CMakeFiles/install/strip.dir
 D:/CxxProgram/SmartDesk/.build/Release/EmailService/CMakeFiles/mytxt_email_autogen_timestamp_deps.dir
 D:/CxxProgram/SmartDesk/.build/Release/EmailService/CMakeFiles/mytxt_email_autogen.dir
+D:/CxxProgram/SmartDesk/.build/Release/MoreFunction/CMakeFiles/mytxt_morefunction.dir
+D:/CxxProgram/SmartDesk/.build/Release/MoreFunction/CMakeFiles/package.dir
+D:/CxxProgram/SmartDesk/.build/Release/MoreFunction/CMakeFiles/package_source.dir
+D:/CxxProgram/SmartDesk/.build/Release/MoreFunction/CMakeFiles/edit_cache.dir
+D:/CxxProgram/SmartDesk/.build/Release/MoreFunction/CMakeFiles/rebuild_cache.dir
+D:/CxxProgram/SmartDesk/.build/Release/MoreFunction/CMakeFiles/list_install_components.dir
+D:/CxxProgram/SmartDesk/.build/Release/MoreFunction/CMakeFiles/install.dir
+D:/CxxProgram/SmartDesk/.build/Release/MoreFunction/CMakeFiles/install/local.dir
+D:/CxxProgram/SmartDesk/.build/Release/MoreFunction/CMakeFiles/install/strip.dir
+D:/CxxProgram/SmartDesk/.build/Release/MoreFunction/CMakeFiles/mytxt_morefunction_autogen_timestamp_deps.dir
+D:/CxxProgram/SmartDesk/.build/Release/MoreFunction/CMakeFiles/mytxt_morefunction_autogen.dir
 D:/CxxProgram/SmartDesk/.build/Release/DisposeAbstract/DisposeTXT/CMakeFiles/mytxt_txt.dir
 D:/CxxProgram/SmartDesk/.build/Release/DisposeAbstract/DisposeTXT/CMakeFiles/package.dir
 D:/CxxProgram/SmartDesk/.build/Release/DisposeAbstract/DisposeTXT/CMakeFiles/package_source.dir

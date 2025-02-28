@@ -1,11 +1,13 @@
 D:/CxxProgram/SmartDesk/.build/Release/TagSchedule/mytxt_schedule_autogen/6YEA5652QU/moc_ScheduleWid.cpp: D:/CxxProgram/SmartDesk/TagSchedule/include/ScheduleWid.h \
   D:/CxxProgram/SmartDesk/.build/Release/TagSchedule/mytxt_schedule_autogen/moc_predefs.h \
+  D:/CxxProgram/SmartDesk/Setting/SettingManager.h \
   D:/CxxProgram/SmartDesk/TagSchedule/LmsgNotify/notifymanager.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/TagDetail.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/TagList.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \
   D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QDeadlineTimer \
@@ -16,6 +18,7 @@ D:/CxxProgram/SmartDesk/.build/Release/TagSchedule/mytxt_schedule_autogen/6YEA56
   D:/QT6/6.8.0/mingw_64/include/QtCore/QMap \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QMutex \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QStringLiteral \

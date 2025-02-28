@@ -2,7 +2,7 @@
 
 TagItemDelegate::TagItemDelegate(QObject *parent, ServerManager *serverManager)
     : QStyledItemDelegate(parent), serverManager(serverManager),
-    dbservice(dbService::instance("../SmartDesk.db"))
+    dbservice(dbService::instance("./SmartDesk.db"))
 {}
 
 

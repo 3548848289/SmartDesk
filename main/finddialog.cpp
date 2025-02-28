@@ -19,7 +19,6 @@ void FindDialog::on_lineEdit_textChanged(const QString &arg1)
     ui->findButton->setEnabled(!arg1.isEmpty());
 }
 
-
 void FindDialog::on_findButton_clicked()
 {
     QString text = ui->lineEdit->text();
@@ -33,8 +32,7 @@ void FindDialog::on_findAllButton_clicked()
 {
     QString text = ui->lineEdit->text();
     Qt::CaseSensitivity cs =
-        ui->caseCheckBox->isChecked() ? Qt::CaseSensitive
-                                      : Qt::CaseInsensitive;
+        ui->caseCheckBox->isChecked() ? Qt::CaseSensitive : Qt::CaseInsensitive;
     emit findAll(text, cs);
 }
 

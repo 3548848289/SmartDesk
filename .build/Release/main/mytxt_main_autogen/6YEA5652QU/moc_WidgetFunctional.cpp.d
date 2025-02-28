@@ -14,9 +14,11 @@ D:/CxxProgram/SmartDesk/.build/Release/main/mytxt_main_autogen/6YEA5652QU/moc_Wi
   D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/server.h \
   D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/serverreply.h \
   D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/smtpexports.h \
+  D:/CxxProgram/SmartDesk/MoreFunction/MoreFunction.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \
   D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/CxxProgram/SmartDesk/userinfo/include/DInfo.h \
   D:/CxxProgram/SmartDesk/userinfo/include/DLogin.h \
@@ -287,6 +289,7 @@ D:/CxxProgram/SmartDesk/.build/Release/main/mytxt_main_autogen/6YEA5652QU/moc_Wi
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QHBoxLayout \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLineEdit \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMenu \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QPushButton \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QVBoxLayout \
@@ -308,6 +311,7 @@ D:/CxxProgram/SmartDesk/.build/Release/main/mytxt_main_autogen/6YEA5652QU/moc_Wi
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayout.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayoutitem.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlineedit.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmenu.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qpushbutton.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qrubberband.h \

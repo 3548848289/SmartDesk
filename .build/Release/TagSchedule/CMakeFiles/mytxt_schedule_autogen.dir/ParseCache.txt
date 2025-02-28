@@ -8,6 +8,7 @@ D:/CxxProgram/SmartDesk/TagSchedule/include/TagDetail.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbManager.h
+ mdp:D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbService.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QFile
@@ -2241,12 +2242,14 @@ D:/CxxProgram/SmartDesk/TagSchedule/include/ScheduleWid.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/TagSchedule/include/ScheduleWid.h
  mdp:D:/CxxProgram/SmartDesk/.build/Release/TagSchedule/mytxt_schedule_autogen/moc_predefs.h
+ mdp:D:/CxxProgram/SmartDesk/Setting/SettingManager.h
  mdp:D:/CxxProgram/SmartDesk/TagSchedule/LmsgNotify/notifymanager.h
  mdp:D:/CxxProgram/SmartDesk/TagSchedule/include/TagDetail.h
  mdp:D:/CxxProgram/SmartDesk/TagSchedule/include/TagList.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbManager.h
+ mdp:D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbService.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDeadlineTimer
@@ -2257,6 +2260,7 @@ D:/CxxProgram/SmartDesk/TagSchedule/include/ScheduleWid.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QMap
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QMutex
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QObject
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QString
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QStringLiteral
@@ -2950,6 +2954,7 @@ D:/CxxProgram/SmartDesk/TagSchedule/include/TagList.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbManager.h
+ mdp:D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbService.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QFile

@@ -174,7 +174,9 @@ D:/CxxProgram/SmartDesk/EmailService/SendEmail.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMenu
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmenu.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h

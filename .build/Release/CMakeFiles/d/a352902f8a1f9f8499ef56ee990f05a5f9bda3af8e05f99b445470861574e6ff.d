@@ -5,6 +5,7 @@ DisposeAbstract/DisposeTXT/mytxt_txt_autogen/timestamp: \
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/ControlWidTXT.h \
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/TabHandleTXT.cpp \
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/TabHandleTXT.h \
+  D:/CxxProgram/SmartDesk/Setting/SettingManager.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QFile \

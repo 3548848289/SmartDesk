@@ -2,10 +2,10 @@
     {
         "classes": [
             {
-                "className": "FileBackupList",
-                "lineNumber": 15,
+                "className": "FileBackupView",
+                "lineNumber": 18,
                 "object": true,
-                "qualifiedClassName": "FileBackupList",
+                "qualifiedClassName": "FileBackupView",
                 "signals": [
                     {
                         "access": "public",
@@ -56,6 +56,24 @@
                         "index": 3,
                         "name": "on_fileListComboBox_currentIndexChanged",
                         "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 4,
+                        "name": "on_pushButton_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "pos",
+                                "type": "QPoint"
+                            }
+                        ],
+                        "index": 5,
+                        "name": "on_backupList_customContextMenuRequested",
+                        "returnType": "void"
                     }
                 ],
                 "superClasses": [
@@ -66,14 +84,14 @@
                 ]
             }
         ],
-        "inputFile": "FileBackupList.h",
+        "inputFile": "FileBackupView.h",
         "outputRevision": 68
     },
     {
         "classes": [
             {
                 "className": "FileBackupWid",
-                "lineNumber": 17,
+                "lineNumber": 18,
                 "object": true,
                 "qualifiedClassName": "FileBackupWid",
                 "slots": [
@@ -81,6 +99,12 @@
                         "access": "private",
                         "index": 0,
                         "name": "on_save_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 1,
+                        "name": "on_canle_clicked",
                         "returnType": "void"
                     }
                 ],

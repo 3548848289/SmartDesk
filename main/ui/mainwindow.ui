@@ -124,7 +124,6 @@
     </property>
     <addaction name="actionshe"/>
     <addaction name="actionfind"/>
-    <addaction name="actiontest"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
@@ -230,14 +229,6 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+,</string>
-   </property>
-  </action>
-  <action name="actiontest">
-   <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::UserAvailable"/>
-   </property>
-   <property name="text">
-    <string>测试</string>
    </property>
   </action>
   <action name="actionZ">

@@ -6,6 +6,7 @@ D:/CxxProgram/SmartDesk/.build/Release/FileSystem/mytxt_filetag_autogen/6YEA5652
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \
   D:/CxxProgram/SmartDesk/manager/include/dbService.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QAbstractItemModel \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
@@ -29,6 +30,7 @@ D:/CxxProgram/SmartDesk/.build/Release/FileSystem/mytxt_filetag_autogen/6YEA5652
   D:/QT6/6.8.0/mingw_64/include/QtCore/QPointer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRect \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QRegularExpression \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSharedDataPointer \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSize \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSizeF \
@@ -139,6 +141,7 @@ D:/CxxProgram/SmartDesk/.build/Release/FileSystem/mytxt_filetag_autogen/6YEA5652
   D:/QT6/6.8.0/mingw_64/include/QtCore/qscopedpointer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qscopeguard.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qset.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qsettings.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata_impl.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer.h \
@@ -189,6 +192,7 @@ D:/CxxProgram/SmartDesk/.build/Release/FileSystem/mytxt_filetag_autogen/6YEA5652
   D:/QT6/6.8.0/mingw_64/include/QtCore/qxptype_traits.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qyieldcpu.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QAction \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/QClipboard \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QFileSystemModel \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QMouseEvent \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QPainter \
@@ -196,6 +200,7 @@ D:/CxxProgram/SmartDesk/.build/Release/FileSystem/mytxt_filetag_autogen/6YEA5652
   D:/QT6/6.8.0/mingw_64/include/QtGui/qaction.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qbitmap.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qbrush.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qclipboard.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qcolor.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qcursor.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qevent.h \

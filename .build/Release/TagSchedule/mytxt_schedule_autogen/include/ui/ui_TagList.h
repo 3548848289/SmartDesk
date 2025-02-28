@@ -14,6 +14,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -28,8 +29,7 @@ public:
     QLabel *tagLabel;
     QVBoxLayout *verticalLayout_6;
     QLabel *fileLabel;
-    QLabel *pathLabel;
-    QVBoxLayout *verticalLayout_2;
+    QLineEdit *lineEdit;
     QLabel *expirationLabel;
     QPushButton *pushButton;
 
@@ -44,7 +44,12 @@ public:
         horizontalLayout->setObjectName("horizontalLayout");
         tagLabel = new QLabel(TagList);
         tagLabel->setObjectName("tagLabel");
-        tagLabel->setPixmap(QPixmap(QString::fromUtf8(":/usedimage/tag.svg")));
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(tagLabel->sizePolicy().hasHeightForWidth());
+        tagLabel->setSizePolicy(sizePolicy);
+        tagLabel->setMinimumSize(QSize(50, 50));
 
         horizontalLayout->addWidget(tagLabel);
 
@@ -59,43 +64,42 @@ public:
 
         verticalLayout_6->addWidget(fileLabel);
 
-        pathLabel = new QLabel(TagList);
-        pathLabel->setObjectName("pathLabel");
-        QFont font1;
-        font1.setPointSize(7);
-        pathLabel->setFont(font1);
+        lineEdit = new QLineEdit(TagList);
+        lineEdit->setObjectName("lineEdit");
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(lineEdit->sizePolicy().hasHeightForWidth());
+        lineEdit->setSizePolicy(sizePolicy1);
+        lineEdit->setReadOnly(true);
 
-        verticalLayout_6->addWidget(pathLabel);
+        verticalLayout_6->addWidget(lineEdit);
 
         verticalLayout_6->setStretch(0, 4);
-        verticalLayout_6->setStretch(1, 2);
+        verticalLayout_6->setStretch(1, 1);
 
         horizontalLayout->addLayout(verticalLayout_6);
 
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName("verticalLayout_2");
         expirationLabel = new QLabel(TagList);
         expirationLabel->setObjectName("expirationLabel");
 
-        verticalLayout_2->addWidget(expirationLabel);
-
-        verticalLayout_2->setStretch(0, 8);
-
-        horizontalLayout->addLayout(verticalLayout_2);
+        horizontalLayout->addWidget(expirationLabel);
 
         pushButton = new QPushButton(TagList);
         pushButton->setObjectName("pushButton");
-        QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy2(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Maximum);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
+        pushButton->setSizePolicy(sizePolicy2);
+        pushButton->setMaximumSize(QSize(30, 30));
 
         horizontalLayout->addWidget(pushButton);
 
         horizontalLayout->setStretch(0, 1);
-        horizontalLayout->setStretch(1, 4);
+        horizontalLayout->setStretch(1, 8);
         horizontalLayout->setStretch(2, 4);
+        horizontalLayout->setStretch(3, 1);
 
         gridLayout->addLayout(horizontalLayout, 0, 0, 1, 1);
 
@@ -110,7 +114,6 @@ public:
         TagList->setWindowTitle(QString());
         tagLabel->setText(QString());
         fileLabel->setText(QCoreApplication::translate("TagList", "TextLabel", nullptr));
-        pathLabel->setText(QCoreApplication::translate("TagList", "TextLabel", nullptr));
         expirationLabel->setText(QCoreApplication::translate("TagList", "TextLabel", nullptr));
         pushButton->setText(QCoreApplication::translate("TagList", "\350\257\246\346\203\205", nullptr));
     } // retranslateUi

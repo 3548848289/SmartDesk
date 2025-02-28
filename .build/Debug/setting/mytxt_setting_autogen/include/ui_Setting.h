@@ -10,6 +10,7 @@
 #define UI_SETTING_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
@@ -83,6 +84,9 @@ public:
         if (Setting->objectName().isEmpty())
             Setting->setObjectName("Setting");
         Setting->resize(524, 380);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/png/Settings.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        Setting->setWindowIcon(icon);
         treeWidget = new QTreeWidget(Setting);
         new QTreeWidgetItem(treeWidget);
         QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem(treeWidget);
@@ -272,7 +276,7 @@ public:
         online_doc_comboBox->addItem(QString());
         online_doc_comboBox->addItem(QString());
         online_doc_comboBox->setObjectName("online_doc_comboBox");
-        online_doc_comboBox->setGeometry(QRect(110, 30, 121, 22));
+        online_doc_comboBox->setGeometry(QRect(110, 30, 111, 22));
         online_doc_timeEdit_1 = new QTimeEdit(online_doc);
         online_doc_timeEdit_1->setObjectName("online_doc_timeEdit_1");
         online_doc_timeEdit_1->setGeometry(QRect(110, 80, 118, 22));
@@ -287,7 +291,7 @@ public:
         online_doc_label2_2->setGeometry(QRect(10, 140, 81, 41));
         label = new QLabel(online_doc);
         label->setObjectName("label");
-        label->setGeometry(QRect(110, 120, 61, 16));
+        label->setGeometry(QRect(110, 120, 111, 20));
         stackedWidget->addWidget(online_doc);
         QWidget::setTabOrder(treeWidget, all_setting_spinBox);
         QWidget::setTabOrder(all_setting_spinBox, all_setting_checkBox);
@@ -315,7 +319,7 @@ public:
 
     void retranslateUi(QWidget *Setting)
     {
-        Setting->setWindowTitle(QCoreApplication::translate("Setting", "Form", nullptr));
+        Setting->setWindowTitle(QCoreApplication::translate("Setting", "\350\256\276\347\275\256", nullptr));
         QTreeWidgetItem *___qtreewidgetitem = treeWidget->headerItem();
         ___qtreewidgetitem->setText(0, QCoreApplication::translate("Setting", "\350\256\276\347\275\256", nullptr));
 

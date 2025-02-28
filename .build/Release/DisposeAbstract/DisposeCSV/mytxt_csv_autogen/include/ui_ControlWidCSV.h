@@ -88,6 +88,11 @@ public:
 
         gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);
 
+        QWidget::setTabOrder(addRowButton, deleteRowButton);
+        QWidget::setTabOrder(deleteRowButton, addColumnButton);
+        QWidget::setTabOrder(addColumnButton, deleteColumnButton);
+        QWidget::setTabOrder(deleteColumnButton, filterButton);
+        QWidget::setTabOrder(filterButton, sortButton);
 
         retranslateUi(ControlWidCSV);
 

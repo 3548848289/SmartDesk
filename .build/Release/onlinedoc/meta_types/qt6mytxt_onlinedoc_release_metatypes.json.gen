@@ -2,10 +2,10 @@
     {
         "classes": [
             {
-                "className": "downLoad",
-                "lineNumber": 16,
+                "className": "DownloadView",
+                "lineNumber": 18,
                 "object": true,
-                "qualifiedClassName": "downLoad",
+                "qualifiedClassName": "DownloadView",
                 "signals": [
                     {
                         "access": "public",
@@ -86,34 +86,16 @@
                 ]
             }
         ],
-        "inputFile": "DLfromNet.h",
+        "inputFile": "DownloadView.h",
         "outputRevision": 68
     },
     {
         "classes": [
             {
-                "className": "WOnlineDoc",
-                "lineNumber": 13,
+                "className": "SharedView",
+                "lineNumber": 26,
                 "object": true,
-                "qualifiedClassName": "WOnlineDoc",
-                "superClasses": [
-                    {
-                        "access": "public",
-                        "name": "QWidget"
-                    }
-                ]
-            }
-        ],
-        "inputFile": "WOnlineDoc.h",
-        "outputRevision": 68
-    },
-    {
-        "classes": [
-            {
-                "className": "csvLinkServer",
-                "lineNumber": 25,
-                "object": true,
-                "qualifiedClassName": "csvLinkServer",
+                "qualifiedClassName": "SharedView",
                 "signals": [
                     {
                         "access": "public",
@@ -162,13 +144,19 @@
                     {
                         "access": "private",
                         "index": 5,
-                        "name": "on_readfiieBtn_clicked",
+                        "name": "on_sendmsgEdit_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
                         "index": 6,
-                        "name": "on_sendmsgEdit_clicked",
+                        "name": "on_passwdEdit_editingFinished",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 7,
+                        "name": "on_buildBtn_clicked",
                         "returnType": "void"
                     },
                     {
@@ -176,17 +164,11 @@
                         "arguments": [
                             {
                                 "name": "item",
-                                "type": "QTableWidgetItem*"
+                                "type": "QListWidgetItem*"
                             }
                         ],
-                        "index": 7,
-                        "name": "on_tableWidget_itemClicked",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
                         "index": 8,
-                        "name": "on_buildBtn_clicked",
+                        "name": "on_listWidget_itemClicked",
                         "returnType": "void"
                     }
                 ],
@@ -198,7 +180,25 @@
                 ]
             }
         ],
-        "inputFile": "csvLinkServer2.h",
+        "inputFile": "SharedView.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "WOnlineDoc",
+                "lineNumber": 13,
+                "object": true,
+                "qualifiedClassName": "WOnlineDoc",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "WOnlineDoc.h",
         "outputRevision": 68
     }
 ]

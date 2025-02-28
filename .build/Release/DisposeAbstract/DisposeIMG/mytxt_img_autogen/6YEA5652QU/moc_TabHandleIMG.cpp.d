@@ -4,8 +4,14 @@ D:/CxxProgram/SmartDesk/.build/Release/DisposeAbstract/DisposeIMG/mytxt_img_auto
   D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/PixItem.h \
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QEvent \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonDocument \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QJsonObject \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QList \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QRect \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QSize \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/QSizeF \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QString \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h \
@@ -40,13 +46,19 @@ D:/CxxProgram/SmartDesk/.build/Release/DisposeAbstract/DisposeIMG/mytxt_img_auto
   D:/QT6/6.8.0/mingw_64/include/QtCore/qcontainerinfo.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qcontainertools_impl.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qcontiguouscache.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qcoreapplication.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qcoreevent.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qdarwinhelpers.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qdatastream.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qdatetime.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qdeadlinetimer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qdebug.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qdir.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qdirlisting.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qelapsedtimer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qendian.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qeventloop.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qexceptionhandling.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qfile.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qfiledevice.h \
@@ -81,6 +93,7 @@ D:/CxxProgram/SmartDesk/.build/Release/DisposeAbstract/DisposeIMG/mytxt_img_auto
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmetatype.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qminmax.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qnamespace.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qnativeinterface.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qnumeric.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qobject.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qobject_impl.h \
@@ -145,18 +158,26 @@ D:/CxxProgram/SmartDesk/.build/Release/DisposeAbstract/DisposeIMG/mytxt_img_auto
   D:/QT6/6.8.0/mingw_64/include/QtCore/qversiontagging.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qxptype_traits.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qyieldcpu.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/QMouseEvent \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QPainter \
   D:/QT6/6.8.0/mingw_64/include/QtGui/QPixmap \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/QTransform \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qaction.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qbitmap.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qbrush.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qcolor.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qcursor.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qevent.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qeventpoint.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qfont.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qfontinfo.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qfontmetrics.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qguiapplication.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qguiapplication_platform.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qicon.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qimage.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qinputdevice.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qinputmethod.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qkeysequence.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qpaintdevice.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qpainter.h \
@@ -166,16 +187,23 @@ D:/CxxProgram/SmartDesk/.build/Release/DisposeAbstract/DisposeIMG/mytxt_img_auto
   D:/QT6/6.8.0/mingw_64/include/QtGui/qpicture.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qpixelformat.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qpixmap.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qpointingdevice.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qpolygon.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qregion.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qrgb.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qrgba64.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qscreen.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qscreen_platform.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qtextcursor.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtextdocument.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qtextformat.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtextoption.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtgui-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtguiexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtguiglobal.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qtransform.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qvector2d.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qvectornd.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
   D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QFileDialog \
@@ -183,7 +211,9 @@ D:/CxxProgram/SmartDesk/.build/Release/DisposeAbstract/DisposeIMG/mytxt_img_auto
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGraphicsScene \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGraphicsView \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QGroupBox \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QInputDialog \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLineEdit \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QSlider \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/QSplitter \
@@ -201,9 +231,11 @@ D:/CxxProgram/SmartDesk/.build/Release/DisposeAbstract/DisposeIMG/mytxt_img_auto
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qgraphicsview.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qgridlayout.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qgroupbox.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qinputdialog.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlabel.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayout.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlineedit.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qscrollarea.h \
   D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \

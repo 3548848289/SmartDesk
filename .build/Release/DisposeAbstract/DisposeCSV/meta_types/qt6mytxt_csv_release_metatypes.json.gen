@@ -47,7 +47,7 @@
         "classes": [
             {
                 "className": "TabHandleCSV",
-                "lineNumber": 25,
+                "lineNumber": 27,
                 "object": true,
                 "qualifiedClassName": "TabHandleCSV",
                 "signals": [
@@ -95,6 +95,12 @@
                         ],
                         "index": 2,
                         "name": "findAll",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "name": "clearHighlight",
                         "returnType": "void"
                     }
                 ],

@@ -34,7 +34,7 @@ qt_add_resources(RESOURCES
     resources/res.qrc
 )
 
-qt_add_executable(SmartDesk ${RESOURCES})
+qt_add_executable(SmartDesk WIN32 ${RESOURCES})
 target_link_libraries(SmartDesk PRIVATE
     mytxt_main
     mytxt_filehis

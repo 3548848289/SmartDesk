@@ -165,8 +165,14 @@ void TabHandleCSV::adjustItem(QTableWidgetItem *item)
 void TabHandleCSV::addRow()
 {
     int rowCount = tableWidget->rowCount();
-    tableWidget->insertRow(rowCount);
+    int currentRow = tableWidget->currentRow();
+    if (currentRow == -1)
+        tableWidget->insertRow(rowCount);
+    else
+        tableWidget->insertRow(currentRow + 1);
+    setContentModified(true);
 }
+
 
 void TabHandleCSV::addColumn()
 {
@@ -177,6 +183,7 @@ void TabHandleCSV::addColumn()
         int columnCount = tableWidget->columnCount();
         tableWidget->insertColumn(columnCount);
         tableWidget->setHorizontalHeaderItem(columnCount, new QTableWidgetItem(columnName));
+        setContentModified(true);
     }
 }
 
@@ -185,6 +192,7 @@ void TabHandleCSV::deleteRow()
     int currentRow = tableWidget->currentRow();
     if (currentRow != -1) {
         tableWidget->removeRow(currentRow);
+        setContentModified(true);
     } else {
         QMessageBox::warning(this, tr("Error"), tr("No row selected."));
     }
@@ -195,6 +203,7 @@ void TabHandleCSV::deleteColumn()
     int currentColumn = tableWidget->currentColumn();
     if (currentColumn != -1) {
         tableWidget->removeColumn(currentColumn);
+        setContentModified(true);
     } else {
         QMessageBox::warning(this, tr("Error"), tr("No column selected."));
     }

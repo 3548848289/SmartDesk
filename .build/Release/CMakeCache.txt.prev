@@ -351,13 +351,22 @@ CPACK_SOURCE_ZIP:BOOL=ON
 ENABLE_MAINTAINER_CFLAGS:BOOL=OFF
 
 //Value Computed by CMake
-Email_BINARY_DIR:STATIC=D:/CxxProgram/SmartDesk/.build/Release/email
+Email_BINARY_DIR:STATIC=D:/CxxProgram/SmartDesk/.build/Release/EmailService
 
 //Value Computed by CMake
 Email_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-Email_SOURCE_DIR:STATIC=D:/CxxProgram/SmartDesk/email
+Email_SOURCE_DIR:STATIC=D:/CxxProgram/SmartDesk/EmailService
+
+//Value Computed by CMake
+MoreFunction_BINARY_DIR:STATIC=D:/CxxProgram/SmartDesk/.build/Release/MoreFunction
+
+//Value Computed by CMake
+MoreFunction_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+MoreFunction_SOURCE_DIR:STATIC=D:/CxxProgram/SmartDesk/MoreFunction
 
 //Additional directories where find(Qt6 ...) host Qt components
 // are searched
@@ -433,7 +442,7 @@ UserInfo_BINARY_DIR:STATIC=D:/CxxProgram/SmartDesk/.build/Release/userinfo
 UserInfo_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-UserInfo_SOURCE_DIR:STATIC=D:/CxxProgram/SmartDesk/userinfo
+UserInfo_SOURCE_DIR:STATIC=D:/CxxProgram/SmartDesk/UserInfo
 
 //Path to a program.
 Vulkan_GLSLANG_VALIDATOR_EXECUTABLE:FILEPATH=Vulkan_GLSLANG_VALIDATOR_EXECUTABLE-NOTFOUND
@@ -451,13 +460,13 @@ Vulkan_LIBRARY:FILEPATH=Vulkan_LIBRARY-NOTFOUND
 WINDEPLOYQT_EXECUTABLE:FILEPATH=D:/QT6/6.8.0/mingw_64/bin/windeployqt.exe
 
 //Value Computed by CMake
-libsimplemail_BINARY_DIR:STATIC=D:/CxxProgram/SmartDesk/.build/Release/email/simple-mail
+libsimplemail_BINARY_DIR:STATIC=D:/CxxProgram/SmartDesk/.build/Release/EmailService/simple-mail
 
 //Value Computed by CMake
 libsimplemail_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-libsimplemail_SOURCE_DIR:STATIC=D:/CxxProgram/SmartDesk/email/simple-mail
+libsimplemail_SOURCE_DIR:STATIC=D:/CxxProgram/SmartDesk/EmailService/simple-mail
 
 
 ########################
@@ -596,7 +605,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=13
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=16
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

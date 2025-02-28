@@ -3,7 +3,7 @@
 
 FileRestoreWid::FileRestoreWid(QString fileName, QWidget *parent)
     :QDialog(parent), ui(new Ui::FileRestoreWid), file_name(fileName)
-    , dbservice(dbService::instance("../SmartDesk.db"))
+    , dbservice(dbService::instance("./SmartDesk.db"))
 
 {
     ui->setupUi(this);

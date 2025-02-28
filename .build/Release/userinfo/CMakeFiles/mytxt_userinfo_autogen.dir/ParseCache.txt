@@ -7,6 +7,7 @@ D:/CxxProgram/SmartDesk/UserInfo/include/DInfo.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbManager.h
+ mdp:D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h
  mdp:D:/CxxProgram/SmartDesk/manager/include/dbService.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDate
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDateTime
@@ -499,7 +500,6 @@ D:/CxxProgram/SmartDesk/UserInfo/include/DInfo.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
-D:/CxxProgram/SmartDesk/UserInfo/FlaskInfo.cpp
 D:/CxxProgram/SmartDesk/UserInfo/include/DLogin.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/UserInfo/include/DLogin.h
@@ -977,6 +977,7 @@ D:/CxxProgram/SmartDesk/UserInfo/include/DLogin.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
+D:/CxxProgram/SmartDesk/UserInfo/FlaskInfo.cpp
 D:/CxxProgram/SmartDesk/UserInfo/include/FlaskInfo.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/UserInfo/include/FlaskInfo.h

@@ -3,7 +3,7 @@
 
 TagDetail::TagDetail(QWidget *parent, const FilePathInfo &fileInfo)
     : QWidget(parent), fileInfo(fileInfo), ui(new Ui::TagDetail)
-    , dbservice(dbService::instance("../SmartDesk.db"))
+    , dbservice(dbService::instance("./SmartDesk.db"))
 
 {
     ui->setupUi(this);

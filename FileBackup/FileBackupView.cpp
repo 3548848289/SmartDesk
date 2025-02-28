@@ -4,7 +4,7 @@
 FileBackupView::FileBackupView(QWidget *parent)
     : QWidget(parent), ui(new Ui::FileBackupView)
     , serverManager(ServerManager::instance())
-    , dbservice(dbService::instance("../SmartDesk.db"))
+    , dbservice(dbService::instance("./SmartDesk.db"))
 {
     ui->setupUi(this);
     ui->backupList->setContextMenuPolicy(Qt::CustomContextMenu);

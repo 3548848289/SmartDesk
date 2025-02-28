@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,18 +23,24 @@ class Ui_ControlWidTXT
 public:
     QGridLayout *gridLayout;
     QLabel *label;
+    QPlainTextEdit *plainTextEdit;
 
     void setupUi(QWidget *ControlWidTXT)
     {
         if (ControlWidTXT->objectName().isEmpty())
             ControlWidTXT->setObjectName("ControlWidTXT");
-        ControlWidTXT->resize(222, 70);
+        ControlWidTXT->resize(344, 163);
         gridLayout = new QGridLayout(ControlWidTXT);
         gridLayout->setObjectName("gridLayout");
         label = new QLabel(ControlWidTXT);
         label->setObjectName("label");
 
         gridLayout->addWidget(label, 0, 0, 1, 1);
+
+        plainTextEdit = new QPlainTextEdit(ControlWidTXT);
+        plainTextEdit->setObjectName("plainTextEdit");
+
+        gridLayout->addWidget(plainTextEdit, 0, 1, 1, 1);
 
 
         retranslateUi(ControlWidTXT);
@@ -44,7 +51,8 @@ public:
     void retranslateUi(QWidget *ControlWidTXT)
     {
         ControlWidTXT->setWindowTitle(QCoreApplication::translate("ControlWidTXT", "Form", nullptr));
-        label->setText(QCoreApplication::translate("ControlWidTXT", "\346\265\213\350\257\225\346\226\207\346\234\254", nullptr));
+        label->setText(QCoreApplication::translate("ControlWidTXT", "\346\226\207\346\234\254\n"
+"\346\221\230\345\275\225", nullptr));
     } // retranslateUi
 
 };

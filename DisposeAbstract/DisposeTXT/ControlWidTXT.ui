@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>222</width>
-    <height>70</height>
+    <width>344</width>
+    <height>163</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,13 @@
    <item row="0" column="0">
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>测试文本</string>
+      <string>文本
+摘录</string>
      </property>
     </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QPlainTextEdit" name="plainTextEdit"/>
    </item>
   </layout>
  </widget>

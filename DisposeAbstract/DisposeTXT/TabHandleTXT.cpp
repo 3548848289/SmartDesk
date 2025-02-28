@@ -76,13 +76,19 @@ void TextTab::loadFromContent(const QByteArray &content)
     setText(text);
 }
 
-
-
 void TextTab::findNext(const QString &str, Qt::CaseSensitivity cs)
 {
-    if(textEdit->find(str,QTextDocument::FindWholeWords)){
+    QTextDocument::FindFlags findFlags = QTextDocument::FindWholeWords;
+
+    if (cs == Qt::CaseSensitive) {
+        findFlags |= QTextDocument::FindFlags(Qt::CaseSensitive);
+    } else {
+        findFlags |= QTextDocument::FindFlags(Qt::CaseInsensitive);
+    }
+
+    if (textEdit->find(str, findFlags)) {
         QPalette palette = textEdit->palette();
-        palette.setColor(QPalette::Highlight,palette.color(QPalette::Active,QPalette::Highlight));
+        palette.setColor(QPalette::Highlight, palette.color(QPalette::Active, QPalette::Highlight));
         textEdit->setPalette(palette);
     }
 }
@@ -128,47 +134,3 @@ void TextTab::clearHighlight()
 }
 
 
-
-// void TextTab::findAll(const QString &str, Qt::CaseSensitivity cs)
-// {
-//     QTextDocument *document = textEdit->document();
-//     bool found = false;
-//     QTextCursor highlightCursor(document);
-
-//     highlightCursor.beginEditBlock();  // 开始文本块编辑
-
-//     QTextCharFormat plainFormat = highlightCursor.charFormat();
-//     QTextCharFormat colorFormat = plainFormat;
-//     colorFormat.setForeground(Qt::red);  // 设置红色高亮
-
-//     QTextDocument::FindFlags options = QTextDocument::FindWholeWords;
-//     if (cs == Qt::CaseInsensitive) {
-//         options |= QTextDocument::FindCaseSensitively;  // 如果是区分大小写，添加 FindCaseSensitively
-//     }
-
-//     // 查找所有匹配项
-//     while (!highlightCursor.isNull() && !highlightCursor.atEnd()) {
-//         highlightCursor = document->find(str, highlightCursor, options);
-
-//         if (!highlightCursor.isNull()) {
-//             found = true;
-
-//             // 选中匹配的单词
-//             highlightCursor.movePosition(QTextCursor::StartOfWord, QTextCursor::KeepAnchor);
-//             highlightCursor.movePosition(QTextCursor::EndOfWord, QTextCursor::KeepAnchor);
-
-//             // 合并字符格式（避免覆盖原有语法高亮）
-//             highlightCursor.mergeCharFormat(colorFormat);  // 使用 mergeCharFormat
-
-//             // Debug输出确认
-//             qDebug() << "Highlighting: " << highlightCursor.selectedText();
-//         }
-//     }
-
-//     highlightCursor.endEditBlock();  // 结束文本块编辑
-
-//     if (!found) {
-//         QMessageBox::information(this, tr("Word Not Found"),
-//                                  tr("Sorry, the word cannot be found."));
-//     }
-// }

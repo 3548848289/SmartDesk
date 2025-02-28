@@ -4,12 +4,19 @@ D:/CxxProgram/SmartDesk/Setting/Setting.h
  mdp:D:/CxxProgram/SmartDesk/Setting/Setting.h
  mdp:D:/CxxProgram/SmartDesk/.build/Release/setting/mytxt_setting_autogen/moc_predefs.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QList
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QObject
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QRect
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QSize
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QSizeF
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QStandardPaths
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20functional.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20iterator.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20memory.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q20type_traits.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/q23utility.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qabstractitemmodel.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qalgorithms.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qanystringview.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qarraydata.h
@@ -35,10 +42,16 @@ D:/CxxProgram/SmartDesk/Setting/Setting.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcontainerinfo.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcontainertools_impl.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcontiguouscache.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcoreapplication.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcoreapplication_platform.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qcoreevent.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qdarwinhelpers.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qdatastream.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qdeadlinetimer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qdebug.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qelapsedtimer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qendian.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qeventloop.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qexceptionhandling.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qflags.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qfloat16.h
@@ -50,12 +63,15 @@ D:/CxxProgram/SmartDesk/Setting/Setting.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qglobalstatic.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qhash.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qhashfunctions.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qiodevice.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qiodevicebase.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qitemselectionmodel.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qiterable.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qiterator.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlatin1stringview.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qline.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlist.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlocale.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlogging.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmalloc.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmap.h
@@ -65,6 +81,7 @@ D:/CxxProgram/SmartDesk/Setting/Setting.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetatype.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qminmax.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qnamespace.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qnativeinterface.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qnumeric.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qobject.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qobject_impl.h
@@ -76,6 +93,7 @@ D:/CxxProgram/SmartDesk/Setting/Setting.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qprocessordetection.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qrect.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qrefcount.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qregularexpression.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qscopedpointer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qscopeguard.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qset.h
@@ -86,6 +104,7 @@ D:/CxxProgram/SmartDesk/Setting/Setting.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer_impl.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsize.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qspan.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstandardpaths.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstring.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringalgorithms.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringbuilder.h
@@ -127,26 +146,37 @@ D:/CxxProgram/SmartDesk/Setting/Setting.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qversiontagging.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qxptype_traits.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qyieldcpu.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/QCloseEvent
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/QTransform
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qaction.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qbitmap.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qbrush.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qcolor.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qcursor.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qevent.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qeventpoint.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qfont.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qfontinfo.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qfontmetrics.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qguiapplication.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qguiapplication_platform.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qicon.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qimage.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qinputdevice.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qinputmethod.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qkeysequence.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qpaintdevice.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qpalette.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qpen.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qpixelformat.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qpixmap.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qpointingdevice.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qpolygon.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qregion.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qrgb.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qrgba64.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qscreen.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qscreen_platform.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qtextcursor.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qtextdocument.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qtextformat.h
@@ -155,16 +185,32 @@ D:/CxxProgram/SmartDesk/Setting/Setting.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qtguiexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qtguiglobal.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qtransform.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qvalidator.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qvector2d.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qvectornd.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLineEdit
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QSlider
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTreeWidgetItem
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QWidget
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractitemview.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractscrollarea.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractslider.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractspinbox.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlineedit.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qrubberband.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qslider.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qstyle.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qstyleoption.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtabbar.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtabwidget.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtreeview.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtreewidget.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h
@@ -377,3 +423,5 @@ D:/CxxProgram/SmartDesk/Setting/Setting.h
  mdp:D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
 D:/CxxProgram/SmartDesk/Setting/Setting.cpp
  uic:ui_Setting.h
+D:/CxxProgram/SmartDesk/Setting/SettingManager.h
+D:/CxxProgram/SmartDesk/Setting/SettingManager.cpp
