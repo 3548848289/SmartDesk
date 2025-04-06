@@ -6,7 +6,7 @@ FileSystem/mytxt_filetag_autogen/timestamp: \
   D:/CxxProgram/SmartDesk/FileSystem/TagItemDelegate.cpp \
   D:/CxxProgram/SmartDesk/FileSystem/include/FileSystem.h \
   D:/CxxProgram/SmartDesk/FileSystem/include/TagItemDelegate.h \
-  D:/CxxProgram/SmartDesk/Setting/SettingManager.h \
+  D:/CxxProgram/SmartDesk/Setting/include/SettingManager.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/AddTag.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \

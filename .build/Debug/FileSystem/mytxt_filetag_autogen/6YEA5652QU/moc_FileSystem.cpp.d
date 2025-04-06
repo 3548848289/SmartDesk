@@ -2,7 +2,7 @@ D:/CxxProgram/SmartDesk/.build/debug/FileSystem/mytxt_filetag_autogen/6YEA5652QU
   D:/CxxProgram/SmartDesk/.build/debug/FileSystem/mytxt_filetag_autogen/moc_predefs.h \
   D:/CxxProgram/SmartDesk/FileBackup/include/FileBackupWid.h \
   D:/CxxProgram/SmartDesk/FileSystem/include/TagItemDelegate.h \
-  D:/CxxProgram/SmartDesk/Setting/SettingManager.h \
+  D:/CxxProgram/SmartDesk/Setting/include/SettingManager.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/AddTag.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \

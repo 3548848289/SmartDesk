@@ -414,7 +414,7 @@ D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/TabHandleTXT.h
  mdp:D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/TabHandleTXT.h
  mdp:D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeTXT/mytxt_txt_autogen/moc_predefs.h
  mdp:D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeTXT/ControlWidTXT.h
- mdp:D:/CxxProgram/SmartDesk/Setting/SettingManager.h
+ mdp:D:/CxxProgram/SmartDesk/Setting/include/SettingManager.h
  mdp:D:/CxxProgram/SmartDesk/main/include/TabAbstract.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QByteArray
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QFile

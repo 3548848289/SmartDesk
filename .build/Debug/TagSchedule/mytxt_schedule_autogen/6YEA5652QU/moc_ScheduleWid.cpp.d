@@ -1,6 +1,6 @@
 D:/CxxProgram/SmartDesk/.build/debug/TagSchedule/mytxt_schedule_autogen/6YEA5652QU/moc_ScheduleWid.cpp: D:/CxxProgram/SmartDesk/TagSchedule/include/ScheduleWid.h \
   D:/CxxProgram/SmartDesk/.build/debug/TagSchedule/mytxt_schedule_autogen/moc_predefs.h \
-  D:/CxxProgram/SmartDesk/Setting/SettingManager.h \
+  D:/CxxProgram/SmartDesk/Setting/include/SettingManager.h \
   D:/CxxProgram/SmartDesk/TagSchedule/LmsgNotify/notifymanager.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/TagDetail.h \
   D:/CxxProgram/SmartDesk/TagSchedule/include/TagList.h \

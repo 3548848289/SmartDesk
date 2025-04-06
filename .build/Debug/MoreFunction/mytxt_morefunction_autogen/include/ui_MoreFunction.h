@@ -10,6 +10,7 @@
 #define UI_MOREFUNCTION_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -33,6 +34,8 @@ public:
         if (MoreFunction->objectName().isEmpty())
             MoreFunction->setObjectName("MoreFunction");
         MoreFunction->resize(478, 329);
+        QIcon icon(QIcon::fromTheme(QIcon::ThemeIcon::HelpAbout));
+        MoreFunction->setWindowIcon(icon);
         label = new QLabel(MoreFunction);
         label->setObjectName("label");
         label->setGeometry(QRect(10, 70, 61, 31));
@@ -66,7 +69,7 @@ public:
 
     void retranslateUi(QWidget *MoreFunction)
     {
-        MoreFunction->setWindowTitle(QCoreApplication::translate("MoreFunction", "Form", nullptr));
+        MoreFunction->setWindowTitle(QCoreApplication::translate("MoreFunction", "\346\233\264\345\244\232\345\212\237\350\203\275", nullptr));
         label->setText(QCoreApplication::translate("MoreFunction", "github\345\234\260\345\235\200", nullptr));
         lineEdit->setText(QCoreApplication::translate("MoreFunction", "https://github.com/3548848289/SmartDesk", nullptr));
         label_2->setText(QCoreApplication::translate("MoreFunction", "\346\234\252\345\274\200\346\224\276\345\212\237\350\203\275", nullptr));

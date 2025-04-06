@@ -10,16 +10,11 @@ void MainWindow::initSmal()
     loginButton->setFixedSize(30, 30);
     loginButton->setStyleSheet("border: none; border-radius: 15px;");
     loginButton->setIcon(QIcon("://image/user.svg"));
-
     loginButton->setIconSize(loginButton->size());
+    // loginButton->hide(); // 不暂时隐藏
 
-    //
-    // 暂时隐藏
-    //
-    loginButton->hide();
     ui->menubar->setCornerWidget(loginButton, Qt::TopRightCorner);
     connect(loginButton, &QPushButton::clicked, this, &MainWindow::showUserInfoDialog);
-
 
     tabWidget = new QTabWidget(this);
     tabWidget->setTabsClosable(true);
@@ -28,6 +23,7 @@ void MainWindow::initSmal()
 
         on_actionclose_triggered();
     });
+    openFile("../help.txt");
 }
 
 void MainWindow::initFunc()
@@ -58,7 +54,22 @@ void MainWindow::initFunc()
 
     connect(widgetfunc, &WidgetFunctional::showWSchedule, this, [=] {
         ui->stackedWidget->setCurrentWidget(schedule_wid); });
-    connect(widgetfunc, &WidgetFunctional::sendEmailForm, this, &MainWindow::receiveSendEmailForm);
+
+
+    connect(widgetfunc, &WidgetFunctional::sendEmailForm, this, [this](SendEmail *form) {
+        int newIndex = tabWidget->addTab(form, QLatin1String("Email"));
+        form->show();
+        tabWidget->setCurrentIndex(newIndex);
+
+        ui->stackedWidget->setCurrentWidget(file_system);
+    });
+
+    connect(widgetfunc, &WidgetFunctional::showClipboard, this, [this](ClipboardView* clipboard) {
+        int newIndex = tabWidget->addTab(clipboard, QString("剪贴板"));
+        clipboard->show();
+        tabWidget->setCurrentIndex(newIndex);
+        ui->stackedWidget->setCurrentWidget(file_system);
+    });
 
     connect(widgetfunc, &WidgetFunctional::showDraw, this, [=] {
         QWidget *currentWidget = tabWidget->currentWidget();
@@ -75,14 +86,11 @@ void MainWindow::initFunc()
                 qDebug() << "用户取消打开图片操作";
         }
     });
-
-
-
-
 }
 
 void MainWindow::initSpli()
 {
+
     connect(widgetfunc, &WidgetFunctional::buttonVisibilityChanged,
             this, [this](int buttonIndex, bool isVisible) {
                 QAction *action = findChild<QAction*>(QString("Function%1").arg(buttonIndex));
@@ -97,6 +105,7 @@ void MainWindow::initSpli()
                     case 6: text = isVisible ? "关闭邮件服务" : "打开邮件服务"; break;
                     case 7: text = isVisible ? "关闭用户登录" : "打开用户登录"; break;
                     case 8: text = isVisible ? "关闭更多功能" : "打开更多功能"; break;
+                    case 9: text = isVisible ? "关闭剪切板" : "打开剪切板"; break;
                     default: return;
                     }
                     action->setText(text);
@@ -110,6 +119,13 @@ void MainWindow::initSpli()
     connect(ui->Function6, &QAction::triggered, this, [=]() { toggleButtonVisibility(6); });
     connect(ui->Function7, &QAction::triggered, this, [=]() { toggleButtonVisibility(7); });
     connect(ui->Function8, &QAction::triggered, this, [=]() { toggleButtonVisibility(8); });
+    connect(ui->Function8, &QAction::triggered, this, [=]() { toggleButtonVisibility(9); });
+
+    connect(ui->actionhelp, &QAction::triggered, this, [this]() {
+        openFile("../help.txt");
+    });
+
+
 
 
     QSplitter *horizontalSplitter = new QSplitter(Qt::Horizontal);
@@ -175,16 +191,6 @@ void MainWindow::showUserInfoDialog() {
     } else {
         QMessageBox::warning(this, "警告", "未登录");
     }
-}
-
-void MainWindow::receiveSendEmailForm(SendEmail *form)
-{
-    int newIndex = tabWidget->addTab(form, QLatin1String("Email"));
-    form->show();
-    tabWidget->setCurrentIndex(newIndex);
-
-    ui->stackedWidget->setCurrentWidget(file_system);
-
 }
 
 void MainWindow::on_actiontxt_file_triggered()
@@ -330,6 +336,12 @@ void MainWindow::on_actionclose_triggered()
             delete sendEmailTab;
             return;
         }
+        if (dynamic_cast<ClipboardView*>(widget)) {
+            ClipboardView* clipboard = qobject_cast<ClipboardView*>(widget);
+            tabWidget->removeTab(currentIndex);
+            delete clipboard;
+            return;
+        }
         TabAbstract *tab = qobject_cast<TabAbstract*>(widget);
         if (tab) {
             if (tab->confirmClose())
@@ -438,12 +450,12 @@ void MainWindow::on_actionfind_triggered()
 
 
 
-
-
 void MainWindow::toggleButtonVisibility(int buttonIndex)
 {
     widgetfunc->toggleButtonVisibility(buttonIndex);
 }
+
+
 
 
 

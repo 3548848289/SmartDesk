@@ -47,6 +47,9 @@ constexpr auto qt_meta_stringdata_CLASSWidgetFunctionalENDCLASS = QtMocHelpers::
     "SendEmail*",
     "form",
     "showDraw",
+    "showClipboard",
+    "ClipboardView*",
+    "clipboard",
     "buttonVisibilityChanged",
     "buttonIndex",
     "isVisible",
@@ -59,7 +62,8 @@ constexpr auto qt_meta_stringdata_CLASSWidgetFunctionalENDCLASS = QtMocHelpers::
     "on_pushButton_7_clicked",
     "on_pushButton_8_clicked",
     "handleLoginSuccess",
-    "username"
+    "username",
+    "on_pushButton_9_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -72,32 +76,34 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSWidgetFunctionalENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      18,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       7,       // signalCount
+       8,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  110,    2, 0x06,    1 /* Public */,
-       3,    0,  111,    2, 0x06,    2 /* Public */,
-       4,    0,  112,    2, 0x06,    3 /* Public */,
-       5,    0,  113,    2, 0x06,    4 /* Public */,
-       6,    1,  114,    2, 0x06,    5 /* Public */,
-       9,    0,  117,    2, 0x06,    7 /* Public */,
-      10,    2,  118,    2, 0x06,    8 /* Public */,
+       1,    0,  122,    2, 0x06,    1 /* Public */,
+       3,    0,  123,    2, 0x06,    2 /* Public */,
+       4,    0,  124,    2, 0x06,    3 /* Public */,
+       5,    0,  125,    2, 0x06,    4 /* Public */,
+       6,    1,  126,    2, 0x06,    5 /* Public */,
+       9,    0,  129,    2, 0x06,    7 /* Public */,
+      10,    1,  130,    2, 0x06,    8 /* Public */,
+      13,    2,  133,    2, 0x06,   10 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      13,    0,  123,    2, 0x08,   11 /* Private */,
-      14,    0,  124,    2, 0x08,   12 /* Private */,
-      15,    0,  125,    2, 0x08,   13 /* Private */,
-      16,    0,  126,    2, 0x08,   14 /* Private */,
-      17,    0,  127,    2, 0x08,   15 /* Private */,
-      18,    0,  128,    2, 0x08,   16 /* Private */,
-      19,    0,  129,    2, 0x08,   17 /* Private */,
-      20,    0,  130,    2, 0x08,   18 /* Private */,
-      21,    1,  131,    2, 0x08,   19 /* Private */,
+      16,    0,  138,    2, 0x08,   13 /* Private */,
+      17,    0,  139,    2, 0x08,   14 /* Private */,
+      18,    0,  140,    2, 0x08,   15 /* Private */,
+      19,    0,  141,    2, 0x08,   16 /* Private */,
+      20,    0,  142,    2, 0x08,   17 /* Private */,
+      21,    0,  143,    2, 0x08,   18 /* Private */,
+      22,    0,  144,    2, 0x08,   19 /* Private */,
+      23,    0,  145,    2, 0x08,   20 /* Private */,
+      24,    1,  146,    2, 0x08,   21 /* Private */,
+      26,    0,  149,    2, 0x08,   23 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -106,7 +112,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSWidgetFunctionalENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 7,    8,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int, QMetaType::Bool,   11,   12,
+    QMetaType::Void, 0x80000000 | 11,   12,
+    QMetaType::Void, QMetaType::Int, QMetaType::Bool,   14,   15,
 
  // slots: parameters
     QMetaType::Void,
@@ -117,7 +124,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSWidgetFunctionalENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   22,
+    QMetaType::Void, QMetaType::QString,   25,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -144,6 +152,9 @@ Q_CONSTINIT const QMetaObject WidgetFunctional::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<SendEmail *, std::false_type>,
         // method 'showDraw'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'showClipboard'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<ClipboardView *, std::false_type>,
         // method 'buttonVisibilityChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
@@ -166,7 +177,9 @@ Q_CONSTINIT const QMetaObject WidgetFunctional::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'handleLoginSuccess'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'on_pushButton_9_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -183,16 +196,18 @@ void WidgetFunctional::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         case 3: _t->showWSchedule(); break;
         case 4: _t->sendEmailForm((*reinterpret_cast< std::add_pointer_t<SendEmail*>>(_a[1]))); break;
         case 5: _t->showDraw(); break;
-        case 6: _t->buttonVisibilityChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2]))); break;
-        case 7: _t->on_pushButton_1_clicked(); break;
-        case 8: _t->on_pushButton_2_clicked(); break;
-        case 9: _t->on_pushButton_3_clicked(); break;
-        case 10: _t->on_pushButton_4_clicked(); break;
-        case 11: _t->on_pushButton_5_clicked(); break;
-        case 12: _t->on_pushButton_6_clicked(); break;
-        case 13: _t->on_pushButton_7_clicked(); break;
-        case 14: _t->on_pushButton_8_clicked(); break;
-        case 15: _t->handleLoginSuccess((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 6: _t->showClipboard((*reinterpret_cast< std::add_pointer_t<ClipboardView*>>(_a[1]))); break;
+        case 7: _t->buttonVisibilityChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2]))); break;
+        case 8: _t->on_pushButton_1_clicked(); break;
+        case 9: _t->on_pushButton_2_clicked(); break;
+        case 10: _t->on_pushButton_3_clicked(); break;
+        case 11: _t->on_pushButton_4_clicked(); break;
+        case 12: _t->on_pushButton_5_clicked(); break;
+        case 13: _t->on_pushButton_6_clicked(); break;
+        case 14: _t->on_pushButton_7_clicked(); break;
+        case 15: _t->on_pushButton_8_clicked(); break;
+        case 16: _t->handleLoginSuccess((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 17: _t->on_pushButton_9_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -203,6 +218,13 @@ void WidgetFunctional::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< SendEmail* >(); break;
+            }
+            break;
+        case 6:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< ClipboardView* >(); break;
             }
             break;
         }
@@ -251,9 +273,16 @@ void WidgetFunctional::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
             }
         }
         {
+            using _t = void (WidgetFunctional::*)(ClipboardView * );
+            if (_t _q_method = &WidgetFunctional::showClipboard; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 6;
+                return;
+            }
+        }
+        {
             using _t = void (WidgetFunctional::*)(int , bool );
             if (_t _q_method = &WidgetFunctional::buttonVisibilityChanged; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
-                *result = 6;
+                *result = 7;
                 return;
             }
         }
@@ -279,13 +308,13 @@ int WidgetFunctional::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 18;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 16)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 18;
     }
     return _id;
 }
@@ -328,9 +357,16 @@ void WidgetFunctional::showDraw()
 }
 
 // SIGNAL 6
+void WidgetFunctional::showClipboard(ClipboardView * _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 6, _a);
+}
+
+// SIGNAL 7
 void WidgetFunctional::buttonVisibilityChanged(int _t1, bool _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
-    QMetaObject::activate(this, &staticMetaObject, 6, _a);
+    QMetaObject::activate(this, &staticMetaObject, 7, _a);
 }
 QT_WARNING_POP

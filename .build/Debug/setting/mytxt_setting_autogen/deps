@@ -1,10 +1,12 @@
 mytxt_setting_autogen/timestamp: \
 	D:/CxxProgram/SmartDesk/.build/debug/setting/mytxt_setting_autogen/moc_predefs.h \
+	D:/CxxProgram/SmartDesk/Setting/AppHelp.cpp \
 	D:/CxxProgram/SmartDesk/Setting/CMakeLists.txt \
 	D:/CxxProgram/SmartDesk/Setting/Setting.cpp \
-	D:/CxxProgram/SmartDesk/Setting/Setting.h \
 	D:/CxxProgram/SmartDesk/Setting/SettingManager.cpp \
-	D:/CxxProgram/SmartDesk/Setting/SettingManager.h \
+	D:/CxxProgram/SmartDesk/Setting/include/AppHelp.h \
+	D:/CxxProgram/SmartDesk/Setting/include/Setting.h \
+	D:/CxxProgram/SmartDesk/Setting/include/SettingManager.h \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QDebug \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QList \
 	D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
@@ -170,6 +172,7 @@ mytxt_setting_autogen/timestamp: \
 	D:/QT6/6.8.0/mingw_64/include/QtGui/qpaintdevice.h \
 	D:/QT6/6.8.0/mingw_64/include/QtGui/qpalette.h \
 	D:/QT6/6.8.0/mingw_64/include/QtGui/qpen.h \
+	D:/QT6/6.8.0/mingw_64/include/QtGui/qpicture.h \
 	D:/QT6/6.8.0/mingw_64/include/QtGui/qpixelformat.h \
 	D:/QT6/6.8.0/mingw_64/include/QtGui/qpixmap.h \
 	D:/QT6/6.8.0/mingw_64/include/QtGui/qpointingdevice.h \
@@ -192,6 +195,7 @@ mytxt_setting_autogen/timestamp: \
 	D:/QT6/6.8.0/mingw_64/include/QtGui/qvectornd.h \
 	D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
 	D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLineEdit \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QSlider \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/QTreeWidgetItem \
@@ -202,6 +206,7 @@ mytxt_setting_autogen/timestamp: \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractslider.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qframe.h \
+	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlabel.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlineedit.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qrubberband.h \
 	D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \
@@ -423,5 +428,6 @@ mytxt_setting_autogen/timestamp: \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	D:/QT6/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-	D:/CxxProgram/SmartDesk/Setting/Setting.ui \
+	D:/CxxProgram/SmartDesk/Setting/ui/AppHelp.ui \
+	D:/CxxProgram/SmartDesk/Setting/ui/Setting.ui \
 	D:/QT6/Tools/CMake_64/bin/cmake.exe

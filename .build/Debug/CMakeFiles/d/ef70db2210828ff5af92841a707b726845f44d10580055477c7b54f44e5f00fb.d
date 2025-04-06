@@ -1,6 +1,6 @@
 TagSchedule/mytxt_schedule_autogen/timestamp: \
   TagSchedule/mytxt_schedule_autogen/moc_predefs.h \
-  D:/CxxProgram/SmartDesk/Setting/SettingManager.h \
+  D:/CxxProgram/SmartDesk/Setting/include/SettingManager.h \
   D:/CxxProgram/SmartDesk/TagSchedule/AddTag.cpp \
   D:/CxxProgram/SmartDesk/TagSchedule/CMakeLists.txt \
   D:/CxxProgram/SmartDesk/TagSchedule/LmsgNotify/arrangedwnd.cpp \

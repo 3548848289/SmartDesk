@@ -35,7 +35,6 @@ public:
     QAction *actiontxt_file;
     QAction *actionscv_file;
     QAction *actionshe;
-    QAction *actiontest;
     QAction *actionZ;
     QAction *actionfind;
     QAction *actionY;
@@ -51,6 +50,7 @@ public:
     QAction *Function6;
     QAction *Function7;
     QAction *Function8;
+    QAction *actionhelp;
     QWidget *centralwidget;
     QGridLayout *gridLayout_3;
     QVBoxLayout *verticalLayout;
@@ -122,16 +122,12 @@ public:
         QIcon icon6;
         icon6.addFile(QString::fromUtf8(":/png/Settings.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         actionshe->setIcon(icon6);
-        actiontest = new QAction(MainWindow);
-        actiontest->setObjectName("actiontest");
-        QIcon icon7(QIcon::fromTheme(QIcon::ThemeIcon::UserAvailable));
-        actiontest->setIcon(icon7);
         actionZ = new QAction(MainWindow);
         actionZ->setObjectName("actionZ");
         actionfind = new QAction(MainWindow);
         actionfind->setObjectName("actionfind");
-        QIcon icon8(QIcon::fromTheme(QIcon::ThemeIcon::EditFind));
-        actionfind->setIcon(icon8);
+        QIcon icon7(QIcon::fromTheme(QIcon::ThemeIcon::EditFind));
+        actionfind->setIcon(icon7);
         actionY = new QAction(MainWindow);
         actionY->setObjectName("actionY");
         actionX = new QAction(MainWindow);
@@ -158,6 +154,10 @@ public:
         Function7->setObjectName("Function7");
         Function8 = new QAction(MainWindow);
         Function8->setObjectName("Function8");
+        actionhelp = new QAction(MainWindow);
+        actionhelp->setObjectName("actionhelp");
+        QIcon icon8(QIcon::fromTheme(QIcon::ThemeIcon::HelpAbout));
+        actionhelp->setIcon(icon8);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setStyleSheet(QString::fromUtf8(""));
@@ -236,8 +236,8 @@ public:
         menuaction->addAction(actionV);
         menuaction->addAction(actionA);
         menu->addAction(actionshe);
+        menu->addAction(actionhelp);
         menu->addAction(actionfind);
-        menu->addAction(actiontest);
         menu_2->addAction(menuFuction->menuAction());
         menuFuction->addAction(Function1);
         menuFuction->addAction(Function2);
@@ -284,7 +284,6 @@ public:
 #if QT_CONFIG(shortcut)
         actionshe->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+,", nullptr));
 #endif // QT_CONFIG(shortcut)
-        actiontest->setText(QCoreApplication::translate("MainWindow", "\346\265\213\350\257\225", nullptr));
         actionZ->setText(QCoreApplication::translate("MainWindow", "\346\222\244\351\224\200", nullptr));
 #if QT_CONFIG(shortcut)
         actionZ->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+Z", nullptr));
@@ -344,6 +343,10 @@ public:
         Function8->setText(QCoreApplication::translate("MainWindow", "\345\205\263\351\227\255\346\233\264\345\244\232\345\212\237\350\203\275", nullptr));
 #if QT_CONFIG(tooltip)
         Function8->setToolTip(QCoreApplication::translate("MainWindow", "\345\205\263\351\227\255\346\233\264\345\244\232\345\212\237\350\203\275", nullptr));
+#endif // QT_CONFIG(tooltip)
+        actionhelp->setText(QCoreApplication::translate("MainWindow", "\345\270\256\345\212\251", nullptr));
+#if QT_CONFIG(tooltip)
+        actionhelp->setToolTip(QCoreApplication::translate("MainWindow", "\345\270\256\345\212\251", nullptr));
 #endif // QT_CONFIG(tooltip)
         label->setText(QCoreApplication::translate("MainWindow", "\345\275\223\345\211\215\347\225\214\351\235\242", nullptr));
         menufile->setTitle(QCoreApplication::translate("MainWindow", "\346\226\207\344\273\266", nullptr));

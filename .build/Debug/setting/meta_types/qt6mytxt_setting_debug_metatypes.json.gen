@@ -2,6 +2,24 @@
     {
         "classes": [
             {
+                "className": "AppHelp",
+                "lineNumber": 10,
+                "object": true,
+                "qualifiedClassName": "AppHelp",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "AppHelp.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
                 "className": "Setting",
                 "lineNumber": 17,
                 "object": true,

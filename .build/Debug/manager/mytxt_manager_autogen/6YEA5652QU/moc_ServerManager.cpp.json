@@ -41,9 +41,33 @@
                     "index": 3,
                     "name": "onFilesListUpdated",
                     "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileNames",
+                            "type": "QStringList"
+                        }
+                    ],
+                    "index": 4,
+                    "name": "fileListReady",
+                    "returnType": "void"
                 }
             ],
             "slots": [
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "reply",
+                            "type": "QPointer<QNetworkReply>"
+                        }
+                    ],
+                    "index": 5,
+                    "name": "oncommitFin",
+                    "returnType": "void"
+                },
                 {
                     "access": "private",
                     "arguments": [
@@ -56,8 +80,8 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 4,
-                    "name": "onDownloadFinished",
+                    "index": 6,
+                    "name": "ondownloadFin",
                     "returnType": "void"
                 },
                 {
@@ -65,11 +89,11 @@
                     "arguments": [
                         {
                             "name": "reply",
-                            "type": "QPointer<QNetworkReply>"
+                            "type": "QNetworkReply*"
                         }
                     ],
-                    "index": 5,
-                    "name": "onUploadFinished",
+                    "index": 7,
+                    "name": "onhistoryFin",
                     "returnType": "void"
                 }
             ],
