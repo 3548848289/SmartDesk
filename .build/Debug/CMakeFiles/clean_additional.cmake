@@ -5,6 +5,9 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "Debug")
   file(REMOVE_RECURSE
   "CMakeFiles\\SmartDesk_autogen.dir\\AutogenUsed.txt"
   "CMakeFiles\\SmartDesk_autogen.dir\\ParseCache.txt"
+  "ClipBoard\\CMakeFiles\\mytxt_clipboard_autogen.dir\\AutogenUsed.txt"
+  "ClipBoard\\CMakeFiles\\mytxt_clipboard_autogen.dir\\ParseCache.txt"
+  "ClipBoard\\mytxt_clipboard_autogen"
   "DisposeAbstract\\DisposeCSV\\CMakeFiles\\mytxt_csv_autogen.dir\\AutogenUsed.txt"
   "DisposeAbstract\\DisposeCSV\\CMakeFiles\\mytxt_csv_autogen.dir\\ParseCache.txt"
   "DisposeAbstract\\DisposeCSV\\mytxt_csv_autogen"

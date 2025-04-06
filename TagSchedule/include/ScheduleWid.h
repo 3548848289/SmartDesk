@@ -14,7 +14,7 @@
 #include <QMessageBox>
 
 #include "TagList.h"
-#include "../../Setting/SettingManager.h"
+#include "../../Setting/include/SettingManager.h"
 #include "../LmsgNotify/notifymanager.h"
 // #include "Notify.h"
 

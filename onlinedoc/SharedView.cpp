@@ -94,7 +94,7 @@ void SharedView::on_sendmsgEdit_clicked()
 void SharedView::on_linkserverBtn_clicked()
 {
 
-    QString serverIp = "192.168.188.236";
+    QString serverIp = "192.168.5.75";
     QString portString = "9200";
     bool ok;
     quint16 serverPort = portString.toUShort(&ok);
@@ -140,28 +140,35 @@ void SharedView::on_passwdEdit_editingFinished()
         return;
     }
 
-    QStringList files = dbservice.dbOnline().getSharedFilesByShareToken(shareToken);
+    // QStringList files = dbservice.dbOnline().getSharedFilesByShareToken(shareToken);
+    // ServerManager::instance()->getSharedFilesByShareToken(shareToken);
+    // 发起请求
+    ServerManager::instance()->getSharedFile(shareToken);
 
-    if (!files.isEmpty()) {
-        ui->listWidget->clear();  // 清空现有的列表项
-
-        for (const QString &file : files) {
-            QStringList fileInfo = file.split(" ");
-            if (fileInfo.size() >= 1) {
-                ui->listWidget->addItem(fileInfo[0]);  // 添加文件名到列表
+    // 接收结果
+    connect(ServerManager::instance(), &ServerManager::historyReceived, this, [=](const QStringList& files){
+        qDebug() << "收到共享文件列表：" << files;
+        if (!files.isEmpty()) {
+            ui->listWidget->clear();
+            for (const QString &file : files) {
+                QStringList fileInfo = file.split(" ");
+                if (fileInfo.size() >= 1)
+                    ui->listWidget->addItem(fileInfo[0]);
             }
         }
-    } else {
-        QMessageBox::warning(this, tr("警告"), tr("未找到对应的共享文件！"));
-    }
+        else
+            QMessageBox::warning(this, tr("警告"), tr("未找到对应的共享文件！"));
+    });
+
+
 }
 
 
 void SharedView::on_listWidget_itemClicked(QListWidgetItem *item)
 {
     on_linkserverBtn_clicked();
-    int row = ui->listWidget->row(item);  // 获取当前项的行号
-    QString filePath = item->text();  // 获取项的文本内容
+    int row = ui->listWidget->row(item);
+    QString filePath = item->text();
     qDebug() << "Selected file path: " << filePath;
 
     QString jsonString = myJson::constructJson(localIp, "read", -1, -1, filePath);
@@ -176,21 +183,19 @@ void SharedView::on_listWidget_itemClicked(QListWidgetItem *item)
 void SharedView::on_buildBtn_clicked()
 {
     QString filePath = QFileDialog::getOpenFileName(this, tr("选择文件"), "", tr("All Files (*)"));
-    if (filePath.isEmpty()) {
-        QMessageBox::warning(this, tr("警告"), tr("未选择任何文件！"));
+    if (filePath.isEmpty())
         return;
-    }
 
     QString fileName = QFileInfo(filePath).fileName();
     ui->readfileEdit_2->setText(filePath);
 
-    QString shareToken = ui->passwdEdit->text();
+    QString shareToken = ui->createEdit->text();
     if (shareToken.isEmpty()) {
         QMessageBox::warning(this, tr("警告"), tr("请输入共享口令！"));
         return;
     }
 
-    if (serverManager->commitFile(filePath))
+    if (ServerManager::instance()->setSharedFile(filePath, shareToken))
         QMessageBox::information(this, tr("成功"), tr("文件上传成功，口令为：%1").arg(shareToken));
     else
         QMessageBox::warning(this, tr("警告"), tr("文件上传失败！"));

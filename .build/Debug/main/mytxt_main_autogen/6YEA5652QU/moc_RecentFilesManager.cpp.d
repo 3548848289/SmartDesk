@@ -1,6 +1,6 @@
 D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/6YEA5652QU/moc_RecentFilesManager.cpp: D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h \
   D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/moc_predefs.h \
-  D:/CxxProgram/SmartDesk/Setting/SettingManager.h \
+  D:/CxxProgram/SmartDesk/Setting/include/SettingManager.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QObject \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings \
   D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList \

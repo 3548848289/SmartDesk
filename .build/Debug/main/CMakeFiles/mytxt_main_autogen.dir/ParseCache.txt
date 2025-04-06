@@ -1560,7 +1560,7 @@ D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/main/include/RecentFilesManager.h
  mdp:D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/moc_predefs.h
- mdp:D:/CxxProgram/SmartDesk/Setting/SettingManager.h
+ mdp:D:/CxxProgram/SmartDesk/Setting/include/SettingManager.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QObject
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QSettings
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/QStringList
@@ -1928,6 +1928,7 @@ D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h
  mdp:D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/moc_predefs.h
+ mdp:D:/CxxProgram/SmartDesk/ClipBoard/ClipboardView.h
  mdp:D:/CxxProgram/SmartDesk/EmailService/SendEmail.h
  mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/SimpleMail
  mdp:D:/CxxProgram/SmartDesk/EmailService/simple-mail/src/emailaddress.h
@@ -2132,6 +2133,7 @@ D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qversiontagging.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qxptype_traits.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qyieldcpu.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/QClipboard
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/QImage
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/QMouseEvent
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/QPixmap
@@ -2139,6 +2141,7 @@ D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qaction.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qbitmap.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qbrush.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qclipboard.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qcolor.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qcursor.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qevent.h
@@ -2217,6 +2220,7 @@ D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QHBoxLayout
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLabel
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QLineEdit
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMenu
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QPushButton
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QVBoxLayout
@@ -2238,6 +2242,7 @@ D:/CxxProgram/SmartDesk/main/include/WidgetFunctional.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayout.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlayoutitem.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qlineedit.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmenu.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qpushbutton.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qrubberband.h
@@ -3464,6 +3469,7 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mmc:Q_OBJECT
  mdp:D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/CxxProgram/SmartDesk/.build/debug/main/mytxt_main_autogen/moc_predefs.h
+ mdp:D:/CxxProgram/SmartDesk/ClipBoard/ClipboardView.h
  mdp:D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/ControlWidCSV.h
  mdp:D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeCSV/TabHandleCSV.h
  mdp:D:/CxxProgram/SmartDesk/DisposeAbstract/DisposeIMG/include/ControlFrame.h
@@ -3491,10 +3497,11 @@ D:/CxxProgram/SmartDesk/main/include/mainwindow.h
  mdp:D:/CxxProgram/SmartDesk/FileSystem/include/FileSystem.h
  mdp:D:/CxxProgram/SmartDesk/FileSystem/include/TagItemDelegate.h
  mdp:D:/CxxProgram/SmartDesk/MoreFunction/MoreFunction.h
+ mdp:D:/CxxProgram/SmartDesk/OnlineDoc/include/DownloadView.h
  mdp:D:/CxxProgram/SmartDesk/OnlineDoc/include/SharedView.h
  mdp:D:/CxxProgram/SmartDesk/OnlineDoc/include/WOnlineDoc.h
- mdp:D:/CxxProgram/SmartDesk/Setting/Setting.h
- mdp:D:/CxxProgram/SmartDesk/Setting/SettingManager.h
+ mdp:D:/CxxProgram/SmartDesk/Setting/include/Setting.h
+ mdp:D:/CxxProgram/SmartDesk/Setting/include/SettingManager.h
  mdp:D:/CxxProgram/SmartDesk/TagSchedule/LmsgNotify/notifymanager.h
  mdp:D:/CxxProgram/SmartDesk/TagSchedule/include/AddTag.h
  mdp:D:/CxxProgram/SmartDesk/TagSchedule/include/ScheduleWid.h

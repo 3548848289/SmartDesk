@@ -55,7 +55,7 @@ void FileBackupView::on_fileListComboBox_currentIndexChanged(int index)
     if (index != -1) {
 
         if (ui->fileListComboBox->itemData(index) == "missing") {
-            QMessageBox::warning(this, "文件缺失", "您选择的文件已经缺失，请选择其他文件。");
+                QMessageBox::warning(this, "文件缺失", "您选择的文件已经缺失，请选择其他文件。");
         }
         choosed_file = ui->fileListComboBox->currentText();
         ui->fileListComboBox->setToolTip(choosed_file);
@@ -150,6 +150,7 @@ void FileBackupView::on_backupList_customContextMenuRequested(const QPoint &pos)
         QAction *actionEdit = contextMenu.addAction("预览");
         QAction *actionRestore = contextMenu.addAction("还原");
         QAction *actionReplace = contextMenu.addAction("更换路径");
+        QAction *actionCommit = contextMenu.addAction("上传云端");
         QAction *actionDelete = contextMenu.addAction("删除记录");
 
         if (isMissingFile) {
@@ -172,6 +173,17 @@ void FileBackupView::on_backupList_customContextMenuRequested(const QPoint &pos)
                 item->setData(Qt::UserRole, newFilePath);
                 item->setText(QFileInfo(newFilePath).fileName());
             }
+        });
+
+        connect(actionCommit, &QAction::triggered, this, [this, item, file]() {
+            // if(serverManager->commitFile(file)) {
+            //     QMessageBox::information(this, tr("成功"), tr("文件上传成功"));
+            // }
+            // if(serverManager->downloadFile(file)) {
+            //     QMessageBox::information(this, tr("成功"), tr("文件下载成功"));
+            // }
+            serverManager->getHistory();
+
         });
 
         connect(actionDelete, &QAction::triggered, this, [this, item, file]() {

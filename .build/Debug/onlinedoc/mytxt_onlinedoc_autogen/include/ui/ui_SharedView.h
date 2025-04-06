@@ -41,6 +41,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QPushButton *buildBtn;
     QLineEdit *readfileEdit_2;
+    QLineEdit *createEdit;
 
     void setupUi(QWidget *SharedView)
     {
@@ -152,6 +153,14 @@ public:
 
         horizontalLayout->addWidget(readfileEdit_2);
 
+        createEdit = new QLineEdit(SharedView);
+        createEdit->setObjectName("createEdit");
+
+        horizontalLayout->addWidget(createEdit);
+
+        horizontalLayout->setStretch(0, 1);
+        horizontalLayout->setStretch(1, 3);
+        horizontalLayout->setStretch(2, 1);
 
         gridLayout->addLayout(horizontalLayout, 4, 0, 1, 1);
 
@@ -197,6 +206,8 @@ public:
         buildBtn->setText(QCoreApplication::translate("SharedView", "\345\277\253\351\200\237\345\273\272\347\253\213\n"
 "\345\205\261\344\272\253\346\226\207\344\273\266", nullptr));
         readfileEdit_2->setText(QString());
+        createEdit->setInputMask(QString());
+        createEdit->setPlaceholderText(QCoreApplication::translate("SharedView", "\345\217\243\344\273\244", nullptr));
     } // retranslateUi
 
 };

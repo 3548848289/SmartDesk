@@ -10,7 +10,7 @@
 #include "TagItemDelegate.h"
 #include "../../manager/include/dbService.h"
 #include "../../manager/include/ServerManager.h"
-#include "../../Setting/SettingManager.h"
+#include "../../Setting/include/SettingManager.h"
 
 namespace Ui {
 class FileSystem;

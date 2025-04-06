@@ -1,5 +1,5 @@
-#include "Setting.h"
-#include "ui_Setting.h"
+#include "include/Setting.h"
+#include "ui/ui_Setting.h"
 #include <QFileDialog>
 #include <QCoreApplication>
 #include <QSettings>

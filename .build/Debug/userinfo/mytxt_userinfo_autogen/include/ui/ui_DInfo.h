@@ -122,7 +122,7 @@ public:
 
     void retranslateUi(QDialog *DInfo)
     {
-        DInfo->setWindowTitle(QCoreApplication::translate("DInfo", "Dialog", nullptr));
+        DInfo->setWindowTitle(QCoreApplication::translate("DInfo", "\347\224\250\346\210\267\344\277\241\346\201\257", nullptr));
         avatarLabel->setText(QCoreApplication::translate("DInfo", "\345\244\264\345\203\217", nullptr));
         genderCombo->setItemText(0, QCoreApplication::translate("DInfo", "Male", nullptr));
         genderCombo->setItemText(1, QCoreApplication::translate("DInfo", "Female", nullptr));

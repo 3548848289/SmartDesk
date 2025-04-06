@@ -78,9 +78,8 @@ void FlaskInfo::handleResponse(QNetworkReply *reply, const QString &action)
     }
 
     QJsonObject jsonRes = jsonDoc.object();
-    qDebug() << "Response JSON:" << jsonRes;
+    // qDebug() << "Response JSON:" << jsonRes;
 
-    // 根据不同的动作处理
     if (action == "login") {
         H_LoginAct(jsonRes);
     } else if (action == "register") {
@@ -109,16 +108,17 @@ void FlaskInfo::H_LoginAct(const QJsonObject &jsonRes)
 
 void FlaskInfo::H_RegisterAct(const QJsonObject &jsonRes)
 {
-    emit s_registerRec(jsonRes); // 改为简化后的信号名称
+    emit s_registerRec(jsonRes);
 }
 
 void FlaskInfo::H_UpdateAct(const QJsonObject &jsonRes)
 {
-    if (jsonRes.contains("success") && jsonRes["success"].toBool()) {
+    if (jsonRes.contains("status") && jsonRes["status"].toString() == "success") {
         emit s_updateRec(jsonRes);
     } else {
         emit errorOccurred("Update failed.");
     }
+
 }
 
 void FlaskInfo::H_LoadAct(const QJsonObject &jsonRes)

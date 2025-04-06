@@ -25,12 +25,13 @@
 #include "../../DisposeAbstract/DisposeIMG/include/ControlFrame.h"
 
 #include "../../OnlineDoc/include/WOnlineDoc.h"
-#include "../../Setting/Setting.h"
+#include "../../Setting/include/Setting.h"
 #include "../../TagSchedule/include/ScheduleWid.h"
 #include "../../FileSystem/include/FileSystem.h"
 #include "../../FileBackup/include/FileBackupView.h"
 #include "../../manager/include/dbService.h"
 #include "../../EmailService/SendEmail.h"
+#include "../../ClipBoard/ClipboardView.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -64,9 +65,9 @@ private slots:
     void openFile(const QString &filePath);
     void on_actionshe_triggered();
     void showUserInfoDialog();
-    void receiveSendEmailForm(SendEmail *form);
 
     void on_actionfind_triggered();
+
 
 private:
 

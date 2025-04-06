@@ -191,7 +191,7 @@
         "classes": [
             {
                 "className": "WidgetFunctional",
-                "lineNumber": 25,
+                "lineNumber": 26,
                 "object": true,
                 "qualifiedClassName": "WidgetFunctional",
                 "signals": [
@@ -241,6 +241,18 @@
                         "access": "public",
                         "arguments": [
                             {
+                                "name": "clipboard",
+                                "type": "ClipboardView*"
+                            }
+                        ],
+                        "index": 6,
+                        "name": "showClipboard",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
                                 "name": "buttonIndex",
                                 "type": "int"
                             },
@@ -249,7 +261,7 @@
                                 "type": "bool"
                             }
                         ],
-                        "index": 6,
+                        "index": 7,
                         "name": "buttonVisibilityChanged",
                         "returnType": "void"
                     }
@@ -257,49 +269,49 @@
                 "slots": [
                     {
                         "access": "private",
-                        "index": 7,
+                        "index": 8,
                         "name": "on_pushButton_1_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "index": 8,
+                        "index": 9,
                         "name": "on_pushButton_2_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "index": 9,
+                        "index": 10,
                         "name": "on_pushButton_3_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "index": 10,
+                        "index": 11,
                         "name": "on_pushButton_4_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "index": 11,
+                        "index": 12,
                         "name": "on_pushButton_5_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "index": 12,
+                        "index": 13,
                         "name": "on_pushButton_6_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "index": 13,
+                        "index": 14,
                         "name": "on_pushButton_7_clicked",
                         "returnType": "void"
                     },
                     {
                         "access": "private",
-                        "index": 14,
+                        "index": 15,
                         "name": "on_pushButton_8_clicked",
                         "returnType": "void"
                     },
@@ -311,8 +323,14 @@
                                 "type": "QString"
                             }
                         ],
-                        "index": 15,
+                        "index": 16,
                         "name": "handleLoginSuccess",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 17,
+                        "name": "on_pushButton_9_clicked",
                         "returnType": "void"
                     }
                 ],
@@ -331,7 +349,7 @@
         "classes": [
             {
                 "className": "MainWindow",
-                "lineNumber": 39,
+                "lineNumber": 40,
                 "object": true,
                 "qualifiedClassName": "MainWindow",
                 "signals": [
@@ -439,19 +457,7 @@
                     },
                     {
                         "access": "private",
-                        "arguments": [
-                            {
-                                "name": "form",
-                                "type": "SendEmail*"
-                            }
-                        ],
                         "index": 13,
-                        "name": "receiveSendEmailForm",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
-                        "index": 14,
                         "name": "on_actionfind_triggered",
                         "returnType": "void"
                     }

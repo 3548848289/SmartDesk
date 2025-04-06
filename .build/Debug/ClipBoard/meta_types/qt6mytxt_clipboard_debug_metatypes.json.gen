@@ -1,0 +1,76 @@
+[
+    {
+        "classes": [
+            {
+                "className": "ClipboardView",
+                "lineNumber": 18,
+                "object": true,
+                "qualifiedClassName": "ClipboardView",
+                "slots": [
+                    {
+                        "access": "private",
+                        "index": 0,
+                        "name": "onClipboardChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "item",
+                                "type": "QListWidgetItem*"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "onItemDoubleClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 2,
+                        "name": "onClearButtonClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 3,
+                        "name": "onSaveButtonClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "pos",
+                                "type": "QPoint"
+                            }
+                        ],
+                        "index": 4,
+                        "name": "showContextMenu",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 5,
+                        "name": "copyItem",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 6,
+                        "name": "deleteItem",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "ClipboardView.h",
+        "outputRevision": 68
+    }
+]

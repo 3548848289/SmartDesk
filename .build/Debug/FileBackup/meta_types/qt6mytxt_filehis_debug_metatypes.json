@@ -100,6 +100,12 @@
                         "index": 0,
                         "name": "on_save_clicked",
                         "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 1,
+                        "name": "on_canle_clicked",
+                        "returnType": "void"
                     }
                 ],
                 "superClasses": [

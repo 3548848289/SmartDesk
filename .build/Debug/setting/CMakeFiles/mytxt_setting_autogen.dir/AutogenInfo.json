@@ -11,15 +11,21 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/CxxProgram/SmartDesk/Setting/Setting.h",
+			"D:/CxxProgram/SmartDesk/Setting/include/AppHelp.h",
 			"MU",
-			"EWIEGA46WW/moc_Setting.cpp",
+			"6YEA5652QU/moc_AppHelp.cpp",
 			null
 		],
 		[
-			"D:/CxxProgram/SmartDesk/Setting/SettingManager.h",
+			"D:/CxxProgram/SmartDesk/Setting/include/Setting.h",
 			"MU",
-			"EWIEGA46WW/moc_SettingManager.cpp",
+			"6YEA5652QU/moc_Setting.cpp",
+			null
+		],
+		[
+			"D:/CxxProgram/SmartDesk/Setting/include/SettingManager.h",
+			"MU",
+			"6YEA5652QU/moc_SettingManager.cpp",
 			null
 		]
 	],
@@ -93,6 +99,7 @@
 	"SETTINGS_FILE" : "D:/CxxProgram/SmartDesk/.build/debug/setting/CMakeFiles/mytxt_setting_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "D:/CxxProgram/SmartDesk/Setting/AppHelp.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/Setting/Setting.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/Setting/SettingManager.cpp", "MU", null ]
 	],

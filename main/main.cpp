@@ -7,7 +7,7 @@
 #include <QIcon>
 #include <QFont>
 #include "mainwindow.h"
-#include "../../Setting/SettingManager.h"
+#include "../../Setting/include/SettingManager.h"
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);

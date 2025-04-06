@@ -10,7 +10,7 @@
 #include <QSettings>
 #include <QSplitter>
 #include "ControlWidTXT.h"
-#include "../../Setting/SettingManager.h"
+#include "../../Setting/include/SettingManager.h"
 
 class TextTab : public TabAbstract
 {

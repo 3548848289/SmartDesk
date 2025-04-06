@@ -134,7 +134,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </layout>
    </item>
    <item row="4" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,3,1">
      <item>
       <widget class="QPushButton" name="buildBtn">
        <property name="text">
@@ -147,6 +147,16 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <widget class="QLineEdit" name="readfileEdit_2">
        <property name="text">
         <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="createEdit">
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>口令</string>
        </property>
       </widget>
      </item>

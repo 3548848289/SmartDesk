@@ -16,6 +16,7 @@
 #include "../../userinfo/include/DInfo.h"
 #include "../../EmailService/SendEmail.h"
 #include "../../MoreFunction/MoreFunction.h"
+#include "../../ClipBoard/ClipboardView.h"
 
 
 namespace Ui {
@@ -40,6 +41,7 @@ signals:
     void showWSchedule();
     void sendEmailForm(SendEmail *form);
     void showDraw();
+    void showClipboard(ClipboardView* clipboard);
     void buttonVisibilityChanged(int buttonIndex, bool isVisible);
 
 private slots:
@@ -53,6 +55,8 @@ private slots:
     void on_pushButton_8_clicked();
     void handleLoginSuccess(const QString& username);
 
+    void on_pushButton_9_clicked();
+
 private:
     QButtonGroup* btnGroup;
     QHBoxLayout* btnLayout;
@@ -60,6 +64,8 @@ private:
     DLogin * dlogin;
     DInfo *dinfo;
     MoreFunction * more_function;
+    ClipboardView* clipboard;
+
     Ui::WidgetFunctional *ui;
 };
 

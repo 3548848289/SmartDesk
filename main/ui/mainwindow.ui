@@ -123,6 +123,7 @@
      <string>工具</string>
     </property>
     <addaction name="actionshe"/>
+    <addaction name="actionhelp"/>
     <addaction name="actionfind"/>
    </widget>
    <widget class="QMenu" name="menu_2">
@@ -352,6 +353,17 @@
    </property>
    <property name="toolTip">
     <string>关闭更多功能</string>
+   </property>
+  </action>
+  <action name="actionhelp">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::HelpAbout"/>
+   </property>
+   <property name="text">
+    <string>帮助</string>
+   </property>
+   <property name="toolTip">
+    <string>帮助</string>
    </property>
   </action>
  </widget>

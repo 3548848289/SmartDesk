@@ -73,14 +73,12 @@ void DInfo::loadUserInfo(const QJsonObject &userInfo) {
 
 void DInfo::onUserInfoUpdated(const QJsonObject &response) {
     if (response.isEmpty()) {
-        QMessageBox::warning(this, "Error", "No data received from the server.");
+        QMessageBox::warning(this, "错误", "更新失败，请重试");
         return;
     }
 
-    // 更新成功后，显示提示框
-    QMessageBox::information(this, "Success", "User information updated successfully!");
-
-    // 根据需要，你也可以在这里刷新 UI 或做其他处理
+    QMessageBox::information(this, "成功", "用户信息更新成功！");
+    this->close();
 }
 
 void DInfo::onErrorOccurred(const QString &error) {
