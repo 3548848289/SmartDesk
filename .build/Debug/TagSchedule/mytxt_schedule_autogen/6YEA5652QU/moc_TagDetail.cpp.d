@@ -1,6 +1,7 @@
 D:/CxxProgram/SmartDesk/.build/debug/TagSchedule/mytxt_schedule_autogen/6YEA5652QU/moc_TagDetail.cpp: D:/CxxProgram/SmartDesk/TagSchedule/include/TagDetail.h \
   D:/CxxProgram/SmartDesk/.build/debug/TagSchedule/mytxt_schedule_autogen/moc_predefs.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbClipboard.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \

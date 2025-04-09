@@ -92,11 +92,13 @@ D:/CxxProgram/SmartDesk/manager/include/ServerManager.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qjsonobject.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qjsonvalue.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlatin1stringview.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qline.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlist.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlocale.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qlogging.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmalloc.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmap.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmargins.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmath.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetacontainer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qmetatype.h
@@ -109,8 +111,10 @@ D:/CxxProgram/SmartDesk/manager/include/ServerManager.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qobjectdefs_impl.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qoverload.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qpair.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qpoint.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qpointer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qprocessordetection.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qrect.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qrefcount.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qregularexpression.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qscopedpointer.h
@@ -120,6 +124,7 @@ D:/CxxProgram/SmartDesk/manager/include/ServerManager.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata_impl.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer_impl.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qsize.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qspan.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstring.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qstringalgorithms.h
@@ -164,6 +169,31 @@ D:/CxxProgram/SmartDesk/manager/include/ServerManager.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qversiontagging.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qxptype_traits.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtCore/qyieldcpu.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qaction.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qbitmap.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qbrush.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qcolor.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qcursor.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qfont.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qfontinfo.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qfontmetrics.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qicon.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qimage.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qkeysequence.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qpaintdevice.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qpalette.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qpixelformat.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qpixmap.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qpolygon.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qregion.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qrgb.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qrgba64.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qtgui-config.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qtguiexports.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qtguiglobal.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qtransform.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/QHttpMultiPart
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkAccessManager
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkReply
@@ -187,6 +217,15 @@ D:/CxxProgram/SmartDesk/manager/include/ServerManager.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h
  mdp:D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialog.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h
+ mdp:D:/QT6/6.8.0/mingw_64/include/QtWidgets/qwidget.h
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array
  mdp:D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic
@@ -435,3 +474,5 @@ D:/CxxProgram/SmartDesk/manager/dbManager.cpp
 D:/CxxProgram/SmartDesk/manager/myJson.cpp
 D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h
 D:/CxxProgram/SmartDesk/manager/dbOnlineDoc.cpp
+D:/CxxProgram/SmartDesk/manager/include/dbClipboard.h
+D:/CxxProgram/SmartDesk/manager/dbClipboard.cpp

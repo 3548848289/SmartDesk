@@ -78,6 +78,7 @@ public:
     QTimeEdit *online_doc_timeEdit_2;
     QLabel *online_doc_label2_2;
     QLabel *label;
+    QWidget *clip_board;
 
     void setupUi(QWidget *Setting)
     {
@@ -101,6 +102,7 @@ public:
         QTreeWidgetItem *__qtreewidgetitem4 = new QTreeWidgetItem(treeWidget);
         new QTreeWidgetItem(__qtreewidgetitem4);
         new QTreeWidgetItem(__qtreewidgetitem4);
+        new QTreeWidgetItem(treeWidget);
         treeWidget->setObjectName("treeWidget");
         treeWidget->setGeometry(QRect(6, 6, 131, 351));
         stackedWidget = new QStackedWidget(Setting);
@@ -293,6 +295,9 @@ public:
         label->setObjectName("label");
         label->setGeometry(QRect(110, 120, 111, 20));
         stackedWidget->addWidget(online_doc);
+        clip_board = new QWidget();
+        clip_board->setObjectName("clip_board");
+        stackedWidget->addWidget(clip_board);
         QWidget::setTabOrder(treeWidget, all_setting_spinBox);
         QWidget::setTabOrder(all_setting_spinBox, all_setting_checkBox);
         QWidget::setTabOrder(all_setting_checkBox, file_system_lineEdit);
@@ -311,7 +316,7 @@ public:
 
         retranslateUi(Setting);
 
-        stackedWidget->setCurrentIndex(5);
+        stackedWidget->setCurrentIndex(6);
 
 
         QMetaObject::connectSlotsByName(Setting);
@@ -351,6 +356,8 @@ public:
         ___qtreewidgetitem12->setText(0, QCoreApplication::translate("Setting", "\345\210\260\346\234\237\346\217\220\351\206\222\346\226\271\345\274\217", nullptr));
         QTreeWidgetItem *___qtreewidgetitem13 = ___qtreewidgetitem11->child(1);
         ___qtreewidgetitem13->setText(0, QCoreApplication::translate("Setting", "\346\217\220\345\211\215\345\244\232\344\271\205\346\217\220\351\206\222", nullptr));
+        QTreeWidgetItem *___qtreewidgetitem14 = treeWidget->topLevelItem(6);
+        ___qtreewidgetitem14->setText(0, QCoreApplication::translate("Setting", "\345\211\252\345\210\207\345\255\227\346\235\277", nullptr));
         treeWidget->setSortingEnabled(__sortingEnabled);
 
         all_setting_checkBox->setText(QCoreApplication::translate("Setting", "\346\230\257\345\220\246\345\220\257\347\224\250", nullptr));

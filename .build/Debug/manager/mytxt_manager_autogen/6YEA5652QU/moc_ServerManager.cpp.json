@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "ServerManager",
-            "lineNumber": 27,
+            "lineNumber": 28,
             "object": true,
             "qualifiedClassName": "ServerManager",
             "signals": [
@@ -53,6 +53,18 @@
                     "index": 4,
                     "name": "fileListReady",
                     "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "exists",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 5,
+                    "name": "returnStatus",
+                    "returnType": "void"
                 }
             ],
             "slots": [
@@ -64,7 +76,7 @@
                             "type": "QPointer<QNetworkReply>"
                         }
                     ],
-                    "index": 5,
+                    "index": 6,
                     "name": "oncommitFin",
                     "returnType": "void"
                 },
@@ -80,7 +92,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 6,
+                    "index": 7,
                     "name": "ondownloadFin",
                     "returnType": "void"
                 },
@@ -92,7 +104,7 @@
                             "type": "QNetworkReply*"
                         }
                     ],
-                    "index": 7,
+                    "index": 8,
                     "name": "onhistoryFin",
                     "returnType": "void"
                 }

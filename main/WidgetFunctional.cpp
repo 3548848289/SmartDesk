@@ -60,7 +60,6 @@ void WidgetFunctional::on_pushButton_8_clicked()
 
 void WidgetFunctional::on_pushButton_9_clicked()
 {
-    clipboard = new ClipboardView();
     emit showClipboard(clipboard);
 }
 
@@ -76,9 +75,6 @@ WidgetFunctional::WidgetFunctional(QWidget *parent)
 {
     ui->setupUi(this);
     btnGroup=new QButtonGroup;
-
-
-
     for (int i = 1; i <= 9; ++i) {
         QPushButton *button = findChild<QPushButton*>(QString("pushButton_%1").arg(i));        button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
@@ -117,10 +113,8 @@ WidgetFunctional::WidgetFunctional(QWidget *parent)
         "{background:transparent;border:none;   border-bottom:3px solid #7598db;color:#7598db;}"
     );
 
-    //
-    // 暂时不隐藏
-    //
-    // ui->pushButton_7->hide();
+    // ui->pushButton_7->hide(); //暂时不隐藏
+    clipboard = new ClipboardView();
 
 }
 

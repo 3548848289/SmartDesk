@@ -45,6 +45,21 @@ public:
 
         listWidget = new QListWidget(ClipboardView);
         listWidget->setObjectName("listWidget");
+        listWidget->setStyleSheet(QString::fromUtf8("QListWidget::item {\n"
+"    border: 1px solid lightgray;\n"
+"    padding: 5px;\n"
+"    margin: 2px;\n"
+"}\n"
+"\n"
+"QListWidget::item:selected {\n"
+"    background-color: #a8c5f7;\n"
+"    color: black;\n"
+"}\n"
+"\n"
+"QListWidget::item:hover {\n"
+"    background-color: #e0e0e0;\n"
+"}\n"
+""));
 
         gridLayout->addWidget(listWidget, 0, 0, 1, 2);
 

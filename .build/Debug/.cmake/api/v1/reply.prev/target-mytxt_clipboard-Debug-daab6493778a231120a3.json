@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "manager/libmytxt_manager.a"
+			"path" : "ClipBoard/libmytxt_clipboard.a"
 		}
 	],
 	"backtrace" : 4,
@@ -24,7 +24,7 @@
 		"files" : 
 		[
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
-			"manager/CMakeLists.txt",
+			"ClipBoard/CMakeLists.txt",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:2684:EVAL"
 		],
 		"nodes" : 
@@ -35,7 +35,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 28,
+				"line" : 13,
 				"parent" : 0
 			},
 			{
@@ -59,13 +59,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 34,
+				"line" : 19,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 41,
+				"line" : 23,
 				"parent" : 0
 			},
 			{
@@ -118,14 +118,6 @@
 				},
 				{
 					"backtrace" : 5,
-					"define" : "QT_NETWORK_LIB"
-				},
-				{
-					"backtrace" : 5,
-					"define" : "QT_SQL_LIB"
-				},
-				{
-					"backtrace" : 5,
 					"define" : "QT_WIDGETS_LIB"
 				},
 				{
@@ -156,38 +148,27 @@
 			"includes" : 
 			[
 				{
-					"path" : "D:/CxxProgram/SmartDesk/.build/debug/manager"
-				},
-				{
-					"path" : "D:/CxxProgram/SmartDesk/manager"
-				},
-				{
 					"backtrace" : 0,
-					"path" : "D:/CxxProgram/SmartDesk/.build/debug/manager/mytxt_manager_autogen/include"
+					"path" : "D:/CxxProgram/SmartDesk/.build/debug/ClipBoard/mytxt_clipboard_autogen/include"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "D:/CxxProgram/SmartDesk/manager/include"
-				},
-				{
-					"backtrace" : 6,
-					"isSystem" : true,
-					"path" : "D:/QT6/6.8.0/mingw_64/include/QtNetwork"
-				},
-				{
-					"backtrace" : 6,
-					"isSystem" : true,
-					"path" : "D:/QT6/6.8.0/mingw_64/include"
-				},
-				{
-					"backtrace" : 6,
-					"isSystem" : true,
-					"path" : "D:/QT6/6.8.0/mingw_64/include/QtCore"
+					"path" : "D:/CxxProgram/SmartDesk/ClipBoard"
 				},
 				{
 					"backtrace" : 5,
 					"isSystem" : true,
 					"path" : "D:/QT6/6.8.0/mingw_64/include/QtWidgets"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "D:/QT6/6.8.0/mingw_64/include"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "D:/QT6/6.8.0/mingw_64/include/QtCore"
 				},
 				{
 					"backtrace" : 5,
@@ -198,43 +179,33 @@
 					"backtrace" : 5,
 					"isSystem" : true,
 					"path" : "D:/QT6/6.8.0/mingw_64/include/QtGui"
-				},
-				{
-					"backtrace" : 5,
-					"isSystem" : true,
-					"path" : "D:/QT6/6.8.0/mingw_64/include/QtSql"
 				}
 			],
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
 				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6
+				1
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"id" : "mytxt_manager_autogen_timestamp_deps::@97418e93d514bfe7a5e1"
+			"backtrace" : 0,
+			"id" : "mytxt_clipboard_autogen::@220ed9ebd1cfbeb15a72"
 		},
 		{
-			"backtrace" : 0,
-			"id" : "mytxt_manager_autogen::@97418e93d514bfe7a5e1"
+			"id" : "mytxt_clipboard_autogen_timestamp_deps::@220ed9ebd1cfbeb15a72"
 		}
 	],
-	"id" : "mytxt_manager::@97418e93d514bfe7a5e1",
-	"name" : "mytxt_manager",
-	"nameOnDisk" : "libmytxt_manager.a",
+	"id" : "mytxt_clipboard::@220ed9ebd1cfbeb15a72",
+	"name" : "mytxt_clipboard",
+	"nameOnDisk" : "libmytxt_clipboard.a",
 	"paths" : 
 	{
-		"build" : "manager",
-		"source" : "manager"
+		"build" : "ClipBoard",
+		"source" : "ClipBoard"
 	},
 	"sourceGroups" : 
 	[
@@ -243,42 +214,33 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6
+				1
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13
+				2,
+				5
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				14,
-				15
+				3,
+				4,
+				6
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				16,
-				17,
-				18
+				7,
+				8,
+				9
 			]
 		}
 	],
@@ -288,108 +250,59 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : ".build/debug/manager/mytxt_manager_autogen/mocs_compilation.cpp",
+			"path" : ".build/debug/ClipBoard/mytxt_clipboard_autogen/mocs_compilation.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "manager/myJson.cpp",
+			"path" : "ClipBoard/ClipboardView.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "manager/ServerManager.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "manager/dbManager.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "manager/dbFilepath.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "manager/dbBackupRecord.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "manager/dbOnlineDoc.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 4,
-			"path" : "manager/include/dbOnlineDoc.h",
+			"path" : "ClipBoard/ClipboardView.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
-			"path" : "manager/include/dbBackupRecord.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 4,
-			"path" : "manager/include/myJson.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 4,
-			"path" : "manager/include/ServerManager.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 4,
-			"path" : "manager/include/dbManager.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 4,
-			"path" : "manager/include/dbFilepath.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 4,
-			"path" : "manager/include/dbService.h",
-			"sourceGroupIndex" : 1
+			"path" : "ClipBoard/ClipboardView.ui",
+			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 10,
 			"isGenerated" : true,
-			"path" : ".build/debug/manager/meta_types/qt6mytxt_manager_debug_metatypes.json.gen",
+			"path" : ".build/debug/ClipBoard/meta_types/qt6mytxt_clipboard_debug_metatypes.json.gen",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/debug/manager/mytxt_manager_autogen/timestamp",
+			"path" : ".build/debug/ClipBoard/mytxt_clipboard_autogen/include/ui_ClipboardView.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : ".build/debug/ClipBoard/mytxt_clipboard_autogen/timestamp",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/debug/manager/meta_types/qt6mytxt_manager_debug_metatypes.json.gen.rule",
+			"path" : ".build/debug/ClipBoard/meta_types/qt6mytxt_clipboard_debug_metatypes.json.gen.rule",
 			"sourceGroupIndex" : 3
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/debug/manager/mytxt_manager_autogen/timestamp.rule",
+			"path" : ".build/debug/ClipBoard/mytxt_clipboard_autogen/timestamp.rule",
 			"sourceGroupIndex" : 3
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/debug/manager/meta_types/mytxt_manager_json_file_list.txt.rule",
+			"path" : ".build/debug/ClipBoard/meta_types/mytxt_clipboard_json_file_list.txt.rule",
 			"sourceGroupIndex" : 3
 		}
 	],

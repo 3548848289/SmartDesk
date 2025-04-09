@@ -339,7 +339,7 @@ void MainWindow::on_actionclose_triggered()
         if (dynamic_cast<ClipboardView*>(widget)) {
             ClipboardView* clipboard = qobject_cast<ClipboardView*>(widget);
             tabWidget->removeTab(currentIndex);
-            delete clipboard;
+            // delete clipboard;
             return;
         }
         TabAbstract *tab = qobject_cast<TabAbstract*>(widget);

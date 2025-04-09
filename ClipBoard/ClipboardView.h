@@ -7,9 +7,8 @@
 #include <QMenu>
 #include <QMimeData>
 #include <QDragEnterEvent>
-#ifdef Q_OS_WIN
-#include <windows.h>
-#endif
+#include <QStringList>
+#include "../manager/include/dbService.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ClipboardView; }
@@ -23,22 +22,25 @@ public:
     explicit ClipboardView(QWidget *parent = nullptr);
     ~ClipboardView();
 
-protected:
-    void dragEnterEvent(QDragEnterEvent *event);
 private slots:
     void onClipboardChanged();
-    void onItemDoubleClicked(QListWidgetItem *item);
-    void onClearButtonClicked();
-    void onSaveButtonClicked();
-    void showContextMenu(const QPoint &pos);
     void copyItem();
     void deleteItem();
+
+    void on_clearButton_clicked();
+    void on_saveButton_clicked();
+    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_listWidget_customContextMenuRequested(const QPoint &pos);
 
 private:
     Ui::ClipboardView *ui;
     QClipboard *clipboard;
-    QListWidgetItem *currentRightClickedItem = nullptr;  // For context menu
-    void simulatePaste();
+    QListWidgetItem *currentRightClickedItem = nullptr;
+    QStringList sessionNewItems;
+    dbService& dbservice;
+    int initialItemCount = 0;
+
 };
 
 #endif // CLIPBOARDVIEW_H

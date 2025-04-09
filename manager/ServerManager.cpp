@@ -19,7 +19,7 @@ void ServerManager::test(const QString &filepath)
 }
 
 
-bool ServerManager::commitFile(const QString& filepath) {
+void ServerManager::commitFile(const QString& filepath) {
     QFileInfo fileInfo(filepath);
     QString filename = fileInfo.fileName();
     QString urlStr = QString("http://127.0.0.1:5000/%1").arg(filename);
@@ -31,77 +31,58 @@ bool ServerManager::commitFile(const QString& filepath) {
     QFile file(filepath);
     if (!file.open(QIODevice::ReadOnly)) {
         qDebug() << "Failed to open file:" << filepath;
-        emit commitFailed();
-        return false;
+        QMessageBox::information(nullptr, "失败", "该文件无法打开!", QMessageBox::Ok);
+        return;
     }
-
     QByteArray fileData = file.readAll();
     file.close();
-
-    QPointer<QNetworkReply> reply = networkManager.put(request, fileData);
+    QNetworkReply* reply = networkManager.put(request, fileData);
     connect(reply, &QNetworkReply::finished, this, [this, reply]() {
-        if (reply->error() == QNetworkReply::NoError) {
-            qDebug() << "Upload success:" << reply->readAll();
-            emit commitSuccess();
-        } else {
-            qDebug() << "Upload failed:" << reply->errorString();
-            emit commitFailed();
-        }
-        reply->deleteLater();
+        oncommitFin(reply);
     });
-
-    return true;
 }
-
 
 void ServerManager::oncommitFin(QPointer<QNetworkReply> reply)
 {
     if (!reply) {
-        qWarning() << "Reply is invalid.";
-        emit commitFailed();
+        QMessageBox::critical(nullptr, "上传失败", "网络响应无效！");
         return;
     }
-
     if (reply->error() == QNetworkReply::NoError) {
-        emit commitSuccess();
-        qDebug() << "提交成功";
+        QMessageBox::information(nullptr, "成功", "文件已经上传至云端");
     } else {
-        qWarning() << "Upload failed:" << reply->errorString();
+        QString error = reply->errorString();
+        QMessageBox::critical(nullptr, "上传失败", error);
         emit commitFailed();
     }
 
     reply->deleteLater();
 }
 
-bool ServerManager::downloadFile(const QString& filepath) {
+
+void ServerManager::downloadFile(const QString& filepath) {
     QFileInfo fileInfo(filepath);
-    QString filename = fileInfo.fileName();  // 获取文件名
-    QString url = QString("http://127.0.0.1:5000/uploads/%1").arg(filename);  // 生成 URL
+    QString filename = fileInfo.fileName();
+    QString url = QString("http://127.0.0.1:5000/uploads/%1").arg(filename);
     QNetworkRequest request{QUrl(url)};
     QNetworkReply* reply = networkManager.get(request);
-
     connect(reply, &QNetworkReply::finished, this, [this, reply, filepath]() {
         ondownloadFin(reply, filepath);
     });
-
-    return true;
 }
 
 void ServerManager::ondownloadFin(QNetworkReply* reply, const QString& filepath) {
     if (reply->error() != QNetworkReply::NoError) {
-        qDebug() << "Download error:" << reply->errorString();
+        QMessageBox::critical(nullptr, "下载失败", "出现错误：\n" + reply->errorString());
         return;
     }
-
     QByteArray data = reply->readAll();
-    QFile file(filepath);  // 使用传入的 filepath 保存文件
-    qDebug() << filepath;  // 打印目标路径
+    QFile file(filepath);
     if (!file.open(QIODevice::WriteOnly)) {
-        qWarning() << "Failed to save file to:" << filepath;
+        QMessageBox::critical(nullptr, "无法保存", filepath, QMessageBox::Ok);
         return;
     }
-
-    file.write(data);  // 将数据写入文件
+    file.write(data);
     file.close();
     reply->deleteLater();
 }
@@ -121,22 +102,17 @@ void ServerManager::getHistory() {
 
 void ServerManager::onhistoryFin(QNetworkReply* reply) {
     if (reply->error() != QNetworkReply::NoError) {
-        qDebug() << "Request failed:" << reply->errorString();
+        QMessageBox::critical(nullptr, "获取失败", "出现错误：\n" + reply->errorString());
         reply->deleteLater();
         return;
     }
-
     QByteArray response = reply->readAll();
-    QStringList fileNames = QString(response).split('\n', Qt::SkipEmptyParts); // 按行分割文件名
+    QStringList fileNames = QString(response).split('\n', Qt::SkipEmptyParts);
 
     qDebug() << "File names:" << fileNames;
-
     emit fileListReady(fileNames);
     reply->deleteLater();
 }
-
-
-
 
 
 void ServerManager::getSharedFile(const QString& shareToken) {
@@ -161,11 +137,11 @@ void ServerManager::getSharedFile(const QString& shareToken) {
                     fileList.append(remoteFileName + " " + localFilePath);
                 }
 
-                emit historyReceived(fileList);  // 可以用现有信号传出
+                emit historyReceived(fileList);
             }
         } else {
             qDebug() << "getSharedFile error:" << reply->errorString();
-            emit commitFailed();  // 你也可以定义一个新的错误信号
+            emit commitFailed();
         }
         reply->deleteLater();
     });
@@ -176,8 +152,7 @@ void ServerManager::getSharedFile(const QString& shareToken) {
 bool ServerManager::setSharedFile(const QString& filepath, const QString& shareToken) {
     QFileInfo fileInfo(filepath);
     QString filename = fileInfo.fileName();
-    QString urlStr = QString("http://127.0.0.1:5000/%1?share_token=%2")
-                         .arg(filename, shareToken);
+    QString urlStr = QString("http://127.0.0.1:5000/%1?share_token=%2").arg(filename, shareToken);
 
     QUrl url(urlStr);
     QNetworkRequest request(url);
@@ -185,25 +160,44 @@ bool ServerManager::setSharedFile(const QString& filepath, const QString& shareT
 
     QFile file(filepath);
     if (!file.open(QIODevice::ReadOnly)) {
-        qDebug() << "Failed to open file:" << filepath;
-        emit commitFailed();
+        QMessageBox::information(nullptr, "失败", "该文件无法打开!", QMessageBox::Ok);
         return false;
     }
-
     QByteArray fileData = file.readAll();
     file.close();
 
     QPointer<QNetworkReply> reply = networkManager.put(request, fileData);
     connect(reply, &QNetworkReply::finished, this, [this, reply]() {
-        if (reply->error() == QNetworkReply::NoError) {
-            qDebug() << "Upload success:" << reply->readAll();
-            emit commitSuccess();
-        } else {
+        if (reply->error() == QNetworkReply::NoError)
+            QMessageBox::information(nullptr, "成功", "共享文件已上传!", QMessageBox::Ok);
+        else
             qDebug() << "Upload failed:" << reply->errorString();
-            emit commitFailed();
-        }
         reply->deleteLater();
     });
 
     return true;
 }
+
+void ServerManager::checkFileExists(const QString& filepath) {
+    QFileInfo fileInfo(filepath);
+    QString filename = fileInfo.fileName();
+    QString url = QString("http://127.0.0.1:5000/exists/%1").arg(QUrl::toPercentEncoding(filename));
+
+    QNetworkRequest request{QUrl(url)};
+    QNetworkReply* reply = networkManager.get(request);
+
+    connect(reply, &QNetworkReply::finished, this, [this, reply, filepath]() {
+        bool exists = false;
+        if (reply->error() == QNetworkReply::NoError) {
+            QByteArray response = reply->readAll();
+            QJsonDocument doc = QJsonDocument::fromJson(response);
+            exists = doc.object().value("exists").toBool();
+        } else {
+            qDebug() << "Error checking file existence:" << reply->errorString();
+        }
+        qDebug() << "ServerManager::checkFileExists" << exists;
+        emit returnStatus(exists);
+        reply->deleteLater();
+    });
+}
+

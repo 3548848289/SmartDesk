@@ -96,6 +96,12 @@
 			null
 		],
 		[
+			"D:/CxxProgram/SmartDesk/manager/include/dbClipboard.h",
+			"MU",
+			"6YEA5652QU/moc_dbClipboard.cpp",
+			null
+		],
+		[
 			"D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h",
 			"MU",
 			"6YEA5652QU/moc_dbFilepath.cpp",
@@ -204,6 +210,7 @@
 	[
 		[ "D:/CxxProgram/SmartDesk/manager/ServerManager.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/manager/dbBackupRecord.cpp", "MU", null ],
+		[ "D:/CxxProgram/SmartDesk/manager/dbClipboard.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/manager/dbFilepath.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/manager/dbManager.cpp", "MU", null ],
 		[ "D:/CxxProgram/SmartDesk/manager/dbOnlineDoc.cpp", "MU", null ],

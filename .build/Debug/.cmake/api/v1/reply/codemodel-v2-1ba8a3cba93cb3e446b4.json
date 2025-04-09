@@ -21,10 +21,11 @@
 						11,
 						12,
 						13,
-						14
+						14,
+						15
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-8c2562ab5bbb3e0018b8.json",
+					"jsonFile" : "directory-.-Debug-1d47ec0271b7fd4568bc.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -50,9 +51,9 @@
 					"source" : "manager",
 					"targetIndexes" : 
 					[
-						24,
-						25,
-						26
+						27,
+						28,
+						29
 					]
 				},
 				{
@@ -67,9 +68,9 @@
 					"source" : "FileBackup",
 					"targetIndexes" : 
 					[
-						12,
-						13,
-						14
+						15,
+						16,
+						17
 					]
 				},
 				{
@@ -84,9 +85,9 @@
 					"source" : "FileSystem",
 					"targetIndexes" : 
 					[
-						15,
-						16,
-						17
+						18,
+						19,
+						20
 					]
 				},
 				{
@@ -101,9 +102,9 @@
 					"source" : "OnlineDoc",
 					"targetIndexes" : 
 					[
-						30,
-						31,
-						32
+						33,
+						34,
+						35
 					]
 				},
 				{
@@ -118,9 +119,9 @@
 					"source" : "TagSchedule",
 					"targetIndexes" : 
 					[
-						33,
-						34,
-						35
+						36,
+						37,
+						38
 					]
 				},
 				{
@@ -135,9 +136,9 @@
 					"source" : "Setting",
 					"targetIndexes" : 
 					[
-						36,
-						37,
-						38
+						39,
+						40,
+						41
 					]
 				},
 				{
@@ -152,9 +153,9 @@
 					"source" : "UserInfo",
 					"targetIndexes" : 
 					[
-						42,
-						43,
-						44
+						45,
+						46,
+						47
 					]
 				},
 				{
@@ -169,9 +170,9 @@
 					"source" : "EmailService",
 					"targetIndexes" : 
 					[
-						9,
-						10,
-						11
+						12,
+						13,
+						14
 					]
 				},
 				{
@@ -186,9 +187,26 @@
 					"source" : "MoreFunction",
 					"targetIndexes" : 
 					[
-						27,
-						28,
-						29
+						30,
+						31,
+						32
+					]
+				},
+				{
+					"build" : "ClipBoard",
+					"jsonFile" : "directory-ClipBoard-Debug-dbe4f2710c3009739b1e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "ClipBoard",
+					"targetIndexes" : 
+					[
+						6,
+						7,
+						8
 					]
 				},
 				{
@@ -203,9 +221,9 @@
 					"source" : "DisposeAbstract/DisposeTXT",
 					"targetIndexes" : 
 					[
-						39,
-						40,
-						41
+						42,
+						43,
+						44
 					]
 				},
 				{
@@ -220,9 +238,9 @@
 					"source" : "DisposeAbstract/DisposeCSV",
 					"targetIndexes" : 
 					[
-						6,
-						7,
-						8
+						9,
+						10,
+						11
 					]
 				},
 				{
@@ -237,9 +255,9 @@
 					"source" : "DisposeAbstract/DisposeIMG",
 					"targetIndexes" : 
 					[
-						18,
-						19,
-						20
+						21,
+						22,
+						23
 					]
 				},
 				{
@@ -254,16 +272,16 @@
 					"source" : "main",
 					"targetIndexes" : 
 					[
-						21,
-						22,
-						23
+						24,
+						25,
+						26
 					]
 				},
 				{
 					"build" : "EmailService/simple-mail",
 					"childIndexes" : 
 					[
-						15
+						16
 					],
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-EmailService.simple-mail-Debug-f98ae2158ec679a890c6.json",
@@ -283,7 +301,7 @@
 					{
 						"string" : "3.16"
 					},
-					"parentIndex" : 14,
+					"parentIndex" : 15,
 					"projectIndex" : 4,
 					"source" : "EmailService/simple-mail/src",
 					"targetIndexes" : 
@@ -317,7 +335,8 @@
 						10,
 						11,
 						12,
-						13
+						13,
+						14
 					],
 					"name" : "SmartDesk",
 					"targetIndexes" : 
@@ -328,9 +347,9 @@
 						6,
 						7,
 						8,
-						12,
-						13,
-						14,
+						9,
+						10,
+						11,
 						15,
 						16,
 						17,
@@ -343,9 +362,9 @@
 						24,
 						25,
 						26,
-						30,
-						31,
-						32,
+						27,
+						28,
+						29,
 						33,
 						34,
 						35,
@@ -354,7 +373,10 @@
 						38,
 						39,
 						40,
-						41
+						41,
+						42,
+						43,
+						44
 					]
 				},
 				{
@@ -366,9 +388,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						42,
-						43,
-						44
+						45,
+						46,
+						47
 					]
 				},
 				{
@@ -380,9 +402,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						9,
-						10,
-						11
+						12,
+						13,
+						14
 					]
 				},
 				{
@@ -394,16 +416,16 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						27,
-						28,
-						29
+						30,
+						31,
+						32
 					]
 				},
 				{
 					"directoryIndexes" : 
 					[
-						14,
-						15
+						15,
+						16
 					],
 					"name" : "libsimplemail",
 					"parentIndex" : 0,
@@ -418,21 +440,21 @@
 			"targets" : 
 			[
 				{
-					"directoryIndex" : 15,
+					"directoryIndex" : 16,
 					"id" : "SimpleMail3Qt6::@30c29cfdcb280d7d821e",
 					"jsonFile" : "target-SimpleMail3Qt6-Debug-ff6009ce82593e4a599e.json",
 					"name" : "SimpleMail3Qt6",
 					"projectIndex" : 4
 				},
 				{
-					"directoryIndex" : 15,
+					"directoryIndex" : 16,
 					"id" : "SimpleMail3Qt6_autogen::@30c29cfdcb280d7d821e",
 					"jsonFile" : "target-SimpleMail3Qt6_autogen-Debug-ac52dd494ee5b15639bc.json",
 					"name" : "SimpleMail3Qt6_autogen",
 					"projectIndex" : 4
 				},
 				{
-					"directoryIndex" : 15,
+					"directoryIndex" : 16,
 					"id" : "SimpleMail3Qt6_autogen_timestamp_deps::@30c29cfdcb280d7d821e",
 					"jsonFile" : "target-SimpleMail3Qt6_autogen_timestamp_deps-Debug-7128a546635014a49a20.json",
 					"name" : "SimpleMail3Qt6_autogen_timestamp_deps",
@@ -441,7 +463,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SmartDesk::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SmartDesk-Debug-832a10c7f9f70d2c75a7.json",
+					"jsonFile" : "target-SmartDesk-Debug-29f3a564cc906193e337.json",
 					"name" : "SmartDesk",
 					"projectIndex" : 0
 				},
@@ -455,26 +477,47 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SmartDesk_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SmartDesk_autogen_timestamp_deps-Debug-3e1bf774167a6904b85b.json",
+					"jsonFile" : "target-SmartDesk_autogen_timestamp_deps-Debug-91813f2ee73e4db22f82.json",
 					"name" : "SmartDesk_autogen_timestamp_deps",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 11,
+					"directoryIndex" : 10,
+					"id" : "mytxt_clipboard::@220ed9ebd1cfbeb15a72",
+					"jsonFile" : "target-mytxt_clipboard-Debug-daab6493778a231120a3.json",
+					"name" : "mytxt_clipboard",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "mytxt_clipboard_autogen::@220ed9ebd1cfbeb15a72",
+					"jsonFile" : "target-mytxt_clipboard_autogen-Debug-6446b6b5775240659935.json",
+					"name" : "mytxt_clipboard_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "mytxt_clipboard_autogen_timestamp_deps::@220ed9ebd1cfbeb15a72",
+					"jsonFile" : "target-mytxt_clipboard_autogen_timestamp_deps-Debug-74b246792ad24f1859cc.json",
+					"name" : "mytxt_clipboard_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 12,
 					"id" : "mytxt_csv::@901643182fe1ace82d6e",
-					"jsonFile" : "target-mytxt_csv-Debug-473b10516301c0a4a40e.json",
+					"jsonFile" : "target-mytxt_csv-Debug-ba4104232e118537c0b0.json",
 					"name" : "mytxt_csv",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 11,
+					"directoryIndex" : 12,
 					"id" : "mytxt_csv_autogen::@901643182fe1ace82d6e",
 					"jsonFile" : "target-mytxt_csv_autogen-Debug-d32c3b98352a6b199d46.json",
 					"name" : "mytxt_csv_autogen",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 11,
+					"directoryIndex" : 12,
 					"id" : "mytxt_csv_autogen_timestamp_deps::@901643182fe1ace82d6e",
 					"jsonFile" : "target-mytxt_csv_autogen_timestamp_deps-Debug-14de7fc4a4650272a9c9.json",
 					"name" : "mytxt_csv_autogen_timestamp_deps",
@@ -483,7 +526,7 @@
 				{
 					"directoryIndex" : 8,
 					"id" : "mytxt_email::@41759cfb2da9273c3e42",
-					"jsonFile" : "target-mytxt_email-Debug-47bd2c9d5e2c5b9a8913.json",
+					"jsonFile" : "target-mytxt_email-Debug-06a6cbc6b92a99bcecd5.json",
 					"name" : "mytxt_email",
 					"projectIndex" : 2
 				},
@@ -504,7 +547,7 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "mytxt_filehis::@a04c9e1285aa3f368306",
-					"jsonFile" : "target-mytxt_filehis-Debug-7397bedbc5c2c2d12906.json",
+					"jsonFile" : "target-mytxt_filehis-Debug-fd0d8565c9ce325e22c1.json",
 					"name" : "mytxt_filehis",
 					"projectIndex" : 0
 				},
@@ -544,42 +587,42 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 12,
+					"directoryIndex" : 13,
 					"id" : "mytxt_img::@b35f1dbe17117d7379f7",
 					"jsonFile" : "target-mytxt_img-Debug-a4a12ffe136702a4f899.json",
 					"name" : "mytxt_img",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 12,
+					"directoryIndex" : 13,
 					"id" : "mytxt_img_autogen::@b35f1dbe17117d7379f7",
 					"jsonFile" : "target-mytxt_img_autogen-Debug-ad5a6f6b9ace1463e5a4.json",
 					"name" : "mytxt_img_autogen",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 12,
+					"directoryIndex" : 13,
 					"id" : "mytxt_img_autogen_timestamp_deps::@b35f1dbe17117d7379f7",
 					"jsonFile" : "target-mytxt_img_autogen_timestamp_deps-Debug-a46d86c58c1509b812de.json",
 					"name" : "mytxt_img_autogen_timestamp_deps",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 13,
+					"directoryIndex" : 14,
 					"id" : "mytxt_main::@15c4a824ab2728a3f5e7",
-					"jsonFile" : "target-mytxt_main-Debug-ca901aef2d8f19bb50e3.json",
+					"jsonFile" : "target-mytxt_main-Debug-6813d05910173eca3159.json",
 					"name" : "mytxt_main",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 13,
+					"directoryIndex" : 14,
 					"id" : "mytxt_main_autogen::@15c4a824ab2728a3f5e7",
 					"jsonFile" : "target-mytxt_main_autogen-Debug-10aa9c72655255b8f6b6.json",
 					"name" : "mytxt_main_autogen",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 13,
+					"directoryIndex" : 14,
 					"id" : "mytxt_main_autogen_timestamp_deps::@15c4a824ab2728a3f5e7",
 					"jsonFile" : "target-mytxt_main_autogen_timestamp_deps-Debug-533b92eec62799f0387b.json",
 					"name" : "mytxt_main_autogen_timestamp_deps",
@@ -588,7 +631,7 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "mytxt_manager::@97418e93d514bfe7a5e1",
-					"jsonFile" : "target-mytxt_manager-Debug-1af158b4598322ab31d2.json",
+					"jsonFile" : "target-mytxt_manager-Debug-50863dd472d850e4b3e0.json",
 					"name" : "mytxt_manager",
 					"projectIndex" : 0
 				},
@@ -651,7 +694,7 @@
 				{
 					"directoryIndex" : 5,
 					"id" : "mytxt_schedule::@ccb69b48cedb0a3f86be",
-					"jsonFile" : "target-mytxt_schedule-Debug-0befb6711ccbb7be4754.json",
+					"jsonFile" : "target-mytxt_schedule-Debug-eec00d7733cf3003092a.json",
 					"name" : "mytxt_schedule",
 					"projectIndex" : 0
 				},
@@ -672,7 +715,7 @@
 				{
 					"directoryIndex" : 6,
 					"id" : "mytxt_setting::@99ddcd2d224c7a01b08e",
-					"jsonFile" : "target-mytxt_setting-Debug-a590e234c52eecbcd037.json",
+					"jsonFile" : "target-mytxt_setting-Debug-1cd92c348d996ec3ecb7.json",
 					"name" : "mytxt_setting",
 					"projectIndex" : 0
 				},
@@ -691,21 +734,21 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 10,
+					"directoryIndex" : 11,
 					"id" : "mytxt_txt::@22d3c4ea2864f1017caf",
 					"jsonFile" : "target-mytxt_txt-Debug-c437963fa1339a6b19ab.json",
 					"name" : "mytxt_txt",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 10,
+					"directoryIndex" : 11,
 					"id" : "mytxt_txt_autogen::@22d3c4ea2864f1017caf",
 					"jsonFile" : "target-mytxt_txt_autogen-Debug-0952b4ae90b2b2a8ec27.json",
 					"name" : "mytxt_txt_autogen",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 10,
+					"directoryIndex" : 11,
 					"id" : "mytxt_txt_autogen_timestamp_deps::@22d3c4ea2864f1017caf",
 					"jsonFile" : "target-mytxt_txt_autogen_timestamp_deps-Debug-48b84df1b4445d326f4e.json",
 					"name" : "mytxt_txt_autogen_timestamp_deps",
@@ -714,7 +757,7 @@
 				{
 					"directoryIndex" : 7,
 					"id" : "mytxt_userinfo::@d674bccc37d551b1d410",
-					"jsonFile" : "target-mytxt_userinfo-Debug-2e411596af2d065bccbd.json",
+					"jsonFile" : "target-mytxt_userinfo-Debug-56daf99f71dd3b4e2607.json",
 					"name" : "mytxt_userinfo",
 					"projectIndex" : 1
 				},

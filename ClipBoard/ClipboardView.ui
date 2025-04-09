@@ -29,7 +29,25 @@
     </widget>
    </item>
    <item row="0" column="0" colspan="2">
-    <widget class="QListWidget" name="listWidget"/>
+    <widget class="QListWidget" name="listWidget">
+     <property name="styleSheet">
+      <string notr="true">QListWidget::item {
+    border: 1px solid lightgray;
+    padding: 5px;
+    margin: 2px;
+}
+
+QListWidget::item:selected {
+    background-color: #a8c5f7;
+    color: black;
+}
+
+QListWidget::item:hover {
+    background-color: #e0e0e0;
+}
+</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

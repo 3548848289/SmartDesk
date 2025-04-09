@@ -3,8 +3,7 @@
 #include "EditedLog.h"
 
 SharedView::SharedView(QWidget *parent): QWidget(parent),ui(new Ui::SharedView),
-    tcpSocket(new QTcpSocket(this)),serverManager(ServerManager::instance()),
-    dbservice(dbService::instance("./SmartDesk.db"))
+    tcpSocket(new QTcpSocket(this)), dbservice(dbService::instance("./SmartDesk.db"))
 {
     ui->setupUi(this);
 }
@@ -139,15 +138,8 @@ void SharedView::on_passwdEdit_editingFinished()
         QMessageBox::warning(this, tr("警告"), tr("请输入共享口令！"));
         return;
     }
-
-    // QStringList files = dbservice.dbOnline().getSharedFilesByShareToken(shareToken);
-    // ServerManager::instance()->getSharedFilesByShareToken(shareToken);
-    // 发起请求
     ServerManager::instance()->getSharedFile(shareToken);
-
-    // 接收结果
     connect(ServerManager::instance(), &ServerManager::historyReceived, this, [=](const QStringList& files){
-        qDebug() << "收到共享文件列表：" << files;
         if (!files.isEmpty()) {
             ui->listWidget->clear();
             for (const QString &file : files) {
@@ -159,13 +151,11 @@ void SharedView::on_passwdEdit_editingFinished()
         else
             QMessageBox::warning(this, tr("警告"), tr("未找到对应的共享文件！"));
     });
-
-
 }
 
 
 void SharedView::on_listWidget_itemClicked(QListWidgetItem *item)
-{
+{    
     on_linkserverBtn_clicked();
     int row = ui->listWidget->row(item);
     QString filePath = item->text();
@@ -178,7 +168,6 @@ void SharedView::on_listWidget_itemClicked(QListWidgetItem *item)
     ui->msgEdit->clear();
     emit filePathSent();
 }
-
 
 void SharedView::on_buildBtn_clicked()
 {
@@ -194,7 +183,6 @@ void SharedView::on_buildBtn_clicked()
         QMessageBox::warning(this, tr("警告"), tr("请输入共享口令！"));
         return;
     }
-
     if (ServerManager::instance()->setSharedFile(filePath, shareToken))
         QMessageBox::information(this, tr("成功"), tr("文件上传成功，口令为：%1").arg(shareToken));
     else

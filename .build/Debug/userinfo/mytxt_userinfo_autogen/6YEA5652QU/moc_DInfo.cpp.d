@@ -2,6 +2,7 @@ D:/CxxProgram/SmartDesk/.build/debug/userinfo/mytxt_userinfo_autogen/6YEA5652QU/
   D:/CxxProgram/SmartDesk/.build/debug/userinfo/mytxt_userinfo_autogen/moc_predefs.h \
   D:/CxxProgram/SmartDesk/UserInfo/include/FlaskInfo.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbClipboard.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \

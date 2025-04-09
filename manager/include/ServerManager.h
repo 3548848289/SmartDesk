@@ -24,6 +24,7 @@
 #include <QJsonArray>
 #include <QRegularExpression>
 #include <QPointer>
+#include <QMessageBox>
 class ServerManager : public QObject {
     Q_OBJECT
 
@@ -39,19 +40,20 @@ public:
     void setCurdir(const QString& curdir);
     void sendfilepath(QString filepath);
 
-    bool commitFile(const QString& filepath);
-    bool downloadFile(const QString& filepath);
+    void commitFile(const QString& filepath);
+    void downloadFile(const QString& filepath);
     void getHistory();
     bool setSharedFile(const QString &filepath, const QString &shareToken);
     void getSharedFile(const QString& shareToken);
-
-
+    void checkFileExists(const QString &filepath);
 signals:
     void commitSuccess();
     void commitFailed();
     void historyReceived(const QStringList& history);
     void onFilesListUpdated(const QString& files);
     void fileListReady(const QStringList &fileNames);
+    void returnStatus(bool exists);
+
 
 
 private slots:

@@ -408,11 +408,11 @@
 			"id" : "SimpleMail3Qt6::@30c29cfdcb280d7d821e"
 		},
 		{
-			"id" : "mytxt_email_autogen_timestamp_deps::@41759cfb2da9273c3e42"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "mytxt_email_autogen::@41759cfb2da9273c3e42"
+		},
+		{
+			"id" : "mytxt_email_autogen_timestamp_deps::@41759cfb2da9273c3e42"
 		}
 	],
 	"id" : "mytxt_email::@41759cfb2da9273c3e42",

@@ -14,7 +14,7 @@
    <string>设置</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../resources/res.qrc">
+   <iconset resource="../../resources/res.qrc">
     <normaloff>:/png/Settings.png</normaloff>:/png/Settings.png</iconset>
   </property>
   <widget class="QTreeWidget" name="treeWidget">
@@ -96,6 +96,11 @@
      </property>
     </item>
    </item>
+   <item>
+    <property name="text">
+     <string>剪切字板</string>
+    </property>
+   </item>
   </widget>
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
@@ -107,7 +112,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>5</number>
+    <number>6</number>
    </property>
    <widget class="QWidget" name="all_setting">
     <widget class="QCheckBox" name="all_setting_checkBox">
@@ -434,6 +439,7 @@
      </property>
     </widget>
    </widget>
+   <widget class="QWidget" name="clip_board"/>
   </widget>
  </widget>
  <tabstops>
@@ -455,7 +461,7 @@
   <tabstop>online_doc_timeEdit_1</tabstop>
  </tabstops>
  <resources>
-  <include location="../resources/res.qrc"/>
+  <include location="../../resources/res.qrc"/>
  </resources>
  <connections/>
 </ui>

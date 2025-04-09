@@ -89,11 +89,13 @@ D:/CxxProgram/SmartDesk/.build/debug/manager/mytxt_manager_autogen/6YEA5652QU/mo
   D:/QT6/6.8.0/mingw_64/include/QtCore/qjsonobject.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qjsonvalue.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qlatin1stringview.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qline.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qlist.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qlocale.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qlogging.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmalloc.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmap.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qmargins.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmath.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmetacontainer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qmetatype.h \
@@ -106,8 +108,10 @@ D:/CxxProgram/SmartDesk/.build/debug/manager/mytxt_manager_autogen/6YEA5652QU/mo
   D:/QT6/6.8.0/mingw_64/include/QtCore/qobjectdefs_impl.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qoverload.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qpair.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qpoint.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qpointer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qprocessordetection.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qrect.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qrefcount.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qregularexpression.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qscopedpointer.h \
@@ -117,6 +121,7 @@ D:/CxxProgram/SmartDesk/.build/debug/manager/mytxt_manager_autogen/6YEA5652QU/mo
   D:/QT6/6.8.0/mingw_64/include/QtCore/qshareddata_impl.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qsharedpointer_impl.h \
+  D:/QT6/6.8.0/mingw_64/include/QtCore/qsize.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qspan.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qstring.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qstringalgorithms.h \
@@ -161,6 +166,31 @@ D:/CxxProgram/SmartDesk/.build/debug/manager/mytxt_manager_autogen/6YEA5652QU/mo
   D:/QT6/6.8.0/mingw_64/include/QtCore/qversiontagging.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qxptype_traits.h \
   D:/QT6/6.8.0/mingw_64/include/QtCore/qyieldcpu.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qaction.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qbitmap.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qbrush.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qcolor.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qcursor.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qfont.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qfontinfo.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qfontmetrics.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qicon.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qimage.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qkeysequence.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qpaintdevice.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qpalette.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qpixelformat.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qpixmap.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qpolygon.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qregion.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qrgb.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qrgba64.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qtgui-config.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qtguiexports.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qtguiglobal.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qtransform.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
+  D:/QT6/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QHttpMultiPart \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/QNetworkReply \
@@ -184,6 +214,15 @@ D:/CxxProgram/SmartDesk/.build/debug/manager/mytxt_manager_autogen/6YEA5652QU/mo
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
   D:/QT6/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/QMessageBox \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialog.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qmessagebox.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+  D:/QT6/6.8.0/mingw_64/include/QtWidgets/qwidget.h \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
   D:/QT6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic \

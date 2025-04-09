@@ -4,6 +4,7 @@
 #include "dbFilepath.h"
 #include "dbBackupRecord.h"
 #include "dbOnlineDoc.h"
+#include "dbClipboard.h"
 #include <QString>
 
 class dbService {
@@ -19,15 +20,16 @@ public:
     dbFilepath& dbTags() { return dbfilepath; }
     dbBackupRecord& dbBackup() { return dbbackuprecord; }
     dbOnlineDoc& dbOnline() { return dbonline; }
-
+    dbClipboard& dbClip() { return dbclipboard; }
 private:
     dbService(const QString &dbName)
-        : dbfilepath(dbName), dbbackuprecord(dbName), dbonline(dbName) {
-    }
+        : dbfilepath(dbName), dbbackuprecord(dbName),
+          dbonline(dbName), dbclipboard(dbName) {}
 
     dbFilepath dbfilepath;
     dbBackupRecord dbbackuprecord;
     dbOnlineDoc dbonline;
+    dbClipboard dbclipboard;
     QString currentDbName;
 };
 

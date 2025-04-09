@@ -3,6 +3,7 @@ D:/CxxProgram/SmartDesk/.build/debug/FileBackup/mytxt_filehis_autogen/6YEA5652QU
   D:/CxxProgram/SmartDesk/FileBackup/include/FileRestoreWid.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbClipboard.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \

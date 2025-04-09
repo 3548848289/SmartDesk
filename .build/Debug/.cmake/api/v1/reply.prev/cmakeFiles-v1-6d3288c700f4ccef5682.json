@@ -2745,6 +2745,9 @@
 			"path" : "D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageMessage.cmake"
 		},
 		{
+			"path" : "ClipBoard/CMakeLists.txt"
+		},
+		{
 			"path" : "DisposeAbstract/DisposeTXT/CMakeLists.txt"
 		},
 		{

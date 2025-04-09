@@ -7,6 +7,7 @@ D:/CxxProgram/SmartDesk/.build/debug/onlinedoc/mytxt_onlinedoc_autogen/6YEA5652Q
   D:/CxxProgram/SmartDesk/main/include/TabAbstract.h \
   D:/CxxProgram/SmartDesk/manager/include/ServerManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbBackupRecord.h \
+  D:/CxxProgram/SmartDesk/manager/include/dbClipboard.h \
   D:/CxxProgram/SmartDesk/manager/include/dbFilepath.h \
   D:/CxxProgram/SmartDesk/manager/include/dbManager.h \
   D:/CxxProgram/SmartDesk/manager/include/dbOnlineDoc.h \

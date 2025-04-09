@@ -3,7 +3,7 @@
         "classes": [
             {
                 "className": "ClipboardView",
-                "lineNumber": 18,
+                "lineNumber": 17,
                 "object": true,
                 "qualifiedClassName": "ClipboardView",
                 "slots": [
@@ -15,26 +15,38 @@
                     },
                     {
                         "access": "private",
+                        "index": 1,
+                        "name": "copyItem",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 2,
+                        "name": "deleteItem",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 3,
+                        "name": "on_clearButton_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 4,
+                        "name": "on_saveButton_clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
                         "arguments": [
                             {
                                 "name": "item",
                                 "type": "QListWidgetItem*"
                             }
                         ],
-                        "index": 1,
-                        "name": "onItemDoubleClicked",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
-                        "index": 2,
-                        "name": "onClearButtonClicked",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
-                        "index": 3,
-                        "name": "onSaveButtonClicked",
+                        "index": 5,
+                        "name": "on_listWidget_itemDoubleClicked",
                         "returnType": "void"
                     },
                     {
@@ -45,20 +57,8 @@
                                 "type": "QPoint"
                             }
                         ],
-                        "index": 4,
-                        "name": "showContextMenu",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
-                        "index": 5,
-                        "name": "copyItem",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "private",
                         "index": 6,
-                        "name": "deleteItem",
+                        "name": "on_listWidget_customContextMenuRequested",
                         "returnType": "void"
                     }
                 ],

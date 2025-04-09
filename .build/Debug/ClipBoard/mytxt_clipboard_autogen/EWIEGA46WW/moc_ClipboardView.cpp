@@ -38,15 +38,15 @@ constexpr auto qt_meta_stringdata_CLASSClipboardViewENDCLASS = QtMocHelpers::str
     "ClipboardView",
     "onClipboardChanged",
     "",
-    "onItemDoubleClicked",
+    "copyItem",
+    "deleteItem",
+    "on_clearButton_clicked",
+    "on_saveButton_clicked",
+    "on_listWidget_itemDoubleClicked",
     "QListWidgetItem*",
     "item",
-    "onClearButtonClicked",
-    "onSaveButtonClicked",
-    "showContextMenu",
-    "pos",
-    "copyItem",
-    "deleteItem"
+    "on_listWidget_customContextMenuRequested",
+    "pos"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -68,21 +68,21 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSClipboardViewENDCLASS[] = {
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
        1,    0,   56,    2, 0x08,    1 /* Private */,
-       3,    1,   57,    2, 0x08,    2 /* Private */,
-       6,    0,   60,    2, 0x08,    4 /* Private */,
-       7,    0,   61,    2, 0x08,    5 /* Private */,
-       8,    1,   62,    2, 0x08,    6 /* Private */,
-      10,    0,   65,    2, 0x08,    8 /* Private */,
-      11,    0,   66,    2, 0x08,    9 /* Private */,
+       3,    0,   57,    2, 0x08,    2 /* Private */,
+       4,    0,   58,    2, 0x08,    3 /* Private */,
+       5,    0,   59,    2, 0x08,    4 /* Private */,
+       6,    0,   60,    2, 0x08,    5 /* Private */,
+       7,    1,   61,    2, 0x08,    6 /* Private */,
+      10,    1,   64,    2, 0x08,    8 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 4,    5,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QPoint,    9,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 8,    9,
+    QMetaType::Void, QMetaType::QPoint,   11,
 
        0        // eod
 };
@@ -98,20 +98,20 @@ Q_CONSTINIT const QMetaObject ClipboardView::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<ClipboardView, std::true_type>,
         // method 'onClipboardChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'onItemDoubleClicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>,
-        // method 'onClearButtonClicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'onSaveButtonClicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'showContextMenu'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QPoint &, std::false_type>,
         // method 'copyItem'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'deleteItem'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_clearButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_saveButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_listWidget_itemDoubleClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>,
+        // method 'on_listWidget_customContextMenuRequested'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QPoint &, std::false_type>
     >,
     nullptr
 } };
@@ -123,12 +123,12 @@ void ClipboardView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         (void)_t;
         switch (_id) {
         case 0: _t->onClipboardChanged(); break;
-        case 1: _t->onItemDoubleClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
-        case 2: _t->onClearButtonClicked(); break;
-        case 3: _t->onSaveButtonClicked(); break;
-        case 4: _t->showContextMenu((*reinterpret_cast< std::add_pointer_t<QPoint>>(_a[1]))); break;
-        case 5: _t->copyItem(); break;
-        case 6: _t->deleteItem(); break;
+        case 1: _t->copyItem(); break;
+        case 2: _t->deleteItem(); break;
+        case 3: _t->on_clearButton_clicked(); break;
+        case 4: _t->on_saveButton_clicked(); break;
+        case 5: _t->on_listWidget_itemDoubleClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
+        case 6: _t->on_listWidget_customContextMenuRequested((*reinterpret_cast< std::add_pointer_t<QPoint>>(_a[1]))); break;
         default: ;
         }
     }

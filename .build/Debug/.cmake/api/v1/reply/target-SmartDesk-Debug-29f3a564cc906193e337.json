@@ -31,21 +31,21 @@
 			"CMakeLists.txt",
 			"main/CMakeLists.txt",
 			"manager/CMakeLists.txt",
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake",
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake",
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
 			"D:/QT6/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindDependencyMacro.cmake",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets.cmake",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake",
 			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake",
-			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake"
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
+			"D:/QT6/6.8.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake"
 		],
 		"nodes" : 
 		[
@@ -55,7 +55,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 37,
+				"line" : 38,
 				"parent" : 0
 			},
 			{
@@ -79,7 +79,7 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 59,
+				"line" : 60,
 				"parent" : 0
 			},
 			{
@@ -103,7 +103,7 @@
 			{
 				"command" : 5,
 				"file" : 3,
-				"line" : 34,
+				"line" : 36,
 				"parent" : 9
 			},
 			{
@@ -143,52 +143,30 @@
 				"parent" : 16
 			},
 			{
-				"command" : 7,
-				"file" : 5,
-				"line" : 43,
-				"parent" : 14
-			},
-			{
-				"file" : 11,
-				"parent" : 18
-			},
-			{
-				"command" : 10,
-				"file" : 11,
-				"line" : 43,
-				"parent" : 19
-			},
-			{
-				"command" : 9,
-				"file" : 10,
-				"line" : 143,
-				"parent" : 20
-			},
-			{
 				"command" : 8,
-				"file" : 9,
-				"line" : 47,
-				"parent" : 21
+				"file" : 6,
+				"line" : 181,
+				"parent" : 12
 			},
 			{
 				"file" : 8,
-				"parent" : 22
+				"parent" : 18
 			},
 			{
 				"command" : 7,
 				"file" : 8,
 				"line" : 55,
-				"parent" : 23
+				"parent" : 19
 			},
 			{
 				"file" : 7,
-				"parent" : 24
+				"parent" : 20
 			},
 			{
 				"command" : 6,
 				"file" : 7,
 				"line" : 61,
-				"parent" : 25
+				"parent" : 21
 			},
 			{
 				"command" : 5,
@@ -197,96 +175,118 @@
 				"parent" : 2
 			},
 			{
+				"command" : 7,
+				"file" : 8,
+				"line" : 43,
+				"parent" : 19
+			},
+			{
+				"file" : 13,
+				"parent" : 24
+			},
+			{
+				"command" : 10,
+				"file" : 13,
+				"line" : 43,
+				"parent" : 25
+			},
+			{
 				"command" : 9,
-				"file" : 10,
+				"file" : 12,
 				"line" : 143,
-				"parent" : 20
+				"parent" : 26
 			},
 			{
 				"command" : 8,
-				"file" : 9,
+				"file" : 11,
 				"line" : 47,
+				"parent" : 27
+			},
+			{
+				"file" : 10,
 				"parent" : 28
 			},
 			{
-				"file" : 13,
+				"command" : 7,
+				"file" : 10,
+				"line" : 57,
 				"parent" : 29
 			},
 			{
-				"command" : 7,
-				"file" : 13,
-				"line" : 57,
+				"file" : 9,
 				"parent" : 30
-			},
-			{
-				"file" : 12,
-				"parent" : 31
 			},
 			{
 				"command" : 6,
-				"file" : 12,
+				"file" : 9,
 				"line" : 61,
-				"parent" : 32
+				"parent" : 31
 			},
 			{
 				"command" : 7,
-				"file" : 13,
+				"file" : 10,
 				"line" : 45,
-				"parent" : 30
+				"parent" : 29
 			},
 			{
 				"file" : 16,
-				"parent" : 34
+				"parent" : 33
 			},
 			{
 				"command" : 10,
 				"file" : 16,
 				"line" : 44,
-				"parent" : 35
+				"parent" : 34
 			},
 			{
 				"command" : 9,
-				"file" : 10,
+				"file" : 12,
 				"line" : 143,
-				"parent" : 36
+				"parent" : 35
 			},
 			{
 				"command" : 8,
-				"file" : 9,
+				"file" : 11,
 				"line" : 47,
-				"parent" : 37
+				"parent" : 36
 			},
 			{
 				"file" : 15,
-				"parent" : 38
+				"parent" : 37
 			},
 			{
 				"command" : 7,
 				"file" : 15,
 				"line" : 55,
-				"parent" : 39
+				"parent" : 38
 			},
 			{
 				"file" : 14,
-				"parent" : 40
+				"parent" : 39
 			},
 			{
 				"command" : 6,
 				"file" : 14,
 				"line" : 61,
-				"parent" : 41
+				"parent" : 40
 			},
 			{
 				"command" : 6,
 				"file" : 14,
 				"line" : 83,
-				"parent" : 41
+				"parent" : 40
+			},
+			{
+				"command" : 9,
+				"file" : 12,
+				"line" : 143,
+				"parent" : 26
 			},
 			{
 				"command" : 8,
-				"file" : 6,
-				"line" : 181,
-				"parent" : 12
+				"file" : 11,
+				"line" : 47,
+				"parent" : 43
 			},
 			{
 				"file" : 18,
@@ -322,11 +322,11 @@
 			"defines" : 
 			[
 				{
-					"backtrace" : 27,
+					"backtrace" : 23,
 					"define" : "MINGW_HAS_SECURE_API=1"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 23,
 					"define" : "QT_CORE_LIB"
 				},
 				{
@@ -334,7 +334,7 @@
 					"define" : "QT_GUI_LIB"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 23,
 					"define" : "QT_NEEDS_QMAIN"
 				},
 				{
@@ -346,27 +346,27 @@
 					"define" : "QT_WIDGETS_LIB"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 23,
 					"define" : "UNICODE"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 23,
 					"define" : "WIN32"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 23,
 					"define" : "WIN64"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 23,
 					"define" : "_ENABLE_EXTENDED_ALIGNED_STORAGE"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 23,
 					"define" : "_UNICODE"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 23,
 					"define" : "_WIN64"
 				}
 			],
@@ -381,17 +381,17 @@
 					"path" : "D:/CxxProgram/SmartDesk/EmailService/simple-mail/src"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 23,
 					"isSystem" : true,
 					"path" : "D:/QT6/6.8.0/mingw_64/include/QtCore"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 23,
 					"isSystem" : true,
 					"path" : "D:/QT6/6.8.0/mingw_64/include"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 23,
 					"isSystem" : true,
 					"path" : "D:/QT6/6.8.0/mingw_64/mkspecs/win32-g++"
 				},
@@ -415,8 +415,7 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1,
-				3
+				1
 			]
 		}
 	],
@@ -424,7 +423,15 @@
 	[
 		{
 			"backtrace" : 6,
+			"id" : "mytxt_filehis::@a04c9e1285aa3f368306"
+		},
+		{
+			"backtrace" : 6,
 			"id" : "mytxt_manager::@97418e93d514bfe7a5e1"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "mytxt_schedule::@ccb69b48cedb0a3f86be"
 		},
 		{
 			"backtrace" : 6,
@@ -436,19 +443,7 @@
 		},
 		{
 			"backtrace" : 6,
-			"id" : "mytxt_filehis::@a04c9e1285aa3f368306"
-		},
-		{
-			"backtrace" : 6,
-			"id" : "mytxt_schedule::@ccb69b48cedb0a3f86be"
-		},
-		{
-			"backtrace" : 6,
 			"id" : "mytxt_setting::@99ddcd2d224c7a01b08e"
-		},
-		{
-			"backtrace" : 6,
-			"id" : "mytxt_userinfo::@d674bccc37d551b1d410"
 		},
 		{
 			"backtrace" : 6,
@@ -456,7 +451,19 @@
 		},
 		{
 			"backtrace" : 6,
+			"id" : "mytxt_userinfo::@d674bccc37d551b1d410"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "mytxt_txt::@22d3c4ea2864f1017caf"
+		},
+		{
+			"backtrace" : 6,
 			"id" : "mytxt_morefunction::@807fcda46bf03ea5b6d6"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "mytxt_clipboard::@220ed9ebd1cfbeb15a72"
 		},
 		{
 			"backtrace" : 6,
@@ -468,15 +475,11 @@
 		},
 		{
 			"backtrace" : 6,
-			"id" : "mytxt_txt::@22d3c4ea2864f1017caf"
+			"id" : "mytxt_main::@15c4a824ab2728a3f5e7"
 		},
 		{
 			"backtrace" : 6,
 			"id" : "SimpleMail3Qt6::@30c29cfdcb280d7d821e"
-		},
-		{
-			"backtrace" : 6,
-			"id" : "mytxt_main::@15c4a824ab2728a3f5e7"
 		},
 		{
 			"id" : "SmartDesk_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
@@ -580,6 +583,11 @@
 			},
 			{
 				"backtrace" : 6,
+				"fragment" : "ClipBoard\\libmytxt_clipboard.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
 				"fragment" : "EmailService\\simple-mail\\src\\libSimpleMail3Qt6.dll.a",
 				"role" : "libraries"
 			},
@@ -599,68 +607,68 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 17,
-				"fragment" : "D:\\QT6\\6.8.0\\mingw_64\\lib\\libQt6Gui.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 26,
-				"fragment" : "-ld3d11",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 26,
-				"fragment" : "-ldxgi",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 26,
-				"fragment" : "-ldxguid",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 26,
-				"fragment" : "-ld3d12",
-				"role" : "libraries"
-			},
-			{
 				"backtrace" : 8,
 				"fragment" : "D:\\QT6\\6.8.0\\mingw_64\\lib\\libQt6Network.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 27,
+				"backtrace" : 17,
+				"fragment" : "-lws2_32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 22,
+				"fragment" : "D:\\QT6\\6.8.0\\mingw_64\\lib\\libQt6Gui.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 23,
 				"fragment" : "D:\\QT6\\6.8.0\\mingw_64\\lib\\libQt6Core.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 33,
+				"backtrace" : 32,
 				"fragment" : "-lmpr",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 33,
+				"backtrace" : 32,
 				"fragment" : "-luserenv",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 42,
+				"backtrace" : 41,
 				"fragment" : "-lmingw32",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 42,
+				"backtrace" : 41,
 				"fragment" : "D:\\QT6\\6.8.0\\mingw_64\\lib\\libQt6EntryPoint.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 43,
+				"backtrace" : 42,
 				"fragment" : "-lshell32",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 48,
-				"fragment" : "-lws2_32",
+				"fragment" : "-ld3d11",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 48,
+				"fragment" : "-ldxgi",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 48,
+				"fragment" : "-ldxguid",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 48,
+				"fragment" : "-ld3d12",
 				"role" : "libraries"
 			},
 			{
@@ -684,44 +692,28 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1,
-				3
-			]
-		},
-		{
-			"name" : "Header Files",
-			"sourceIndexes" : 
-			[
-				2,
-				5
-			]
-		},
-		{
-			"name" : "Forms",
-			"sourceIndexes" : 
-			[
-				4
+				1
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				6
+				2
 			]
 		},
 		{
 			"name" : "Resources",
 			"sourceIndexes" : 
 			[
-				7
+				3
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				8
+				4
 			]
 		}
 	],
@@ -742,43 +734,21 @@
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 4,
-			"path" : "ClipBoard/ClipboardView.h",
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : ".build/debug/SmartDesk_autogen/timestamp",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "ClipBoard/ClipboardView.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 4,
-			"path" : "ClipBoard/ClipboardView.ui",
+			"backtrace" : 0,
+			"path" : "resources/res.qrc",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : ".build/debug/SmartDesk_autogen/include/ClipBoard/ui_ClipboardView.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 0,
-			"isGenerated" : true,
-			"path" : ".build/debug/SmartDesk_autogen/timestamp",
-			"sourceGroupIndex" : 3
-		},
-		{
-			"backtrace" : 0,
-			"path" : "resources/res.qrc",
-			"sourceGroupIndex" : 4
-		},
-		{
-			"backtrace" : 0,
-			"isGenerated" : true,
 			"path" : ".build/debug/SmartDesk_autogen/timestamp.rule",
-			"sourceGroupIndex" : 5
+			"sourceGroupIndex" : 3
 		}
 	],
 	"type" : "EXECUTABLE"
