@@ -34,6 +34,7 @@ private slots:
 signals:
     void fileOpened(const QString &filePath);
     void filebackuplistOpened();
+    void tagopened();
 private:
     void loadFileMetadata(const QString &filePath);
     void saveExpirationDate(const QString &filePath, const QDate &expirationDate);

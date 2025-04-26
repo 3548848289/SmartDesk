@@ -1,6 +1,0 @@
-豆瓣音乐
-豆瓣电影
-onSaveButtonClicked
-豆瓣音乐
-豆瓣电影
-ffmpeg -i 1.mp4 -ss 00:00:00 -t 4 out.ts 

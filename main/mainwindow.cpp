@@ -23,17 +23,22 @@ void MainWindow::initSmal()
 
         on_actionclose_triggered();
     });
-    openFile("../help.txt");
+    openFile("help.txt");
 }
 
 void MainWindow::initFunc()
 {
 
     file_system = new FileSystem(this);
-    file_backup_view = new FileBackupView(file_system);
+    file_backup_view = new FileBackupView(this);
     wonlinedoc = new WOnlineDoc(this);
     schedule_wid= new ScheduleWid(this);
     widgetfunc = new WidgetFunctional(this);
+
+    // qDebug() << "file_system size:" << file_system->size();
+    // qDebug() << "wonlinedoc size:" << wonlinedoc->size();
+    // qDebug() << "file_backup_view size:" << file_backup_view->size();
+    // qDebug() << "schedule_wid size:" << schedule_wid->size();
 
     ui->stackedWidget->setObjectName("pWidget");
     ui->stackedWidget->setStyleSheet("QWidget#pWidget { border: 1px solid #808080; }");
@@ -122,8 +127,9 @@ void MainWindow::initSpli()
     connect(ui->Function8, &QAction::triggered, this, [=]() { toggleButtonVisibility(9); });
 
     connect(ui->actionhelp, &QAction::triggered, this, [this]() {
-        openFile("../help.txt");
+        openFile(":/help.txt");
     });
+
 
 
 
@@ -140,7 +146,7 @@ void MainWindow::initSpli()
     setCentralWidget(horizontalSplitter);
 
     QList<int> sizes;
-    sizes <<  60 << 500 << 240;
+    sizes <<  60 << 600 << 340;
     horizontalSplitter->setSizes(sizes);
 }
 
@@ -157,6 +163,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(wonlinedoc->shared_view, &SharedView::filePathSent, this, &MainWindow::handleFilePathSent);
     connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
     connect(file_system, &FileSystem::fileOpened, this, &MainWindow::openFile);
+
+    connect(file_system, &FileSystem::filebackuplistOpened, this, [=]{
+        ui->stackedWidget->setCurrentWidget(schedule_wid);
+    });
 
     connect(file_system, &FileSystem::filebackuplistOpened, this, [=]{
         ui->stackedWidget->setCurrentWidget(file_backup_view);

@@ -11,11 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>新增备忘文件</string>
+   <string>新增标签</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../resources/res.qrc">
-    <normaloff>:/usedimage/tag.svg</normaloff>:/usedimage/tag.svg</iconset>
+   <iconset theme="QIcon::ThemeIcon::MailMessageNew"/>
   </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
@@ -42,10 +41,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="../../resources/res.qrc">:/usedimage/edittag.svg</pixmap>
+         <string>详情</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -115,8 +111,6 @@ QPushButton {
   <tabstop>annotationTextEdit</tabstop>
   <tabstop>saveButton</tabstop>
  </tabstops>
- <resources>
-  <include location="../../resources/res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

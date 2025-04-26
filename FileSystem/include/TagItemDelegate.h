@@ -13,6 +13,7 @@
 #include <QMap>
 #include <QClipboard>
 
+#include "../../TagSchedule/include/TagDetail.h"
 #include "../../manager/include/dbService.h"
 #include "../../manager/include/ServerManager.h"
 #include "../../FileBackup/include/FileBackupWid.h"

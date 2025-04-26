@@ -41,7 +41,10 @@
    <item row="0" column="3">
     <widget class="QSlider" name="scaleSlider">
      <property name="maximum">
-      <number>20</number>
+      <number>100</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
      </property>
      <property name="orientation">
       <enum>Qt::Orientation::Horizontal</enum>

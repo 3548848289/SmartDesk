@@ -1,2 +1,0 @@
-D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/mytxt_img_autogen/include/../6YEA5652QU/moc_ControlFrame.cpp.json
-D:/CxxProgram/SmartDesk/.build/debug/DisposeAbstract/DisposeIMG/mytxt_img_autogen/include/../6YEA5652QU/moc_TabHandleIMG.cpp.json

@@ -16,7 +16,6 @@ FileBackupView::FileBackupView(QWidget *parent)
     connect(serverManager, &ServerManager::returnStatus, this, [this](bool exists) {
         this->exists = exists;
     });
-
     loadFileNames();
 }
 
@@ -106,6 +105,8 @@ void FileBackupView::on_pushButton_clicked()
         return;
 
     QMessageBox msgBox(this);
+    // QIcon themeIcon = QIcon::fromTheme(QIcon::ThemeIcon::InputTablet);
+    // msgBox.setIconPixmap(themeIcon.pixmap(64, 64));
     msgBox.setWindowTitle("操作选择");
     msgBox.setText("您想执行以下哪个操作？");
 
@@ -122,11 +123,9 @@ void FileBackupView::on_pushButton_clicked()
             if (dbservice.dbBackup().updateSubmissions(choosed_file, newFilePath)) {
                 ui->fileListComboBox->setItemData(index, newFilePath);
                 ui->fileListComboBox->setItemText(index, QFileInfo(newFilePath).fileName());
-            } else {
+            } else
                 qDebug() << "Failed to update file path in database.";
-            }
         }
-
     }
     else if (msgBox.clickedButton() == deleteButton) {
         if (dbservice.dbBackup().deleteAll(choosed_file))

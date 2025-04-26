@@ -1,6 +1,6 @@
 #include "include/FlaskInfo.h"
 
-FlaskInfo::FlaskInfo(QObject *parent) : QObject(parent)
+FlaskInfo::FlaskInfo(QObject *parent) : QObject(parent), address("http://127.0.0.1:5000")
 {
     networkManager = new QNetworkAccessManager(this);
 }
@@ -11,7 +11,7 @@ void FlaskInfo::route_loginUser(const QString &username, const QString &password
     json["username"] = username;
     json["password"] = password;
 
-    sendRequest(QUrl("http://127.0.0.1:5000/user/login"), json, "login");
+    sendRequest(QUrl(address + "/user/login"), json, "login");
 }
 
 void FlaskInfo::route_registerUser(const QString &username, const QString &password, const QByteArray &avatarData)
@@ -21,7 +21,7 @@ void FlaskInfo::route_registerUser(const QString &username, const QString &passw
     json["password"] = password;
     json["avatar"] = QString(avatarData.toBase64());
 
-    sendRequest(QUrl("http://127.0.0.1:5000/user/register"), json, "register");
+    sendRequest(QUrl(address + "/user/register"), json, "register");
 }
 
 void FlaskInfo::route_loadUserInfo(const QString &username)
@@ -29,7 +29,7 @@ void FlaskInfo::route_loadUserInfo(const QString &username)
     QJsonObject json;
     json["username"] = username; // 传递用户名作为查询参数
 
-    sendRequest(QUrl("http://127.0.0.1:5000/info/get_user_info"), json, "load_user_info");
+    sendRequest(QUrl(address + "/info/get_user_info"), json, "load_user_info");
 }
 
 void FlaskInfo::route_updateUserInfo(const QString &username, const QMap<QString, QVariant> &userInfo)
@@ -43,7 +43,7 @@ void FlaskInfo::route_updateUserInfo(const QString &username, const QMap<QString
     json["location"] = userInfo["location"].toString();
     json["company"] = userInfo["company"].toString();
 
-    sendRequest(QUrl("http://127.0.0.1:5000/info/update_user_info"), json, "update_user_info");
+    sendRequest(QUrl(address + "/info/update_user_info"), json, "update_user_info");
 }
 
 
@@ -96,7 +96,7 @@ void FlaskInfo::handleResponse(QNetworkReply *reply, const QString &action)
 void FlaskInfo::H_LoginAct(const QJsonObject &jsonRes)
 {
     if (jsonRes.contains("avatar_url") && !jsonRes["avatar_url"].toString().isEmpty()) {
-        QString baseUrl = "http://127.0.0.1:5000";
+        QString baseUrl = address;
         QString avatarUrl = baseUrl + jsonRes["avatar_url"].toString();
         qDebug() << "Full Avatar URL:" << avatarUrl;
         fetchAvatarImage(avatarUrl, "login_avatar");

@@ -1,38 +1,25 @@
 #include "include/TagDetail.h"
 #include "ui/ui_TagDetail.h"
 
-TagDetail::TagDetail(QWidget *parent, const FilePathInfo &fileInfo)
-    : QWidget(parent), fileInfo(fileInfo), ui(new Ui::TagDetail)
-    , dbservice(dbService::instance("./SmartDesk.db"))
 
-{
+TagDetail::TagDetail(QWidget *parent, FilePathInfo fileInfo)
+    : QWidget(parent), ui(new Ui::TagDetail),
+    dbservice(dbService::instance("./SmartDesk.db")) {
     ui->setupUi(this);
-    qDebug() << fileInfo.filePath;
+    init(fileInfo);
+}
 
-    ui->tableWidget->setRowCount(5);
-    ui->tableWidget->setColumnCount(2);
+TagDetail::TagDetail(QWidget *parent, QString filePath)
+    : QWidget(parent), ui(new Ui::TagDetail),
+    dbservice(dbService::instance("./SmartDesk.db")) {
 
-    ui->tableWidget->setItem(0, 0, new QTableWidgetItem("文件路径"));
-    ui->tableWidget->setItem(1, 0, new QTableWidgetItem("标签"));
-    ui->tableWidget->setItem(2, 0, new QTableWidgetItem("过期时间"));
-    ui->tableWidget->setItem(3, 0, new QTableWidgetItem("备注"));
-    ui->tableWidget->setItem(4, 0, new QTableWidgetItem("文件状态"));
-
-    ui->tableWidget->setItem(0, 1, new QTableWidgetItem(fileInfo.filePath));
-    QTableWidgetItem *tagItem = new QTableWidgetItem(fileInfo.tagName);
-    ui->tableWidget->setItem(1, 1, tagItem);
-
-    ui->tableWidget->setItem(2, 1, new QTableWidgetItem(fileInfo.expirationDate.toString("yyyy-MM-ddTHH:mm:ss.zzz")));
-    ui->tableWidget->setItem(3, 1, new QTableWidgetItem(fileInfo.annotation));
-    QFileInfo fileInfoCheck(fileInfo.filePath);
-    if (!fileInfoCheck.exists()) {
-        ui->tableWidget->setItem(4, 1, new QTableWidgetItem("文件不存在"));
+    ui->setupUi(this);
+    if (dbservice.dbTags().getFileInfoByFilePath(filePath, fileInfo)) {
+        init(fileInfo);
     } else {
-        ui->tableWidget->setItem(4, 1, new QTableWidgetItem("文件存在"));
+        qDebug() << "未能从数据库获取文件信息";
     }
-    ui->tableWidget->resizeColumnsToContents();
-    ui->tableWidget->resizeRowsToContents();
-
+    init(fileInfo);
 }
 
 TagDetail::~TagDetail()
@@ -115,4 +102,40 @@ void TagDetail::on_deleteBtn_clicked() {
             QMessageBox::warning(this, "删除失败", "删除过程中出现错误，操作已回滚。");
         close();
     }
+}
+
+void TagDetail::init(FilePathInfo fileInfo) {
+    qDebug() << fileInfo.filePath;
+
+    ui->tableWidget->setRowCount(5);
+    ui->tableWidget->setColumnCount(2);
+
+    // 设置表格项
+    ui->tableWidget->setItem(0, 0, new QTableWidgetItem("文件路径"));
+    ui->tableWidget->setItem(1, 0, new QTableWidgetItem("标签"));
+    ui->tableWidget->setItem(2, 0, new QTableWidgetItem("过期时间"));
+    ui->tableWidget->setItem(3, 0, new QTableWidgetItem("备注"));
+    ui->tableWidget->setItem(4, 0, new QTableWidgetItem("文件状态"));
+
+    ui->tableWidget->setItem(0, 1, new QTableWidgetItem(fileInfo.filePath));
+    QTableWidgetItem *tagItem = new QTableWidgetItem(fileInfo.tagName);
+    ui->tableWidget->setItem(1, 1, tagItem);
+    ui->tableWidget->setItem(2, 1, new QTableWidgetItem(fileInfo.expirationDate.toString("yyyy-MM-ddTHH:mm:ss.zzz")));
+    ui->tableWidget->setItem(3, 1, new QTableWidgetItem(fileInfo.annotation));
+
+    QFileInfo fileInfoCheck(fileInfo.filePath);
+    if (!fileInfoCheck.exists()) {
+        ui->tableWidget->setItem(4, 1, new QTableWidgetItem("文件不存在"));
+    } else {
+        ui->tableWidget->setItem(4, 1, new QTableWidgetItem("文件存在"));
+    }
+    ui->tableWidget->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
+    ui->tableWidget->horizontalScrollBar()->setSingleStep(5);
+
+    ui->tableWidget->resizeColumnsToContents();
+    ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    ui->tableWidget->verticalHeader()->setVisible(false);
+    ui->tableWidget->horizontalHeader()->setVisible(false);
+
 }

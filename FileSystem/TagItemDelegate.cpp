@@ -14,12 +14,16 @@ void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
 
     if (hasTags(filePath)) {
         QRect iconRect(option.rect.right() - 30, option.rect.top() + 5, 20, 20);
-        QIcon tagIcon(":/usedimage/edittag.svg");
+        // QIcon tagIcon(":/usedimage/edittag.svg");
+        QIcon tagIcon = QIcon::fromTheme(QIcon::ThemeIcon::MailMessageNew);
+
         tagIcon.paint(painter, iconRect, Qt::AlignCenter);
     }
     if (dbservice.dbBackup().hasSubmissions(filePath)) {
         QRect submissionIconRect(option.rect.right() - 60, option.rect.top() + 5, 20, 20);
-        QIcon submissionIcon(":/usedimage/history.svg");
+        // QIcon submissionIcon(":/usedimage/history.svg");
+        QIcon submissionIcon = QIcon::fromTheme(QIcon::ThemeIcon::EditCopy);
+
         submissionIcon.paint(painter, submissionIconRect, Qt::AlignCenter);
     }
 }
@@ -30,10 +34,13 @@ bool TagItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
 
         QRect tagIconRect(option.rect.right() - 30, option.rect.top() + 5, 20, 20);
         if (tagIconRect.contains(mouseEvent->pos())) {
-            AddTag tagDialog;
-            addTag(model, index, tagDialog);
             isButtonClicked = true;
             emit tagbutClicked(index);
+
+            QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
+            TagDetail *tagDetail = new TagDetail(nullptr, filePath);
+            tagDetail->show();
+
             return true;
         }
 
@@ -139,6 +146,7 @@ void TagItemDelegate::onHistoryTriggered(QAbstractItemModel *model, const QModel
 void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex &index, AddTag &tagDialog) {
     if (tagDialog.exec() == QDialog::Accepted) {
         QString tagName = tagDialog.getTagName();
+        qDebug() << tagName;
         QString annotation = tagDialog.getAnnotation();
         QDateTime expirationDate = tagDialog.getExpirationDate();
 

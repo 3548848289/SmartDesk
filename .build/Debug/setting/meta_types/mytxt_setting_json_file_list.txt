@@ -1,2 +1,0 @@
-D:/CxxProgram/SmartDesk/.build/debug/setting/mytxt_setting_autogen/include/../6YEA5652QU/moc_AppHelp.cpp.json
-D:/CxxProgram/SmartDesk/.build/debug/setting/mytxt_setting_autogen/include/../6YEA5652QU/moc_Setting.cpp.json

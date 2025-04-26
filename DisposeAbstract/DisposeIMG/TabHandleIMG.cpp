@@ -7,25 +7,26 @@ TabHandleIMG::TabHandleIMG(const QString& filePath, QWidget *parent)
     QSplitter* splitter = new QSplitter(Qt::Vertical, this);
 
     scene = new QGraphicsScene;
-    scene->setSceneRect(-100, -100, 200, 200);
+    // scene->setSceneRect(-100, -100, 200, 200);
 
     QPixmap *pixmap = new QPixmap(filePath);
     pixItem = new PixItem(pixmap);
     scene->addItem(pixItem);
+    scene->setSceneRect(pixItem->boundingRect());
     pixItem->setPos(0, 0);
 
     view = new QGraphicsView;
     view->setScene(scene);
+
     view->setMinimumSize(200, 200);
     view->installEventFilter(this);
+    view->fitInView(pixItem, Qt::KeepAspectRatio);
 
     ControlFrame *controlFrame = new ControlFrame(this);
-    controlFrame->hide();
-
     splitter->addWidget(view);
     splitter->addWidget(controlFrame);
 
-    splitter->setSizes({400, 100});
+    splitter->setSizes({700, 100});
 
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(splitter);
@@ -36,6 +37,7 @@ TabHandleIMG::TabHandleIMG(const QString& filePath, QWidget *parent)
 
     connect(controlFrame, &ControlFrame::textAdded, this, &TabHandleIMG::onTextAdded);
     connect(controlFrame, &ControlFrame::exportRequested, this, &TabHandleIMG::exportImage);
+
 }
 
 void TabHandleIMG::test()
@@ -57,7 +59,7 @@ void TabHandleIMG::showControlFrame(ControlFrame *controlFrame)
             updateTransformations(value, scaleValue, shearValue, translateValue);
         });
         connect(controlFrame, &ControlFrame::scaleChanged, this, [=](int value) {
-            scaleValue = value / 10.0;
+            scaleValue = value / 50.0;
             updateTransformations(angle, scaleValue, shearValue, translateValue);
         });
         connect(controlFrame, &ControlFrame::shearChanged, this, [=](int value) {
@@ -114,19 +116,28 @@ bool TabHandleIMG::eventFilter(QObject* watched, QEvent* event)
 
 
 void TabHandleIMG::exportImage(const QString &filePath) {
-    QRectF itemsRect = scene->itemsBoundingRect();
-    scene->setSceneRect(itemsRect);
-    qreal margin = 10.0;
-    itemsRect.adjust(-margin, -margin, margin, margin);
-    QSize imageSize(itemsRect.width(), itemsRect.height());
-    QImage image(imageSize, QImage::Format_ARGB32);
+    if (!scene) return;
+
+    QRectF sceneRect = scene->itemsBoundingRect(); // 获取所有图元的边界
+    QImage image(sceneRect.size().toSize(), QImage::Format_ARGB32_Premultiplied);
+    image.fill(Qt::white); // 白色背景（你可以换成透明：Qt::transparent）
+
     QPainter painter(&image);
-    painter.translate(-itemsRect.topLeft());
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setRenderHint(QPainter::SmoothPixmapTransform);
+
+    // 应用 scene 坐标系的偏移
+    painter.translate(-sceneRect.topLeft());
+
     scene->render(&painter);
-    if (!image.save(filePath, "PNG")) {
-        QMessageBox::warning(this, tr("Export Error"), tr("Failed to export image."));
+    painter.end();
+
+    if (!image.save(filePath)) {
+        QMessageBox::warning(this, tr("保存失败"), tr("无法保存图像到路径: %1").arg(filePath));
     } else {
-        QMessageBox::information(this, tr("Export Success"), tr("Image successfully exported to: ") + filePath);
+        QMessageBox::information(this, tr("保存成功"), tr("图像已保存到: %1").arg(filePath));
     }
+
 }
+
 

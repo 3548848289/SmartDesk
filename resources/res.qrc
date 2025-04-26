@@ -23,5 +23,7 @@
         <file>png/Settings.png</file>
         <file>image/user.svg</file>
         <file>usedimage/tips.svg</file>
+        <file>conf/help.txt</file>
+        <file>conf/settings.ini</file>
     </qresource>
 </RCC>

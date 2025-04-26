@@ -19,6 +19,7 @@ FileSystem::FileSystem(QWidget *parent)
     QFont font = ui->treeView->font();
     font.setPointSize(12);
     ui->treeView->setFont(font);
+    ui->treeView->setWordWrap(true);
     ui->treeView->setStyleSheet("QTreeView::item { height: 30px; }");
     ui->treeView->setModel(fileSystemModel);
     ui->treeView->setHeaderHidden(true);
@@ -37,7 +38,7 @@ FileSystem::FileSystem(QWidget *parent)
         ui->treeView->update();
     });
     connect(tagItemdelegate, &TagItemDelegate::tagbutClicked, this, [this](const QModelIndex &index) {
-        qDebug() << "点击了添加标签按钮";
+        emit tagopened();
     });
     connect(tagItemdelegate, &TagItemDelegate::subbutClicked, this, [this](const QModelIndex &index) {
         emit filebackuplistOpened();

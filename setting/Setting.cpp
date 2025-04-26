@@ -5,14 +5,24 @@
 #include <QSettings>
 
 Setting::Setting(QWidget *parent) : QWidget(parent), ui(new Ui::Setting)
-    , settings(QCoreApplication::applicationDirPath() + "/settings.ini", QSettings::IniFormat)
+    , settings("settings.ini", QSettings::IniFormat)  // 使用资源路径
 {
+
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
+    ui->treeWidget->setHeaderHidden(true);
+
     ui->online_doc_timeEdit_1->setDisplayFormat("HH:mm");
     ui->online_doc_timeEdit_2->setDisplayFormat("HH:mm");
+
+    if (settings.status() == QSettings::NoError) {
+        loadSettings();
+    } else {
+        qDebug() << "Settings file status: " << settings.status();
+    }
     loadSettings();
 }
+
 
 Setting::~Setting() {
     saveSettings();
