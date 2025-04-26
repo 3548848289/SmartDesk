@@ -18,7 +18,7 @@ public:
     bool insertClipboardItem(const QString &id, const QString &content,
         const QString &type, const QDateTime &timestamp, const QString &source,
         bool isFavorite, const QString &tags, const QString &format);
-    QList<QString> loadRecentHistory();
+    QList<QString> loadRecentHistory(int hours);
 };
 
 #endif // DBCLIPBOARD_H

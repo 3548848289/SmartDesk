@@ -9,6 +9,7 @@
 ClipboardView::ClipboardView(QWidget *parent) : QWidget(parent),
     ui(new Ui::ClipboardView), dbservice(dbService::instance("./SmartDesk.db")){
     ui->setupUi(this);
+    ui->listWidget->setSelectionMode(QAbstractItemView::ExtendedSelection);
     ui->listWidget->setWordWrap(true);
     ui->listWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     ui->listWidget->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
@@ -19,7 +20,9 @@ ClipboardView::ClipboardView(QWidget *parent) : QWidget(parent),
 
     connect(clipboard, &QClipboard::dataChanged, this, &ClipboardView::onClipboardChanged);
     setAcceptDrops(true);
-    QList<QString> items = dbservice.dbClip().loadRecentHistory();
+
+    int hours = SettingManager::Instance().gethours();
+    QList<QString> items = dbservice.dbClip().loadRecentHistory(hours);
 
     for (const QString &content : items)
         ui->listWidget->addItem(content);
@@ -49,11 +52,13 @@ void ClipboardView::copyItem()
 
 void ClipboardView::deleteItem()
 {
-    if (currentRightClickedItem) {
-        delete currentRightClickedItem;
-        currentRightClickedItem = nullptr;
+    QList<QListWidgetItem *> selectedItems = ui->listWidget->selectedItems();
+    for (QListWidgetItem *item : selectedItems) {
+        delete item;
     }
+    currentRightClickedItem = nullptr;
 }
+
 
 ClipboardView::~ClipboardView()
 {

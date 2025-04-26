@@ -127,12 +127,8 @@ void MainWindow::initSpli()
     connect(ui->Function8, &QAction::triggered, this, [=]() { toggleButtonVisibility(9); });
 
     connect(ui->actionhelp, &QAction::triggered, this, [this]() {
-        openFile(":/help.txt");
+        openFile("help.txt");
     });
-
-
-
-
 
     QSplitter *horizontalSplitter = new QSplitter(Qt::Horizontal);
     horizontalSplitter->addWidget(widgetfunc);

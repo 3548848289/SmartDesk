@@ -34,6 +34,7 @@ public:
     void saveHistory();
 
 
+    int gethours();
 private:
     SettingManager();
     ~SettingManager();

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>476</width>
-    <height>344</height>
+    <width>512</width>
+    <height>359</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -102,6 +102,11 @@
       <property name="text">
        <string>剪切字板</string>
       </property>
+      <item>
+       <property name="text">
+        <string>初始</string>
+       </property>
+      </item>
      </item>
     </widget>
    </item>
@@ -381,29 +386,32 @@
       </layout>
      </widget>
      <widget class="QWidget" name="clip_board">
-      <widget class="QLabel" name="label_2">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>150</y>
-         <width>101</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>初始加载多久的记录</string>
-       </property>
-      </widget>
-      <widget class="QDateEdit" name="dateEdit">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>150</y>
-         <width>110</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
+      <layout class="QGridLayout" name="gridLayout_9">
+       <item row="0" column="0">
+        <widget class="QLabel" name="clip_board_label1">
+         <property name="text">
+          <string>初始加载多久的记录</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="clip_board_spinBox">
+         <property name="maximum">
+          <number>240</number>
+         </property>
+         <property name="value">
+          <number>24</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="clip_board_label2">
+         <property name="text">
+          <string>单位：小时</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </item>

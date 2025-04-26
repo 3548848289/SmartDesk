@@ -36,7 +36,10 @@ int SettingManager::getReminderInterval() {
     return timeInSeconds;
 }
 
-
+int SettingManager::gethours() {
+    int hours = settings.value("clip_board/hours", 24).toInt();
+    return hours;
+}
 
 void SettingManager::loadHistory()
 {

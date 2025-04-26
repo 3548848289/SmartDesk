@@ -15,25 +15,30 @@ bool dbClipboard::setHistory(const QString &content)
     return true;
 }
 
-QList<QString> dbClipboard::loadRecentHistory()
+QList<QString> dbClipboard::loadRecentHistory(int hours)
 {
     QList<QString> historyList;
-
     QSqlQuery query(dbsqlite);
     query.prepare(R"(
         SELECT content FROM clipboard_history
-        WHERE DATE(timestamp) >= DATE('now', '-1 day')
+        WHERE DATE(timestamp) >= DATE('now', ?)
         ORDER BY timestamp DESC
     )");
+
+    // 构造动态的时间过滤条件，传入的是类似 '-X hour' 的格式
+    QString timeFilter = QString("-%1 hour").arg(hours);
+    query.bindValue(0, timeFilter); // 绑定时间参数
 
     if (!query.exec()) {
         qDebug() << "加载剪贴板历史失败: " << query.lastError().text();
         return historyList;
     }
+
     while (query.next()) {
         QString content = query.value(0).toString();
         historyList.append(content);
     }
+
     return historyList;
 }
 

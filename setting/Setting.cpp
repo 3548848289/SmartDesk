@@ -57,7 +57,7 @@ void Setting::loadSettings() {
     ui->email_service_lineEdit_5->setText(settings.value("EmailConfig/sender").toString());
     ui->email_service_lineEdit_6->setText(settings.value("EmailConfig/received").toString());
 
-
+    ui->clip_board_spinBox->setValue(settings.value("clip_board/hours", 24).toInt());
 }
 
 void Setting::saveSettings() {
@@ -94,6 +94,7 @@ void Setting::saveSettings() {
     settings.setValue("EmailConfig/sender", ui->email_service_lineEdit_5->text());
     settings.setValue("EmailConfig/received", ui->email_service_lineEdit_6->text());
 
+    settings.setValue("clip_board/hours", ui->clip_board_spinBox->text());
     settings.sync();
 }
 

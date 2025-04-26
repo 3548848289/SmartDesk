@@ -9,6 +9,7 @@
 #include <QDragEnterEvent>
 #include <QStringList>
 #include "../manager/include/dbService.h"
+#include "../Setting/include/SettingManager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ClipboardView; }
