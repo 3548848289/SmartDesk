@@ -120,7 +120,7 @@
 文档</string>
      </property>
      <property name="icon">
-      <iconset theme="QIcon::ThemeIcon::NetworkOffline"/>
+      <iconset theme="QIcon::ThemeIcon::NetworkWireless"/>
      </property>
     </widget>
    </item>

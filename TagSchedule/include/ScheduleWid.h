@@ -17,6 +17,7 @@
 #include "../../Setting/include/SettingManager.h"
 #include "../LmsgNotify/notifymanager.h"
 // #include "Notify.h"
+// #include "Resources/ThirdParty/LmsgNotify/include/notifymanager.h"
 
 class DatabaseManager;
 

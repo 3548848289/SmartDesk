@@ -29,10 +29,18 @@ add_subdirectory(DisposeAbstract/DisposeCSV)
 add_subdirectory(DisposeAbstract/DisposeIMG)
 add_subdirectory(main)
 
-add_subdirectory(EmailService/simple-mail ${CMAKE_CURRENT_BINARY_DIR}/EmailService/simple-mail)
+
+add_subdirectory(Resources/ThirdParty/simple-mail/
+    ${CMAKE_CURRENT_BINARY_DIR}/Resources/ThirdParty/simple-mail)
+
+add_subdirectory(Resources/ThirdParty/QXlsx/
+    ${CMAKE_CURRENT_BINARY_DIR}/Resources/ThirdParty/QXlsx)
+
+# add_subdirectory(Resources/ThirdParty/LmsgNotify/
+#     ${CMAKE_CURRENT_BINARY_DIR}/Resources/ThirdParty/LmsgNotify)
 
 qt_add_resources(RESOURCES
-    resources/res.qrc
+    Resources/res.qrc
 )
 
 qt_add_executable(SmartDesk WIN32 ${RESOURCES})
@@ -52,6 +60,8 @@ target_link_libraries(SmartDesk PRIVATE
     mytxt_morefunction
     mytxt_clipboard
     SimpleMail::Core
+    QXlsx::QXlsx
+
     Qt${QT_VERSION_MAJOR}::Widgets
 )
 

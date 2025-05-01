@@ -1,7 +1,6 @@
 // TabHandleCSV.h
 #ifndef TABHANDLECSV_H
 #define TABHANDLECSV_H
-
 #include <QTableWidget>
 #include <QString>
 #include <QLabel>

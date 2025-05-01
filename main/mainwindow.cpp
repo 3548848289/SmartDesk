@@ -7,9 +7,10 @@
 void MainWindow::initSmal()
 {
     loginButton = new QPushButton(this);
-    loginButton->setFixedSize(30, 30);
-    loginButton->setStyleSheet("border: none; border-radius: 15px;");
-    loginButton->setIcon(QIcon("://image/user.svg"));
+    loginButton->setFixedSize(26, 26);
+    loginButton->setStyleSheet("border: none; border-radius: 13px;");
+
+    loginButton->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::UserAvailable));
     loginButton->setIconSize(loginButton->size());
     // loginButton->hide(); // 不暂时隐藏
 
@@ -195,7 +196,21 @@ void MainWindow::showUserInfoDialog() {
         }
         dinfo->exec();
     } else {
-        QMessageBox::warning(this, "警告", "未登录");
+        QMessageBox::StandardButton reply =
+            QMessageBox::question(this, "未登录", "您尚未登录，是否现在登录？\n(目前没开放登录功能)",
+            QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes
+        );
+        if (reply == QMessageBox::Yes)
+            widgetfunc->on_pushButton_7_clicked();
+
+        // QMessageBox msgBox;
+        // msgBox.setIcon(QMessageBox::NoIcon);  // 设置为无图标
+        // msgBox.setText("您尚未登录，是否现在登录？\n(目前没开放登录功能)");
+        // msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+
+        // if (msgBox.exec() == QMessageBox::Yes) {
+        //     widgetfunc->on_pushButton_7_clicked();
+        // }
     }
 }
 

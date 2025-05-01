@@ -1,7 +1,8 @@
 #ifndef SENDEMAIL_H
 #define SENDEMAIL_H
 
-#include "./simple-mail/src/SimpleMail"
+#include "../Resources/ThirdParty/simple-mail/src/SimpleMail.h"
+// #include "SimpleMail.h"
 #include <QSettings>
 #include <QWidget>
 #include <QMenu>

@@ -1,7 +1,8 @@
 #include "TabHandleCSV.h"
-
+#include "xlsxdocument.h"
 TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstract(filePath, parent)
 {
+    QXlsx::Document xlsx("");
 
     QSplitter* splitter;
     highlightLabel = new QLabel(this);
