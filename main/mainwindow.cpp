@@ -317,24 +317,22 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
         fileName.endsWith(".cpp", Qt::CaseInsensitive) ||
         fileName.endsWith(".qrc", Qt::CaseInsensitive) ||
         fileName.endsWith(".ini", Qt::CaseInsensitive) ||
-        fileName.endsWith(".h", Qt::CaseInsensitive))
-    {
-        return new TextTab(fileName);  // 使用带路径的构造函数
+        fileName.endsWith(".h", Qt::CaseInsensitive)) {
+        return new TextTab(fileName);
     }
-    else if (fileName.endsWith(".csv", Qt::CaseInsensitive) ||
-             fileName.endsWith(".xlsx", Qt::CaseInsensitive))
-    {
-        return new TabHandleCSV(fileName);  // 使用带路径的构造函数
+    else if (fileName.endsWith(".csv", Qt::CaseInsensitive)) {
+        return new TabHandleCSV(fileName);
+    }
+    else if(fileName.endsWith(".xlsx", Qt::CaseInsensitive)) {
+        return new TabHandleXLSX(fileName);
     }
     else if (fileName.endsWith(".png", Qt::CaseInsensitive) ||
              fileName.endsWith(".jpg", Qt::CaseInsensitive) ||
              fileName.endsWith(".jpeg", Qt::CaseInsensitive) ||
-             fileName.endsWith(".bmp", Qt::CaseInsensitive))
-    {
+             fileName.endsWith(".bmp", Qt::CaseInsensitive)) {
         return new TabHandleIMG(fileName);
     }
-    else
-    {
+    else {
         qDebug() << "Unsupported file type:" << fileName;
         return nullptr;
     }
@@ -396,11 +394,10 @@ void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &f
 {
     TabAbstract* newTab = createTabByFileName(fileName);
     if (newTab) {
-        newTab->loadFromContent(fileContent);
+        newTab->loadFromInternet(fileContent);
         tabWidget->addTab(newTab, fileName);
     } else
         QMessageBox::warning(this, tr("Error"), tr("Unsupported file type"));
-
 }
 
 

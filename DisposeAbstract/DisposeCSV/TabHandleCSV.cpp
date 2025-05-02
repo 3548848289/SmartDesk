@@ -1,8 +1,7 @@
 #include "TabHandleCSV.h"
-#include "xlsxdocument.h"
+
 TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstract(filePath, parent)
 {
-    QXlsx::Document xlsx("");
 
     QSplitter* splitter;
     highlightLabel = new QLabel(this);
@@ -51,7 +50,7 @@ TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstrac
 }
 
 
-void TabHandleCSV::setText(const QString &text)
+void TabHandleCSV::setContent(const QString &text)
 {
     tableWidget->clear();
     QStringList rows = text.split('\n', Qt::SkipEmptyParts);
@@ -76,7 +75,7 @@ void TabHandleCSV::loadFromFile(const QString &fileName)
     QFile file(fileName);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&file);
-        setText(in.readAll());
+        setContent(in.readAll());
         file.close();
     } else {
         QMessageBox::warning(this, tr("Error"), tr("Could not open file"));
@@ -86,7 +85,8 @@ void TabHandleCSV::loadFromFile(const QString &fileName)
 }
 
 
-QString TabHandleCSV::getText() const
+
+QString TabHandleCSV::getContent() const
 {
     return toCSV();
 }
@@ -112,16 +112,16 @@ void TabHandleCSV::saveToFile(const QString &fileName)
     QFile file(fileName);
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&file);
-        out << getText();
+        out << getContent();
         file.close();
     } else {
         QMessageBox::warning(this, tr("Error"), tr("Could not save file"));
     }
 }
 
-void TabHandleCSV::loadFromContent(const QByteArray &content)
+void TabHandleCSV::loadFromInternet(const QByteArray &content)
 {
-    setText(QString::fromUtf8(content));
+    setContent(QString::fromUtf8(content));
 }
 
 QString TabHandleCSV::toCSV() const
@@ -373,3 +373,5 @@ void TabHandleCSV::clearHighlight()
         }
     }
 }
+
+

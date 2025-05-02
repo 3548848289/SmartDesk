@@ -21,11 +21,11 @@ public:
 
 
 
-    void setText(const QString &text) override;
-    QString getText() const override;
+    void setContent(const QString &text) override;
+    QString getContent() const override;
     void loadFromFile(const QString &fileName) override;
     void saveToFile(const QString &fileName) override;
-    void loadFromContent(const QByteArray &content) override;
+    void loadFromInternet(const QByteArray &content) override;
 
     void ControlWidget(QWidget* WControl){
         qDebug() << "TabHandleTXT: Showing control frame!";

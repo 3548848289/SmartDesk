@@ -40,6 +40,11 @@ TabHandleIMG::TabHandleIMG(const QString& filePath, QWidget *parent)
 
 }
 
+void TabHandleIMG::loadFromFile(const QString &fileName)
+{
+
+}
+
 void TabHandleIMG::test()
 {
     // controlFrame->show();

@@ -27,6 +27,7 @@ add_subdirectory(ClipBoard)
 add_subdirectory(DisposeAbstract/DisposeTXT)
 add_subdirectory(DisposeAbstract/DisposeCSV)
 add_subdirectory(DisposeAbstract/DisposeIMG)
+add_subdirectory(DisposeAbstract/DisposeXLSX)
 add_subdirectory(main)
 
 
@@ -43,7 +44,8 @@ qt_add_resources(RESOURCES
     Resources/res.qrc
 )
 
-qt_add_executable(SmartDesk WIN32 ${RESOURCES})
+qt_add_executable(SmartDesk WIN32 ${RESOURCES}
+    DisposeAbstract/DisposeXlsx/TabHandleXLSX.h DisposeAbstract/DisposeXlsx/TabHandleXLSX.cpp)
 target_link_libraries(SmartDesk PRIVATE
     mytxt_main
     mytxt_filehis
@@ -56,12 +58,13 @@ target_link_libraries(SmartDesk PRIVATE
     mytxt_txt
     mytxt_csv
     mytxt_img
+    mytxt_xlsx
     mytxt_manager
     mytxt_morefunction
     mytxt_clipboard
     SimpleMail::Core
     QXlsx::QXlsx
-
+    # LmsgNotify::LmsgNotify
     Qt${QT_VERSION_MAJOR}::Widgets
 )
 

@@ -29,14 +29,14 @@ TextTab::TextTab(const QString &filePath, QWidget *parent)  : TabAbstract(filePa
 }
 
 
-void TextTab::setText(const QString &text)
+void TextTab::setContent(const QString &text)
 {
     Q_ASSERT(textEdit != nullptr);
     textEdit->setText(text);
 }
 
 
-QString TextTab::getText() const
+QString TextTab::getContent() const
 {
     return textEdit->toPlainText();
 }
@@ -46,7 +46,7 @@ void TextTab::loadFromFile(const QString &fileName)
     QFile file(fileName);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&file);
-        setText(in.readAll());
+        setContent(in.readAll());
         file.close();
     } else {
         QMessageBox::warning(this, tr("Error"), tr("Could not open file"));
@@ -59,7 +59,7 @@ void TextTab::saveToFile(const QString &fileName)
     QFile file(fileName);
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&file);
-        out << getText();
+        out << getContent();
         file.close();
     } else
     {
@@ -69,11 +69,11 @@ void TextTab::saveToFile(const QString &fileName)
 }
 
 
-void TextTab::loadFromContent(const QByteArray &content)
+void TextTab::loadFromInternet(const QByteArray &content)
 {
     QString text = QString::fromUtf8(content);
     qDebug() << "Converted text:" << text;
-    setText(text);
+    setContent(text);
 }
 
 void TextTab::findNext(const QString &str, Qt::CaseSensitivity cs)

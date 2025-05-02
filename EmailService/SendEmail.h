@@ -1,22 +1,13 @@
 #ifndef SENDEMAIL_H
 #define SENDEMAIL_H
 
-#include "../Resources/ThirdParty/simple-mail/src/SimpleMail.h"
-// #include "SimpleMail.h"
 #include <QSettings>
 #include <QWidget>
 #include <QMenu>
-
-namespace Ui {
-class SendEmail;
-}
-
-namespace SimpleMail {
-class Server;
-}
+namespace SimpleMail { class MimeMessage; class Server; }
+namespace Ui { class SendEmail; }
 
 using namespace SimpleMail;
-
 class SendEmail : public QWidget
 {
     Q_OBJECT

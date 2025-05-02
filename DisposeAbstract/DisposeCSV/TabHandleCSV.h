@@ -30,16 +30,13 @@ class TabHandleCSV : public TabAbstract
 public:
 
     explicit TabHandleCSV(const QString& filePath, QWidget *parent = nullptr);
-
-
-
-    void setText(const QString &text) override;
-    QString getText() const override;
+    virtual void setContent(const QString &text) override;
+    virtual QString getContent() const override;
     void setLinkStatus(bool status);
 
     void loadFromFile(const QString &fileName) override;
     void saveToFile(const QString &fileName) override;
-    void loadFromContent(const QByteArray &content) override;
+    void loadFromInternet(const QByteArray &content) override;
 
     void addRow();
     void addColumn();   

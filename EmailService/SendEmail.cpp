@@ -25,6 +25,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QSslError>
+#include "SimpleMail.h"
 
 using namespace SimpleMail;
 

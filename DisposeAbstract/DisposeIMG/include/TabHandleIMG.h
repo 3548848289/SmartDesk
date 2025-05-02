@@ -21,11 +21,12 @@ class TabHandleIMG : public TabAbstract
 public:
     explicit TabHandleIMG(const QString& filePath, QWidget *parent = nullptr);
 
-    void setText(const QString &text) override {}
-    QString getText() const override {  return " "; }
-    void loadFromFile(const QString &fileName) override {}
+    virtual void setContent(const QString &text) override {}
+    virtual QString getContent() const override {  return " "; }
+
+    void loadFromFile(const QString &fileName) override;
     void saveToFile(const QString &fileName) {}
-    void loadFromContent(const QByteArray &content) override {}
+    void loadFromInternet(const QByteArray &content) override {}
 
     void ControlWidget(QWidget* WControl){
         qDebug() << "TabHandleCSV: Showing control frame!";

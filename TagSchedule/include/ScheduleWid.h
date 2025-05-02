@@ -16,15 +16,9 @@
 #include "TagList.h"
 #include "../../Setting/include/SettingManager.h"
 #include "../LmsgNotify/notifymanager.h"
-// #include "Notify.h"
-// #include "Resources/ThirdParty/LmsgNotify/include/notifymanager.h"
 
 class DatabaseManager;
-
-namespace Ui {
-class ScheduleWid;
-}
-
+namespace Ui { class ScheduleWid; }
 class ScheduleWid : public QWidget
 {
     Q_OBJECT

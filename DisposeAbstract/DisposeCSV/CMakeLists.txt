@@ -18,13 +18,8 @@ target_link_libraries(mytxt_csv PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
 )
 
-target_link_libraries(mytxt_csv PRIVATE
-    QXlsx::QXlsx
-)
-
 target_include_directories(mytxt_csv PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/../Resources/ThirdParty/QXlsx/header
 )
 
 target_include_directories(mytxt_csv PRIVATE
