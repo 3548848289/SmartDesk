@@ -108,12 +108,22 @@
        </property>
       </item>
      </item>
+     <item>
+      <property name="text">
+       <string>服务器配置</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>IP地址</string>
+       </property>
+      </item>
+     </item>
     </widget>
    </item>
    <item row="0" column="1">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>6</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="all_setting">
       <layout class="QGridLayout" name="gridLayout_4">
@@ -322,17 +332,37 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="online_doc">
+     <widget class="QWidget" name="tag_schedule">
       <layout class="QGridLayout" name="gridLayout_8">
-       <item row="0" column="0">
-        <widget class="QLabel" name="online_doc_label1">
+       <item row="4" column="0">
+        <widget class="QLabel" name="tag_schedule_label4">
          <property name="text">
-          <string>提醒方式</string>
+          <string>每次提醒间隔时间</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QTimeEdit" name="tag_schedule_timeEdit3"/>
+       </item>
+       <item row="4" column="1">
+        <widget class="QTimeEdit" name="tag_schedule_timeEdit2"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="tag_schedule_label3">
+         <property name="text">
+          <string>提前多久提醒</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="tag_schedule_label5">
+         <property name="text">
+          <string>通知消息显示时间</string>
          </property>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QComboBox" name="online_doc_comboBox">
+        <widget class="QComboBox" name="tag_schedule_comboBox">
          <item>
           <property name="text">
            <string>不提醒</string>
@@ -350,18 +380,18 @@
          </item>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="online_doc_label2">
+       <item row="2" column="1">
+        <widget class="QTimeEdit" name="tag_schedule_timeEdit1"/>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="tag_schedule_label1">
          <property name="text">
-          <string>提前多久提醒</string>
+          <string>提醒方式</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QTimeEdit" name="online_doc_timeEdit_1"/>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="tag_schedule_label2">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -369,19 +399,9 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>单位（时:分）</string>
+          <string>单位均为（时:分）</string>
          </property>
         </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="online_doc_label2_2">
-         <property name="text">
-          <string>每次提醒间隔时间</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QTimeEdit" name="online_doc_timeEdit_2"/>
        </item>
       </layout>
      </widget>
@@ -413,6 +433,20 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="server_config">
+      <layout class="QGridLayout" name="gridLayout_10">
+       <item row="0" column="0">
+        <widget class="QLabel" name="server_confi_label">
+         <property name="text">
+          <string>服务器IP地址</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="server_config_lineEdit"/>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>
@@ -431,8 +465,8 @@
   <tabstop>email_service_lineEdit_6</tabstop>
   <tabstop>file_backup_lineEdit</tabstop>
   <tabstop>file_backup_Btn</tabstop>
-  <tabstop>online_doc_comboBox</tabstop>
-  <tabstop>online_doc_timeEdit_1</tabstop>
+  <tabstop>tag_schedule_comboBox</tabstop>
+  <tabstop>tag_schedule_timeEdit1</tabstop>
  </tabstops>
  <resources/>
  <connections/>

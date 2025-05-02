@@ -17,24 +17,27 @@ public:
     SettingManager(const SettingManager&) = delete;
     SettingManager& operator=(const SettingManager&) = delete;
 
-    int all_setting_fontsize();
+    int all_setting_font_size();
     bool all_setting_fenable_tray();
 
-    int getFontSize();
+    int file_see_font_size();
 
-    QString getReminderType();
+    QString tag_schedule_reminder_type();
 
-    QString getFilesystemDir();
+    QString file_system_file_system_dir();
 
-    int getReminderTime();
-    int getReminderInterval();
+    int tag_schedule_reminder_time();
+    int tag_schedule_interval_time();
+    int tag_schedule_show_time();
 
     void loadHistory();
 
     void saveHistory();
 
 
-    int gethours();
+    int clip_board_hours();
+
+    QString serverconfig_ip();
 private:
     SettingManager();
     ~SettingManager();

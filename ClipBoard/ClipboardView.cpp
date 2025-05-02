@@ -21,7 +21,7 @@ ClipboardView::ClipboardView(QWidget *parent) : QWidget(parent),
     connect(clipboard, &QClipboard::dataChanged, this, &ClipboardView::onClipboardChanged);
     setAcceptDrops(true);
 
-    int hours = SettingManager::Instance().gethours();
+    int hours = SettingManager::Instance().clip_board_hours();
     QList<QString> items = dbservice.dbClip().loadRecentHistory(hours);
 
     for (const QString &content : items)

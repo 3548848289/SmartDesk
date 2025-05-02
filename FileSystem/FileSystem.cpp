@@ -7,7 +7,7 @@ FileSystem::FileSystem(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QString userDir = SettingManager::Instance().getFilesystemDir();
+    QString userDir = SettingManager::Instance().file_system_file_system_dir();
     if (userDir.isEmpty())
         userDir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
 

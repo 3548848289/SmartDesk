@@ -23,14 +23,13 @@ public:
 
     virtual void setContent(const QString &text) override {}
     virtual QString getContent() const override {  return " "; }
-
     void loadFromFile(const QString &fileName) override;
+    void loadFromInternet(const QByteArray &content) override{ }
     void saveToFile(const QString &fileName) {}
-    void loadFromInternet(const QByteArray &content) override {}
-
     void ControlWidget(QWidget* WControl){
         qDebug() << "TabHandleCSV: Showing control frame!";
     }
+
     void test();
 
 public slots:
@@ -48,13 +47,13 @@ private:
     QGraphicsView *view;
     QGraphicsScene *scene;
     PixItem *pixItem;
-    QGraphicsTextItem *textItem;
 
     ControlFrame *controlFrame;
     int angle;
     qreal scaleValue;
     qreal shearValue;
     qreal translateValue;
+    QGraphicsTextItem *textItem;
 };
 
 #endif // TABHANDLEIMG_H

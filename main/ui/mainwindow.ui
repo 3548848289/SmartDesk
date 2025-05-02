@@ -93,6 +93,7 @@
      </property>
      <addaction name="actiontxt_file"/>
      <addaction name="actionscv_file"/>
+     <addaction name="actionxlsx_file"/>
     </widget>
     <widget class="QMenu" name="recentFile">
      <property name="title">
@@ -152,7 +153,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionopen">
    <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::DocumentOpen" resource="../../resources/res.qrc">
+    <iconset theme="QIcon::ThemeIcon::DocumentOpen">
      <normaloff>:/image/database_go.svg</normaloff>:/image/database_go.svg</iconset>
    </property>
    <property name="text">
@@ -164,7 +165,7 @@
   </action>
   <action name="actionsave">
    <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::DocumentSave" resource="../../resources/res.qrc">
+    <iconset theme="QIcon::ThemeIcon::DocumentSave">
      <normaloff>:/image/table_save.svg</normaloff>:/image/table_save.svg</iconset>
    </property>
    <property name="text">
@@ -187,7 +188,7 @@
   </action>
   <action name="actiondownload">
    <property name="icon">
-    <iconset theme="emblem-downloads" resource="../../resources/res.qrc">
+    <iconset theme="emblem-downloads">
      <normaloff>:/image/arrow_refresh_small.svg</normaloff>:/image/arrow_refresh_small.svg</iconset>
    </property>
    <property name="text">
@@ -221,7 +222,7 @@
   </action>
   <action name="actionshe">
    <property name="icon">
-    <iconset theme="weather-clear" resource="../../resources/res.qrc">
+    <iconset theme="weather-clear">
      <normaloff>:/png/Settings.png</normaloff>:/png/Settings.png</iconset>
    </property>
    <property name="text">
@@ -365,9 +366,18 @@
     <string>帮助</string>
    </property>
   </action>
+  <action name="actionxlsx_file">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentNew"/>
+   </property>
+   <property name="text">
+    <string>xlsx文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N, Ctrl+X</string>
+   </property>
+  </action>
  </widget>
- <resources>
-  <include location="../../resources/res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

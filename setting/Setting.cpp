@@ -12,8 +12,9 @@ Setting::Setting(QWidget *parent) : QWidget(parent), ui(new Ui::Setting)
     ui->stackedWidget->setCurrentIndex(0);
     ui->treeWidget->setHeaderHidden(true);
 
-    ui->online_doc_timeEdit_1->setDisplayFormat("HH:mm");
-    ui->online_doc_timeEdit_2->setDisplayFormat("HH:mm");
+    ui->tag_schedule_timeEdit1->setDisplayFormat("HH:mm");
+    ui->tag_schedule_timeEdit2->setDisplayFormat("HH:mm");
+    ui->tag_schedule_timeEdit3->setDisplayFormat("HH:mm");
 
     if (settings.status() == QSettings::NoError) {
         loadSettings();
@@ -41,14 +42,17 @@ void Setting::loadSettings() {
     ui->file_see_spinBox->setValue(settings.value("file_see/font_size", 12).toInt());
     ui->file_backup_lineEdit->setText(settings.value("file_backup/backup_dir").toString());
 
-    int reminderIndex = ui->online_doc_comboBox->findText(
-        settings.value("online_doc/reminder_type", "Popup").toString());
+    int reminderIndex = ui->tag_schedule_comboBox->findText(
+        settings.value("tag_schedule/reminder_type", "Popup").toString());
     if (reminderIndex != -1)
-        ui->online_doc_comboBox->setCurrentIndex(reminderIndex);
-    QTime time = QTime(0, 0).addSecs(settings.value("online_doc/reminder_time", 0).toInt());
-    ui->online_doc_timeEdit_1->setTime(time);
-    QTime interval = QTime(0, 0).addSecs(settings.value("online_doc/interval_time", 0).toInt());
-    ui->online_doc_timeEdit_2->setTime(interval);
+        ui->tag_schedule_comboBox->setCurrentIndex(reminderIndex);
+
+    QTime time = QTime(0, 0).addSecs(settings.value("tag_schedule/reminder_time", 0).toInt());
+    ui->tag_schedule_timeEdit1->setTime(time);
+    QTime interval = QTime(0, 0).addSecs(settings.value("tag_schedule/interval_time", 0).toInt());
+    ui->tag_schedule_timeEdit2->setTime(interval);
+    QTime showtime = QTime(0, 0).addSecs(settings.value("tag_schedule/show_time", 0).toInt());
+    ui->tag_schedule_timeEdit3->setTime(showtime);
 
     ui->email_service_lineEdit_1->setText(settings.value("EmailConfig/host").toString());
     ui->email_service_lineEdit_2->setText(settings.value("EmailConfig/username").toString());
@@ -58,6 +62,8 @@ void Setting::loadSettings() {
     ui->email_service_lineEdit_6->setText(settings.value("EmailConfig/received").toString());
 
     ui->clip_board_spinBox->setValue(settings.value("clip_board/hours", 24).toInt());
+    ui->server_config_lineEdit->setText(settings.value("ServerConfig/IP", "127.0.0.1").toString());
+
 }
 
 void Setting::saveSettings() {
@@ -79,13 +85,18 @@ void Setting::saveSettings() {
         settings.setValue("file_backup/backup_dir", backupDir);
 
 
-    settings.setValue("online_doc/reminder_type", ui->online_doc_comboBox->currentText());
-    QTime reminderTime = ui->online_doc_timeEdit_1->time();
+    settings.setValue("tag_schedule/reminder_type", ui->tag_schedule_comboBox->currentText());
+    QTime reminderTime = ui->tag_schedule_timeEdit1->time();
     int timeInSeconds = reminderTime.hour() * 3600 + reminderTime.minute() * 60 + reminderTime.second();
-    settings.setValue("online_doc/reminder_time", timeInSeconds);
-    QTime Interval = ui->online_doc_timeEdit_2->time();
+    settings.setValue("tag_schedule/reminder_time", timeInSeconds);
+
+    QTime Interval = ui->tag_schedule_timeEdit2->time();
     int IntervalInSeconds = Interval.hour() * 3600 + Interval.minute() * 60 + Interval.second();
-    settings.setValue("online_doc/interval_time", IntervalInSeconds);
+    settings.setValue("tag_schedule/interval_time", IntervalInSeconds);
+
+    QTime showTime = ui->tag_schedule_timeEdit3->time();
+    int showTimeInSeconds = showTime.hour() * 3600 + showTime.minute() * 60 + showTime.second();
+    settings.setValue("tag_schedule/show_time", showTimeInSeconds);
 
     settings.setValue("EmailConfig/host", ui->email_service_lineEdit_1->text());
     settings.setValue("EmailConfig/username", ui->email_service_lineEdit_2->text());
@@ -95,6 +106,8 @@ void Setting::saveSettings() {
     settings.setValue("EmailConfig/received", ui->email_service_lineEdit_6->text());
 
     settings.setValue("clip_board/hours", ui->clip_board_spinBox->text());
+
+    settings.setValue("ServerConfig/IP", ui->server_config_lineEdit->text());
     settings.sync();
 }
 

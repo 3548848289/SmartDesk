@@ -164,7 +164,6 @@ bool dbFilepath::updateFileInfo(const FilePathInfo& fileInfo)
     }
 
     int fileId = q.value(0).toInt();
-
     q.prepare(UPDATEFILEINFO3);
     q.bindValue(":tag", fileInfo.tagName);
     q.bindValue(":file_id", fileId);

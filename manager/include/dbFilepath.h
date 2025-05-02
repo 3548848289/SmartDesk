@@ -49,7 +49,7 @@
 #define UPDATEFILEINFO2 \
     "SELECT id FROM FilePaths WHERE file_path = :file_path"
 #define UPDATEFILEINFO3 \
-    "UPDATE Tags SET tag_name = :tag WHERE file_id = :file_id"
+    "INSERT OR REPLACE INTO Tags (file_id, tag_name) VALUES (:file_id, :tag)"
 #define UPDATEFILEINFO4 \
     "UPDATE Annotations SET annotation = :annotation WHERE file_id = :file_id"
 #define HASTAGSFORFILE \

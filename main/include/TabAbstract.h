@@ -20,10 +20,11 @@ public:
         : QWidget(parent), currentFilePath(filePath) {}
 
     virtual ~TabAbstract() {}
+
     virtual void setContent(const QString &text) = 0;
     virtual QString getContent() const = 0;
-    virtual void loadFromInternet(const QByteArray &content) = 0;
     virtual void loadFromFile(const QString &fileName) = 0;
+    virtual void loadFromInternet(const QByteArray &content) = 0;
     virtual void saveToFile(const QString &fileName) = 0;
     virtual void ControlWidget(QWidget* WControl) = 0;
 

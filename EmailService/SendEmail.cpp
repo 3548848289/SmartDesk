@@ -43,15 +43,14 @@ SendEmail::SendEmail(QWidget *parent): QWidget(parent), ui(new Ui::SendEmail)
     ui->sender->setText(m_settings.value("EmailConfig/sender").toString());
     ui->recipients->setText(m_settings.value("EmailConfig/received").toString());
 
-
-    for (int i = 0; i < ui->gridLayout->count(); ++i) {
-        QLayoutItem *item = ui->gridLayout->itemAt(i);
-        if (item) {
-            QWidget *widget = item->widget();
-            if (widget)
-                widget->hide();
-        }
-    }
+    // for (int i = 0; i < ui->gridLayout->count(); ++i) {
+    //     QLayoutItem *item = ui->gridLayout->itemAt(i);
+    //     if (item) {
+    //         QWidget *widget = item->widget();
+    //         if (widget)
+    //             widget->hide();
+    //     }
+    // }
 }
 
 SendEmail::~SendEmail()
@@ -105,9 +104,9 @@ void SendEmail::sendMailAsync(const MimeMessage &msg)
 {
     const QString host = ui->host->text();
     const quint16 port(ui->port->value());
-    const Server::ConnectionType ct = ui->security->currentIndex() == 0   ? Server::TcpConnection
-                                      : ui->security->currentIndex() == 1 ? Server::SslConnection
-                                                                          : Server::TlsConnection;
+    const Server::ConnectionType ct =
+        ui->security->currentIndex() == 0 ? Server::TcpConnection :
+            ui->security->currentIndex() == 1 ? Server::SslConnection : Server::TlsConnection;
     Server *server = nullptr;
     for (auto srv : m_aServers) {
         if (srv->host() == host && srv->port() == port && srv->connectionType() == ct) {

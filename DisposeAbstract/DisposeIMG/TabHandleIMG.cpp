@@ -7,25 +7,14 @@ TabHandleIMG::TabHandleIMG(const QString& filePath, QWidget *parent)
     QSplitter* splitter = new QSplitter(Qt::Vertical, this);
 
     scene = new QGraphicsScene;
-    // scene->setSceneRect(-100, -100, 200, 200);
-
-    QPixmap *pixmap = new QPixmap(filePath);
-    pixItem = new PixItem(pixmap);
-    scene->addItem(pixItem);
-    scene->setSceneRect(pixItem->boundingRect());
-    pixItem->setPos(0, 0);
-
     view = new QGraphicsView;
     view->setScene(scene);
-
     view->setMinimumSize(200, 200);
     view->installEventFilter(this);
-    view->fitInView(pixItem, Qt::KeepAspectRatio);
 
-    ControlFrame *controlFrame = new ControlFrame(this);
+    controlFrame = new ControlFrame(this);
     splitter->addWidget(view);
     splitter->addWidget(controlFrame);
-
     splitter->setSizes({700, 100});
 
     QVBoxLayout* layout = new QVBoxLayout(this);
@@ -37,12 +26,25 @@ TabHandleIMG::TabHandleIMG(const QString& filePath, QWidget *parent)
 
     connect(controlFrame, &ControlFrame::textAdded, this, &TabHandleIMG::onTextAdded);
     connect(controlFrame, &ControlFrame::exportRequested, this, &TabHandleIMG::exportImage);
-
 }
+
 
 void TabHandleIMG::loadFromFile(const QString &fileName)
 {
+    QPixmap* pixmap = new QPixmap(fileName);
+    if (pixmap->isNull()) {
+        QMessageBox::warning(this, tr("Load Error"), tr("Failed to load image: %1").arg(fileName));
+        return;
+    }
 
+    scene->clear();
+
+    pixItem = new PixItem(pixmap);
+    scene->addItem(pixItem);
+    scene->setSceneRect(pixItem->boundingRect());
+    pixItem->setPos(0, 0);
+
+    view->fitInView(pixItem, Qt::KeepAspectRatio);
 }
 
 void TabHandleIMG::test()

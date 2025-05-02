@@ -30,16 +30,20 @@ class TabHandleCSV : public TabAbstract
 public:
 
     explicit TabHandleCSV(const QString& filePath, QWidget *parent = nullptr);
+
     virtual void setContent(const QString &text) override;
     virtual QString getContent() const override;
-    void setLinkStatus(bool status);
-
     void loadFromFile(const QString &fileName) override;
-    void saveToFile(const QString &fileName) override;
     void loadFromInternet(const QByteArray &content) override;
+    void saveToFile(const QString &fileName) override;
+    void ControlWidget(QWidget* WControl){
+        qDebug() << "TabHandleCSV: Showing control frame!";
+    }
 
+
+    void setLinkStatus(bool status);
     void addRow();
-    void addColumn();   
+    void addColumn();
     void deleteRow();
     void deleteColumn();
 
@@ -48,9 +52,6 @@ public:
     void clearfromServer(const QJsonObject& jsonObj);
     void editedfromServer(const QJsonObject& jsonObj);
 
-    void ControlWidget(QWidget* WControl){
-        qDebug() << "TabHandleCSV: Showing control frame!";
-    }
 
 public slots:
     void findNext(const QString &str, Qt::CaseSensitivity cs);

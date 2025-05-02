@@ -16,7 +16,7 @@ TextTab::TextTab(const QString &filePath, QWidget *parent)  : TabAbstract(filePa
     layout->addWidget(splitter);
     setLayout(layout);
 
-    int fontSize = SettingManager::Instance().getFontSize();
+    int fontSize = SettingManager::Instance().file_see_font_size();
 
     QFont font = textEdit->font();
     font.setPointSize(fontSize);

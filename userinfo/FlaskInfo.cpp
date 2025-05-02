@@ -1,7 +1,10 @@
 #include "include/FlaskInfo.h"
 
-FlaskInfo::FlaskInfo(QObject *parent) : QObject(parent), address("http://127.0.0.1:5000")
+FlaskInfo::FlaskInfo(QObject *parent) : QObject(parent)
 {
+    QString Ip = SettingManager::Instance().serverconfig_ip();
+    address = "http://" + Ip + ":5000";
+    qDebug() << address;
     networkManager = new QNetworkAccessManager(this);
 }
 

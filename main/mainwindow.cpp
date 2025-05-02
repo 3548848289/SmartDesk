@@ -4,7 +4,7 @@
 #include <QWidgetAction>
 #include <QCheckBox>
 
-void MainWindow::initSmal()
+void MainWindow::initSmallUI()
 {
     loginButton = new QPushButton(this);
     loginButton->setFixedSize(26, 26);
@@ -27,7 +27,7 @@ void MainWindow::initSmal()
     openFile("help.txt");
 }
 
-void MainWindow::initFunc()
+void MainWindow::initCoreWidgets()
 {
 
     file_system = new FileSystem(this);
@@ -49,16 +49,16 @@ void MainWindow::initFunc()
     ui->stackedWidget->addWidget(schedule_wid);
     ui->stackedWidget->setCurrentWidget(file_system);
 
-    connect(widgetfunc, &WidgetFunctional::showFiletag, this, [=] {
+    connect(widgetfunc, &WidgetFunctional::showFiletag, this, [this] {
         ui->stackedWidget->setCurrentWidget(file_system); });
 
-    connect(widgetfunc, &WidgetFunctional::showFilebackup, this, [=] {
+    connect(widgetfunc, &WidgetFunctional::showFilebackup, this, [this] {
         ui->stackedWidget->setCurrentWidget(file_backup_view); });
 
-    connect(widgetfunc, &WidgetFunctional::showwOnlinedoc, this, [=] {
+    connect(widgetfunc, &WidgetFunctional::showwOnlinedoc, this, [this] {
         ui->stackedWidget->setCurrentWidget(wonlinedoc); });
 
-    connect(widgetfunc, &WidgetFunctional::showWSchedule, this, [=] {
+    connect(widgetfunc, &WidgetFunctional::showWSchedule, this, [this] {
         ui->stackedWidget->setCurrentWidget(schedule_wid); });
 
 
@@ -66,7 +66,6 @@ void MainWindow::initFunc()
         int newIndex = tabWidget->addTab(form, QLatin1String("Email"));
         form->show();
         tabWidget->setCurrentIndex(newIndex);
-
         ui->stackedWidget->setCurrentWidget(file_system);
     });
 
@@ -94,42 +93,50 @@ void MainWindow::initFunc()
     });
 }
 
-void MainWindow::initSpli()
+void MainWindow::initSplitterLayout()
 {
-
+    const QMap<int, QString> buttonNames = {
+        {1, "文件标签"}, {2, "文件备份"}, {3, "备忘日程"}, {4, "在线文档"}, {5, "手写绘图"},
+        {6, "邮件服务"}, {7, "用户登录"}, {8, "更多功能"}, {9, "剪切板"}
+    };
     connect(widgetfunc, &WidgetFunctional::buttonVisibilityChanged,
-            this, [this](int buttonIndex, bool isVisible) {
+            this, [this, buttonNames](int buttonIndex, bool isVisible) {
                 QAction *action = findChild<QAction*>(QString("Function%1").arg(buttonIndex));
-                if (action) {
-                    QString text;
-                    switch (buttonIndex) {
-                    case 1: text = isVisible ? "关闭文件标签" : "打开文件标签"; break;
-                    case 2: text = isVisible ? "关闭文件备份" : "打开文件备份"; break;
-                    case 3: text = isVisible ? "关闭备忘日程" : "打开备忘日程"; break;
-                    case 4: text = isVisible ? "关闭在线文档" : "打开在线文档"; break;
-                    case 5: text = isVisible ? "关闭手写绘图" : "打开手写绘图"; break;
-                    case 6: text = isVisible ? "关闭邮件服务" : "打开邮件服务"; break;
-                    case 7: text = isVisible ? "关闭用户登录" : "打开用户登录"; break;
-                    case 8: text = isVisible ? "关闭更多功能" : "打开更多功能"; break;
-                    case 9: text = isVisible ? "关闭剪切板" : "打开剪切板"; break;
-                    default: return;
-                    }
-                    action->setText(text);
+                if (action && buttonNames.contains(buttonIndex)) {
+                    const QString &name = buttonNames.value(buttonIndex);
+                    action->setText((isVisible ? "关闭" : "打开") + name);
                 }
     });
-    connect(ui->Function1, &QAction::triggered, this, [=]() { toggleButtonVisibility(1); });
-    connect(ui->Function2, &QAction::triggered, this, [=]() { toggleButtonVisibility(2); });
-    connect(ui->Function3, &QAction::triggered, this, [=]() { toggleButtonVisibility(3); });
-    connect(ui->Function4, &QAction::triggered, this, [=]() { toggleButtonVisibility(4); });
-    connect(ui->Function5, &QAction::triggered, this, [=]() { toggleButtonVisibility(5); });
-    connect(ui->Function6, &QAction::triggered, this, [=]() { toggleButtonVisibility(6); });
-    connect(ui->Function7, &QAction::triggered, this, [=]() { toggleButtonVisibility(7); });
-    connect(ui->Function8, &QAction::triggered, this, [=]() { toggleButtonVisibility(8); });
-    connect(ui->Function8, &QAction::triggered, this, [=]() { toggleButtonVisibility(9); });
+
+    for (int i = 1; i <= 9; ++i) {
+        QAction *action = findChild<QAction *>(QString("Function%1").arg(i));
+        if (action) {
+            connect(action, &QAction::triggered, this, [this, i]() {
+                toggleButtonVisibility(i);
+            });
+        }
+    }
 
     connect(ui->actionhelp, &QAction::triggered, this, [this]() {
         openFile("help.txt");
     });
+
+    connect(ui->actiondownload, &QAction::triggered, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(wonlinedoc);
+    });
+
+    connect(ui->actiontxt_file, &QAction::triggered, this, [this]() {
+        createNewTab([]() { return new TextTab(""); }, "New Text Tab");
+    });
+
+    connect(ui->actionscv_file, &QAction::triggered, this, [this]() {
+        createNewTab([]() { return new TabHandleCSV(""); }, "New CSV Tab");
+    });
+
+    connect(ui->actionxlsx_file, &QAction::triggered, this, [this]() {
+        createNewTab([]() { return new TabHandleXLSX(""); }, "New XLSX Tab");
+    });
+
 
     QSplitter *horizontalSplitter = new QSplitter(Qt::Horizontal);
     horizontalSplitter->addWidget(widgetfunc);
@@ -152,12 +159,14 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     recentFilesManager(new RecentFilesManager(this))
 {
     ui->setupUi(this);
-    initSmal();
-    initFunc();
-    initSpli();
+    initSmallUI();
+    initCoreWidgets();
+    initSplitterLayout();
 
     connect(tabWidget, &QTabWidget::currentChanged, this, &MainWindow::onTabChanged);
     connect(wonlinedoc->shared_view, &SharedView::filePathSent, this, &MainWindow::handleFilePathSent);
+    connect(wonlinedoc->download_view, &DownloadView::fileDownloaded, this, &MainWindow::handleFileDownload);
+
     connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
     connect(file_system, &FileSystem::fileOpened, this, &MainWindow::openFile);
 
@@ -177,7 +186,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 }
 
 void MainWindow::onTabChanged(int index) {
-    // qDebug() << "MainWindow::MainWindow" << index;
     currentIndex = index;
 }
 
@@ -214,15 +222,6 @@ void MainWindow::showUserInfoDialog() {
     }
 }
 
-void MainWindow::on_actiontxt_file_triggered()
-{
-    createNewTab([]() { return new TextTab(""); }, "New Text Tab");
-}
-
-void MainWindow::on_actionscv_file_triggered()
-{
-    createNewTab([]() { return new TabHandleCSV(""); }, "New Table Tab");
-}
 
 void MainWindow::on_actionopen_triggered()
 {
@@ -378,17 +377,6 @@ void MainWindow::on_actionclose_triggered()
     }
 }
 
-
-void MainWindow::on_actiondownload_triggered()
-{
-    auto currentTab = getCurrentTab<TabAbstract>();
-    if (currentTab) {
-        DownloadView* download_view = new DownloadView();
-        connect(download_view, &DownloadView::fileDownloaded, this, &MainWindow::handleFileDownload);
-        download_view->show();
-    } else
-        qDebug() << "Failed to cast current tab to TabAbstract*";
-}
 
 void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &fileContent)
 {

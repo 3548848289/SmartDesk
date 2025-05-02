@@ -51,9 +51,6 @@ private slots:
     void on_actionopen_triggered();
     void on_actionsave_triggered();
     void on_actionclose_triggered();
-    void on_actionscv_file_triggered();
-    void on_actiontxt_file_triggered();
-    void on_actiondownload_triggered();
     void on_actionshe_triggered();
     void on_actionfind_triggered();
 
@@ -79,9 +76,9 @@ private:
     ScheduleWid * schedule_wid;
     FindDialog *findDialog;
 
-    void initFunc();
-    void initSpli();
-    void initSmal();
+    void initSmallUI();
+    void initCoreWidgets();
+    void initSplitterLayout();
     void createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName);
     TabAbstract* createTabByFileName(const QString &fileName);
     template<typename T>
