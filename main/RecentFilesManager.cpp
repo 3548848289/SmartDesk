@@ -23,10 +23,9 @@ void RecentFilesManager::addFile(const QString &filePath) {
 }
 
 
-void RecentFilesManager::loadHistory() {
-
+void RecentFilesManager::loadHistory()
+{
     QSettings settings("settings.ini", QSettings::IniFormat);
-
     int size = settings.beginReadArray("fileHistory");
     fileHistory.clear();
     for (int i = 0; i < size; ++i) {

@@ -142,8 +142,17 @@
      <addaction name="Function6"/>
      <addaction name="Function7"/>
      <addaction name="Function8"/>
+     <addaction name="Function9"/>
+    </widget>
+    <widget class="QMenu" name="menuhandle">
+     <property name="title">
+      <string>句柄</string>
+     </property>
+     <addaction name="actionh1"/>
+     <addaction name="actionh2"/>
     </widget>
     <addaction name="menuFuction"/>
+    <addaction name="menuhandle"/>
    </widget>
    <addaction name="menufile"/>
    <addaction name="menuaction"/>
@@ -375,6 +384,30 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+N, Ctrl+X</string>
+   </property>
+  </action>
+  <action name="Function9">
+   <property name="text">
+    <string>关闭剪切字板</string>
+   </property>
+   <property name="toolTip">
+    <string>关闭剪切字板</string>
+   </property>
+  </action>
+  <action name="actionh1">
+   <property name="text">
+    <string>关闭TXT控制组件</string>
+   </property>
+   <property name="toolTip">
+    <string>关闭TXT控制组件</string>
+   </property>
+  </action>
+  <action name="actionh2">
+   <property name="text">
+    <string>关闭CSV控制组件</string>
+   </property>
+   <property name="toolTip">
+    <string>关闭CSV控制组件</string>
    </property>
   </action>
  </widget>

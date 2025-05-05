@@ -8,6 +8,10 @@
 #include <QMimeData>
 #include <QDragEnterEvent>
 #include <QStringList>
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
 #include "../manager/include/dbService.h"
 #include "../Setting/include/SettingManager.h"
 

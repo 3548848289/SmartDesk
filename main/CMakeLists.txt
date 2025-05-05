@@ -13,7 +13,7 @@ set(MAIN_SOURCES
     include/TabAbstract.h
     include/RecentFilesManager.h
     include/WidgetFunctional.h
-    include/ControlWidget.h
+
     include/FindDialog.h
 
     ui/WidgetFunctional.ui

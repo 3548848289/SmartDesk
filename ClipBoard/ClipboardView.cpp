@@ -1,11 +1,6 @@
 #include "ClipboardView.h"
 #include "ui_ClipboardView.h"
 
-#include <QFileDialog>
-#include <QFile>
-#include <QTextStream>
-#include <QMessageBox>
-
 ClipboardView::ClipboardView(QWidget *parent) : QWidget(parent),
     ui(new Ui::ClipboardView), dbservice(dbService::instance("./SmartDesk.db")){
     ui->setupUi(this);
@@ -62,7 +57,9 @@ void ClipboardView::deleteItem()
 
 ClipboardView::~ClipboardView()
 {
+    qDebug() << "保存记录";
     on_saveButton_clicked();
+
 }
 
 void ClipboardView::on_clearButton_clicked()

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>512</width>
-    <height>359</height>
+    <width>500</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,104 +26,10 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <item row="0" column="0">
-    <widget class="QTreeWidget" name="treeWidget">
-     <column>
-      <property name="text">
-       <string/>
-      </property>
-     </column>
-     <item>
-      <property name="text">
-       <string>总体设置</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>文件系统</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>默认使用目录</string>
-       </property>
-      </item>
-     </item>
-     <item>
-      <property name="text">
-       <string>文件查看</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>字体大小</string>
-       </property>
-      </item>
-     </item>
-     <item>
-      <property name="text">
-       <string>邮件服务</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>收发人</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>设置</string>
-       </property>
-      </item>
-     </item>
-     <item>
-      <property name="text">
-       <string>文件备份</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>备份路径</string>
-       </property>
-      </item>
-     </item>
-     <item>
-      <property name="text">
-       <string>备忘日程</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>到期提醒方式</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>提前多久提醒</string>
-       </property>
-      </item>
-     </item>
-     <item>
-      <property name="text">
-       <string>剪切字板</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>初始</string>
-       </property>
-      </item>
-     </item>
-     <item>
-      <property name="text">
-       <string>服务器配置</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>IP地址</string>
-       </property>
-      </item>
-     </item>
-    </widget>
-   </item>
    <item row="0" column="1">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>5</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="all_setting">
       <layout class="QGridLayout" name="gridLayout_4">
@@ -181,29 +87,17 @@
       </layout>
      </widget>
      <widget class="QWidget" name="file_see">
-      <layout class="QGridLayout" name="gridLayout_3">
-       <property name="leftMargin">
-        <number>6</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <item row="0" column="1">
-        <widget class="QLabel" name="file_see_label">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="file_see_label1">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
          </property>
          <property name="text">
           <string>字体大小</string>
@@ -213,17 +107,24 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="2">
+       <item row="3" column="1">
+        <widget class="QCheckBox" name="file_see_checkBox2">
+         <property name="text">
+          <string>csv文件</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
         <widget class="QSpinBox" name="file_see_spinBox">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>1</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
          <property name="minimumSize">
           <size>
-           <width>3</width>
+           <width>100</width>
            <height>0</height>
           </size>
          </property>
@@ -235,73 +136,119 @@
          </property>
         </widget>
        </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="file_see_checkBox4">
+         <property name="text">
+          <string>image文件</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QCheckBox" name="file_see_checkBox3">
+         <property name="text">
+          <string>xlsx文件</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QCheckBox" name="file_see_checkBox1">
+         <property name="text">
+          <string>txt文件</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="file_see_label2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>文件操作窗口可见性</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <spacer name="file_see_spacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Policy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="email_service">
-      <layout class="QGridLayout" name="gridLayout_2">
+      <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
-        <layout class="QGridLayout" name="gridLayout">
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="email_service_lineEdit_3"/>
-         </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="email_service_label_4">
-           <property name="text">
-            <string>端口</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="email_service_label_2">
-           <property name="text">
-            <string>用户名</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QLineEdit" name="email_service_lineEdit_4"/>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="email_service_label_3">
-           <property name="text">
-            <string>密码</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QLineEdit" name="email_service_lineEdit_5"/>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="email_service_label_1">
-           <property name="text">
-            <string>服务器</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="email_service_lineEdit_1"/>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="email_service_lineEdit_2"/>
-         </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="email_service_label_5">
-           <property name="text">
-            <string>发件人</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="1">
-          <widget class="QLineEdit" name="email_service_lineEdit_6"/>
-         </item>
-         <item row="5" column="0">
-          <widget class="QLabel" name="email_service_label_6">
-           <property name="text">
-            <string>收件人</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QLabel" name="email_service_label_1">
+         <property name="text">
+          <string>服务器</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="email_service_lineEdit_1"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="email_service_label_2">
+         <property name="text">
+          <string>用户名</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="email_service_lineEdit_2"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="email_service_label_3">
+         <property name="text">
+          <string>密码</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="email_service_lineEdit_3"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="email_service_label_4">
+         <property name="text">
+          <string>端口</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="email_service_lineEdit_4"/>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="email_service_label_5">
+         <property name="text">
+          <string>发件人</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="email_service_lineEdit_5"/>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="email_service_label_6">
+         <property name="text">
+          <string>收件人</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="email_service_lineEdit_6"/>
        </item>
       </layout>
      </widget>
@@ -447,6 +394,105 @@
        </item>
       </layout>
      </widget>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QTreeWidget" name="treeWidget">
+     <column>
+      <property name="text">
+       <string/>
+      </property>
+     </column>
+     <item>
+      <property name="text">
+       <string>总体设置</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>文件系统</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>默认使用目录</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>文件查看</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>字体大小</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>操作窗口可见性</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>邮件服务</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>收发人</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>设置</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>文件备份</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>备份路径</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>备忘日程</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>到期提醒方式</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>提前多久提醒</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>剪切字板</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>初始</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>服务器配置</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>IP地址</string>
+       </property>
+      </item>
+     </item>
     </widget>
    </item>
   </layout>

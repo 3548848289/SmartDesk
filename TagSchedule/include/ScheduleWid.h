@@ -16,6 +16,7 @@
 #include "TagList.h"
 #include "../../Setting/include/SettingManager.h"
 #include "../LmsgNotify/notifymanager.h"
+#include "../../EmailService/SendEmail.h"
 
 class DatabaseManager;
 namespace Ui { class ScheduleWid; }
@@ -47,6 +48,7 @@ private:
     QTimer *expirationTimer;
     Ui::ScheduleWid *ui;
     NotifyManager *manager;
+    SendEmail * sendemail;
     dbService& dbservice;
 
 };

@@ -68,7 +68,7 @@ void SharedView::on_readyRead()
 
 void SharedView::on_disconnected()
 {
-    QMessageBox::information(this, tr("Disconnected"), tr("Disconnected from server"));
+    QMessageBox::information(this, tr(""), tr("无法连接到服务器"));
 }
 
 void SharedView::sendDataToServer(const QString &data)
@@ -104,13 +104,10 @@ void SharedView::on_linkserverBtn_clicked()
 
     if (!tcpSocket->waitForConnected(3000)) {
         QString errorString = tcpSocket->errorString();
-        QMessageBox::warning(this, tr("Error"), tr("Failed to connect to server: %1").arg(errorString));
+        QMessageBox::warning(this, tr("错误"), tr("无法连接到服务器: %1").arg(errorString));
     }
     else
-    {
-        //QMessageBox::information(this, tr("Connected"), tr("Connected to server"));
         localIp = tcpSocket->localAddress().toString();
-    }
 }
 
 void SharedView::on_closeserverBtn_clicked()
@@ -119,17 +116,18 @@ void SharedView::on_closeserverBtn_clicked()
     if (tcpSocket->state() == QAbstractSocket::ConnectedState) {
         tcpSocket->disconnectFromHost();
         if (tcpSocket->state() == QAbstractSocket::UnconnectedState || tcpSocket->waitForDisconnected(3000)) {
-            QMessageBox::information(this, tr("Disconnected"), tr("Disconnected from server"));
+            QMessageBox::information(this, tr("已断开连接"), tr("已与服务器断开连接"));
             this->close();
             delete this;
 
         } else {
-            QMessageBox::warning(this, tr("Error"), tr("Failed to disconnect from server"));
+            QMessageBox::warning(this, tr("错误"), tr("无法从服务器断开连接"));
         }
     } else {
-        qDebug() << "Socket is not connected.";
+        qDebug() << "套接字未连接。";
     }
 }
+
 
 void SharedView::on_passwdEdit_editingFinished()
 {

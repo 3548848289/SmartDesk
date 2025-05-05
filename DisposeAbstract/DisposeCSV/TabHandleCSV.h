@@ -36,8 +36,8 @@ public:
     void loadFromFile(const QString &fileName) override;
     void loadFromInternet(const QByteArray &content) override;
     void saveToFile(const QString &fileName) override;
-    void ControlWidget(QWidget* WControl){
-        qDebug() << "TabHandleCSV: Showing control frame!";
+    void ControlWidget(bool judge){
+        isShowControl = judge;
     }
 
 

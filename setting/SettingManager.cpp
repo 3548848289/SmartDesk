@@ -17,6 +17,26 @@ int SettingManager::file_see_font_size() {
 
 }
 
+bool SettingManager::file_see_txt()
+{
+    return settings.value("file_see/txt", true).toBool();
+}
+
+bool SettingManager::file_see_csv()
+{
+    return settings.value("file_see/csv", true).toBool();
+}
+
+bool SettingManager::file_see_xlsx()
+{
+    return settings.value("file_see/slsx", true).toBool();
+}
+
+bool SettingManager::file_see_img()
+{
+    return settings.value("file_see/img", true).toBool();
+}
+
 QString SettingManager::tag_schedule_reminder_type() {
     return settings.value("tag_schedule/reminder_type", "弹窗提醒").toString();
 }

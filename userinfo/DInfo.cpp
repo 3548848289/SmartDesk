@@ -82,8 +82,7 @@ void DInfo::onUserInfoUpdated(const QJsonObject &response) {
 }
 
 void DInfo::onErrorOccurred(const QString &error) {
-    // 错误处理：弹出警告框
-    QMessageBox::warning(this, "Error", error);
+    QMessageBox::warning(this, "错误", error);
 }
 
 void DInfo::on_saveButton_clicked()

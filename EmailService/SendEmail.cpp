@@ -43,14 +43,14 @@ SendEmail::SendEmail(QWidget *parent): QWidget(parent), ui(new Ui::SendEmail)
     ui->sender->setText(m_settings.value("EmailConfig/sender").toString());
     ui->recipients->setText(m_settings.value("EmailConfig/received").toString());
 
-    // for (int i = 0; i < ui->gridLayout->count(); ++i) {
-    //     QLayoutItem *item = ui->gridLayout->itemAt(i);
-    //     if (item) {
-    //         QWidget *widget = item->widget();
-    //         if (widget)
-    //             widget->hide();
-    //     }
-    // }
+    for (int i = 0; i < ui->gridLayout->count(); ++i) {
+        QLayoutItem *item = ui->gridLayout->itemAt(i);
+        if (item) {
+            QWidget *widget = item->widget();
+            if (widget)
+                widget->hide();
+        }
+    }
 }
 
 SendEmail::~SendEmail()
@@ -100,6 +100,27 @@ void SendEmail::on_sendEmail_clicked()
     sendMailAsync(message);
 }
 
+void SendEmail::sendEmailWithData(const QString &subject, const QString &bodyHtml,
+        const QStringList &attachments) {
+    MimeMessage message;
+    message.setSender(EmailAddress{ui->sender->text()});
+    message.setSubject(subject);
+
+    const QStringList rcptStringList =
+        ui->recipients->text().split(QLatin1Char(';'), Qt::SkipEmptyParts);
+    for (const QString &to : rcptStringList) {
+        message.addTo(EmailAddress{to});
+    }
+
+    message.addPart(std::make_shared<MimeHtml>(bodyHtml));
+    for (const QString &filePath : attachments) {
+        message.addPart(std::make_shared<MimeAttachment>(
+            std::make_shared<QFile>(filePath)));
+    }
+    sendMailAsync(message);
+}
+
+
 void SendEmail::sendMailAsync(const MimeMessage &msg)
 {
     const QString host = ui->host->text();
@@ -140,10 +161,10 @@ void SendEmail::sendMailAsync(const MimeMessage &msg)
         if (reply->error()) {
             errorMessage(QLatin1String("Mail sending failed:\n") + reply->responseText());
         } else {
-            QMessageBox okMessage(this);
-            okMessage.setText(QLatin1String("The email was succesfully sent:\n") +
-                              reply->responseText());
-            okMessage.exec();
+            QTimer::singleShot(0, this, [=]() {
+                QMessageBox::information(this, "邮件提醒", "发送成功！");
+            });
+
         }
     });
 }

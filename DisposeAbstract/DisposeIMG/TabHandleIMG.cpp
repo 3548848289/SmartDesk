@@ -33,7 +33,7 @@ void TabHandleIMG::loadFromFile(const QString &fileName)
 {
     QPixmap* pixmap = new QPixmap(fileName);
     if (pixmap->isNull()) {
-        QMessageBox::warning(this, tr("Load Error"), tr("Failed to load image: %1").arg(fileName));
+        QMessageBox::warning(this, tr("加载错误"), tr("%1 文件无法打开").arg(fileName));
         return;
     }
 

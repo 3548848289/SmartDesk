@@ -32,6 +32,9 @@ ScheduleWid::ScheduleWid(QWidget *parent) : QWidget(parent), ui(new Ui::Schedule
         msgbox.findChild<QDialogButtonBox*>()->setMinimumWidth(500);
         msgbox.exec();
     });
+
+    sendemail = new SendEmail(this);
+
 }
 
 ScheduleWid::~ScheduleWid()
@@ -109,15 +112,20 @@ void ScheduleWid::checkExpiration() {
             data["annotation"] = file.annotation;
             data["expirationDate"] = file.expirationDate;
 
+            const QString allDetails = QString("标签: %1\n\n备注: %2\n\n到期时间: %3")
+                .arg(data.value("tag").toString()) .arg(data.value("annotation").toString())
+                .arg(data.value("expirationDate").toString());
+
             if (reminderType == "弹窗提醒")
                 manager->notify("到期提醒", path, data);
-            else if (reminderType == "Email") {
+            else if (reminderType == "邮件提醒") {
                 qDebug() << "邮件提醒";
-                // manager->sendEmail("到期提醒", path, data);
+                sendemail->sendEmailWithData(path, allDetails, QStringList());
             }
         }
     }
 }
+
 
 void ScheduleWid::on_comboBox_currentIndexChanged(int index)
 {

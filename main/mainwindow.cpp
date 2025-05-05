@@ -1,45 +1,23 @@
 #include "include/mainwindow.h"
 #include "ui/ui_mainwindow.h"
 #include "../manager/include/dbService.h"
-#include <QWidgetAction>
-#include <QCheckBox>
 
-void MainWindow::initSmallUI()
-{
+void MainWindow::initCoreWidgets() {
     loginButton = new QPushButton(this);
     loginButton->setFixedSize(26, 26);
     loginButton->setStyleSheet("border: none; border-radius: 13px;");
-
     loginButton->setIcon(QIcon::fromTheme(QIcon::ThemeIcon::UserAvailable));
     loginButton->setIconSize(loginButton->size());
-    // loginButton->hide(); // 不暂时隐藏
 
     ui->menubar->setCornerWidget(loginButton, Qt::TopRightCorner);
-    connect(loginButton, &QPushButton::clicked, this, &MainWindow::showUserInfoDialog);
-
     tabWidget = new QTabWidget(this);
     tabWidget->setTabsClosable(true);
-    connect(tabWidget, &QTabWidget::tabCloseRequested, this, [this](int index) {
-        qDebug() << "Tab close requested at index: " << index;
-
-        on_actionclose_triggered();
-    });
-    openFile("help.txt");
-}
-
-void MainWindow::initCoreWidgets()
-{
 
     file_system = new FileSystem(this);
     file_backup_view = new FileBackupView(this);
     wonlinedoc = new WOnlineDoc(this);
     schedule_wid= new ScheduleWid(this);
     widgetfunc = new WidgetFunctional(this);
-
-    // qDebug() << "file_system size:" << file_system->size();
-    // qDebug() << "wonlinedoc size:" << wonlinedoc->size();
-    // qDebug() << "file_backup_view size:" << file_backup_view->size();
-    // qDebug() << "schedule_wid size:" << schedule_wid->size();
 
     ui->stackedWidget->setObjectName("pWidget");
     ui->stackedWidget->setStyleSheet("QWidget#pWidget { border: 1px solid #808080; }");
@@ -48,7 +26,9 @@ void MainWindow::initCoreWidgets()
     ui->stackedWidget->addWidget(wonlinedoc);
     ui->stackedWidget->addWidget(schedule_wid);
     ui->stackedWidget->setCurrentWidget(file_system);
+}
 
+void MainWindow::initConnect() {
     connect(widgetfunc, &WidgetFunctional::showFiletag, this, [this] {
         ui->stackedWidget->setCurrentWidget(file_system); });
 
@@ -60,7 +40,6 @@ void MainWindow::initCoreWidgets()
 
     connect(widgetfunc, &WidgetFunctional::showWSchedule, this, [this] {
         ui->stackedWidget->setCurrentWidget(schedule_wid); });
-
 
     connect(widgetfunc, &WidgetFunctional::sendEmailForm, this, [this](SendEmail *form) {
         int newIndex = tabWidget->addTab(form, QLatin1String("Email"));
@@ -91,31 +70,14 @@ void MainWindow::initCoreWidgets()
                 qDebug() << "用户取消打开图片操作";
         }
     });
-}
 
-void MainWindow::initSplitterLayout()
-{
-    const QMap<int, QString> buttonNames = {
-        {1, "文件标签"}, {2, "文件备份"}, {3, "备忘日程"}, {4, "在线文档"}, {5, "手写绘图"},
-        {6, "邮件服务"}, {7, "用户登录"}, {8, "更多功能"}, {9, "剪切板"}
-    };
-    connect(widgetfunc, &WidgetFunctional::buttonVisibilityChanged,
-            this, [this, buttonNames](int buttonIndex, bool isVisible) {
-                QAction *action = findChild<QAction*>(QString("Function%1").arg(buttonIndex));
-                if (action && buttonNames.contains(buttonIndex)) {
-                    const QString &name = buttonNames.value(buttonIndex);
-                    action->setText((isVisible ? "关闭" : "打开") + name);
-                }
+    connect(loginButton, &QPushButton::clicked, this, &MainWindow::showUserInfoDialog);
+
+    connect(tabWidget, &QTabWidget::tabCloseRequested, this, [this](int index) {
+        qDebug() << "Tab close requested at index: " << index;
+        on_actionclose_triggered();
     });
 
-    for (int i = 1; i <= 9; ++i) {
-        QAction *action = findChild<QAction *>(QString("Function%1").arg(i));
-        if (action) {
-            connect(action, &QAction::triggered, this, [this, i]() {
-                toggleButtonVisibility(i);
-            });
-        }
-    }
 
     connect(ui->actionhelp, &QAction::triggered, this, [this]() {
         openFile("help.txt");
@@ -137,21 +99,69 @@ void MainWindow::initSplitterLayout()
         createNewTab([]() { return new TabHandleXLSX(""); }, "New XLSX Tab");
     });
 
+    connect(ui->actionshe, &QAction::triggered, this, [this]() {
+        Setting *setting = new Setting();
+        setting->show();
+    });
 
+    connect(ui->actionh1, &QAction::triggered, this, [this]() {
+
+    });
+
+    connect(tabWidget, &QTabWidget::currentChanged, this, [this](int index) {
+        currentIndex = index;
+    });
+
+    connect(wonlinedoc->shared_view, &SharedView::filePathSent, this, &MainWindow::handleFilePathSent);
+    connect(wonlinedoc->download_view, &DownloadView::fileDownloaded, this, &MainWindow::handleFileDownload);
+    connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
+    connect(file_system, &FileSystem::fileOpened, this, &MainWindow::openFile);
+    connect(schedule_wid, &ScheduleWid::fileClicked, this, &MainWindow::openFile);
+    connect(file_backup_view, &FileBackupView::s_fileopen, this, &MainWindow::openFile);
+
+    connect(file_system, &FileSystem::tagopened, this, [=]{
+        ui->stackedWidget->setCurrentWidget(schedule_wid);
+    });
+    connect(file_system, &FileSystem::filebackuplistOpened, this, [=]{
+        ui->stackedWidget->setCurrentWidget(file_backup_view);
+    });
+}
+
+void MainWindow::initMemubarLayout() {
     QSplitter *horizontalSplitter = new QSplitter(Qt::Horizontal);
     horizontalSplitter->addWidget(widgetfunc);
     horizontalSplitter->addWidget(tabWidget);
     horizontalSplitter->addWidget(ui->combinedWidget);
-
     horizontalSplitter->setStretchFactor(0, 0);
     horizontalSplitter->setStretchFactor(1, 1);
     horizontalSplitter->setStretchFactor(2, 3);
-
     setCentralWidget(horizontalSplitter);
-
-    QList<int> sizes;
-    sizes <<  60 << 600 << 340;
+    QList<int> sizes = {60, 600, 340};
     horizontalSplitter->setSizes(sizes);
+
+
+    const QMap<int, QString> buttonNames = {
+        {1, "文件标签"}, {2, "文件备份"}, {3, "备忘日程"}, {4, "在线文档"}, {5, "手写绘图"},
+        {6, "邮件服务"}, {7, "用户登录"}, {8, "更多功能"}, {9, "剪切字板"}
+    };
+    connect(widgetfunc, &WidgetFunctional::buttonVisibilityChanged,
+            this, [this, buttonNames](int buttonIndex, bool isVisible) {
+                QAction *action = findChild<QAction*>(QString("Function%1").arg(buttonIndex));
+                if (action && buttonNames.contains(buttonIndex)) {
+                    const QString &name = buttonNames.value(buttonIndex);
+                    action->setText((isVisible ? "关闭" : "打开") + name);
+                }
+            });
+
+    for (int i = 1; i <= 9; ++i) {
+        QAction *action = findChild<QAction *>(QString("Function%1").arg(i));
+        if (action) {
+            connect(action, &QAction::triggered, this, [this, i]() {
+                widgetfunc->toggleButtonVisibility(i);
+            });
+        }
+    }
+
 }
 
 
@@ -159,34 +169,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     recentFilesManager(new RecentFilesManager(this))
 {
     ui->setupUi(this);
-    initSmallUI();
     initCoreWidgets();
-    initSplitterLayout();
-
-    connect(tabWidget, &QTabWidget::currentChanged, this, &MainWindow::onTabChanged);
-    connect(wonlinedoc->shared_view, &SharedView::filePathSent, this, &MainWindow::handleFilePathSent);
-    connect(wonlinedoc->download_view, &DownloadView::fileDownloaded, this, &MainWindow::handleFileDownload);
-
-    connect(recentFilesManager, &RecentFilesManager::fileOpened, this, &MainWindow::openFile);
-    connect(file_system, &FileSystem::fileOpened, this, &MainWindow::openFile);
-
-    connect(file_system, &FileSystem::filebackuplistOpened, this, [=]{
-        ui->stackedWidget->setCurrentWidget(schedule_wid);
-    });
-
-    connect(file_system, &FileSystem::filebackuplistOpened, this, [=]{
-        ui->stackedWidget->setCurrentWidget(file_backup_view);
-    });
-
-    connect(schedule_wid, &ScheduleWid::fileClicked, this, &MainWindow::openFile);
-    connect(file_backup_view, &FileBackupView::s_fileopen, this, &MainWindow::openFile);
-
+    initConnect();
+    initMemubarLayout();
+    openFile("help.txt");
     recentFilesManager->populateRecentFilesMenu(ui->recentFile);
-
-}
-
-void MainWindow::onTabChanged(int index) {
-    currentIndex = index;
 }
 
 MainWindow::~MainWindow()
@@ -210,18 +197,8 @@ void MainWindow::showUserInfoDialog() {
         );
         if (reply == QMessageBox::Yes)
             widgetfunc->on_pushButton_7_clicked();
-
-        // QMessageBox msgBox;
-        // msgBox.setIcon(QMessageBox::NoIcon);  // 设置为无图标
-        // msgBox.setText("您尚未登录，是否现在登录？\n(目前没开放登录功能)");
-        // msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-
-        // if (msgBox.exec() == QMessageBox::Yes) {
-        //     widgetfunc->on_pushButton_7_clicked();
-        // }
     }
 }
-
 
 void MainWindow::on_actionopen_triggered()
 {
@@ -234,7 +211,6 @@ void MainWindow::on_actionopen_triggered()
 
 void MainWindow::openFile(const QString &filePath)
 {
-
     if (fileTabMap.contains(filePath)) {
         int existingIndex = fileTabMap[filePath];
         tabWidget->setCurrentIndex(existingIndex);
@@ -249,13 +225,9 @@ void MainWindow::openFile(const QString &filePath)
 
         int newIndex = tabWidget->addTab(newTab, baseName);
         connect(newTab, &TabAbstract::contentModified, this, [this, newIndex, baseName]() {
-            qDebug() << baseName;
-
-            if (!tabWidget->tabText(newIndex).endsWith("*")) {
+            if (!tabWidget->tabText(newIndex).endsWith("*"))
                 tabWidget->setTabText(newIndex, baseName + "*");
-            }
         });
-
         connect(newTab, &TabAbstract::contentSaved, this, [this, newIndex, baseName]() {
             tabWidget->setTabText(newIndex, QFileInfo(baseName).fileName());
         });
@@ -266,7 +238,7 @@ void MainWindow::openFile(const QString &filePath)
         recentFilesManager->addFile(filePath);
         recentFilesManager->populateRecentFilesMenu(ui->recentFile);
     } else
-        QMessageBox::warning(this, tr("Error"), tr("Unsupported file type"));
+        QMessageBox::warning(this, tr("错误"), tr("不支持的文件类型"));
 }
 
 void MainWindow::on_actionsave_triggered()
@@ -293,7 +265,6 @@ void MainWindow::on_actionsave_triggered()
     currentTab->setCurrentFilePath(currentFilePath);
 }
 
-
 void MainWindow::createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName)
 {
     TabAbstract* newTab = tabFactory();
@@ -312,10 +283,8 @@ void MainWindow::createNewTab(std::function<TabAbstract*()> tabFactory, const QS
 
 TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
 {
-    if (fileName.endsWith(".txt", Qt::CaseInsensitive) ||
-        fileName.endsWith(".cpp", Qt::CaseInsensitive) ||
-        fileName.endsWith(".qrc", Qt::CaseInsensitive) ||
-        fileName.endsWith(".ini", Qt::CaseInsensitive) ||
+    if (fileName.endsWith(".txt", Qt::CaseInsensitive) || fileName.endsWith(".cpp", Qt::CaseInsensitive) ||
+        fileName.endsWith(".qrc", Qt::CaseInsensitive) || fileName.endsWith(".ini", Qt::CaseInsensitive) ||
         fileName.endsWith(".h", Qt::CaseInsensitive)) {
         return new TextTab(fileName);
     }
@@ -325,10 +294,8 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
     else if(fileName.endsWith(".xlsx", Qt::CaseInsensitive)) {
         return new TabHandleXLSX(fileName);
     }
-    else if (fileName.endsWith(".png", Qt::CaseInsensitive) ||
-             fileName.endsWith(".jpg", Qt::CaseInsensitive) ||
-             fileName.endsWith(".jpeg", Qt::CaseInsensitive) ||
-             fileName.endsWith(".bmp", Qt::CaseInsensitive)) {
+    else if(fileName.endsWith(".png", Qt::CaseInsensitive) || fileName.endsWith(".jpg", Qt::CaseInsensitive) ||
+            fileName.endsWith(".jpeg", Qt::CaseInsensitive) || fileName.endsWith(".bmp", Qt::CaseInsensitive)) {
         return new TabHandleIMG(fileName);
     }
     else {
@@ -336,7 +303,6 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
         return nullptr;
     }
 }
-
 
 void MainWindow::on_actionclose_triggered()
 {
@@ -357,7 +323,6 @@ void MainWindow::on_actionclose_triggered()
         if (dynamic_cast<ClipboardView*>(widget)) {
             ClipboardView* clipboard = qobject_cast<ClipboardView*>(widget);
             tabWidget->removeTab(currentIndex);
-            // delete clipboard;
             return;
         }
         TabAbstract *tab = qobject_cast<TabAbstract*>(widget);
@@ -366,17 +331,14 @@ void MainWindow::on_actionclose_triggered()
             {
                 tabWidget->removeTab(currentIndex);
                 QString filePath = tab->getCurrentFilePath();
-                // qDebug() << "MainWindow::on_actionclose_triggered" << filePath;
                 fileTabMap.remove(filePath);            }
             else
                 qDebug() << "Tab close canceled by user.";
         }
     }
-    else {
+    else
         qDebug() << "No tab to close.";
-    }
 }
-
 
 void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &fileContent)
 {
@@ -385,9 +347,8 @@ void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &f
         newTab->loadFromInternet(fileContent);
         tabWidget->addTab(newTab, fileName);
     } else
-        QMessageBox::warning(this, tr("Error"), tr("Unsupported file type"));
+        QMessageBox::warning(this, tr("错误"), tr("不支持的文件类型"));
 }
-
 
 void MainWindow::handleFilePathSent()
 {
@@ -397,29 +358,6 @@ void MainWindow::handleFilePathSent()
     currentTab->setLinkStatus(true);
     wonlinedoc->shared_view->bindTab(currentTab);
 }
-
-
-template<typename T>
-T* MainWindow::getCurrentTab()
-{
-    QWidget* currentWidget = tabWidget->widget(currentIndex);
-    T* currentTab = qobject_cast<T*>(currentWidget);
-    if (!currentTab) {
-        QMessageBox::warning(this, tr("Error"), tr("Current tab is not valid"));
-    }
-    return currentTab;
-}
-
-
-
-
-void MainWindow::on_actionshe_triggered()
-{
-    setiing = new Setting();
-    setiing->show();
-
-}
-
 
 void MainWindow::on_actionfind_triggered()
 {
@@ -454,14 +392,13 @@ void MainWindow::on_actionfind_triggered()
     }
 }
 
-
-
-void MainWindow::toggleButtonVisibility(int buttonIndex)
+template<typename T>
+T* MainWindow::getCurrentTab()
 {
-    widgetfunc->toggleButtonVisibility(buttonIndex);
+    QWidget* currentWidget = tabWidget->widget(currentIndex);
+    T* currentTab = qobject_cast<T*>(currentWidget);
+    if (!currentTab) {
+        QMessageBox::warning(this, tr("错误"), tr("当前页签是无效的"));
+    }
+    return currentTab;
 }
-
-
-
-
-

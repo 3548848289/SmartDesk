@@ -40,6 +40,12 @@ void Setting::loadSettings() {
     ui->all_setting_checkBox->setChecked(settings.value("all_setting/fenableray", true).toBool());
     ui->file_system_lineEdit->setText(settings.value("file_system/file_system_dir").toString());
     ui->file_see_spinBox->setValue(settings.value("file_see/font_size", 12).toInt());
+    ui->file_see_checkBox1->setChecked(settings.value("file_see/txt", true).toBool());
+    ui->file_see_checkBox2->setChecked(settings.value("file_see/csv", true).toBool());
+    ui->file_see_checkBox3->setChecked(settings.value("file_see/xlsx", true).toBool());
+    ui->file_see_checkBox4->setChecked(settings.value("file_see/img", true).toBool());
+
+
     ui->file_backup_lineEdit->setText(settings.value("file_backup/backup_dir").toString());
 
     int reminderIndex = ui->tag_schedule_comboBox->findText(
@@ -64,6 +70,7 @@ void Setting::loadSettings() {
     ui->clip_board_spinBox->setValue(settings.value("clip_board/hours", 24).toInt());
     ui->server_config_lineEdit->setText(settings.value("ServerConfig/IP", "127.0.0.1").toString());
 
+
 }
 
 void Setting::saveSettings() {
@@ -77,6 +84,10 @@ void Setting::saveSettings() {
         settings.setValue("file_system/file_system_dir", filesystemDir);
 
     settings.setValue("file_see/font_size", ui->file_see_spinBox->value());
+    settings.setValue("file_see/txt", ui->file_see_checkBox1->isChecked());
+    settings.setValue("file_see/csv", ui->file_see_checkBox2->isChecked());
+    settings.setValue("file_see/xlsx", ui->file_see_checkBox3->isChecked());
+    settings.setValue("file_see/img", ui->file_see_checkBox4->isChecked());
 
     QString backupDir = ui->file_backup_lineEdit->text();
     if (backupDir.isEmpty())

@@ -58,18 +58,18 @@ void TagDetail::on_YesBtn_clicked()
     {
         bool judge = dbservice.dbTags().updateFilePath(filePath, oldFilePath);
         if (!judge) {
-            QMessageBox::warning(this, "警告", "更新文件夹路径失败");
+            QMessageBox::warning(this, "", "更新文件夹路径失败");
             return;
         }
     }
 
     if (newTag.isEmpty()) {
-        QMessageBox::warning(this, "警告", "标签不能为空！");
+        QMessageBox::warning(this, "", "标签不能为空！");
         return;
     }
     QDateTime updateDate = QDateTime::fromString(newDate, "yyyy-MM-ddTHH:mm:ss.zzz");
     if (!updateDate.isValid() && !newDate.isEmpty()) {
-        QMessageBox::warning(this, "警告", "过期时间格式无效！");
+        QMessageBox::warning(this, "", "过期时间格式无效！");
         return;
     }
 
@@ -83,7 +83,7 @@ void TagDetail::on_YesBtn_clicked()
     if (judge)
         close();
     else
-        QMessageBox::warning(this, "更新失败", "更新标签和文件信息失败！");
+        QMessageBox::warning(this, "", "更新标签和文件信息失败！");
 }
 
 void TagDetail::on_deleteBtn_clicked() {

@@ -21,6 +21,11 @@ public:
     bool all_setting_fenable_tray();
 
     int file_see_font_size();
+    bool file_see_txt();
+    bool file_see_csv();
+    bool file_see_xlsx();
+    bool file_see_img();
+
 
     QString tag_schedule_reminder_type();
 
@@ -33,7 +38,6 @@ public:
     void loadHistory();
 
     void saveHistory();
-
 
     int clip_board_hours();
 

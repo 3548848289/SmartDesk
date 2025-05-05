@@ -26,7 +26,7 @@ public:
     virtual void loadFromFile(const QString &fileName) = 0;
     virtual void loadFromInternet(const QByteArray &content) = 0;
     virtual void saveToFile(const QString &fileName) = 0;
-    virtual void ControlWidget(QWidget* WControl) = 0;
+    virtual void ControlWidget(bool judge) = 0;
 
     virtual QString getCurrentFilePath() const {
         return currentFilePath;
@@ -76,6 +76,7 @@ signals:
 protected:
     QString currentFilePath;
     bool isModified;
+    bool isShowControl;
 
     void setContentModified(bool modified) {
         if (isModified != modified) {

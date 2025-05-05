@@ -25,7 +25,7 @@ public:
     void loadFromFile(const QString &fileName) override;
     void loadFromInternet(const QByteArray &content) override;
     void saveToFile(const QString &fileName) override;
-    void ControlWidget(QWidget* WControl) override;
+    void ControlWidget(bool judge) override;
 
 
     TabHandleXLSX(const QString& filePath,QWidget *parent = nullptr);

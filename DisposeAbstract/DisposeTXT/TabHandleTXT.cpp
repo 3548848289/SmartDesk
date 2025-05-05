@@ -5,11 +5,12 @@ TextTab::TextTab(const QString &filePath, QWidget *parent)  : TabAbstract(filePa
     // 为 QTextEdit 设置 C++ 语法高亮
     // new CppHighlighter(textEdit->document());
 
-    controlWsidtxt = new ControlWidTXT(this);
+    controlWidtxt = new ControlWidTXT(this);
+
 
     splitter = new QSplitter(Qt::Vertical, this);
     splitter->addWidget(textEdit);
-    splitter->addWidget(controlWsidtxt);
+    splitter->addWidget(controlWidtxt);
     splitter->setSizes({700, 100});
 
     QVBoxLayout* layout = new QVBoxLayout(this);
@@ -22,19 +23,16 @@ TextTab::TextTab(const QString &filePath, QWidget *parent)  : TabAbstract(filePa
     font.setPointSize(fontSize);
     textEdit->setFont(font);
 
-
     connect(textEdit, &QTextEdit::textChanged, this, [this]() {
         setContentModified(true);
     });
 }
-
 
 void TextTab::setContent(const QString &text)
 {
     Q_ASSERT(textEdit != nullptr);
     textEdit->setText(text);
 }
-
 
 QString TextTab::getContent() const
 {
@@ -49,7 +47,7 @@ void TextTab::loadFromFile(const QString &fileName)
         setContent(in.readAll());
         file.close();
     } else {
-        QMessageBox::warning(this, tr("Error"), tr("Could not open file"));
+        QMessageBox::warning(this, tr("错误"), tr("无法打开文件"));
     }
     setContentModified(false);
 }
@@ -63,7 +61,7 @@ void TextTab::saveToFile(const QString &fileName)
         file.close();
     } else
     {
-        QMessageBox::warning(this, tr("Error"), tr("Could not save file"));
+        QMessageBox::warning(this, tr("错误"), tr("无法保存文件"));
     }
     setContentModified(false);
 }
@@ -125,7 +123,7 @@ void TextTab::findAll(const QString &str, Qt::CaseSensitivity cs)
     textEdit->setExtraSelections(extraSelections);
 
     if (!found)
-        QMessageBox::information(this, tr("Word Not Found"), tr("Sorry, the word cannot be found."));
+        QMessageBox::information(this, tr("查找"), tr("找不到此单词"));
 }
 
 void TextTab::clearHighlight()

@@ -5,8 +5,9 @@ ControlFrame::ControlFrame(QWidget *parent)
     : QWidget(parent), ui(new Ui::ControlFrame)
 {
     ui->setupUi(this);
-
     setupConnections();
+    bool isShow = SettingManager::Instance().file_see_img();
+    this->setVisible(isShow);
 }
 
 ControlFrame::~ControlFrame()

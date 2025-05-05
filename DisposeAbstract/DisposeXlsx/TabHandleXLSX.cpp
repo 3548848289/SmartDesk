@@ -23,7 +23,7 @@ TabHandleXLSX::TabHandleXLSX(const QString& filePath, QWidget *parent)
 
 void TabHandleXLSX::setContent(const QString &text) {
     Q_UNUSED(text);
-    QMessageBox::information(this, tr("Not supported"), tr("Direct text input is not supported for XLSX files."));
+    QMessageBox::information(this, tr("不支持"), tr("XLSX 文件不支持直接文本输入。"));
 }
 
 QString TabHandleXLSX::getContent() const {
@@ -33,7 +33,7 @@ QString TabHandleXLSX::getContent() const {
 void TabHandleXLSX::loadFromFile(const QString &fileName) {
     QXlsx::Document xlsx(fileName);
     if (!QFile::exists(fileName) || !xlsx.load()) {
-        QMessageBox::warning(this, tr("Error"), tr("Could not load Excel file."));
+        QMessageBox::warning(this, tr("错误"), tr("无法加载 Excel 文件。"));
         return;
     }
     int maxRow = 0, maxCol = 0;
@@ -66,7 +66,7 @@ void TabHandleXLSX::saveToFile(const QString &fileName){
         }
     }
     if (!xlsx.saveAs(fileName))
-        QMessageBox::warning(this, tr("Save Error"), tr("Failed to save XLSX file."));
+        QMessageBox::warning(this, tr("保存错误"), tr("保存 XLSX 文件失败。"));
     else
         setContentModified(false);
 }
@@ -79,10 +79,9 @@ void TabHandleXLSX::loadFromInternet(const QByteArray &content) {
         loadFromFile(tempFilePath);
         tempFile.remove();
     } else
-        QMessageBox::warning(this, tr("Error"), tr("Failed to write temporary file."));
+        QMessageBox::warning(this, tr("错误"), tr("无法写入临时文件。"));
 }
 
-void TabHandleXLSX::ControlWidget(QWidget* WControl) {
-    Q_UNUSED(WControl);
+void TabHandleXLSX::ControlWidget(bool judge) {
     qDebug() << "TabHandleXLSX: Control panel slot called";
 }

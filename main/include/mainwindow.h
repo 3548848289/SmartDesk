@@ -11,6 +11,9 @@
 #include <QDockWidget>
 #include <QStackedWidget>
 #include <QSplitter>
+#include <QWidgetAction>
+#include <QCheckBox>
+
 #include "RecentFilesManager.h"
 #include "WidgetFunctional.h"
 #include "finddialog.h"
@@ -39,21 +42,15 @@ class MainWindow : public QMainWindow {
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void toggleButtonVisibility(int buttonIndex);
 
 signals:
     void showUserInfo();
-
-public slots:
-    void onTabChanged(int index);
 
 private slots:
     void on_actionopen_triggered();
     void on_actionsave_triggered();
     void on_actionclose_triggered();
-    void on_actionshe_triggered();
     void on_actionfind_triggered();
-
     void handleFileDownload(const QString &fileName, const QByteArray &fileContent);
     void handleFilePathSent();
     void openFile(const QString &filePath);
@@ -76,9 +73,9 @@ private:
     ScheduleWid * schedule_wid;
     FindDialog *findDialog;
 
-    void initSmallUI();
     void initCoreWidgets();
-    void initSplitterLayout();
+    void initConnect();
+    void initMemubarLayout();
     void createNewTab(std::function<TabAbstract*()> tabFactory, const QString &tabName);
     TabAbstract* createTabByFileName(const QString &fileName);
     template<typename T>
