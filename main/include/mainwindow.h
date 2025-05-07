@@ -80,6 +80,8 @@ private:
     TabAbstract* createTabByFileName(const QString &fileName);
     template<typename T>
     T* getCurrentTab();
+    void closeTab(int index);
+    void onTabContextMenuRequested(const QPoint &pos);
 };
 
 #endif // MAINWINDOW_H

@@ -46,22 +46,22 @@ void WidgetFunctional::on_pushButton_6_clicked()
 
 void WidgetFunctional::on_pushButton_7_clicked()
 {
-    dlogin = new DLogin();
-    connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
-    dlogin->exec();
+    emit showClipboard(clipboard);
 }
 
 
 void WidgetFunctional::on_pushButton_8_clicked()
 {
-    more_function = new MoreFunction();
-    more_function->show();
-}
 
+    dlogin = new DLogin();
+    connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
+    dlogin->exec();
+}
 
 void WidgetFunctional::on_pushButton_9_clicked()
 {
-    emit showClipboard(clipboard);
+    more_function = new MoreFunction();
+    more_function->show();
 }
 
 
@@ -130,9 +130,9 @@ void WidgetFunctional::toggleButtonVisibility(int buttonIndex)
     case 4: button = ui->pushButton_4; break;
     case 5: button = ui->pushButton_5; break;
     case 6: button = ui->pushButton_6; break;
-    case 7: button = ui->pushButton_7; break;
-    case 8: button = ui->pushButton_8; break;
-    case 9: button = ui->pushButton_9; break;
+    case 7: button = ui->pushButton_8; break;
+    case 8: button = ui->pushButton_9; break;
+    case 9: button = ui->pushButton_7; break;
     default: return;
     }
 

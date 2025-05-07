@@ -12,7 +12,8 @@ void MainWindow::initCoreWidgets() {
     ui->menubar->setCornerWidget(loginButton, Qt::TopRightCorner);
     tabWidget = new QTabWidget(this);
     tabWidget->setTabsClosable(true);
-
+    tabWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(tabWidget, &QTabWidget::customContextMenuRequested, this, &MainWindow::onTabContextMenuRequested);
     file_system = new FileSystem(this);
     file_backup_view = new FileBackupView(this);
     wonlinedoc = new WOnlineDoc(this);
@@ -142,7 +143,7 @@ void MainWindow::initMemubarLayout() {
 
     const QMap<int, QString> buttonNames = {
         {1, "文件标签"}, {2, "文件备份"}, {3, "备忘日程"}, {4, "在线文档"}, {5, "手写绘图"},
-        {6, "邮件服务"}, {7, "用户登录"}, {8, "更多功能"}, {9, "剪切字板"}
+        {6, "邮件服务"}, {7, "剪切字板"}, {8, "用户登录"}, {9, "更多功能"}
     };
     connect(widgetfunc, &WidgetFunctional::buttonVisibilityChanged,
             this, [this, buttonNames](int buttonIndex, bool isVisible) {
@@ -329,9 +330,11 @@ void MainWindow::on_actionclose_triggered()
         if (tab) {
             if (tab->confirmClose())
             {
-                tabWidget->removeTab(currentIndex);
                 QString filePath = tab->getCurrentFilePath();
-                fileTabMap.remove(filePath);            }
+                fileTabMap.remove(filePath);
+                tabWidget->removeTab(currentIndex);
+                tab->deleteLater();
+            }
             else
                 qDebug() << "Tab close canceled by user.";
         }
@@ -391,6 +394,45 @@ void MainWindow::on_actionfind_triggered()
         }
     }
 }
+
+
+void MainWindow::onTabContextMenuRequested(const QPoint &pos) {
+    int tabIndex = tabWidget->tabBar()->tabAt(pos);
+    if (tabIndex == -1) return; // 点击空白处无效
+
+    QMenu menu;
+    QAction *closeCurrent = menu.addAction("关闭当前");
+    QAction *closeOthers = menu.addAction("关闭其他");
+    QAction *closeAll = menu.addAction("关闭全部");
+
+    QAction *selectedAction = menu.exec(tabWidget->tabBar()->mapToGlobal(pos));
+    if (!selectedAction) return;
+
+    if (selectedAction == closeCurrent) {
+        closeTab(tabIndex);
+    } else if (selectedAction == closeOthers) {
+        for (int i = tabWidget->count() - 1; i >= 0; --i) {
+            if (i != tabIndex)
+                closeTab(i);
+        }
+    } else if (selectedAction == closeAll) {
+        for (int i = tabWidget->count() - 1; i >= 0; --i) {
+            closeTab(i);
+        }
+    }
+}
+
+void MainWindow::closeTab(int index) {
+    QWidget *widget = tabWidget->widget(index);
+    auto *tab = qobject_cast<TabAbstract*>(widget);
+    if (tab && tab->confirmClose()) {
+        tabWidget->removeTab(index);
+        QString filePath = tab->getCurrentFilePath();
+        fileTabMap.remove(filePath);
+        tab->deleteLater(); // 避免内存泄漏
+    }
+}
+
 
 template<typename T>
 T* MainWindow::getCurrentTab()

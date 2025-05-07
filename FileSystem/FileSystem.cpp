@@ -57,19 +57,17 @@ void FileSystem::onItemClicked(const QModelIndex &index) {
     QString curfilePath = fileSystemModel->filePath(index);
     QString directoryPath = QFileInfo(curfilePath).absolutePath();
 
-    // qDebug() << "----FileSystem File Path:" << curfilePath;
-    // qDebug() << "----FileSystem Directory Path:" << directoryPath;
-
     currentDir = directoryPath;
-    serverManager->setCurdir(currentDir);
 
     emit fileOpened(curfilePath);
 }
 
 void FileSystem::on_goButton_clicked() {
-    QString selectedDir = QFileDialog::getExistingDirectory(this, "Select Directory");
-    ui->pathLineEdit->setText(selectedDir);
-    changePath(selectedDir);
+    QString selectedDir = QFileDialog::getExistingDirectory(this, "选择目录");
+    if (!selectedDir.isEmpty()) {
+        ui->pathLineEdit->setText(selectedDir);
+        changePath(selectedDir);
+    }
 }
 
 void FileSystem::on_pathLineEdit_editingFinished() {
@@ -81,7 +79,7 @@ void FileSystem::changePath(QString path){
     if (fileInfo.exists() && fileInfo.isDir())
         ui->treeView->setRootIndex(fileSystemModel->index(path));
     else
-        qDebug() << "Invalid path:" << path;
+        QMessageBox::warning(this, "", "改路径不是有效路径，请重新输入");
 }
 
 FileSystem::~FileSystem() {

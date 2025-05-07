@@ -19,7 +19,9 @@ public:
     explicit TabAbstract(const QString& filePath, QWidget *parent = nullptr)
         : QWidget(parent), currentFilePath(filePath) {}
 
-    virtual ~TabAbstract() {}
+    virtual ~TabAbstract() {
+        qDebug() << "Tab destroyed:" << this;
+    }
 
     virtual void setContent(const QString &text) = 0;
     virtual QString getContent() const = 0;

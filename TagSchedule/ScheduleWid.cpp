@@ -32,9 +32,6 @@ ScheduleWid::ScheduleWid(QWidget *parent) : QWidget(parent), ui(new Ui::Schedule
         msgbox.findChild<QDialogButtonBox*>()->setMinimumWidth(500);
         msgbox.exec();
     });
-
-    sendemail = new SendEmail(this);
-
 }
 
 ScheduleWid::~ScheduleWid()
@@ -145,7 +142,6 @@ void ScheduleWid::on_sortComboBox_currentIndexChanged(int index)
         std::sort(files.begin(), files.end(), [isAscending](const FilePathInfo &a, const FilePathInfo &b) {
             return isAscending ? a.expirationDate < b.expirationDate : a.expirationDate > b.expirationDate;
         });
-
 
         for (const FilePathInfo &file : files) {
             TagList *widget = new TagList(file);

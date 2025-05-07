@@ -3,11 +3,6 @@
 #include <QFile>
 #include <QDebug>
 
-void ServerManager::setCurdir(const QString &curdir)
-{
-    m_curdir = curdir;
-}
-
 void ServerManager::sendfilepath(QString filepath)
 {
     emit onFilesListUpdated(filepath);

@@ -21,7 +21,7 @@
     <number>0</number>
    </property>
    <item row="9" column="0">
-    <widget class="QPushButton" name="pushButton_8">
+    <widget class="QPushButton" name="pushButton_9">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
        <horstretch>0</horstretch>
@@ -125,7 +125,7 @@
     </widget>
    </item>
    <item row="8" column="0">
-    <widget class="QPushButton" name="pushButton_7">
+    <widget class="QPushButton" name="pushButton_8">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
        <horstretch>0</horstretch>
@@ -228,8 +228,8 @@
      </property>
     </widget>
    </item>
-   <item row="10" column="0">
-    <widget class="QPushButton" name="pushButton_9">
+   <item row="6" column="0">
+    <widget class="QPushButton" name="pushButton_7">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
        <horstretch>0</horstretch>
@@ -260,8 +260,8 @@
   <tabstop>pushButton_4</tabstop>
   <tabstop>pushButton_5</tabstop>
   <tabstop>pushButton_6</tabstop>
-  <tabstop>pushButton_7</tabstop>
   <tabstop>pushButton_8</tabstop>
+  <tabstop>pushButton_9</tabstop>
  </tabstops>
  <resources/>
  <connections/>

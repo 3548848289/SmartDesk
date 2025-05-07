@@ -57,7 +57,7 @@ void ClipboardView::deleteItem()
 
 ClipboardView::~ClipboardView()
 {
-    qDebug() << "保存记录";
+    qDebug() << "剪切板保存记录";
     on_saveButton_clicked();
 
 }
