@@ -45,7 +45,7 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QLabel { color: #DB00FF }</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>TextLabel</string>
@@ -87,6 +87,11 @@
          <width>30</width>
          <height>30</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>7</pointsize>
+        </font>
        </property>
        <property name="text">
         <string>详情</string>

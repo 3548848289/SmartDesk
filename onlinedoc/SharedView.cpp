@@ -3,8 +3,7 @@
 #include "EditedLog.h"
 
 SharedView::SharedView(QWidget *parent): QWidget(parent),ui(new Ui::SharedView),
-    tcpSocket(new QTcpSocket(this)),serverManager(ServerManager::instance()),
-    dbservice(dbService::instance("./SmartDesk.db"))
+    tcpSocket(new QTcpSocket(this)), dbservice(dbService::instance("./SmartDesk.db"))
 {
     ui->setupUi(this);
 }
@@ -69,7 +68,7 @@ void SharedView::on_readyRead()
 
 void SharedView::on_disconnected()
 {
-    QMessageBox::information(this, tr("Disconnected"), tr("Disconnected from server"));
+    QMessageBox::information(this, tr(""), tr("无法连接到服务器"));
 }
 
 void SharedView::sendDataToServer(const QString &data)
@@ -94,7 +93,7 @@ void SharedView::on_sendmsgEdit_clicked()
 void SharedView::on_linkserverBtn_clicked()
 {
 
-    QString serverIp = "192.168.188.236";
+    QString serverIp = "192.168.5.75";
     QString portString = "9200";
     bool ok;
     quint16 serverPort = portString.toUShort(&ok);
@@ -105,13 +104,10 @@ void SharedView::on_linkserverBtn_clicked()
 
     if (!tcpSocket->waitForConnected(3000)) {
         QString errorString = tcpSocket->errorString();
-        QMessageBox::warning(this, tr("Error"), tr("Failed to connect to server: %1").arg(errorString));
+        QMessageBox::warning(this, tr("错误"), tr("无法连接到服务器: %1").arg(errorString));
     }
     else
-    {
-        //QMessageBox::information(this, tr("Connected"), tr("Connected to server"));
         localIp = tcpSocket->localAddress().toString();
-    }
 }
 
 void SharedView::on_closeserverBtn_clicked()
@@ -120,17 +116,18 @@ void SharedView::on_closeserverBtn_clicked()
     if (tcpSocket->state() == QAbstractSocket::ConnectedState) {
         tcpSocket->disconnectFromHost();
         if (tcpSocket->state() == QAbstractSocket::UnconnectedState || tcpSocket->waitForDisconnected(3000)) {
-            QMessageBox::information(this, tr("Disconnected"), tr("Disconnected from server"));
+            QMessageBox::information(this, tr("已断开连接"), tr("已与服务器断开连接"));
             this->close();
             delete this;
 
         } else {
-            QMessageBox::warning(this, tr("Error"), tr("Failed to disconnect from server"));
+            QMessageBox::warning(this, tr("错误"), tr("无法从服务器断开连接"));
         }
     } else {
-        qDebug() << "Socket is not connected.";
+        qDebug() << "套接字未连接。";
     }
 }
+
 
 void SharedView::on_passwdEdit_editingFinished()
 {
@@ -139,29 +136,27 @@ void SharedView::on_passwdEdit_editingFinished()
         QMessageBox::warning(this, tr("警告"), tr("请输入共享口令！"));
         return;
     }
-
-    QStringList files = dbservice.dbOnline().getSharedFilesByShareToken(shareToken);
-
-    if (!files.isEmpty()) {
-        ui->listWidget->clear();  // 清空现有的列表项
-
-        for (const QString &file : files) {
-            QStringList fileInfo = file.split(" ");
-            if (fileInfo.size() >= 1) {
-                ui->listWidget->addItem(fileInfo[0]);  // 添加文件名到列表
+    ServerManager::instance()->getSharedFile(shareToken);
+    connect(ServerManager::instance(), &ServerManager::historyReceived, this, [=](const QStringList& files){
+        if (!files.isEmpty()) {
+            ui->listWidget->clear();
+            for (const QString &file : files) {
+                QStringList fileInfo = file.split(" ");
+                if (fileInfo.size() >= 1)
+                    ui->listWidget->addItem(fileInfo[0]);
             }
         }
-    } else {
-        QMessageBox::warning(this, tr("警告"), tr("未找到对应的共享文件！"));
-    }
+        else
+            QMessageBox::warning(this, tr("警告"), tr("未找到对应的共享文件！"));
+    });
 }
 
 
 void SharedView::on_listWidget_itemClicked(QListWidgetItem *item)
-{
+{    
     on_linkserverBtn_clicked();
-    int row = ui->listWidget->row(item);  // 获取当前项的行号
-    QString filePath = item->text();  // 获取项的文本内容
+    int row = ui->listWidget->row(item);
+    QString filePath = item->text();
     qDebug() << "Selected file path: " << filePath;
 
     QString jsonString = myJson::constructJson(localIp, "read", -1, -1, filePath);
@@ -172,25 +167,21 @@ void SharedView::on_listWidget_itemClicked(QListWidgetItem *item)
     emit filePathSent();
 }
 
-
 void SharedView::on_buildBtn_clicked()
 {
     QString filePath = QFileDialog::getOpenFileName(this, tr("选择文件"), "", tr("All Files (*)"));
-    if (filePath.isEmpty()) {
-        QMessageBox::warning(this, tr("警告"), tr("未选择任何文件！"));
+    if (filePath.isEmpty())
         return;
-    }
 
     QString fileName = QFileInfo(filePath).fileName();
     ui->readfileEdit_2->setText(filePath);
 
-    QString shareToken = ui->passwdEdit->text();
+    QString shareToken = ui->createEdit->text();
     if (shareToken.isEmpty()) {
         QMessageBox::warning(this, tr("警告"), tr("请输入共享口令！"));
         return;
     }
-
-    if (serverManager->commitFile(filePath))
+    if (ServerManager::instance()->setSharedFile(filePath, shareToken))
         QMessageBox::information(this, tr("成功"), tr("文件上传成功，口令为：%1").arg(shareToken));
     else
         QMessageBox::warning(this, tr("警告"), tr("文件上传失败！"));

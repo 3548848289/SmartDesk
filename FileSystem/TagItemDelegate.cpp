@@ -14,12 +14,12 @@ void TagItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
 
     if (hasTags(filePath)) {
         QRect iconRect(option.rect.right() - 30, option.rect.top() + 5, 20, 20);
-        QIcon tagIcon(":/usedimage/edittag.svg");
+        QIcon tagIcon = QIcon::fromTheme(QIcon::ThemeIcon::MailMessageNew);
         tagIcon.paint(painter, iconRect, Qt::AlignCenter);
     }
     if (dbservice.dbBackup().hasSubmissions(filePath)) {
         QRect submissionIconRect(option.rect.right() - 60, option.rect.top() + 5, 20, 20);
-        QIcon submissionIcon(":/usedimage/history.svg");
+        QIcon submissionIcon = QIcon::fromTheme(QIcon::ThemeIcon::EditCopy);
         submissionIcon.paint(painter, submissionIconRect, Qt::AlignCenter);
     }
 }
@@ -30,10 +30,13 @@ bool TagItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
 
         QRect tagIconRect(option.rect.right() - 30, option.rect.top() + 5, 20, 20);
         if (tagIconRect.contains(mouseEvent->pos())) {
-            AddTag tagDialog;
-            addTag(model, index, tagDialog);
             isButtonClicked = true;
             emit tagbutClicked(index);
+
+            QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
+            TagDetail *tagDetail = new TagDetail(nullptr, filePath);
+            tagDetail->show();
+
             return true;
         }
 
@@ -106,19 +109,26 @@ void TagItemDelegate::onOpenFileTriggered(QAbstractItemModel *model, const QMode
     emit openFileRequested(filePath);
 }
 
-void TagItemDelegate::onDeleteFileTriggered(QAbstractItemModel *model, const QModelIndex &index) {
-    qDebug() << "TagItemDelegate::onDeleteFileTriggered 文件删除功能隐藏了";
-    return;
 
+void TagItemDelegate::onDeleteFileTriggered(QAbstractItemModel *model, const QModelIndex &index) {
     QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
-    QFile file(filePath);
-    if (file.remove()) {
-        qDebug() << "文件已删除:" << filePath;
-        model->removeRow(index.row());
-    } else {
-        qWarning() << "删除文件失败:" << filePath << "错误:" << file.errorString();
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("删除文件");
+    msgBox.setText("你确定要删除这个文件吗?");
+    msgBox.setWindowIcon(QIcon::fromTheme("utilities-system-monitor"));
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+
+    int ret = msgBox.exec();
+    if (ret == QMessageBox::Yes) {
+        QFile file(filePath);
+        if (file.remove()) {
+            model->removeRow(index.row());
+        } else {
+            qWarning() << "删除文件失败:" << filePath << "错误:" << file.errorString();
+        }
+        emit deleteFileRequested(filePath);
     }
-    emit deleteFileRequested(filePath);
 }
 
 void TagItemDelegate::onCommitTriggered(QAbstractItemModel *model, const QModelIndex &index) {
@@ -139,6 +149,7 @@ void TagItemDelegate::onHistoryTriggered(QAbstractItemModel *model, const QModel
 void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex &index, AddTag &tagDialog) {
     if (tagDialog.exec() == QDialog::Accepted) {
         QString tagName = tagDialog.getTagName();
+        qDebug() << tagName;
         QString annotation = tagDialog.getAnnotation();
         QDateTime expirationDate = tagDialog.getExpirationDate();
 

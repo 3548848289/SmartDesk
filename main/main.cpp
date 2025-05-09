@@ -7,13 +7,14 @@
 #include <QIcon>
 #include <QFont>
 #include "mainwindow.h"
-#include "../../Setting/SettingManager.h"
+#include "../../Setting/include/SettingManager.h"
 
 int main(int argc, char *argv[]) {
+
     QApplication app(argc, argv);
     QApplication::setQuitOnLastWindowClosed(false);
 
-    int font_size = SettingManager::Instance().all_setting_fontsize();
+    int font_size = SettingManager::Instance().all_setting_font_size();
     QFont font = QApplication::font();
     font.setPointSize(font_size);
     QApplication::setFont(font);
@@ -22,34 +23,39 @@ int main(int argc, char *argv[]) {
     w.show();
 
     bool enableTray = SettingManager::Instance().all_setting_fenable_tray();
+    qDebug() << "enable Tray" << enableTray;
+    if (enableTray) {
+        QSystemTrayIcon *trayIcon = new QSystemTrayIcon;
+        trayIcon->setIcon(QIcon::fromTheme("utilities-system-monitor"));
+        // trayIcon->setIcon(QIcon(":/usedimage/tips.png"));
 
-    QSystemTrayIcon trayIcon;
-    trayIcon.setIcon(QIcon(":/usedimage/package.svg"));
-    trayIcon.setToolTip("托盘程序示例");
+        trayIcon->setToolTip("SmartDesk");
 
-    QMenu trayMenu;
-    QAction showAction("显示主窗口", &trayMenu);
-    QAction quitAction("退出", &trayMenu);
+        QMenu *trayMenu = new QMenu;
+        QAction *showAction = new QAction("显示主窗口", trayMenu);
+        QAction *quitAction = new QAction("退出", trayMenu);
 
-    trayMenu.addAction(&showAction);
-    trayMenu.addSeparator();
-    trayMenu.addAction(&quitAction);
-    trayIcon.setContextMenu(&trayMenu);
+        trayMenu->addAction(showAction);
+        trayMenu->addSeparator();
+        trayMenu->addAction(quitAction);
+        trayIcon->setContextMenu(trayMenu);
 
-    QObject::connect(&trayIcon, &QSystemTrayIcon::activated, [&w](QSystemTrayIcon::ActivationReason reason) {
-        if (reason == QSystemTrayIcon::Trigger  ) {
+        QObject::connect(trayIcon, &QSystemTrayIcon::activated, [&w](QSystemTrayIcon::ActivationReason reason) {
+            if (reason == QSystemTrayIcon::Trigger) {
+                w.show(); w.raise(); w.activateWindow();
+            }
+        });
+
+        QObject::connect(showAction, &QAction::triggered, [&w]() {
             w.show(); w.raise(); w.activateWindow();
-        }
-    });
+        });
 
-    QObject::connect(&showAction, &QAction::triggered, [&w]() {
-        w.show(); w.raise(); w.activateWindow();
-    });
+        QObject::connect(quitAction, &QAction::triggered, &app, &QApplication::quit);
 
-    QObject::connect(&quitAction, &QAction::triggered, &app, &QApplication::quit);
-
-    trayIcon.show();
-    trayIcon.showMessage("托盘通知", "程序已最小化到托盘", QSystemTrayIcon::Information, 3000);
+        trayIcon->show();
+        trayIcon->showMessage("SmartDesk", "程序已最小化到托盘",
+            QIcon::fromTheme("utilities-system-monitor"), 3000);
+    }
 
     return app.exec();
 }

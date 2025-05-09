@@ -246,6 +246,7 @@ bool dbBackupRecord::deleteBackupRecord(const QString &filePath) {
 
 bool dbBackupRecord::updateFilePath(const QString &oldFilePath, const QString &newFilePath)
 {
+
     if (newFilePath.isEmpty()) {
         qDebug() << "New file path cannot be empty!";
         return false;

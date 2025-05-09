@@ -10,7 +10,6 @@
 #include <QSettings>
 #include <QSplitter>
 #include "ControlWidTXT.h"
-#include "../../Setting/SettingManager.h"
 
 class TextTab : public TabAbstract
 {
@@ -19,23 +18,21 @@ class TextTab : public TabAbstract
 public:
     explicit TextTab(const QString& filePath, QWidget *parent = nullptr);
 
-
-
-    void setText(const QString &text) override;
-    QString getText() const override;
+    void setContent(const QString &text) override;
+    QString getContent() const override;
     void loadFromFile(const QString &fileName) override;
+    void loadFromInternet(const QByteArray &content) override;
     void saveToFile(const QString &fileName) override;
-    void loadFromContent(const QByteArray &content) override;
-
-    void ControlWidget(QWidget* WControl){
-        qDebug() << "TabHandleTXT: Showing control frame!";
+    void ControlWidget(bool judge){
+        isShowControl = judge;
     }
+
 public slots:
     void findNext(const QString &str, Qt::CaseSensitivity cs);
     void findAll(const QString &str, Qt::CaseSensitivity cs);
     void clearHighlight();
 private:
-    ControlWidTXT * controlWsidtxt;
+    ControlWidTXT * controlWidtxt;
     QSplitter * splitter;
     QTextEdit *textEdit;
 };

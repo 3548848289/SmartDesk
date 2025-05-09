@@ -8,6 +8,8 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QString>
+#include <QScrollBar>
 #include "../../manager/include/dbService.h"
 
 namespace Ui {
@@ -19,7 +21,9 @@ class TagDetail : public QWidget
     Q_OBJECT
 
 public:
-    explicit TagDetail(QWidget *parent, const FilePathInfo &fileInfo);
+    TagDetail(QWidget *parent, FilePathInfo fileInfo);
+
+    TagDetail(QWidget *parent, QString filePath);
     ~TagDetail();
 
 private slots:
@@ -32,11 +36,12 @@ private slots:
     void on_deleteBtn_clicked();
 
 private:
+    void init( FilePathInfo fileInfo);
     void updateFileInfo();
 
     Ui::TagDetail *ui;
     dbService& dbservice;    // dbService 单例引用
-    const FilePathInfo &fileInfo;  // 引用传递的文件路径信息
+    FilePathInfo fileInfo;  // 引用传递的文件路径信息
     QString oldFilePath ;
 };
 

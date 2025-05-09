@@ -14,16 +14,12 @@
 #include <QMessageBox>
 
 #include "TagList.h"
-#include "../../Setting/SettingManager.h"
+#include "../../Setting/include/SettingManager.h"
 #include "../LmsgNotify/notifymanager.h"
-// #include "Notify.h"
+#include "../../EmailService/SendEmail.h"
 
 class DatabaseManager;
-
-namespace Ui {
-class ScheduleWid;
-}
-
+namespace Ui { class ScheduleWid; }
 class ScheduleWid : public QWidget
 {
     Q_OBJECT
@@ -52,6 +48,7 @@ private:
     QTimer *expirationTimer;
     Ui::ScheduleWid *ui;
     NotifyManager *manager;
+    SendEmail * sendemail;
     dbService& dbservice;
 
 };

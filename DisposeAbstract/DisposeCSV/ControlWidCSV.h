@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QList>
 #include <QWidget>
+#include "../../Setting/include/SettingManager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ControlWidCSV; }

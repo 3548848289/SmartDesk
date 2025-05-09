@@ -1,1 +1,0 @@
-D:/CxxProgram/SmartDesk/.build/debug/manager/mytxt_manager_autogen/include/../6YEA5652QU/moc_ServerManager.cpp.json

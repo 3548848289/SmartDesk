@@ -8,6 +8,7 @@
 #include <QTextCharFormat>
 #include <QRegularExpression>
 #include <QTextDocument>
+#include "../../Setting/include/SettingManager.h"
 
 class CppHighlighter : public QSyntaxHighlighter
 {

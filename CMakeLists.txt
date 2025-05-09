@@ -23,18 +23,29 @@ add_subdirectory(Setting)
 add_subdirectory(UserInfo)
 add_subdirectory(EmailService)
 add_subdirectory(MoreFunction)
+add_subdirectory(ClipBoard)
 add_subdirectory(DisposeAbstract/DisposeTXT)
 add_subdirectory(DisposeAbstract/DisposeCSV)
 add_subdirectory(DisposeAbstract/DisposeIMG)
+add_subdirectory(DisposeAbstract/DisposeXLSX)
 add_subdirectory(main)
 
-add_subdirectory(EmailService/simple-mail ${CMAKE_CURRENT_BINARY_DIR}/EmailService/simple-mail)
+
+add_subdirectory(Resources/ThirdParty/simple-mail/
+    ${CMAKE_CURRENT_BINARY_DIR}/Resources/ThirdParty/simple-mail)
+
+add_subdirectory(Resources/ThirdParty/QXlsx/
+    ${CMAKE_CURRENT_BINARY_DIR}/Resources/ThirdParty/QXlsx)
+
+# add_subdirectory(Resources/ThirdParty/LmsgNotify/
+#     ${CMAKE_CURRENT_BINARY_DIR}/Resources/ThirdParty/LmsgNotify)
 
 qt_add_resources(RESOURCES
-    resources/res.qrc
+    Resources/res.qrc
 )
 
-qt_add_executable(SmartDesk WIN32 ${RESOURCES})
+qt_add_executable(SmartDesk WIN32 ${RESOURCES}
+    DisposeAbstract/DisposeXlsx/TabHandleXLSX.h DisposeAbstract/DisposeXlsx/TabHandleXLSX.cpp)
 target_link_libraries(SmartDesk PRIVATE
     mytxt_main
     mytxt_filehis
@@ -47,9 +58,13 @@ target_link_libraries(SmartDesk PRIVATE
     mytxt_txt
     mytxt_csv
     mytxt_img
+    mytxt_xlsx
     mytxt_manager
     mytxt_morefunction
+    mytxt_clipboard
     SimpleMail::Core
+    QXlsx::QXlsx
+    # LmsgNotify::LmsgNotify
     Qt${QT_VERSION_MAJOR}::Widgets
 )
 

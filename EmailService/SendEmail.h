@@ -1,21 +1,15 @@
 #ifndef SENDEMAIL_H
 #define SENDEMAIL_H
 
-#include "./simple-mail/src/SimpleMail"
 #include <QSettings>
 #include <QWidget>
 #include <QMenu>
-
-namespace Ui {
-class SendEmail;
-}
-
-namespace SimpleMail {
-class Server;
-}
+#include <QTimer>
+#include <QQueue>
+namespace SimpleMail { class MimeMessage; class Server; }
+namespace Ui { class SendEmail; }
 
 using namespace SimpleMail;
-
 class SendEmail : public QWidget
 {
     Q_OBJECT
@@ -24,6 +18,7 @@ public:
     explicit SendEmail(QWidget *parent = nullptr);
     ~SendEmail();
 
+    void sendEmailWithData(const QString &subject, const QString &bodyHtml, const QStringList &attachments);
 private Q_SLOTS:
     void on_addAttachment_clicked();
 
@@ -38,6 +33,10 @@ private:
     Ui::SendEmail *ui;
 
     void errorMessage(const QString &message);
+    QQueue<MimeMessage> m_emailQueue;
+    bool m_isSending = false;
+
+    void processNextEmailInQueue();
 };
 
 #endif // SENDEMAIL_H

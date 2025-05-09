@@ -10,6 +10,8 @@
 #include <QJsonDocument>
 #include <QUrl>
 #include <QMessageBox>
+#include <QString>
+#include "../../Setting/include/SettingManager.h"
 
 class FlaskInfo : public QObject
 {
@@ -40,8 +42,8 @@ private slots:
     void fetchAvatarImage(const QString &url, const QString &action);
 
 private:
+    QString address;
     QNetworkAccessManager *networkManager;
-
     void sendRequest(const QUrl &url, const QJsonObject &json, const QString &action);
     void handleResponse(QNetworkReply *reply, const QString &action);
 

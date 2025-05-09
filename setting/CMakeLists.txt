@@ -1,15 +1,19 @@
 set(SETTING_SOURCES
     Setting.cpp
     SettingManager.cpp
+    AppHelp.cpp
+
 )
 
 set(SETTING_HEADERS
-    Setting.h
-    SettingManager.h
+    include/Setting.h
+    include/SettingManager.h
+    include/AppHelp.h
 )
 
 set(SETTING_UIS
-    Setting.ui
+    ui/Setting.ui
+    ui/AppHelp.ui
 )
 
 qt_add_library(mytxt_setting STATIC

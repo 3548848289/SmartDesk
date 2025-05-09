@@ -1,3 +1,0 @@
-D:/CxxProgram/SmartDesk/.build/Release/userinfo/mytxt_userinfo_autogen/include/../6YEA5652QU/moc_DInfo.cpp.json
-D:/CxxProgram/SmartDesk/.build/Release/userinfo/mytxt_userinfo_autogen/include/../6YEA5652QU/moc_DLogin.cpp.json
-D:/CxxProgram/SmartDesk/.build/Release/userinfo/mytxt_userinfo_autogen/include/../6YEA5652QU/moc_FlaskInfo.cpp.json
