@@ -1,11 +1,13 @@
 #include "include/TabHandleIMG.h"
+#include "include/WaterMark.h"
 #include <QHBoxLayout>
+#include <QtSvgWidgets/QGraphicsSvgItem>
+#include <QtSvg/QSvgRenderer>
 
 TabHandleIMG::TabHandleIMG(const QString& filePath, QWidget *parent)
     : TabAbstract(filePath, parent), angle(0), scaleValue(0.5), shearValue(0), translateValue(0)
 {
     QSplitter* splitter = new QSplitter(Qt::Vertical, this);
-
     scene = new QGraphicsScene;
     view = new QGraphicsView;
     view->setScene(scene);
@@ -24,27 +26,52 @@ TabHandleIMG::TabHandleIMG(const QString& filePath, QWidget *parent)
     setWindowTitle(tr("Graphics Item Transformation"));
     showControlFrame(controlFrame);
 
+    setContentModified(false);
+
     connect(controlFrame, &ControlFrame::textAdded, this, &TabHandleIMG::onTextAdded);
     connect(controlFrame, &ControlFrame::exportRequested, this, &TabHandleIMG::exportImage);
 }
 
 
+
 void TabHandleIMG::loadFromFile(const QString &fileName)
 {
-    QPixmap* pixmap = new QPixmap(fileName);
-    if (pixmap->isNull()) {
-        QMessageBox::warning(this, tr("加载错误"), tr("%1 文件无法打开").arg(fileName));
-        return;
+    scene->clear();  // 每次都清空，防止图像叠加
+
+    QFileInfo fileInfo(fileName);
+    QString suffix = fileInfo.suffix().toLower();
+
+    if (suffix == "svg") {
+        QGraphicsSvgItem* svgItem = new QGraphicsSvgItem(fileName);
+        if (!svgItem->renderer()->isValid()) {
+            QMessageBox::warning(this, tr("加载错误"), tr("SVG 文件无法打开: %1").arg(fileName));
+            delete svgItem;
+            return;
+        }
+
+        scene->addItem(svgItem);
+        scene->setSceneRect(svgItem->boundingRect());
+        svgItem->setPos(0, 0);
+        view->fitInView(svgItem, Qt::KeepAspectRatio);
+    } else {
+        QPixmap* pixmap = new QPixmap(fileName);
+        if (pixmap->isNull()) {
+            QMessageBox::warning(this, tr("加载错误"), tr("%1 文件无法打开").arg(fileName));
+            delete pixmap;
+            return;
+        }
+
+        pixItem = new PixItem(pixmap);
+        scene->addItem(pixItem);
+        scene->setSceneRect(pixItem->boundingRect());
+        pixItem->setPos(0, 0);
+        view->fitInView(pixItem, Qt::KeepAspectRatio);
     }
+}
 
-    scene->clear();
 
-    pixItem = new PixItem(pixmap);
-    scene->addItem(pixItem);
-    scene->setSceneRect(pixItem->boundingRect());
-    pixItem->setPos(0, 0);
-
-    view->fitInView(pixItem, Qt::KeepAspectRatio);
+void TabHandleIMG::saveToFile(const QString &fileName) {
+    exportImage(fileName);
 }
 
 void TabHandleIMG::test()
@@ -88,21 +115,31 @@ void TabHandleIMG::updateTransformations(int angle, qreal scale, qreal shear, qr
     view->translate(translate, translate);
 }
 
+// void TabHandleIMG::updateTransformations(int angle, qreal scale, qreal shear, qreal translate)
+// {
+//     QTransform transform;
+//     transform.translate(translate, translate);
+//     transform.shear(shear, 0);
+//     transform.scale(scale, scale);
+//     transform.rotate(angle);
+
+//     if (pixItem)
+//         pixItem->setTransform(transform);
+// }
+
+
 void TabHandleIMG::addTextToImage(const QString &text, const QPointF &position) {
-    // 获取当前视图的变换矩阵
-    QTransform currentTransform = view->transform();
+    WaterMark* textItem = new WaterMark(text);
+    QPointF offset(0, -12);
+    textItem->setFont(QFont("Arial", 12));
 
-    // 转换坐标为当前变换下的坐标
-    QPointF transformedPos = currentTransform.inverted().map(position);
-
-    // 创建文字项
-    textItem = new QGraphicsTextItem(text);
-    QFont font = textItem->font();
-    font.setPointSize(16);
-    textItem->setFont(font);
-    textItem->setPos(transformedPos);
+    textItem->setFlags(QGraphicsItem::ItemIsMovable | QGraphicsItem::ItemIsSelectable);
+    textItem->setPos(position + offset);
     scene->addItem(textItem);
+
+    setContentModified(true);
 }
+
 
 bool TabHandleIMG::eventFilter(QObject* watched, QEvent* event)
 {
@@ -121,30 +158,21 @@ bool TabHandleIMG::eventFilter(QObject* watched, QEvent* event)
     return QWidget::eventFilter(watched, event);
 }
 
-
 void TabHandleIMG::exportImage(const QString &filePath) {
-    if (!scene) return;
+    QRectF sceneRect = scene->itemsBoundingRect();
+    QRect imageRect = sceneRect.toAlignedRect();
+    QImage image(imageRect.size(), QImage::Format_ARGB32);
+    image.fill(Qt::white);
 
-    QRectF sceneRect = scene->itemsBoundingRect(); // 获取所有图元的边界
-    QImage image(sceneRect.size().toSize(), QImage::Format_ARGB32_Premultiplied);
-    image.fill(Qt::white); // 白色背景（你可以换成透明：Qt::transparent）
-
+    // 将 scene 渲染到 QImage
     QPainter painter(&image);
     painter.setRenderHint(QPainter::Antialiasing);
-    painter.setRenderHint(QPainter::SmoothPixmapTransform);
-
-    // 应用 scene 坐标系的偏移
     painter.translate(-sceneRect.topLeft());
-
     scene->render(&painter);
     painter.end();
 
     if (!image.save(filePath)) {
-        QMessageBox::warning(this, tr("保存失败"), tr("无法保存图像到路径: %1").arg(filePath));
-    } else {
-        QMessageBox::information(this, tr("保存成功"), tr("图像已保存到: %1").arg(filePath));
+        QMessageBox::warning(this, tr("保存失败"), tr("无法保存图像到 %1").arg(filePath));
     }
-
+    setContentModified(false);
 }
-
-

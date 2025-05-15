@@ -5,8 +5,8 @@ project(SmartDesk VERSION 0.1 LANGUAGES CXX)
 
 
 # 查找 Qt 库 (仅在主目录调用一次)
-find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets Sql Network Svg)
-find_package(Qt6 REQUIRED COMPONENTS Widgets Sql Network Svg)
+find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets Sql Network Svg SvgWidgets)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Sql Network Svg SvgWidgets)
 
 # 启用自动处理 Qt 的 uic, moc, 和 rcc
 set(CMAKE_AUTOUIC ON)

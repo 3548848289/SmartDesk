@@ -23,7 +23,6 @@ int main(int argc, char *argv[]) {
     w.show();
 
     bool enableTray = SettingManager::Instance().all_setting_fenable_tray();
-    qDebug() << "enable Tray" << enableTray;
     if (enableTray) {
         QSystemTrayIcon *trayIcon = new QSystemTrayIcon;
         trayIcon->setIcon(QIcon::fromTheme("utilities-system-monitor"));

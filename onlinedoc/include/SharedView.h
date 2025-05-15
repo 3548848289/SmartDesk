@@ -17,7 +17,6 @@
 #include "../../manager/include/myJson.h"
 #include "../../DisposeAbstract/DisposeCSV/TabHandleCSV.h"
 #include "../../manager/include/ServerManager.h"
-#include "../../manager/include/dbService.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class SharedView; }
@@ -30,10 +29,7 @@ class SharedView : public QWidget
 public:
     SharedView(QWidget *parent = nullptr);
     ~SharedView();
-
     void bindTab(TabHandleCSV* tab);
-
-
 public slots:
     void sendDataToServer(const QString &data);
 
@@ -43,22 +39,17 @@ signals:
 
 private slots:
     void on_readyRead();
-    void on_disconnected();
-    void on_sendmsgEdit_clicked();
-    void on_passwdEdit_editingFinished();
-
+    void on_sendmsgBtn_clicked();
+    void getSharedFile();
     void on_buildBtn_clicked();
-
-    void on_listWidget_itemClicked(QListWidgetItem *item);
-
+    void on_closeBtn_clicked();
+    void on_linkBtn_clicked();
 private:
-    void on_linkserverBtn_clicked();
-    void on_closeserverBtn_clicked();
     QString localIp;
+    QString choosedFile;
     Ui::SharedView *ui;
     QTcpSocket *tcpSocket;
     TabHandleCSV *m_tableTab;
-    dbService& dbservice;
 
 };
 

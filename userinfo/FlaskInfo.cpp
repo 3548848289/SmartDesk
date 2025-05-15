@@ -4,7 +4,6 @@ FlaskInfo::FlaskInfo(QObject *parent) : QObject(parent)
 {
     QString Ip = SettingManager::Instance().serverconfig_ip();
     address = "http://" + Ip + ":5000";
-    qDebug() << address;
     networkManager = new QNetworkAccessManager(this);
 }
 
@@ -101,7 +100,6 @@ void FlaskInfo::H_LoginAct(const QJsonObject &jsonRes)
     if (jsonRes.contains("avatar_url") && !jsonRes["avatar_url"].toString().isEmpty()) {
         QString baseUrl = address;
         QString avatarUrl = baseUrl + jsonRes["avatar_url"].toString();
-        qDebug() << "Full Avatar URL:" << avatarUrl;
         fetchAvatarImage(avatarUrl, "login_avatar");
     } else {
         qDebug() << "avatar_url not found or is empty!";

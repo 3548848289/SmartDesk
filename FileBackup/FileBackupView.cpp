@@ -182,7 +182,7 @@ void FileBackupView::on_backupList_customContextMenuRequested(const QPoint &pos)
 
         connect(actionRecover, &QAction::triggered, this, [this, item, file]() {
             serverManager->downloadFile(file);
-            QMessageBox::information(this, tr("成功"), tr("文件下载成功"));
+
         });
 
         connect(actionDelete, &QAction::triggered, this, [this, item, file]() {

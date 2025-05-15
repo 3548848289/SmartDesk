@@ -296,7 +296,8 @@ TabAbstract* MainWindow::createTabByFileName(const QString &fileName)
         return new TabHandleXLSX(fileName);
     }
     else if(fileName.endsWith(".png", Qt::CaseInsensitive) || fileName.endsWith(".jpg", Qt::CaseInsensitive) ||
-            fileName.endsWith(".jpeg", Qt::CaseInsensitive) || fileName.endsWith(".bmp", Qt::CaseInsensitive)) {
+            fileName.endsWith(".jpeg", Qt::CaseInsensitive) || fileName.endsWith(".bmp", Qt::CaseInsensitive)||
+            fileName.endsWith(".svg", Qt::CaseInsensitive)   ) {
         return new TabHandleIMG(fileName);
     }
     else {
@@ -355,8 +356,10 @@ void MainWindow::handleFileDownload(const QString &fileName, const QByteArray &f
 
 void MainWindow::handleFilePathSent()
 {
-
     createNewTab([]() { return new TabHandleCSV(""); }, "共享文档");
+    int lastIndex = tabWidget->count() - 1;
+    tabWidget->setCurrentIndex(lastIndex);
+
     auto currentTab = getCurrentTab<TabHandleCSV>();
     currentTab->setLinkStatus(true);
     wonlinedoc->shared_view->bindTab(currentTab);

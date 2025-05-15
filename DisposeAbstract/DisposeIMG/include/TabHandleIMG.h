@@ -10,7 +10,7 @@
 #include <QEvent>
 #include <QLineEdit>
 #include <QInputDialog>
-
+#include <QtSvgWidgets/QGraphicsSvgItem>
 #include "../../main/include/TabAbstract.h"
 #include "ControlFrame.h"
 #include "PixItem.h"
@@ -25,7 +25,7 @@ public:
     virtual QString getContent() const override {  return " "; }
     void loadFromFile(const QString &fileName) override;
     void loadFromInternet(const QByteArray &content) override{ }
-    void saveToFile(const QString &fileName) {}
+    void saveToFile(const QString &fileName);
     void ControlWidget(bool judge){
         qDebug() << "TabHandleCSV: Showing control frame!";
     }
@@ -47,7 +47,7 @@ private:
     QGraphicsView *view;
     QGraphicsScene *scene;
     PixItem *pixItem;
-
+    // QGraphicsSvgItem * svgItem;
     ControlFrame *controlFrame;
     int angle;
     qreal scaleValue;

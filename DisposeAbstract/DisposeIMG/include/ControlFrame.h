@@ -28,8 +28,6 @@ signals:
     void exportRequested(const QString &filePath);
 private slots:
 
-    void on_addTextButton_clicked();
-
     void on_exportButton_clicked();
 
 private:

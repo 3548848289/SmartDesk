@@ -148,6 +148,9 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="toolTip">
+        <string>如有多个收件人，请用分号隔开</string>
+       </property>
        <property name="inputMask">
         <string/>
        </property>

@@ -14,10 +14,20 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0">
-    <widget class="QLabel" name="label_1">
+   <item row="0" column="2">
+    <widget class="QLabel" name="label_4">
      <property name="text">
-      <string>旋转</string>
+      <string>缩放</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="QSlider" name="translateSlider">
+     <property name="maximum">
+      <number>100</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
     </widget>
    </item>
@@ -31,10 +41,17 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="2">
-    <widget class="QLabel" name="label_4">
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_3">
      <property name="text">
-      <string>缩放</string>
+      <string>切变</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>位移</string>
      </property>
     </widget>
    </item>
@@ -51,13 +68,6 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="label_3">
-     <property name="text">
-      <string>切变</string>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="1">
     <widget class="QSlider" name="shearSlider">
      <property name="maximum">
@@ -68,60 +78,16 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="2">
-    <widget class="QLabel" name="label_2">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_1">
      <property name="text">
-      <string>位移</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="3">
-    <widget class="QSlider" name="translateSlider">
-     <property name="maximum">
-      <number>100</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Orientation::Horizontal</enum>
+      <string>旋转</string>
      </property>
     </widget>
    </item>
    <item row="2" column="0" colspan="4">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="2" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QLineEdit" name="yPosInput"/>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="xPosInput"/>
-       </item>
-      </layout>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="textInput"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>水印坐标</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>添加水印</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="2">
-      <widget class="QPushButton" name="addTextButton">
-       <property name="text">
-        <string>确定</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
       <widget class="QPushButton" name="exportButton">
        <property name="text">
         <string>导出图片</string>
@@ -137,10 +103,6 @@
   <tabstop>scaleSlider</tabstop>
   <tabstop>shearSlider</tabstop>
   <tabstop>translateSlider</tabstop>
-  <tabstop>textInput</tabstop>
-  <tabstop>yPosInput</tabstop>
-  <tabstop>xPosInput</tabstop>
-  <tabstop>addTextButton</tabstop>
   <tabstop>exportButton</tabstop>
  </tabstops>
  <resources/>

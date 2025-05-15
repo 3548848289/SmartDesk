@@ -80,6 +80,7 @@ void ServerManager::ondownloadFin(QNetworkReply* reply, const QString& filepath)
     file.write(data);
     file.close();
     reply->deleteLater();
+    QMessageBox::information(nullptr, tr("成功"), tr("文件下载成功"));
 }
 
 
@@ -190,7 +191,6 @@ void ServerManager::checkFileExists(const QString& filepath) {
         } else {
             qDebug() << "Error checking file existence:" << reply->errorString();
         }
-        qDebug() << "ServerManager::checkFileExists" << exists;
         emit returnStatus(exists);
         reply->deleteLater();
     });

@@ -24,21 +24,6 @@ void ControlFrame::setupConnections()
 }
 
 
-void ControlFrame::on_addTextButton_clicked()
-{
-    QString text = ui->textInput->text();
-    // 获取用户输入的 x 和 y 坐标
-    bool xOk, yOk;
-    int x = ui->xPosInput->text().toInt(&xOk);
-    int y = ui->yPosInput->text().toInt(&yOk);
-
-    if (!text.isEmpty() && xOk && yOk) {
-        // 发出信号，通知外部添加文字和位置
-        emit textAdded(text, QPointF(x, y));
-    }
-}
-
-
 void ControlFrame::on_exportButton_clicked()
 {
     QString filePath = QFileDialog::getSaveFileName(this, tr("Save Image"), "", tr("Images (*.png *.jpg *.bmp)"));

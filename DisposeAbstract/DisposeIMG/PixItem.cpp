@@ -2,15 +2,14 @@
 
 PixItem::PixItem(QPixmap *pixmap) : pix(*pixmap) {}
 
-QRectF PixItem::boundingRect() const
-{
-    return QRectF(-2 - pix.width() / 2, -2 - pix.height() / 2, pix.width() + 4, pix.height() + 4);
+QRectF PixItem::boundingRect() const {
+    return QRectF(0, 0, pix.width(), pix.height());
 }
 
-void PixItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-{
-    painter->drawPixmap(-pix.width() / 2, -pix.height() / 2, pix);
+void PixItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) {
+    painter->drawPixmap(0, 0, pix);
 }
+
 
 QPixmap PixItem::getpixmap()
 {
