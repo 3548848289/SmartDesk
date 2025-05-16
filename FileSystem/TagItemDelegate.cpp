@@ -42,9 +42,7 @@ bool TagItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
 
         QRect submissionButtonRect(option.rect.right() - 60, option.rect.top() + 5, 20, 20);
         if (submissionButtonRect.contains(mouseEvent->pos())) {
-            onHistoryTriggered(model, index);
             isButtonClicked = true;
-            // this->serverManager->getFilesInDirectory(index, model);
             emit subbutClicked(index);
 
             return true;
@@ -80,22 +78,22 @@ void TagItemDelegate::showContextMenu(const QPoint &pos, const QModelIndex &inde
     QAction *deleteAction = new QAction("删除文件", &contextMenu);
     QAction *newtag = new QAction("新建标签", &contextMenu);
     QAction *commit = new QAction("文件备份", &contextMenu);
-    QAction *history = new QAction("提交历史", &contextMenu);
     QAction *copyAction = new QAction("复制路径", &contextMenu);
+    QAction *openInExplorer = new QAction("在文件夹中打开", &contextMenu);
 
     connect(newtag, &QAction::triggered, [this, model, index]() { onNewTagTriggered(model, index); });
     connect(openAction, &QAction::triggered, [this, model, index]() { onOpenFileTriggered(model, index); });
     connect(deleteAction, &QAction::triggered, [this, model, index]() { onDeleteFileTriggered(model, index); });
     connect(commit, &QAction::triggered, [this, model, index]() { onCommitTriggered(model, index); });
-    connect(history, &QAction::triggered, [this, model, index]() { onHistoryTriggered(model, index); });
     connect(copyAction, &QAction::triggered, [this, model, index]() { onCopyPathTriggered(model, index); });
+    connect(openInExplorer, &QAction::triggered, [this, model, index]() { onOpenInExplorer(model, index); });
 
     contextMenu.addAction(openAction);
     contextMenu.addAction(deleteAction);
     contextMenu.addAction(newtag);
     contextMenu.addAction(commit);
-    contextMenu.addAction(history);
     contextMenu.addAction(copyAction);
+    contextMenu.addAction(openInExplorer);
     contextMenu.exec(pos);
 }
 
@@ -141,15 +139,9 @@ void TagItemDelegate::onCommitTriggered(QAbstractItemModel *model, const QModelI
     commitDialog->deleteLater();
 }
 
-void TagItemDelegate::onHistoryTriggered(QAbstractItemModel *model, const QModelIndex &index) {
-    QString filePath = model->data(index, QFileSystemModel::FilePathRole).toString();
-    this->serverManager->sendfilepath(filePath);
-}
-
 void TagItemDelegate::addTag(const QAbstractItemModel *model, const QModelIndex &index, AddTag &tagDialog) {
     if (tagDialog.exec() == QDialog::Accepted) {
         QString tagName = tagDialog.getTagName();
-        qDebug() << tagName;
         QString annotation = tagDialog.getAnnotation();
         QDateTime expirationDate = tagDialog.getExpirationDate();
 
@@ -182,13 +174,23 @@ void TagItemDelegate::onCopyPathTriggered(QAbstractItemModel *model, const QMode
     if (!index.isValid()) {
         return;
     }
-    // 假设 model 是 QFileSystemModel
     QFileSystemModel *fileSystemModel = qobject_cast<QFileSystemModel*>(model);
     if (fileSystemModel) {
-        QString filePath = fileSystemModel->filePath(index);  // 获取文件路径
+        QString filePath = fileSystemModel->filePath(index);
         if (!filePath.isEmpty()) {
             QClipboard *clipboard = QGuiApplication::clipboard();
-            clipboard->setText(filePath);  // 将文件路径复制到剪贴板
+            clipboard->setText(filePath);
         }
     }
+}
+
+void TagItemDelegate::onOpenInExplorer(QAbstractItemModel *model, const QModelIndex &index) {
+    if (!index.isValid()) {
+        return;
+    }
+    QFileSystemModel *fileSystemModel = qobject_cast<QFileSystemModel*>(model);
+    QString filePath = fileSystemModel->filePath(index);
+    QFileInfo fileInfo(filePath);
+    if (!fileInfo.exists()) return;
+    QProcess::startDetached("explorer.exe", {"/select,", QDir::toNativeSeparators(filePath)});
 }

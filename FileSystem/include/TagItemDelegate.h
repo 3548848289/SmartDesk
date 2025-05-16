@@ -12,6 +12,7 @@
 #include <QAction>
 #include <QMap>
 #include <QClipboard>
+#include <QProcess>
 
 #include "../../TagSchedule/include/TagDetail.h"
 #include "../../manager/include/dbService.h"
@@ -43,8 +44,8 @@ private slots:
     void onOpenFileTriggered(QAbstractItemModel *model, const QModelIndex &index);
     void onDeleteFileTriggered(QAbstractItemModel *model, const QModelIndex &index);
     void onCommitTriggered(QAbstractItemModel *model, const QModelIndex &index);
-    void onHistoryTriggered(QAbstractItemModel *model, const QModelIndex &index);
     void onCopyPathTriggered(QAbstractItemModel *model, const QModelIndex &index);
+    void onOpenInExplorer(QAbstractItemModel *model, const QModelIndex &index);
 private:
     QStringList fileList;
 

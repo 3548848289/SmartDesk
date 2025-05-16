@@ -36,6 +36,8 @@ private slots:
 
     void on_backupList_customContextMenuRequested(const QPoint &pos);
 
+    void on_refreshBtn_clicked();
+
 signals:
     void s_fileopen(const QString& filepath);
 

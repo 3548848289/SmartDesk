@@ -189,7 +189,7 @@ void ServerManager::checkFileExists(const QString& filepath) {
             QJsonDocument doc = QJsonDocument::fromJson(response);
             exists = doc.object().value("exists").toBool();
         } else {
-            qDebug() << "Error checking file existence:" << reply->errorString();
+            // qDebug() << "Error checking file existence:" << reply->errorString();
         }
         emit returnStatus(exists);
         reply->deleteLater();

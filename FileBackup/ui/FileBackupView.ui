@@ -21,7 +21,10 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="4,1">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,1,1">
+     <property name="spacing">
+      <number>1</number>
+     </property>
      <item>
       <widget class="QComboBox" name="fileListComboBox">
        <property name="sizePolicy">
@@ -44,13 +47,38 @@
         <bool>true</bool>
        </property>
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>调整</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="refreshBtn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>刷新</string>
        </property>
       </widget>
      </item>

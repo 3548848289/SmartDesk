@@ -43,7 +43,7 @@ void dbBackupRecord::recordSubmission(const QString &filePath, const QString &ba
     if (!query.exec()) {
         qDebug() << "Insert into SubmissionRecords failed:" << query.lastError();
     } else {
-        qDebug() << "Record added for submission ID:" << submissionId << " with remote file name:" << backupFilePath;
+        // qDebug() << "Record added for submission ID:" << submissionId << " with remote file name:" << backupFilePath;
     }
 }
 
@@ -316,3 +316,24 @@ bool dbBackupRecord::deleteAll(const QString &filePath)
 
 }
 
+
+QList<QString> dbBackupRecord::getBackupFileList(const QString &filePath)
+{
+    QList<QString> backupFileNames;
+    QSqlQuery query(dbsqlite);
+
+    query.prepare("SELECT remote_file_name FROM SubmissionRecords "
+                  "WHERE submission_id = (SELECT id FROM Submissions WHERE file_path = :filePath)");
+
+    query.bindValue(":filePath", filePath);
+
+    if (query.exec()) {
+        while (query.next()) {
+            backupFileNames.append(query.value(0).toString());
+        }
+    } else {
+        qDebug() << "查询失败: " << query.lastError();
+    }
+
+    return backupFileNames;
+}

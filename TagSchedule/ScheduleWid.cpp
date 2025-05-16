@@ -4,13 +4,11 @@ ScheduleWid::ScheduleWid(QWidget *parent) : QWidget(parent), ui(new Ui::Schedule
     dbservice(dbService::instance("./SmartDesk.db"))
 {
     ui->setupUi(this);
-
-    filterByTag("刷新");
+    on_refreshBtn_clicked("刷新");
     loadTags();
 
     connect(ui->listWidget, &QListWidget::itemClicked, this, &ScheduleWid::onItemClicked);
     connect(ui->searchLineEdit, &QLineEdit::textChanged, this, &ScheduleWid::onSearch);
-
     startExpirationCheck();    // 启动定时器检查到期文件
 
     int showTime = SettingManager::Instance().tag_schedule_show_time();
@@ -49,25 +47,9 @@ void ScheduleWid::onItemClicked(QListWidgetItem *item) {
 
 void ScheduleWid::loadTags() {
     ui->comboBox->clear();
-    ui->comboBox->addItem("刷新");
-
     QStringList tags = dbservice.dbTags().getAllTags();
     for (const QString &tag : tags) {
         ui->comboBox->addItem(tag);
-    }
-}
-
-void ScheduleWid::filterByTag(const QString &tag) {
-    ui->listWidget->clear();
-    QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag(tag);
-
-    for (const auto &info : files) {
-        TagList *taglist = new TagList(info);
-
-        QListWidgetItem *listItem = new QListWidgetItem(ui->listWidget);
-        listItem->setSizeHint(taglist->sizeHint());
-        ui->listWidget->addItem(listItem);
-        ui->listWidget->setItemWidget(listItem, taglist);
     }
 }
 
@@ -127,7 +109,7 @@ void ScheduleWid::checkExpiration() {
 void ScheduleWid::on_comboBox_currentIndexChanged(int index)
 {
     QString tag = ui->comboBox->currentText();
-    filterByTag(tag);
+    on_refreshBtn_clicked(tag);
 }
 
 
@@ -154,4 +136,20 @@ void ScheduleWid::on_sortComboBox_currentIndexChanged(int index)
     }
 }
 
+
+
+void ScheduleWid::on_refreshBtn_clicked(const QString &tag)
+{
+    ui->listWidget->clear();
+    QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag(tag);
+
+    for (const auto &info : files) {
+        TagList *taglist = new TagList(info);
+
+        QListWidgetItem *listItem = new QListWidgetItem(ui->listWidget);
+        listItem->setSizeHint(taglist->sizeHint());
+        ui->listWidget->addItem(listItem);
+        ui->listWidget->setItemWidget(listItem, taglist);
+    }
+}
 

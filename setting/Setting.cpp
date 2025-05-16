@@ -69,8 +69,6 @@ void Setting::loadSettings() {
 
     ui->clip_board_spinBox->setValue(settings.value("clip_board/hours", 24).toInt());
     ui->server_config_lineEdit->setText(settings.value("ServerConfig/IP", "127.0.0.1").toString());
-
-
 }
 
 void Setting::saveSettings() {
@@ -94,7 +92,6 @@ void Setting::saveSettings() {
         backupDir = settings.value("file_backup/backup_dir", QCoreApplication::applicationDirPath() + "/user").toString();
     else
         settings.setValue("file_backup/backup_dir", backupDir);
-
 
     settings.setValue("tag_schedule/reminder_type", ui->tag_schedule_comboBox->currentText());
     QTime reminderTime = ui->tag_schedule_timeEdit1->time();

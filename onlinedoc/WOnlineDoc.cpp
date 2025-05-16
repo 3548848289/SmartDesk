@@ -9,7 +9,7 @@ WOnlineDoc::WOnlineDoc(QWidget *parent) : QWidget(parent), ui(new Ui::WOnlineDoc
     shared_view = new SharedView();
 
     ui->tabWidget->addTab(download_view, "网络资源下载");
-    ui->tabWidget->addTab(shared_view, "CSV文件共享（尚未开放！）");
+    ui->tabWidget->addTab(shared_view, "CSV文件共享");
 }
 
 

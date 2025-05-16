@@ -15,22 +15,39 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,14,0">
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,14,1">
      <item>
-      <widget class="QLineEdit" name="searchLineEdit">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="placeholderText">
-        <string>搜索文件</string>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,1">
+       <item>
+        <widget class="QLineEdit" name="searchLineEdit">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>搜索文件</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="refreshBtn">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>刷新</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,8,4,1">
@@ -91,7 +108,6 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>searchLineEdit</tabstop>
   <tabstop>comboBox</tabstop>
   <tabstop>listWidget</tabstop>
  </tabstops>

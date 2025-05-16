@@ -34,6 +34,7 @@ public:
     bool updateFilePath(const QString &oldFilePath, const QString &newFilePath);
     bool updateSubmissions(const QString &oldFilePath, const QString &newFilePath);
     bool deleteAll(const QString &filePath);
+    QList<QString> getBackupFileList(const QString &filePath);
 };
 
 #endif // DBBACKUPRECORD_H

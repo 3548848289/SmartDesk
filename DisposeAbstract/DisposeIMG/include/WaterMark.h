@@ -2,7 +2,11 @@
 #include <QGraphicsTextItem>
 #include <QMenu>
 #include <QFontDialog>
-
+#include <QGraphicsScene>
+#include <QGraphicsSceneContextMenuEvent>
+#include <QFontDialog>
+#include <QInputDialog>
+#include <QLabel>
 class WaterMark : public QGraphicsTextItem
 {
 public:

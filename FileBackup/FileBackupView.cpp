@@ -5,8 +5,7 @@ FileBackupView::FileBackupView(QWidget *parent) : QWidget(parent), ui(new Ui::Fi
     , serverManager(ServerManager::instance()) , dbservice(dbService::instance("./SmartDesk.db")) {
     ui->setupUi(this);
     ui->backupList->setContextMenuPolicy(Qt::CustomContextMenu);
-    ui->fileListComboBox->setMinimumContentsLength(30);
-
+    ui->fileListComboBox->setMinimumContentsLength(20);
 
     connect(serverManager, &ServerManager::onFilesListUpdated, this, &FileBackupView::updateFileList);
 
@@ -21,11 +20,11 @@ FileBackupView::~FileBackupView()
     delete ui;
 }
 
-
 void FileBackupView::loadFileNames()
 {
+    ui->fileListComboBox->clear();
+    ui->backupList->clear();
     QList<QString> fileNames = dbservice.dbBackup().getAllFileNames();
-
     for (const QString &filePath : fileNames) {
         if (QFile::exists(filePath)) {
             ui->fileListComboBox->addItem(filePath, filePath);
@@ -51,7 +50,7 @@ void FileBackupView::updateFileList(const QString filepath)
 void FileBackupView::on_fileListComboBox_currentIndexChanged(int index) {
     if (index != -1) {
         if (ui->fileListComboBox->itemData(index) == "missing") {
-                QMessageBox::warning(this, "文件缺失", "您选择的文件已经缺失，请选择其他文件。");
+            QMessageBox::warning(this, "文件缺失", "您选择的文件已经缺失，请更改源文件路径或选择其他文件。");
         }
         choosed_file = ui->fileListComboBox->currentText();
         ui->fileListComboBox->setToolTip(choosed_file);
@@ -117,15 +116,28 @@ void FileBackupView::on_pushButton_clicked()
                 ui->fileListComboBox->setItemData(index, newFilePath);
                 ui->fileListComboBox->setItemText(index, QFileInfo(newFilePath).fileName());
             } else
-                qDebug() << "Failed to update file path in database.";
+                QMessageBox::warning(this, "", tr("更新文件路径失败。"));
         }
     }
+
     else if (msgBox.clickedButton() == deleteButton) {
-        if (dbservice.dbBackup().deleteAll(choosed_file))
+        QList<QString> backupFileNames = dbservice.dbBackup().getBackupFileList(choosed_file);
+        if (dbservice.dbBackup().deleteAll(choosed_file)) {
+            // 删除磁盘上的所有备份文件
+            for (const QString &backupFile : backupFileNames) {
+                deleteBackupFile(backupFile);  // 删除实际文件
+            }
+
             ui->fileListComboBox->removeItem(index);
-        else
-            qDebug() << "Failed to delete file record from database.";
-    } else {
+        } else {
+            QMessageBox::warning(this, "", tr("从数据库中删除文件记录失败。"));
+        }
+
+        if (ui->fileListComboBox->count() == 0)
+            ui->backupList->clear();
+    }
+
+    else {
         msgBox.close();
     }
 }
@@ -211,5 +223,11 @@ bool FileBackupView::deleteBackupFile(const QString &backupFilePath) {
         qDebug() << "File does not exist:" << backupFilePath;
         return false;
     }
+}
+
+
+void FileBackupView::on_refreshBtn_clicked()
+{
+    loadFileNames();
 }
 

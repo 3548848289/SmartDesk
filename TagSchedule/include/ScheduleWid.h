@@ -37,11 +37,11 @@ private slots:
     void on_comboBox_currentIndexChanged(int index);
     void on_sortComboBox_currentIndexChanged(int index);
 
+    void on_refreshBtn_clicked(const QString &tag);
+
 private:
     void loadFiles();
     void loadTags();
-    void filterByTag(const QString &tag);
-
     void startExpirationCheck();
     void checkExpiration();
 
