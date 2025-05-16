@@ -99,8 +99,7 @@ QPushButton#registerBtn{
          <string>退出登录</string>
         </property>
         <property name="icon">
-         <iconset resource="../../resources/res.qrc">
-          <normaloff>:/usedimage/close-white.svg</normaloff>:/usedimage/close-white.svg</iconset>
+         <iconset theme="QIcon::ThemeIcon::EditClear"/>
         </property>
         <property name="iconSize">
          <size>
@@ -326,8 +325,6 @@ QPushButton#registerBtn{
   <tabstop>login_pushButton_2</tabstop>
   <tabstop>exit_toolButton</tabstop>
  </tabstops>
- <resources>
-  <include location="../../resources/res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

@@ -227,20 +227,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1,1">
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1,1,0">
        <item>
         <widget class="QPushButton" name="sendEmail">
          <property name="sizePolicy">
@@ -256,12 +243,25 @@
           </size>
          </property>
          <property name="text">
-          <string>发送邮件</string>
+          <string>单条发送</string>
          </property>
          <property name="icon">
           <iconset theme="QIcon::ThemeIcon::DocumentSend"/>
          </property>
         </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item>
         <spacer name="horizontalSpacer_2">
@@ -275,6 +275,22 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>批量发送</string>
+         </property>
+         <property name="icon">
+          <iconset theme="QIcon::ThemeIcon::DocumentSend"/>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -294,7 +310,6 @@
   <tabstop>texteditor</tabstop>
   <tabstop>addAttachment</tabstop>
   <tabstop>attachments</tabstop>
-  <tabstop>sendEmail</tabstop>
  </tabstops>
  <resources/>
  <connections/>

@@ -58,7 +58,6 @@ private:
     Ui::SharedView *ui;
     QTcpSocket *tcpSocket;
     TabHandleCSV *m_tableTab;
-    ServerManager* serverManager;
     dbService& dbservice;
 
 };

@@ -9,7 +9,7 @@ set(MANAGER_SOURCES
     dbFilepath.cpp
     dbBackupRecord.cpp
     dbOnlineDoc.cpp
-
+    dbClipboard.cpp
 
     include/dbOnlineDoc.h
     include/dbBackupRecord.h
@@ -18,6 +18,8 @@ set(MANAGER_SOURCES
     include/dbManager.h
     include/dbFilepath.h
     include/dbService.h
+    include/dbClipboard.h
+
 )
 
 # 查找 Qt 库

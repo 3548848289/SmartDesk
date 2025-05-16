@@ -16,7 +16,7 @@ dbManager::dbManager(const QString &dbName)
 dbManager::~dbManager()
 {
     if (dbsqlite.isOpen()) {
-        dbsqlite.close();  // 确保在析构时关闭数据库连接
+        dbsqlite.close();
     }
 }
 
@@ -94,6 +94,19 @@ bool dbManager::initializeTables() {
                 annotation TEXT NOT NULL,
                 FOREIGN KEY(file_id) REFERENCES FilePaths(id) ON DELETE CASCADE
             );
+        )"},
+        {"Clipboard", R"(
+            CREATE TABLE IF NOT EXISTS clipboard_history (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                content TEXT NOT NULL,
+                type,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                source TEXT,
+                is_favorite BOOLEAN DEFAULT 0,
+                tags TEXT,
+                format TEXT
+            );
+
         )"}
     };
 

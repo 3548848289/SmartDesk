@@ -45,7 +45,7 @@ private:
     FileRestoreWid * file_restore_wid;
     Ui::FileBackupView *ui;
     QList<QString> missingFiles;
-
+    bool exists = false;
     QString choosed_file;
 
     void loadFileNames();

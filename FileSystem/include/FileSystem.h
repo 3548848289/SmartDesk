@@ -10,7 +10,7 @@
 #include "TagItemDelegate.h"
 #include "../../manager/include/dbService.h"
 #include "../../manager/include/ServerManager.h"
-#include "../../Setting/SettingManager.h"
+#include "../../Setting/include/SettingManager.h"
 
 namespace Ui {
 class FileSystem;
@@ -34,6 +34,7 @@ private slots:
 signals:
     void fileOpened(const QString &filePath);
     void filebackuplistOpened();
+    void tagopened();
 private:
     void loadFileMetadata(const QString &filePath);
     void saveExpirationDate(const QString &filePath, const QDate &expirationDate);

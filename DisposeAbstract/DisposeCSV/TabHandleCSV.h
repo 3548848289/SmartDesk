@@ -1,7 +1,6 @@
 // TabHandleCSV.h
 #ifndef TABHANDLECSV_H
 #define TABHANDLECSV_H
-
 #include <QTableWidget>
 #include <QString>
 #include <QLabel>
@@ -32,18 +31,19 @@ public:
 
     explicit TabHandleCSV(const QString& filePath, QWidget *parent = nullptr);
 
-
-
-    void setText(const QString &text) override;
-    QString getText() const override;
-    void setLinkStatus(bool status);
-
+    virtual void setContent(const QString &text) override;
+    virtual QString getContent() const override;
     void loadFromFile(const QString &fileName) override;
+    void loadFromInternet(const QByteArray &content) override;
     void saveToFile(const QString &fileName) override;
-    void loadFromContent(const QByteArray &content) override;
+    void ControlWidget(bool judge){
+        isShowControl = judge;
+    }
 
+
+    void setLinkStatus(bool status);
     void addRow();
-    void addColumn();   
+    void addColumn();
     void deleteRow();
     void deleteColumn();
 
@@ -52,9 +52,6 @@ public:
     void clearfromServer(const QJsonObject& jsonObj);
     void editedfromServer(const QJsonObject& jsonObj);
 
-    void ControlWidget(QWidget* WControl){
-        qDebug() << "TabHandleCSV: Showing control frame!";
-    }
 
 public slots:
     void findNext(const QString &str, Qt::CaseSensitivity cs);

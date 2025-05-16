@@ -7,7 +7,7 @@ FileSystem::FileSystem(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QString userDir = SettingManager::Instance().getFilesystemDir();
+    QString userDir = SettingManager::Instance().file_system_file_system_dir();
     if (userDir.isEmpty())
         userDir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
 
@@ -19,6 +19,7 @@ FileSystem::FileSystem(QWidget *parent)
     QFont font = ui->treeView->font();
     font.setPointSize(12);
     ui->treeView->setFont(font);
+    ui->treeView->setWordWrap(true);
     ui->treeView->setStyleSheet("QTreeView::item { height: 30px; }");
     ui->treeView->setModel(fileSystemModel);
     ui->treeView->setHeaderHidden(true);
@@ -37,7 +38,7 @@ FileSystem::FileSystem(QWidget *parent)
         ui->treeView->update();
     });
     connect(tagItemdelegate, &TagItemDelegate::tagbutClicked, this, [this](const QModelIndex &index) {
-        qDebug() << "点击了添加标签按钮";
+        emit tagopened();
     });
     connect(tagItemdelegate, &TagItemDelegate::subbutClicked, this, [this](const QModelIndex &index) {
         emit filebackuplistOpened();
@@ -56,19 +57,17 @@ void FileSystem::onItemClicked(const QModelIndex &index) {
     QString curfilePath = fileSystemModel->filePath(index);
     QString directoryPath = QFileInfo(curfilePath).absolutePath();
 
-    // qDebug() << "----FileSystem File Path:" << curfilePath;
-    // qDebug() << "----FileSystem Directory Path:" << directoryPath;
-
     currentDir = directoryPath;
-    serverManager->setCurdir(currentDir);
 
     emit fileOpened(curfilePath);
 }
 
 void FileSystem::on_goButton_clicked() {
-    QString selectedDir = QFileDialog::getExistingDirectory(this, "Select Directory");
-    ui->pathLineEdit->setText(selectedDir);
-    changePath(selectedDir);
+    QString selectedDir = QFileDialog::getExistingDirectory(this, "选择目录");
+    if (!selectedDir.isEmpty()) {
+        ui->pathLineEdit->setText(selectedDir);
+        changePath(selectedDir);
+    }
 }
 
 void FileSystem::on_pathLineEdit_editingFinished() {
@@ -80,7 +79,7 @@ void FileSystem::changePath(QString path){
     if (fileInfo.exists() && fileInfo.isDir())
         ui->treeView->setRootIndex(fileSystemModel->index(path));
     else
-        qDebug() << "Invalid path:" << path;
+        QMessageBox::warning(this, "", "改路径不是有效路径，请重新输入");
 }
 
 FileSystem::~FileSystem() {

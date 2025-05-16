@@ -24,6 +24,7 @@
 #include <QJsonArray>
 #include <QRegularExpression>
 #include <QPointer>
+#include <QMessageBox>
 class ServerManager : public QObject {
     Q_OBJECT
 
@@ -32,41 +33,38 @@ public:
         static ServerManager* instance = new ServerManager();
         return instance;
     }
-
-
-    // 删除拷贝构造函数和赋值操作符
     ServerManager(const ServerManager&) = delete;
     ServerManager& operator=(const ServerManager&) = delete;
 
-    bool commitToServer(const QString& fileName, const QString& tag);
-    bool commitFile(const QString& filepath);
-
-    void getCommitHistory(const QModelIndex& index, QAbstractItemModel* model);
+    void test(const QString& filepath);
     void setCurdir(const QString& curdir);
-    void downloadFile(const QString& fileName);
-    void getFilesInDirectory(const QModelIndex& index, QAbstractItemModel* model);
-
-    void onListFilesFinished(QNetworkReply* reply);
-
     void sendfilepath(QString filepath);
 
-    void test(const QString& filepath);
+    void commitFile(const QString& filepath);
+    void downloadFile(const QString& filepath);
+    void getHistory();
+    bool setSharedFile(const QString &filepath, const QString &shareToken);
+    void getSharedFile(const QString& shareToken);
+    void checkFileExists(const QString &filepath);
 signals:
     void commitSuccess();
     void commitFailed();
     void historyReceived(const QStringList& history);
     void onFilesListUpdated(const QString& files);
+    void fileListReady(const QStringList &fileNames);
+    void returnStatus(bool exists);
+
+
 
 private slots:
-    void onDownloadFinished(QNetworkReply* reply, const QString& fileName);
-    // void onUploadFinished(QNetworkReply* reply);
-    void onUploadFinished(QPointer<QNetworkReply> reply);
+    void oncommitFin(QPointer<QNetworkReply> reply);
+    void ondownloadFin(QNetworkReply* reply, const QString& fileName);
+    void onhistoryFin(QNetworkReply* reply);
 
 private:
     explicit ServerManager(QObject *parent = nullptr) : QObject(parent) {}
-    ~ServerManager() = default; // 确保单例的析构函数是私有的
-
-    QNetworkAccessManager networkManager; // 用于处理网络请求
+    ~ServerManager() = default;
+    QNetworkAccessManager networkManager;
     QString m_curdir;
 };
 

@@ -1,17 +1,18 @@
 #include "include/FileBackupView.h"
 #include "ui/ui_FileBackupView.h"
 
-FileBackupView::FileBackupView(QWidget *parent)
-    : QWidget(parent), ui(new Ui::FileBackupView)
-    , serverManager(ServerManager::instance())
-    , dbservice(dbService::instance("./SmartDesk.db"))
-{
+FileBackupView::FileBackupView(QWidget *parent) : QWidget(parent), ui(new Ui::FileBackupView)
+    , serverManager(ServerManager::instance()) , dbservice(dbService::instance("./SmartDesk.db")) {
     ui->setupUi(this);
     ui->backupList->setContextMenuPolicy(Qt::CustomContextMenu);
     ui->fileListComboBox->setMinimumContentsLength(30);
 
 
     connect(serverManager, &ServerManager::onFilesListUpdated, this, &FileBackupView::updateFileList);
+
+    connect(serverManager, &ServerManager::returnStatus, this, [this](bool exists) {
+        this->exists = exists;
+    });
     loadFileNames();
 }
 
@@ -28,7 +29,6 @@ void FileBackupView::loadFileNames()
     for (const QString &filePath : fileNames) {
         if (QFile::exists(filePath)) {
             ui->fileListComboBox->addItem(filePath, filePath);
-
         } else {
             QIcon missingIcon = QIcon::fromTheme(
                 "dialog-warning", QIcon(":/usedimage/tips.png"));
@@ -37,8 +37,6 @@ void FileBackupView::loadFileNames()
             ui->fileListComboBox->setItemData(itemIndex, "missing", Qt::UserRole);
         }
     }
-
-
 }
 
 void FileBackupView::updateFileList(const QString filepath)
@@ -50,12 +48,10 @@ void FileBackupView::updateFileList(const QString filepath)
         qDebug() << "File not found in the combobox.";
 }
 
-void FileBackupView::on_fileListComboBox_currentIndexChanged(int index)
-{
+void FileBackupView::on_fileListComboBox_currentIndexChanged(int index) {
     if (index != -1) {
-
         if (ui->fileListComboBox->itemData(index) == "missing") {
-            QMessageBox::warning(this, "文件缺失", "您选择的文件已经缺失，请选择其他文件。");
+                QMessageBox::warning(this, "文件缺失", "您选择的文件已经缺失，请选择其他文件。");
         }
         choosed_file = ui->fileListComboBox->currentText();
         ui->fileListComboBox->setToolTip(choosed_file);
@@ -65,19 +61,20 @@ void FileBackupView::on_fileListComboBox_currentIndexChanged(int index)
         QIcon missingIcon = QIcon::fromTheme("dialog-warning", QIcon(":/usedimage/tips.png"));
 
         for (QString &backupFileName : backupFileNames) {
+
             QFileInfo fileInfo(backupFileName);
             QString fileNameOnly = fileInfo.fileName();
+            serverManager->checkFileExists(fileNameOnly);
             QListWidgetItem *item = new QListWidgetItem(fileNameOnly);
 
             bool fileMissing = false;
 
             if (!fileInfo.exists()) {
-                backupFileName = "文件已缺失，请更改路径或者删除记录";
                 item->setIcon(missingIcon);
                 fileMissing = true;
             }
-
-            item->setData(Qt::UserRole, fileMissing ? QString() : backupFileName);
+            item->setData(Qt::UserRole, backupFileName);
+            item->setData(Qt::UserRole + 1, fileMissing);
             item->setToolTip(fileMissing ? "文件已缺失" : backupFileName);
             ui->backupList->addItem(item);
         }
@@ -106,7 +103,6 @@ void FileBackupView::on_pushButton_clicked()
     QMessageBox msgBox(this);
     msgBox.setWindowTitle("操作选择");
     msgBox.setText("您想执行以下哪个操作？");
-
     QPushButton *changePathButton = msgBox.addButton("更换文件路径", QMessageBox::YesRole);
     QPushButton *deleteButton = msgBox.addButton("删除文件记录", QMessageBox::NoRole);
     QPushButton *cancelButton = msgBox.addButton("取消", QMessageBox::RejectRole);
@@ -120,11 +116,9 @@ void FileBackupView::on_pushButton_clicked()
             if (dbservice.dbBackup().updateSubmissions(choosed_file, newFilePath)) {
                 ui->fileListComboBox->setItemData(index, newFilePath);
                 ui->fileListComboBox->setItemText(index, QFileInfo(newFilePath).fileName());
-            } else {
+            } else
                 qDebug() << "Failed to update file path in database.";
-            }
         }
-
     }
     else if (msgBox.clickedButton() == deleteButton) {
         if (dbservice.dbBackup().deleteAll(choosed_file))
@@ -142,29 +136,37 @@ void FileBackupView::on_backupList_customContextMenuRequested(const QPoint &pos)
     QListWidgetItem *item = ui->backupList->itemAt(pos);
     if (item) {
         QString file = item->data(Qt::UserRole).toString();
-
+        qDebug() << "on_backupList_customContextMenuRequested:" << file;
         // 如果文件路径为空或文件不存在，禁用 "预览" 和 "还原"，并提供 "更换路径" 和 "删除" 功能
         bool isMissingFile = file.isEmpty() || !QFile::exists(file);
 
         QMenu contextMenu(this);
         QAction *actionEdit = contextMenu.addAction("预览");
-        QAction *actionRestore = contextMenu.addAction("还原");
+        QAction *actionRestore = contextMenu.addAction("详情");
         QAction *actionReplace = contextMenu.addAction("更换路径");
+        QAction *actionCommit = contextMenu.addAction("上传云端");
+        QAction *actionRecover = contextMenu.addAction("从云端恢复");
         QAction *actionDelete = contextMenu.addAction("删除记录");
+
+        if(exists)
+            actionRecover->setEnabled(true);
+        else
+            actionRecover->setEnabled(false);
 
         if (isMissingFile) {
             actionEdit->setEnabled(false);
-            actionRestore->setEnabled(false);
+            // actionRestore->setEnabled(false);
+            actionCommit->setEnabled(false);
         } else {
             connect(actionEdit, &QAction::triggered, this, [this, item, file]() {
                 emit s_fileopen(file);
             });
-            connect(actionRestore, &QAction::triggered, this, [this, item, file]() {
-                file_restore_wid = new FileRestoreWid(file, this);
-                file_restore_wid->exec();
-            });
-        }
 
+        }
+        connect(actionRestore, &QAction::triggered, this, [this, item, file, isMissingFile]() {
+            file_restore_wid = new FileRestoreWid(file, isMissingFile, this);
+            file_restore_wid->exec();
+        });
         connect(actionReplace, &QAction::triggered, this, [this, item, file]() {
             QString newFilePath = QFileDialog::getOpenFileName(this, tr("选择文件"), "", tr("所有文件 (*.*)"));
             if (!newFilePath.isEmpty()) {
@@ -174,16 +176,23 @@ void FileBackupView::on_backupList_customContextMenuRequested(const QPoint &pos)
             }
         });
 
-        connect(actionDelete, &QAction::triggered, this, [this, item, file]() {
-            if (dbservice.dbBackup().deleteBackupRecord(file)) {
-                if (deleteBackupFile(file)) {
-                    delete item;
-                } else {
-                    qDebug() << "Failed to delete backup file:" << file;
-                }
-            }
+        connect(actionCommit, &QAction::triggered, this, [this, item, file]() {
+            serverManager->commitFile(file);
         });
 
+        connect(actionRecover, &QAction::triggered, this, [this, item, file]() {
+            serverManager->downloadFile(file);
+            QMessageBox::information(this, tr("成功"), tr("文件下载成功"));
+        });
+
+        connect(actionDelete, &QAction::triggered, this, [this, item, file]() {
+            if (dbservice.dbBackup().deleteBackupRecord(file)) {
+                if (deleteBackupFile(file))
+                    delete item;
+                else
+                    qDebug() << "Failed to delete backup file:" << file;
+            }
+        });
         contextMenu.exec(ui->backupList->mapToGlobal(pos));
     }
 }

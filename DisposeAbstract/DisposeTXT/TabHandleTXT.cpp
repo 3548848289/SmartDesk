@@ -5,38 +5,36 @@ TextTab::TextTab(const QString &filePath, QWidget *parent)  : TabAbstract(filePa
     // 为 QTextEdit 设置 C++ 语法高亮
     // new CppHighlighter(textEdit->document());
 
-    controlWsidtxt = new ControlWidTXT(this);
+    controlWidtxt = new ControlWidTXT(this);
+
 
     splitter = new QSplitter(Qt::Vertical, this);
     splitter->addWidget(textEdit);
-    splitter->addWidget(controlWsidtxt);
+    splitter->addWidget(controlWidtxt);
     splitter->setSizes({700, 100});
 
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(splitter);
     setLayout(layout);
 
-    int fontSize = SettingManager::Instance().getFontSize();
+    int fontSize = SettingManager::Instance().file_see_font_size();
 
     QFont font = textEdit->font();
     font.setPointSize(fontSize);
     textEdit->setFont(font);
-
 
     connect(textEdit, &QTextEdit::textChanged, this, [this]() {
         setContentModified(true);
     });
 }
 
-
-void TextTab::setText(const QString &text)
+void TextTab::setContent(const QString &text)
 {
     Q_ASSERT(textEdit != nullptr);
     textEdit->setText(text);
 }
 
-
-QString TextTab::getText() const
+QString TextTab::getContent() const
 {
     return textEdit->toPlainText();
 }
@@ -46,10 +44,10 @@ void TextTab::loadFromFile(const QString &fileName)
     QFile file(fileName);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&file);
-        setText(in.readAll());
+        setContent(in.readAll());
         file.close();
     } else {
-        QMessageBox::warning(this, tr("Error"), tr("Could not open file"));
+        QMessageBox::warning(this, tr("错误"), tr("无法打开文件"));
     }
     setContentModified(false);
 }
@@ -59,21 +57,21 @@ void TextTab::saveToFile(const QString &fileName)
     QFile file(fileName);
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&file);
-        out << getText();
+        out << getContent();
         file.close();
     } else
     {
-        QMessageBox::warning(this, tr("Error"), tr("Could not save file"));
+        QMessageBox::warning(this, tr("错误"), tr("无法保存文件"));
     }
     setContentModified(false);
 }
 
 
-void TextTab::loadFromContent(const QByteArray &content)
+void TextTab::loadFromInternet(const QByteArray &content)
 {
     QString text = QString::fromUtf8(content);
     qDebug() << "Converted text:" << text;
-    setText(text);
+    setContent(text);
 }
 
 void TextTab::findNext(const QString &str, Qt::CaseSensitivity cs)
@@ -125,7 +123,7 @@ void TextTab::findAll(const QString &str, Qt::CaseSensitivity cs)
     textEdit->setExtraSelections(extraSelections);
 
     if (!found)
-        QMessageBox::information(this, tr("Word Not Found"), tr("Sorry, the word cannot be found."));
+        QMessageBox::information(this, tr("查找"), tr("找不到此单词"));
 }
 
 void TextTab::clearHighlight()

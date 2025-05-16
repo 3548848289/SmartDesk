@@ -1,40 +1,50 @@
-#ifndef FILECONTEXTMENU_H
-#define FILECONTEXTMENU_H
+// dbFilepath.h
+#ifndef DBFILEPATH_H
+#define DBFILEPATH_H
 
-#include <QMenu>
-#include <QAction>
-#include <QFile>
-#include <QDebug>
-#include <QModelIndex>
-#include <QAbstractItemModel>
-#include <QFileSystemModel>
+#include "dbManager.h"
+#include "FilePathInfo.h"
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QDateTime>
+#include <QStringList>
+#include <QVariantMap>
 
-#include "../../manager/include/dbService.h"
-#include "../../manager/include/ServerManager.h"
-
-class FileContextMenu : public QObject
-{
-    Q_OBJECT
-
+class DbTransactionGuard {
 public:
-    explicit FileContextMenu(ServerManager *serverManager, dbService &dbservice, QObject *parent = nullptr);
-    void showContextMenu(const QPoint &pos, const QModelIndex &index, QAbstractItemModel *model);
-
-signals:
-    void openFileRequested(const QString &filePath);
-    void deleteFileRequested(const QString &filePath);
-    void onFilesListUpdated(const QStringList& files);
-
-private slots:
-    void onNewTagTriggered(QAbstractItemModel *model, const QModelIndex &index);
-    void onOpenFileTriggered(QAbstractItemModel *model, const QModelIndex &index);
-    void onDeleteFileTriggered(QAbstractItemModel *model, const QModelIndex &index);
-    void onCommitTriggered(QAbstractItemModel *model, const QModelIndex &index);
-    void onHistoryTriggered(QAbstractItemModel *model, const QModelIndex &index);
-
+    DbTransactionGuard(QSqlDatabase& db);
+    ~DbTransactionGuard();
+    void commit();
 private:
-    ServerManager *serverManager;
-    dbService &dbservice;
+    QSqlDatabase& db;
+    bool committed;
 };
 
-#endif // FILECONTEXTMENU_H
+class dbFilepath : public dbManager {
+public:
+    explicit dbFilepath(const QString &dbName);
+    ~dbFilepath() override;
+
+    bool insertFilePath(const QString &filePath, int &fileId);
+    bool getFileId(const QString &filePath, int &fileId);
+    QList<FilePathInfo> searchFiles(const QString &keyword);
+    QStringList getAllFilePaths();
+    bool updateTags(int fileId, const QString &tag);
+    bool updateAnnotation(int fileId, const QString &annotation);
+    void updateExpirationDate(int fileId, const QDateTime &dateTime);
+    bool deleteFileEntry(int fileId);
+    bool updateFilePath(const QString &newFilePath, const QString &oldFilePath);
+    bool updateFileInfo(const FilePathInfo& info);
+    bool hasFile(const QString &filePath) const;
+    QStringList getAllTags();
+    QList<FilePathInfo> getFilePathsByTag(const QString &tag);
+    bool getTags(int fileId, QStringList &tags);
+    bool getAnnotation(int fileId, QString &annotation);
+    bool getFileInfoByFilePath(const QString& filePath, FilePathInfo& info);
+
+private:
+    bool executePrepared(QSqlQuery& query, const QString& sql, const QVariantMap& params);
+    void logDbError(const QString& context, const QSqlQuery& query) const;
+};
+
+#endif // DBFILEPATH_H

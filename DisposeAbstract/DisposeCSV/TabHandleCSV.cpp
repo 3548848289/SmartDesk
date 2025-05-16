@@ -50,7 +50,7 @@ TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstrac
 }
 
 
-void TabHandleCSV::setText(const QString &text)
+void TabHandleCSV::setContent(const QString &text)
 {
     tableWidget->clear();
     QStringList rows = text.split('\n', Qt::SkipEmptyParts);
@@ -75,17 +75,18 @@ void TabHandleCSV::loadFromFile(const QString &fileName)
     QFile file(fileName);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&file);
-        setText(in.readAll());
+        setContent(in.readAll());
         file.close();
     } else {
-        QMessageBox::warning(this, tr("Error"), tr("Could not open file"));
+        QMessageBox::warning(this, tr("错误"), tr("无法打开文件"));
     }
     setContentModified(false);
 
 }
 
 
-QString TabHandleCSV::getText() const
+
+QString TabHandleCSV::getContent() const
 {
     return toCSV();
 }
@@ -111,16 +112,16 @@ void TabHandleCSV::saveToFile(const QString &fileName)
     QFile file(fileName);
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&file);
-        out << getText();
+        out << getContent();
         file.close();
     } else {
-        QMessageBox::warning(this, tr("Error"), tr("Could not save file"));
+        QMessageBox::warning(this, tr("错误"), tr("无法保存文件"));
     }
 }
 
-void TabHandleCSV::loadFromContent(const QByteArray &content)
+void TabHandleCSV::loadFromInternet(const QByteArray &content)
 {
-    setText(QString::fromUtf8(content));
+    setContent(QString::fromUtf8(content));
 }
 
 QString TabHandleCSV::toCSV() const
@@ -194,7 +195,7 @@ void TabHandleCSV::deleteRow()
         tableWidget->removeRow(currentRow);
         setContentModified(true);
     } else {
-        QMessageBox::warning(this, tr("Error"), tr("No row selected."));
+        QMessageBox::warning(this, tr("警告"), tr("没选择行"));
     }
 }
 
@@ -205,7 +206,7 @@ void TabHandleCSV::deleteColumn()
         tableWidget->removeColumn(currentColumn);
         setContentModified(true);
     } else {
-        QMessageBox::warning(this, tr("Error"), tr("No column selected."));
+        QMessageBox::warning(this, tr("警告"), tr("没选择列"));
     }
 }
 
@@ -330,7 +331,7 @@ void TabHandleCSV::findNext(const QString &str, Qt::CaseSensitivity cs)
         if (found) break;
     }
     if (!found)
-        QMessageBox::information(this, tr("Word Not Found"), tr("Sorry, the word cannot be found."));
+        QMessageBox::information(this, tr("查找"), tr("找不到此单词"));
 }
 
 void TabHandleCSV::findAll(const QString &str, Qt::CaseSensitivity cs)
@@ -351,10 +352,9 @@ void TabHandleCSV::findAll(const QString &str, Qt::CaseSensitivity cs)
         }
     }
 
-    if (!found) {
-        QMessageBox::information(this, tr("Word Not Found"),
-                                 tr("Sorry, the word cannot be found."));
-    }
+    if (!found)
+        QMessageBox::information(this, tr("查找"), tr("找不到此单词"));
+
 }
 
 void TabHandleCSV::clearHighlight()
@@ -372,3 +372,5 @@ void TabHandleCSV::clearHighlight()
         }
     }
 }
+
+

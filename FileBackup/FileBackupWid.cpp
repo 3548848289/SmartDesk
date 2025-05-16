@@ -47,10 +47,10 @@ void FileBackupWid::on_save_clicked()
 {
     QString fileName = ui->edit_name->text();
     if (backupFile(m_filePath, fileName)) {
-        QMessageBox::information(this, "备份成功", "文件已成功备份！");
+        QMessageBox::information(this, "", "文件已成功备份！");
         accept();
     } else {
-        QMessageBox::critical(this, "备份失败", "备份文件失败！");
+        QMessageBox::critical(this, "", "备份文件失败！");
     }
 }
 

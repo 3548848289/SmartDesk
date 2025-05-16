@@ -13,7 +13,7 @@ set(MAIN_SOURCES
     include/TabAbstract.h
     include/RecentFilesManager.h
     include/WidgetFunctional.h
-    include/ControlWidget.h
+
     include/FindDialog.h
 
     ui/WidgetFunctional.ui
@@ -29,12 +29,12 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Svg Network)
 # 创建静态库
 qt_add_library(mytxt_main STATIC
     ${MAIN_SOURCES}
-    ../resources/res.qrc
+    ../Resources/res.qrc
 )
 
 # 添加资源文件
 qt_add_resources(TARGET mytxt_main
-    RESOURCE ${CMAKE_CURRENT_SOURCE_DIR}/../resources/res.qrc
+    RESOURCE ${CMAKE_CURRENT_SOURCE_DIR}/../Resources/res.qrc
 )
 
 # 包含头文件目录

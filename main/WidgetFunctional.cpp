@@ -3,6 +3,7 @@
 
 WidgetFunctional::~WidgetFunctional()
 {
+    delete clipboard;
     delete ui;
 }
 
@@ -45,17 +46,25 @@ void WidgetFunctional::on_pushButton_6_clicked()
 
 void WidgetFunctional::on_pushButton_7_clicked()
 {
-    dlogin = new DLogin();
-    connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
-    dlogin->exec();
+    emit showClipboard(clipboard);
 }
 
 
 void WidgetFunctional::on_pushButton_8_clicked()
 {
+
+    dlogin = new DLogin();
+    connect(dlogin, &DLogin::loginSuccessful, this, &WidgetFunctional::handleLoginSuccess);
+    dlogin->exec();
+}
+
+void WidgetFunctional::on_pushButton_9_clicked()
+{
     more_function = new MoreFunction();
     more_function->show();
 }
+
+
 
 void WidgetFunctional::handleLoginSuccess(const QString& username) {
     qDebug() << "Username in handleLoginSuccess:" << username;
@@ -67,10 +76,7 @@ WidgetFunctional::WidgetFunctional(QWidget *parent)
 {
     ui->setupUi(this);
     btnGroup=new QButtonGroup;
-
-
-
-    for (int i = 1; i <= 8; ++i) {
+    for (int i = 1; i <= 9; ++i) {
         QPushButton *button = findChild<QPushButton*>(QString("pushButton_%1").arg(i));        button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
         if (button) {
@@ -96,20 +102,20 @@ WidgetFunctional::WidgetFunctional(QWidget *parent)
         "QPushButton#pushButton_1:checked, QPushButton#pushButton_2:checked,"
         "QPushButton#pushButton_3:checked, QPushButton#pushButton_4:checked,"
         "QPushButton#pushButton_5:checked, QPushButton#pushButton_6:checked,"
-        "QPushButton#pushButton_7:checked, QPushButton#pushButton_8:checked"
+        "QPushButton#pushButton_7:checked, QPushButton#pushButton_8:checked,"
+        "QPushButton#pushButton_9:checked"
         "{background:transparent;border:none;   border-bottom:3px solid #3598db;color:#3598db;}"
 
         "QPushButton#pushButton_1:hover, QPushButton#pushButton_2:hover,"
         "QPushButton#pushButton_3:hover, QPushButton#pushButton_4:hover,"
         "QPushButton#pushButton_5:hover, QPushButton#pushButton_6:hover,"
-        "QPushButton#pushButton_7:hover, QPushButton#pushButton_8:hover"
+        "QPushButton#pushButton_7:hover, QPushButton#pushButton_8:hover,"
+        "QPushButton#pushButton_9:hover"
         "{background:transparent;border:none;   border-bottom:3px solid #7598db;color:#7598db;}"
     );
 
-    //
-    // 暂时隐藏
-    //
-    ui->pushButton_7->hide();
+    // ui->pushButton_7->hide(); //暂时不隐藏
+    clipboard = new ClipboardView();
 
 }
 
@@ -124,8 +130,9 @@ void WidgetFunctional::toggleButtonVisibility(int buttonIndex)
     case 4: button = ui->pushButton_4; break;
     case 5: button = ui->pushButton_5; break;
     case 6: button = ui->pushButton_6; break;
-    case 7: button = ui->pushButton_7; break;
-    case 8: button = ui->pushButton_8; break;
+    case 7: button = ui->pushButton_8; break;
+    case 8: button = ui->pushButton_9; break;
+    case 9: button = ui->pushButton_7; break;
     default: return;
     }
 
@@ -135,5 +142,3 @@ void WidgetFunctional::toggleButtonVisibility(int buttonIndex)
         emit buttonVisibilityChanged(buttonIndex, !isVisible);
     }
 }
-
-
