@@ -5,9 +5,8 @@
 #include <QSettings>
 
 Setting::Setting(QWidget *parent) : QWidget(parent), ui(new Ui::Setting)
-    , settings("settings.ini", QSettings::IniFormat)  // 使用资源路径
+    , settings("settings.ini", QSettings::IniFormat)
 {
-
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
     ui->treeWidget->setHeaderHidden(true);
@@ -26,14 +25,22 @@ Setting::Setting(QWidget *parent) : QWidget(parent), ui(new Ui::Setting)
 
 
 Setting::~Setting() {
-    saveSettings();
     delete ui;
 }
 
 void Setting::closeEvent(QCloseEvent *event) {
-    delete this;
+    saveSettings();
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this,tr("配置已保存"),
+        tr("是否需要重启程序以应用配置？"), QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
+        QProcess::startDetached(QCoreApplication::applicationFilePath());
+        QCoreApplication::exit();
+    }
+
     event->accept();
 }
+
 
 void Setting::loadSettings() {
     ui->all_setting_spinBox->setValue(settings.value("all_setting/font_size", 12).toInt());

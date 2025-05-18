@@ -9,6 +9,8 @@
 #include <QTreeWidgetItem>
 #include <QCloseEvent>
 #include <QStandardPaths>
+#include <QMessageBox>
+#include <QProcess>
 
 namespace Ui {
 class Setting;

@@ -1,11 +1,8 @@
 #include "include/TagList.h"
 #include "ui/ui_TagList.h"
 
-
-
 TagList::TagList(const FilePathInfo &fileInfo, QWidget *parent)
     : QWidget(parent), ui(new Ui::TagList), fileInfo(fileInfo)
-
 {
     ui->setupUi(this);
 

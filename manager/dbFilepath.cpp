@@ -221,7 +221,7 @@ QList<FilePathInfo> dbFilepath::getFilePathsByTag(const QString &tag) {
     QList<FilePathInfo> filePathsWithTags;
     QSqlQuery q(dbsqlite);
 
-    if (tag == "刷新") {
+    if (tag == "全部") {
         q.prepare(GETFILEPATHSBYTAG1);
     } else {
         q.prepare(GETFILEPATHSBYTAG2);

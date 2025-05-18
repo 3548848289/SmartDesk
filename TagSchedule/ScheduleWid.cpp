@@ -1,14 +1,21 @@
 #include "./include/ScheduleWid.h"
 #include "ui/ui_ScheduleWid.h"
+#include "notifymanager.h"
+
 ScheduleWid::ScheduleWid(QWidget *parent) : QWidget(parent), ui(new Ui::ScheduleWid),
     dbservice(dbService::instance("./SmartDesk.db"))
 {
     ui->setupUi(this);
-    on_refreshBtn_clicked("刷新");
+
+    on_refreshBtn_clicked("全部");
     loadTags();
 
     connect(ui->listWidget, &QListWidget::itemClicked, this, &ScheduleWid::onItemClicked);
     connect(ui->searchLineEdit, &QLineEdit::textChanged, this, &ScheduleWid::onSearch);
+    connect(ui->refreshBtn, &QPushButton::clicked, this, [this]() {
+        on_refreshBtn_clicked("全部");
+    });
+
     startExpirationCheck();    // 启动定时器检查到期文件
 
     int showTime = SettingManager::Instance().tag_schedule_show_time();
@@ -47,6 +54,7 @@ void ScheduleWid::onItemClicked(QListWidgetItem *item) {
 
 void ScheduleWid::loadTags() {
     ui->comboBox->clear();
+    ui->comboBox->addItem("全部");
     QStringList tags = dbservice.dbTags().getAllTags();
     for (const QString &tag : tags) {
         ui->comboBox->addItem(tag);
@@ -76,7 +84,7 @@ void ScheduleWid::startExpirationCheck() {
 }
 
 void ScheduleWid::checkExpiration() {
-    QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag("刷新");
+    QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag("全部");
 
     QString reminderType = SettingManager::Instance().tag_schedule_reminder_type();
     int reminderTime = SettingManager::Instance().tag_schedule_reminder_time();
@@ -106,8 +114,7 @@ void ScheduleWid::checkExpiration() {
 }
 
 
-void ScheduleWid::on_comboBox_currentIndexChanged(int index)
-{
+void ScheduleWid::on_comboBox_currentIndexChanged(int index) {
     QString tag = ui->comboBox->currentText();
     on_refreshBtn_clicked(tag);
 }
@@ -118,7 +125,7 @@ void ScheduleWid::on_sortComboBox_currentIndexChanged(int index)
     if(index == 0 || index == 1)
     {
         ui->listWidget->clear();
-        QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag("刷新");
+        QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag("全部");
 
         bool isAscending = (index == 0);
         std::sort(files.begin(), files.end(), [isAscending](const FilePathInfo &a, const FilePathInfo &b) {
@@ -138,8 +145,10 @@ void ScheduleWid::on_sortComboBox_currentIndexChanged(int index)
 
 
 
-void ScheduleWid::on_refreshBtn_clicked(const QString &tag)
+void ScheduleWid::on_refreshBtn_clicked(const QString &tag = "全部")
 {
+    if(tag == "全部")
+        ui->comboBox->setCurrentIndex(0);
     ui->listWidget->clear();
     QList<FilePathInfo> files = dbservice.dbTags().getFilePathsByTag(tag);
 
@@ -151,5 +160,6 @@ void ScheduleWid::on_refreshBtn_clicked(const QString &tag)
         ui->listWidget->addItem(listItem);
         ui->listWidget->setItemWidget(listItem, taglist);
     }
+
 }
 

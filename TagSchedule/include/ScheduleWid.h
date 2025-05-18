@@ -3,7 +3,6 @@
 
 #include <QWidget>
 #include <QListWidget>
-#include <QTimer>
 #include <QString>
 #include <QObject>
 #include <QStringLiteral>
@@ -15,9 +14,9 @@
 
 #include "TagList.h"
 #include "../../Setting/include/SettingManager.h"
-#include "../LmsgNotify/notifymanager.h"
 #include "../../EmailService/SendEmail.h"
 
+class NotifyManager;
 class DatabaseManager;
 namespace Ui { class ScheduleWid; }
 class ScheduleWid : public QWidget

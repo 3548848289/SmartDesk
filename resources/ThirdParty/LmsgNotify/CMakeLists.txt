@@ -1,27 +1,27 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.5)
+
 project(LmsgNotify LANGUAGES CXX)
 
-# 原始目标（没有命名空间）
+file(GLOB LMSGNOTIFY_SOURCES
+    *.cpp
+)
+
+file(GLOB LMSGNOTIFY_HEADERS
+    *.h
+)
+
 add_library(LmsgNotify STATIC
-    src/arrangedwnd.cpp
-    src/notifymanager.cpp
-    src/notifywnd.cpp
+    ${LMSGNOTIFY_SOURCES}
+    ${LMSGNOTIFY_HEADERS}
 )
 
-target_include_directories(LmsgNotify
-    PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include>)
-
-
-target_link_libraries(LmsgNotify
-    PUBLIC Qt${QT_VERSION_MAJOR}::Widgets
+target_include_directories(LmsgNotify PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-set_target_properties(LmsgNotify PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED ON
+target_link_libraries(LmsgNotify PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
 )
 
-# ✅ 给目标创建一个命名空间别名
+# 给库定义一个别名用于引用
 add_library(LmsgNotify::LmsgNotify ALIAS LmsgNotify)

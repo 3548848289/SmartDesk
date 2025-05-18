@@ -137,7 +137,7 @@ void MainWindow::initMemubarLayout() {
     horizontalSplitter->setStretchFactor(1, 1);
     horizontalSplitter->setStretchFactor(2, 3);
     setCentralWidget(horizontalSplitter);
-    QList<int> sizes = {60, 600, 340};
+    QList<int> sizes = {60, 550, 390};
     horizontalSplitter->setSizes(sizes);
 
 

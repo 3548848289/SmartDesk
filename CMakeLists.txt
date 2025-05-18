@@ -37,15 +37,21 @@ add_subdirectory(Resources/ThirdParty/simple-mail/
 add_subdirectory(Resources/ThirdParty/QXlsx/
     ${CMAKE_CURRENT_BINARY_DIR}/Resources/ThirdParty/QXlsx)
 
-# add_subdirectory(Resources/ThirdParty/LmsgNotify/
-#     ${CMAKE_CURRENT_BINARY_DIR}/Resources/ThirdParty/LmsgNotify)
+add_subdirectory(Resources/ThirdParty/LmsgNotify/
+    ${CMAKE_CURRENT_BINARY_DIR}/Resources/ThirdParty/LmsgNotify)
 
 qt_add_resources(RESOURCES
     Resources/res.qrc
 )
 
-qt_add_executable(SmartDesk WIN32 ${RESOURCES}
-    DisposeAbstract/DisposeXlsx/TabHandleXLSX.h DisposeAbstract/DisposeXlsx/TabHandleXLSX.cpp)
+if(WIN32)
+    set(APP_ICON_RESOURCE_WINDOWS "${CMAKE_CURRENT_SOURCE_DIR}/Resources/SmartDeskIcon.rc")
+endif()
+
+qt_add_executable(SmartDesk WIN32 ${RESOURCES} ${APP_ICON_RESOURCE_WINDOWS})
+
+
+
 target_link_libraries(SmartDesk PRIVATE
     mytxt_main
     mytxt_filehis
@@ -64,7 +70,7 @@ target_link_libraries(SmartDesk PRIVATE
     mytxt_clipboard
     SimpleMail::Core
     QXlsx::QXlsx
-    # LmsgNotify::LmsgNotify
+    LmsgNotify::LmsgNotify
     Qt${QT_VERSION_MAJOR}::Widgets
 )
 
