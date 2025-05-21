@@ -34,9 +34,9 @@ void SharedView::bindTab(TabHandleCSV *eTableTab)
     m_tableTab = eTableTab;
     connect(m_tableTab, &TabHandleCSV::dataToSend, this, &SharedView::sendDataToServer);
 
-    connect(tcpSocket, &QTcpSocket::disconnected, this, [this]() {
-        QMessageBox::information(this, tr(""), tr("无法连接到服务器"));
-    });
+    // connect(tcpSocket, &QTcpSocket::disconnected, this, [this]() {
+    //     QMessageBox::information(this, tr(""), tr("无法连接到服务器"));
+    // });
 
     connect(tcpSocket, &QTcpSocket::readyRead, this, &SharedView::on_readyRead);
 }
@@ -118,6 +118,22 @@ void SharedView::getSharedFile()
 
 void SharedView::on_buildBtn_clicked()
 {
+    QString shareToken = ui->createEdit->text().trimmed();
+    if (shareToken.isEmpty()) {
+        QMessageBox::warning(this, "", tr("共享口令不能为空，请输入一个口令。"));
+        ui->createEdit->setFocus();
+        return;
+    }
+
+    QString filePath = ui->readfileEdit_2->text();
+    bool success = ServerManager::instance()->setSharedFile(filePath, shareToken);
+    if (!success)
+        QMessageBox::critical(this,tr("上传失败"),tr("请检查网络或稍后重试。"));
+}
+
+
+void SharedView::on_selectBtn_clicked()
+{
     QString filePath =
         QFileDialog::getOpenFileName(this, tr("选择要共享的文件"), QDir::homePath(),tr("所有文件 (*.*)"));
     if (filePath.isEmpty()) {
@@ -126,45 +142,31 @@ void SharedView::on_buildBtn_clicked()
     }
 
     ui->readfileEdit_2->setText(filePath);
-    QString shareToken = ui->createEdit->text().trimmed();
-    if (shareToken.isEmpty()) {
-        QMessageBox::warning(this, "", tr("共享口令不能为空，请输入一个口令。"));
-        ui->createEdit->setFocus();
-        return;
-    }
-
-    bool success = ServerManager::instance()->setSharedFile(filePath, shareToken);
-    if (success)
-        QMessageBox::information(this, tr("上传成功"), tr("请记住您的共享口令：%1").arg(shareToken));
-    else
-        QMessageBox::critical(this,tr("上传失败"),tr("请检查网络或稍后重试。"));
 }
 
 void SharedView::on_closeBtn_clicked()
 {
-    if(m_tableTab != nullptr)
+    if (m_tableTab)
         m_tableTab->setLinkStatus(false);
+
     if (tcpSocket->state() == QAbstractSocket::ConnectedState) {
-        tcpSocket->disconnectFromHost();
-        if (tcpSocket->state() == QAbstractSocket::UnconnectedState || tcpSocket->waitForDisconnected(3000)) {
+        connect(tcpSocket, &QTcpSocket::disconnected, this, [this]() {
             QMessageBox::information(this, tr("已断开连接"), tr("已与服务器断开连接"));
-            this->close();
-            delete this;
-        } else {
-            QMessageBox::warning(this, tr("错误"), tr("无法从服务器断开连接"));
-        }
+        });
+        tcpSocket->disconnectFromHost();
     } else {
-        qDebug() << "套接字未连接。";
+        QMessageBox::information(this, tr(""), tr("还没连接到服务器"));
     }
 }
 
 void SharedView::on_linkBtn_clicked()
 {
-    QString serverIp = "192.168.5.75";
-    QString portString = "9201";
-    bool ok;
-    quint16 serverPort = portString.toUShort(&ok);
+    QString serverAddress = SettingManager::Instance().serverconfig_ip3();
+    QStringList parts = serverAddress.split(':');
+    QString serverIp = parts.at(0), port = parts.at(1);
 
+    bool ok;
+    quint16 serverPort = port.toUShort(&ok);
     tcpSocket->abort();
     tcpSocket->setProxy(QNetworkProxy::NoProxy);
     tcpSocket->connectToHost(serverIp, serverPort);
@@ -184,6 +186,8 @@ void SharedView::on_linkBtn_clicked()
     ui->msgEdit->clear();
     emit filePathSent();
 }
+
+
 
 
 

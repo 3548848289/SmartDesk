@@ -26,10 +26,109 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
+   <item row="0" column="0">
+    <widget class="QTreeWidget" name="treeWidget">
+     <column>
+      <property name="text">
+       <string/>
+      </property>
+     </column>
+     <item>
+      <property name="text">
+       <string>总体设置</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>文件系统</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>默认使用目录</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>文件查看</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>字体大小</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>操作窗口可见性</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>邮件服务</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>收发人</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>设置</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>文件备份</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>备份路径</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>备忘日程</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>到期提醒方式</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>提前多久提醒</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>剪切字板</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>初始</string>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text">
+       <string>服务器配置</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>IP地址</string>
+       </property>
+      </item>
+     </item>
+    </widget>
+   </item>
    <item row="0" column="1">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>6</number>
+      <number>7</number>
      </property>
      <widget class="QWidget" name="all_setting">
       <layout class="QGridLayout" name="gridLayout_4">
@@ -254,8 +353,11 @@
      </widget>
      <widget class="QWidget" name="file_backup">
       <layout class="QGridLayout" name="gridLayout_7">
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="file_backup_lineEdit1"/>
+       </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="file_backup_label">
+        <widget class="QLabel" name="file_backup_label1">
          <property name="text">
           <string>程序
 备份
@@ -266,9 +368,6 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="file_backup_lineEdit"/>
-       </item>
        <item row="0" column="2">
         <widget class="QPushButton" name="file_backup_Btn">
          <property name="text">
@@ -276,6 +375,16 @@
 路径</string>
          </property>
         </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="file_backup_label2">
+         <property name="text">
+          <string>云端IP地址</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="file_backup_lineEdit2"/>
        </item>
       </layout>
      </widget>
@@ -382,117 +491,68 @@
      </widget>
      <widget class="QWidget" name="server_config">
       <layout class="QGridLayout" name="gridLayout_10">
-       <item row="0" column="0">
-        <widget class="QLabel" name="server_confi_label">
+       <item row="3" column="0">
+        <widget class="QLabel" name="server_config_label5">
          <property name="text">
-          <string>服务器IP地址</string>
+          <string>共享文档</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="server_config_lineEdit"/>
+       <item row="0" column="0">
+        <widget class="QLabel" name="server_config_label1">
+         <property name="text">
+          <string>IP端口</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="server_confi_label6">
+         <property name="text">
+          <string>用户信息</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLineEdit" name="server_config_lineEdit3"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="server_config_label4">
+         <property name="text">
+          <string>提交文件</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <widget class="QLineEdit" name="server_config_lineEdit4"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="server_config_label3">
+         <property name="text">
+          <string>云端备份</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="server_config_label2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>例如：127.0.0.1:5000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLineEdit" name="server_config_lineEdit1"/>
+       </item>
+       <item row="2" column="2">
+        <widget class="QLineEdit" name="server_config_lineEdit2"/>
        </item>
       </layout>
      </widget>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QTreeWidget" name="treeWidget">
-     <column>
-      <property name="text">
-       <string/>
-      </property>
-     </column>
-     <item>
-      <property name="text">
-       <string>总体设置</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>文件系统</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>默认使用目录</string>
-       </property>
-      </item>
-     </item>
-     <item>
-      <property name="text">
-       <string>文件查看</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>字体大小</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>操作窗口可见性</string>
-       </property>
-      </item>
-     </item>
-     <item>
-      <property name="text">
-       <string>邮件服务</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>收发人</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>设置</string>
-       </property>
-      </item>
-     </item>
-     <item>
-      <property name="text">
-       <string>文件备份</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>备份路径</string>
-       </property>
-      </item>
-     </item>
-     <item>
-      <property name="text">
-       <string>备忘日程</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>到期提醒方式</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>提前多久提醒</string>
-       </property>
-      </item>
-     </item>
-     <item>
-      <property name="text">
-       <string>剪切字板</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>初始</string>
-       </property>
-      </item>
-     </item>
-     <item>
-      <property name="text">
-       <string>服务器配置</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>IP地址</string>
-       </property>
-      </item>
-     </item>
     </widget>
    </item>
   </layout>
@@ -509,7 +569,7 @@
   <tabstop>email_service_lineEdit_4</tabstop>
   <tabstop>email_service_lineEdit_5</tabstop>
   <tabstop>email_service_lineEdit_6</tabstop>
-  <tabstop>file_backup_lineEdit</tabstop>
+  <tabstop>file_backup_lineEdit1</tabstop>
   <tabstop>file_backup_Btn</tabstop>
   <tabstop>tag_schedule_comboBox</tabstop>
   <tabstop>tag_schedule_timeEdit1</tabstop>

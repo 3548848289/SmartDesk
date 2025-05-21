@@ -129,6 +129,9 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="toolTip">
+        <string>发件人必须与设置里配置的用户名一致</string>
+       </property>
        <property name="inputMask">
         <string/>
        </property>

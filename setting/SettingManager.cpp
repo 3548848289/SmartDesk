@@ -37,6 +37,12 @@ bool SettingManager::file_see_img()
     return settings.value("file_see/img", true).toBool();
 }
 
+QString SettingManager::file_backup_IP()
+{
+    return settings.value("file_backup/IP", "127.0.0.1").toString();
+}
+
+
 QString SettingManager::tag_schedule_reminder_type() {
     return settings.value("tag_schedule/reminder_type", "弹窗提醒").toString();
 }
@@ -66,9 +72,22 @@ int SettingManager::clip_board_hours() {
     return hours;
 }
 
-QString SettingManager::serverconfig_ip()
+QString SettingManager::serverconfig_ip1()
 {
-    return settings.value("ServerConfig/IP", "127.0.0.1").toString();
+    return settings.value("ServerConfig/IP1", "43.139.86.56:5002").toString();
+}
+
+QString SettingManager::serverconfig_ip2()
+{
+    return settings.value("ServerConfig/IP2", "43.139.86.56:5000").toString();
+}
+QString SettingManager::serverconfig_ip3()
+{
+    return settings.value("ServerConfig/IP3", "43.139.86.56:9200").toString();
+}
+QString SettingManager::serverconfig_ip4()
+{
+    return settings.value("ServerConfig/IP4", "43.139.86.56:5001").toString();
 }
 
 void SettingManager::loadHistory()

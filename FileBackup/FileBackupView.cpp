@@ -148,8 +148,8 @@ void FileBackupView::on_backupList_customContextMenuRequested(const QPoint &pos)
     QListWidgetItem *item = ui->backupList->itemAt(pos);
     if (item) {
         QString file = item->data(Qt::UserRole).toString();
-        qDebug() << "on_backupList_customContextMenuRequested:" << file;
         // 如果文件路径为空或文件不存在，禁用 "预览" 和 "还原"，并提供 "更换路径" 和 "删除" 功能
+        qDebug() << "FileBackupView" << file << exists;
         bool isMissingFile = file.isEmpty() || !QFile::exists(file);
 
         QMenu contextMenu(this);

@@ -53,7 +53,7 @@ void Setting::loadSettings() {
     ui->file_see_checkBox4->setChecked(settings.value("file_see/img", true).toBool());
 
 
-    ui->file_backup_lineEdit->setText(settings.value("file_backup/backup_dir").toString());
+    ui->file_backup_lineEdit1->setText(settings.value("file_backup/backup_dir").toString());
 
     int reminderIndex = ui->tag_schedule_comboBox->findText(
         settings.value("tag_schedule/reminder_type", "Popup").toString());
@@ -75,7 +75,11 @@ void Setting::loadSettings() {
     ui->email_service_lineEdit_6->setText(settings.value("EmailConfig/received").toString());
 
     ui->clip_board_spinBox->setValue(settings.value("clip_board/hours", 24).toInt());
-    ui->server_config_lineEdit->setText(settings.value("ServerConfig/IP", "127.0.0.1").toString());
+
+    ui->server_config_lineEdit1->setText(settings.value("ServerConfig/IP1", "43.139.86.56:5002").toString());
+    ui->server_config_lineEdit2->setText(settings.value("ServerConfig/IP2", "43.139.86.56:5000").toString());
+    ui->server_config_lineEdit3->setText(settings.value("ServerConfig/IP3", "43.139.86.56:9200").toString());
+    ui->server_config_lineEdit4->setText(settings.value("ServerConfig/IP4", "43.139.86.56:5001").toString());
 }
 
 void Setting::saveSettings() {
@@ -94,11 +98,12 @@ void Setting::saveSettings() {
     settings.setValue("file_see/xlsx", ui->file_see_checkBox3->isChecked());
     settings.setValue("file_see/img", ui->file_see_checkBox4->isChecked());
 
-    QString backupDir = ui->file_backup_lineEdit->text();
+    QString backupDir = ui->file_backup_lineEdit1->text();
     if (backupDir.isEmpty())
         backupDir = settings.value("file_backup/backup_dir", QCoreApplication::applicationDirPath() + "/user").toString();
     else
         settings.setValue("file_backup/backup_dir", backupDir);
+
 
     settings.setValue("tag_schedule/reminder_type", ui->tag_schedule_comboBox->currentText());
     QTime reminderTime = ui->tag_schedule_timeEdit1->time();
@@ -122,7 +127,10 @@ void Setting::saveSettings() {
 
     settings.setValue("clip_board/hours", ui->clip_board_spinBox->text());
 
-    settings.setValue("ServerConfig/IP", ui->server_config_lineEdit->text());
+    settings.setValue("ServerConfig/IP1", ui->server_config_lineEdit1->text());
+    settings.setValue("ServerConfig/IP2", ui->server_config_lineEdit2->text());
+    settings.setValue("ServerConfig/IP3", ui->server_config_lineEdit3->text());
+    settings.setValue("ServerConfig/IP4", ui->server_config_lineEdit4->text());
     settings.sync();
 }
 
@@ -153,10 +161,10 @@ void Setting::on_file_system_Btn_clicked()
 
 void Setting::on_file_backup_Btn_clicked()
 {
-    QString selectedDir = QFileDialog::getExistingDirectory(this, "Select Backup Directory", ui->file_backup_lineEdit->text());
+    QString selectedDir = QFileDialog::getExistingDirectory(this, "Select Backup Directory", ui->file_backup_lineEdit1->text());
     if (!selectedDir.isEmpty()) {
         selectedDir.replace("\\", "/");
-        ui->file_backup_lineEdit->setText(selectedDir);
+        ui->file_backup_lineEdit1->setText(selectedDir);
     }
 }
 

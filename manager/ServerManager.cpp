@@ -2,22 +2,13 @@
 #include <QDir>
 #include <QFile>
 #include <QDebug>
-
-void ServerManager::sendfilepath(QString filepath)
-{
-    emit onFilesListUpdated(filepath);
-}
-
-void ServerManager::test(const QString &filepath)
-{
-    qDebug() << filepath;
-}
-
+QString ServerManager::address1;
+QString ServerManager::address2;
 
 void ServerManager::commitFile(const QString& filepath) {
     QFileInfo fileInfo(filepath);
     QString filename = fileInfo.fileName();
-    QString urlStr = QString("http://127.0.0.1:5000/%1").arg(filename);
+    QString urlStr = QString("%1/%2").arg(address1, filename);
 
     QUrl url(urlStr);
     QNetworkRequest request(url);
@@ -58,7 +49,7 @@ void ServerManager::oncommitFin(QPointer<QNetworkReply> reply)
 void ServerManager::downloadFile(const QString& filepath) {
     QFileInfo fileInfo(filepath);
     QString filename = fileInfo.fileName();
-    QString url = QString("http://127.0.0.1:5000/uploads/%1").arg(filename);
+    QString url = QString("%1/uploads/%2").arg(address1, filename);
     QNetworkRequest request{QUrl(url)};
     QNetworkReply* reply = networkManager.get(request);
     connect(reply, &QNetworkReply::finished, this, [this, reply, filepath]() {
@@ -83,36 +74,8 @@ void ServerManager::ondownloadFin(QNetworkReply* reply, const QString& filepath)
     QMessageBox::information(nullptr, tr("成功"), tr("文件下载成功"));
 }
 
-
-
-void ServerManager::getHistory() {
-    QString baseHttpUrl = "http://127.0.0.1:5000/list/";
-    QNetworkRequest request{QUrl(baseHttpUrl)};
-
-    QNetworkReply* reply = networkManager.get(request);
-
-    connect(reply, &QNetworkReply::finished, this, [this, reply]() {
-        onhistoryFin(reply);
-    });
-}
-
-void ServerManager::onhistoryFin(QNetworkReply* reply) {
-    if (reply->error() != QNetworkReply::NoError) {
-        QMessageBox::critical(nullptr, "获取失败", "出现错误：\n" + reply->errorString());
-        reply->deleteLater();
-        return;
-    }
-    QByteArray response = reply->readAll();
-    QStringList fileNames = QString(response).split('\n', Qt::SkipEmptyParts);
-
-    qDebug() << "File names:" << fileNames;
-    emit fileListReady(fileNames);
-    reply->deleteLater();
-}
-
-
 void ServerManager::getSharedFile(const QString& shareToken) {
-    QUrl url("http://127.0.0.1:5000/get_shared_files?share_token=" + shareToken);
+    QUrl url(address2 + "/get_shared_files?share_token=" + shareToken);
     QNetworkRequest request(url);
 
     QNetworkReply* reply = networkManager.get(request);
@@ -144,11 +107,10 @@ void ServerManager::getSharedFile(const QString& shareToken) {
 }
 
 
-
 bool ServerManager::setSharedFile(const QString& filepath, const QString& shareToken) {
     QFileInfo fileInfo(filepath);
     QString filename = fileInfo.fileName();
-    QString urlStr = QString("http://127.0.0.1:5000/%1?share_token=%2").arg(filename, shareToken);
+    QString urlStr = QString("%1/%2?share_token=%3").arg(address2, filename, shareToken);
 
     QUrl url(urlStr);
     QNetworkRequest request(url);
@@ -163,9 +125,10 @@ bool ServerManager::setSharedFile(const QString& filepath, const QString& shareT
     file.close();
 
     QPointer<QNetworkReply> reply = networkManager.put(request, fileData);
-    connect(reply, &QNetworkReply::finished, this, [this, reply]() {
+    connect(reply, &QNetworkReply::finished, this, [this, reply, shareToken]() {
         if (reply->error() == QNetworkReply::NoError)
-            QMessageBox::information(nullptr, "成功", "共享文件已上传!", QMessageBox::Ok);
+            QMessageBox::information(nullptr, "成功",
+                QString("共享文件已上传！请记住您的共享口令：%1").arg(shareToken), QMessageBox::Ok);
         else
             qDebug() << "Upload failed:" << reply->errorString();
         reply->deleteLater();
@@ -177,12 +140,12 @@ bool ServerManager::setSharedFile(const QString& filepath, const QString& shareT
 void ServerManager::checkFileExists(const QString& filepath) {
     QFileInfo fileInfo(filepath);
     QString filename = fileInfo.fileName();
-    QString url = QString("http://127.0.0.1:5000/exists/%1").arg(QUrl::toPercentEncoding(filename));
+    QString url = QString("%1/exists/%2").arg(address1, QUrl::toPercentEncoding(filename));
 
     QNetworkRequest request{QUrl(url)};
     QNetworkReply* reply = networkManager.get(request);
 
-    connect(reply, &QNetworkReply::finished, this, [this, reply, filepath]() {
+    connect(reply, &QNetworkReply::finished, this, [this, reply]() {
         bool exists = false;
         if (reply->error() == QNetworkReply::NoError) {
             QByteArray response = reply->readAll();
@@ -196,3 +159,38 @@ void ServerManager::checkFileExists(const QString& filepath) {
     });
 }
 
+
+void ServerManager::sendfilepath(QString filepath)
+{
+    emit onFilesListUpdated(filepath);
+}
+
+void ServerManager::test(const QString &filepath)
+{
+    qDebug() << filepath;
+}
+
+void ServerManager::getHistory() {
+    QString baseHttpUrl = "http://127.0.0.1:5000/list/";
+    QNetworkRequest request{QUrl(baseHttpUrl)};
+
+    QNetworkReply* reply = networkManager.get(request);
+
+    connect(reply, &QNetworkReply::finished, this, [this, reply]() {
+        onhistoryFin(reply);
+    });
+}
+
+void ServerManager::onhistoryFin(QNetworkReply* reply) {
+    if (reply->error() != QNetworkReply::NoError) {
+        QMessageBox::critical(nullptr, "获取失败", "出现错误：\n" + reply->errorString());
+        reply->deleteLater();
+        return;
+    }
+    QByteArray response = reply->readAll();
+    QStringList fileNames = QString(response).split('\n', Qt::SkipEmptyParts);
+
+    qDebug() << "File names:" << fileNames;
+    emit fileListReady(fileNames);
+    reply->deleteLater();
+}

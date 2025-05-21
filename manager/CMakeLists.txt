@@ -43,5 +43,5 @@ target_link_libraries(mytxt_manager PRIVATE
 target_include_directories(mytxt_manager PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${Qt6Network_INCLUDE_DIRS}  # 从 Qt6Network 获取的头文件路径
+    ${Qt6Network_INCLUDE_DIRS}
 )

@@ -184,7 +184,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::showUserInfoDialog() {
     DInfo *dinfo = widgetfunc->getDInfo();
-    if (dinfo) {
+    if (dinfo != nullptr) {
         QPixmap avatar = dinfo->getStoredAvatar();
         if (!avatar.isNull()) {
             loginButton->setIcon(QIcon(avatar.scaled(30, 30, Qt::KeepAspectRatio, Qt::SmoothTransformation)));
@@ -197,7 +197,7 @@ void MainWindow::showUserInfoDialog() {
             QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes
         );
         if (reply == QMessageBox::Yes)
-            widgetfunc->on_pushButton_7_clicked();
+            widgetfunc->on_pushButton_8_clicked();
     }
 }
 

@@ -116,7 +116,6 @@ WidgetFunctional::WidgetFunctional(QWidget *parent)
 
     // ui->pushButton_7->hide(); //暂时不隐藏
     clipboard = new ClipboardView();
-
 }
 
 

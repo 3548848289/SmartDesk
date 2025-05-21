@@ -41,7 +41,11 @@ public:
 
     int clip_board_hours();
 
-    QString serverconfig_ip();
+    QString serverconfig_ip1();
+    QString serverconfig_ip2();
+    QString serverconfig_ip3();
+    QString serverconfig_ip4();
+    QString file_backup_IP();
 private:
     SettingManager();
     ~SettingManager();

@@ -25,11 +25,16 @@
 #include <QRegularExpression>
 #include <QPointer>
 #include <QMessageBox>
+#include "../../Setting/include/SettingManager.h"
 class ServerManager : public QObject {
     Q_OBJECT
 
 public:
     static ServerManager* instance() {
+        QString Ip1 = SettingManager::Instance().serverconfig_ip1();
+        QString Ip2 = SettingManager::Instance().serverconfig_ip2();
+        address1 = "http://" + Ip1;
+        address2 = "http://" + Ip2;
         static ServerManager* instance = new ServerManager();
         return instance;
     }
@@ -54,8 +59,6 @@ signals:
     void fileListReady(const QStringList &fileNames);
     void returnStatus(bool exists);
 
-
-
 private slots:
     void oncommitFin(QPointer<QNetworkReply> reply);
     void ondownloadFin(QNetworkReply* reply, const QString& fileName);
@@ -66,6 +69,9 @@ private:
     ~ServerManager() = default;
     QNetworkAccessManager networkManager;
     QString m_curdir;
+    static QString address1;
+    static QString address2;
+
 };
 
 #endif // SERVERMANAGER_H

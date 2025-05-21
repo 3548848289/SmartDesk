@@ -17,6 +17,7 @@
 #include "../../manager/include/myJson.h"
 #include "../../DisposeAbstract/DisposeCSV/TabHandleCSV.h"
 #include "../../manager/include/ServerManager.h"
+#include "../../Setting/include/SettingManager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class SharedView; }
@@ -44,6 +45,8 @@ private slots:
     void on_buildBtn_clicked();
     void on_closeBtn_clicked();
     void on_linkBtn_clicked();
+    void on_selectBtn_clicked();
+
 private:
     QString localIp;
     QString choosedFile;
