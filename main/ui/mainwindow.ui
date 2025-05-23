@@ -396,18 +396,18 @@
   </action>
   <action name="actionh1">
    <property name="text">
-    <string>关闭TXT控制组件</string>
+    <string>打开控制组件</string>
    </property>
    <property name="toolTip">
-    <string>关闭TXT控制组件</string>
+    <string>打开控制组件</string>
    </property>
   </action>
   <action name="actionh2">
    <property name="text">
-    <string>关闭CSV控制组件</string>
+    <string>关闭控制组件</string>
    </property>
    <property name="toolTip">
-    <string>关闭CSV控制组件</string>
+    <string>关闭控制组件</string>
    </property>
   </action>
  </widget>

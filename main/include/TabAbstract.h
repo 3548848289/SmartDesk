@@ -85,6 +85,10 @@ protected:
                 emit contentModified();
         }
     }
+
+    void showControl() {
+        isShowControl = true;
+    }
 };
 
 #endif // TABABSTRACT_H

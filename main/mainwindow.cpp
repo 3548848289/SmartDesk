@@ -106,7 +106,13 @@ void MainWindow::initConnect() {
     });
 
     connect(ui->actionh1, &QAction::triggered, this, [this]() {
-
+        int currentIndex = tabWidget->currentIndex();
+        QWidget *widget = tabWidget->widget(currentIndex);
+        if (dynamic_cast<TabAbstract*>(widget)) {
+            TabAbstract *tab = qobject_cast<TabAbstract*>(widget);
+            //to do
+            // tab->showControl();
+        }
     });
 
     connect(tabWidget, &QTabWidget::currentChanged, this, [this](int index) {
@@ -193,7 +199,7 @@ void MainWindow::showUserInfoDialog() {
         dinfo->exec();
     } else {
         QMessageBox::StandardButton reply =
-            QMessageBox::question(this, "未登录", "您尚未登录，是否现在登录？\n(目前没开放登录功能)",
+            QMessageBox::question(this, "未登录", "您尚未登录，是否现在登录？",
             QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes
         );
         if (reply == QMessageBox::Yes)
