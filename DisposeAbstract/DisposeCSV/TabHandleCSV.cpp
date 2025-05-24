@@ -49,26 +49,30 @@ TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstrac
     });
 }
 
-
 void TabHandleCSV::setContent(const QString &text)
 {
-    tableWidget->clear();
+    tableWidget->clearContents();
+    tableWidget->setRowCount(0);
+
     QStringList rows = text.split('\n', Qt::SkipEmptyParts);
     if (rows.isEmpty())
         return;
 
-    QStringList headers = rows.first().split(',');
-    tableWidget->setColumnCount(headers.size());
-    tableWidget->setHorizontalHeaderLabels(headers);
-    tableWidget->setRowCount(rows.size() - 1);
+    int rowCount = rows.size();
+    int colCount = rows.first().split(',').size();
 
-    for (int i = 1; i < rows.size(); ++i) {
+    tableWidget->setColumnCount(colCount);
+    tableWidget->setRowCount(rowCount);
+
+    for (int i = 0; i < rowCount; ++i) {
         QStringList cols = rows[i].split(',');
-        for (int j = 0; j < cols.size(); ++j)
-            tableWidget->setItem(i - 1, j, new QTableWidgetItem(cols[j]));
+        for (int j = 0; j < colCount; ++j) {
+            QString value = (j < cols.size()) ? cols[j] : "";
+            tableWidget->setItem(i, j, new QTableWidgetItem(value));
+        }
     }
-}
 
+}
 
 void TabHandleCSV::loadFromFile(const QString &fileName)
 {
@@ -83,8 +87,6 @@ void TabHandleCSV::loadFromFile(const QString &fileName)
     setContentModified(false);
 
 }
-
-
 
 QString TabHandleCSV::getContent() const
 {
@@ -106,6 +108,10 @@ void TabHandleCSV::setLinkStatus(bool status)
     }
 }
 
+bool TabHandleCSV::getLinkStatus()
+{
+    return link;
+}
 
 void TabHandleCSV::saveToFile(const QString &fileName)
 {
@@ -127,23 +133,29 @@ void TabHandleCSV::loadFromInternet(const QByteArray &content)
 QString TabHandleCSV::toCSV() const
 {
     QString csvText;
-    for (int j = 0; j < tableWidget->columnCount(); ++j) {
-        if (j > 0)
-            csvText += ',';
-        csvText += tableWidget->horizontalHeaderItem(j)->text();
-    }
-    csvText += '\n';
 
+    int rowCount = tableWidget->rowCount();
+    int colCount = tableWidget->columnCount();
 
-    for (int i = 0; i < tableWidget->rowCount(); ++i) {
-        for (int j = 0; j < tableWidget->columnCount(); ++j) {
+    for (int i = 0; i < rowCount; ++i) {
+        for (int j = 0; j < colCount; ++j) {
             if (j > 0)
                 csvText += ',';
-            if (tableWidget->item(i, j))
-                csvText += tableWidget->item(i, j)->text();  // 获取单元格内容
+
+            QTableWidgetItem *item = tableWidget->item(i, j);
+            if (item) {
+                QString cellText = item->text();
+                // // 若内容包含逗号或引号，需要转义为 CSV 合法格式
+                // if (cellText.contains(',') || cellText.contains('"')) {
+                //     cellText.replace("\"", "\"\"");  // 转义引号
+                //     cellText = "\"" + cellText + "\"";  // 加上外层引号
+                // }
+                csvText += cellText;
+            }
         }
         csvText += '\n';
     }
+
     return csvText;
 }
 
@@ -318,11 +330,7 @@ void TabHandleCSV::findNext(const QString &str, Qt::CaseSensitivity cs)
     for (int row = currentRow; row < rowCount; ++row) {
         for (int col = (row == currentRow ? currentCol + 1 : 0); col < colCount; ++col) {
             QTableWidgetItem *item = tableWidget->item(row, col);
-            if (item && item->text().contains(
-                    str, cs == Qt::CaseInsensitive ? Qt::CaseInsensitive : Qt::CaseSensitive))
-            {
-                // 找到匹配项，设置高亮
-                // item->setBackground(QBrush(Qt::yellow));
+            if (item && item->text().contains(str, cs)) {
                 tableWidget->setCurrentItem(item);
                 found = true;
                 break;
@@ -330,8 +338,24 @@ void TabHandleCSV::findNext(const QString &str, Qt::CaseSensitivity cs)
         }
         if (found) break;
     }
-    if (!found)
+
+    if (!found) {
+        for (int row = 0; row <= currentRow; ++row) {
+            for (int col = 0; col < (row == currentRow ? currentCol : colCount); ++col) {
+                QTableWidgetItem *item = tableWidget->item(row, col);
+                if (item && item->text().contains(str, cs)) {
+                    tableWidget->setCurrentItem(item);
+                    found = true;
+                    break;
+                }
+            }
+            if (found) break;
+        }
+    }
+
+    if (!found) {
         QMessageBox::information(this, tr("查找"), tr("找不到此单词"));
+    }
 }
 
 void TabHandleCSV::findAll(const QString &str, Qt::CaseSensitivity cs)
@@ -346,7 +370,7 @@ void TabHandleCSV::findAll(const QString &str, Qt::CaseSensitivity cs)
             QTableWidgetItem *item = tableWidget->item(row, col);
             if (item && item->text().contains(str, cs == Qt::CaseInsensitive ? Qt::CaseInsensitive : Qt::CaseSensitive)) {
                 // 找到匹配项，设置高亮
-                item->setBackground(QBrush(Qt::yellow));  // 使用 setBackground 而不是 setBackgroundColor
+                item->setForeground(QBrush(Qt::red));
                 found = true;
             }
         }
@@ -367,7 +391,7 @@ void TabHandleCSV::clearHighlight()
         for (int col = 0; col < colCount; ++col) {
             QTableWidgetItem *item = tableWidget->item(row, col);
             if (item) {
-                item->setBackground(QBrush(Qt::transparent));
+                item->setForeground(QBrush());  // 使用默认字体色
             }
         }
     }

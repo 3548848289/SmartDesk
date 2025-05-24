@@ -42,6 +42,7 @@ public:
 
 
     void setLinkStatus(bool status);
+    bool getLinkStatus();
     void addRow();
     void addColumn();
     void deleteRow();

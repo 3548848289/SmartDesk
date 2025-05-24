@@ -79,12 +79,22 @@ void TextTab::findNext(const QString &str, Qt::CaseSensitivity cs)
     QTextDocument::FindFlags findFlags = QTextDocument::FindWholeWords;
 
     if (cs == Qt::CaseSensitive) {
-        findFlags |= QTextDocument::FindFlags(Qt::CaseSensitive);
-    } else {
-        findFlags |= QTextDocument::FindFlags(Qt::CaseInsensitive);
+        findFlags |= QTextDocument::FindCaseSensitively;
     }
 
-    if (textEdit->find(str, findFlags)) {
+    // 第一次查找
+    if (!textEdit->find(str, findFlags)) {
+        // 没找到：移动光标到文档开头
+        QTextCursor cursor = textEdit->textCursor();
+        cursor.movePosition(QTextCursor::Start);
+        textEdit->setTextCursor(cursor);
+
+        // 尝试再次查找
+        textEdit->find(str, findFlags);
+    }
+
+    // 如果找到了，设置高亮颜色
+    if (textEdit->textCursor().hasSelection()) {
         QPalette palette = textEdit->palette();
         palette.setColor(QPalette::Highlight, palette.color(QPalette::Active, QPalette::Highlight));
         textEdit->setPalette(palette);

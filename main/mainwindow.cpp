@@ -399,7 +399,7 @@ void MainWindow::on_actionfind_triggered()
             findDialog->raise();
             findDialog->activateWindow();
         } else {
-            qDebug() << "currentTab is neither a TabHandleCSV nor a TextTab!";
+            QMessageBox::information(this, tr("未开放"), tr("当前txx，csv文件开放查找功能"));
         }
     }
 }
