@@ -76,10 +76,10 @@ void Setting::loadSettings() {
 
     ui->clip_board_spinBox->setValue(settings.value("clip_board/hours", 24).toInt());
 
-    ui->server_config_lineEdit1->setText(settings.value("ServerConfig/IP1", "43.139.86.56:5002").toString());
-    ui->server_config_lineEdit2->setText(settings.value("ServerConfig/IP2", "43.139.86.56:5000").toString());
-    ui->server_config_lineEdit3->setText(settings.value("ServerConfig/IP3", "43.139.86.56:9200").toString());
-    ui->server_config_lineEdit4->setText(settings.value("ServerConfig/IP4", "43.139.86.56:5001").toString());
+    ui->server_config_lineEdit1->setText(settings.value("ServerConfig/IP1", "http://43.139.86.56:5002/").toString());
+    ui->server_config_lineEdit2->setText(settings.value("ServerConfig/IP2", "http://43.139.86.56:5000/").toString());
+    ui->server_config_lineEdit3->setText(settings.value("ServerConfig/IP3", "http://43.139.86.56:5003/").toString());
+    ui->server_config_lineEdit4->setText(settings.value("ServerConfig/IP4", "http://43.139.86.56:5001/").toString());
 }
 
 void Setting::saveSettings() {

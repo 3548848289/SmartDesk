@@ -8,6 +8,7 @@ TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstrac
     tableWidget = new QTableWidget(this);
     tableWidget->setSortingEnabled(true);
     tableWidget->horizontalHeader()->setSortIndicatorShown(true);
+
     splitter = new QSplitter(Qt::Vertical, this);
 
     controlwidget = new ControlWidCSV(this);
@@ -24,14 +25,23 @@ TabHandleCSV::TabHandleCSV(const QString& filePath, QWidget *parent): TabAbstrac
 
     setLayout(layout);
 
-    connect(tableWidget, &QAbstractItemView::clicked, [=](const QModelIndex &index){
-        foucsRow = index.row();
-        foucsCol = index.column();
-        QString jsonString = myJson::constructJson(localIp, "chick",foucsRow, foucsCol, "");
+    connect(tableWidget, &QAbstractItemView::clicked, this, [=](const QModelIndex &index){
+        int row = index.row();
+        int col = index.column();
 
+        QTableWidgetItem *item = tableWidget->item(row, col);
+        if (item && item->data(Qt::UserRole + 1).toBool()) {
+            return;
+        }
+
+        foucsRow = row;
+        foucsCol = col;
+
+        QString jsonString = myJson::constructJson(localIp, "chick", foucsRow, foucsCol, "");
         if (link)
             emit dataToSend(jsonString);
     });
+
 
     connect(tableWidget, &QTableWidget::itemChanged, [=](QTableWidgetItem *item){
         adjustItem(item);
@@ -273,8 +283,11 @@ void TabHandleCSV::ChickfromServer(const QJsonObject& jsonObj)
         QTableWidgetItem *item = tableWidget->item(row, col);
         if (item) {
             tableWidget->blockSignals(true);
-            item->setBackground(QColor(0, 120, 215));
-            item->setData(Qt::UserRole, ip.value_or("unknown"));  // Store client IP
+            item->setBackground(QColor(0, 120, 215)); // 远程编辑颜色
+            item->setData(Qt::UserRole, ip.value_or("unknown"));  // Store IP
+            item->setData(Qt::UserRole + 1, true);  // 设置正在被远程编辑的标志
+            item->setToolTip(QString("正在被 %1 编辑中").arg(ip.value_or("unknown")));
+            // tableWidget->clearSelection();
             tableWidget->blockSignals(false);
         }
     } else {
@@ -289,14 +302,16 @@ void TabHandleCSV::clearfromServer(const QJsonObject& jsonObj)
         QTableWidgetItem *item = tableWidget->item(row, col);
         if (item) {
             tableWidget->blockSignals(true);
-            item->setBackground(Qt::transparent);
-            item->setData(Qt::UserRole, ip.value_or("unknown"));  // Store client IP
+            item->setBackground(Qt::transparent); // 或使用白色 QColor(Qt::white)
+            item->setData(Qt::UserRole + 1, false);  // 取消远程编辑标志
+            item->setToolTip("");
             tableWidget->blockSignals(false);
         }
     } else {
         qDebug() << "Invalid row or column index: (" << row << ", " << col << ")";
     }
 }
+
 
 void TabHandleCSV::editedfromServer(const QJsonObject& jsonObj)
 {

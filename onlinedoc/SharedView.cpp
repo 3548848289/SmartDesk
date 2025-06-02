@@ -8,7 +8,10 @@ SharedView::SharedView(QWidget *parent)
     ui->setupUi(this);
     connect(tcpSocket, &QTcpSocket::readyRead, this, &SharedView::on_readyRead);
     connect(tcpSocket, &QTcpSocket::disconnected, this, [this]() {
+        QString ip = tcpSocket->peerAddress().toString();
         QMessageBox::information(this, tr("已断开连接"), tr("已与服务器断开连接"));
+        ui->textBrowser->append("=> " + ip + " -- " + "disconnect");
+
         linkStatus = false;
     });
     connect(ui->comboBox, &QComboBox::currentTextChanged, this, [this](const QString &text) {
@@ -58,7 +61,7 @@ void SharedView::on_readyRead()
 
     QJsonObject jsonObj = jsonDoc.object();
     QString operation = jsonObj.value("operation").toString();
-    ui->textBrowser->append("消息提示: " + jsonObj.value("ip").toString() + " -- " + operation);
+    ui->textBrowser->append("=> " + jsonObj.value("ip").toString() + " -- " + operation);
 
     if (operation == "read") {
         m_tableTab->ReadfromServer(jsonObj);
@@ -70,7 +73,10 @@ void SharedView::on_readyRead()
         m_tableTab->editedfromServer(jsonObj);
         EditedLog logger;
         logger.writeLog(jsonObj);
+    } else if (operation == "disconnect") {
+        qDebug() << jsonObj;
     }
+
 }
 
 void SharedView::sendDataToServer(const QString &data)
@@ -162,11 +168,9 @@ void SharedView::on_linkBtn_clicked()
     }
 
     QString serverAddress = SettingManager::Instance().serverconfig_ip3();
-    QStringList parts = serverAddress.split(':');
-    QString serverIp = parts.at(0), port = parts.at(1);
-
-    bool ok;
-    quint16 serverPort = port.toUShort(&ok);
+    QUrl url(serverAddress);
+    QString serverIp = url.host();
+    int serverPort = url.port();
     tcpSocket->abort();
     tcpSocket->setProxy(QNetworkProxy::NoProxy);
     tcpSocket->connectToHost(serverIp, serverPort);

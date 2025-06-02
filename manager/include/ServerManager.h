@@ -31,10 +31,8 @@ class ServerManager : public QObject {
 
 public:
     static ServerManager* instance() {
-        QString Ip1 = SettingManager::Instance().serverconfig_ip1();
-        QString Ip2 = SettingManager::Instance().serverconfig_ip2();
-        address1 = "http://" + Ip1;
-        address2 = "http://" + Ip2;
+        address1 = SettingManager::Instance().serverconfig_ip1();
+        address2 = SettingManager::Instance().serverconfig_ip2();
         static ServerManager* instance = new ServerManager();
         return instance;
     }

@@ -2,8 +2,7 @@
 
 FlaskInfo::FlaskInfo(QObject *parent) : QObject(parent)
 {
-    QString Ip = SettingManager::Instance().serverconfig_ip4();
-    address = "http://" + Ip;
+    address = SettingManager::Instance().serverconfig_ip4();
     networkManager = new QNetworkAccessManager(this);
 }
 

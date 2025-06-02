@@ -74,20 +74,20 @@ int SettingManager::clip_board_hours() {
 
 QString SettingManager::serverconfig_ip1()
 {
-    return settings.value("ServerConfig/IP1", "43.139.86.56:5002").toString();
+    return settings.value("ServerConfig/IP1", "http://43.139.86.56:5002/").toString();
 }
 
 QString SettingManager::serverconfig_ip2()
 {
-    return settings.value("ServerConfig/IP2", "43.139.86.56:5000").toString();
+    return settings.value("ServerConfig/IP2", "http://43.139.86.56:5000/").toString();
 }
 QString SettingManager::serverconfig_ip3()
 {
-    return settings.value("ServerConfig/IP3", "43.139.86.56:9200").toString();
+    return settings.value("ServerConfig/IP3", "http://43.139.86.56:5003/").toString();
 }
 QString SettingManager::serverconfig_ip4()
 {
-    return settings.value("ServerConfig/IP4", "43.139.86.56:5001").toString();
+    return settings.value("ServerConfig/IP4", "http://43.139.86.56:5001/").toString();
 }
 
 void SettingManager::loadHistory()
